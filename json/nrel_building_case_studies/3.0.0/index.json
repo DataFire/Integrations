@@ -11,8 +11,7 @@
     }
   },
   "logo": {
-    "backgroundColor": "#0079C5",
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nrel_building_case_studies.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nrel_building_case_studies.svg"
   },
   "actionCount": 2,
   "actions": [

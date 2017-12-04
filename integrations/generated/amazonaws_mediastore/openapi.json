@@ -1,0 +1,909 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "mediastore.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "An AWS Elemental MediaStore container is a namespace that holds folders and objects. You use a container endpoint to create, read, and delete objects. ",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Elemental MediaStore",
+    "version": "2017-09-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mediastore-2017-09-01.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "mediastore",
+    "x-datafire": {
+      "name": "amazonaws_mediastore",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/mediastore/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a storage container to hold objects. A container is similar to a bucket in the Amazon S3 service.",
+        "operationId": "CreateContainer",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateContainerInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateContainerOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteContainer": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes the specified container. Before you make a <code>DeleteContainer</code> request, delete any objects in the container or in any folders in the container. You can delete only empty containers. ",
+        "operationId": "DeleteContainer",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteContainerInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteContainerOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteContainerPolicy": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes the access policy that is associated with the specified container.",
+        "operationId": "DeleteContainerPolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteContainerPolicyInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteContainerPolicyOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "PolicyNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/PolicyNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeContainer": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves the properties of the requested container. This returns a single <code>Container</code> object based on <code>ContainerName</code>. To return all <code>Container</code> objects that are associated with a specified AWS account, use <a>ListContainers</a>.",
+        "operationId": "DescribeContainer",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeContainerInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeContainerOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/#GetContainerPolicy": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves the access policy for the specified container. For information about the data that is included in an access policy, see the <a href=\"https://aws.amazon.com/documentation/iam/\">AWS Identity and Access Management User Guide</a>.",
+        "operationId": "GetContainerPolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetContainerPolicyInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetContainerPolicyOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "481": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "PolicyNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/PolicyNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/#ListContainers": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Lists the properties of all containers in AWS Elemental MediaStore. </p> <p>You can query to receive all the containers in one response. Or you can include the <code>MaxResults</code> parameter to receive a limited number of containers in each response. In this case, the response includes a token. To get the next set of containers, send the command again, this time with the <code>NextToken</code> parameter (with the returned token as its value). The next set of responses appears, with a token if there are still more containers to receive. </p> <p>See also <a>DescribeContainer</a>, which gets the properties of one container. </p>",
+        "operationId": "ListContainers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListContainersInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListContainersOutput"
+            }
+          },
+          "480": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/#PutContainerPolicy": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates an access policy for the specified container to restrict the users and clients that can access it. For information about the data that is included in an access policy, see the <a href=\"https://aws.amazon.com/documentation/iam/\">AWS Identity and Access Management User Guide</a>.</p> <p>For this release of the REST API, you can create only one policy for a container. If you enter <code>PutContainerPolicy</code> twice, the second command modifies the existing policy. </p>",
+        "operationId": "PutContainerPolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutContainerPolicyInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutContainerPolicyOutput"
+            }
+          },
+          "480": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ContainerInUseException",
+            "schema": {
+              "$ref": "#/definitions/ContainerInUseException"
+            }
+          },
+          "482": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Container": {
+      "description": "This section describes operations that you can perform on an AWS Elemental MediaStore container.",
+      "properties": {
+        "ARN": {
+          "$ref": "#/definitions/ContainerARN",
+          "description": "<p>The Amazon Resource Name (ARN) of the container. The ARN has the following format:</p> <p>arn:aws:&lt;region&gt;:&lt;account that owns this container&gt;:container/&lt;name of container&gt; </p> <p>For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p>"
+        },
+        "CreationTime": {
+          "$ref": "#/definitions/TimeStamp",
+          "description": "Unix timestamp."
+        },
+        "Endpoint": {
+          "$ref": "#/definitions/Endpoint",
+          "description": "The DNS endpoint of the container. Use from 1 to 255 characters. Use this endpoint to identify this container when sending requests to the data plane. "
+        },
+        "Name": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name of the container."
+        },
+        "Status": {
+          "$ref": "#/definitions/ContainerStatus",
+          "description": "The status of container creation or deletion. The status is one of the following: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the service is creating the container, the status is <code>CREATING</code>. When the endpoint is available, the status changes to <code>ACTIVE</code>."
+        }
+      },
+      "type": "object"
+    },
+    "ContainerARN": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "arn:aws:mediastore:[a-z]+-[a-z]+-\\d:\\d{12}:container/\\w{1,255}",
+      "type": "string"
+    },
+    "ContainerInUseException": {
+      "description": "Resource already exists or is being updated.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ContainerList": {
+      "items": {
+        "$ref": "#/definitions/Container"
+      },
+      "type": "array"
+    },
+    "ContainerListLimit": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ContainerName": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "\\w+",
+      "type": "string"
+    },
+    "ContainerNotFoundException": {
+      "description": "Could not perform an operation on a container that does not exist.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ContainerPolicy": {
+      "maxLength": 8192,
+      "minLength": 1,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
+      "type": "string"
+    },
+    "ContainerStatus": {
+      "enum": [
+        "ACTIVE",
+        "CREATING",
+        "DELETING"
+      ],
+      "maxLength": 16,
+      "minLength": 1,
+      "type": "string"
+    },
+    "CreateContainerInput": {
+      "properties": {
+        "ContainerName": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name for the container. The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named <code>movies</code> in every region, as long as you don’t have an existing container with that name."
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "type": "object"
+    },
+    "CreateContainerOutput": {
+      "properties": {
+        "Container": {
+          "$ref": "#/definitions/Container",
+          "description": "<p>ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN has the following format: arn:aws:&lt;region&gt;:&lt;account that owns this container&gt;:container/&lt;name of container&gt;. For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p> <p>ContainerName: The container name as specified in the request.</p> <p>CreationTime: Unix timestamp.</p> <p>Status: The status of container creation or deletion. The status is one of the following: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the service is creating the container, the status is <code>CREATING</code>. When an endpoint is available, the status changes to <code>ACTIVE</code>.</p> <p>The return value does not include the container's endpoint. To make downstream requests, you must obtain this value by using <a>DescribeContainer</a> or <a>ListContainers</a>.</p>"
+        }
+      },
+      "required": [
+        "Container"
+      ],
+      "type": "object"
+    },
+    "DeleteContainerInput": {
+      "properties": {
+        "ContainerName": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name of the container to delete. "
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "type": "object"
+    },
+    "DeleteContainerOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteContainerPolicyInput": {
+      "properties": {
+        "ContainerName": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name of the container that holds the policy."
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "type": "object"
+    },
+    "DeleteContainerPolicyOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeContainerInput": {
+      "properties": {
+        "ContainerName": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name of the container to query."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeContainerOutput": {
+      "properties": {
+        "Container": {
+          "$ref": "#/definitions/Container",
+          "description": "The name of the queried container."
+        }
+      },
+      "type": "object"
+    },
+    "Endpoint": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ErrorMessage": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[ \\w:\\.\\?-]+",
+      "type": "string"
+    },
+    "GetContainerPolicyInput": {
+      "properties": {
+        "ContainerName": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name of the container. "
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "type": "object"
+    },
+    "GetContainerPolicyOutput": {
+      "properties": {
+        "Policy": {
+          "$ref": "#/definitions/ContainerPolicy",
+          "description": "The contents of the access policy."
+        }
+      },
+      "required": [
+        "Policy"
+      ],
+      "type": "object"
+    },
+    "InternalServerError": {
+      "description": "The service is temporarily unavailable.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "LimitExceededException": {
+      "description": "A service limit has been exceeded.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ListContainersInput": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/ContainerListLimit",
+          "description": "Enter the maximum number of containers in the response. Use from 1 to 255 characters. "
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "Only if you used <code>MaxResults</code> in the first command, enter the token (which was included in the previous response) to obtain the next set of containers. This token is included in a response only if there actually are more containers to list."
+        }
+      },
+      "type": "object"
+    },
+    "ListContainersOutput": {
+      "properties": {
+        "Containers": {
+          "$ref": "#/definitions/ContainerList",
+          "description": "The names of the containers."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": " <code>NextToken</code> is the token to use in the next call to <code>ListContainers</code>. This token is returned only if you included the <code>MaxResults</code> tag in the original command, and only if there are still containers to return. "
+        }
+      },
+      "required": [
+        "Containers"
+      ],
+      "type": "object"
+    },
+    "PaginationToken": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[0-9A-Za-z=/+]+",
+      "type": "string"
+    },
+    "PolicyNotFoundException": {
+      "description": "Could not perform an operation on a policy that does not exist.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "PutContainerPolicyInput": {
+      "properties": {
+        "ContainerName": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name of the container."
+        },
+        "Policy": {
+          "$ref": "#/definitions/ContainerPolicy",
+          "description": "<p>The contents of the policy, which includes the following: </p> <ul> <li> <p>One <code>Version</code> tag</p> </li> <li> <p>One <code>Statement</code> tag that contains the standard tags for the policy.</p> </li> </ul>"
+        }
+      },
+      "required": [
+        "ContainerName",
+        "Policy"
+      ],
+      "type": "object"
+    },
+    "PutContainerPolicyOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "TimeStamp": {
+      "format": "date-time",
+      "type": "string"
+    }
+  }
+}

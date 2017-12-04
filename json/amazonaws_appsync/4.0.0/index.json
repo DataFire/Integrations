@@ -1,0 +1,1417 @@
+{
+  "id": "amazonaws_appsync",
+  "title": "AWS AppSync",
+  "description": "AWS AppSync provides API actions for creating and interacting with data sources using GraphQL from your application.",
+  "security": {
+    "amazonaws_appsync": {
+      "integration": "amazonaws_appsync",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_appsync.jpeg"
+  },
+  "actionCount": 12,
+  "definitions": {
+    "ApiKey": {
+      "description": "Describes an API key.",
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "A description of the purpose of the API key."
+        },
+        "expires": {
+          "$ref": "#/definitions/Long",
+          "description": "The time when the API key expires."
+        },
+        "id": {
+          "$ref": "#/definitions/String",
+          "description": "The API key ID."
+        }
+      },
+      "type": "object",
+      "title": "ApiKey"
+    },
+    "ApiKeyLimitExceededException": {
+      "description": "The API key exceeded a limit. Try your request again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "ApiKeyLimitExceededException"
+    },
+    "ApiKeys": {
+      "items": {
+        "$ref": "#/definitions/ApiKey"
+      },
+      "type": "array",
+      "title": "ApiKeys"
+    },
+    "ApiLimitExceededException": {
+      "description": "The GraphQL API exceeded a limit. Try your request again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "ApiLimitExceededException"
+    },
+    "AuthenticationType": {
+      "enum": [
+        "API_KEY",
+        "AWS_IAM",
+        "AMAZON_COGNITO_USER_POOLS"
+      ],
+      "type": "string",
+      "title": "AuthenticationType"
+    },
+    "BadRequestException": {
+      "description": "The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "BadRequestException"
+    },
+    "Blob": {
+      "type": "string",
+      "title": "Blob"
+    },
+    "Boolean": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "ConcurrentModificationException": {
+      "description": "Another modification is being made. That modification must complete before you can make your change. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ConcurrentModificationException"
+    },
+    "CreateApiKeyRequest": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "A description of the purpose of the API key."
+        }
+      },
+      "type": "object",
+      "title": "CreateApiKeyRequest"
+    },
+    "CreateApiKeyResponse": {
+      "properties": {
+        "apiKey": {
+          "$ref": "#/definitions/ApiKey",
+          "description": "The API key."
+        }
+      },
+      "type": "object",
+      "title": "CreateApiKeyResponse"
+    },
+    "CreateDataSourceRequest": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "A description of the <code>DataSource</code>."
+        },
+        "dynamodbConfig": {
+          "$ref": "#/definitions/DynamodbDataSourceConfig",
+          "description": "DynamoDB settings."
+        },
+        "elasticsearchConfig": {
+          "$ref": "#/definitions/ElasticsearchDataSourceConfig",
+          "description": "Amazon Elasticsearch settings."
+        },
+        "lambdaConfig": {
+          "$ref": "#/definitions/LambdaDataSourceConfig",
+          "description": "AWS Lambda settings."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A user-supplied name for the <code>DataSource</code>."
+        },
+        "serviceRoleArn": {
+          "$ref": "#/definitions/String",
+          "description": "The IAM service role ARN for the data source. The system assumes this role when accessing the data source."
+        },
+        "type": {
+          "$ref": "#/definitions/DataSourceType",
+          "description": "The type of the <code>DataSource</code>."
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "type": "object",
+      "title": "CreateDataSourceRequest"
+    },
+    "CreateDataSourceResponse": {
+      "properties": {
+        "dataSource": {
+          "$ref": "#/definitions/DataSource",
+          "description": "The <code>DataSource</code> object."
+        }
+      },
+      "type": "object",
+      "title": "CreateDataSourceResponse"
+    },
+    "CreateGraphqlApiRequest": {
+      "properties": {
+        "authenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication type: API key, IAM, or Amazon Cognito User Pools."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A user-supplied name for the <code>GraphqlApi</code>."
+        },
+        "userPoolConfig": {
+          "$ref": "#/definitions/UserPoolConfig",
+          "description": "The Amazon Cognito User Pool configuration."
+        }
+      },
+      "required": [
+        "name",
+        "authenticationType"
+      ],
+      "type": "object",
+      "title": "CreateGraphqlApiRequest"
+    },
+    "CreateGraphqlApiResponse": {
+      "properties": {
+        "graphqlApi": {
+          "$ref": "#/definitions/GraphqlApi",
+          "description": "The <code>GraphqlApi</code>."
+        }
+      },
+      "type": "object",
+      "title": "CreateGraphqlApiResponse"
+    },
+    "CreateResolverRequest": {
+      "properties": {
+        "dataSourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the data source for which the resolver is being created."
+        },
+        "fieldName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the field to attach the resolver to."
+        },
+        "requestMappingTemplate": {
+          "$ref": "#/definitions/MappingTemplate",
+          "description": "<p>The mapping template to be used for requests.</p> <p>A resolver use a request mapping template to convert a GraphQL expression into a format that a data source can understand. Mapping templates are written in Apache Velocity Template Language (VTL).</p>"
+        },
+        "responseMappingTemplate": {
+          "$ref": "#/definitions/MappingTemplate",
+          "description": "The mapping template to be used for responses from the data source."
+        }
+      },
+      "required": [
+        "fieldName",
+        "dataSourceName",
+        "requestMappingTemplate"
+      ],
+      "type": "object",
+      "title": "CreateResolverRequest"
+    },
+    "CreateResolverResponse": {
+      "properties": {
+        "resolver": {
+          "$ref": "#/definitions/Resolver",
+          "description": "The <code>Resolver</code> object."
+        }
+      },
+      "type": "object",
+      "title": "CreateResolverResponse"
+    },
+    "CreateTypeRequest": {
+      "properties": {
+        "definition": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The type definition, in GraphQL Schema Definition Language (SDL) format.</p> <p>For more information, see the <a href=\"http://graphql.org/learn/schema/\">GraphQL SDL documentation</a>.</p>"
+        },
+        "format": {
+          "$ref": "#/definitions/TypeDefinitionFormat",
+          "description": "The type format: SDL or JSON."
+        }
+      },
+      "required": [
+        "definition",
+        "format"
+      ],
+      "type": "object",
+      "title": "CreateTypeRequest"
+    },
+    "CreateTypeResponse": {
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/Type",
+          "description": "The <code>Type</code> object."
+        }
+      },
+      "type": "object",
+      "title": "CreateTypeResponse"
+    },
+    "DataSource": {
+      "description": "Describes a data source.",
+      "properties": {
+        "dataSourceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The data source ARN."
+        },
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "The description of the data source."
+        },
+        "dynamodbConfig": {
+          "$ref": "#/definitions/DynamodbDataSourceConfig",
+          "description": "DynamoDB settings."
+        },
+        "elasticsearchConfig": {
+          "$ref": "#/definitions/ElasticsearchDataSourceConfig",
+          "description": "Amazon Elasticsearch settings."
+        },
+        "lambdaConfig": {
+          "$ref": "#/definitions/LambdaDataSourceConfig",
+          "description": "Lambda settings."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the data source."
+        },
+        "serviceRoleArn": {
+          "$ref": "#/definitions/String",
+          "description": "The IAM service role ARN for the data source. The system assumes this role when accessing the data source."
+        },
+        "type": {
+          "$ref": "#/definitions/DataSourceType",
+          "description": "The type of the data source."
+        }
+      },
+      "type": "object",
+      "title": "DataSource"
+    },
+    "DataSourceType": {
+      "enum": [
+        "AWS_LAMBDA",
+        "AMAZON_DYNAMODB",
+        "AMAZON_ELASTICSEARCH"
+      ],
+      "type": "string",
+      "title": "DataSourceType"
+    },
+    "DataSources": {
+      "items": {
+        "$ref": "#/definitions/DataSource"
+      },
+      "type": "array",
+      "title": "DataSources"
+    },
+    "DefaultAction": {
+      "enum": [
+        "ALLOW",
+        "DENY"
+      ],
+      "type": "string",
+      "title": "DefaultAction"
+    },
+    "DeleteApiKeyRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteApiKeyRequest"
+    },
+    "DeleteApiKeyResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteApiKeyResponse"
+    },
+    "DeleteDataSourceRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteDataSourceRequest"
+    },
+    "DeleteDataSourceResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteDataSourceResponse"
+    },
+    "DeleteGraphqlApiRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteGraphqlApiRequest"
+    },
+    "DeleteGraphqlApiResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteGraphqlApiResponse"
+    },
+    "DeleteResolverRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteResolverRequest"
+    },
+    "DeleteResolverResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteResolverResponse"
+    },
+    "DeleteTypeRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteTypeRequest"
+    },
+    "DeleteTypeResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteTypeResponse"
+    },
+    "DynamodbDataSourceConfig": {
+      "description": "Describes a DynamoDB data source configuration.",
+      "properties": {
+        "awsRegion": {
+          "$ref": "#/definitions/String",
+          "description": "The AWS region."
+        },
+        "tableName": {
+          "$ref": "#/definitions/String",
+          "description": "The table name."
+        },
+        "useCallerCredentials": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Set to TRUE to use Amazon Cognito credentials with this data source."
+        }
+      },
+      "required": [
+        "tableName",
+        "awsRegion"
+      ],
+      "type": "object",
+      "title": "DynamodbDataSourceConfig"
+    },
+    "ElasticsearchDataSourceConfig": {
+      "description": "Describes an Elasticsearch data source configuration.",
+      "properties": {
+        "awsRegion": {
+          "$ref": "#/definitions/String",
+          "description": "The AWS region."
+        },
+        "endpoint": {
+          "$ref": "#/definitions/String",
+          "description": "The endpoint."
+        }
+      },
+      "required": [
+        "endpoint",
+        "awsRegion"
+      ],
+      "type": "object",
+      "title": "ElasticsearchDataSourceConfig"
+    },
+    "ErrorMessage": {
+      "type": "string",
+      "title": "ErrorMessage"
+    },
+    "GetDataSourceRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetDataSourceRequest"
+    },
+    "GetDataSourceResponse": {
+      "properties": {
+        "dataSource": {
+          "$ref": "#/definitions/DataSource",
+          "description": "The <code>DataSource</code> object."
+        }
+      },
+      "type": "object",
+      "title": "GetDataSourceResponse"
+    },
+    "GetGraphqlApiRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetGraphqlApiRequest"
+    },
+    "GetGraphqlApiResponse": {
+      "properties": {
+        "graphqlApi": {
+          "$ref": "#/definitions/GraphqlApi",
+          "description": "The <code>GraphqlApi</code> object."
+        }
+      },
+      "type": "object",
+      "title": "GetGraphqlApiResponse"
+    },
+    "GetIntrospectionSchemaRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetIntrospectionSchemaRequest"
+    },
+    "GetIntrospectionSchemaResponse": {
+      "properties": {
+        "schema": {
+          "$ref": "#/definitions/Blob",
+          "description": "<p>The schema, in GraphQL Schema Definition Language (SDL) format.</p> <p>For more information, see the <a href=\"http://graphql.org/learn/schema/\">GraphQL SDL documentation</a>.</p>"
+        }
+      },
+      "type": "object",
+      "title": "GetIntrospectionSchemaResponse"
+    },
+    "GetResolverRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetResolverRequest"
+    },
+    "GetResolverResponse": {
+      "properties": {
+        "resolver": {
+          "$ref": "#/definitions/Resolver",
+          "description": "The <code>Resolver</code> object."
+        }
+      },
+      "type": "object",
+      "title": "GetResolverResponse"
+    },
+    "GetSchemaCreationStatusRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetSchemaCreationStatusRequest"
+    },
+    "GetSchemaCreationStatusResponse": {
+      "properties": {
+        "details": {
+          "$ref": "#/definitions/String",
+          "description": "Detailed information about the status of the schema creation operation."
+        },
+        "status": {
+          "$ref": "#/definitions/SchemaStatus",
+          "description": "The current state of the schema (PROCESSING, ACTIVE, or DELETING). Once the schema is in the ACTIVE state, you can add data."
+        }
+      },
+      "type": "object",
+      "title": "GetSchemaCreationStatusResponse"
+    },
+    "GetTypeRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetTypeRequest"
+    },
+    "GetTypeResponse": {
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/Type",
+          "description": "The <code>Type</code> object."
+        }
+      },
+      "type": "object",
+      "title": "GetTypeResponse"
+    },
+    "GraphQLSchemaException": {
+      "description": "The GraphQL schema is not valid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "GraphQLSchemaException"
+    },
+    "GraphqlApi": {
+      "description": "Describes a GraphQL API.",
+      "properties": {
+        "apiId": {
+          "$ref": "#/definitions/String",
+          "description": "The API ID."
+        },
+        "arn": {
+          "$ref": "#/definitions/String",
+          "description": "The ARN."
+        },
+        "authenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication type."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The API name."
+        },
+        "uris": {
+          "$ref": "#/definitions/MapOfStringToString",
+          "description": "The URIs."
+        },
+        "userPoolConfig": {
+          "$ref": "#/definitions/UserPoolConfig",
+          "description": "The Amazon Cognito User Pool configuration."
+        }
+      },
+      "type": "object",
+      "title": "GraphqlApi"
+    },
+    "GraphqlApis": {
+      "items": {
+        "$ref": "#/definitions/GraphqlApi"
+      },
+      "type": "array",
+      "title": "GraphqlApis"
+    },
+    "InternalFailureException": {
+      "description": "An internal AWS AppSync error occurred. Try your request again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "InternalFailureException"
+    },
+    "LambdaDataSourceConfig": {
+      "description": "Describes a Lambda data source configuration.",
+      "properties": {
+        "lambdaFunctionArn": {
+          "$ref": "#/definitions/String",
+          "description": "The ARN for the Lambda function."
+        }
+      },
+      "required": [
+        "lambdaFunctionArn"
+      ],
+      "type": "object",
+      "title": "LambdaDataSourceConfig"
+    },
+    "LimitExceededException": {
+      "description": "The request exceeded a limit. Try your request again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListApiKeysRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListApiKeysRequest"
+    },
+    "ListApiKeysResponse": {
+      "properties": {
+        "apiKeys": {
+          "$ref": "#/definitions/ApiKeys",
+          "description": "The <code>ApiKey</code> objects."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "An identifier to be passed in the next request to this operation to return the next set of items in the list."
+        }
+      },
+      "type": "object",
+      "title": "ListApiKeysResponse"
+    },
+    "ListDataSourcesRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListDataSourcesRequest"
+    },
+    "ListDataSourcesResponse": {
+      "properties": {
+        "dataSources": {
+          "$ref": "#/definitions/DataSources",
+          "description": "The <code>DataSource</code> objects."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "An identifier to be passed in the next request to this operation to return the next set of items in the list."
+        }
+      },
+      "type": "object",
+      "title": "ListDataSourcesResponse"
+    },
+    "ListGraphqlApisRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListGraphqlApisRequest"
+    },
+    "ListGraphqlApisResponse": {
+      "properties": {
+        "graphqlApis": {
+          "$ref": "#/definitions/GraphqlApis",
+          "description": "The <code>GraphqlApi</code> objects."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "An identifier to be passed in the next request to this operation to return the next set of items in the list."
+        }
+      },
+      "type": "object",
+      "title": "ListGraphqlApisResponse"
+    },
+    "ListResolversRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListResolversRequest"
+    },
+    "ListResolversResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "An identifier to be passed in the next request to this operation to return the next set of items in the list."
+        },
+        "resolvers": {
+          "$ref": "#/definitions/Resolvers",
+          "description": "The <code>Resolver</code> objects."
+        }
+      },
+      "type": "object",
+      "title": "ListResolversResponse"
+    },
+    "ListTypesRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListTypesRequest"
+    },
+    "ListTypesResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "An identifier to be passed in the next request to this operation to return the next set of items in the list."
+        },
+        "types": {
+          "$ref": "#/definitions/TypeList",
+          "description": "The <code>Type</code> objects."
+        }
+      },
+      "type": "object",
+      "title": "ListTypesResponse"
+    },
+    "Long": {
+      "type": "integer",
+      "title": "Long"
+    },
+    "MapOfStringToString": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/String"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOfStringToString"
+    },
+    "MappingTemplate": {
+      "maxLength": 65536,
+      "minLength": 0,
+      "type": "string",
+      "title": "MappingTemplate"
+    },
+    "MaxResults": {
+      "maximum": 25,
+      "minimum": 0,
+      "type": "integer",
+      "title": "MaxResults"
+    },
+    "NotFoundException": {
+      "description": "The resource specified in the request was not found. Check the resource and try again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "NotFoundException"
+    },
+    "OutputType": {
+      "enum": [
+        "SDL",
+        "JSON"
+      ],
+      "type": "string",
+      "title": "OutputType"
+    },
+    "PaginationToken": {
+      "pattern": "[\\\\S]+",
+      "type": "string",
+      "title": "PaginationToken"
+    },
+    "Resolver": {
+      "description": "Describes a resolver.",
+      "properties": {
+        "dataSourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The resolver data source name."
+        },
+        "fieldName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The resolver field name."
+        },
+        "requestMappingTemplate": {
+          "$ref": "#/definitions/MappingTemplate",
+          "description": "The request mapping template."
+        },
+        "resolverArn": {
+          "$ref": "#/definitions/String",
+          "description": "The resolver ARN."
+        },
+        "responseMappingTemplate": {
+          "$ref": "#/definitions/MappingTemplate",
+          "description": "The response mapping template."
+        },
+        "typeName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The resolver type name."
+        }
+      },
+      "type": "object",
+      "title": "Resolver"
+    },
+    "Resolvers": {
+      "items": {
+        "$ref": "#/definitions/Resolver"
+      },
+      "type": "array",
+      "title": "Resolvers"
+    },
+    "ResourceName": {
+      "pattern": "[_A-Za-z][_0-9A-Za-z]*",
+      "type": "string",
+      "title": "ResourceName"
+    },
+    "SchemaStatus": {
+      "enum": [
+        "PROCESSING",
+        "ACTIVE",
+        "DELETING"
+      ],
+      "type": "string",
+      "title": "SchemaStatus"
+    },
+    "StartSchemaCreationRequest": {
+      "properties": {
+        "definition": {
+          "$ref": "#/definitions/Blob",
+          "description": "The schema definition, in GraphQL schema language format."
+        }
+      },
+      "required": [
+        "definition"
+      ],
+      "type": "object",
+      "title": "StartSchemaCreationRequest"
+    },
+    "StartSchemaCreationResponse": {
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/SchemaStatus",
+          "description": "The current state of the schema (PROCESSING, ACTIVE, or DELETING). Once the schema is in the ACTIVE state, you can add data."
+        }
+      },
+      "type": "object",
+      "title": "StartSchemaCreationResponse"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "Type": {
+      "description": "Describes a type.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/String",
+          "description": "The type ARN."
+        },
+        "definition": {
+          "$ref": "#/definitions/String",
+          "description": "The type definition."
+        },
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "The type description."
+        },
+        "format": {
+          "$ref": "#/definitions/TypeDefinitionFormat",
+          "description": "The type format: SDL or JSON."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The type name."
+        }
+      },
+      "type": "object",
+      "title": "Type"
+    },
+    "TypeDefinitionFormat": {
+      "enum": [
+        "SDL",
+        "JSON"
+      ],
+      "type": "string",
+      "title": "TypeDefinitionFormat"
+    },
+    "TypeList": {
+      "items": {
+        "$ref": "#/definitions/Type"
+      },
+      "type": "array",
+      "title": "TypeList"
+    },
+    "UnauthorizedException": {
+      "description": "You are not authorized to perform this operation.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "UnauthorizedException"
+    },
+    "UpdateDataSourceRequest": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "The new description for the data source."
+        },
+        "dynamodbConfig": {
+          "$ref": "#/definitions/DynamodbDataSourceConfig",
+          "description": "The new DynamoDB configuration."
+        },
+        "elasticsearchConfig": {
+          "$ref": "#/definitions/ElasticsearchDataSourceConfig",
+          "description": "The new Elasticsearch configuration."
+        },
+        "lambdaConfig": {
+          "$ref": "#/definitions/LambdaDataSourceConfig",
+          "description": "The new Lambda configuration."
+        },
+        "serviceRoleArn": {
+          "$ref": "#/definitions/String",
+          "description": "The new service role ARN for the data source."
+        },
+        "type": {
+          "$ref": "#/definitions/DataSourceType",
+          "description": "The new data source type."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "title": "UpdateDataSourceRequest"
+    },
+    "UpdateDataSourceResponse": {
+      "properties": {
+        "dataSource": {
+          "$ref": "#/definitions/DataSource",
+          "description": "The updated <code>DataSource</code> object."
+        }
+      },
+      "type": "object",
+      "title": "UpdateDataSourceResponse"
+    },
+    "UpdateGraphqlApiRequest": {
+      "properties": {
+        "authenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The new authentication type for the <code>GraphqlApi</code> object."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The new name for the <code>GraphqlApi</code> object."
+        },
+        "userPoolConfig": {
+          "$ref": "#/definitions/UserPoolConfig",
+          "description": "The new Amazon Cognito User Pool configuration for the <code>GraphqlApi</code> object."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "UpdateGraphqlApiRequest"
+    },
+    "UpdateGraphqlApiResponse": {
+      "properties": {
+        "graphqlApi": {
+          "$ref": "#/definitions/GraphqlApi",
+          "description": "The udpated <code>GraphqlApi</code> object."
+        }
+      },
+      "type": "object",
+      "title": "UpdateGraphqlApiResponse"
+    },
+    "UpdateResolverRequest": {
+      "properties": {
+        "dataSourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The new data source name."
+        },
+        "requestMappingTemplate": {
+          "$ref": "#/definitions/MappingTemplate",
+          "description": "The new request mapping template."
+        },
+        "responseMappingTemplate": {
+          "$ref": "#/definitions/MappingTemplate",
+          "description": "The new response mapping template."
+        }
+      },
+      "required": [
+        "dataSourceName",
+        "requestMappingTemplate"
+      ],
+      "type": "object",
+      "title": "UpdateResolverRequest"
+    },
+    "UpdateResolverResponse": {
+      "properties": {
+        "resolver": {
+          "$ref": "#/definitions/Resolver",
+          "description": "The updated <code>Resolver</code> object."
+        }
+      },
+      "type": "object",
+      "title": "UpdateResolverResponse"
+    },
+    "UpdateTypeRequest": {
+      "properties": {
+        "definition": {
+          "$ref": "#/definitions/String",
+          "description": "The new definition."
+        },
+        "format": {
+          "$ref": "#/definitions/TypeDefinitionFormat",
+          "description": "The new type format: SDL or JSON."
+        }
+      },
+      "required": [
+        "format"
+      ],
+      "type": "object",
+      "title": "UpdateTypeRequest"
+    },
+    "UpdateTypeResponse": {
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/Type",
+          "description": "The updated <code>Type</code> object."
+        }
+      },
+      "type": "object",
+      "title": "UpdateTypeResponse"
+    },
+    "UserPoolConfig": {
+      "description": "Describes an Amazon Cognito User Pool configuration.",
+      "properties": {
+        "appIdClientRegex": {
+          "$ref": "#/definitions/String",
+          "description": "A regular expression for validating the incoming Amazon Cognito User Pool app client ID."
+        },
+        "awsRegion": {
+          "$ref": "#/definitions/String",
+          "description": "The AWS region in which the user pool was created."
+        },
+        "defaultAction": {
+          "$ref": "#/definitions/DefaultAction",
+          "description": "The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration."
+        },
+        "userPoolId": {
+          "$ref": "#/definitions/String",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "userPoolId",
+        "awsRegion",
+        "defaultAction"
+      ],
+      "type": "object",
+      "title": "UserPoolConfig"
+    }
+  },
+  "actions": [
+    {
+      "id": "ListGraphqlApis",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListGraphqlApisRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListGraphqlApisResponse"
+      },
+      "security": {
+        "amazonaws_appsync": {
+          "integration": "amazonaws_appsync"
+        }
+      }
+    },
+    {
+      "id": "UpdateGraphqlApi",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apiId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateGraphqlApiRequest"
+          }
+        ],
+        "required": [
+          "apiId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateGraphqlApiResponse"
+      },
+      "security": {
+        "amazonaws_appsync": {
+          "integration": "amazonaws_appsync"
+        }
+      }
+    },
+    {
+      "id": "ListApiKeys",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apiId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListApiKeysRequest"
+          }
+        ],
+        "required": [
+          "apiId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListApiKeysResponse"
+      },
+      "security": {
+        "amazonaws_appsync": {
+          "integration": "amazonaws_appsync"
+        }
+      }
+    },
+    {
+      "id": "DeleteApiKey",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apiId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteApiKeyRequest"
+          }
+        ],
+        "required": [
+          "apiId",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteApiKeyResponse"
+      },
+      "security": {
+        "amazonaws_appsync": {
+          "integration": "amazonaws_appsync"
+        }
+      }
+    },
+    {
+      "id": "ListDataSources",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apiId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListDataSourcesRequest"
+          }
+        ],
+        "required": [
+          "apiId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDataSourcesResponse"
+      },
+      "security": {
+        "amazonaws_appsync": {
+          "integration": "amazonaws_appsync"
+        }
+      }
+    },
+    {
+      "id": "UpdateDataSource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apiId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateDataSourceRequest"
+          }
+        ],
+        "required": [
+          "apiId",
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateDataSourceResponse"
+      },
+      "security": {
+        "amazonaws_appsync": {
+          "integration": "amazonaws_appsync"
+        }
+      }
+    },
+    {
+      "id": "GetIntrospectionSchema",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apiId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetIntrospectionSchemaRequest"
+          }
+        ],
+        "required": [
+          "apiId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetIntrospectionSchemaResponse"
+      },
+      "security": {
+        "amazonaws_appsync": {
+          "integration": "amazonaws_appsync"
+        }
+      }
+    },
+    {
+      "id": "StartSchemaCreation",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apiId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartSchemaCreationRequest"
+          }
+        ],
+        "required": [
+          "apiId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartSchemaCreationResponse"
+      },
+      "security": {
+        "amazonaws_appsync": {
+          "integration": "amazonaws_appsync"
+        }
+      }
+    },
+    {
+      "id": "ListTypes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apiId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTypesRequest"
+          }
+        ],
+        "required": [
+          "apiId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTypesResponse"
+      },
+      "security": {
+        "amazonaws_appsync": {
+          "integration": "amazonaws_appsync"
+        }
+      }
+    },
+    {
+      "id": "UpdateType",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apiId": {
+            "type": "string"
+          },
+          "typeName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateTypeRequest"
+          }
+        ],
+        "required": [
+          "apiId",
+          "typeName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateTypeResponse"
+      },
+      "security": {
+        "amazonaws_appsync": {
+          "integration": "amazonaws_appsync"
+        }
+      }
+    },
+    {
+      "id": "ListResolvers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apiId": {
+            "type": "string"
+          },
+          "typeName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListResolversRequest"
+          }
+        ],
+        "required": [
+          "apiId",
+          "typeName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListResolversResponse"
+      },
+      "security": {
+        "amazonaws_appsync": {
+          "integration": "amazonaws_appsync"
+        }
+      }
+    },
+    {
+      "id": "UpdateResolver",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apiId": {
+            "type": "string"
+          },
+          "typeName": {
+            "type": "string"
+          },
+          "fieldName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateResolverRequest"
+          }
+        ],
+        "required": [
+          "apiId",
+          "typeName",
+          "fieldName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateResolverResponse"
+      },
+      "security": {
+        "amazonaws_appsync": {
+          "integration": "amazonaws_appsync"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

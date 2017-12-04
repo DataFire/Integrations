@@ -1,0 +1,3297 @@
+{
+  "id": "amazonaws_greengrass",
+  "title": "AWS Greengrass",
+  "description": "AWS Greengrass seamlessly extends AWS onto physical devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. AWS Greengrass ensures your devices can respond quickly to local events and operate with intermittent connectivity. AWS Greengrass minimizes the cost of transmitting data to the cloud by allowing you to author AWS Lambda functions that execute locally.",
+  "security": {
+    "amazonaws_greengrass": {
+      "integration": "amazonaws_greengrass",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_greengrass.svg"
+  },
+  "actionCount": 33,
+  "definitions": {
+    "AssociateRoleToGroupRequest": {
+      "properties": {
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Role arn you wish to associate with this group."
+        }
+      },
+      "type": "object",
+      "title": "AssociateRoleToGroupRequest"
+    },
+    "AssociateRoleToGroupResponse": {
+      "properties": {
+        "AssociatedAt": {
+          "$ref": "#/definitions/__string",
+          "description": "Time the role arn was associated to your group."
+        }
+      },
+      "type": "object",
+      "title": "AssociateRoleToGroupResponse"
+    },
+    "AssociateServiceRoleToAccountRequest": {
+      "properties": {
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Role arn you wish to associate with this account."
+        }
+      },
+      "type": "object",
+      "title": "AssociateServiceRoleToAccountRequest"
+    },
+    "AssociateServiceRoleToAccountResponse": {
+      "properties": {
+        "AssociatedAt": {
+          "$ref": "#/definitions/__string",
+          "description": "Time when the service role was associated to the account."
+        }
+      },
+      "type": "object",
+      "title": "AssociateServiceRoleToAccountResponse"
+    },
+    "BadRequestException": {
+      "description": "General Error",
+      "properties": {
+        "ErrorDetails": {
+          "$ref": "#/definitions/ErrorDetails",
+          "description": "Error Details"
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "Message containing information about the error"
+        }
+      },
+      "type": "object",
+      "title": "BadRequestException"
+    },
+    "ConnectivityInfo": {
+      "description": "Connectivity Info",
+      "properties": {
+        "HostAddress": {
+          "$ref": "#/definitions/__string",
+          "description": "Endpoint for the GGC. Can be an IP address or DNS."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Element Id for this entry in the list."
+        },
+        "Metadata": {
+          "$ref": "#/definitions/__string",
+          "description": "Metadata for this endpoint."
+        },
+        "PortNumber": {
+          "$ref": "#/definitions/__integer",
+          "description": "Port of the GGC. Usually 8883."
+        }
+      },
+      "type": "object",
+      "title": "ConnectivityInfo"
+    },
+    "Core": {
+      "description": "Information on the core",
+      "properties": {
+        "CertificateArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Certificate arn of the core."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Element Id for this entry in the list."
+        },
+        "SyncShadow": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If true, the local shadow value automatically syncs with the cloud's shadow state."
+        },
+        "ThingArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Thing arn of the core."
+        }
+      },
+      "type": "object",
+      "title": "Core"
+    },
+    "CoreDefinitionVersion": {
+      "description": "Information on core definition version",
+      "properties": {
+        "Cores": {
+          "$ref": "#/definitions/ListOfCore",
+          "description": "Cores in the definition version."
+        }
+      },
+      "type": "object",
+      "title": "CoreDefinitionVersion"
+    },
+    "CreateCoreDefinitionRequest": {
+      "description": "Information on the core definition request",
+      "properties": {
+        "InitialVersion": {
+          "$ref": "#/definitions/CoreDefinitionVersion",
+          "description": "Information on the initial version"
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "name of the core definition"
+        }
+      },
+      "type": "object",
+      "title": "CreateCoreDefinitionRequest"
+    },
+    "CreateCoreDefinitionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object",
+      "title": "CreateCoreDefinitionResponse"
+    },
+    "CreateCoreDefinitionVersionRequest": {
+      "properties": {
+        "Cores": {
+          "$ref": "#/definitions/ListOfCore",
+          "description": "Cores in the definition version."
+        }
+      },
+      "type": "object",
+      "title": "CreateCoreDefinitionVersionRequest"
+    },
+    "CreateCoreDefinitionVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the version was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the resource container."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Unique Id of a version."
+        }
+      },
+      "type": "object",
+      "title": "CreateCoreDefinitionVersionResponse"
+    },
+    "CreateDeploymentRequest": {
+      "properties": {
+        "DeploymentId": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the deployment if you wish to redeploy a previous deployment."
+        },
+        "DeploymentType": {
+          "$ref": "#/definitions/DeploymentType",
+          "description": "Type of deployment. When used in CreateDeployment, only NewDeployment and Redeployment are valid. "
+        },
+        "GroupVersionId": {
+          "$ref": "#/definitions/__string",
+          "description": "Group Version you wish to deploy."
+        }
+      },
+      "type": "object",
+      "title": "CreateDeploymentRequest"
+    },
+    "CreateDeploymentResponse": {
+      "properties": {
+        "DeploymentArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The arn of the deployment."
+        },
+        "DeploymentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The id of the deployment."
+        }
+      },
+      "type": "object",
+      "title": "CreateDeploymentResponse"
+    },
+    "CreateDeviceDefinitionRequest": {
+      "properties": {
+        "InitialVersion": {
+          "$ref": "#/definitions/DeviceDefinitionVersion",
+          "description": "Information on the initial version"
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "name of the device definition"
+        }
+      },
+      "type": "object",
+      "title": "CreateDeviceDefinitionRequest"
+    },
+    "CreateDeviceDefinitionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object",
+      "title": "CreateDeviceDefinitionResponse"
+    },
+    "CreateDeviceDefinitionVersionRequest": {
+      "properties": {
+        "Devices": {
+          "$ref": "#/definitions/ListOfDevice",
+          "description": "Devices in the definition version."
+        }
+      },
+      "type": "object",
+      "title": "CreateDeviceDefinitionVersionRequest"
+    },
+    "CreateDeviceDefinitionVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the version was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the resource container."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Unique Id of a version."
+        }
+      },
+      "type": "object",
+      "title": "CreateDeviceDefinitionVersionResponse"
+    },
+    "CreateFunctionDefinitionRequest": {
+      "properties": {
+        "InitialVersion": {
+          "$ref": "#/definitions/FunctionDefinitionVersion",
+          "description": "Information on the initial version"
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "name of the function definition"
+        }
+      },
+      "type": "object",
+      "title": "CreateFunctionDefinitionRequest"
+    },
+    "CreateFunctionDefinitionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object",
+      "title": "CreateFunctionDefinitionResponse"
+    },
+    "CreateFunctionDefinitionVersionRequest": {
+      "description": "Function definition version",
+      "properties": {
+        "Functions": {
+          "$ref": "#/definitions/ListOfFunction",
+          "description": "Lambda functions in this function definition version."
+        }
+      },
+      "type": "object",
+      "title": "CreateFunctionDefinitionVersionRequest"
+    },
+    "CreateFunctionDefinitionVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the version was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the resource container."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Unique Id of a version."
+        }
+      },
+      "type": "object",
+      "title": "CreateFunctionDefinitionVersionResponse"
+    },
+    "CreateGroupCertificateAuthorityRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateGroupCertificateAuthorityRequest"
+    },
+    "CreateGroupCertificateAuthorityResponse": {
+      "properties": {
+        "GroupCertificateAuthorityArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the group certificate authority."
+        }
+      },
+      "type": "object",
+      "title": "CreateGroupCertificateAuthorityResponse"
+    },
+    "CreateGroupRequest": {
+      "properties": {
+        "InitialVersion": {
+          "$ref": "#/definitions/GroupVersion",
+          "description": "Information on the initial version"
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "name of the group"
+        }
+      },
+      "type": "object",
+      "title": "CreateGroupRequest"
+    },
+    "CreateGroupResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object",
+      "title": "CreateGroupResponse"
+    },
+    "CreateGroupVersionRequest": {
+      "properties": {
+        "CoreDefinitionVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Core definition version arn for this group."
+        },
+        "DeviceDefinitionVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Device definition version arn for this group."
+        },
+        "FunctionDefinitionVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Function definition version arn for this group."
+        },
+        "LoggerDefinitionVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Logger definitionv ersion arn for this group."
+        },
+        "SubscriptionDefinitionVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Subscription definition version arn for this group."
+        }
+      },
+      "type": "object",
+      "title": "CreateGroupVersionRequest"
+    },
+    "CreateGroupVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the version was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the resource container."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Unique Id of a version."
+        }
+      },
+      "type": "object",
+      "title": "CreateGroupVersionResponse"
+    },
+    "CreateLoggerDefinitionRequest": {
+      "properties": {
+        "InitialVersion": {
+          "$ref": "#/definitions/LoggerDefinitionVersion",
+          "description": "Information on the initial version"
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "name of the logger definition"
+        }
+      },
+      "type": "object",
+      "title": "CreateLoggerDefinitionRequest"
+    },
+    "CreateLoggerDefinitionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object",
+      "title": "CreateLoggerDefinitionResponse"
+    },
+    "CreateLoggerDefinitionVersionRequest": {
+      "properties": {
+        "Loggers": {
+          "$ref": "#/definitions/ListOfLogger",
+          "description": "List of loggers."
+        }
+      },
+      "type": "object",
+      "title": "CreateLoggerDefinitionVersionRequest"
+    },
+    "CreateLoggerDefinitionVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the version was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the resource container."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Unique Id of a version."
+        }
+      },
+      "type": "object",
+      "title": "CreateLoggerDefinitionVersionResponse"
+    },
+    "CreateSubscriptionDefinitionRequest": {
+      "properties": {
+        "InitialVersion": {
+          "$ref": "#/definitions/SubscriptionDefinitionVersion",
+          "description": "Information on the initial version"
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "name of the subscription definition"
+        }
+      },
+      "type": "object",
+      "title": "CreateSubscriptionDefinitionRequest"
+    },
+    "CreateSubscriptionDefinitionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object",
+      "title": "CreateSubscriptionDefinitionResponse"
+    },
+    "CreateSubscriptionDefinitionVersionRequest": {
+      "properties": {
+        "Subscriptions": {
+          "$ref": "#/definitions/ListOfSubscription",
+          "description": "Subscriptions in the version."
+        }
+      },
+      "type": "object",
+      "title": "CreateSubscriptionDefinitionVersionRequest"
+    },
+    "CreateSubscriptionDefinitionVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the version was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the resource container."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Unique Id of a version."
+        }
+      },
+      "type": "object",
+      "title": "CreateSubscriptionDefinitionVersionResponse"
+    },
+    "DefinitionInformation": {
+      "description": "Information on the Definition",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object",
+      "title": "DefinitionInformation"
+    },
+    "DeleteCoreDefinitionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteCoreDefinitionRequest"
+    },
+    "DeleteCoreDefinitionResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteCoreDefinitionResponse"
+    },
+    "DeleteDeviceDefinitionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteDeviceDefinitionRequest"
+    },
+    "DeleteDeviceDefinitionResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteDeviceDefinitionResponse"
+    },
+    "DeleteFunctionDefinitionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteFunctionDefinitionRequest"
+    },
+    "DeleteFunctionDefinitionResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteFunctionDefinitionResponse"
+    },
+    "DeleteGroupRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteGroupRequest"
+    },
+    "DeleteGroupResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteGroupResponse"
+    },
+    "DeleteLoggerDefinitionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteLoggerDefinitionRequest"
+    },
+    "DeleteLoggerDefinitionResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteLoggerDefinitionResponse"
+    },
+    "DeleteSubscriptionDefinitionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteSubscriptionDefinitionRequest"
+    },
+    "DeleteSubscriptionDefinitionResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteSubscriptionDefinitionResponse"
+    },
+    "Deployment": {
+      "description": "Information on the deployment",
+      "properties": {
+        "CreatedAt": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp when the deployment was created."
+        },
+        "DeploymentArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the deployment."
+        },
+        "DeploymentId": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the deployment."
+        },
+        "DeploymentType": {
+          "$ref": "#/definitions/DeploymentType",
+          "description": "The type of deployment."
+        },
+        "GroupArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the group for this deployment."
+        }
+      },
+      "type": "object",
+      "title": "Deployment"
+    },
+    "DeploymentType": {
+      "enum": [
+        "NewDeployment",
+        "Redeployment",
+        "ResetDeployment",
+        "ForceResetDeployment"
+      ],
+      "type": "string",
+      "title": "DeploymentType"
+    },
+    "Deployments": {
+      "items": {
+        "$ref": "#/definitions/Deployment"
+      },
+      "type": "array",
+      "title": "Deployments"
+    },
+    "Device": {
+      "description": "Information on a Device",
+      "properties": {
+        "CertificateArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Certificate arn of the device."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Element Id for this entry in the list."
+        },
+        "SyncShadow": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If true, the local shadow value automatically syncs with the cloud's shadow state."
+        },
+        "ThingArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Thing arn of the device."
+        }
+      },
+      "type": "object",
+      "title": "Device"
+    },
+    "DeviceDefinitionVersion": {
+      "description": "Information on device definition version",
+      "properties": {
+        "Devices": {
+          "$ref": "#/definitions/ListOfDevice",
+          "description": "Devices in the definition version."
+        }
+      },
+      "type": "object",
+      "title": "DeviceDefinitionVersion"
+    },
+    "DisassociateRoleFromGroupRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DisassociateRoleFromGroupRequest"
+    },
+    "DisassociateRoleFromGroupResponse": {
+      "properties": {
+        "DisassociatedAt": {
+          "$ref": "#/definitions/__string",
+          "description": "Time when the role was disassociated from the group."
+        }
+      },
+      "type": "object",
+      "title": "DisassociateRoleFromGroupResponse"
+    },
+    "DisassociateServiceRoleFromAccountRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DisassociateServiceRoleFromAccountRequest"
+    },
+    "DisassociateServiceRoleFromAccountResponse": {
+      "properties": {
+        "DisassociatedAt": {
+          "$ref": "#/definitions/__string",
+          "description": "Time when the service role was disassociated from the account."
+        }
+      },
+      "type": "object",
+      "title": "DisassociateServiceRoleFromAccountResponse"
+    },
+    "Empty": {
+      "description": "Empty",
+      "properties": {},
+      "type": "object",
+      "title": "Empty"
+    },
+    "ErrorDetail": {
+      "description": "ErrorDetail",
+      "properties": {
+        "DetailedErrorCode": {
+          "$ref": "#/definitions/__string",
+          "description": "Detailed Error Code"
+        },
+        "DetailedErrorMessage": {
+          "$ref": "#/definitions/__string",
+          "description": "Detailed Error Message"
+        }
+      },
+      "type": "object",
+      "title": "ErrorDetail"
+    },
+    "ErrorDetails": {
+      "description": "Error Details",
+      "items": {
+        "$ref": "#/definitions/ErrorDetail"
+      },
+      "type": "array",
+      "title": "ErrorDetails"
+    },
+    "Function": {
+      "description": "Information on function",
+      "properties": {
+        "FunctionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the Lambda function."
+        },
+        "FunctionConfiguration": {
+          "$ref": "#/definitions/FunctionConfiguration",
+          "description": "Configuration of the function"
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the function in this version."
+        }
+      },
+      "type": "object",
+      "title": "Function"
+    },
+    "FunctionConfiguration": {
+      "description": "Configuration of the function",
+      "properties": {
+        "Environment": {
+          "$ref": "#/definitions/FunctionConfigurationEnvironment",
+          "description": "Environment of the function configuration"
+        },
+        "ExecArgs": {
+          "$ref": "#/definitions/__string",
+          "description": "Execution Arguments"
+        },
+        "Executable": {
+          "$ref": "#/definitions/__string",
+          "description": "Executable"
+        },
+        "MemorySize": {
+          "$ref": "#/definitions/__integer",
+          "description": "The memory size, in KB, you configured for the function."
+        },
+        "Pinned": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Whether the function is pinned or not. Pinned means the function is long-lived and starts when the core starts."
+        },
+        "Timeout": {
+          "$ref": "#/definitions/__integer",
+          "description": "The function execution time at which Lambda should terminate the function. This timeout still applies to pinned lambdas for each request."
+        }
+      },
+      "type": "object",
+      "title": "FunctionConfiguration"
+    },
+    "FunctionConfigurationEnvironment": {
+      "description": "Environment of the function configuration",
+      "properties": {
+        "Variables": {
+          "$ref": "#/definitions/MapOf__string",
+          "description": "Environment variables for the lambda function."
+        }
+      },
+      "type": "object",
+      "title": "FunctionConfigurationEnvironment"
+    },
+    "FunctionDefinitionVersion": {
+      "description": "Information on the function definition version",
+      "properties": {
+        "Functions": {
+          "$ref": "#/definitions/ListOfFunction",
+          "description": "Lambda functions in this function definition version."
+        }
+      },
+      "type": "object",
+      "title": "FunctionDefinitionVersion"
+    },
+    "GeneralError": {
+      "description": "General Error",
+      "properties": {
+        "ErrorDetails": {
+          "$ref": "#/definitions/ErrorDetails",
+          "description": "Error Details"
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "Message containing information about the error"
+        }
+      },
+      "type": "object",
+      "title": "GeneralError"
+    },
+    "GetAssociatedRoleRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetAssociatedRoleRequest"
+    },
+    "GetAssociatedRoleResponse": {
+      "properties": {
+        "AssociatedAt": {
+          "$ref": "#/definitions/__string",
+          "description": "Time when the role was associated for the group."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the role that is associated with the group."
+        }
+      },
+      "type": "object",
+      "title": "GetAssociatedRoleResponse"
+    },
+    "GetConnectivityInfoRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetConnectivityInfoRequest"
+    },
+    "GetConnectivityInfoResponse": {
+      "properties": {
+        "ConnectivityInfo": {
+          "$ref": "#/definitions/ListOfConnectivityInfo",
+          "description": "Connectivity info list"
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "Response Text"
+        }
+      },
+      "type": "object",
+      "title": "GetConnectivityInfoResponse"
+    },
+    "GetCoreDefinitionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetCoreDefinitionRequest"
+    },
+    "GetCoreDefinitionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object",
+      "title": "GetCoreDefinitionResponse"
+    },
+    "GetCoreDefinitionVersionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetCoreDefinitionVersionRequest"
+    },
+    "GetCoreDefinitionVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the core definition version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the core definition version was created."
+        },
+        "Definition": {
+          "$ref": "#/definitions/CoreDefinitionVersion",
+          "description": "Information on definition"
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the core definition the version belongs to."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Version of the core definition version."
+        }
+      },
+      "type": "object",
+      "title": "GetCoreDefinitionVersionResponse"
+    },
+    "GetDeploymentStatusRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetDeploymentStatusRequest"
+    },
+    "GetDeploymentStatusResponse": {
+      "properties": {
+        "DeploymentStatus": {
+          "$ref": "#/definitions/__string",
+          "description": "Status of the deployment."
+        },
+        "DeploymentType": {
+          "$ref": "#/definitions/DeploymentType",
+          "description": "The type of the deployment."
+        },
+        "ErrorDetails": {
+          "$ref": "#/definitions/ErrorDetails",
+          "description": "The error Details"
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/__string",
+          "description": "Error Message"
+        },
+        "UpdatedAt": {
+          "$ref": "#/definitions/__string",
+          "description": "Last time the deployment status was updated."
+        }
+      },
+      "type": "object",
+      "title": "GetDeploymentStatusResponse"
+    },
+    "GetDeviceDefinitionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetDeviceDefinitionRequest"
+    },
+    "GetDeviceDefinitionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object",
+      "title": "GetDeviceDefinitionResponse"
+    },
+    "GetDeviceDefinitionVersionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetDeviceDefinitionVersionRequest"
+    },
+    "GetDeviceDefinitionVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the device definition version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the device definition version was created."
+        },
+        "Definition": {
+          "$ref": "#/definitions/DeviceDefinitionVersion",
+          "description": "Device definition version"
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the device definition the version belongs to."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Version of the device definition version."
+        }
+      },
+      "type": "object",
+      "title": "GetDeviceDefinitionVersionResponse"
+    },
+    "GetFunctionDefinitionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetFunctionDefinitionRequest"
+    },
+    "GetFunctionDefinitionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object",
+      "title": "GetFunctionDefinitionResponse"
+    },
+    "GetFunctionDefinitionVersionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetFunctionDefinitionVersionRequest"
+    },
+    "GetFunctionDefinitionVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the function definition version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp when the funtion definition version was created."
+        },
+        "Definition": {
+          "$ref": "#/definitions/FunctionDefinitionVersion",
+          "description": "Information on the definition."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the function definition the version belongs to."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Version of the function definition version."
+        }
+      },
+      "type": "object",
+      "title": "GetFunctionDefinitionVersionResponse"
+    },
+    "GetGroupCertificateAuthorityRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetGroupCertificateAuthorityRequest"
+    },
+    "GetGroupCertificateAuthorityResponse": {
+      "properties": {
+        "GroupCertificateAuthorityArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the certificate authority for the group."
+        },
+        "GroupCertificateAuthorityId": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the certificate authority for the group."
+        },
+        "PemEncodedCertificate": {
+          "$ref": "#/definitions/__string",
+          "description": "PEM encoded certificate for the group."
+        }
+      },
+      "type": "object",
+      "title": "GetGroupCertificateAuthorityResponse"
+    },
+    "GetGroupCertificateConfigurationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetGroupCertificateConfigurationRequest"
+    },
+    "GetGroupCertificateConfigurationResponse": {
+      "properties": {
+        "CertificateAuthorityExpiryInMilliseconds": {
+          "$ref": "#/definitions/__string",
+          "description": "Amount of time when the certificate authority expires in milliseconds."
+        },
+        "CertificateExpiryInMilliseconds": {
+          "$ref": "#/definitions/__string",
+          "description": "Amount of time when the certificate expires in milliseconds."
+        },
+        "GroupId": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the group the certificate configuration belongs to."
+        }
+      },
+      "type": "object",
+      "title": "GetGroupCertificateConfigurationResponse"
+    },
+    "GetGroupRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetGroupRequest"
+    },
+    "GetGroupResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object",
+      "title": "GetGroupResponse"
+    },
+    "GetGroupVersionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetGroupVersionRequest"
+    },
+    "GetGroupVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the group version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp when the group version was created."
+        },
+        "Definition": {
+          "$ref": "#/definitions/GroupVersion",
+          "description": "Information on the definition"
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the group version."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Unique Id for a version of the Group."
+        }
+      },
+      "type": "object",
+      "title": "GetGroupVersionResponse"
+    },
+    "GetLoggerDefinitionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetLoggerDefinitionRequest"
+    },
+    "GetLoggerDefinitionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object",
+      "title": "GetLoggerDefinitionResponse"
+    },
+    "GetLoggerDefinitionVersionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetLoggerDefinitionVersionRequest"
+    },
+    "GetLoggerDefinitionVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the logger definition version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the logger definition version was created."
+        },
+        "Definition": {
+          "$ref": "#/definitions/LoggerDefinitionVersion",
+          "description": "Information on definition"
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the logger definition the version belongs to."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Version of the logger definition version."
+        }
+      },
+      "type": "object",
+      "title": "GetLoggerDefinitionVersionResponse"
+    },
+    "GetServiceRoleForAccountRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetServiceRoleForAccountRequest"
+    },
+    "GetServiceRoleForAccountResponse": {
+      "properties": {
+        "AssociatedAt": {
+          "$ref": "#/definitions/__string",
+          "description": "Time when the service role was associated to the account."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Role arn which is associated to the account."
+        }
+      },
+      "type": "object",
+      "title": "GetServiceRoleForAccountResponse"
+    },
+    "GetSubscriptionDefinitionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetSubscriptionDefinitionRequest"
+    },
+    "GetSubscriptionDefinitionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the definition."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the definition was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the definition."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the definition."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the definition."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the definition."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the definition."
+        }
+      },
+      "type": "object",
+      "title": "GetSubscriptionDefinitionResponse"
+    },
+    "GetSubscriptionDefinitionVersionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetSubscriptionDefinitionVersionRequest"
+    },
+    "GetSubscriptionDefinitionVersionResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the subscription definition version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the subscription definition version was created."
+        },
+        "Definition": {
+          "$ref": "#/definitions/SubscriptionDefinitionVersion",
+          "description": "Information on the definition"
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the subscription definition the version belongs to."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Version of the subscription definition version."
+        }
+      },
+      "type": "object",
+      "title": "GetSubscriptionDefinitionVersionResponse"
+    },
+    "GroupCertificateAuthorityProperties": {
+      "description": "Information on group certificate authority properties",
+      "properties": {
+        "GroupCertificateAuthorityArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the certificate authority for the group."
+        },
+        "GroupCertificateAuthorityId": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the certificate authority for the group."
+        }
+      },
+      "type": "object",
+      "title": "GroupCertificateAuthorityProperties"
+    },
+    "GroupCertificateConfiguration": {
+      "description": "Information on the group certificate configuration",
+      "properties": {
+        "CertificateAuthorityExpiryInMilliseconds": {
+          "$ref": "#/definitions/__string",
+          "description": "Amount of time when the certificate authority expires in milliseconds."
+        },
+        "CertificateExpiryInMilliseconds": {
+          "$ref": "#/definitions/__string",
+          "description": "Amount of time when the certificate expires in milliseconds."
+        },
+        "GroupId": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the group the certificate configuration belongs to."
+        }
+      },
+      "type": "object",
+      "title": "GroupCertificateConfiguration"
+    },
+    "GroupInformation": {
+      "description": "Information on the group",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of a group."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the group was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of a group."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Last updated timestamp of the group."
+        },
+        "LatestVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Last version of the group."
+        },
+        "LatestVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Latest version arn of the group."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of a group."
+        }
+      },
+      "type": "object",
+      "title": "GroupInformation"
+    },
+    "GroupVersion": {
+      "description": "Information on group version",
+      "properties": {
+        "CoreDefinitionVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Core definition version arn for this group."
+        },
+        "DeviceDefinitionVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Device definition version arn for this group."
+        },
+        "FunctionDefinitionVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Function definition version arn for this group."
+        },
+        "LoggerDefinitionVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Logger definitionv ersion arn for this group."
+        },
+        "SubscriptionDefinitionVersionArn": {
+          "$ref": "#/definitions/__string",
+          "description": "Subscription definition version arn for this group."
+        }
+      },
+      "type": "object",
+      "title": "GroupVersion"
+    },
+    "InternalServerErrorException": {
+      "description": "General Error",
+      "properties": {
+        "ErrorDetails": {
+          "$ref": "#/definitions/ErrorDetails",
+          "description": "Error Details"
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "Message containing information about the error"
+        }
+      },
+      "type": "object",
+      "title": "InternalServerErrorException"
+    },
+    "ListCoreDefinitionVersionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListCoreDefinitionVersionsRequest"
+    },
+    "ListCoreDefinitionVersionsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        },
+        "Versions": {
+          "$ref": "#/definitions/ListOfVersionInformation",
+          "description": "Versions"
+        }
+      },
+      "type": "object",
+      "title": "ListCoreDefinitionVersionsResponse"
+    },
+    "ListCoreDefinitionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListCoreDefinitionsRequest"
+    },
+    "ListCoreDefinitionsResponse": {
+      "properties": {
+        "Definitions": {
+          "$ref": "#/definitions/ListOfDefinitionInformation",
+          "description": "Definitions"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        }
+      },
+      "type": "object",
+      "title": "ListCoreDefinitionsResponse"
+    },
+    "ListDefinitionsResponse": {
+      "description": "List of definition responses",
+      "properties": {
+        "Definitions": {
+          "$ref": "#/definitions/ListOfDefinitionInformation",
+          "description": "Definitions"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        }
+      },
+      "type": "object",
+      "title": "ListDefinitionsResponse"
+    },
+    "ListDeploymentsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListDeploymentsRequest"
+    },
+    "ListDeploymentsResponse": {
+      "properties": {
+        "Deployments": {
+          "$ref": "#/definitions/Deployments",
+          "description": "List of deployments for the requested groups"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        }
+      },
+      "type": "object",
+      "title": "ListDeploymentsResponse"
+    },
+    "ListDeviceDefinitionVersionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListDeviceDefinitionVersionsRequest"
+    },
+    "ListDeviceDefinitionVersionsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        },
+        "Versions": {
+          "$ref": "#/definitions/ListOfVersionInformation",
+          "description": "Versions"
+        }
+      },
+      "type": "object",
+      "title": "ListDeviceDefinitionVersionsResponse"
+    },
+    "ListDeviceDefinitionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListDeviceDefinitionsRequest"
+    },
+    "ListDeviceDefinitionsResponse": {
+      "properties": {
+        "Definitions": {
+          "$ref": "#/definitions/ListOfDefinitionInformation",
+          "description": "Definitions"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        }
+      },
+      "type": "object",
+      "title": "ListDeviceDefinitionsResponse"
+    },
+    "ListFunctionDefinitionVersionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListFunctionDefinitionVersionsRequest"
+    },
+    "ListFunctionDefinitionVersionsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        },
+        "Versions": {
+          "$ref": "#/definitions/ListOfVersionInformation",
+          "description": "Versions"
+        }
+      },
+      "type": "object",
+      "title": "ListFunctionDefinitionVersionsResponse"
+    },
+    "ListFunctionDefinitionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListFunctionDefinitionsRequest"
+    },
+    "ListFunctionDefinitionsResponse": {
+      "properties": {
+        "Definitions": {
+          "$ref": "#/definitions/ListOfDefinitionInformation",
+          "description": "Definitions"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        }
+      },
+      "type": "object",
+      "title": "ListFunctionDefinitionsResponse"
+    },
+    "ListGroupCertificateAuthoritiesRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListGroupCertificateAuthoritiesRequest"
+    },
+    "ListGroupCertificateAuthoritiesResponse": {
+      "properties": {
+        "GroupCertificateAuthorities": {
+          "$ref": "#/definitions/ListOfGroupCertificateAuthorityProperties",
+          "description": "List of certificate authorities associated with the group."
+        }
+      },
+      "type": "object",
+      "title": "ListGroupCertificateAuthoritiesResponse"
+    },
+    "ListGroupVersionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListGroupVersionsRequest"
+    },
+    "ListGroupVersionsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        },
+        "Versions": {
+          "$ref": "#/definitions/ListOfVersionInformation",
+          "description": "Versions"
+        }
+      },
+      "type": "object",
+      "title": "ListGroupVersionsResponse"
+    },
+    "ListGroupsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListGroupsRequest"
+    },
+    "ListGroupsResponse": {
+      "properties": {
+        "Groups": {
+          "$ref": "#/definitions/ListOfGroupInformation",
+          "description": "Groups"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        }
+      },
+      "type": "object",
+      "title": "ListGroupsResponse"
+    },
+    "ListLoggerDefinitionVersionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListLoggerDefinitionVersionsRequest"
+    },
+    "ListLoggerDefinitionVersionsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        },
+        "Versions": {
+          "$ref": "#/definitions/ListOfVersionInformation",
+          "description": "Versions"
+        }
+      },
+      "type": "object",
+      "title": "ListLoggerDefinitionVersionsResponse"
+    },
+    "ListLoggerDefinitionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListLoggerDefinitionsRequest"
+    },
+    "ListLoggerDefinitionsResponse": {
+      "properties": {
+        "Definitions": {
+          "$ref": "#/definitions/ListOfDefinitionInformation",
+          "description": "Definitions"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        }
+      },
+      "type": "object",
+      "title": "ListLoggerDefinitionsResponse"
+    },
+    "ListOfConnectivityInfo": {
+      "items": {
+        "$ref": "#/definitions/ConnectivityInfo"
+      },
+      "type": "array",
+      "title": "ListOfConnectivityInfo"
+    },
+    "ListOfCore": {
+      "items": {
+        "$ref": "#/definitions/Core"
+      },
+      "type": "array",
+      "title": "ListOfCore"
+    },
+    "ListOfDefinitionInformation": {
+      "items": {
+        "$ref": "#/definitions/DefinitionInformation"
+      },
+      "type": "array",
+      "title": "ListOfDefinitionInformation"
+    },
+    "ListOfDevice": {
+      "items": {
+        "$ref": "#/definitions/Device"
+      },
+      "type": "array",
+      "title": "ListOfDevice"
+    },
+    "ListOfFunction": {
+      "items": {
+        "$ref": "#/definitions/Function"
+      },
+      "type": "array",
+      "title": "ListOfFunction"
+    },
+    "ListOfGroupCertificateAuthorityProperties": {
+      "items": {
+        "$ref": "#/definitions/GroupCertificateAuthorityProperties"
+      },
+      "type": "array",
+      "title": "ListOfGroupCertificateAuthorityProperties"
+    },
+    "ListOfGroupInformation": {
+      "items": {
+        "$ref": "#/definitions/GroupInformation"
+      },
+      "type": "array",
+      "title": "ListOfGroupInformation"
+    },
+    "ListOfLogger": {
+      "items": {
+        "$ref": "#/definitions/Logger"
+      },
+      "type": "array",
+      "title": "ListOfLogger"
+    },
+    "ListOfSubscription": {
+      "items": {
+        "$ref": "#/definitions/Subscription"
+      },
+      "type": "array",
+      "title": "ListOfSubscription"
+    },
+    "ListOfVersionInformation": {
+      "items": {
+        "$ref": "#/definitions/VersionInformation"
+      },
+      "type": "array",
+      "title": "ListOfVersionInformation"
+    },
+    "ListSubscriptionDefinitionVersionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListSubscriptionDefinitionVersionsRequest"
+    },
+    "ListSubscriptionDefinitionVersionsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        },
+        "Versions": {
+          "$ref": "#/definitions/ListOfVersionInformation",
+          "description": "Versions"
+        }
+      },
+      "type": "object",
+      "title": "ListSubscriptionDefinitionVersionsResponse"
+    },
+    "ListSubscriptionDefinitionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListSubscriptionDefinitionsRequest"
+    },
+    "ListSubscriptionDefinitionsResponse": {
+      "properties": {
+        "Definitions": {
+          "$ref": "#/definitions/ListOfDefinitionInformation",
+          "description": "Definitions"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        }
+      },
+      "type": "object",
+      "title": "ListSubscriptionDefinitionsResponse"
+    },
+    "ListVersionsResponse": {
+      "description": "List of versions response",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token for the next set of results, or ''null'' if there are no additional results."
+        },
+        "Versions": {
+          "$ref": "#/definitions/ListOfVersionInformation",
+          "description": "Versions"
+        }
+      },
+      "type": "object",
+      "title": "ListVersionsResponse"
+    },
+    "Logger": {
+      "description": "Information on the Logger",
+      "properties": {
+        "Component": {
+          "$ref": "#/definitions/LoggerComponent",
+          "description": "The component that will be subject to logs"
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Element Id for this entry in the list."
+        },
+        "Level": {
+          "$ref": "#/definitions/LoggerLevel",
+          "description": "The level of the logs"
+        },
+        "Space": {
+          "$ref": "#/definitions/__integer",
+          "description": "Amount of hardware space, in KB, to use if file system is used for logging purposes."
+        },
+        "Type": {
+          "$ref": "#/definitions/LoggerType",
+          "description": "The type which will be use for log output"
+        }
+      },
+      "type": "object",
+      "title": "Logger"
+    },
+    "LoggerComponent": {
+      "enum": [
+        "GreengrassSystem",
+        "Lambda"
+      ],
+      "type": "string",
+      "title": "LoggerComponent"
+    },
+    "LoggerDefinitionVersion": {
+      "description": "Information on logger definition version",
+      "properties": {
+        "Loggers": {
+          "$ref": "#/definitions/ListOfLogger",
+          "description": "List of loggers."
+        }
+      },
+      "type": "object",
+      "title": "LoggerDefinitionVersion"
+    },
+    "LoggerLevel": {
+      "enum": [
+        "DEBUG",
+        "INFO",
+        "WARN",
+        "ERROR",
+        "FATAL"
+      ],
+      "type": "string",
+      "title": "LoggerLevel"
+    },
+    "LoggerType": {
+      "enum": [
+        "FileSystem",
+        "AWSCloudWatch"
+      ],
+      "type": "string",
+      "title": "LoggerType"
+    },
+    "MapOf__string": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/__string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOf__string"
+    },
+    "ResetDeploymentsRequest": {
+      "description": "Information needed to perform a reset of a group's deployments.",
+      "properties": {
+        "Force": {
+          "$ref": "#/definitions/__boolean",
+          "description": "When set to true, perform a best-effort only core reset."
+        }
+      },
+      "type": "object",
+      "title": "ResetDeploymentsRequest"
+    },
+    "ResetDeploymentsResponse": {
+      "properties": {
+        "DeploymentArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The arn of the reset deployment."
+        },
+        "DeploymentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The id of the reset deployment."
+        }
+      },
+      "type": "object",
+      "title": "ResetDeploymentsResponse"
+    },
+    "Subscription": {
+      "description": "Information on subscription",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Element Id for this entry in the list."
+        },
+        "Source": {
+          "$ref": "#/definitions/__string",
+          "description": "Source of the subscription. Can be a thing arn, lambda arn or word 'cloud'"
+        },
+        "Subject": {
+          "$ref": "#/definitions/__string",
+          "description": "Subject of the message."
+        },
+        "Target": {
+          "$ref": "#/definitions/__string",
+          "description": "Where the message is sent to. Can be a thing arn, lambda arn or word 'cloud'."
+        }
+      },
+      "type": "object",
+      "title": "Subscription"
+    },
+    "SubscriptionDefinitionVersion": {
+      "description": "Information on subscription definition version",
+      "properties": {
+        "Subscriptions": {
+          "$ref": "#/definitions/ListOfSubscription",
+          "description": "Subscriptions in the version."
+        }
+      },
+      "type": "object",
+      "title": "SubscriptionDefinitionVersion"
+    },
+    "UpdateConnectivityInfoRequest": {
+      "description": "connectivity info request",
+      "properties": {
+        "ConnectivityInfo": {
+          "$ref": "#/definitions/ListOfConnectivityInfo",
+          "description": "Connectivity info list"
+        }
+      },
+      "type": "object",
+      "title": "UpdateConnectivityInfoRequest"
+    },
+    "UpdateConnectivityInfoResponse": {
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "Response Text"
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "New Version"
+        }
+      },
+      "type": "object",
+      "title": "UpdateConnectivityInfoResponse"
+    },
+    "UpdateCoreDefinitionRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "name of the definition"
+        }
+      },
+      "type": "object",
+      "title": "UpdateCoreDefinitionRequest"
+    },
+    "UpdateCoreDefinitionResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateCoreDefinitionResponse"
+    },
+    "UpdateDeviceDefinitionRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "name of the definition"
+        }
+      },
+      "type": "object",
+      "title": "UpdateDeviceDefinitionRequest"
+    },
+    "UpdateDeviceDefinitionResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateDeviceDefinitionResponse"
+    },
+    "UpdateFunctionDefinitionRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "name of the definition"
+        }
+      },
+      "type": "object",
+      "title": "UpdateFunctionDefinitionRequest"
+    },
+    "UpdateFunctionDefinitionResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateFunctionDefinitionResponse"
+    },
+    "UpdateGroupCertificateConfigurationRequest": {
+      "properties": {
+        "CertificateExpiryInMilliseconds": {
+          "$ref": "#/definitions/__string",
+          "description": "Amount of time when the certificate expires in milliseconds."
+        }
+      },
+      "type": "object",
+      "title": "UpdateGroupCertificateConfigurationRequest"
+    },
+    "UpdateGroupCertificateConfigurationResponse": {
+      "properties": {
+        "CertificateAuthorityExpiryInMilliseconds": {
+          "$ref": "#/definitions/__string",
+          "description": "Amount of time when the certificate authority expires in milliseconds."
+        },
+        "CertificateExpiryInMilliseconds": {
+          "$ref": "#/definitions/__string",
+          "description": "Amount of time when the certificate expires in milliseconds."
+        },
+        "GroupId": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the group the certificate configuration belongs to."
+        }
+      },
+      "type": "object",
+      "title": "UpdateGroupCertificateConfigurationResponse"
+    },
+    "UpdateGroupRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "name of the definition"
+        }
+      },
+      "type": "object",
+      "title": "UpdateGroupRequest"
+    },
+    "UpdateGroupResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateGroupResponse"
+    },
+    "UpdateLoggerDefinitionRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "name of the definition"
+        }
+      },
+      "type": "object",
+      "title": "UpdateLoggerDefinitionRequest"
+    },
+    "UpdateLoggerDefinitionResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateLoggerDefinitionResponse"
+    },
+    "UpdateSubscriptionDefinitionRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "name of the definition"
+        }
+      },
+      "type": "object",
+      "title": "UpdateSubscriptionDefinitionRequest"
+    },
+    "UpdateSubscriptionDefinitionResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateSubscriptionDefinitionResponse"
+    },
+    "VersionInformation": {
+      "description": "Information on the version",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Arn of the version."
+        },
+        "CreationTimestamp": {
+          "$ref": "#/definitions/__string",
+          "description": "Timestamp of when the version was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Id of the resource container."
+        },
+        "Version": {
+          "$ref": "#/definitions/__string",
+          "description": "Unique Id of a version."
+        }
+      },
+      "type": "object",
+      "title": "VersionInformation"
+    },
+    "__boolean": {
+      "type": "boolean",
+      "title": "__boolean"
+    },
+    "__double": {
+      "format": "double",
+      "type": "number",
+      "title": "__double"
+    },
+    "__integer": {
+      "type": "integer",
+      "title": "__integer"
+    },
+    "__string": {
+      "type": "string",
+      "title": "__string"
+    },
+    "__timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "__timestamp"
+    }
+  },
+  "actions": [
+    {
+      "id": "ListCoreDefinitions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListCoreDefinitionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListCoreDefinitionsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "UpdateCoreDefinition",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "CoreDefinitionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateCoreDefinitionRequest"
+          }
+        ],
+        "required": [
+          "CoreDefinitionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateCoreDefinitionResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ListCoreDefinitionVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "CoreDefinitionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListCoreDefinitionVersionsRequest"
+          }
+        ],
+        "required": [
+          "CoreDefinitionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListCoreDefinitionVersionsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "GetCoreDefinitionVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "CoreDefinitionId": {
+            "type": "string"
+          },
+          "CoreDefinitionVersionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetCoreDefinitionVersionRequest"
+          }
+        ],
+        "required": [
+          "CoreDefinitionId",
+          "CoreDefinitionVersionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetCoreDefinitionVersionResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ListDeviceDefinitions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListDeviceDefinitionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDeviceDefinitionsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "UpdateDeviceDefinition",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "DeviceDefinitionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateDeviceDefinitionRequest"
+          }
+        ],
+        "required": [
+          "DeviceDefinitionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateDeviceDefinitionResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ListDeviceDefinitionVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "DeviceDefinitionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListDeviceDefinitionVersionsRequest"
+          }
+        ],
+        "required": [
+          "DeviceDefinitionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDeviceDefinitionVersionsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "GetDeviceDefinitionVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "DeviceDefinitionId": {
+            "type": "string"
+          },
+          "DeviceDefinitionVersionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetDeviceDefinitionVersionRequest"
+          }
+        ],
+        "required": [
+          "DeviceDefinitionId",
+          "DeviceDefinitionVersionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDeviceDefinitionVersionResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ListFunctionDefinitions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListFunctionDefinitionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListFunctionDefinitionsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "UpdateFunctionDefinition",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FunctionDefinitionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateFunctionDefinitionRequest"
+          }
+        ],
+        "required": [
+          "FunctionDefinitionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateFunctionDefinitionResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ListFunctionDefinitionVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FunctionDefinitionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListFunctionDefinitionVersionsRequest"
+          }
+        ],
+        "required": [
+          "FunctionDefinitionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListFunctionDefinitionVersionsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "GetFunctionDefinitionVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FunctionDefinitionId": {
+            "type": "string"
+          },
+          "FunctionDefinitionVersionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetFunctionDefinitionVersionRequest"
+          }
+        ],
+        "required": [
+          "FunctionDefinitionId",
+          "FunctionDefinitionVersionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetFunctionDefinitionVersionResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ListLoggerDefinitions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListLoggerDefinitionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListLoggerDefinitionsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "UpdateLoggerDefinition",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "LoggerDefinitionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateLoggerDefinitionRequest"
+          }
+        ],
+        "required": [
+          "LoggerDefinitionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateLoggerDefinitionResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ListLoggerDefinitionVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "LoggerDefinitionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListLoggerDefinitionVersionsRequest"
+          }
+        ],
+        "required": [
+          "LoggerDefinitionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListLoggerDefinitionVersionsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "GetLoggerDefinitionVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "LoggerDefinitionId": {
+            "type": "string"
+          },
+          "LoggerDefinitionVersionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetLoggerDefinitionVersionRequest"
+          }
+        ],
+        "required": [
+          "LoggerDefinitionId",
+          "LoggerDefinitionVersionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetLoggerDefinitionVersionResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ListSubscriptionDefinitions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListSubscriptionDefinitionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListSubscriptionDefinitionsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "UpdateSubscriptionDefinition",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "SubscriptionDefinitionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateSubscriptionDefinitionRequest"
+          }
+        ],
+        "required": [
+          "SubscriptionDefinitionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateSubscriptionDefinitionResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ListSubscriptionDefinitionVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "SubscriptionDefinitionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListSubscriptionDefinitionVersionsRequest"
+          }
+        ],
+        "required": [
+          "SubscriptionDefinitionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListSubscriptionDefinitionVersionsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "GetSubscriptionDefinitionVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "SubscriptionDefinitionId": {
+            "type": "string"
+          },
+          "SubscriptionDefinitionVersionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetSubscriptionDefinitionVersionRequest"
+          }
+        ],
+        "required": [
+          "SubscriptionDefinitionId",
+          "SubscriptionDefinitionVersionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetSubscriptionDefinitionVersionResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ListGroups",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListGroupsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListGroupsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "UpdateGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "GroupId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateGroupRequest"
+          }
+        ],
+        "required": [
+          "GroupId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateGroupResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ListGroupCertificateAuthorities",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "GroupId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListGroupCertificateAuthoritiesRequest"
+          }
+        ],
+        "required": [
+          "GroupId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListGroupCertificateAuthoritiesResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "UpdateGroupCertificateConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "GroupId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateGroupCertificateConfigurationRequest"
+          }
+        ],
+        "required": [
+          "GroupId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateGroupCertificateConfigurationResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "GetGroupCertificateAuthority",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "GroupId": {
+            "type": "string"
+          },
+          "CertificateAuthorityId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetGroupCertificateAuthorityRequest"
+          }
+        ],
+        "required": [
+          "GroupId",
+          "CertificateAuthorityId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetGroupCertificateAuthorityResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ListDeployments",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "GroupId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListDeploymentsRequest"
+          }
+        ],
+        "required": [
+          "GroupId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDeploymentsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ResetDeployments",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "GroupId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ResetDeploymentsRequest"
+          }
+        ],
+        "required": [
+          "GroupId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ResetDeploymentsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "GetDeploymentStatus",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "GroupId": {
+            "type": "string"
+          },
+          "DeploymentId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetDeploymentStatusRequest"
+          }
+        ],
+        "required": [
+          "GroupId",
+          "DeploymentId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDeploymentStatusResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "GetAssociatedRole",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "GroupId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetAssociatedRoleRequest"
+          }
+        ],
+        "required": [
+          "GroupId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetAssociatedRoleResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "ListGroupVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "GroupId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListGroupVersionsRequest"
+          }
+        ],
+        "required": [
+          "GroupId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListGroupVersionsResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "GetGroupVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "GroupId": {
+            "type": "string"
+          },
+          "GroupVersionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetGroupVersionRequest"
+          }
+        ],
+        "required": [
+          "GroupId",
+          "GroupVersionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetGroupVersionResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "GetServiceRoleForAccount",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetServiceRoleForAccountRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetServiceRoleForAccountResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    },
+    {
+      "id": "UpdateConnectivityInfo",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ThingName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateConnectivityInfoRequest"
+          }
+        ],
+        "required": [
+          "ThingName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateConnectivityInfoResponse"
+      },
+      "security": {
+        "amazonaws_greengrass": {
+          "integration": "amazonaws_greengrass"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

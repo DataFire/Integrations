@@ -1,0 +1,161 @@
+{
+  "id": "haloapi_ugc",
+  "title": "UGC",
+  "description": "API that provides Metadata about User-Generated Content (Maps and Game Variants).",
+  "security": {
+    "haloapi_ugc": {
+      "integration": "haloapi_ugc",
+      "fields": {
+        "apiKeyHeader": "API key",
+        "apiKeyQuery": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/haloapi_ugc.jpeg"
+  },
+  "actionCount": 4,
+  "actions": [
+    {
+      "id": "h5.players.player.gamevariants.get",
+      "title": "h5.players.player.gamevariants.get",
+      "description": "Retrieves a list of Game Variants created by a Player.\n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"List Game Variants\" to \"Halo 5 - Player Game Variants\".\n*   Removed \"{title}\" Request Parameter.\n\n\n\n\n\n**August 5, 2016:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "player": {
+            "type": "string",
+            "description": "The Gamertag of the Player that owns the listed Game Variants."
+          },
+          "start": {
+            "type": "number",
+            "description": "When specified, this indicates the starting index (0-based) for which the list of results will begin at."
+          },
+          "count": {
+            "type": "number",
+            "description": "When specified, this indicates the maximum quantity of items the caller would like returned in the response."
+          },
+          "sort": {
+            "type": "number",
+            "description": "When specified, this indicates what field should be used to sort the results as the primary sort order. When omitted, \"modified\" (descending) is the assumed primary sort order. Allowed sort fields are: name, description, accessibility, created, modified, bookmarkCount."
+          },
+          "order": {
+            "type": "number",
+            "description": "When specified, this indicates the ordering that will be applied. When omitted, \"desc\" is assumed. Allowed order values are: asc, desc."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "player"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_ugc": {
+          "integration": "haloapi_ugc"
+        }
+      }
+    },
+    {
+      "id": "h5.players.player.gamevariants.variant.get",
+      "title": "h5.players.player.gamevariants.variant.get",
+      "description": "Retrieves Metadata about a Player-created Game Variant.\n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Get Game Variant\" to \"Halo 5 - Player Game Variant\".\n*   Removed \"{title}\" Request Parameter.\n\n\n\n\n\n**August 5, 2016:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "player": {
+            "type": "string",
+            "description": "The Gamertag of the Player that owns the Game Variant."
+          },
+          "variant": {
+            "type": "string",
+            "description": "The ID for the Game Variant."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "player",
+          "variant"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_ugc": {
+          "integration": "haloapi_ugc"
+        }
+      }
+    },
+    {
+      "id": "h5.players.player.mapvariants.get",
+      "title": "h5.players.player.mapvariants.get",
+      "description": "Retrieves a list Map Variants created by a Player.\n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"List Map Variants\" to \"Halo 5 - Player Map Variants\".\n*   Removed \"{title}\" Request Parameter.\n\n\n\n\n\n**August 5, 2016:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "player": {
+            "type": "string",
+            "description": "The Gamertag of the Player that owns the listed Map Variants."
+          },
+          "start": {
+            "type": "number",
+            "description": "When specified, this indicates the starting index (0-based) for which the list of results will begin at."
+          },
+          "count": {
+            "type": "number",
+            "description": "When specified, this indicates the maximum quantity of items the caller would like returned in the response."
+          },
+          "sort": {
+            "type": "number",
+            "description": "When specified, this indicates what field should be used to sort the results as the primary sort order. When omitted, \"modified\" (descending) is the assumed primary sort order. Allowed sort fields are: name, description, accessibility, created, modified, bookmarkCount."
+          },
+          "order": {
+            "type": "number",
+            "description": "When specified, this indicates the ordering that will be applied. When omitted, \"desc\" is assumed. Allowed order values are: asc, desc."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "player"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_ugc": {
+          "integration": "haloapi_ugc"
+        }
+      }
+    },
+    {
+      "id": "h5.players.player.mapvariants.variant.get",
+      "title": "h5.players.player.mapvariants.variant.get",
+      "description": "Retrieves Metadata about a Player-created Map Variant.\n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Get Map Variant\" to \"Halo 5 - Player Map Variant\".\n*   Removed \"{title}\" Request Parameter.\n\n\n\n\n\n**August 5, 2016:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "player": {
+            "type": "string",
+            "description": "The Gamertag of the Player that owns the Map Variant."
+          },
+          "variant": {
+            "type": "string",
+            "description": "The ID for the Map Variant."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "player",
+          "variant"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_ugc": {
+          "integration": "haloapi_ugc"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "entertainment"
+  ]
+}

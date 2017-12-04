@@ -1,0 +1,517 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "data.mediastore.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3 service. Objects are the fundamental entities that are stored in AWS Elemental MediaStore.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Elemental MediaStore Data Plane",
+    "version": "2017-09-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mediastore-data-2017-09-01.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "data.mediastore",
+    "x-datafire": {
+      "name": "amazonaws_data_mediastore",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/mediastore/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "description": "Provides a list of metadata entries about folders and objects in the specified folder.",
+        "operationId": "ListItems",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListItemsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListItemsResponse"
+            }
+          },
+          "480": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/{Path}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Uploads an object to the specified path. Object sizes are limited to 10 MB.",
+        "operationId": "PutObject",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutObjectRequest"
+            }
+          },
+          {
+            "collectionFormat": "csv",
+            "in": "path",
+            "items": {
+              "type": "string"
+            },
+            "name": "Path",
+            "required": true,
+            "type": "array"
+          },
+          {
+            "in": "query",
+            "name": "Path",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutObjectResponse"
+            }
+          },
+          "480": {
+            "description": "ContainerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ContainerNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ContainerNotFoundException": {
+      "description": "The specified container was not found for the specified account.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ContentRangePattern": {
+      "pattern": "^bytes=\\d+\\-\\d+/\\d+$",
+      "type": "string"
+    },
+    "ContentType": {
+      "pattern": "^[\\w\\-\\/\\.]{1,255}$",
+      "type": "string"
+    },
+    "DeleteObjectRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteObjectResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeObjectRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeObjectResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "ETag": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[0-9A-Fa-f]+",
+      "type": "string"
+    },
+    "ErrorMessage": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[ \\w:\\.\\?-]+",
+      "type": "string"
+    },
+    "GetObjectRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetObjectResponse": {
+      "properties": {
+        "Body": {
+          "$ref": "#/definitions/PayloadBlob",
+          "description": "<p>The path to the file outside of the container. The file name can include or omit an extension. </p> <p>Example 1: If the file is stored on a remote server that has been mounted to the workstation on which the REST API command is being run, the path could be the absolute path <code> \\mount\\assets\\mlaw.avi</code> or the relative path <code>..\\..\\mount\\assets\\movies\\premium\\mlaw.avi</code>.</p> <p>Example 2: If the file is stored on a remote server that is not mounted, the path could be <code>https:\\\\192.0.2.15\\movies\\premium\\mlaw.avi</code>.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "InternalServerError": {
+      "description": "The service is temporarily unavailable.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "Item": {
+      "description": "A metadata entry for a folder or object.",
+      "properties": {
+        "ContentLength": {
+          "$ref": "#/definitions/NonNegativeLong",
+          "description": "The length of the item in bytes."
+        },
+        "ContentType": {
+          "$ref": "#/definitions/ContentType",
+          "description": "The content type of the item."
+        },
+        "ETag": {
+          "$ref": "#/definitions/ETag",
+          "description": "The ETag that represents a unique instance of the item."
+        },
+        "LastModified": {
+          "$ref": "#/definitions/TimeStamp",
+          "description": "The date and time that the item was last modified."
+        },
+        "Name": {
+          "$ref": "#/definitions/ItemName",
+          "description": "The name of the item."
+        },
+        "Type": {
+          "$ref": "#/definitions/ItemType",
+          "description": "The item type (folder or object)."
+        }
+      },
+      "type": "object"
+    },
+    "ItemList": {
+      "items": {
+        "$ref": "#/definitions/Item"
+      },
+      "type": "array"
+    },
+    "ItemName": {
+      "pattern": "[A-Za-z0-9_\\.\\-\\~]+",
+      "type": "string"
+    },
+    "ItemType": {
+      "enum": [
+        "OBJECT",
+        "FOLDER"
+      ],
+      "type": "string"
+    },
+    "ListItemsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListItemsResponse": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/ItemList",
+          "description": "Metadata entries for the folders and objects at the requested path."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The <code>NextToken</code> used to request the next page of results using <code>ListItems</code>."
+        }
+      },
+      "type": "object"
+    },
+    "ListLimit": {
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListPathNaming": {
+      "maxLength": 900,
+      "minLength": 0,
+      "pattern": "/?(?:[A-Za-z0-9_\\.\\-\\~]+/){0,10}(?:[A-Za-z0-9_\\.\\-\\~]+)?/?",
+      "type": "string"
+    },
+    "NonNegativeLong": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ObjectNotFoundException": {
+      "description": "Could not perform an operation on an object that does not exist.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "PaginationToken": {
+      "type": "string"
+    },
+    "PathNaming": {
+      "maxLength": 900,
+      "minLength": 1,
+      "pattern": "(?:[A-Za-z0-9_\\.\\-\\~]+/){0,10}[A-Za-z0-9_\\.\\-\\~]+",
+      "type": "string"
+    },
+    "PayloadBlob": {
+      "type": "string"
+    },
+    "PutObjectRequest": {
+      "properties": {
+        "Body": {
+          "$ref": "#/definitions/PayloadBlob",
+          "description": "<p>The path to the file outside of the container. The file name can include or omit an extension. </p> <p>Example 1: If the file is stored on a remote server that has been mounted to the workstation on which the REST API command is being run, the path could be the absolute path <code> \\mount\\assets\\mlaw.avi</code> or the relative path <code>..\\..\\mount\\assets\\movies\\premium\\mlaw.avi</code>.</p> <p>Example 2: If the file is stored on a remote server that is not mounted, the path could be <code>https:\\\\192.0.2.15\\movies\\premium\\mlaw.avi</code>.</p>"
+        }
+      },
+      "required": [
+        "Body"
+      ],
+      "type": "object"
+    },
+    "PutObjectResponse": {
+      "properties": {
+        "ContentSHA256": {
+          "$ref": "#/definitions/SHA256Hash",
+          "description": "The SHA256 digest of the object that is persisted."
+        },
+        "ETag": {
+          "$ref": "#/definitions/ETag",
+          "description": "Unique identifier of the object in the container."
+        },
+        "StorageClass": {
+          "$ref": "#/definitions/StorageClass",
+          "description": "The storage class where the object was persisted. Should be “Temporal”."
+        }
+      },
+      "type": "object"
+    },
+    "RangePattern": {
+      "pattern": "^bytes=(?:\\d+\\-\\d*|\\d*\\-\\d+)$",
+      "type": "string"
+    },
+    "RequestedRangeNotSatisfiableException": {
+      "description": "The requested content range is not valid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "SHA256Hash": {
+      "maxLength": 64,
+      "minLength": 64,
+      "pattern": "[0-9A-Fa-f]{64}",
+      "type": "string"
+    },
+    "StorageClass": {
+      "enum": [
+        "TEMPORAL"
+      ],
+      "maxLength": 16,
+      "minLength": 1,
+      "type": "string"
+    },
+    "StringPrimitive": {
+      "type": "string"
+    },
+    "TimeStamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "statusCode": {
+      "type": "integer"
+    }
+  }
+}

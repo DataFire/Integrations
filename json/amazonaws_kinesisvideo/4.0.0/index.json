@@ -1,0 +1,874 @@
+{
+  "id": "amazonaws_kinesisvideo",
+  "title": "Amazon Kinesis Video Streams",
+  "description": "<p/>",
+  "security": {
+    "amazonaws_kinesisvideo": {
+      "integration": "amazonaws_kinesisvideo",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesisvideo.jpeg"
+  },
+  "actionCount": 10,
+  "definitions": {
+    "APIName": {
+      "enum": [
+        "PUT_MEDIA",
+        "GET_MEDIA",
+        "LIST_FRAGMENTS",
+        "GET_MEDIA_FOR_FRAGMENT_LIST"
+      ],
+      "type": "string",
+      "title": "APIName"
+    },
+    "AccountStreamLimitExceededException": {
+      "description": "The number of streams created for the account is too high.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "AccountStreamLimitExceededException"
+    },
+    "ClientLimitExceededException": {
+      "description": "Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ClientLimitExceededException"
+    },
+    "ComparisonOperator": {
+      "enum": [
+        "BEGINS_WITH"
+      ],
+      "type": "string",
+      "title": "ComparisonOperator"
+    },
+    "CreateStreamInput": {
+      "properties": {
+        "DataRetentionInHours": {
+          "$ref": "#/definitions/DataRetentionInHours",
+          "description": "<p>The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.</p> <p>The default value is 0, indicating that the stream does not persist data.</p>"
+        },
+        "DeviceName": {
+          "$ref": "#/definitions/DeviceName",
+          "description": "<p>The name of the device that is writing to the stream. </p> <note> <p>In the current implementation, Kinesis Video Streams does not use this name.</p> </note>"
+        },
+        "KmsKeyId": {
+          "$ref": "#/definitions/KmsKeyId",
+          "description": "<p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p> <p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p> <p> For more information, see <a href=\"http://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\">DescribeKey</a>. </p>"
+        },
+        "MediaType": {
+          "$ref": "#/definitions/MediaType",
+          "description": "<p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href=\"https://tools.ietf.org/html/rfc6838#section-4.2\">Naming Requirements</a> for guidelines.</p> <p>To play video on the console, the media must be H.264 encoded, and you need to specify this video type in this parameter as <code>video/h264</code>. </p> <p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>"
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "<p>A name for the stream that you are creating.</p> <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>"
+        }
+      },
+      "required": [
+        "StreamName"
+      ],
+      "type": "object",
+      "title": "CreateStreamInput"
+    },
+    "CreateStreamOutput": {
+      "properties": {
+        "StreamARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the stream."
+        }
+      },
+      "type": "object",
+      "title": "CreateStreamOutput"
+    },
+    "DataEndpoint": {
+      "type": "string",
+      "title": "DataEndpoint"
+    },
+    "DataRetentionChangeInHours": {
+      "minimum": 1,
+      "type": "integer",
+      "title": "DataRetentionChangeInHours"
+    },
+    "DataRetentionInHours": {
+      "minimum": 0,
+      "type": "integer",
+      "title": "DataRetentionInHours"
+    },
+    "DeleteStreamInput": {
+      "properties": {
+        "CurrentVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "<p>Optional: The version of the stream that you want to delete. </p> <p>Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the <code>DescribeStream</code> API.</p> <p>If not specified, only the <code>CreationTime</code> is checked before deleting the stream.</p>"
+        },
+        "StreamARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the stream that you want to delete. "
+        }
+      },
+      "required": [
+        "StreamARN"
+      ],
+      "type": "object",
+      "title": "DeleteStreamInput"
+    },
+    "DeleteStreamOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteStreamOutput"
+    },
+    "DescribeStreamInput": {
+      "properties": {
+        "StreamARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the stream."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream."
+        }
+      },
+      "type": "object",
+      "title": "DescribeStreamInput"
+    },
+    "DescribeStreamOutput": {
+      "properties": {
+        "StreamInfo": {
+          "$ref": "#/definitions/StreamInfo",
+          "description": "An object that describes the stream."
+        }
+      },
+      "type": "object",
+      "title": "DescribeStreamOutput"
+    },
+    "DeviceName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_.-]+",
+      "type": "string",
+      "title": "DeviceName"
+    },
+    "DeviceStreamLimitExceededException": {
+      "description": "Not implemented. ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "DeviceStreamLimitExceededException"
+    },
+    "ErrorMessage": {
+      "type": "string",
+      "title": "ErrorMessage"
+    },
+    "GetDataEndpointInput": {
+      "properties": {
+        "APIName": {
+          "$ref": "#/definitions/APIName",
+          "description": "The name of the API action for which to get an endpoint."
+        },
+        "StreamARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for. You must specify either this parameter or a <code>StreamName</code> in the request. "
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream that you want to get the endpoint for. You must specify either this parameter or a <code>StreamARN</code> in the request."
+        }
+      },
+      "required": [
+        "APIName"
+      ],
+      "type": "object",
+      "title": "GetDataEndpointInput"
+    },
+    "GetDataEndpointOutput": {
+      "properties": {
+        "DataEndpoint": {
+          "$ref": "#/definitions/DataEndpoint",
+          "description": "The endpoint value. To read data from the stream or to write data to it, specify this endpoint in your application."
+        }
+      },
+      "type": "object",
+      "title": "GetDataEndpointOutput"
+    },
+    "InvalidArgumentException": {
+      "description": "The value for this input parameter is invalid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidArgumentException"
+    },
+    "InvalidDeviceException": {
+      "description": "Not implemented.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidDeviceException"
+    },
+    "InvalidResourceFormatException": {
+      "description": "The format of the <code>StreamARN</code> is invalid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidResourceFormatException"
+    },
+    "KmsKeyId": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string",
+      "title": "KmsKeyId"
+    },
+    "ListStreamsInput": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/ListStreamsInputLimit",
+          "description": "The maximum number of streams to return in the response. The default is 10,000."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If you specify this parameter, when the result of a <code>ListStreams</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of streams, provide this token in your next request."
+        },
+        "StreamNameCondition": {
+          "$ref": "#/definitions/StreamNameCondition",
+          "description": "Optional: Returns only streams that satisfy a specific condition. Currently, you can specify only the prefix of a stream name as a condition. "
+        }
+      },
+      "type": "object",
+      "title": "ListStreamsInput"
+    },
+    "ListStreamsInputLimit": {
+      "maximum": 10000,
+      "minimum": 1,
+      "type": "integer",
+      "title": "ListStreamsInputLimit"
+    },
+    "ListStreamsOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request. "
+        },
+        "StreamInfoList": {
+          "$ref": "#/definitions/StreamInfoList",
+          "description": "An array of <code>StreamInfo</code> objects."
+        }
+      },
+      "type": "object",
+      "title": "ListStreamsOutput"
+    },
+    "ListTagsForStreamInput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If you specify this parameter and the result of a <code>ListTagsForStream</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags."
+        },
+        "StreamARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the stream that you want to list tags for."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream that you want to list tags for."
+        }
+      },
+      "type": "object",
+      "title": "ListTagsForStreamInput"
+    },
+    "ListTagsForStreamOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If you specify this parameter and the result of a <code>ListTags</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags."
+        },
+        "Tags": {
+          "$ref": "#/definitions/ResourceTags",
+          "description": "A map of tag keys and values associated with the specified stream."
+        }
+      },
+      "type": "object",
+      "title": "ListTagsForStreamOutput"
+    },
+    "MediaType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w\\-\\.\\+]+/[\\w\\-\\.\\+]+",
+      "type": "string",
+      "title": "MediaType"
+    },
+    "NextToken": {
+      "maxLength": 512,
+      "minLength": 0,
+      "type": "string",
+      "title": "NextToken"
+    },
+    "NotAuthorizedException": {
+      "description": "The caller is not authorized to perform this operation.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "NotAuthorizedException"
+    },
+    "ResourceARN": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+",
+      "type": "string",
+      "title": "ResourceARN"
+    },
+    "ResourceInUseException": {
+      "description": "The stream is currently not available for this operation.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ResourceInUseException"
+    },
+    "ResourceNotFoundException": {
+      "description": "Amazon Kinesis Video Streams can't find the stream that you specified.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "ResourceTags": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/TagKey"
+          },
+          "value": {
+            "$ref": "#/definitions/TagValue"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array",
+      "title": "ResourceTags"
+    },
+    "Status": {
+      "enum": [
+        "CREATING",
+        "ACTIVE",
+        "UPDATING",
+        "DELETING"
+      ],
+      "type": "string",
+      "title": "Status"
+    },
+    "StreamInfo": {
+      "description": "An object describing a Kinesis video stream.",
+      "properties": {
+        "CreationTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "A time stamp that indicates when the stream was created."
+        },
+        "DataRetentionInHours": {
+          "$ref": "#/definitions/DataRetentionInHours",
+          "description": "How long the stream retains data, in hours."
+        },
+        "DeviceName": {
+          "$ref": "#/definitions/DeviceName",
+          "description": "The name of the device that is associated with the stream."
+        },
+        "KmsKeyId": {
+          "$ref": "#/definitions/KmsKeyId",
+          "description": "The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream."
+        },
+        "MediaType": {
+          "$ref": "#/definitions/MediaType",
+          "description": "The <code>MediaType</code> of the stream. "
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "The status of the stream."
+        },
+        "StreamARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the stream."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream."
+        },
+        "Version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the stream."
+        }
+      },
+      "type": "object",
+      "title": "StreamInfo"
+    },
+    "StreamInfoList": {
+      "items": {
+        "$ref": "#/definitions/StreamInfo"
+      },
+      "type": "array",
+      "title": "StreamInfoList"
+    },
+    "StreamName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_.-]+",
+      "type": "string",
+      "title": "StreamName"
+    },
+    "StreamNameCondition": {
+      "description": "Specifies the condition that streams must satisfy to be returned when you list streams (see the <code>ListStreams</code> API). A condition has a comparison operation and a value. Currently, you can specify only the <code>BEGINS_WITH</code> operator, which finds streams whose names start with a given prefix. ",
+      "properties": {
+        "ComparisonOperator": {
+          "$ref": "#/definitions/ComparisonOperator",
+          "description": "A comparison operator. Currently, you can specify only the <code>BEGINS_WITH</code> operator, which finds streams whose names start with a given prefix."
+        },
+        "ComparisonValue": {
+          "$ref": "#/definitions/StreamName",
+          "description": "A value to compare."
+        }
+      },
+      "type": "object",
+      "title": "StreamNameCondition"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array",
+      "title": "TagKeyList"
+    },
+    "TagStreamInput": {
+      "properties": {
+        "StreamARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream that you want to add the tag or tags to."
+        },
+        "Tags": {
+          "$ref": "#/definitions/ResourceTags",
+          "description": "A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional)."
+        }
+      },
+      "required": [
+        "Tags"
+      ],
+      "type": "object",
+      "title": "TagStreamInput"
+    },
+    "TagStreamOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "TagStreamOutput"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string",
+      "title": "TagValue"
+    },
+    "TagsPerResourceExceededLimitException": {
+      "description": "You have exceeded the limit of tags that you can associate with the resource. Kinesis video streams support up to 50 tags. ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "TagsPerResourceExceededLimitException"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "UntagStreamInput": {
+      "properties": {
+        "StreamARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the stream that you want to remove tags from."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream that you want to remove tags from."
+        },
+        "TagKeyList": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "A list of the keys of the tags that you want to remove."
+        }
+      },
+      "required": [
+        "TagKeyList"
+      ],
+      "type": "object",
+      "title": "UntagStreamInput"
+    },
+    "UntagStreamOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "UntagStreamOutput"
+    },
+    "UpdateDataRetentionInput": {
+      "properties": {
+        "CurrentVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the stream whose retention period you want to change. To get the version, call either the <code>DescribeStream</code> or the <code>ListStreams</code> API."
+        },
+        "DataRetentionChangeInHours": {
+          "$ref": "#/definitions/DataRetentionChangeInHours",
+          "description": "The retention period, in hours. The value you specify replaces the current value."
+        },
+        "Operation": {
+          "$ref": "#/definitions/UpdateDataRetentionOperation",
+          "description": "Indicates whether you want to increase or decrease the retention period."
+        },
+        "StreamARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the stream whose retention period you want to change."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream whose retention period you want to change."
+        }
+      },
+      "required": [
+        "CurrentVersion",
+        "Operation",
+        "DataRetentionChangeInHours"
+      ],
+      "type": "object",
+      "title": "UpdateDataRetentionInput"
+    },
+    "UpdateDataRetentionOperation": {
+      "enum": [
+        "INCREASE_DATA_RETENTION",
+        "DECREASE_DATA_RETENTION"
+      ],
+      "type": "string",
+      "title": "UpdateDataRetentionOperation"
+    },
+    "UpdateDataRetentionOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateDataRetentionOutput"
+    },
+    "UpdateStreamInput": {
+      "properties": {
+        "CurrentVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the stream whose metadata you want to update."
+        },
+        "DeviceName": {
+          "$ref": "#/definitions/DeviceName",
+          "description": "<p>The name of the device that is writing to the stream. </p> <note> <p> In the current implementation, Kinesis Video Streams does not use this name. </p> </note>"
+        },
+        "MediaType": {
+          "$ref": "#/definitions/MediaType",
+          "description": "<p>The stream's media type. Use <code>MediaType</code> to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href=\"https://tools.sietf.org/html/rfc6838#section-4.2\">Naming Requirements</a>.</p> <p>To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify <code>video/h264</code> as the <code>MediaType</code>.</p>"
+        },
+        "StreamARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The ARN of the stream whose metadata you want to update."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "<p>The name of the stream whose metadata you want to update.</p> <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>"
+        }
+      },
+      "required": [
+        "CurrentVersion"
+      ],
+      "type": "object",
+      "title": "UpdateStreamInput"
+    },
+    "UpdateStreamOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateStreamOutput"
+    },
+    "Version": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9]+",
+      "type": "string",
+      "title": "Version"
+    },
+    "VersionMismatchException": {
+      "description": "The stream version that you specified is not the latest version. To get the latest version, use the <a href=\"http://docs.aws.amazon.com/kinesisvideo/latest/dg/API_DescribeStream.html\">DescribeStream</a> API.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "VersionMismatchException"
+    }
+  },
+  "actions": [
+    {
+      "id": "CreateStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateStreamOutput"
+      },
+      "security": {
+        "amazonaws_kinesisvideo": {
+          "integration": "amazonaws_kinesisvideo"
+        }
+      }
+    },
+    {
+      "id": "DeleteStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteStreamOutput"
+      },
+      "security": {
+        "amazonaws_kinesisvideo": {
+          "integration": "amazonaws_kinesisvideo"
+        }
+      }
+    },
+    {
+      "id": "DescribeStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeStreamOutput"
+      },
+      "security": {
+        "amazonaws_kinesisvideo": {
+          "integration": "amazonaws_kinesisvideo"
+        }
+      }
+    },
+    {
+      "id": "GetDataEndpoint",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetDataEndpointInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDataEndpointOutput"
+      },
+      "security": {
+        "amazonaws_kinesisvideo": {
+          "integration": "amazonaws_kinesisvideo"
+        }
+      }
+    },
+    {
+      "id": "ListStreams",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListStreamsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListStreamsOutput"
+      },
+      "security": {
+        "amazonaws_kinesisvideo": {
+          "integration": "amazonaws_kinesisvideo"
+        }
+      }
+    },
+    {
+      "id": "ListTagsForStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTagsForStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTagsForStreamOutput"
+      },
+      "security": {
+        "amazonaws_kinesisvideo": {
+          "integration": "amazonaws_kinesisvideo"
+        }
+      }
+    },
+    {
+      "id": "TagStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TagStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TagStreamOutput"
+      },
+      "security": {
+        "amazonaws_kinesisvideo": {
+          "integration": "amazonaws_kinesisvideo"
+        }
+      }
+    },
+    {
+      "id": "UntagStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UntagStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UntagStreamOutput"
+      },
+      "security": {
+        "amazonaws_kinesisvideo": {
+          "integration": "amazonaws_kinesisvideo"
+        }
+      }
+    },
+    {
+      "id": "UpdateDataRetention",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateDataRetentionInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateDataRetentionOutput"
+      },
+      "security": {
+        "amazonaws_kinesisvideo": {
+          "integration": "amazonaws_kinesisvideo"
+        }
+      }
+    },
+    {
+      "id": "UpdateStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateStreamOutput"
+      },
+      "security": {
+        "amazonaws_kinesisvideo": {
+          "integration": "amazonaws_kinesisvideo"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

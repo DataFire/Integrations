@@ -1,0 +1,2346 @@
+{
+  "id": "iqualify",
+  "title": "iQualify",
+  "security": {
+    "iqualify": {
+      "integration": "iqualify",
+      "fields": {
+        "jwt": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/iqualify.png"
+  },
+  "actionCount": 46,
+  "definitions": {
+    "Assessment": {
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "dueDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "markNumber": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "markType": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "openDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "title": "Assessment"
+    },
+    "AssessmentGroupRequired": {
+      "properties": {
+        "title": {
+          "default": "my group #1",
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "title": "AssessmentGroupRequired"
+    },
+    "AssessmentGroupResponse": {
+      "properties": {
+        "createdAt": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "title": "AssessmentGroupResponse"
+    },
+    "AssessmentResponse": {
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "documents": {
+          "items": {
+            "$ref": "#/definitions/Document"
+          },
+          "type": "array"
+        },
+        "dueDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "durationMinutes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "hidden": {
+          "default": false,
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "markNumber": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "markType": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "maxAttempts": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "openDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "points": {
+          "type": "string"
+        },
+        "themes": {
+          "items": {
+            "$ref": "#/definitions/ThemeResponse"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        },
+        "totalQuestions": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalThemes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "AssessmentResponse"
+    },
+    "AssignmentMarkResponse": {
+      "properties": {
+        "assessmentId": {
+          "type": "string"
+        },
+        "assessmentItemDetails": {
+          "type": "string"
+        },
+        "assessmentItemName": {
+          "type": "string"
+        },
+        "courseName": {
+          "type": "string"
+        },
+        "learnerEmail": {
+          "type": "string"
+        },
+        "learnerFirstName": {
+          "type": "string"
+        },
+        "learnerLastName": {
+          "type": "string"
+        },
+        "learnerPersonId": {
+          "type": "string"
+        },
+        "mark": {
+          "type": "string"
+        },
+        "markFeedback": {
+          "type": "string"
+        },
+        "markedBy": {
+          "type": "string"
+        },
+        "markedByEvaluator": {
+          "type": "boolean"
+        },
+        "markedByFacilitator": {
+          "type": "boolean"
+        },
+        "markedByMarker": {
+          "type": "boolean"
+        },
+        "markedDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "submissionDateTime": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "title": "AssignmentMark"
+    },
+    "Assignments": {
+      "properties": {
+        "files": {
+          "items": {
+            "$ref": "#/definitions/Document"
+          },
+          "type": "array"
+        },
+        "marks": {
+          "items": {
+            "$ref": "#/definitions/Mark"
+          },
+          "type": "array"
+        },
+        "status": {
+          "type": "string"
+        },
+        "submittedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "title": "Assignments"
+    },
+    "Channel": {
+      "properties": {
+        "isBroadcastOnly": {
+          "default": false,
+          "type": "boolean"
+        },
+        "title": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "title": "Channel"
+    },
+    "ChannelRequired": {
+      "properties": {
+        "isBroadcastOnly": {
+          "default": false,
+          "type": "boolean"
+        },
+        "title": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "title": "ChannelRequired"
+    },
+    "ChannelResponse": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "isBroadcastOnly": {
+          "default": false,
+          "type": "boolean"
+        },
+        "title": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "title": "ChannelResponse"
+    },
+    "Comment": {
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "isFacilitatorPost": {
+          "type": "boolean"
+        },
+        "moderation": {
+          "$ref": "#/definitions/Moderation"
+        },
+        "postId": {
+          "type": "string"
+        }
+      },
+      "title": "Comment"
+    },
+    "CourseResponse": {
+      "properties": {
+        "coverImageUrl": {
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Course"
+    },
+    "Criteria": {
+      "properties": {
+        "hasCompletedCourse": {
+          "default": true,
+          "type": "boolean"
+        },
+        "hasPassedMandatoryAssessedQuizzes": {
+          "default": true,
+          "type": "boolean"
+        }
+      },
+      "title": "Criteria"
+    },
+    "Document": {
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "mimetype": {
+          "type": "string"
+        },
+        "size": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "title": "Document"
+    },
+    "DocumentResponse": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "mimetype": {
+          "type": "string"
+        },
+        "size": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "title": "DocumentResponse"
+    },
+    "LearnerProgressResponse": {
+      "properties": {
+        "completion": {
+          "type": "string"
+        },
+        "courseId": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastLoggedInAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "personId": {
+          "type": "string"
+        }
+      },
+      "title": "LearnerProgress"
+    },
+    "Mark": {
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "feedback": {
+          "type": "string"
+        },
+        "mark": {
+          "type": "string"
+        },
+        "markFeedback": {
+          "items": {
+            "$ref": "#/definitions/MarkFeedback"
+          },
+          "type": "array"
+        },
+        "markedBy": {
+          "type": "string"
+        },
+        "markerId": {
+          "type": "string"
+        }
+      },
+      "title": "Mark"
+    },
+    "MarkFeedback": {
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "feedback": {
+          "type": "string"
+        },
+        "feedbackBy": {
+          "type": "string"
+        },
+        "mark": {
+          "type": "string"
+        },
+        "markerId": {
+          "type": "string"
+        }
+      },
+      "title": "MarkFeedback"
+    },
+    "Moderation": {
+      "properties": {
+        "isMuted": {
+          "type": "boolean"
+        },
+        "moderator": {
+          "$ref": "#/definitions/Moderator"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "title": "Moderation"
+    },
+    "Moderator": {
+      "properties": {
+        "avatarUrl": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "title": "Moderator"
+    },
+    "Offering": {
+      "properties": {
+        "contentId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "earlyCloseOffDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "end": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "isReadonly": {
+          "type": "boolean"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "start": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "trailerVideoUrl": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "version": {
+          "description": "Content version, if not specified, the most recent version is used.",
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "title": "Offering"
+    },
+    "OfferingRequired": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Offering"
+        }
+      ],
+      "required": [
+        "contentId",
+        "start",
+        "end"
+      ],
+      "title": "OfferingRequired"
+    },
+    "OfferingResponse": {
+      "properties": {
+        "contentId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "coverImageUrl": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "earlyCloseOffDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "end": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "isReadonly": {
+          "type": "boolean"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "start": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "trailerVideoUrl": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "title": "OfferingResponse"
+    },
+    "OfferingUser": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/User"
+        }
+      ],
+      "properties": {
+        "email": {
+          "format": "email",
+          "minLength": 1,
+          "type": "string"
+        },
+        "isFacilitator": {
+          "default": false,
+          "type": "boolean"
+        },
+        "isMarker": {
+          "default": false,
+          "type": "boolean"
+        },
+        "isReadonly": {
+          "default": false,
+          "type": "boolean"
+        },
+        "profile": {
+          "$ref": "#/definitions/UserProfile"
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "title": "OfferingUser"
+    },
+    "OfferingUserResponse": {
+      "properties": {
+        "avatarUrl": {
+          "type": "string"
+        },
+        "email": {
+          "format": "email",
+          "minLength": 1,
+          "type": "string"
+        },
+        "evaluatedBy": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "evaluates": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "firstName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "isFacilitator": {
+          "default": false,
+          "type": "boolean"
+        },
+        "isMarker": {
+          "default": false,
+          "type": "boolean"
+        },
+        "isReadonly": {
+          "default": false,
+          "type": "boolean"
+        },
+        "lastName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "markedBy": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "marks": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "personId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "profile": {
+          "$ref": "#/definitions/UserProfile"
+        }
+      },
+      "title": "OfferingUserResponse"
+    },
+    "Post": {
+      "properties": {
+        "attachments": {
+          "items": {
+            "$ref": "#/definitions/DocumentResponse"
+          },
+          "type": "array"
+        },
+        "content": {
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "isFacilitatorPost": {
+          "type": "boolean"
+        },
+        "moderation": {
+          "$ref": "#/definitions/Moderation"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "title": "Post"
+    },
+    "PulseAnswer": {
+      "properties": {
+        "multiChoiceAnswer": {
+          "items": {
+            "$ref": "#/definitions/PulseMCQOption"
+          },
+          "type": "array"
+        },
+        "spatialAnswer": {
+          "items": {
+            "$ref": "#/definitions/PulseSpatialOption"
+          },
+          "type": "array"
+        },
+        "textAnswer": {
+          "type": "string"
+        }
+      },
+      "title": "Answer"
+    },
+    "PulseMCQOption": {
+      "properties": {
+        "option": {
+          "type": "string"
+        },
+        "value": {
+          "type": "boolean"
+        }
+      },
+      "title": "MultiChoiceOption"
+    },
+    "PulseResponse": {
+      "properties": {
+        "learnerFirstName": {
+          "type": "string"
+        },
+        "learnerId": {
+          "type": "string"
+        },
+        "learnerLastName": {
+          "type": "string"
+        },
+        "pulseBaseId": {
+          "type": "string"
+        },
+        "pulseInstanceId": {
+          "type": "string"
+        },
+        "pulseQuestion": {
+          "type": "string"
+        },
+        "pulseRunDurationMinutes": {
+          "type": "integer"
+        },
+        "pulseRunStart": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "pulseType": {
+          "type": "string"
+        },
+        "response": {
+          "$ref": "#/definitions/PulseAnswer"
+        },
+        "responseTime": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "title": "Pulse"
+    },
+    "PulseSpatialOption": {
+      "properties": {
+        "option": {
+          "type": "string"
+        },
+        "value": {
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "title": "SpatialOption"
+    },
+    "QuizMarkResponse": {
+      "properties": {
+        "attempts": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "lastAttemptAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "learnerFullname": {
+          "type": "string"
+        },
+        "learnerId": {
+          "type": "string"
+        },
+        "learnerPersonId": {
+          "type": "string"
+        },
+        "mark": {
+          "type": "string"
+        },
+        "quizId": {
+          "type": "string"
+        },
+        "quizTitle": {
+          "type": "string"
+        }
+      },
+      "title": "QuizMark"
+    },
+    "ThemeResponse": {
+      "properties": {
+        "filter": {
+          "type": "string"
+        },
+        "numberOfQuestions": {
+          "type": "string"
+        }
+      },
+      "title": "ThemeResponse"
+    },
+    "User": {
+      "properties": {
+        "firstName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "lastName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "personId": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "title": "User"
+    },
+    "UserProfile": {
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        }
+      },
+      "title": "UserProfile"
+    },
+    "UserResponse": {
+      "properties": {
+        "avatarUrl": {
+          "type": "string"
+        },
+        "email": {
+          "format": "email",
+          "minLength": 1,
+          "type": "string"
+        },
+        "firstName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lastAccessAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "personId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "profile": {
+          "$ref": "#/definitions/UserProfile"
+        }
+      },
+      "title": "UserResponse"
+    }
+  },
+  "actions": [
+    {
+      "id": ".get",
+      "title": ".get",
+      "description": "Responds with all supported endpoints URLs for v1 version.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "courses.get",
+      "title": "courses.get",
+      "description": "Responds with courses that can be activated (made to an offering).",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/CourseResponse"
+        },
+        "title": "Courses",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.get",
+      "title": "offerings.get",
+      "description": "Responds with all offerings for your organisation.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OfferingResponse"
+        },
+        "title": "Offerings",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.post",
+      "title": "offerings.post",
+      "description": "Creates new offering.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offering": {
+            "$ref": "#/definitions/OfferingRequired"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offering"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/OfferingResponse"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.current.get",
+      "title": "offerings.current.get",
+      "description": "Responds with current (active) offerings for your organisation. Offering is current when today's date is between (inclusive) it's `start` and `end` date.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OfferingResponse"
+        },
+        "title": "Offerings",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.future.get",
+      "title": "offerings.future.get",
+      "description": "Responds with future (inactive) offerings for your organisation. Future offerings have their `start` date after today's date (inclusive).",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OfferingResponse"
+        },
+        "title": "Offerings",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.past.get",
+      "title": "offerings.past.get",
+      "description": "Responds with past (inactive) offerings for your organisation. Past offerings have their `end` date before today's date (inclusive).",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OfferingResponse"
+        },
+        "title": "Offerings",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.get",
+      "title": "offerings.offeringId.get",
+      "description": "Returns an offering matching the offeringId.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/OfferingResponse"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.patch",
+      "title": "offerings.offeringId.patch",
+      "description": "Updates the offering.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "offering": {
+            "$ref": "#/definitions/Offering"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "offering"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/OfferingResponse"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.analytics.channels.channelId.comments.get",
+      "title": "offerings.offeringId.analytics.channels.channelId.comments.get",
+      "description": "Responds with a list of all comments in any of the posts for a channel in a offering",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "channelId": {
+            "type": "string",
+            "description": "channel's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "channelId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Comment"
+        },
+        "title": "Comments",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.analytics.channels.channelId.posts.get",
+      "title": "offerings.offeringId.analytics.channels.channelId.posts.get",
+      "description": "Responds with a list of posts for a channel in a offering",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "channelId": {
+            "type": "string",
+            "description": "channel's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "channelId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Post"
+        },
+        "title": "Posts",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.analytics.learners_progress.get",
+      "title": "offerings.offeringId.analytics.learners_progress.get",
+      "description": "Responds with learners progress.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/LearnerProgressResponse"
+        },
+        "title": "LearnersProgress",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.analytics.marks.assignments.get",
+      "title": "offerings.offeringId.analytics.marks.assignments.get",
+      "description": "Responds with assignments marks.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AssignmentMarkResponse"
+        },
+        "title": "AssignmentsMarks",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.analytics.marks.quizzes.get",
+      "title": "offerings.offeringId.analytics.marks.quizzes.get",
+      "description": "Responds with quizzes marks.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/QuizMarkResponse"
+        },
+        "title": "QuizzesMarks",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.analytics.pulses.get",
+      "title": "offerings.offeringId.analytics.pulses.get",
+      "description": "Returns ids of all pulses that learners responded to.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.analytics.pulses.responses.get",
+      "title": "offerings.offeringId.analytics.pulses.responses.get",
+      "description": "Returns pulses' responses matching the offeringId.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "pulseType": {
+            "type": "string",
+            "description": "Filter pulse responses by type.",
+            "enum": [
+              "submit_text",
+              "MCQ",
+              "spatial_triangular",
+              "spatial_planar",
+              "spatial_linear"
+            ]
+          },
+          "responseTime": {
+            "type": "string",
+            "description": "Filter pulse responses by responseTime. Lower then (`lt`), lower then or equal (`lte`), greater then (`gt`) and greater then or equal (`gte`) operators are available. Example of filtering by time range __responseTime=gte\\_\\_2017-03-14T07:30:00Z&responseTime=lte\\_\\_2017-03-16T09:30:00Z__",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PulseResponse"
+        },
+        "title": "Pulses",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.analytics.pulses.pulseId.responses.get",
+      "title": "offerings.offeringId.analytics.pulses.pulseId.responses.get",
+      "description": "Returns pulse's responses matching the offeringId and pulseId.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "pulseId": {
+            "type": "string",
+            "description": "pulse's base id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "pulseId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PulseResponse"
+        },
+        "title": "Pulses",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.analytics.submissions.assignments.get",
+      "title": "offerings.offeringId.analytics.submissions.assignments.get",
+      "description": "Responds with assignments submissions.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AssignmentMarkResponse"
+        },
+        "title": "AssignmentsSubmissions",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.assessments.get",
+      "title": "offerings.offeringId.assessments.get",
+      "description": "Get all offering's assessments",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AssessmentResponse"
+        },
+        "title": "Assessments",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.assessments.assessmentId.patch",
+      "title": "offerings.offeringId.assessments.assessmentId.patch",
+      "description": "Modifies assessment details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "assessmentId": {
+            "type": "string",
+            "description": "assessment's id"
+          },
+          "assessment": {
+            "$ref": "#/definitions/Assessment"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "assessmentId",
+          "assessment"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AssessmentResponse"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.assessments.assessmentId.documents.post",
+      "title": "offerings.offeringId.assessments.assessmentId.documents.post",
+      "description": "Uploads assessment document file",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "assessmentId": {
+            "type": "string",
+            "description": "assessment's id"
+          },
+          "file": {
+            "type": "string",
+            "description": "Assessment document"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "assessmentId",
+          "file"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Document"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.assessments.assessmentId.documents.documentId.delete",
+      "title": "offerings.offeringId.assessments.assessmentId.documents.documentId.delete",
+      "description": "Removes assessment document file",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "assessmentId": {
+            "type": "string",
+            "description": "assessment's id"
+          },
+          "documentId": {
+            "type": "string",
+            "description": "documents's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "assessmentId",
+          "documentId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.channels.get",
+      "title": "offerings.offeringId.channels.get",
+      "description": "Responds with a list of channels in a offering",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ChannelResponse"
+        },
+        "title": "List of channels in a offering",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.channels.post",
+      "title": "offerings.offeringId.channels.post",
+      "description": "Adds new channel to the offering",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "channel": {
+            "$ref": "#/definitions/ChannelRequired"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "channel"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ChannelResponse"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.channels.channelId.patch",
+      "title": "offerings.offeringId.channels.channelId.patch",
+      "description": "Updates the channel",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "channelId": {
+            "type": "string",
+            "description": "channel's id"
+          },
+          "channel": {
+            "$ref": "#/definitions/Channel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "channelId",
+          "channel"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ChannelResponse"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.cover_image.put",
+      "title": "offerings.offeringId.cover_image.put",
+      "description": "Replaces offering's cover image with uploaded image",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "file": {
+            "type": "string",
+            "description": "Cover image, required size is 1280x380px"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "file"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/OfferingResponse"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.groups.get",
+      "title": "offerings.offeringId.groups.get",
+      "description": "Responds with a list of assessment groups in an offering",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AssessmentGroupResponse"
+        },
+        "title": "List of assessment groups in an offering",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.groups.post",
+      "title": "offerings.offeringId.groups.post",
+      "description": "Creates a new assessment group in a offering",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "assessmentGroup": {
+            "$ref": "#/definitions/AssessmentGroupRequired"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "assessmentGroup"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AssessmentGroupResponse"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.groups.groupId.learners.get",
+      "title": "offerings.offeringId.groups.groupId.learners.get",
+      "description": "Responds with a list of learners for the assessment group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Assessment group id",
+            "pattern": "^[0-9a-fA-F]{24}$"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "groupId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/UserResponse"
+        },
+        "title": "List of learners",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.groups.groupId.learners.post",
+      "title": "offerings.offeringId.groups.groupId.learners.post",
+      "description": "Add a learner to an assessment group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Assessment group id",
+            "pattern": "^[0-9a-fA-F]{24}$"
+          },
+          "user": {
+            "properties": {
+              "email": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "groupId",
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserResponse"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.groups.groupId.learners.userEmail.delete",
+      "title": "offerings.offeringId.groups.groupId.learners.userEmail.delete",
+      "description": "Remove a learner from an assessment group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Assessment group id",
+            "pattern": "^[0-9a-fA-F]{24}$"
+          },
+          "userEmail": {
+            "type": "string",
+            "format": "email",
+            "description": "user's email"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "groupId",
+          "userEmail"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.study_plan.put",
+      "title": "offerings.offeringId.study_plan.put",
+      "description": "Replaces offering's study plan with uploaded file",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "file": {
+            "type": "string",
+            "description": "Study plan"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "file"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/OfferingResponse"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.users.get",
+      "title": "offerings.offeringId.users.get",
+      "description": "Responds with a list of offering's users (facilitators, learners and markers).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "facilitators": {
+            "type": "boolean",
+            "description": "If true, facilitators are included in the results.",
+            "default": true
+          },
+          "learners": {
+            "type": "boolean",
+            "description": "If true, learners are included in the results.",
+            "default": true
+          },
+          "markers": {
+            "type": "boolean",
+            "description": "If true, markers are included in the results.",
+            "default": true
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OfferingUserResponse"
+        },
+        "title": "offering's users",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.users.post",
+      "title": "offerings.offeringId.users.post",
+      "description": "Adds user to the offering.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "user": {
+            "$ref": "#/definitions/OfferingUser"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/OfferingUser"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.users.evaluatorId.evaluates.delete",
+      "title": "offerings.offeringId.users.evaluatorId.evaluates.delete",
+      "description": "Remove learners from evaluator's list.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "evaluatorId": {
+            "type": "string",
+            "description": "evaluator's id"
+          },
+          "learners": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "evaluatorId",
+          "learners"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OfferingUser"
+        },
+        "title": "learners evaluated by the peer evaluator",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.users.evaluatorId.evaluates.get",
+      "title": "offerings.offeringId.users.evaluatorId.evaluates.get",
+      "description": "Get learners evaluated by the peer evaluator.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "evaluatorId": {
+            "type": "string",
+            "description": "evaluators's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "evaluatorId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OfferingUser"
+        },
+        "title": "learners evaluated by the peer evaluator",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.users.evaluatorId.evaluates.post",
+      "title": "offerings.offeringId.users.evaluatorId.evaluates.post",
+      "description": "Add learners to be evaluated by the peer evaluator.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "evaluatorId": {
+            "type": "string",
+            "description": "evaluator's id"
+          },
+          "learners": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "evaluatorId",
+          "learners"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OfferingUser"
+        },
+        "title": "learners evaluated by the peer evaluator",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.users.markerId.marks.delete",
+      "title": "offerings.offeringId.users.markerId.marks.delete",
+      "description": "Remove learners from marker's list.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "markerId": {
+            "type": "string",
+            "description": "marker's id"
+          },
+          "learners": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "markerId",
+          "learners"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OfferingUser"
+        },
+        "title": "learners marked by the marker",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.users.markerId.marks.get",
+      "title": "offerings.offeringId.users.markerId.marks.get",
+      "description": "Get learners marked by the marker.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "markerId": {
+            "type": "string",
+            "description": "marker's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "markerId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OfferingUser"
+        },
+        "title": "learners marked by the marker",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.users.markerId.marks.post",
+      "title": "offerings.offeringId.users.markerId.marks.post",
+      "description": "Add learners to be marked by the marker.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "markerId": {
+            "type": "string",
+            "description": "marker's id"
+          },
+          "learners": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "markerId",
+          "learners"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OfferingUser"
+        },
+        "title": "learners marked by the marker",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.users.userEmail.invite_email.post",
+      "title": "offerings.offeringId.users.userEmail.invite_email.post",
+      "description": "Re-sends the invitation e-mail to the user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "userEmail": {
+            "type": "string",
+            "format": "email",
+            "description": "user's email"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "userEmail"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.users.userId.delete",
+      "title": "offerings.offeringId.users.userId.delete",
+      "description": "Removes user from the offering.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "userId": {
+            "type": "string",
+            "description": "user's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "userId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "offerings.offeringId.users.userId.submissions.open_response.get",
+      "title": "offerings.offeringId.users.userId.submissions.open_response.get",
+      "description": "Gets user's open response assignment submissions.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "offering's id"
+          },
+          "userId": {
+            "type": "string",
+            "description": "user's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "offeringId",
+          "userId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Assignments"
+        },
+        "title": "user's assignments",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "users.userId.get",
+      "title": "users.userId.get",
+      "description": "Returns a user matching the userId.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "user's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserResponse"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "users.userId.patch",
+      "title": "users.userId.patch",
+      "description": "Updates the user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "user's id"
+          },
+          "user": {
+            "$ref": "#/definitions/User"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserResponse"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    },
+    {
+      "id": "users.userId.offerings.get",
+      "title": "users.userId.offerings.get",
+      "description": "Responds with all user's offerings.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "user's id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OfferingResponse"
+        },
+        "title": "Offerings",
+        "type": "array"
+      },
+      "security": {
+        "iqualify": {
+          "integration": "iqualify"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "education"
+  ]
+}

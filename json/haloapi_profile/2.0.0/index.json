@@ -1,0 +1,107 @@
+{
+  "id": "haloapi_profile",
+  "title": "Profile",
+  "description": "API that provides Profile information about Players.",
+  "security": {
+    "haloapi_profile": {
+      "integration": "haloapi_profile",
+      "fields": {
+        "apiKeyHeader": "API key",
+        "apiKeyQuery": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/haloapi_profile.jpeg"
+  },
+  "actionCount": 3,
+  "actions": [
+    {
+      "id": "h5.profiles.player.appearance.get",
+      "title": "h5.profiles.player.appearance.get",
+      "description": "This Endpoint retrieves appearance information for a player.\n\nIf the player is a member of a Company, the Company's ID and Name will be provided. Additional Company information is available via the Stats API.\n\n#### Changelog\n\n\n\n**July 14, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "player": {
+            "type": "string",
+            "description": "The Player's Gamertag"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "player"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_profile": {
+          "integration": "haloapi_profile"
+        }
+      }
+    },
+    {
+      "id": "h5.profiles.player.emblem.get",
+      "title": "h5.profiles.player.emblem.get",
+      "description": "This Endpoint returns an HTTP Redirect (302 Found) response to the caller with the URL of an image of the Player's Emblem. The initial request to this API that returns the HTTP Redirect is throttled and requires a Subscription Key. However, the image itself (at hostname \"image.halocdn.com\") is not throttled and does not require a Subscription Key. Note that if the Player later changes their Emblem, the image itself is not refreshed and will need to be refreshed via a new request to this API.\n\n#### Changelog\n\n\n\n**July 14, 2017:**\n\n*   Renamed Endpoint from \"Halo 5 - Emblem Image\" to \"Halo 5 - Player Emblem Image\".\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Emblem Image\" to \"Halo 5 - Emblem Image\".\n*   Removed \"{title}\" Request Parameter.\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "player": {
+            "type": "string",
+            "description": "The Player's Gamertag."
+          },
+          "size": {
+            "type": "number",
+            "description": "An optional size (specified in pixels) of the image requested. When specified, this value must be one of the following values: 95, 128, 190, 256, 512. If a value is specified that is not in this list, the API returns HTTP 400 (\"Bad Request\"). If the size is empty or missing, the API will use 256."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "player"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_profile": {
+          "integration": "haloapi_profile"
+        }
+      }
+    },
+    {
+      "id": "h5.profiles.player.spartan.get",
+      "title": "h5.profiles.player.spartan.get",
+      "description": "This Endpoint returns an HTTP Redirect (302 Found) response to the caller with the URL of an image of the Player's Spartan's appearance. The initial request to this API that returns the HTTP Redirect is throttled and requires a Subscription Key. However, the image itself (at hostname \"image.halocdn.com\") is not throttled and does not require a Subscription Key. Note that if the Player later changes their Spartan's appearance, the image itself is not refreshed and will need to be refreshed via a new request to this API.\n\n#### Changelog\n\n\n\n**July 14, 2017:**\n\n*   Renamed Endpoint from \"Halo 5 - Spartan Image\" to \"Halo 5 - Player Spartan Image\".\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Spartan Image\" to \"Halo 5 - Spartan Image\".\n*   Removed \"{title}\" Request Parameter.\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "player": {
+            "type": "string",
+            "description": "The Player's Gamertag."
+          },
+          "size": {
+            "type": "number",
+            "description": "An optional size (specified in pixels) of the image requested. When specified, this value must be one of the following values: 95, 128, 190, 256, 512. If a value is specified that is not in this list, the API returns HTTP 400 (\"Bad Request\"). If the size is empty or missing, the API will use 256."
+          },
+          "crop": {
+            "type": "string",
+            "description": "An optional crop that will be used to determine what portion of the Spartan is returned in the image. The value must be either \"full\" or \"portrait\". If no value is specified \"full\" is used. If an unsupported value is provided, the API returns HTTP 400 (\"Bad Request\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "player"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_profile": {
+          "integration": "haloapi_profile"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "entertainment"
+  ]
+}

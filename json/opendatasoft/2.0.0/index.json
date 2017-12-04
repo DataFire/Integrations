@@ -1,0 +1,2272 @@
+{
+  "id": "opendatasoft",
+  "title": "opendatasoft",
+  "security": {
+    "opendatasoft": {
+      "integration": "opendatasoft",
+      "fields": {
+        "api_key": "API key",
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/opendatasoft.jpeg"
+  },
+  "actionCount": 34,
+  "definitions": {
+    "aggregation": {
+      "description": "Result of an aggregation request.",
+      "example": {
+        "count(*)": 86
+      },
+      "type": "object",
+      "title": "aggregation"
+    },
+    "attachment": {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "metas": {
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "attachment"
+    },
+    "dataset": {
+      "properties": {
+        "attachments": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "data_visible": {
+          "type": "boolean"
+        },
+        "dataset_id": {
+          "type": "string"
+        },
+        "features": {
+          "description": "A map of available features for a dataset, with the fields they apply to.\n",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "fields": {
+          "items": {
+            "properties": {
+              "annotations": {
+                "type": "object"
+              },
+              "description": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "has_records": {
+          "type": "boolean"
+        },
+        "metas": {
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "dataset"
+    },
+    "datasets": {
+      "items": {
+        "$ref": "#/definitions/dataset"
+      },
+      "type": "array",
+      "title": "datasets"
+    },
+    "link": {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "link"
+    },
+    "links": {
+      "items": {
+        "$ref": "#/definitions/link"
+      },
+      "type": "array",
+      "title": "links"
+    },
+    "metadata_template": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "schema": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "metadata_template"
+    },
+    "page": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "title": {
+          "description": "A localized string (that is an object where the keys are language codes and the values translations of a same\nstring).\n",
+          "properties": {
+            "en": {
+              "type": "string"
+            },
+            "fr": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "page"
+    },
+    "query_string": {
+      "description": "Query string using the query language.\nExample: (field1=\"value1\" or field1=\"value2\") and field2=value2 and \"full text search\"\n\nSupports geo queries with the following functions:\n* distance(myfield, center, radius): restrict entries to those where {myfield} is less than {radius} from {center} (center being defined 'lat,lon')\n* bbox(myfield, topleft, bottomright): restrict entries to those where {myfield} is within the bounds defined by the two sets of coordinates {topleft} and {bottomright}\n* polygon(myfield, mypolygon): restrict entries to those where {myfield} is within the bounds of {mypolygon}; {mypolygon} being a list of 'lat,lon' vertices\n* wkt(myfield, mywkt): restrict entries to those where {myfield} is within the body of {mywkt}; {mywkt} being a Well Known Text (see 'http://en.wikipedia.org/wiki/Well-known_text' for reference)\n",
+      "type": "string",
+      "title": "query_string"
+    },
+    "record": {
+      "properties": {
+        "fields": {
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "timestamp": {
+          "format": "dateTime",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "record"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/definitions/record"
+      },
+      "type": "array",
+      "title": "records"
+    },
+    "reuse": {
+      "properties": {
+        "created_at": {
+          "description": "Date when the reuse was submitted.",
+          "format": "dateTime",
+          "type": "string"
+        },
+        "description": {
+          "description": "Slightly longer description of what was achieved using the dataset."
+        },
+        "id": {
+          "description": "reuse id",
+          "type": "string"
+        },
+        "thumbnail": {
+          "description": "URL illustrating the work.",
+          "type": "string"
+        },
+        "title": {
+          "description": "Short description of the user's work.",
+          "type": "string"
+        },
+        "url": {
+          "description": "URL where the work can be accessed publicly.",
+          "type": "string"
+        },
+        "user": {
+          "properties": {
+            "first_name": {
+              "type": "string"
+            },
+            "last_name": {
+              "type": "string"
+            },
+            "username": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "reuse"
+    },
+    "snapshot": {
+      "properties": {
+        "created_at": {
+          "format": "dateTime",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "snapshot_id": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "snapshot"
+    },
+    "timezone": {
+      "description": "A timezone\n\nIf used as a parameter, defines the timezone the calculations will be performed in. If left empty, 'UTC' is\nassumed.\n",
+      "example": "Europe/Paris",
+      "type": "string",
+      "title": "timezone"
+    }
+  },
+  "actions": [
+    {
+      "id": "getRoot",
+      "title": "getRoot",
+      "description": "API entry point\n\nProvides links for:\n* catalog, your domain's list of datasets\n* opendatasoft, all datasets on the OpenDataSoft network\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getPages",
+      "title": "getPages",
+      "description": "List of all pages from this portal.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          },
+          "pages": {
+            "items": {
+              "properties": {
+                "links": {
+                  "items": {
+                    "$ref": "#/definitions/link"
+                  },
+                  "type": "array"
+                },
+                "page": {
+                  "$ref": "#/definitions/page"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getPage",
+      "title": "getPage",
+      "description": "A single page's metadata from this portal\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Page slug.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          },
+          "page": {
+            "$ref": "#/definitions/page"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getSource",
+      "title": "getSource",
+      "description": "Source entry points\n\nProvides links for the source's datasets and metadata.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "aggregateDatasets",
+      "title": "aggregateDatasets",
+      "description": "Compute aggregations from catalog and return a list of each aggregate indexed by their names.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "select": {
+            "type": "string",
+            "description": "A select expression can be used to add, remove or change fields to return.\nAn expression can be:\n  - a wildcard ('*'): return all fields\n  - a field name: return only this field\n  - an include/exclude function. Include (resp exclude) all field matching include/exclude expression. This expression can contain wildcard. For example: include(spa*) will return all fields begining with 'spa'\n  - a complex expression: return the result of this expression. A label can be set for this expression, in that case, field will be named with this label. For instance: 'size * 2 as bigger_size' will return a new field named bigger_size and containing the double of size field value.\n"
+          },
+          "group_by": {
+            "type": "string",
+            "description": "A group by expression defines a grouping function for an aggregation.\nIt can be:\n - a field name: group result by each value of this field\n - a range function: group result by range\n - a date function: group result by date\nIt is possible to specify a custom name with the 'as name' notation. For instance: group_by='city_field as city'.\n"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "aggregations": {
+            "items": {
+              "$ref": "#/definitions/aggregation"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getDatasets",
+      "title": "getDatasets",
+      "description": "List of available datasets, each with their endpoints, paginated.\n\nLinks provided:\n* previous page\n* next page\n* last page\n* first page\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return.\n\nTo use in conjonction with start to implement pagination.\n\nRows maximum value is 100. To retrive more data use export entry points.\n",
+            "maximum": 100,
+            "minimum": -1,
+            "default": 10
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "sort": {
+            "type": "array",
+            "description": "A list of field names, each possibly prefixed with a minus (-).\n\nMay also be 'random(seed)', where seed can be omitted but if specified must be an int. This allows to keep\nrelative ordering during pagination.\n\nSorts results according to the specified fields' values. By default, the sort is ascending (from the highest\nvalue to the smallest value). A minus sign (‘-‘) may be used to perform a descending sort. Sorting is only\navailable on numeric fields (int, double, date and datetime) and on text fields which have the sortable\nannotation.\n"
+          },
+          "pretty": {
+            "type": "boolean",
+            "description": "Activate pretty print",
+            "default": false
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          },
+          "include_app_metas": {
+            "type": "boolean",
+            "description": "Explicitely request application metas for each datasets.\n",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "datasets": {
+            "items": {
+              "properties": {
+                "dataset": {
+                  "$ref": "#/definitions/dataset"
+                },
+                "links": {
+                  "items": {
+                    "$ref": "#/definitions/link"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          },
+          "total_count": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getDataset",
+      "title": "getDataset",
+      "description": "List of available endpoints for the specified dataset, with metadata and endpoints.\n\nWill provide links for:\n* the attachments endpoint\n* the files endpoint\n* the records endpoint\n* the catalog endpoint\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "pretty": {
+            "type": "boolean",
+            "description": "Activate pretty print",
+            "default": false
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          },
+          "select": {
+            "type": "string",
+            "description": "A select expression can be used to add, remove or change fields to return.\nAn expression can be:\n  - a wildcard ('*'): return all fields\n  - a field name: return only this field\n  - an include/exclude function. Include (resp exclude) all field matching include/exclude expression. This expression can contain wildcard. For example: include(spa*) will return all fields begining with 'spa'\n  - a complex expression: return the result of this expression. A label can be set for this expression, in that case, field will be named with this label. For instance: 'size * 2 as bigger_size' will return a new field named bigger_size and containing the double of size field value.\n"
+          },
+          "include_app_metas": {
+            "type": "boolean",
+            "description": "Explicitely request application metas for each datasets.\n",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "dataset": {
+            "$ref": "#/definitions/dataset"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "aggregateRecords",
+      "title": "aggregateRecords",
+      "description": "Compute aggregations from dataset records and return a list of each aggregate indexed by their names.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "select": {
+            "type": "string",
+            "description": "A select expression can be used to add, remove or change fields to return.\nAn expression can be:\n  - a wildcard ('*'): return all fields\n  - a field name: return only this field\n  - an include/exclude function. Include (resp exclude) all field matching include/exclude expression. This expression can contain wildcard. For example: include(spa*) will return all fields begining with 'spa'\n  - a complex expression: return the result of this expression. A label can be set for this expression, in that case, field will be named with this label. For instance: 'size * 2 as bigger_size' will return a new field named bigger_size and containing the double of size field value.\n"
+          },
+          "group_by": {
+            "type": "string",
+            "description": "A group by expression defines a grouping function for an aggregation.\nIt can be:\n - a field name: group result by each value of this field\n - a range function: group result by range\n - a date function: group result by date\nIt is possible to specify a custom name with the 'as name' notation. For instance: group_by='city_field as city'.\n"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "aggregations": {
+            "items": {
+              "$ref": "#/definitions/aggregation"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getDatasetAttachements",
+      "title": "getDatasetAttachements",
+      "description": "Get list of all available attachments\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "attachments": {
+            "items": {
+              "$ref": "#/definitions/attachment"
+            },
+            "type": "array"
+          },
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "downloadDatasetAttachement",
+      "title": "downloadDatasetAttachement",
+      "description": "Download attachment\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "attachment_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id",
+          "attachment_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "exportRecordsCSV",
+      "title": "exportRecordsCSV",
+      "description": "Export dataset in CSV format\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "select": {
+            "type": "string",
+            "description": "A select expression can be used to add, remove or change fields to return.\nAn expression can be:\n  - a wildcard ('*'): return all fields\n  - a field name: return only this field\n  - an include/exclude function. Include (resp exclude) all field matching include/exclude expression. This expression can contain wildcard. For example: include(spa*) will return all fields begining with 'spa'\n  - a complex expression: return the result of this expression. A label can be set for this expression, in that case, field will be named with this label. For instance: 'size * 2 as bigger_size' will return a new field named bigger_size and containing the double of size field value.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return in export.\n\nUse -1 to retrieve all records\n",
+            "minimum": -1,
+            "default": -1
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          },
+          "delimiter": {
+            "type": "string",
+            "description": "Provide a different delimiter (default ',').",
+            "enum": [
+              ",",
+              ";",
+              "|"
+            ],
+            "default": ";"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "exportRecordsGEOJSON",
+      "title": "exportRecordsGEOJSON",
+      "description": "Export dataset in GEOJSON format\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return in export.\n\nUse -1 to retrieve all records\n",
+            "minimum": -1,
+            "default": -1
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          },
+          "pretty": {
+            "type": "boolean",
+            "description": "Activate pretty print",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "exportRecordsICAL",
+      "title": "exportRecordsICAL",
+      "description": "Export dataset in ICAL format\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return in export.\n\nUse -1 to retrieve all records\n",
+            "minimum": -1,
+            "default": -1
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "exportRecordsJSON",
+      "title": "exportRecordsJSON",
+      "description": "Export dataset in JSON format\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return in export.\n\nUse -1 to retrieve all records\n",
+            "minimum": -1,
+            "default": -1
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "pretty": {
+            "type": "boolean",
+            "description": "Activate pretty print",
+            "default": false
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "exportRecordsOV2",
+      "title": "exportRecordsOV2",
+      "description": "Export dataset in OV2 format\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return in export.\n\nUse -1 to retrieve all records\n",
+            "minimum": -1,
+            "default": -1
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "exportRecordsSHP",
+      "title": "exportRecordsSHP",
+      "description": "Export dataset in Esri shapefile (shp) format\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return in export.\n\nUse -1 to retrieve all records\n",
+            "minimum": -1,
+            "default": -1
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "exportRecordsXLS",
+      "title": "exportRecordsXLS",
+      "description": "Export dataset in XLS (Excel) format\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return in export.\n\nUse -1 to retrieve all records\n",
+            "minimum": -1,
+            "default": -1
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "sendDatasetFeedback",
+      "title": "sendDatasetFeedback",
+      "description": "Create new feedback entry.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "feedback": {
+            "properties": {
+              "comment": {
+                "type": "string"
+              },
+              "newValues": {
+                "description": "New record value",
+                "type": "object"
+              },
+              "recordid": {
+                "description": "Feedback entry's recordid",
+                "type": "string"
+              },
+              "schema": {
+                "description": "Record schema",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id",
+          "feedback"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getDatasetFile",
+      "title": "getDatasetFile",
+      "description": "Download file\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "file_id": {
+            "type": "string"
+          },
+          "thumbnail_size": {
+            "type": "string",
+            "description": "Set the size of the thumbnail representing the resource (attachment, image or file)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id",
+          "file_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getRecords",
+      "title": "getRecords",
+      "description": "Search dataset's records.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return.\n\nTo use in conjonction with start to implement pagination.\n\nRows maximum value is 100. To retrive more data use export entry points.\n",
+            "maximum": 100,
+            "minimum": -1,
+            "default": 10
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "sort": {
+            "type": "array",
+            "description": "A list of field names, each possibly prefixed with a minus (-).\n\nMay also be 'random(seed)', where seed can be omitted but if specified must be an int. This allows to keep\nrelative ordering during pagination.\n\nSorts results according to the specified fields' values. By default, the sort is ascending (from the highest\nvalue to the smallest value). A minus sign (‘-‘) may be used to perform a descending sort. Sorting is only\navailable on numeric fields (int, double, date and datetime) and on text fields which have the sortable\nannotation.\n"
+          },
+          "select": {
+            "type": "string",
+            "description": "A select expression can be used to add, remove or change fields to return.\nAn expression can be:\n  - a wildcard ('*'): return all fields\n  - a field name: return only this field\n  - an include/exclude function. Include (resp exclude) all field matching include/exclude expression. This expression can contain wildcard. For example: include(spa*) will return all fields begining with 'spa'\n  - a complex expression: return the result of this expression. A label can be set for this expression, in that case, field will be named with this label. For instance: 'size * 2 as bigger_size' will return a new field named bigger_size and containing the double of size field value.\n"
+          },
+          "pretty": {
+            "type": "boolean",
+            "description": "Activate pretty print",
+            "default": false
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          },
+          "records": {
+            "items": {
+              "properties": {
+                "links": {
+                  "items": {
+                    "$ref": "#/definitions/link"
+                  },
+                  "type": "array"
+                },
+                "record": {
+                  "$ref": "#/definitions/record"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "total_count": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getRecord",
+      "title": "getRecord",
+      "description": "Retrieve a single record based on its ID.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "pretty": {
+            "type": "boolean",
+            "description": "Activate pretty print",
+            "default": false
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          },
+          "select": {
+            "type": "string",
+            "description": "A select expression can be used to add, remove or change fields to return.\nAn expression can be:\n  - a wildcard ('*'): return all fields\n  - a field name: return only this field\n  - an include/exclude function. Include (resp exclude) all field matching include/exclude expression. This expression can contain wildcard. For example: include(spa*) will return all fields begining with 'spa'\n  - a complex expression: return the result of this expression. A label can be set for this expression, in that case, field will be named with this label. For instance: 'size * 2 as bigger_size' will return a new field named bigger_size and containing the double of size field value.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id",
+          "record_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          },
+          "record": {
+            "$ref": "#/definitions/record"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getDatasetReuses",
+      "title": "getDatasetReuses",
+      "description": "Get list of reuses\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return.\n\nTo use in conjonction with start to implement pagination.\n\nRows maximum value is 100. To retrive more data use export entry points.\n",
+            "maximum": 100,
+            "minimum": -1,
+            "default": 10
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          },
+          "reuses": {
+            "items": {
+              "$ref": "#/definitions/reuse"
+            },
+            "type": "array"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getDatasetReuse",
+      "title": "getDatasetReuse",
+      "description": "Retrieve a single reuse based on its ID.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "reuse_id": {
+            "type": "string"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id",
+          "reuse_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          },
+          "reuse": {
+            "$ref": "#/definitions/reuse"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getDatasetSnapshots",
+      "title": "getDatasetSnapshots",
+      "description": "List of all snapshots for this dataset.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          },
+          "snapshots": {
+            "items": {
+              "$ref": "#/definitions/snapshot"
+            },
+            "type": "array"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "downloadDatasetSnapshot",
+      "title": "downloadDatasetSnapshot",
+      "description": "List of all snapshots for this dataset.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Dataset identifier.\n\nCan be found in the \"information\" tab of the dataset page.\n"
+          },
+          "snapshot_id": {
+            "type": "string"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dataset_id",
+          "snapshot_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "exportDatasetsCSV",
+      "title": "exportDatasetsCSV",
+      "description": "Export catalog (source) in CSV format\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return.\n\nTo use in conjonction with start to implement pagination.\n\nRows maximum value is 100. To retrive more data use export entry points.\n",
+            "maximum": 100,
+            "minimum": -1,
+            "default": 10
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          },
+          "include_app_metas": {
+            "type": "boolean",
+            "description": "Explicitely request application metas for each datasets.\n",
+            "default": false
+          },
+          "delimiter": {
+            "type": "string",
+            "description": "Provide a different delimiter (default ',').",
+            "enum": [
+              ",",
+              ";",
+              "|"
+            ],
+            "default": ";"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "exportDatasetsJson",
+      "title": "exportDatasetsJson",
+      "description": "Export catalog (source) in JSON format\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return.\n\nTo use in conjonction with start to implement pagination.\n\nRows maximum value is 100. To retrive more data use export entry points.\n",
+            "maximum": 100,
+            "minimum": -1,
+            "default": 10
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "pretty": {
+            "type": "boolean",
+            "description": "Activate pretty print",
+            "default": false
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          },
+          "include_app_metas": {
+            "type": "boolean",
+            "description": "Explicitely request application metas for each datasets.\n",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "exportDatasetsRDF",
+      "title": "exportDatasetsRDF",
+      "description": "Export catalog (source) in RDF/XML format\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return.\n\nTo use in conjonction with start to implement pagination.\n\nRows maximum value is 100. To retrive more data use export entry points.\n",
+            "maximum": 100,
+            "minimum": -1,
+            "default": 10
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          },
+          "include_app_metas": {
+            "type": "boolean",
+            "description": "Explicitely request application metas for each datasets.\n",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "exportDatasetsRSS",
+      "title": "exportDatasetsRSS",
+      "description": "Export catalog (source) in RSS format\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return.\n\nTo use in conjonction with start to implement pagination.\n\nRows maximum value is 100. To retrive more data use export entry points.\n",
+            "maximum": 100,
+            "minimum": -1,
+            "default": 10
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          },
+          "include_app_metas": {
+            "type": "boolean",
+            "description": "Explicitely request application metas for each datasets.\n",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "exportDatasetsTTL",
+      "title": "exportDatasetsTTL",
+      "description": "Export catalog (source) in TTL (turtle/rdf) format\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return.\n\nTo use in conjonction with start to implement pagination.\n\nRows maximum value is 100. To retrive more data use export entry points.\n",
+            "maximum": 100,
+            "minimum": -1,
+            "default": 10
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          },
+          "include_app_metas": {
+            "type": "boolean",
+            "description": "Explicitely request application metas for each datasets.\n",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "exportDatasetsXLS",
+      "title": "exportDatasetsXLS",
+      "description": "Export catalog (source) in XLS (Excel) format\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "where": {
+            "type": "array",
+            "description": "An array of filters.\n\nA filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) as well as lots of other functions, thus performing more complex and more precise searches.\nSee [the query language reference](http://docs.opendatasoft.com/en/using_api/v2/query_language.html) for more details.\n"
+          },
+          "search": {
+            "type": "array",
+            "description": "An array of full text search.\n\nA full text search performs a prefixed text search for each provided terms in all visible fields of a catalog/dataset.\n"
+          },
+          "rows": {
+            "type": "integer",
+            "description": "Number of items to return.\n\nTo use in conjonction with start to implement pagination.\n\nRows maximum value is 100. To retrive more data use export entry points.\n",
+            "maximum": 100,
+            "minimum": -1,
+            "default": 10
+          },
+          "start": {
+            "type": "integer",
+            "description": "Index of the first item to return (starting at 0).\n\nTo use in conjonction with rows to implement pagination.\n",
+            "minimum": 0,
+            "default": 0
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Set timezone for datetime fields",
+            "default": "UTC"
+          },
+          "include_app_metas": {
+            "type": "boolean",
+            "description": "Explicitely request application metas for each datasets.\n",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getMetadataTemplatesTypes",
+      "title": "getMetadataTemplatesTypes",
+      "description": "List of available metadata templates types, each with their endpoints.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getMetadataTemplatesType",
+      "title": "getMetadataTemplatesType",
+      "description": "List of metadata templates available for this type.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "metadata_template_type": {
+            "type": "string",
+            "enum": [
+              "basic",
+              "interop",
+              "extra"
+            ],
+            "default": "basic"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "metadata_template_type"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          },
+          "metadata_templates": {
+            "items": {
+              "properties": {
+                "links": {
+                  "items": {
+                    "$ref": "#/definitions/link"
+                  },
+                  "type": "array"
+                },
+                "metadata_template": {
+                  "$ref": "#/definitions/metadata_template"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    },
+    {
+      "id": "getMetadataTemplate",
+      "title": "getMetadataTemplate",
+      "description": "A single metadata_template\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Each source represents a different catalog of datasets you'll be able to query.\n\nThere are 2 sources available:\n\n* catalog: the catalog of datasets on your portal\n* opendatasoft: OpenDataSoft's repository of public datasets, also available at\n  [data.opendatasoft.com](https://data.opendatasoft.com/page/home/)\n",
+            "enum": [
+              "catalog",
+              "opendatasoft",
+              "monitoring"
+            ],
+            "default": "catalog"
+          },
+          "metadata_template_type": {
+            "type": "string",
+            "enum": [
+              "basic",
+              "interop",
+              "extra"
+            ],
+            "default": "basic"
+          },
+          "metadata_template_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "metadata_template_type",
+          "metadata_template_name"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/definitions/link"
+            },
+            "type": "array"
+          },
+          "metadata_template": {
+            "$ref": "#/definitions/metadata_template"
+          }
+        }
+      },
+      "security": {
+        "opendatasoft": {
+          "integration": "opendatasoft"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "open data"
+  ]
+}

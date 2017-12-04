@@ -1,0 +1,1132 @@
+{
+  "id": "isendpro",
+  "title": "API iSendPro",
+  "description": "[1] Liste des fonctionnalités :\n- envoi de SMS à un ou plusieurs destinataires,\n- lookup HLR,\n- récupération des récapitulatifs de campagne,\n- gestion des répertoires,\n- ajout en liste noire.\n- comptage du nombre de caractères des SMS\n\n[2] Pour utiliser cette API vous devez:\n- Créer un compte iSendPro sur https://isendpro.com/\n- Créditer votre compte \n    - Remarque: obtention d'un crédit de test possible sous conditions\n- Noter votre clé de compte (keyid)\n  - Elle vous sera indispensable à l'utilisation de l'API\n  - Vous pouvez la trouver dans le rubrique mon \"compte\", sous-rubrique \"mon API\"\n- Configurer le contrôle IP\n  - Le contrôle IP est configurable dans le rubrique mon \"compte\", sous-rubrique \"mon API\"\n  - Il s'agit d'un système de liste blanche, vous devez entrer les IP utilisées pour appeler l'API\n  - Vous pouvez également désactiver totalement le contrôle IP\n",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/isendpro.jpeg"
+  },
+  "actionCount": 11,
+  "definitions": {
+    "ComptageReponse": {
+      "properties": {
+        "etat": {
+          "$ref": "#/definitions/ComptageReponse_etat"
+        }
+      },
+      "type": "object",
+      "title": "ComptageReponse"
+    },
+    "ComptageReponse_etat": {
+      "properties": {
+        "etat": {
+          "items": {
+            "$ref": "#/definitions/ComptageReponse_etat_etat"
+          },
+          "type": "array"
+        }
+      },
+      "title": "ComptageReponse_etat"
+    },
+    "ComptageReponse_etat_etat": {
+      "properties": {
+        "nb_caractere": {
+          "description": "nombre de caractères",
+          "type": "string"
+        },
+        "nb_sms": {
+          "description": "nombre de sms nécessaires",
+          "type": "string"
+        },
+        "tel": {
+          "description": "numéro de téléphone",
+          "type": "string"
+        }
+      },
+      "title": "ComptageReponse_etat_etat"
+    },
+    "ComptageRequest": {
+      "example": {
+        "comptage": "1",
+        "emetteur": "iSendPro",
+        "keyid": "VOTRE_KEYID",
+        "num": "0600123456",
+        "sms": "Bonjour! Bienvenue sur iSendPro!"
+      },
+      "properties": {
+        "comptage": {
+          "default": "1",
+          "enum": [
+            "1"
+          ],
+          "type": "string"
+        },
+        "date_envoi": {
+          "description": "Date d'envoi au format YYYY-MM-DD hh:mm . Ce paramètre est optionnel, si il est omis l'envoi est réalisé immédiatement.",
+          "type": "string"
+        },
+        "emetteur": {
+          "description": "- L'emetteur doit être une chaîne alphanumérique comprise entre 4 et 11 caractères.\n\n- Les caractères acceptés sont les chiffres entre 0 et 9, les lettres entre A et Z et l’espace.\n\n- Il ne peut pas comporter uniquement des chiffres. \n\n- Pour la modification de l'émetteur et dans le cadre de campagnes commerciales, les opérateurs imposent contractuellement d'ajouter en fin de message le texte \"STOP XXXXX\". De ce fait, le message envoyé ne pourra excéder une longueur de 148 caractères au lieu des 160 caractères, le « STOP » étant rajouté automatiquement.\n",
+          "type": "string"
+        },
+        "keyid": {
+          "description": "Clé API",
+          "type": "string"
+        },
+        "nostop": {
+          "description": "Si le message n’est pas à but commercial, vous pouvez faire une demande pour retirer l’obligation du STOP. Une fois votre demande validée par nos services, vous pourrez supprimer la mention STOP SMS en ajoutant nostop = \"1\"",
+          "type": "string"
+        },
+        "num": {
+          "description": "Numero de téléphone au format national (exemple 0680010203) ou international (example 33680010203)",
+          "type": "string"
+        },
+        "sms": {
+          "description": "Message à envoyer aux destinataires. Le message doit être encodé au format utf-8 et ne contenir que des caractères existant dans l'alphabet GSM. Il est également possible d'envoyer (à l'étranger uniquement) des SMS en UCS-2, cf paramètre ucs2 pour plus de détails.",
+          "type": "string"
+        },
+        "smslong": {
+          "default": "999",
+          "description": "Le SMS long permet de dépasser la limite de 160 caractères en envoyant un message constitué\nde plusieurs SMS.\nIl est possible d’envoyer jusqu’à 6 SMS concaténés pour une longueur totale maximale de 918\ncaractères par message.\nPour des raisons technique, la limite par SMS concaténé étant de 153 caractères.\nEn cas de modification de l’émetteur, il faut considérer l’ajout automatique de 12 caractères\ndu « STOP SMS ».\nPour envoyer un smslong, il faut ajouter le paramètre smslong aux appels. La valeur de SMS doit être le nombre maximum de sms concaténé autorisé.   Pour ne pas avoir ce message d’erreur et obtenir un calcul dynamique du nombre de SMS alors il faut renseigner smslong = \"999\"\n",
+          "enum": [
+            "999"
+          ],
+          "type": "string"
+        },
+        "tracker": {
+          "description": "Le tracker doit être une chaine alphanumérique de moins de 50 caractères. Ce tracker sera ensuite renvoyé en paramètre des urls pour les retours des accusés de réception. ",
+          "type": "string"
+        },
+        "ucs2": {
+          "description": "Il est également possible d’envoyer des SMS en alphabet non latin (russe, chinois, arabe, etc) sur\nles numéros hors France métropolitaine.\nPour ce faire, la requête devrait être encodée au format UTF-8 et contenir l’argument ucs2 = \"1\"\nDu fait de contraintes techniques, 1 SMS unique ne pourra pas dépasser 70 caractères (au lieu\ndes 160 usuels) et dans le cas de SMS long, chaque sms ne pourra dépasser 67 caractères.\n",
+          "type": "string"
+        }
+      },
+      "required": [
+        "comptage",
+        "keyid",
+        "num",
+        "sms"
+      ],
+      "type": "object",
+      "title": "ComptageRequest"
+    },
+    "CreditResponse": {
+      "properties": {
+        "etat": {
+          "$ref": "#/definitions/CreditResponse_etat"
+        }
+      },
+      "type": "object",
+      "title": "CreditResponse"
+    },
+    "CreditResponse_etat": {
+      "properties": {
+        "credit": {
+          "description": "Montant du crédit restant",
+          "format": "double",
+          "type": "number"
+        },
+        "quantite": {
+          "description": "Equivalence du crédit en nombre de SMS vers la France Métropolitaine.",
+          "format": "string",
+          "type": "string"
+        }
+      },
+      "title": "CreditResponse_etat"
+    },
+    "Erreur": {
+      "properties": {
+        "etat": {
+          "$ref": "#/definitions/Erreur_etat"
+        }
+      },
+      "type": "object",
+      "title": "Erreur"
+    },
+    "Erreur_etat": {
+      "properties": {
+        "etat": {
+          "items": {
+            "$ref": "#/definitions/Erreur_etat_etat"
+          },
+          "type": "array"
+        }
+      },
+      "title": "Erreur_etat"
+    },
+    "Erreur_etat_etat": {
+      "properties": {
+        "code": {
+          "description": "Code retour. Voir \"tableau des code retour\" dans l'annexe de la documentation",
+          "format": "string",
+          "type": "string"
+        },
+        "message": {
+          "description": "Libellé associé au code de retour",
+          "format": "string",
+          "type": "string"
+        }
+      },
+      "title": "Erreur_etat_etat"
+    },
+    "HLRReponse": {
+      "properties": {
+        "etat": {
+          "$ref": "#/definitions/HLRReponse_etat"
+        }
+      },
+      "type": "object",
+      "title": "HLRReponse"
+    },
+    "HLRReponse_etat": {
+      "properties": {
+        "etat": {
+          "description": "liste des retours",
+          "items": {
+            "$ref": "#/definitions/HLRReponse_etat_etat"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "etat"
+      ],
+      "title": "HLRReponse_etat"
+    },
+    "HLRReponse_etat_etat": {
+      "properties": {
+        "operateur": {
+          "description": "Opérateur associé (si numéro valide)",
+          "type": "string"
+        },
+        "tel": {
+          "description": "Numero de téléphone concerné",
+          "type": "string"
+        }
+      },
+      "required": [
+        "operateur",
+        "tel"
+      ],
+      "title": "HLRReponse_etat_etat"
+    },
+    "HLRrequest": {
+      "example": {
+        "getHLR": "1",
+        "keyid": "VOTRE_KEYID",
+        "num": [
+          "06123456789",
+          "06345687899"
+        ]
+      },
+      "properties": {
+        "getHLR": {
+          "default": "1",
+          "description": "Doit valoir \"1\"",
+          "enum": [
+            "1"
+          ],
+          "type": "string"
+        },
+        "keyid": {
+          "description": "Clé API",
+          "type": "string"
+        },
+        "num": {
+          "description": "liste de numéros de téléphone",
+          "items": {
+            "description": "numéro au format national français ou international",
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "getHLR",
+        "keyid",
+        "num"
+      ],
+      "type": "object",
+      "title": "HLRrequest"
+    },
+    "LISTENOIREReponse": {
+      "properties": {
+        "etat": {
+          "$ref": "#/definitions/LISTENOIREReponse_etat"
+        }
+      },
+      "type": "object",
+      "title": "LISTENOIREReponse"
+    },
+    "LISTENOIREReponse_etat": {
+      "properties": {
+        "etat": {
+          "items": {
+            "$ref": "#/definitions/LISTENOIREReponse_etat_etat"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "etat"
+      ],
+      "title": "LISTENOIREReponse_etat"
+    },
+    "LISTENOIREReponse_etat_etat": {
+      "properties": {
+        "listeNoire": {
+          "description": "Doit valoir \"OK\"",
+          "type": "string"
+        },
+        "tel": {
+          "description": "Numéro de téléphone à placer en liste noire. Format national Français ou international.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "listeNoire",
+        "tel"
+      ],
+      "title": "LISTENOIREReponse_etat_etat"
+    },
+    "REPERTOIREcreatereponse": {
+      "properties": {
+        "etat": {
+          "$ref": "#/definitions/REPERTOIREcreatereponse_etat"
+        }
+      },
+      "type": "object",
+      "title": "REPERTOIREcreatereponse"
+    },
+    "REPERTOIREcreatereponse_etat": {
+      "properties": {
+        "etat": {
+          "items": {
+            "$ref": "#/definitions/REPERTOIREcreatereponse_etat_etat"
+          },
+          "type": "array"
+        }
+      },
+      "title": "REPERTOIREcreatereponse_etat"
+    },
+    "REPERTOIREcreatereponse_etat_etat": {
+      "properties": {
+        "code": {
+          "description": "Code retour. Voir \"tableau des code retour\" dans l'annexe de la documentation",
+          "type": "string"
+        },
+        "message": {
+          "description": "Libellé associé au code retour.",
+          "type": "string"
+        },
+        "repertoireId": {
+          "description": "repertoireId du repertoire crée.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "title": "REPERTOIREcreatereponse_etat_etat"
+    },
+    "REPERTOIREcreaterequest": {
+      "example": {
+        "keyid": "VOTRE_KEYID",
+        "repertoireEdit": "create",
+        "repertoireNom": "Repertoire de test"
+      },
+      "properties": {
+        "keyid": {
+          "description": "Clé API",
+          "type": "string"
+        },
+        "repertoireEdit": {
+          "default": "create",
+          "description": "Action à réaliser doit valoir \"create\" ici.",
+          "enum": [
+            "create"
+          ],
+          "type": "string"
+        },
+        "repertoireNom": {
+          "description": "Nom du répertoire (libellé) à créer",
+          "type": "string"
+        }
+      },
+      "required": [
+        "keyid",
+        "repertoireEdit",
+        "repertoireNom"
+      ],
+      "type": "object",
+      "title": "REPERTOIREcreaterequest"
+    },
+    "REPERTOIREmodifreponse": {
+      "properties": {
+        "etat": {
+          "$ref": "#/definitions/REPERTOIREmodifreponse_etat"
+        }
+      },
+      "type": "object",
+      "title": "REPERTOIREmodifreponse"
+    },
+    "REPERTOIREmodifreponse_etat": {
+      "properties": {
+        "etat": {
+          "items": {
+            "$ref": "#/definitions/REPERTOIREmodifreponse_etat_etat"
+          },
+          "type": "array"
+        }
+      },
+      "title": "REPERTOIREmodifreponse_etat"
+    },
+    "REPERTOIREmodifreponse_etat_etat": {
+      "description": "Tableau de code retour. Si succès, un code retour distinct par numéro soumis.",
+      "properties": {
+        "code": {
+          "description": "Code retour. Voir \"tableau des code retour\" dans l'annexe de la documentation",
+          "type": "string"
+        },
+        "message": {
+          "description": "Libellé associé au code retour.",
+          "type": "string"
+        },
+        "repertoireId": {
+          "description": "repertoireId passé en argument lors de l'appel",
+          "type": "string"
+        },
+        "tel": {
+          "description": "Numéro de téléphone",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "title": "REPERTOIREmodifreponse_etat_etat"
+    },
+    "REPERTOIREmodifrequest": {
+      "example": {
+        "keyid": "VOTRE_KEYID",
+        "num": [
+          "06123456789",
+          "07123456789"
+        ],
+        "repertoireEdit": "add",
+        "repertoireId": "VOTRE_REPERTOIRE_ID"
+      },
+      "properties": {
+        "champ1": {
+          "description": "Noms des contact",
+          "items": {
+            "description": "Nom des contacts",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ10": {
+          "description": "Champs I des contacts",
+          "items": {
+            "description": "Champ I",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ11": {
+          "description": "Champs J des contacts",
+          "items": {
+            "description": "Champ J",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ12": {
+          "description": "Champs K des contacts",
+          "items": {
+            "description": "Champ K",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ13": {
+          "description": "Champs L des contacts",
+          "items": {
+            "description": "Champ L",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ14": {
+          "description": "Champs M des contacts",
+          "items": {
+            "description": "Champ M",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ15": {
+          "description": "Champs N des contacts",
+          "items": {
+            "description": "Champ N",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ16": {
+          "description": "Champs O des contacts",
+          "items": {
+            "description": "Champ O",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ17": {
+          "description": "Champs P des contacts",
+          "items": {
+            "description": "Champ P",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ18": {
+          "description": "Champs Q des contacts",
+          "items": {
+            "description": "Champ Q",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ19": {
+          "description": "Champs R des contacts",
+          "items": {
+            "description": "Champ R",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ2": {
+          "description": "Champs A des contacts",
+          "items": {
+            "description": "Champ A",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ20": {
+          "description": "Champs S des contacts",
+          "items": {
+            "description": "Champ S",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ21": {
+          "description": "Champs T des contacts",
+          "items": {
+            "description": "Champ T",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ22": {
+          "description": "Champs U des contacts",
+          "items": {
+            "description": "Champ U",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ23": {
+          "description": "Champs V des contacts",
+          "items": {
+            "description": "Champ V",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ24": {
+          "description": "Champs W des contacts",
+          "items": {
+            "description": "Champ W",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ25": {
+          "description": "Champs X des contacts",
+          "items": {
+            "description": "Champ X",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ26": {
+          "description": "Champs Y des contacts",
+          "items": {
+            "description": "Champ Y",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ27": {
+          "description": "Champs Z des contacts",
+          "items": {
+            "description": "Champ Z",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ3": {
+          "description": "Champs B des contacts",
+          "items": {
+            "description": "Champ B",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ4": {
+          "description": "Champs C des contacts",
+          "items": {
+            "description": "Champ C",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ5": {
+          "description": "Champs D des contacts",
+          "items": {
+            "description": "Champ D",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ6": {
+          "description": "Champs E des contacts",
+          "items": {
+            "description": "Champ E",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ7": {
+          "description": "Champs F des contacts",
+          "items": {
+            "description": "Champ F",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ8": {
+          "description": "Champs G des contacts",
+          "items": {
+            "description": "Champ G",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "champ9": {
+          "description": "Champs H des contacts",
+          "items": {
+            "description": "Champ H",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "keyid": {
+          "description": "Clé API",
+          "type": "string"
+        },
+        "num": {
+          "description": "liste des numéros des téléphone à ajouter ou supprimer",
+          "items": {
+            "description": "Numéro de téléphone au format national ou international",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "repertoireEdit": {
+          "description": "action à réaliser, \"add\" pour l'ajout de numéros, \"del\" pour la suppression de numéros",
+          "enum": [
+            "add",
+            "del"
+          ],
+          "type": "string"
+        },
+        "repertoireId": {
+          "description": "repertoireId du répertoire cible",
+          "type": "string"
+        }
+      },
+      "required": [
+        "keyid",
+        "num",
+        "repertoireEdit",
+        "repertoireId"
+      ],
+      "type": "object",
+      "title": "REPERTOIREmodifrequest"
+    },
+    "SMSReponse": {
+      "properties": {
+        "etat": {
+          "$ref": "#/definitions/SMSReponse_etat"
+        }
+      },
+      "type": "object",
+      "title": "SMSReponse"
+    },
+    "SMSReponse_etat": {
+      "properties": {
+        "etat": {
+          "items": {
+            "$ref": "#/definitions/SMSReponse_etat_etat"
+          },
+          "type": "array"
+        }
+      },
+      "title": "SMSReponse_etat"
+    },
+    "SMSReponse_etat_etat": {
+      "properties": {
+        "code": {
+          "description": "Code retour. Voir \"tableau des code retour\" dans l'annexe de la documentation",
+          "type": "integer"
+        },
+        "message": {
+          "description": "Libellé associé au code de retour",
+          "type": "string"
+        },
+        "smslong": {
+          "description": "Nombre de SMS longs facturés",
+          "type": "string"
+        },
+        "tel": {
+          "description": "Numero de téléphone concerné",
+          "type": "string"
+        }
+      },
+      "title": "SMSReponse_etat_etat"
+    },
+    "SMSRequest": {
+      "example": {
+        "emetteur": "iSendPro",
+        "keyid": "VOTRE_KEYID",
+        "num": [
+          "0600123456",
+          "0612345678"
+        ],
+        "sms": "Bonjour! Bienvenue sur iSendPro!"
+      },
+      "properties": {
+        "date_envoi": {
+          "description": "Paramètre optionnel, date d'envoi au format YYYY-MM-DD hh:mm",
+          "type": "string"
+        },
+        "emetteur": {
+          "description": "L'emetteur doit être une chaîne alphanumérique comprise entre 4 et 11 caractères. Les caractères acceptés sont les chiffres entre 0 et 9, les lettres entre A et Z et l’espace. Il ne peut pas comporter uniquement des chiffres. Pour la modification de l’émetteur et dans le cadre de campagnes commerciales, les opérateurs imposent contractuellement d’ajouter en fin de message le texte suivant : STOP XXXXX De ce fait, le message envoyé ne pourra excéder une longueur de 148 caractères au lieu des 160 caractères, le « STOP » étant rajouté automatiquement.",
+          "type": "string"
+        },
+        "keyid": {
+          "description": "Clé API",
+          "type": "string"
+        },
+        "nostop": {
+          "description": "Si le message n’est pas à but commercial, vous pouvez faire une demande pour retirer l’obligation du STOP. Une fois votre demande validée par nos services, vous pourrez supprimer la mention STOP SMS en ajoutant nostop = \"1\"",
+          "type": "string"
+        },
+        "num": {
+          "items": {
+            "description": "Numeros de téléphone au format national (exemple 0680010203) ou international (example 33680010203)",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "repertoireId": {
+          "description": "Id du repertoire",
+          "type": "string"
+        },
+        "sms": {
+          "items": {
+            "description": "Message à envoyer aux destinataires. Il peut y avoir un seul message ou 1 message par destintaire différent.",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "smslong": {
+          "description": "Le SMS long permet de dépasser la limite de 160 caractères en envoyant un message constitué de plusieurs SMS. Il est possible d’envoyer jusqu’à 6 SMS concaténés pour une longueur totale maximale de 918 caractères par message. Pour des raisons technique, la limite par SMS concaténé étant de 153 caractères. En cas de modification de l’émetteur, il faut considérer l’ajout automatique de 12 caractères du « STOP SMS ». Pour envoyer un smslong, il faut ajouter le paramètre smslong aux appels. La valeur de SMS doit être le nombre maximum de sms concaténé autorisé.   Pour ne pas avoir ce message d’erreur et obtenir un calcul dynamique du nombre de SMS alors il faut renseigner smslong = \"999\" ",
+          "type": "string"
+        },
+        "tracker": {
+          "items": {
+            "description": "Le tracker doit être une chaine alphanumérique de moins de 50 caractères. Ce tracker sera ensuite renvoyé en paramètre des urls pour les retours des accusés de réception. ",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "ucs2": {
+          "description": "Il est également possible d’envoyer des SMS en alphabet non latin (russe, chinois, arabe, etc) sur les numéros hors France métropolitaine. Pour ce faire, la requête devrait être encodée au format UTF-8 et contenir l’argument ucs2 = \"1\" Du fait de contraintes techniques, 1 SMS unique ne pourra pas dépasser 70 caractères (au lieu des 160 usuels) et dans le cas de SMS long, chaque sms ne pourra dépasser 67 caractères.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "keyid",
+        "num",
+        "sms"
+      ],
+      "type": "object",
+      "title": "SMSRequest"
+    },
+    "SmsUniqueRequest": {
+      "example": {
+        "emetteur": "iSendPro",
+        "keyid": "VOTRE_KEYID",
+        "num": "0600123456",
+        "sms": "Bonjour! Bienvenue sur iSendPro!"
+      },
+      "properties": {
+        "date_envoi": {
+          "description": "Date d'envoi au format YYYY-MM-DD hh:mm . Ce paramètre est optionnel, si il est omis l'envoi est réalisé immédiatement.",
+          "type": "string"
+        },
+        "emetteur": {
+          "description": "- L'emetteur doit être une chaîne alphanumérique comprise entre 4 et 11 caractères.\n\n- Les caractères acceptés sont les chiffres entre 0 et 9, les lettres entre A et Z et l’espace.\n\n- Il ne peut pas comporter uniquement des chiffres. \n\n- Pour la modification de l'émetteur et dans le cadre de campagnes commerciales, les opérateurs imposent contractuellement d'ajouter en fin de message le texte \"STOP XXXXX\". De ce fait, le message envoyé ne pourra excéder une longueur de 148 caractères au lieu des 160 caractères, le « STOP » étant rajouté automatiquement.\n",
+          "type": "string"
+        },
+        "keyid": {
+          "description": "Clé API",
+          "type": "string"
+        },
+        "nostop": {
+          "description": "Si le message n’est pas à but commercial, vous pouvez faire une demande pour retirer l’obligation du STOP. Une fois votre demande validée par nos services, vous pourrez supprimer la mention STOP SMS en ajoutant nostop = \"1\"",
+          "type": "string"
+        },
+        "num": {
+          "description": "Numero de téléphone au format national (exemple 0680010203) ou international (example 33680010203)",
+          "type": "string"
+        },
+        "sms": {
+          "description": "Message à envoyer aux destinataires. Le message doit être encodé au format utf-8 et ne contenir que des caractères existant dans l'alphabet GSM. Il est également possible d'envoyer (à l'étranger uniquement) des SMS en UCS-2, cf paramètre ucs2 pour plus de détails.",
+          "type": "string"
+        },
+        "smslong": {
+          "description": "Le SMS long permet de dépasser la limite de 160 caractères en envoyant un message constitué\nde plusieurs SMS.\nIl est possible d’envoyer jusqu’à 6 SMS concaténés pour une longueur totale maximale de 918\ncaractères par message.\nPour des raisons technique, la limite par SMS concaténé étant de 153 caractères.\nEn cas de modification de l’émetteur, il faut considérer l’ajout automatique de 12 caractères\ndu « STOP SMS ».\nPour envoyer un smslong, il faut ajouter le paramètre smslong aux appels. La valeur de SMS doit être le nombre maximum de sms concaténé autorisé.   Pour ne pas avoir ce message d’erreur et obtenir un calcul dynamique du nombre de SMS alors il faut renseigner smslong = \"999\"\n",
+          "type": "string"
+        },
+        "tracker": {
+          "description": "Le tracker doit être une chaine alphanumérique de moins de 50 caractères. Ce tracker sera ensuite renvoyé en paramètre des urls pour les retours des accusés de réception. ",
+          "type": "string"
+        },
+        "ucs2": {
+          "description": "Il est également possible d’envoyer des SMS en alphabet non latin (russe, chinois, arabe, etc) sur\nles numéros hors France métropolitaine.\nPour ce faire, la requête devrait être encodée au format UTF-8 et contenir l’argument ucs2 = \"1\"\nDu fait de contraintes techniques, 1 SMS unique ne pourra pas dépasser 70 caractères (au lieu\ndes 160 usuels) et dans le cas de SMS long, chaque sms ne pourra dépasser 67 caractères.\n",
+          "type": "string"
+        }
+      },
+      "required": [
+        "keyid",
+        "num",
+        "sms"
+      ],
+      "type": "object",
+      "title": "SmsUniqueRequest"
+    }
+  },
+  "actions": [
+    {
+      "id": "getCampagne",
+      "title": "getCampagne",
+      "description": "Retourne les SMS envoyés sur une période donnée en fonction d'une date de début et d'une date de fin. \n\nLes dates sont au format YYYY-MM-DD hh:mm. \n\nLe fichier rapport de campagne est sous la forme d'un fichier zip + contenant un fichier csv contenant le détail des envois.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "keyid": {
+            "type": "string",
+            "description": "Clé API"
+          },
+          "rapportCampagne": {
+            "type": "string",
+            "description": "Doit valoir \"1\"",
+            "enum": [
+              "1"
+            ]
+          },
+          "date_deb": {
+            "type": "string",
+            "description": "date de debut au format YYYY-MM-DD hh:mm"
+          },
+          "date_fin": {
+            "type": "string",
+            "description": "date de fin au format YYYY-MM-DD hh:mm"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "keyid",
+          "rapportCampagne",
+          "date_deb",
+          "date_fin"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      }
+    },
+    {
+      "id": "comptage",
+      "title": "comptage",
+      "description": "Compte le nombre de SMS necessaire à un envoi",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "comptagerequest": {
+            "$ref": "#/definitions/ComptageRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "comptagerequest"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ComptageReponse"
+      }
+    },
+    {
+      "id": "getCredit",
+      "title": "getCredit",
+      "description": "Retourne le credit existant associe au compte.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "keyid": {
+            "type": "string",
+            "format": "string",
+            "description": "Clé API"
+          },
+          "credit": {
+            "type": "string",
+            "description": "Type de reponse demandée, 1 pour euro, 2 pour euro + estimation quantité",
+            "enum": [
+              "1",
+              "2"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "keyid",
+          "credit"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreditResponse"
+      }
+    },
+    {
+      "id": "delListeNoire",
+      "title": "delListeNoire",
+      "description": "Supprime un numero en liste noire",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "keyid": {
+            "type": "string",
+            "format": "string",
+            "description": "Clé API"
+          },
+          "dellisteNoire": {
+            "type": "string",
+            "description": "Doit valoir \"1\"",
+            "enum": [
+              "1"
+            ]
+          },
+          "num": {
+            "type": "string",
+            "format": "string",
+            "description": "numéro de mobile à supprimer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "keyid",
+          "dellisteNoire",
+          "num"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LISTENOIREReponse"
+      }
+    },
+    {
+      "id": "getListeNoire",
+      "title": "getListeNoire",
+      "description": "Retourne un fichier csv zippé contenant la liste noire",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "keyid": {
+            "type": "string",
+            "format": "string",
+            "description": "Clé API"
+          },
+          "getListeNoire": {
+            "type": "string",
+            "description": "Doit valoir \"1\"",
+            "enum": [
+              "1"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "keyid",
+          "getListeNoire"
+        ]
+      },
+      "outputSchema": {
+        "type": "file"
+      }
+    },
+    {
+      "id": "getHlr",
+      "title": "getHlr",
+      "description": "Réalise un lookup HLR sur les numéros \n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "hlrrequest": {
+            "$ref": "#/definitions/HLRrequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "hlrrequest"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HLRReponse"
+      }
+    },
+    {
+      "id": "repertoireCrea",
+      "title": "repertoireCrea",
+      "description": "Cree un nouveau répertoire et retourne son identifiant. Cet identifiant pourra être utilisé pour ajouter ou supprimer des numéros via l'API.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "repertoirecreaterequest": {
+            "$ref": "#/definitions/REPERTOIREcreaterequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "repertoirecreaterequest"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/REPERTOIREcreatereponse"
+      }
+    },
+    {
+      "id": "repertoire",
+      "title": "repertoire",
+      "description": "Ajoute ou supprime une liste de numéros à un répertoire existant.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "repertoiremodifrequest": {
+            "$ref": "#/definitions/REPERTOIREmodifrequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "repertoiremodifrequest"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/REPERTOIREmodifreponse"
+      }
+    },
+    {
+      "id": "setListeNoire",
+      "title": "setListeNoire",
+      "description": "Ajoute un numero en liste noire. Une fois ajouté, les requêtes d'envoi de SMS marketing vers ce numéro seront refusées.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "keyid": {
+            "type": "string",
+            "format": "string",
+            "description": "Clé API"
+          },
+          "setlisteNoire": {
+            "type": "string",
+            "description": "Doit valoir \"1\"",
+            "enum": [
+              "1"
+            ]
+          },
+          "num": {
+            "type": "string",
+            "format": "string",
+            "description": "numéro de mobile à insérer en liste noire"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "keyid",
+          "setlisteNoire",
+          "num"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LISTENOIREReponse"
+      }
+    },
+    {
+      "id": "sendSms",
+      "title": "sendSms",
+      "description": "Envoi un sms vers un unique destinataire",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "smsrequest": {
+            "$ref": "#/definitions/SmsUniqueRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "smsrequest"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SMSReponse"
+      }
+    },
+    {
+      "id": "sendSmsMulti",
+      "title": "sendSmsMulti",
+      "description": "Envoi de SMS vers 1 ou plusieurs destinataires\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "smsrequest": {
+            "$ref": "#/definitions/SMSRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "smsrequest"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SMSReponse"
+      }
+    }
+  ],
+  "tags": [
+    "messaging"
+  ]
+}

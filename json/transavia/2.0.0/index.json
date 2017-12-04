@@ -1,0 +1,338 @@
+{
+  "id": "transavia",
+  "title": "Airports API v2",
+  "description": "Returns all airports",
+  "security": {
+    "transavia": {
+      "integration": "transavia",
+      "fields": {
+        "apiKeyHeader": "API key",
+        "apiKeyQuery": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/transavia.jpeg"
+  },
+  "actionCount": 5,
+  "definitions": {
+    "AirportDetailsDto": {
+      "properties": {
+        "city": {
+          "description": "City where the airport is located.",
+          "type": "string"
+        },
+        "country": {
+          "$ref": "#/definitions/Country",
+          "description": "Country where the airport is located."
+        },
+        "geoCoordinates": {
+          "$ref": "#/definitions/GeoCoordinates",
+          "description": "GEO coordinates where the airport is located."
+        },
+        "id": {
+          "description": "Unique identifier.",
+          "type": "string"
+        },
+        "inboundRoutes": {
+          "$ref": "#/definitions/Link",
+          "description": "Reference to self."
+        },
+        "name": {
+          "description": "Name of the airport.",
+          "type": "string"
+        },
+        "outboundRoutes": {
+          "$ref": "#/definitions/Link",
+          "description": "Reference to self."
+        }
+      },
+      "type": "object",
+      "title": "AirportDetailsDto"
+    },
+    "AirportDto": {
+      "description": "",
+      "properties": {
+        "city": {
+          "description": "City where the airport is located.",
+          "type": "string"
+        },
+        "country": {
+          "$ref": "#/definitions/Country",
+          "description": "Country where the airport is located."
+        },
+        "geoCoordinates": {
+          "$ref": "#/definitions/GeoCoordinates",
+          "description": "GEO coordinates where the airport is located."
+        },
+        "id": {
+          "description": "Unique identifier.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the airport.",
+          "type": "string"
+        },
+        "self": {
+          "$ref": "#/definitions/Link",
+          "description": "Reference to self."
+        }
+      },
+      "type": "object",
+      "title": "AirportDto"
+    },
+    "AirportDtoArray": {
+      "items": {
+        "$ref": "#/definitions/AirportDto"
+      },
+      "type": "array",
+      "title": "AirportDtoArray"
+    },
+    "BadRequestResponse": {
+      "properties": {
+        "errorMessages": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "BadRequestResponse"
+    },
+    "Country": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Country"
+    },
+    "GeoCoordinates": {
+      "properties": {
+        "latitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "longitude": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "GeoCoordinates"
+    },
+    "InternalServerErrorResponse": {
+      "properties": {
+        "errorMessage": {
+          "type": "string"
+        },
+        "referenceId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "InternalServerErrorResponse"
+    },
+    "Link": {
+      "properties": {
+        "href": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Link"
+    },
+    "NearestAirportDto": {
+      "description": "",
+      "properties": {
+        "city": {
+          "description": "City where the airport is located.",
+          "type": "string"
+        },
+        "country": {
+          "$ref": "#/definitions/Country",
+          "description": "Country where the airport is located."
+        },
+        "distanceInKm": {
+          "description": "Distance in kilometers.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "geoCoordinates": {
+          "$ref": "#/definitions/GeoCoordinates",
+          "description": "GEO coordinates where the airport is located."
+        },
+        "id": {
+          "description": "Unique identifier.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the airport.",
+          "type": "string"
+        },
+        "self": {
+          "$ref": "#/definitions/Link",
+          "description": "Reference to self."
+        }
+      },
+      "type": "object",
+      "title": "NearestAirportDto"
+    },
+    "NearestAirportDtoArray": {
+      "items": {
+        "$ref": "#/definitions/NearestAirportDto"
+      },
+      "type": "array",
+      "title": "NearestAirportDtoArray"
+    }
+  },
+  "actions": [
+    {
+      "id": ".get",
+      "title": ".get",
+      "description": "Retrieve all airports.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/AirportDtoArray"
+      },
+      "security": {
+        "transavia": {
+          "integration": "transavia"
+        }
+      }
+    },
+    {
+      "id": "countrycode.countryCode.get",
+      "title": "countrycode.countryCode.get",
+      "description": "Retrieve airports by country code.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "type": "string",
+            "description": "Comma-separated list of country codes (2-character ISO 3166-1). More than 3 country codes is not allowed."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "countryCode"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AirportDtoArray"
+      },
+      "security": {
+        "transavia": {
+          "integration": "transavia"
+        }
+      }
+    },
+    {
+      "id": "nearest.get",
+      "title": "nearest.get",
+      "description": "Retrieve nearest airports by geo coordinates (latitude/longitude).",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "latitude": {
+            "type": "string",
+            "description": "Latitude in decimals, lower than -90.0 and higher than 90.0 is not allowed."
+          },
+          "longitude": {
+            "type": "string",
+            "description": "Longitude in decimals, lower than -180.0 and higher than 180.0 is not allowed."
+          },
+          "maxDistanceInKm": {
+            "type": "string",
+            "description": "Maximum distance in kilometers, lower than 1 and higher than 500 is not allowed. If not set, max value is applied."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limits the result, lower than 0 is not allowed. If not set, the result is not limited."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NearestAirportDtoArray"
+      },
+      "security": {
+        "transavia": {
+          "integration": "transavia"
+        }
+      }
+    },
+    {
+      "id": "nearest.id.get",
+      "title": "nearest.id.get",
+      "description": "Retrieve nearest airports by station id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Airport (IATA code) to search nearest airports for."
+          },
+          "maxDistanceInKm": {
+            "type": "string",
+            "description": "Maximum distance in kilometers, lower than 1 and higher than 500 is not allowed. If not set, max value is applied."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limits the result, lower than 0 is not allowed. If not set, the result is not limited."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NearestAirportDtoArray"
+      },
+      "security": {
+        "transavia": {
+          "integration": "transavia"
+        }
+      }
+    },
+    {
+      "id": "id.get",
+      "title": "id.get",
+      "description": "Retrieve airport by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Airport code (3-character IATA code)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AirportDetailsDto"
+      },
+      "security": {
+        "transavia": {
+          "integration": "transavia"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "transport"
+  ]
+}

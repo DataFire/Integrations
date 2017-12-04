@@ -1,0 +1,5362 @@
+{
+  "id": "jumpseller",
+  "title": "Jumpseller API",
+  "description": "Explore all our endpoints with your own set of of access tokens. All changes affect your production Jumpseller store.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/jumpseller.png"
+  },
+  "actionCount": 95,
+  "definitions": {
+    "App": {
+      "properties": {
+        "apps": {
+          "items": {
+            "$ref": "#/definitions/AppFields"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "App"
+    },
+    "AppFields": {
+      "properties": {
+        "author": {
+          "description": "Author of the app",
+          "type": "string"
+        },
+        "code": {
+          "description": "Code of the app",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the app",
+          "type": "string"
+        },
+        "js": {
+          "default": false,
+          "description": "True if the app is a jsapp",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "Name of the app",
+          "type": "string"
+        },
+        "page": {
+          "description": "Page of the app",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "AppFields"
+    },
+    "BillingAddress": {
+      "properties": {
+        "address": {
+          "description": "Address of the Customer's Billing Address",
+          "type": "string"
+        },
+        "city": {
+          "description": "City of the Customer's Billing Address",
+          "type": "string"
+        },
+        "country": {
+          "description": "Country of the Customer's Billing Address",
+          "type": "string"
+        },
+        "municipality": {
+          "description": "Municipality of the Customer's Billing Address",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Customer's Billing Address",
+          "type": "string"
+        },
+        "postal": {
+          "description": "Postal code of the Customer's Billing Address",
+          "type": "string"
+        },
+        "region": {
+          "description": "Region of the Customer's Billing Address",
+          "type": "string"
+        },
+        "surname": {
+          "description": "Surname of the Customer's Billing Address",
+          "type": "string"
+        },
+        "taxid": {
+          "description": "Tax id of the Customer's Billing Address",
+          "type": "string"
+        }
+      },
+      "title": "BillingAddress"
+    },
+    "Category": {
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/CategoryFields"
+        }
+      },
+      "type": "object",
+      "title": "Category"
+    },
+    "CategoryEdit": {
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/CategoryEditFields"
+        }
+      },
+      "type": "object",
+      "title": "CategoryEdit"
+    },
+    "CategoryEditFields": {
+      "properties": {
+        "name": {
+          "description": "Name of the Category",
+          "type": "string"
+        },
+        "parent_id": {
+          "description": "Unique identifier of the Parent Category",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "CategoryEditFields"
+    },
+    "CategoryFields": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of the Category",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the Category",
+          "type": "string"
+        },
+        "parent_id": {
+          "description": "Unique identifier of the Parent Category",
+          "format": "int32",
+          "type": "integer"
+        },
+        "permalink": {
+          "description": "Category unique URL path",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CategoryFields"
+    },
+    "CheckoutCustomField": {
+      "properties": {
+        "checkout_custom_field": {
+          "$ref": "#/definitions/CheckoutCustomFieldFields"
+        }
+      },
+      "type": "object",
+      "title": "CheckoutCustomField"
+    },
+    "CheckoutCustomFieldEdit": {
+      "properties": {
+        "checkout_custom_field": {
+          "$ref": "#/definitions/CheckoutCustomFieldEditFields"
+        }
+      },
+      "type": "object",
+      "title": "CheckoutCustomFieldEdit"
+    },
+    "CheckoutCustomFieldEditFields": {
+      "properties": {
+        "area": {
+          "description": "Area of the CheckoutCustomField",
+          "enum": [
+            "contact",
+            "billing_shipping",
+            "other"
+          ],
+          "type": "string"
+        },
+        "deletable": {
+          "default": false,
+          "description": "True if the CheckoutCustomField can be removed from the store",
+          "type": "boolean"
+        },
+        "label": {
+          "description": "Label given to the CheckoutCustomField",
+          "type": "string"
+        },
+        "position": {
+          "description": "Position of the CheckoutCustomField",
+          "format": "int32",
+          "type": "integer"
+        },
+        "required": {
+          "default": false,
+          "description": "True if the CheckoutCustomField is mandatory",
+          "type": "boolean"
+        },
+        "type": {
+          "description": "Type of the CheckoutCustomField",
+          "enum": [
+            "text",
+            "select",
+            "input",
+            "checkbox"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CheckoutCustomFieldEditFields"
+    },
+    "CheckoutCustomFieldFields": {
+      "properties": {
+        "area": {
+          "description": "Area of the CheckoutCustomField",
+          "enum": [
+            "contact",
+            "billing_shipping",
+            "other"
+          ],
+          "type": "string"
+        },
+        "deletable": {
+          "default": false,
+          "description": "True if the CheckoutCustomField can be removed from the store",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "Unique identifier of the CheckoutCustomField",
+          "format": "int32",
+          "type": "integer"
+        },
+        "label": {
+          "description": "Label given to the CheckoutCustomField",
+          "type": "string"
+        },
+        "position": {
+          "description": "Position of the CheckoutCustomField",
+          "format": "int32",
+          "type": "integer"
+        },
+        "required": {
+          "default": false,
+          "description": "True if the CheckoutCustomField is mandatory",
+          "type": "boolean"
+        },
+        "type": {
+          "description": "Type of the CheckoutCustomField",
+          "enum": [
+            "text",
+            "select",
+            "input",
+            "checkbox"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CheckoutCustomFieldFields"
+    },
+    "Count": {
+      "properties": {
+        "count": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "title": "Count"
+    },
+    "Country": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Country"
+    },
+    "Customer": {
+      "properties": {
+        "customer": {
+          "$ref": "#/definitions/CustomerFields"
+        }
+      },
+      "type": "object",
+      "title": "Customer"
+    },
+    "CustomerCategory": {
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/CustomerCategoryFields"
+        }
+      },
+      "type": "object",
+      "title": "CustomerCategory"
+    },
+    "CustomerCategoryEdit": {
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/CustomerCategoryEditFields"
+        }
+      },
+      "type": "object",
+      "title": "CustomerCategoryEdit"
+    },
+    "CustomerCategoryEditFields": {
+      "properties": {
+        "name": {
+          "description": "Name of the CustomerCategory",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CustomerCategoryEditFields"
+    },
+    "CustomerCategoryFields": {
+      "properties": {
+        "code": {
+          "description": "Code of the CustomerCategory",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier of the CustomerCategory",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the CustomerCategory",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CustomerCategoryFields"
+    },
+    "CustomerFields": {
+      "properties": {
+        "billing_address": {
+          "$ref": "#/definitions/BillingAddress"
+        },
+        "email": {
+          "description": "Email of the Customer",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier of the Customer",
+          "format": "int32",
+          "type": "integer"
+        },
+        "phone": {
+          "description": "Phone of the Customer",
+          "type": "string"
+        },
+        "shipping_address": {
+          "$ref": "#/definitions/ShippingAddress"
+        },
+        "status": {
+          "description": "Status of the Customer",
+          "enum": [
+            "approved",
+            "pending",
+            "disabled"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CustomerFields"
+    },
+    "CustomerFieldsWithPassword": {
+      "properties": {
+        "billing_address": {
+          "$ref": "#/definitions/BillingAddress"
+        },
+        "email": {
+          "description": "Email of the Customer",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier of the Customer",
+          "format": "int32",
+          "type": "integer"
+        },
+        "password": {
+          "description": "Password",
+          "type": "string"
+        },
+        "password_confirmation": {
+          "description": "Password Confirmation",
+          "type": "string"
+        },
+        "phone": {
+          "description": "Phone of the Customer",
+          "type": "string"
+        },
+        "shipping_address": {
+          "$ref": "#/definitions/ShippingAddress"
+        },
+        "status": {
+          "description": "Status of the Customer",
+          "enum": [
+            "approved",
+            "pending",
+            "disabled"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CustomerFieldsWithPassword"
+    },
+    "CustomerFieldsWithPasswordNoID": {
+      "properties": {
+        "billing_address": {
+          "$ref": "#/definitions/BillingAddress"
+        },
+        "email": {
+          "description": "Email of the Customer",
+          "type": "string"
+        },
+        "password": {
+          "description": "Password",
+          "type": "string"
+        },
+        "password_confirmation": {
+          "description": "Password Confirmation",
+          "type": "string"
+        },
+        "phone": {
+          "description": "Phone of the Customer",
+          "type": "string"
+        },
+        "shipping_address": {
+          "$ref": "#/definitions/ShippingAddress"
+        },
+        "status": {
+          "description": "Status of the Customer",
+          "enum": [
+            "approved",
+            "pending",
+            "disabled"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CustomerFieldsWithPasswordNoID"
+    },
+    "CustomerWithPassword": {
+      "properties": {
+        "customer": {
+          "$ref": "#/definitions/CustomerFieldsWithPassword"
+        }
+      },
+      "type": "object",
+      "title": "CustomerWithPassword"
+    },
+    "CustomerWithPasswordNoID": {
+      "properties": {
+        "customer": {
+          "$ref": "#/definitions/CustomerFieldsWithPasswordNoID"
+        }
+      },
+      "type": "object",
+      "title": "CustomerWithPasswordNoID"
+    },
+    "Field": {
+      "properties": {
+        "field": {
+          "$ref": "#/definitions/FieldFields"
+        }
+      },
+      "type": "object",
+      "title": "Field"
+    },
+    "FieldFields": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of the Field",
+          "format": "int32",
+          "type": "integer"
+        },
+        "label": {
+          "description": "Label given to the Field",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the Field",
+          "enum": [
+            "text",
+            "selection",
+            "input"
+          ],
+          "type": "string"
+        },
+        "values": {
+          "description": "All the possible Values of the Field (for type 'selection')",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "FieldFields"
+    },
+    "Hook": {
+      "properties": {
+        "hook": {
+          "$ref": "#/definitions/HookFields"
+        }
+      },
+      "type": "object",
+      "title": "Hook"
+    },
+    "HookEdit": {
+      "properties": {
+        "hook": {
+          "$ref": "#/definitions/HookEditFields"
+        }
+      },
+      "type": "object",
+      "title": "HookEdit"
+    },
+    "HookEditFields": {
+      "properties": {
+        "event": {
+          "description": "Event associated with Hook",
+          "enum": [
+            "order_updated",
+            "order_pending_payment",
+            "order_paid",
+            "order_shipped",
+            "order_canceled",
+            "order_abandoned",
+            "product_created",
+            "product_updated",
+            "product_deleted",
+            "customer_created",
+            "customer_updated",
+            "customer_deleted"
+          ],
+          "type": "string"
+        },
+        "url": {
+          "description": "Hook URL to be notified",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event",
+        "url"
+      ],
+      "type": "object",
+      "title": "HookEditFields"
+    },
+    "HookFields": {
+      "properties": {
+        "created_at": {
+          "description": "Hook creation date",
+          "type": "string"
+        },
+        "event": {
+          "description": "Event associated with Hook",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier of the Hook",
+          "format": "int32",
+          "type": "integer"
+        },
+        "url": {
+          "description": "Hook URL to be notified",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "HookFields"
+    },
+    "Id": {
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "title": "Id"
+    },
+    "Image": {
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/ImageFields"
+        }
+      },
+      "type": "object",
+      "title": "Image"
+    },
+    "ImageEdit": {
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/ImageEditFields"
+        }
+      },
+      "type": "object",
+      "title": "ImageEdit"
+    },
+    "ImageEditFields": {
+      "properties": {
+        "url": {
+          "description": "Complete URL of the image",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ImageEditFields"
+    },
+    "ImageFields": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of the image",
+          "format": "int32",
+          "type": "integer"
+        },
+        "position": {
+          "description": "Position of the image",
+          "format": "int32",
+          "type": "integer"
+        },
+        "url": {
+          "description": "Complete URL of the image",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ImageFields"
+    },
+    "JSApp": {
+      "properties": {
+        "element": {
+          "description": "Element of Template to inject HTML",
+          "type": "string"
+        },
+        "template": {
+          "description": "Template of Store Theme to inject HTML",
+          "type": "string"
+        },
+        "url": {
+          "description": "Url of the HTML to inject",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "JSApp"
+    },
+    "Language": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Language"
+    },
+    "NotFound": {
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "NotFound"
+    },
+    "Order": {
+      "properties": {
+        "order": {
+          "$ref": "#/definitions/OrderFields"
+        }
+      },
+      "type": "object",
+      "title": "Order"
+    },
+    "OrderEdit": {
+      "properties": {
+        "order": {
+          "$ref": "#/definitions/OrderEditFields"
+        }
+      },
+      "type": "object",
+      "title": "OrderEdit"
+    },
+    "OrderEditFields": {
+      "properties": {
+        "additional_information": {
+          "description": "Additional information for the given Order",
+          "type": "string"
+        },
+        "customer": {
+          "properties": {
+            "email": {
+              "description": "Email of the customer for the given Order",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "products": {
+          "items": {
+            "$ref": "#/definitions/OrderProduct"
+          },
+          "type": "array"
+        },
+        "shipping_method_id": {
+          "description": "Shipping method e.g. Royal Mail",
+          "format": "int32",
+          "type": "integer"
+        },
+        "status": {
+          "description": "Status of the Order",
+          "enum": [
+            "Abandoned",
+            "Canceled",
+            "Pending Payment",
+            "Paid",
+            "Shipped"
+          ],
+          "type": "string"
+        },
+        "tracking_company": {
+          "description": "Shipping Company used for the given Order",
+          "type": "string"
+        },
+        "tracking_number": {
+          "description": "Shipping Tracking Number used for the given Order",
+          "type": "string"
+        }
+      },
+      "title": "OrderEditFields"
+    },
+    "OrderFields": {
+      "properties": {
+        "additional_information": {
+          "description": "Additional information for the given Order",
+          "type": "string"
+        },
+        "billing_address": {
+          "$ref": "#/definitions/BillingAddress"
+        },
+        "created_at": {
+          "description": "Order date",
+          "type": "string"
+        },
+        "currency": {
+          "description": "Currency of the Order",
+          "type": "string"
+        },
+        "customer": {
+          "$ref": "#/definitions/Customer"
+        },
+        "discount": {
+          "description": "Discount value for the given Order",
+          "format": "float",
+          "type": "number"
+        },
+        "id": {
+          "description": "Unique identifier of the Order",
+          "format": "int32",
+          "type": "integer"
+        },
+        "payment_information": {
+          "description": "Payment information for the given Order",
+          "type": "string"
+        },
+        "payment_method_name": {
+          "description": "Payment Method name used e.g. PayPal",
+          "type": "string"
+        },
+        "products": {
+          "items": {
+            "$ref": "#/definitions/OrderProduct"
+          },
+          "type": "array"
+        },
+        "shipping": {
+          "description": "Shipping value for the given Order",
+          "format": "float",
+          "type": "number"
+        },
+        "shipping_address": {
+          "$ref": "#/definitions/ShippingAddress"
+        },
+        "shipping_method_id": {
+          "description": "Shipping method e.g. Royal Mail",
+          "format": "int32",
+          "type": "integer"
+        },
+        "shipping_method_name": {
+          "description": "Shipping method e.g. Royal Mail",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of the Order",
+          "enum": [
+            "Abandoned",
+            "Canceled",
+            "Pending Payment",
+            "Paid",
+            "Shipped"
+          ],
+          "type": "string"
+        },
+        "subtotal": {
+          "description": "Subtotal value for the given Order. Excluding taxes, shipping and discounts",
+          "format": "float",
+          "type": "number"
+        },
+        "tax": {
+          "description": "Tax value for the given order",
+          "format": "float",
+          "type": "number"
+        },
+        "total": {
+          "description": "Total value for the given Order. Including taxes, shipping and discounts",
+          "format": "float",
+          "type": "number"
+        },
+        "tracking_company": {
+          "description": "Company Used for the Shipment.",
+          "type": "string"
+        },
+        "tracking_number": {
+          "description": "Tracking Number for the Shipment.",
+          "type": "string"
+        },
+        "tracking_url": {
+          "description": "URL to track the Shipment.",
+          "type": "string"
+        }
+      },
+      "title": "OrderFields"
+    },
+    "OrderHistory": {
+      "properties": {
+        "order_history": {
+          "$ref": "#/definitions/OrderHistoryFields"
+        }
+      },
+      "type": "object",
+      "title": "OrderHistory"
+    },
+    "OrderHistoryEdit": {
+      "properties": {
+        "order_history": {
+          "$ref": "#/definitions/OrderHistoryEditFields"
+        }
+      },
+      "type": "object",
+      "title": "OrderHistoryEdit"
+    },
+    "OrderHistoryEditFields": {
+      "properties": {
+        "message": {
+          "description": "Message of the Order History",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OrderHistoryEditFields"
+    },
+    "OrderHistoryFields": {
+      "properties": {
+        "created_at": {
+          "description": "Creation date of the order history",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier of the Order History",
+          "format": "int32",
+          "type": "integer"
+        },
+        "message": {
+          "description": "Message of the Order History",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OrderHistoryFields"
+    },
+    "OrderProduct": {
+      "properties": {
+        "discount": {
+          "description": "Discount of the Order Product",
+          "format": "float",
+          "type": "number"
+        },
+        "id": {
+          "description": "Unique identifier of the original Product",
+          "format": "int32",
+          "type": "integer"
+        },
+        "image": {
+          "description": "Image URL of the Order Product",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Order Product",
+          "type": "string"
+        },
+        "price": {
+          "description": "Price of the Order Product",
+          "format": "float",
+          "type": "number"
+        },
+        "qty": {
+          "description": "Price of the Order Product",
+          "format": "int32",
+          "type": "integer"
+        },
+        "sku": {
+          "description": "Stock Keeping Unit of the Order Product",
+          "type": "string"
+        },
+        "variant_id": {
+          "description": "Unique identifier of the original Product Variant",
+          "format": "int32",
+          "type": "integer"
+        },
+        "weight": {
+          "default": 1,
+          "description": "Weight of the Order Product",
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "OrderProduct"
+    },
+    "PaymentMethod": {
+      "properties": {
+        "payment_method": {
+          "$ref": "#/definitions/PaymentMethodFields"
+        }
+      },
+      "type": "object",
+      "title": "PaymentMethod"
+    },
+    "PaymentMethodFields": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of the Payment Method",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the Payment Method",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the Payment Method",
+          "enum": [
+            "dineromail",
+            "manual",
+            "paypal",
+            "pagseguro",
+            "interpagos",
+            "moneybookers",
+            "webpay",
+            "webpay_cl",
+            "easypay",
+            "easypaycc",
+            "easypayboleto",
+            "ideal_basic",
+            "hipay",
+            "khipu",
+            "mercado_pago",
+            "ifthenpay",
+            "eupago",
+            "stripe",
+            "payu",
+            "servipag"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PaymentMethodFields"
+    },
+    "Product": {
+      "properties": {
+        "product": {
+          "$ref": "#/definitions/ProductFields"
+        }
+      },
+      "type": "object",
+      "title": "Product"
+    },
+    "ProductCustomField": {
+      "properties": {
+        "field": {
+          "$ref": "#/definitions/ProductCustomFieldFields"
+        }
+      },
+      "type": "object",
+      "title": "ProductCustomField"
+    },
+    "ProductCustomFieldFields": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of the ProductCustomField",
+          "format": "int32",
+          "type": "integer"
+        },
+        "value": {
+          "description": "The value for the ProductCustomField",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ProductCustomFieldFields"
+    },
+    "ProductEdit": {
+      "properties": {
+        "product": {
+          "$ref": "#/definitions/ProductEditFields"
+        }
+      },
+      "type": "object",
+      "title": "ProductEdit"
+    },
+    "ProductEditFields": {
+      "properties": {
+        "categories": {
+          "items": {
+            "$ref": "#/definitions/CategoryFields"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "Description of the product",
+          "type": "string"
+        },
+        "diameter": {
+          "description": "Diameter of the product",
+          "format": "float",
+          "type": "number"
+        },
+        "featured": {
+          "default": false,
+          "description": "True if the product is featured",
+          "type": "boolean"
+        },
+        "height": {
+          "description": "Height of the product",
+          "format": "float",
+          "type": "number"
+        },
+        "length": {
+          "description": "Length of the product",
+          "format": "float",
+          "type": "number"
+        },
+        "meta_description": {
+          "description": "SEO meta description of the product",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the product",
+          "type": "string"
+        },
+        "package_format": {
+          "default": "box",
+          "description": "Format the product package",
+          "enum": [
+            "box",
+            "cylinder"
+          ],
+          "type": "string"
+        },
+        "page_title": {
+          "description": "SEO title of the product",
+          "type": "string"
+        },
+        "permalink": {
+          "description": "Product unique URL path",
+          "type": "string"
+        },
+        "price": {
+          "description": "Price of the product",
+          "format": "float",
+          "type": "number"
+        },
+        "sku": {
+          "description": "Stock Keeping Unit of the product",
+          "type": "string"
+        },
+        "status": {
+          "default": "available",
+          "description": "Status of the product",
+          "enum": [
+            "available",
+            "not-available",
+            "disabled"
+          ],
+          "type": "string"
+        },
+        "stock": {
+          "default": 100,
+          "description": "Quantity in stock for the product",
+          "format": "int32",
+          "type": "integer"
+        },
+        "stock_unlimited": {
+          "description": "True if the Product has unlimited stock",
+          "type": "boolean"
+        },
+        "weight": {
+          "default": 1,
+          "description": "Weight of the product",
+          "format": "float",
+          "type": "number"
+        },
+        "width": {
+          "description": "Width of the product",
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "ProductEditFields"
+    },
+    "ProductFields": {
+      "properties": {
+        "categories": {
+          "items": {
+            "$ref": "#/definitions/CategoryFields"
+          },
+          "type": "array"
+        },
+        "created_at": {
+          "description": "Date of product creation",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the product",
+          "type": "string"
+        },
+        "diameter": {
+          "description": "Diameter of the product",
+          "format": "float",
+          "type": "number"
+        },
+        "featured": {
+          "default": false,
+          "description": "True if the product is featured",
+          "type": "boolean"
+        },
+        "height": {
+          "description": "Height of the product",
+          "format": "float",
+          "type": "number"
+        },
+        "id": {
+          "description": "Unique identifier of the product",
+          "format": "int32",
+          "type": "integer"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/ImageFields"
+          },
+          "type": "array"
+        },
+        "length": {
+          "description": "Length of the product",
+          "format": "float",
+          "type": "number"
+        },
+        "name": {
+          "description": "Name of the product",
+          "type": "string"
+        },
+        "package_format": {
+          "default": "box",
+          "description": "Format the product package",
+          "enum": [
+            "box",
+            "cylinder"
+          ],
+          "type": "string"
+        },
+        "permalink": {
+          "description": "Product unique URL path",
+          "type": "string"
+        },
+        "price": {
+          "description": "Price of the product",
+          "format": "float",
+          "type": "number"
+        },
+        "sku": {
+          "description": "Stock Keeping Unit of the product",
+          "type": "string"
+        },
+        "status": {
+          "default": "available",
+          "description": "Status of the product",
+          "enum": [
+            "available",
+            "not-available",
+            "disabled"
+          ],
+          "type": "string"
+        },
+        "stock": {
+          "default": 100,
+          "description": "Quantity in stock for the product",
+          "format": "int32",
+          "type": "integer"
+        },
+        "stock_unlimited": {
+          "description": "True if the Product has unlimited stock",
+          "type": "boolean"
+        },
+        "variants": {
+          "items": {
+            "$ref": "#/definitions/VariantFields"
+          },
+          "type": "array"
+        },
+        "weight": {
+          "default": 1,
+          "description": "Weight of the product",
+          "format": "float",
+          "type": "number"
+        },
+        "width": {
+          "description": "Width of the product",
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "ProductFields"
+    },
+    "ProductOption": {
+      "properties": {
+        "option": {
+          "$ref": "#/definitions/ProductOptionFields"
+        }
+      },
+      "type": "object",
+      "title": "ProductOption"
+    },
+    "ProductOptionEdit": {
+      "properties": {
+        "option": {
+          "$ref": "#/definitions/ProductOptionEditFields"
+        }
+      },
+      "type": "object",
+      "title": "ProductOptionEdit"
+    },
+    "ProductOptionEditFields": {
+      "properties": {
+        "name": {
+          "description": "Name of the product option",
+          "type": "string"
+        },
+        "option_type": {
+          "description": "Type of the product option",
+          "enum": [
+            "option",
+            "input",
+            "text",
+            "file"
+          ],
+          "type": "string"
+        },
+        "position": {
+          "description": "Position of the product option",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "ProductOptionEditFields"
+    },
+    "ProductOptionFields": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of the product option",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the product option",
+          "type": "string"
+        },
+        "option_type": {
+          "description": "Type of the product option",
+          "enum": [
+            "option",
+            "input",
+            "text",
+            "file"
+          ],
+          "type": "string"
+        },
+        "position": {
+          "description": "Position of the product option",
+          "format": "int32",
+          "type": "integer"
+        },
+        "values": {
+          "items": {
+            "$ref": "#/definitions/ProductOptionValueFields"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ProductOptionFields"
+    },
+    "ProductOptionValue": {
+      "properties": {
+        "value": {
+          "$ref": "#/definitions/ProductOptionValueFields"
+        }
+      },
+      "type": "object",
+      "title": "ProductOptionValue"
+    },
+    "ProductOptionValueEdit": {
+      "properties": {
+        "value": {
+          "$ref": "#/definitions/ProductOptionValueEditFields"
+        }
+      },
+      "type": "object",
+      "title": "ProductOptionValueEdit"
+    },
+    "ProductOptionValueEditFields": {
+      "properties": {
+        "name": {
+          "description": "Name of the product option value",
+          "type": "string"
+        },
+        "position": {
+          "description": "Position of the product option value",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "ProductOptionValueEditFields"
+    },
+    "ProductOptionValueFields": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of the product option value",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the product option value",
+          "type": "string"
+        },
+        "position": {
+          "description": "Position of the product option value",
+          "format": "int32",
+          "type": "integer"
+        },
+        "product_option": {
+          "$ref": "#/definitions/ProductOption"
+        }
+      },
+      "type": "object",
+      "title": "ProductOptionValueFields"
+    },
+    "Promotion": {
+      "properties": {
+        "promotion": {
+          "$ref": "#/definitions/PromotionFields"
+        }
+      },
+      "type": "object",
+      "title": "Promotion"
+    },
+    "PromotionEdit": {
+      "properties": {
+        "promotion": {
+          "$ref": "#/definitions/PromotionEditFields"
+        }
+      },
+      "type": "object",
+      "title": "PromotionEdit"
+    },
+    "PromotionEditFields": {
+      "properties": {
+        "begins_at": {
+          "description": "Creation date of the promotion (requires 'lasts' param - 'date')",
+          "type": "string"
+        },
+        "buys_at_least": {
+          "description": "Controls the promotion's condition ('none', 'price', 'qty')",
+          "type": "string"
+        },
+        "categories": {
+          "description": "Products Categories where the promotion will be applied (requires 'discount_target' param - 'categories')",
+          "items": {
+            "$ref": "#/definitions/Id"
+          },
+          "type": "array"
+        },
+        "code": {
+          "description": "Code of the promotion",
+          "type": "string"
+        },
+        "condition_price": {
+          "description": "Minimum order amount to validate the promotion (requires 'buys_at_least' param - 'price')",
+          "format": "float",
+          "type": "number"
+        },
+        "condition_qty": {
+          "description": "Minimum quantity of ordered itens to validate the promotion (requires 'buys_at_least' param - 'qty')",
+          "format": "int32",
+          "type": "integer"
+        },
+        "cumulative": {
+          "default": false,
+          "description": "True if the promotion can be acumulated with others",
+          "type": "boolean"
+        },
+        "customer_categories": {
+          "description": "Customer Categories to whom the promotion will be applied (requires 'customers' param - 'categories')",
+          "items": {
+            "$ref": "#/definitions/Id"
+          },
+          "type": "array"
+        },
+        "customers": {
+          "description": "Controls to which customers the promotion will be applied ('all', 'loggedin', 'categories')",
+          "type": "string"
+        },
+        "discount_amount_fix": {
+          "description": "Fixed discount amount of the promotion (requires 'type' param - 'fix')",
+          "format": "float",
+          "type": "number"
+        },
+        "discount_amount_percent": {
+          "description": "Percentual discount amount of the promotion (requires 'type' param - 'percentage')",
+          "format": "float",
+          "type": "number"
+        },
+        "discount_target": {
+          "description": "Where the promotion will be applied ('order', 'shipping', 'categories')",
+          "type": "string"
+        },
+        "expires_at": {
+          "description": "Expiration date of the promotion (requires 'lasts' param - 'date')",
+          "type": "string"
+        },
+        "lasts": {
+          "description": "Controls when the promotion will expire ('none', 'date', 'max_times_used')",
+          "type": "string"
+        },
+        "max_times_used": {
+          "description": "Maximum amount a promotion can be used (requires 'lasts' param - 'max_times_used')",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the product",
+          "type": "string"
+        },
+        "products": {
+          "description": "Products where the promotion will be applied (requires 'discount_target' param - 'categories')",
+          "items": {
+            "$ref": "#/definitions/Id"
+          },
+          "type": "array"
+        },
+        "type": {
+          "description": "Controls if the discount will be a fixed value ('fix', 'percentage')",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PromotionEditFields"
+    },
+    "PromotionFields": {
+      "properties": {
+        "begins_at": {
+          "description": "Creation date of the promotion",
+          "type": "string"
+        },
+        "categories": {
+          "items": {
+            "$ref": "#/definitions/Id"
+          },
+          "type": "array"
+        },
+        "code": {
+          "description": "Code of the promotion",
+          "type": "string"
+        },
+        "condition_price": {
+          "description": "Minimum order amount to validate the promotion",
+          "format": "float",
+          "type": "number"
+        },
+        "condition_qty": {
+          "description": "Minimum quantity of ordered itens to validate the promotion",
+          "format": "int32",
+          "type": "integer"
+        },
+        "cumulative": {
+          "default": false,
+          "description": "True if the promotion can be acumulated with others",
+          "type": "boolean"
+        },
+        "customer_categories": {
+          "items": {
+            "$ref": "#/definitions/Id"
+          },
+          "type": "array"
+        },
+        "discount_amount_fix": {
+          "description": "Fixed discount amount of the promotion",
+          "format": "float",
+          "type": "number"
+        },
+        "discount_amount_percent": {
+          "description": "Percentual discount amount of the promotion",
+          "format": "float",
+          "type": "number"
+        },
+        "discount_target": {
+          "description": "Where the promotion will be applied ('order', 'shipping', 'categories')",
+          "type": "string"
+        },
+        "expires_at": {
+          "description": "Expiration date of the promotion",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier of the product",
+          "format": "int32",
+          "type": "integer"
+        },
+        "max_times_used": {
+          "description": "Maximum amount a promotion can be used",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the product",
+          "type": "string"
+        },
+        "products": {
+          "items": {
+            "$ref": "#/definitions/Id"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "Status of the promotion ('active', 'expired')",
+          "type": "string"
+        },
+        "times_used": {
+          "description": "Amount of times the promotion was used",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "PromotionFields"
+    },
+    "Region": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Region"
+    },
+    "Setting": {
+      "properties": {
+        "setting": {
+          "$ref": "#/definitions/SettingFields"
+        }
+      },
+      "type": "object",
+      "title": "Setting"
+    },
+    "SettingEdit": {
+      "properties": {
+        "setting": {
+          "$ref": "#/definitions/SettingEditFields"
+        }
+      },
+      "type": "object",
+      "title": "SettingEdit"
+    },
+    "SettingEditFields": {
+      "example": {
+        "name": "limit_test",
+        "value": 100
+      },
+      "properties": {
+        "name": {
+          "description": "Store Setting Name",
+          "type": "string"
+        },
+        "value": {
+          "description": "Store Setting Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "SettingEditFields"
+    },
+    "SettingFields": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of the Store Setting",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Store Setting Name",
+          "type": "string"
+        },
+        "value": {
+          "description": "Store Setting Value",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "SettingFields"
+    },
+    "ShippingAddress": {
+      "properties": {
+        "address": {
+          "description": "Address of the Customer's Shipping Address",
+          "type": "string"
+        },
+        "city": {
+          "description": "City of the Customer's Shipping Address",
+          "type": "string"
+        },
+        "country": {
+          "description": "Country of the Customer's Shipping Address",
+          "type": "string"
+        },
+        "municipality": {
+          "description": "Municipality of the Customer's Shipping Address",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Customer's Shipping Address",
+          "type": "string"
+        },
+        "postal": {
+          "description": "Postal code of the Customer's Shipping Address",
+          "type": "string"
+        },
+        "region": {
+          "description": "Region of the Customer's Shipping Address",
+          "type": "string"
+        },
+        "surname": {
+          "description": "Surname of the Customer's Shipping Address",
+          "type": "string"
+        }
+      },
+      "title": "ShippingAddress"
+    },
+    "StatusInvalid": {
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "StatusInvalid"
+    },
+    "Store": {
+      "properties": {
+        "code": {
+          "description": "Store Code",
+          "type": "string"
+        },
+        "country": {
+          "description": "Store Country",
+          "type": "string"
+        },
+        "currency": {
+          "description": "Store Currency",
+          "type": "string"
+        },
+        "email": {
+          "description": "Store Admin Email",
+          "type": "string"
+        },
+        "hooks_token": {
+          "description": "Store Hooks Auth token",
+          "type": "string"
+        },
+        "logo": {
+          "description": "Store Logo URL",
+          "type": "string"
+        },
+        "name": {
+          "description": "Store Name",
+          "type": "string"
+        },
+        "url": {
+          "description": "Store URL",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Store"
+    },
+    "Variant": {
+      "properties": {
+        "variant": {
+          "$ref": "#/definitions/VariantFields"
+        }
+      },
+      "type": "object",
+      "title": "Variant"
+    },
+    "VariantEdit": {
+      "properties": {
+        "variant": {
+          "$ref": "#/definitions/VariantEditFields"
+        }
+      },
+      "type": "object",
+      "title": "VariantEdit"
+    },
+    "VariantEditFields": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of the product",
+          "format": "int32",
+          "type": "integer"
+        },
+        "image_id": {
+          "description": "Unique identifier of the product image to associate with this variant",
+          "format": "int32",
+          "type": "integer"
+        },
+        "price": {
+          "description": "Price of the product",
+          "format": "float",
+          "type": "number"
+        },
+        "sku": {
+          "description": "Stock Keeping Unit of the Product's Variant",
+          "type": "string"
+        },
+        "stock": {
+          "default": 100,
+          "description": "Quantity in stock for the Product's Variant",
+          "format": "int32",
+          "type": "integer"
+        },
+        "stock_unlimited": {
+          "description": "True if the Product's Variant has unlimited stock",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "VariantEditFields"
+    },
+    "VariantFields": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of the product",
+          "format": "int32",
+          "type": "integer"
+        },
+        "price": {
+          "description": "Price of the product",
+          "format": "float",
+          "type": "number"
+        },
+        "sku": {
+          "description": "Stock Keeping Unit of the Product's Variant",
+          "type": "string"
+        },
+        "stock": {
+          "default": 100,
+          "description": "Quantity in stock for the Product's Variant",
+          "format": "int32",
+          "type": "integer"
+        },
+        "stock_unlimited": {
+          "description": "True if the Product's Variant has unlimited stock",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "VariantFields"
+    }
+  },
+  "actions": [
+    {
+      "id": "apps.json.get",
+      "title": "apps.json.get",
+      "description": "Retrieve all Jumpseller Apps.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/App"
+      }
+    },
+    {
+      "id": "categories.json.get",
+      "title": "categories.json.get",
+      "description": "Retrieve all Categories.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Category"
+      }
+    },
+    {
+      "id": "categories.json.post",
+      "title": "categories.json.post",
+      "description": "Category's permalink is automatically generated from the given category's name.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "body": {
+            "$ref": "#/definitions/Category"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CategoryEdit"
+      }
+    },
+    {
+      "id": "categories.id.json.delete",
+      "title": "categories.id.json.delete",
+      "description": "Delete an existing Category.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Category"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "categories.id.json.get",
+      "title": "categories.id.json.get",
+      "description": "Retrieve a single Category.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Category"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Category"
+      }
+    },
+    {
+      "id": "categories.id.json.put",
+      "title": "categories.id.json.put",
+      "description": "Modify an existing Category.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Category"
+          },
+          "body": {
+            "$ref": "#/definitions/CategoryEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Category"
+      }
+    },
+    {
+      "id": "checkout_custom_fields.json.get",
+      "title": "checkout_custom_fields.json.get",
+      "description": "Retrieve all Checkout Custom Fields.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "integer",
+            "description": "List restriction",
+            "maximum": 200,
+            "default": 50
+          },
+          "page": {
+            "type": "integer",
+            "format": "integer",
+            "description": "List page",
+            "default": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/CheckoutCustomField"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "checkout_custom_fields.json.post",
+      "title": "checkout_custom_fields.json.post",
+      "description": "Create a new CheckoutCustomField.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "body": {
+            "$ref": "#/definitions/CheckoutCustomFieldEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/CheckoutCustomField"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "checkout_custom_fields.id.json.delete",
+      "title": "checkout_custom_fields.id.json.delete",
+      "description": "Delete an existing CheckoutCustomField.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the CheckoutCustomField"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "checkout_custom_fields.id.json.get",
+      "title": "checkout_custom_fields.id.json.get",
+      "description": "Retrieve a single CheckoutCustomField.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the CheckoutCustomField"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CheckoutCustomField"
+      }
+    },
+    {
+      "id": "checkout_custom_fields.id.json.put",
+      "title": "checkout_custom_fields.id.json.put",
+      "description": "Update a CheckoutCustomField.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the CheckoutCustomField"
+          },
+          "body": {
+            "$ref": "#/definitions/CheckoutCustomFieldEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/CheckoutCustomField"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "countries.json.get",
+      "title": "countries.json.get",
+      "description": "Retrieve all Countries.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Country"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "countries.country_code.json.get",
+      "title": "countries.country_code.json.get",
+      "description": "Retrieve a single Country information.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "country_code": {
+            "type": "string",
+            "format": "string",
+            "description": "ISO3166 Country Code"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "country_code"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Country"
+      }
+    },
+    {
+      "id": "countries.country_code.regions.json.get",
+      "title": "countries.country_code.regions.json.get",
+      "description": "Retrieve all Regions from a single Country.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "country_code": {
+            "type": "string",
+            "format": "string",
+            "description": "ISO3166 Country Code"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "country_code"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Region"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "countries.country_code.regions.region_code.json.get",
+      "title": "countries.country_code.regions.region_code.json.get",
+      "description": "Retrieve a single Region information object.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "country_code": {
+            "type": "string",
+            "format": "string",
+            "description": "ISO3166 Country Code"
+          },
+          "region_code": {
+            "type": "string",
+            "format": "string",
+            "description": "Region Code"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "country_code",
+          "region_code"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Region"
+      }
+    },
+    {
+      "id": "customer_categories.json.get",
+      "title": "customer_categories.json.get",
+      "description": "Retrieve all Customer Categories.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "integer",
+            "description": "List restriction",
+            "maximum": 200,
+            "default": 50
+          },
+          "page": {
+            "type": "integer",
+            "format": "integer",
+            "description": "List page",
+            "default": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/CustomerCategory"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "customer_categories.json.post",
+      "title": "customer_categories.json.post",
+      "description": "Create a new CustomerCategory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "body": {
+            "$ref": "#/definitions/CustomerCategoryEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/CustomerCategory"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "customer_categories.id.json.delete",
+      "title": "customer_categories.id.json.delete",
+      "description": "Delete an existing CustomerCategory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the CustomerCategory"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "customer_categories.id.json.get",
+      "title": "customer_categories.id.json.get",
+      "description": "Retrieve a single CustomerCategory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the CustomerCategory"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CustomerCategory"
+      }
+    },
+    {
+      "id": "customer_categories.id.json.put",
+      "title": "customer_categories.id.json.put",
+      "description": "Update a CustomerCategory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the CustomerCategory"
+          },
+          "body": {
+            "$ref": "#/definitions/CustomerCategoryEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/CustomerCategory"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "customer_categories.id.customers.json.delete",
+      "title": "customer_categories.id.customers.json.delete",
+      "description": "Delete Customers from an existing CustomerCategory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the CustomerCategory"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "customer_categories.id.customers.json.get",
+      "title": "customer_categories.id.customers.json.get",
+      "description": "Retrieves the customers in a CustomerCategory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the CustomerCategory"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Customer"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "customer_categories.id.customers.json.post",
+      "title": "customer_categories.id.customers.json.post",
+      "description": "Adds Customers to a CustomerCategory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the CustomerCategory"
+          },
+          "body": {
+            "$ref": "#/definitions/Customer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Customer"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "customers.json.get",
+      "title": "customers.json.get",
+      "description": "Retrieve all Customers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "integer",
+            "description": "List restriction",
+            "maximum": 200,
+            "default": 50
+          },
+          "page": {
+            "type": "integer",
+            "format": "integer",
+            "description": "List page",
+            "default": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Customer"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "customers.json.post",
+      "title": "customers.json.post",
+      "description": "Create a new Customer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "body": {
+            "$ref": "#/definitions/CustomerWithPasswordNoID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Customer"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "customers.id.json.delete",
+      "title": "customers.id.json.delete",
+      "description": "Delete an existing Category.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Customer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "customers.id.json.get",
+      "title": "customers.id.json.get",
+      "description": "Retrieve a single Customer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Customer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Customer"
+      }
+    },
+    {
+      "id": "customers.id.json.put",
+      "title": "customers.id.json.put",
+      "description": "Update a new Customer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Customer"
+          },
+          "body": {
+            "$ref": "#/definitions/CustomerWithPassword"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Customer"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "fields.json.get",
+      "title": "fields.json.get",
+      "description": "Retrieve all Store's Custom Fields.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Field"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "fields.json.post",
+      "title": "fields.json.post",
+      "description": "Create a new Custom Field.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "body": {
+            "$ref": "#/definitions/Field"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Field"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "hooks.json.get",
+      "title": "hooks.json.get",
+      "description": "Retrieve all Hooks.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "integer",
+            "description": "List restriction",
+            "maximum": 200,
+            "default": 50
+          },
+          "page": {
+            "type": "integer",
+            "format": "integer",
+            "description": "List page",
+            "default": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Hook"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "hooks.json.post",
+      "title": "hooks.json.post",
+      "description": "Create a new Hook.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "body": {
+            "$ref": "#/definitions/HookEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Hook"
+      }
+    },
+    {
+      "id": "hooks.id.json.delete",
+      "title": "hooks.id.json.delete",
+      "description": "Delete an existing Hook.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Hook"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "hooks.id.json.get",
+      "title": "hooks.id.json.get",
+      "description": "Retrieve a single Hook.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Hook"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Hook"
+      }
+    },
+    {
+      "id": "hooks.id.json.put",
+      "title": "hooks.id.json.put",
+      "description": "Update a Hook.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Hook"
+          },
+          "body": {
+            "$ref": "#/definitions/HookEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Hook"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "jsapps.json.post",
+      "title": "jsapps.json.post",
+      "description": "Create a Store Settings",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "body": {
+            "$ref": "#/definitions/JSApp"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/JSApp"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "jsapps.code.json.delete",
+      "title": "jsapps.code.json.delete",
+      "description": "Delete an existing JSApp.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "code": {
+            "type": "string",
+            "description": "Code of the App"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "jsapps.code.json.get",
+      "title": "jsapps.code.json.get",
+      "description": "Retrieve a JSApp",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "code": {
+            "type": "string",
+            "description": "Code of the App"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/JSApp"
+      }
+    },
+    {
+      "id": "orders.json.get",
+      "title": "orders.json.get",
+      "description": "Retrieve all Orders.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Order"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "orders.json.post",
+      "title": "orders.json.post",
+      "description": "Use the JSON format:<br/>'{ \"order\": {\"status\": \"Paid\", \"shipping_method_id\": 123, \"products\": [{ \"id\": 123, \"qty\": 1}], \"customer\": {\"id\": 123}}}'<br/>or in CURL:<br/>curl -X POST -d '{ \"order\": {\"status\": \"Paid\", \"shipping_method_id\": 123, \"products\": [{ \"id\": 123, \"qty\": 1}], \"customer\": {\"id\": 123}}}' \"https://api.jumpseller.com/v1/orders.json?login=storecode&authtoken=XXXXX\" -H \"Content-Type:application/json\" ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "body": {
+            "$ref": "#/definitions/OrderEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Order"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "orders.status.status.json.get",
+      "title": "orders.status.status.json.get",
+      "description": "Retrieve orders filter by status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the Order used as filter",
+            "enum": [
+              "Abandoned",
+              "Canceled",
+              "Pending Payment",
+              "Paid",
+              "Shipped"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "status"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Order"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "orders.id.json.get",
+      "title": "orders.id.json.get",
+      "description": "Retrieve a single Order.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Order"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Order"
+      }
+    },
+    {
+      "id": "orders.id.json.put",
+      "title": "orders.id.json.put",
+      "description": "Only 'status', 'tracking_number', 'tracking_company', 'additional_information' and 'additional_fields' are available for update.<br/>Use the JSON format:<br/>'{ \"order\": {\"status\": \"Shipped\", \"tracking_company\": \"other\", \"tracking_number\": \"123456789\", \"additional_information\": \"My custom message.\", \"additional_fields\": [{\"label\": \"Gift Name\", \"value\": \"Duarte\"}, {\"label\": \"Gift Wrapping Color\", \"value\": \"Green\"}]} }}'<br/>or in CURL:<br/>curl -X PUT -d '{ \"order\": {\"status\": \"Paid\", \"additional_information\": \"My custom message.\"}}' \"https://api.jumpseller.com/v1/orders/{id}.json?login=storecode&authtoken=XXXXX\" -H \"Content-Type:application/json\" ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Order"
+          },
+          "body": {
+            "$ref": "#/definitions/OrderEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Order"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "orders.id.history.json.get",
+      "title": "orders.id.history.json.get",
+      "description": "Retrieve all Order History.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Order"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OrderHistory"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "orders.id.history.json.post",
+      "title": "orders.id.history.json.post",
+      "description": "Create a new Order History Entry.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the OrderHistory"
+          },
+          "body": {
+            "$ref": "#/definitions/OrderHistoryEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OrderHistory"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "payment_methods.json.get",
+      "title": "payment_methods.json.get",
+      "description": "Retrieve all Store's Payment Methods.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PaymentMethod"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "payment_methods.id.json.get",
+      "title": "payment_methods.id.json.get",
+      "description": "Retrieve a single Payment Method.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Payment Method"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PaymentMethod"
+      }
+    },
+    {
+      "id": "products.json.get",
+      "title": "products.json.get",
+      "description": "Retrieve all Products.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "integer",
+            "description": "List restriction",
+            "maximum": 200,
+            "default": 50
+          },
+          "page": {
+            "type": "integer",
+            "format": "integer",
+            "description": "List page",
+            "default": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Product"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.json.post",
+      "title": "products.json.post",
+      "description": "Create a new Product.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "body": {
+            "$ref": "#/definitions/ProductEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Product"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.after.id.json.get",
+      "title": "products.after.id.json.get",
+      "description": "Retrieves Products after the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Product"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.category.category_id.json.get",
+      "title": "products.category.category_id.json.get",
+      "description": "Retrieve Products filtered by category.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "category_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Category ID of the Product used as filter"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "category_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Product"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.category.category_id.count.json.get",
+      "title": "products.category.category_id.count.json.get",
+      "description": "Count Products filtered by category.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "category_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Category ID of the Product used as filter"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "category_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Count"
+      }
+    },
+    {
+      "id": "products.count.json.get",
+      "title": "products.count.json.get",
+      "description": "Count all Products.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Count"
+      }
+    },
+    {
+      "id": "products.search.json.get",
+      "title": "products.search.json.get",
+      "description": "Retrieve a Product List from a query.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "query": {
+            "type": "string",
+            "format": "string",
+            "description": "Query for the Product"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Product"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.sku.sku.json.get",
+      "title": "products.sku.sku.json.get",
+      "description": "Retrieve a single Product by SKU.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "sku": {
+            "type": "string",
+            "description": "SKU of the Product"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "sku"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Product"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.status.status.json.get",
+      "title": "products.status.status.json.get",
+      "description": "Retrieve Products filtered by status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the Product used as filter",
+            "enum": [
+              "available",
+              "not-available",
+              "disabled"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "status"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Product"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.status.status.count.json.get",
+      "title": "products.status.status.count.json.get",
+      "description": "Count Products filtered by status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the Product used as filter",
+            "enum": [
+              "available",
+              "not-available",
+              "disabled"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "status"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Count"
+      }
+    },
+    {
+      "id": "products.id.json.delete",
+      "title": "products.id.json.delete",
+      "description": "Delete an existing Product.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "products.id.json.get",
+      "title": "products.id.json.get",
+      "description": "Retrieve a single Product.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Product"
+      }
+    },
+    {
+      "id": "products.id.json.put",
+      "title": "products.id.json.put",
+      "description": "Modify an existing Product.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "body": {
+            "$ref": "#/definitions/ProductEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Product"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.fields.json.get",
+      "title": "products.id.fields.json.get",
+      "description": "Retrieve all Product Custom Fields",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Field"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.fields.json.post",
+      "title": "products.id.fields.json.post",
+      "description": "Create a new Product Custom Field.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "body": {
+            "$ref": "#/definitions/ProductCustomField"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Product"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.fields.count.json.get",
+      "title": "products.id.fields.count.json.get",
+      "description": "Count all Product Custom Fields.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Count"
+      }
+    },
+    {
+      "id": "products.id.images.json.get",
+      "title": "products.id.images.json.get",
+      "description": "Retrieve all Product Images.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Image"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.images.json.post",
+      "title": "products.id.images.json.post",
+      "description": "Create a new Product Image.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "body": {
+            "$ref": "#/definitions/ImageEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Image"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.images.count.json.get",
+      "title": "products.id.images.count.json.get",
+      "description": "Count all Product Images.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Count"
+      }
+    },
+    {
+      "id": "products.id.images.image_id.json.delete",
+      "title": "products.id.images.image_id.json.delete",
+      "description": "Delete a Product Image.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "image_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product Image"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "image_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "products.id.images.image_id.json.get",
+      "title": "products.id.images.image_id.json.get",
+      "description": "Create a new Product Image.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "image_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product Image"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "image_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Image"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.options.json.get",
+      "title": "products.id.options.json.get",
+      "description": "Retrieve all Product Options.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProductOption"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.options.json.post",
+      "title": "products.id.options.json.post",
+      "description": "Create a new Product Option.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "body": {
+            "$ref": "#/definitions/ProductOptionEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProductOption"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.options.count.json.get",
+      "title": "products.id.options.count.json.get",
+      "description": "Count all Product Options.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Count"
+      }
+    },
+    {
+      "id": "products.id.options.option_id.json.delete",
+      "title": "products.id.options.option_id.json.delete",
+      "description": "Delete a Product Option.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "option_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product Option"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "option_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "products.id.options.option_id.json.get",
+      "title": "products.id.options.option_id.json.get",
+      "description": "Create a new Product Option.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "option_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product Option"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "option_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProductOption"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.options.option_id.json.put",
+      "title": "products.id.options.option_id.json.put",
+      "description": "Modify an existing Product Option.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "option_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product Option"
+          },
+          "body": {
+            "$ref": "#/definitions/ProductOptionEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "option_id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProductOption"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.options.option_id.values.json.get",
+      "title": "products.id.options.option_id.values.json.get",
+      "description": "Retrieve all Product Option Values.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product"
+          },
+          "option_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product Option"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "option_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProductOptionValue"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.options.option_id.values.json.post",
+      "title": "products.id.options.option_id.values.json.post",
+      "description": "Create a new Product Option Value.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "option_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product Option"
+          },
+          "body": {
+            "$ref": "#/definitions/ProductOptionValueEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "option_id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProductOptionValue"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.options.option_id.values.count.json.get",
+      "title": "products.id.options.option_id.values.count.json.get",
+      "description": "Count all Product Option Values.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product"
+          },
+          "option_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product Option"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "option_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Count"
+      }
+    },
+    {
+      "id": "products.id.options.option_id.values.value_id.json.delete",
+      "title": "products.id.options.option_id.values.value_id.json.delete",
+      "description": "Delete a Product Option Value.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "option_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product Option"
+          },
+          "value_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product Option Value"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "option_id",
+          "value_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "products.id.options.option_id.values.value_id.json.get",
+      "title": "products.id.options.option_id.values.value_id.json.get",
+      "description": "Create a new Product Option Value.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "option_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product Option"
+          },
+          "value_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product Option Value"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "option_id",
+          "value_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProductOptionValue"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.options.option_id.values.value_id.json.put",
+      "title": "products.id.options.option_id.values.value_id.json.put",
+      "description": "Modify an existing Product Option Value.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "option_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product Option"
+          },
+          "value_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product Option Value"
+          },
+          "body": {
+            "$ref": "#/definitions/ProductOptionValueEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "option_id",
+          "value_id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProductOptionValue"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.variants.json.get",
+      "title": "products.id.variants.json.get",
+      "description": "Retrieve all Product Variants.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Variant"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "products.id.variants.json.post",
+      "title": "products.id.variants.json.post",
+      "description": "Create a new Product Variant.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "body": {
+            "$ref": "#/definitions/VariantEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Variant"
+      }
+    },
+    {
+      "id": "products.id.variants.count.json.get",
+      "title": "products.id.variants.count.json.get",
+      "description": "Count all Product Variants.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the Product"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Count"
+      }
+    },
+    {
+      "id": "products.id.variants.variant_id.json.get",
+      "title": "products.id.variants.variant_id.json.get",
+      "description": "Retrieve a single Product Variant.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "variant_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product Variant"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "variant_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Variant"
+      }
+    },
+    {
+      "id": "products.id.variants.variant_id.json.put",
+      "title": "products.id.variants.variant_id.json.put",
+      "description": "Modify an existing Product Variant.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product"
+          },
+          "variant_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Product Variant"
+          },
+          "body": {
+            "$ref": "#/definitions/VariantEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "variant_id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Variant"
+      }
+    },
+    {
+      "id": "promotions.json.get",
+      "title": "promotions.json.get",
+      "description": "Retrieve all Promotions.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "integer",
+            "description": "Promotions' list restriction (default: 50 | max: 200)."
+          },
+          "page": {
+            "type": "integer",
+            "format": "integer",
+            "description": "Promotions' list page (default: 1)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Promotion"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "promotions.json.post",
+      "title": "promotions.json.post",
+      "description": "Create a new Promotion.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "body": {
+            "$ref": "#/definitions/PromotionEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Promotion"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "promotions.id.json.delete",
+      "title": "promotions.id.json.delete",
+      "description": "Delete an existing Promotion.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Promotion"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "promotions.id.json.get",
+      "title": "promotions.id.json.get",
+      "description": "Retrieve a single Promotion.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Promotion"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Promotion"
+      }
+    },
+    {
+      "id": "promotions.id.json.put",
+      "title": "promotions.id.json.put",
+      "description": "Update a Promotion.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of the Promotion"
+          },
+          "body": {
+            "$ref": "#/definitions/PromotionEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Promotion"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "settings.json.post",
+      "title": "settings.json.post",
+      "description": "Create a Store Settings",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "body": {
+            "$ref": "#/definitions/SettingEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Setting"
+      }
+    },
+    {
+      "id": "settings.name.json.get",
+      "title": "settings.name.json.get",
+      "description": "Retrieve Store Information",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the Store Setting"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Setting"
+      }
+    },
+    {
+      "id": "settings.name.json.put",
+      "title": "settings.name.json.put",
+      "description": "Modify an existing Store Setting.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the Store Setting"
+          },
+          "body": {
+            "$ref": "#/definitions/SettingEdit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken",
+          "name",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Setting"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "store.info.json.get",
+      "title": "store.info.json.get",
+      "description": "Retrieve Store Information",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Store"
+      }
+    },
+    {
+      "id": "store.languages.json.get",
+      "title": "store.languages.json.get",
+      "description": "Retrieve Store Languages",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth login."
+          },
+          "authtoken": {
+            "type": "string",
+            "format": "string",
+            "description": "API OAuth token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "login",
+          "authtoken"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Language"
+        },
+        "type": "array"
+      }
+    }
+  ],
+  "tags": [
+    "ecommerce"
+  ]
+}

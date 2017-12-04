@@ -1,0 +1,2515 @@
+{
+  "id": "amazonaws_logs",
+  "title": "Amazon CloudWatch Logs",
+  "description": "You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon EC2 instances, AWS CloudTrail, or other sources. You can then retrieve the associated log data from CloudWatch Logs using the CloudWatch console, CloudWatch Logs commands in the AWS CLI, CloudWatch Logs API, or CloudWatch Logs SDK.\n\nYou can use CloudWatch Logs to:\n\n*   **Monitor logs from EC2 instances in real-time**: You can use CloudWatch Logs to monitor applications and systems using log data. For example, CloudWatch Logs can track the number of errors that occur in your application logs and send you a notification whenever the rate of errors exceeds a threshold that you specify. CloudWatch Logs uses your log data for monitoring; so, no code changes are required. For example, you can monitor application logs for specific literal terms (such as \"NullReferenceException\") or count the number of occurrences of a literal term at a particular position in log data (such as \"404\" status codes in an Apache access log). When the term you are searching for is found, CloudWatch Logs reports the data to a CloudWatch metric that you specify.\n\n*   **Monitor AWS CloudTrail logged events**: You can create alarms in CloudWatch and receive notifications of particular API activity as captured by CloudTrail and use the notification to perform troubleshooting.\n\n*   **Archive log data**: You can use CloudWatch Logs to store your log data in highly durable storage. You can change the log retention setting so that any log events older than this setting are automatically deleted. The CloudWatch Logs agent makes it easy to quickly send both rotated and non-rotated log data off of a host and into the log service. You can then access the raw log data when you need it.",
+  "security": {
+    "amazonaws_logs": {
+      "integration": "amazonaws_logs",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_logs.jpeg"
+  },
+  "actionCount": 33,
+  "definitions": {
+    "AccessPolicy": {
+      "minLength": 1,
+      "type": "string",
+      "title": "AccessPolicy"
+    },
+    "Arn": {
+      "type": "string",
+      "title": "Arn"
+    },
+    "AssociateKmsKeyRequest": {
+      "properties": {
+        "kmsKeyId": {
+          "$ref": "#/definitions/KmsKeyId",
+          "description": "The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms\">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a>."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        }
+      },
+      "required": [
+        "logGroupName",
+        "kmsKeyId"
+      ],
+      "type": "object",
+      "title": "AssociateKmsKeyRequest"
+    },
+    "CancelExportTaskRequest": {
+      "properties": {
+        "taskId": {
+          "$ref": "#/definitions/ExportTaskId",
+          "description": "The ID of the export task."
+        }
+      },
+      "required": [
+        "taskId"
+      ],
+      "type": "object",
+      "title": "CancelExportTaskRequest"
+    },
+    "CreateExportTaskRequest": {
+      "properties": {
+        "destination": {
+          "$ref": "#/definitions/ExportDestinationBucket",
+          "description": "The name of S3 bucket for the exported log data. The bucket must be in the same AWS region."
+        },
+        "destinationPrefix": {
+          "$ref": "#/definitions/ExportDestinationPrefix",
+          "description": "The prefix used as the start of the key for every object exported. If you don't specify a value, the default is <code>exportedlogs</code>."
+        },
+        "from": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp earlier than this time are not exported."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "logStreamNamePrefix": {
+          "$ref": "#/definitions/LogStreamName",
+          "description": "Export only log streams that match the provided prefix. If you don't specify a value, no prefix filter is applied."
+        },
+        "taskName": {
+          "$ref": "#/definitions/ExportTaskName",
+          "description": "The name of the export task."
+        },
+        "to": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported."
+        }
+      },
+      "required": [
+        "logGroupName",
+        "from",
+        "to",
+        "destination"
+      ],
+      "type": "object",
+      "title": "CreateExportTaskRequest"
+    },
+    "CreateExportTaskResponse": {
+      "properties": {
+        "taskId": {
+          "$ref": "#/definitions/ExportTaskId",
+          "description": "The ID of the export task."
+        }
+      },
+      "type": "object",
+      "title": "CreateExportTaskResponse"
+    },
+    "CreateLogGroupRequest": {
+      "properties": {
+        "kmsKeyId": {
+          "$ref": "#/definitions/KmsKeyId",
+          "description": "The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms\">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a>."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The key-value pairs to use for the tags."
+        }
+      },
+      "required": [
+        "logGroupName"
+      ],
+      "type": "object",
+      "title": "CreateLogGroupRequest"
+    },
+    "CreateLogStreamRequest": {
+      "properties": {
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "logStreamName": {
+          "$ref": "#/definitions/LogStreamName",
+          "description": "The name of the log stream."
+        }
+      },
+      "required": [
+        "logGroupName",
+        "logStreamName"
+      ],
+      "type": "object",
+      "title": "CreateLogStreamRequest"
+    },
+    "DataAlreadyAcceptedException": {
+      "description": "The event was already logged.",
+      "properties": {
+        "expectedSequenceToken": {
+          "$ref": "#/definitions/SequenceToken"
+        }
+      },
+      "type": "object",
+      "title": "DataAlreadyAcceptedException"
+    },
+    "Days": {
+      "description": "The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.",
+      "type": "integer",
+      "title": "Days"
+    },
+    "DefaultValue": {
+      "format": "double",
+      "type": "number",
+      "title": "DefaultValue"
+    },
+    "DeleteDestinationRequest": {
+      "properties": {
+        "destinationName": {
+          "$ref": "#/definitions/DestinationName",
+          "description": "The name of the destination."
+        }
+      },
+      "required": [
+        "destinationName"
+      ],
+      "type": "object",
+      "title": "DeleteDestinationRequest"
+    },
+    "DeleteLogGroupRequest": {
+      "properties": {
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        }
+      },
+      "required": [
+        "logGroupName"
+      ],
+      "type": "object",
+      "title": "DeleteLogGroupRequest"
+    },
+    "DeleteLogStreamRequest": {
+      "properties": {
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "logStreamName": {
+          "$ref": "#/definitions/LogStreamName",
+          "description": "The name of the log stream."
+        }
+      },
+      "required": [
+        "logGroupName",
+        "logStreamName"
+      ],
+      "type": "object",
+      "title": "DeleteLogStreamRequest"
+    },
+    "DeleteMetricFilterRequest": {
+      "properties": {
+        "filterName": {
+          "$ref": "#/definitions/FilterName",
+          "description": "The name of the metric filter."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        }
+      },
+      "required": [
+        "logGroupName",
+        "filterName"
+      ],
+      "type": "object",
+      "title": "DeleteMetricFilterRequest"
+    },
+    "DeleteResourcePolicyRequest": {
+      "properties": {
+        "policyName": {
+          "$ref": "#/definitions/PolicyName",
+          "description": "The name of the policy to be revoked. This parameter is required."
+        }
+      },
+      "type": "object",
+      "title": "DeleteResourcePolicyRequest"
+    },
+    "DeleteRetentionPolicyRequest": {
+      "properties": {
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        }
+      },
+      "required": [
+        "logGroupName"
+      ],
+      "type": "object",
+      "title": "DeleteRetentionPolicyRequest"
+    },
+    "DeleteSubscriptionFilterRequest": {
+      "properties": {
+        "filterName": {
+          "$ref": "#/definitions/FilterName",
+          "description": "The name of the subscription filter."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        }
+      },
+      "required": [
+        "logGroupName",
+        "filterName"
+      ],
+      "type": "object",
+      "title": "DeleteSubscriptionFilterRequest"
+    },
+    "Descending": {
+      "type": "boolean",
+      "title": "Descending"
+    },
+    "DescribeDestinationsRequest": {
+      "properties": {
+        "DestinationNamePrefix": {
+          "$ref": "#/definitions/DestinationName",
+          "description": "The prefix to match. If you don't specify a value, no prefix filter is applied."
+        },
+        "limit": {
+          "$ref": "#/definitions/DescribeLimit",
+          "description": "The maximum number of items returned. If you don't specify a value, the default is up to 50 items."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        }
+      },
+      "type": "object",
+      "title": "DescribeDestinationsRequest"
+    },
+    "DescribeDestinationsResponse": {
+      "properties": {
+        "destinations": {
+          "$ref": "#/definitions/Destinations",
+          "description": "The destinations."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "DescribeDestinationsResponse"
+    },
+    "DescribeExportTasksRequest": {
+      "properties": {
+        "limit": {
+          "$ref": "#/definitions/DescribeLimit",
+          "description": "The maximum number of items returned. If you don't specify a value, the default is up to 50 items."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        },
+        "statusCode": {
+          "$ref": "#/definitions/ExportTaskStatusCode",
+          "description": "The status code of the export task. Specifying a status code filters the results to zero or more export tasks."
+        },
+        "taskId": {
+          "$ref": "#/definitions/ExportTaskId",
+          "description": "The ID of the export task. Specifying a task ID filters the results to zero or one export tasks."
+        }
+      },
+      "type": "object",
+      "title": "DescribeExportTasksRequest"
+    },
+    "DescribeExportTasksResponse": {
+      "properties": {
+        "exportTasks": {
+          "$ref": "#/definitions/ExportTasks",
+          "description": "The export tasks."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "DescribeExportTasksResponse"
+    },
+    "DescribeLimit": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer",
+      "title": "DescribeLimit"
+    },
+    "DescribeLogGroupsRequest": {
+      "properties": {
+        "limit": {
+          "$ref": "#/definitions/DescribeLimit",
+          "description": "The maximum number of items returned. If you don't specify a value, the default is up to 50 items."
+        },
+        "logGroupNamePrefix": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The prefix to match."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        }
+      },
+      "type": "object",
+      "title": "DescribeLogGroupsRequest"
+    },
+    "DescribeLogGroupsResponse": {
+      "properties": {
+        "logGroups": {
+          "$ref": "#/definitions/LogGroups",
+          "description": "The log groups."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "DescribeLogGroupsResponse"
+    },
+    "DescribeLogStreamsRequest": {
+      "properties": {
+        "descending": {
+          "$ref": "#/definitions/Descending",
+          "description": "If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false."
+        },
+        "limit": {
+          "$ref": "#/definitions/DescribeLimit",
+          "description": "The maximum number of items returned. If you don't specify a value, the default is up to 50 items."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "logStreamNamePrefix": {
+          "$ref": "#/definitions/LogStreamName",
+          "description": "<p>The prefix to match.</p> <p>iIf <code>orderBy</code> is <code>LastEventTime</code>,you cannot specify this parameter.</p>"
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        },
+        "orderBy": {
+          "$ref": "#/definitions/OrderBy",
+          "description": "<p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p> <p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p> <p>lastEventTimestamp represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTimeStamp updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.</p>"
+        }
+      },
+      "required": [
+        "logGroupName"
+      ],
+      "type": "object",
+      "title": "DescribeLogStreamsRequest"
+    },
+    "DescribeLogStreamsResponse": {
+      "properties": {
+        "logStreams": {
+          "$ref": "#/definitions/LogStreams",
+          "description": "The log streams."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "DescribeLogStreamsResponse"
+    },
+    "DescribeMetricFiltersRequest": {
+      "properties": {
+        "filterNamePrefix": {
+          "$ref": "#/definitions/FilterName",
+          "description": "The prefix to match."
+        },
+        "limit": {
+          "$ref": "#/definitions/DescribeLimit",
+          "description": "The maximum number of items returned. If you don't specify a value, the default is up to 50 items."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "metricName": {
+          "$ref": "#/definitions/MetricName"
+        },
+        "metricNamespace": {
+          "$ref": "#/definitions/MetricNamespace",
+          "description": "The namespace of the CloudWatch metric."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        }
+      },
+      "type": "object",
+      "title": "DescribeMetricFiltersRequest"
+    },
+    "DescribeMetricFiltersResponse": {
+      "properties": {
+        "metricFilters": {
+          "$ref": "#/definitions/MetricFilters",
+          "description": "The metric filters."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "DescribeMetricFiltersResponse"
+    },
+    "DescribeResourcePoliciesRequest": {
+      "properties": {
+        "limit": {
+          "$ref": "#/definitions/DescribeLimit",
+          "description": "The maximum number of resource policies to be displayed with one call of this API."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "DescribeResourcePoliciesRequest"
+    },
+    "DescribeResourcePoliciesResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "resourcePolicies": {
+          "$ref": "#/definitions/ResourcePolicies",
+          "description": "The resource policies that exist in this account."
+        }
+      },
+      "type": "object",
+      "title": "DescribeResourcePoliciesResponse"
+    },
+    "DescribeSubscriptionFiltersRequest": {
+      "properties": {
+        "filterNamePrefix": {
+          "$ref": "#/definitions/FilterName",
+          "description": "The prefix to match. If you don't specify a value, no prefix filter is applied."
+        },
+        "limit": {
+          "$ref": "#/definitions/DescribeLimit",
+          "description": "The maximum number of items returned. If you don't specify a value, the default is up to 50 items."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        }
+      },
+      "required": [
+        "logGroupName"
+      ],
+      "type": "object",
+      "title": "DescribeSubscriptionFiltersRequest"
+    },
+    "DescribeSubscriptionFiltersResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "subscriptionFilters": {
+          "$ref": "#/definitions/SubscriptionFilters",
+          "description": "The subscription filters."
+        }
+      },
+      "type": "object",
+      "title": "DescribeSubscriptionFiltersResponse"
+    },
+    "Destination": {
+      "description": "Represents a cross-account destination that receives subscription log events.",
+      "properties": {
+        "accessPolicy": {
+          "$ref": "#/definitions/AccessPolicy",
+          "description": "An IAM policy document that governs which AWS accounts can create subscription filters against this destination."
+        },
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of this destination."
+        },
+        "creationTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The creation time of the destination, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        },
+        "destinationName": {
+          "$ref": "#/definitions/DestinationName",
+          "description": "The name of the destination."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "A role for impersonation, used when delivering log events to the target."
+        },
+        "targetArn": {
+          "$ref": "#/definitions/TargetArn",
+          "description": "The Amazon Resource Name (ARN) of the physical target to where the log events are delivered (for example, a Kinesis stream)."
+        }
+      },
+      "type": "object",
+      "title": "Destination"
+    },
+    "DestinationArn": {
+      "minLength": 1,
+      "type": "string",
+      "title": "DestinationArn"
+    },
+    "DestinationName": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "[^:*]*",
+      "type": "string",
+      "title": "DestinationName"
+    },
+    "Destinations": {
+      "items": {
+        "$ref": "#/definitions/Destination"
+      },
+      "type": "array",
+      "title": "Destinations"
+    },
+    "DisassociateKmsKeyRequest": {
+      "properties": {
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        }
+      },
+      "required": [
+        "logGroupName"
+      ],
+      "type": "object",
+      "title": "DisassociateKmsKeyRequest"
+    },
+    "Distribution": {
+      "description": "The method used to distribute log data to the destination, which can be either random or grouped by log stream.",
+      "enum": [
+        "Random",
+        "ByLogStream"
+      ],
+      "type": "string",
+      "title": "Distribution"
+    },
+    "EventId": {
+      "type": "string",
+      "title": "EventId"
+    },
+    "EventMessage": {
+      "minLength": 1,
+      "type": "string",
+      "title": "EventMessage"
+    },
+    "EventNumber": {
+      "type": "integer",
+      "title": "EventNumber"
+    },
+    "EventsLimit": {
+      "maximum": 10000,
+      "minimum": 1,
+      "type": "integer",
+      "title": "EventsLimit"
+    },
+    "ExportDestinationBucket": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string",
+      "title": "ExportDestinationBucket"
+    },
+    "ExportDestinationPrefix": {
+      "type": "string",
+      "title": "ExportDestinationPrefix"
+    },
+    "ExportTask": {
+      "description": "Represents an export task.",
+      "properties": {
+        "destination": {
+          "$ref": "#/definitions/ExportDestinationBucket",
+          "description": "The name of Amazon S3 bucket to which the log data was exported."
+        },
+        "destinationPrefix": {
+          "$ref": "#/definitions/ExportDestinationPrefix",
+          "description": "The prefix that was used as the start of Amazon S3 key for every object exported."
+        },
+        "executionInfo": {
+          "$ref": "#/definitions/ExportTaskExecutionInfo",
+          "description": "Execution info about the export task."
+        },
+        "from": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not exported."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group from which logs data was exported."
+        },
+        "status": {
+          "$ref": "#/definitions/ExportTaskStatus",
+          "description": "The status of the export task."
+        },
+        "taskId": {
+          "$ref": "#/definitions/ExportTaskId",
+          "description": "The ID of the export task."
+        },
+        "taskName": {
+          "$ref": "#/definitions/ExportTaskName",
+          "description": "The name of the export task."
+        },
+        "to": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported."
+        }
+      },
+      "type": "object",
+      "title": "ExportTask"
+    },
+    "ExportTaskExecutionInfo": {
+      "description": "Represents the status of an export task.",
+      "properties": {
+        "completionTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The completion time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        },
+        "creationTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The creation time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        }
+      },
+      "type": "object",
+      "title": "ExportTaskExecutionInfo"
+    },
+    "ExportTaskId": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string",
+      "title": "ExportTaskId"
+    },
+    "ExportTaskName": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string",
+      "title": "ExportTaskName"
+    },
+    "ExportTaskStatus": {
+      "description": "Represents the status of an export task.",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/ExportTaskStatusCode",
+          "description": "The status code of the export task."
+        },
+        "message": {
+          "$ref": "#/definitions/ExportTaskStatusMessage",
+          "description": "The status message related to the status code."
+        }
+      },
+      "type": "object",
+      "title": "ExportTaskStatus"
+    },
+    "ExportTaskStatusCode": {
+      "enum": [
+        "CANCELLED",
+        "COMPLETED",
+        "FAILED",
+        "PENDING",
+        "PENDING_CANCEL",
+        "RUNNING"
+      ],
+      "type": "string",
+      "title": "ExportTaskStatusCode"
+    },
+    "ExportTaskStatusMessage": {
+      "type": "string",
+      "title": "ExportTaskStatusMessage"
+    },
+    "ExportTasks": {
+      "items": {
+        "$ref": "#/definitions/ExportTask"
+      },
+      "type": "array",
+      "title": "ExportTasks"
+    },
+    "ExtractedValues": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/Token"
+          },
+          "value": {
+            "$ref": "#/definitions/Value"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "ExtractedValues"
+    },
+    "FilterCount": {
+      "type": "integer",
+      "title": "FilterCount"
+    },
+    "FilterLogEventsRequest": {
+      "properties": {
+        "endTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not returned."
+        },
+        "filterPattern": {
+          "$ref": "#/definitions/FilterPattern",
+          "description": "The filter pattern to use. If not provided, all the events are matched."
+        },
+        "interleaved": {
+          "$ref": "#/definitions/Interleaved",
+          "description": "If the value is true, the operation makes a best effort to provide responses that contain events from multiple log streams within the log group, interleaved in a single response. If the value is false, all the matched log events in the first log stream are searched first, then those in the next log stream, and so on. The default is false."
+        },
+        "limit": {
+          "$ref": "#/definitions/EventsLimit",
+          "description": "The maximum number of events to return. The default is 10,000 events."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "logStreamNames": {
+          "$ref": "#/definitions/InputLogStreamNames",
+          "description": "Optional list of log stream names."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of events to return. (You received this token from a previous call.)"
+        },
+        "startTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not returned."
+        }
+      },
+      "required": [
+        "logGroupName"
+      ],
+      "type": "object",
+      "title": "FilterLogEventsRequest"
+    },
+    "FilterLogEventsResponse": {
+      "properties": {
+        "events": {
+          "$ref": "#/definitions/FilteredLogEvents",
+          "description": "The matched events."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token to use when requesting the next set of items. The token expires after 24 hours."
+        },
+        "searchedLogStreams": {
+          "$ref": "#/definitions/SearchedLogStreams",
+          "description": "Indicates which log streams have been searched and whether each has been searched completely."
+        }
+      },
+      "type": "object",
+      "title": "FilterLogEventsResponse"
+    },
+    "FilterName": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "[^:*]*",
+      "type": "string",
+      "title": "FilterName"
+    },
+    "FilterPattern": {
+      "description": "A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event may contain time stamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.",
+      "maxLength": 1024,
+      "minLength": 0,
+      "type": "string",
+      "title": "FilterPattern"
+    },
+    "FilteredLogEvent": {
+      "description": "Represents a matched event.",
+      "properties": {
+        "eventId": {
+          "$ref": "#/definitions/EventId",
+          "description": "The ID of the event."
+        },
+        "ingestionTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        },
+        "logStreamName": {
+          "$ref": "#/definitions/LogStreamName",
+          "description": "The name of the log stream this event belongs to."
+        },
+        "message": {
+          "$ref": "#/definitions/EventMessage",
+          "description": "The data contained in the log event."
+        },
+        "timestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        }
+      },
+      "type": "object",
+      "title": "FilteredLogEvent"
+    },
+    "FilteredLogEvents": {
+      "items": {
+        "$ref": "#/definitions/FilteredLogEvent"
+      },
+      "type": "array",
+      "title": "FilteredLogEvents"
+    },
+    "GetLogEventsRequest": {
+      "properties": {
+        "endTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not included."
+        },
+        "limit": {
+          "$ref": "#/definitions/EventsLimit",
+          "description": "The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1 MB, up to 10,000 log events."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "logStreamName": {
+          "$ref": "#/definitions/LogStreamName",
+          "description": "The name of the log stream."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of items to return. (You received this token from a previous call.)"
+        },
+        "startFromHead": {
+          "$ref": "#/definitions/StartFromHead",
+          "description": "If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false."
+        },
+        "startTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp earlier than this time are not included."
+        }
+      },
+      "required": [
+        "logGroupName",
+        "logStreamName"
+      ],
+      "type": "object",
+      "title": "GetLogEventsRequest"
+    },
+    "GetLogEventsResponse": {
+      "properties": {
+        "events": {
+          "$ref": "#/definitions/OutputLogEvents",
+          "description": "The events."
+        },
+        "nextBackwardToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of items in the backward direction. The token expires after 24 hours."
+        },
+        "nextForwardToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of items in the forward direction. The token expires after 24 hours."
+        }
+      },
+      "type": "object",
+      "title": "GetLogEventsResponse"
+    },
+    "InputLogEvent": {
+      "description": "Represents a log event, which is a record of activity that was recorded by the application or resource being monitored.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/EventMessage",
+          "description": "The raw event message."
+        },
+        "timestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC."
+        }
+      },
+      "required": [
+        "timestamp",
+        "message"
+      ],
+      "type": "object",
+      "title": "InputLogEvent"
+    },
+    "InputLogEvents": {
+      "items": {
+        "$ref": "#/definitions/InputLogEvent"
+      },
+      "maxItems": 10000,
+      "minItems": 1,
+      "type": "array",
+      "title": "InputLogEvents"
+    },
+    "InputLogStreamNames": {
+      "items": {
+        "$ref": "#/definitions/LogStreamName"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array",
+      "title": "InputLogStreamNames"
+    },
+    "Interleaved": {
+      "type": "boolean",
+      "title": "Interleaved"
+    },
+    "InvalidOperationException": {
+      "description": "The operation is not valid on the specified resource.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidOperationException"
+    },
+    "InvalidParameterException": {
+      "description": "A parameter is specified incorrectly.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidParameterException"
+    },
+    "InvalidSequenceTokenException": {
+      "description": "The sequence token is not valid.",
+      "properties": {
+        "expectedSequenceToken": {
+          "$ref": "#/definitions/SequenceToken"
+        }
+      },
+      "type": "object",
+      "title": "InvalidSequenceTokenException"
+    },
+    "KmsKeyId": {
+      "maxLength": 256,
+      "type": "string",
+      "title": "KmsKeyId"
+    },
+    "LimitExceededException": {
+      "description": "You have reached the maximum number of resources that can be created.",
+      "properties": {},
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListTagsLogGroupRequest": {
+      "properties": {
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        }
+      },
+      "required": [
+        "logGroupName"
+      ],
+      "type": "object",
+      "title": "ListTagsLogGroupRequest"
+    },
+    "ListTagsLogGroupResponse": {
+      "properties": {
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags for the log group."
+        }
+      },
+      "type": "object",
+      "title": "ListTagsLogGroupResponse"
+    },
+    "LogEventIndex": {
+      "type": "integer",
+      "title": "LogEventIndex"
+    },
+    "LogGroup": {
+      "description": "Represents a log group.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the log group."
+        },
+        "creationTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        },
+        "kmsKeyId": {
+          "$ref": "#/definitions/KmsKeyId",
+          "description": "The Amazon Resource Name (ARN) of the CMK to use when encrypting log data."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "metricFilterCount": {
+          "$ref": "#/definitions/FilterCount",
+          "description": "The number of metric filters."
+        },
+        "retentionInDays": {
+          "$ref": "#/definitions/Days"
+        },
+        "storedBytes": {
+          "$ref": "#/definitions/StoredBytes",
+          "description": "The number of bytes stored."
+        }
+      },
+      "type": "object",
+      "title": "LogGroup"
+    },
+    "LogGroupName": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+      "type": "string",
+      "title": "LogGroupName"
+    },
+    "LogGroups": {
+      "items": {
+        "$ref": "#/definitions/LogGroup"
+      },
+      "type": "array",
+      "title": "LogGroups"
+    },
+    "LogStream": {
+      "description": "Represents a log stream, which is a sequence of log events from a single emitter of logs.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the log stream."
+        },
+        "creationTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The creation time of the stream, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        },
+        "firstEventTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time of the first event, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        },
+        "lastEventTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": " the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTime updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations."
+        },
+        "lastIngestionTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        },
+        "logStreamName": {
+          "$ref": "#/definitions/LogStreamName",
+          "description": "The name of the log stream."
+        },
+        "storedBytes": {
+          "$ref": "#/definitions/StoredBytes",
+          "description": "The number of bytes stored."
+        },
+        "uploadSequenceToken": {
+          "$ref": "#/definitions/SequenceToken",
+          "description": "The sequence token."
+        }
+      },
+      "type": "object",
+      "title": "LogStream"
+    },
+    "LogStreamName": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "[^:*]*",
+      "type": "string",
+      "title": "LogStreamName"
+    },
+    "LogStreamSearchedCompletely": {
+      "type": "boolean",
+      "title": "LogStreamSearchedCompletely"
+    },
+    "LogStreams": {
+      "items": {
+        "$ref": "#/definitions/LogStream"
+      },
+      "type": "array",
+      "title": "LogStreams"
+    },
+    "MetricFilter": {
+      "description": "Metric filters express how CloudWatch Logs would extract metric observations from ingested log events and transform them into metric data in a CloudWatch metric.",
+      "properties": {
+        "creationTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The creation time of the metric filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        },
+        "filterName": {
+          "$ref": "#/definitions/FilterName",
+          "description": "The name of the metric filter."
+        },
+        "filterPattern": {
+          "$ref": "#/definitions/FilterPattern"
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "metricTransformations": {
+          "$ref": "#/definitions/MetricTransformations",
+          "description": "The metric transformations."
+        }
+      },
+      "type": "object",
+      "title": "MetricFilter"
+    },
+    "MetricFilterMatchRecord": {
+      "description": "Represents a matched event.",
+      "properties": {
+        "eventMessage": {
+          "$ref": "#/definitions/EventMessage",
+          "description": "The raw event data."
+        },
+        "eventNumber": {
+          "$ref": "#/definitions/EventNumber",
+          "description": "The event number."
+        },
+        "extractedValues": {
+          "$ref": "#/definitions/ExtractedValues",
+          "description": "The values extracted from the event data by the filter."
+        }
+      },
+      "type": "object",
+      "title": "MetricFilterMatchRecord"
+    },
+    "MetricFilterMatches": {
+      "items": {
+        "$ref": "#/definitions/MetricFilterMatchRecord"
+      },
+      "type": "array",
+      "title": "MetricFilterMatches"
+    },
+    "MetricFilters": {
+      "items": {
+        "$ref": "#/definitions/MetricFilter"
+      },
+      "type": "array",
+      "title": "MetricFilters"
+    },
+    "MetricName": {
+      "description": "The name of the CloudWatch metric to which the monitored log information should be published. For example, you may publish to a metric called ErrorCount.",
+      "maxLength": 255,
+      "pattern": "[^:*$]*",
+      "type": "string",
+      "title": "MetricName"
+    },
+    "MetricNamespace": {
+      "maxLength": 255,
+      "pattern": "[^:*$]*",
+      "type": "string",
+      "title": "MetricNamespace"
+    },
+    "MetricTransformation": {
+      "description": "Indicates how to transform ingested log events in to metric data in a CloudWatch metric.",
+      "properties": {
+        "defaultValue": {
+          "$ref": "#/definitions/DefaultValue",
+          "description": "(Optional) The value to emit when a filter pattern does not match a log event. This value can be null."
+        },
+        "metricName": {
+          "$ref": "#/definitions/MetricName",
+          "description": "The name of the CloudWatch metric."
+        },
+        "metricNamespace": {
+          "$ref": "#/definitions/MetricNamespace",
+          "description": "The namespace of the CloudWatch metric."
+        },
+        "metricValue": {
+          "$ref": "#/definitions/MetricValue",
+          "description": "The value to publish to the CloudWatch metric when a filter pattern matches a log event."
+        }
+      },
+      "required": [
+        "metricName",
+        "metricNamespace",
+        "metricValue"
+      ],
+      "type": "object",
+      "title": "MetricTransformation"
+    },
+    "MetricTransformations": {
+      "items": {
+        "$ref": "#/definitions/MetricTransformation"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array",
+      "title": "MetricTransformations"
+    },
+    "MetricValue": {
+      "description": "The value to publish to the CloudWatch metric. For example, if you're counting the occurrences of a term like \"Error\", the value is \"1\" for each occurrence. If you're counting the bytes transferred, the value is the value in the log event.",
+      "maxLength": 100,
+      "type": "string",
+      "title": "MetricValue"
+    },
+    "NextToken": {
+      "description": "The token for the next set of items to return. The token expires after 24 hours.",
+      "minLength": 1,
+      "type": "string",
+      "title": "NextToken"
+    },
+    "OperationAbortedException": {
+      "description": "Multiple requests to update the same resource were in conflict.",
+      "properties": {},
+      "type": "object",
+      "title": "OperationAbortedException"
+    },
+    "OrderBy": {
+      "enum": [
+        "LogStreamName",
+        "LastEventTime"
+      ],
+      "type": "string",
+      "title": "OrderBy"
+    },
+    "OutputLogEvent": {
+      "description": "Represents a log event.",
+      "properties": {
+        "ingestionTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        },
+        "message": {
+          "$ref": "#/definitions/EventMessage",
+          "description": "The data contained in the log event."
+        },
+        "timestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        }
+      },
+      "type": "object",
+      "title": "OutputLogEvent"
+    },
+    "OutputLogEvents": {
+      "items": {
+        "$ref": "#/definitions/OutputLogEvent"
+      },
+      "type": "array",
+      "title": "OutputLogEvents"
+    },
+    "PolicyDocument": {
+      "maxLength": 5120,
+      "minLength": 1,
+      "type": "string",
+      "title": "PolicyDocument"
+    },
+    "PolicyName": {
+      "type": "string",
+      "title": "PolicyName"
+    },
+    "PutDestinationPolicyRequest": {
+      "properties": {
+        "accessPolicy": {
+          "$ref": "#/definitions/AccessPolicy",
+          "description": "An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination."
+        },
+        "destinationName": {
+          "$ref": "#/definitions/DestinationName",
+          "description": "A name for an existing destination."
+        }
+      },
+      "required": [
+        "destinationName",
+        "accessPolicy"
+      ],
+      "type": "object",
+      "title": "PutDestinationPolicyRequest"
+    },
+    "PutDestinationRequest": {
+      "properties": {
+        "destinationName": {
+          "$ref": "#/definitions/DestinationName",
+          "description": "A name for the destination."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis PutRecord operation on the destination stream."
+        },
+        "targetArn": {
+          "$ref": "#/definitions/TargetArn",
+          "description": "The ARN of an Amazon Kinesis stream to which to deliver matching log events."
+        }
+      },
+      "required": [
+        "destinationName",
+        "targetArn",
+        "roleArn"
+      ],
+      "type": "object",
+      "title": "PutDestinationRequest"
+    },
+    "PutDestinationResponse": {
+      "properties": {
+        "destination": {
+          "$ref": "#/definitions/Destination",
+          "description": "The destination."
+        }
+      },
+      "type": "object",
+      "title": "PutDestinationResponse"
+    },
+    "PutLogEventsRequest": {
+      "properties": {
+        "logEvents": {
+          "$ref": "#/definitions/InputLogEvents",
+          "description": "The log events."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "logStreamName": {
+          "$ref": "#/definitions/LogStreamName",
+          "description": "The name of the log stream."
+        },
+        "sequenceToken": {
+          "$ref": "#/definitions/SequenceToken",
+          "description": "The sequence token obtained from the response of the previous <code>PutLogEvents</code> call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected."
+        }
+      },
+      "required": [
+        "logGroupName",
+        "logStreamName",
+        "logEvents"
+      ],
+      "type": "object",
+      "title": "PutLogEventsRequest"
+    },
+    "PutLogEventsResponse": {
+      "properties": {
+        "nextSequenceToken": {
+          "$ref": "#/definitions/SequenceToken",
+          "description": "The next sequence token."
+        },
+        "rejectedLogEventsInfo": {
+          "$ref": "#/definitions/RejectedLogEventsInfo",
+          "description": "The rejected events."
+        }
+      },
+      "type": "object",
+      "title": "PutLogEventsResponse"
+    },
+    "PutMetricFilterRequest": {
+      "properties": {
+        "filterName": {
+          "$ref": "#/definitions/FilterName",
+          "description": "A name for the metric filter."
+        },
+        "filterPattern": {
+          "$ref": "#/definitions/FilterPattern",
+          "description": "A filter pattern for extracting metric data out of ingested log events."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "metricTransformations": {
+          "$ref": "#/definitions/MetricTransformations",
+          "description": "A collection of information that defines how metric data gets emitted."
+        }
+      },
+      "required": [
+        "logGroupName",
+        "filterName",
+        "filterPattern",
+        "metricTransformations"
+      ],
+      "type": "object",
+      "title": "PutMetricFilterRequest"
+    },
+    "PutResourcePolicyRequest": {
+      "properties": {
+        "policyDocument": {
+          "$ref": "#/definitions/PolicyDocument",
+          "description": "<p>Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string.</p> <p>The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace \"logArn\" with the ARN of your CloudWatch Logs resource, such as a log group or log stream.</p> <p> { \"Version\": \"2012-10-17\" \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": logArn } ] } </p>"
+        },
+        "policyName": {
+          "$ref": "#/definitions/PolicyName",
+          "description": "Name of the new policy. This parameter is required."
+        }
+      },
+      "type": "object",
+      "title": "PutResourcePolicyRequest"
+    },
+    "PutResourcePolicyResponse": {
+      "properties": {
+        "resourcePolicy": {
+          "$ref": "#/definitions/ResourcePolicy",
+          "description": "The new policy."
+        }
+      },
+      "type": "object",
+      "title": "PutResourcePolicyResponse"
+    },
+    "PutRetentionPolicyRequest": {
+      "properties": {
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "retentionInDays": {
+          "$ref": "#/definitions/Days"
+        }
+      },
+      "required": [
+        "logGroupName",
+        "retentionInDays"
+      ],
+      "type": "object",
+      "title": "PutRetentionPolicyRequest"
+    },
+    "PutSubscriptionFilterRequest": {
+      "properties": {
+        "destinationArn": {
+          "$ref": "#/definitions/DestinationArn",
+          "description": "<p>The ARN of the destination to deliver matching log events to. Currently, the supported destinations are:</p> <ul> <li> <p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p> </li> <li> <p>A logical destination (specified using an ARN) belonging to a different account, for cross-account delivery.</p> </li> <li> <p>An Amazon Kinesis Firehose delivery stream belonging to the same account as the subscription filter, for same-account delivery.</p> </li> <li> <p>An AWS Lambda function belonging to the same account as the subscription filter, for same-account delivery.</p> </li> </ul>"
+        },
+        "distribution": {
+          "$ref": "#/definitions/Distribution",
+          "description": "The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. "
+        },
+        "filterName": {
+          "$ref": "#/definitions/FilterName",
+          "description": "A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use <a>DescribeSubscriptionFilters</a>."
+        },
+        "filterPattern": {
+          "$ref": "#/definitions/FilterPattern",
+          "description": "A filter pattern for subscribing to a filtered stream of log events."
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery."
+        }
+      },
+      "required": [
+        "logGroupName",
+        "filterName",
+        "filterPattern",
+        "destinationArn"
+      ],
+      "type": "object",
+      "title": "PutSubscriptionFilterRequest"
+    },
+    "RejectedLogEventsInfo": {
+      "description": "Represents the rejected events.",
+      "properties": {
+        "expiredLogEventEndIndex": {
+          "$ref": "#/definitions/LogEventIndex",
+          "description": "The expired log events."
+        },
+        "tooNewLogEventStartIndex": {
+          "$ref": "#/definitions/LogEventIndex",
+          "description": "The log events that are too new."
+        },
+        "tooOldLogEventEndIndex": {
+          "$ref": "#/definitions/LogEventIndex",
+          "description": "The log events that are too old."
+        }
+      },
+      "type": "object",
+      "title": "RejectedLogEventsInfo"
+    },
+    "ResourceAlreadyExistsException": {
+      "description": "The specified resource already exists.",
+      "properties": {},
+      "type": "object",
+      "title": "ResourceAlreadyExistsException"
+    },
+    "ResourceNotFoundException": {
+      "description": "The specified resource does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "ResourcePolicies": {
+      "items": {
+        "$ref": "#/definitions/ResourcePolicy"
+      },
+      "type": "array",
+      "title": "ResourcePolicies"
+    },
+    "ResourcePolicy": {
+      "description": "A policy enabling one or more entities to put logs to a log group in this account.",
+      "properties": {
+        "lastUpdatedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        },
+        "policyDocument": {
+          "$ref": "#/definitions/PolicyDocument",
+          "description": "The details of the policy."
+        },
+        "policyName": {
+          "$ref": "#/definitions/PolicyName",
+          "description": "The name of the resource policy."
+        }
+      },
+      "type": "object",
+      "title": "ResourcePolicy"
+    },
+    "RoleArn": {
+      "minLength": 1,
+      "type": "string",
+      "title": "RoleArn"
+    },
+    "SearchedLogStream": {
+      "description": "Represents the search status of a log stream.",
+      "properties": {
+        "logStreamName": {
+          "$ref": "#/definitions/LogStreamName",
+          "description": "The name of the log stream."
+        },
+        "searchedCompletely": {
+          "$ref": "#/definitions/LogStreamSearchedCompletely",
+          "description": "Indicates whether all the events in this log stream were searched."
+        }
+      },
+      "type": "object",
+      "title": "SearchedLogStream"
+    },
+    "SearchedLogStreams": {
+      "items": {
+        "$ref": "#/definitions/SearchedLogStream"
+      },
+      "type": "array",
+      "title": "SearchedLogStreams"
+    },
+    "SequenceToken": {
+      "minLength": 1,
+      "type": "string",
+      "title": "SequenceToken"
+    },
+    "ServiceUnavailableException": {
+      "description": "The service cannot complete the request.",
+      "properties": {},
+      "type": "object",
+      "title": "ServiceUnavailableException"
+    },
+    "StartFromHead": {
+      "type": "boolean",
+      "title": "StartFromHead"
+    },
+    "StoredBytes": {
+      "minimum": 0,
+      "type": "integer",
+      "title": "StoredBytes"
+    },
+    "SubscriptionFilter": {
+      "description": "Represents a subscription filter.",
+      "properties": {
+        "creationTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The creation time of the subscription filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC."
+        },
+        "destinationArn": {
+          "$ref": "#/definitions/DestinationArn",
+          "description": "The Amazon Resource Name (ARN) of the destination."
+        },
+        "distribution": {
+          "$ref": "#/definitions/Distribution"
+        },
+        "filterName": {
+          "$ref": "#/definitions/FilterName",
+          "description": "The name of the subscription filter."
+        },
+        "filterPattern": {
+          "$ref": "#/definitions/FilterPattern"
+        },
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "SubscriptionFilter"
+    },
+    "SubscriptionFilters": {
+      "items": {
+        "$ref": "#/definitions/SubscriptionFilter"
+      },
+      "type": "array",
+      "title": "SubscriptionFilters"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]+)$",
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "TagList"
+    },
+    "TagLogGroupRequest": {
+      "properties": {
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The key-value pairs to use for the tags."
+        }
+      },
+      "required": [
+        "logGroupName",
+        "tags"
+      ],
+      "type": "object",
+      "title": "TagLogGroupRequest"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string",
+      "title": "TagValue"
+    },
+    "Tags": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/TagKey"
+          },
+          "value": {
+            "$ref": "#/definitions/TagValue"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array",
+      "title": "Tags"
+    },
+    "TargetArn": {
+      "minLength": 1,
+      "type": "string",
+      "title": "TargetArn"
+    },
+    "TestEventMessages": {
+      "items": {
+        "$ref": "#/definitions/EventMessage"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array",
+      "title": "TestEventMessages"
+    },
+    "TestMetricFilterRequest": {
+      "properties": {
+        "filterPattern": {
+          "$ref": "#/definitions/FilterPattern"
+        },
+        "logEventMessages": {
+          "$ref": "#/definitions/TestEventMessages",
+          "description": "The log event messages to test."
+        }
+      },
+      "required": [
+        "filterPattern",
+        "logEventMessages"
+      ],
+      "type": "object",
+      "title": "TestMetricFilterRequest"
+    },
+    "TestMetricFilterResponse": {
+      "properties": {
+        "matches": {
+          "$ref": "#/definitions/MetricFilterMatches",
+          "description": "The matched events."
+        }
+      },
+      "type": "object",
+      "title": "TestMetricFilterResponse"
+    },
+    "Timestamp": {
+      "minimum": 0,
+      "type": "integer",
+      "title": "Timestamp"
+    },
+    "Token": {
+      "type": "string",
+      "title": "Token"
+    },
+    "UntagLogGroupRequest": {
+      "properties": {
+        "logGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The name of the log group."
+        },
+        "tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tag keys. The corresponding tags are removed from the log group."
+        }
+      },
+      "required": [
+        "logGroupName",
+        "tags"
+      ],
+      "type": "object",
+      "title": "UntagLogGroupRequest"
+    },
+    "Value": {
+      "type": "string",
+      "title": "Value"
+    }
+  },
+  "actions": [
+    {
+      "id": "AssociateKmsKey",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AssociateKmsKeyRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "CancelExportTask",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CancelExportTaskRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "CreateExportTask",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateExportTaskRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateExportTaskResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "CreateLogGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateLogGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "CreateLogStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateLogStreamRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DeleteDestination",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteDestinationRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DeleteLogGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteLogGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DeleteLogStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteLogStreamRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DeleteMetricFilter",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteMetricFilterRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DeleteResourcePolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteResourcePolicyRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DeleteRetentionPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteRetentionPolicyRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DeleteSubscriptionFilter",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteSubscriptionFilterRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DescribeDestinations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeDestinationsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeDestinationsResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DescribeExportTasks",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeExportTasksRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeExportTasksResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DescribeLogGroups",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeLogGroupsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeLogGroupsResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DescribeLogStreams",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeLogStreamsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeLogStreamsResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DescribeMetricFilters",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeMetricFiltersRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeMetricFiltersResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DescribeResourcePolicies",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeResourcePoliciesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeResourcePoliciesResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DescribeSubscriptionFilters",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeSubscriptionFiltersRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeSubscriptionFiltersResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "DisassociateKmsKey",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisassociateKmsKeyRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "FilterLogEvents",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/FilterLogEventsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FilterLogEventsResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "GetLogEvents",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetLogEventsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetLogEventsResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "ListTagsLogGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTagsLogGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTagsLogGroupResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "PutDestination",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutDestinationRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutDestinationResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "PutDestinationPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutDestinationPolicyRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "PutLogEvents",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutLogEventsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutLogEventsResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "PutMetricFilter",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutMetricFilterRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "PutResourcePolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutResourcePolicyRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutResourcePolicyResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "PutRetentionPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutRetentionPolicyRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "PutSubscriptionFilter",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutSubscriptionFilterRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "TagLogGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TagLogGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "TestMetricFilter",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TestMetricFilterRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TestMetricFilterResponse"
+      },
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    },
+    {
+      "id": "UntagLogGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UntagLogGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_logs": {
+          "integration": "amazonaws_logs"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

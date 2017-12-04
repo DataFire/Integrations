@@ -1,0 +1,3350 @@
+{
+  "id": "avaza",
+  "title": "Avaza",
+  "description": "For testing and experimenting with Avaza's API features.\n\n### API Security\n\nAuthentication options include OAuth2 Implicit and Authorization flows.  \nTo use the Api from your own app you will need us to issue you an App Client ID and Secret. You can get in touch to request one.\n\nOAuth2 Authorization endpoint: https://any.avaza.com/oauth2/authorize.  \nOAuth2 Token endpoint: https://any.avaza.com/oauth2/token  \nApi Request Base URL: https://api.avaza.com/\n\nBlogpost about authenticating with Avaza's API: https://www.avaza.com/avaza-api-oauth2-authentication/Blogpost on using Avaza's webhooks: https://www.avaza.com/avaza-api-webhook-notifications/\n\nWe currently issue Access Tokens that last 1 hour, and Refresh tokens that last 60 days",
+  "security": {
+    "avaza": {
+      "integration": "avaza",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://any.avaza.com/oauth2/authorize",
+        "description": "OAuth2 Implicit Grant",
+        "flow": "implicit",
+        "scopes": {
+          "read": "Read access to protected resources",
+          "write": "Write access to protected resources"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/avaza.jpeg"
+  },
+  "actionCount": 40,
+  "definitions": {
+    "AccountDetails": {
+      "properties": {
+        "CompanyName": {
+          "type": "string"
+        },
+        "LockApprovedTimesheets": {
+          "type": "boolean"
+        },
+        "TimesheetDayOfWeek": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TimesheetDisplayFormatCode": {
+          "type": "string"
+        },
+        "WeeklyTimesheetReminder": {
+          "type": "boolean"
+        },
+        "has24HourTimesheetFormat": {
+          "type": "boolean"
+        },
+        "hasStartEndTimesheets": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "AccountDetails"
+    },
+    "Company": {
+      "properties": {
+        "BillingAddress": {
+          "type": "string"
+        },
+        "BillingAddressCity": {
+          "type": "string"
+        },
+        "BillingAddressLine": {
+          "type": "string"
+        },
+        "BillingAddressPostCode": {
+          "type": "string"
+        },
+        "BillingAddressState": {
+          "type": "string"
+        },
+        "BillingCountryCode": {
+          "type": "string"
+        },
+        "Comments": {
+          "type": "string"
+        },
+        "CompanyID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CompanyName": {
+          "type": "string"
+        },
+        "Contacts": {
+          "items": {
+            "$ref": "#/definitions/CompanyContact"
+          },
+          "type": "array"
+        },
+        "CurrencyCode": {
+          "type": "string"
+        },
+        "DateCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateUpdated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DefaultTradingTermIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Fax": {
+          "type": "string"
+        },
+        "Phone": {
+          "type": "string"
+        },
+        "TaxNumber": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Company"
+    },
+    "CompanyContact": {
+      "properties": {
+        "CompanyIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CompanyName": {
+          "type": "string"
+        },
+        "ContactID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DateCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateUpdated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "Firstname": {
+          "type": "string"
+        },
+        "Lastname": {
+          "type": "string"
+        },
+        "Mobile": {
+          "type": "string"
+        },
+        "Phone": {
+          "type": "string"
+        },
+        "PositionTitle": {
+          "type": "string"
+        },
+        "TimeZone": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CompanyContact"
+    },
+    "CompanyList": {
+      "properties": {
+        "Companies": {
+          "items": {
+            "$ref": "#/definitions/Company"
+          },
+          "type": "array"
+        },
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PageSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "CompanyList"
+    },
+    "ContactList": {
+      "properties": {
+        "Contacts": {
+          "items": {
+            "$ref": "#/definitions/CompanyContact"
+          },
+          "type": "array"
+        },
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PageSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "ContactList"
+    },
+    "CreateSubscription": {
+      "description": "New Subscription to be Created",
+      "properties": {
+        "event": {
+          "description": "The event code to be notified about. Possible values: company_created, contact_created, invoice_created, invoice_sent, project_created, task_created",
+          "type": "string"
+        },
+        "target_url": {
+          "description": "The URL that should be notified of the event.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_url",
+        "event"
+      ],
+      "type": "object",
+      "title": "CreateSubscription"
+    },
+    "CreditNote": {
+      "properties": {
+        "Balance": {
+          "format": "double",
+          "type": "number"
+        },
+        "CreditNoteAllocations": {
+          "items": {
+            "$ref": "#/definitions/CreditNoteAllocation"
+          },
+          "type": "array"
+        },
+        "CreditNoteLineItems": {
+          "items": {
+            "$ref": "#/definitions/CreditNoteLineItem"
+          },
+          "type": "array"
+        },
+        "CreditNoteNumber": {
+          "type": "string"
+        },
+        "CurrencyCode": {
+          "type": "string"
+        },
+        "CustomerIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DateCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateIssued": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateUpdated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "TotalAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "TransactionID": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TransactionPrefix": {
+          "type": "string"
+        },
+        "TransactionStatusCode": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CreditNote"
+    },
+    "CreditNoteAllocation": {
+      "properties": {
+        "AllocationAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "AllocationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "CreditNoteTransactionIDFK": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "InvoiceTransactionIDFK": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TransactionAllocationID": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "CreditNoteAllocation"
+    },
+    "CreditNoteLineItem": {
+      "properties": {
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Discount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Quantity": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TransactionLineItemID": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "UnitPrice": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "CreditNoteLineItem"
+    },
+    "CreditNoteList": {
+      "properties": {
+        "CreditNotes": {
+          "items": {
+            "$ref": "#/definitions/CreditNote"
+          },
+          "type": "array"
+        },
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PageSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "CreditNoteList"
+    },
+    "Currency": {
+      "properties": {
+        "CurrencyCode": {
+          "type": "string"
+        },
+        "DecimalPlaces": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Currency"
+    },
+    "CurrencyList": {
+      "properties": {
+        "Currencies": {
+          "items": {
+            "$ref": "#/definitions/Currency"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyList"
+    },
+    "ExpenseDetails": {
+      "properties": {
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "AttachmentURL": {
+          "type": "string"
+        },
+        "ChargeableStatusCode": {
+          "type": "string"
+        },
+        "CurrencyCode": {
+          "type": "string"
+        },
+        "CustomerIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CustomerName": {
+          "type": "string"
+        },
+        "DateCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateUpdated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "ExchangeRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "ExpenseApprovalStatusCode": {
+          "type": "string"
+        },
+        "ExpenseCategoryHasUnitPrice": {
+          "type": "boolean"
+        },
+        "ExpenseCategoryIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ExpenseCategoryName": {
+          "type": "string"
+        },
+        "ExpenseCategoryUnitName": {
+          "type": "string"
+        },
+        "ExpenseCategoryUnitPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "ExpenseDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ExpenseID": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "ExpenseReportIDFK": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "ExpenseReportName": {
+          "type": "string"
+        },
+        "Firstname": {
+          "type": "string"
+        },
+        "Lastname": {
+          "type": "string"
+        },
+        "Merchant": {
+          "type": "string"
+        },
+        "MerchantTaxNumber": {
+          "type": "string"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "ProjectIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ProjectTitle": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TransactionTaxConfigCode": {
+          "type": "string"
+        },
+        "UserIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isChargeable": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "ExpenseDetails"
+    },
+    "ExpenseList": {
+      "properties": {
+        "Expenses": {
+          "items": {
+            "$ref": "#/definitions/ExpenseDetails"
+          },
+          "type": "array"
+        },
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PageSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "ExpenseList"
+    },
+    "InventoryItem": {
+      "properties": {
+        "CostPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "DateCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateUpdated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "InventoryItemID": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "SKU": {
+          "type": "string"
+        },
+        "SalePrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "SaleTaxIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isHidden": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "InventoryItem"
+    },
+    "InventoryList": {
+      "properties": {
+        "Inventory": {
+          "items": {
+            "$ref": "#/definitions/InventoryItem"
+          },
+          "type": "array"
+        },
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PageSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "InventoryList"
+    },
+    "Invoice": {
+      "properties": {
+        "AccountIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Balance": {
+          "format": "double",
+          "type": "number"
+        },
+        "CompanyIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CompanyName": {
+          "type": "string"
+        },
+        "CurrencyCode": {
+          "type": "string"
+        },
+        "CustomerPONumber": {
+          "type": "string"
+        },
+        "DateCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateIssued": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateSent": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateUpdated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DueDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ExchangeRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "InvoiceNumber": {
+          "type": "string"
+        },
+        "Issuer": {
+          "$ref": "#/definitions/IssuerDetails"
+        },
+        "LineItems": {
+          "items": {
+            "$ref": "#/definitions/InvoiceLineItem"
+          },
+          "type": "array"
+        },
+        "Links": {
+          "$ref": "#/definitions/InvoiceLinks"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "Recipient": {
+          "$ref": "#/definitions/RecipientDetails"
+        },
+        "Subject": {
+          "type": "string"
+        },
+        "TaxAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "TotalAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "TransactionID": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TransactionPrefix": {
+          "type": "string"
+        },
+        "TransactionStatusCode": {
+          "type": "string"
+        },
+        "TransactionTaxConfigCode": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Invoice"
+    },
+    "InvoiceLineItem": {
+      "properties": {
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Discount": {
+          "format": "double",
+          "type": "number"
+        },
+        "InventoryItemIDFK": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "InventoryItemName": {
+          "type": "string"
+        },
+        "InventoryItemSKU": {
+          "type": "string"
+        },
+        "ProjectIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ProjectTitle": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxCode": {
+          "type": "string"
+        },
+        "TaxIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TaxName": {
+          "type": "string"
+        },
+        "TransactionLineItemID": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "UnitPrice": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "InvoiceLineItem"
+    },
+    "InvoiceLinks": {
+      "properties": {
+        "ClientView": {
+          "type": "string"
+        },
+        "Edit": {
+          "type": "string"
+        },
+        "View": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "InvoiceLinks"
+    },
+    "InvoiceList": {
+      "properties": {
+        "Invoices": {
+          "items": {
+            "$ref": "#/definitions/Invoice"
+          },
+          "type": "array"
+        },
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PageSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "InvoiceList"
+    },
+    "IssuerDetails": {
+      "properties": {
+        "BillingAddress": {
+          "type": "string"
+        },
+        "BillingAddressCity": {
+          "type": "string"
+        },
+        "BillingAddressLine": {
+          "type": "string"
+        },
+        "BillingAddressPostCode": {
+          "type": "string"
+        },
+        "BillingAddressState": {
+          "type": "string"
+        },
+        "BillingCountryCode": {
+          "type": "string"
+        },
+        "TaxNumber": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "IssuerDetails"
+    },
+    "NewCompanyContact": {
+      "properties": {
+        "CompanyBillingAddress": {
+          "type": "string"
+        },
+        "CompanyBillingAddressCity": {
+          "type": "string"
+        },
+        "CompanyBillingAddressCountryCode": {
+          "type": "string"
+        },
+        "CompanyBillingAddressLine": {
+          "type": "string"
+        },
+        "CompanyBillingAddressPostCode": {
+          "type": "string"
+        },
+        "CompanyBillingAddressState": {
+          "type": "string"
+        },
+        "CompanyIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CompanyName": {
+          "type": "string"
+        },
+        "ContactEmail": {
+          "type": "string"
+        },
+        "CurrencyCode": {
+          "type": "string"
+        },
+        "Firstname": {
+          "type": "string"
+        },
+        "Lastname": {
+          "type": "string"
+        },
+        "Mobile": {
+          "type": "string"
+        },
+        "Phone": {
+          "type": "string"
+        },
+        "PositionTitle": {
+          "type": "string"
+        },
+        "UpdateExisting": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ContactEmail",
+        "Firstname",
+        "Lastname"
+      ],
+      "type": "object",
+      "title": "NewCompanyContact"
+    },
+    "NewExpense": {
+      "properties": {
+        "Amount": {
+          "description": "Expense Amount (Required). Must be &gt;= 0",
+          "format": "double",
+          "type": "number"
+        },
+        "CurrencyCode": {
+          "description": "A 3-letter ISO CurrencyCode for the expense currency. (e.g. USD). If not provided, defaults to the Account base currency.",
+          "type": "string"
+        },
+        "CustomerIDFK": {
+          "description": "The Avaza Customer ID to associate the Expense with. Either this field or CustomerName can be provided.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "CustomerName": {
+          "description": "The name of an existing customer in Avaza. Must be an exact (case insensitive) match.",
+          "type": "string"
+        },
+        "ExchangeRate": {
+          "description": "Optional (Only relevant if the expense currency is different to your account currency. If not provided we will look up the market exchange rate for you based on the expense date.) Exchange Rate = Expense Currency Amount / Base Currency Amount (e.g. if Expense currency is in AUD, and Base Currency is in USD, Exchange Rate = AUD $140 / USD $100 = 1.4)",
+          "format": "double",
+          "type": "number"
+        },
+        "ExpenseCategoryIDFK": {
+          "description": "The expense category to link the Expense to. If not provided, ExpenseCategoryName must be provided",
+          "format": "int32",
+          "type": "integer"
+        },
+        "ExpenseCategoryName": {
+          "description": "Must match an existing expense category name otherwise a new category will be created. If left blank Expense Category ID must be provided.",
+          "type": "string"
+        },
+        "ExpenseDate": {
+          "description": "The date of the expense entry (Required)",
+          "format": "date-time",
+          "type": "string"
+        },
+        "GroupTripName": {
+          "description": "Links the expense to a Grouping/Trip report. If no matching name found, creates a new Group/Trip Report name.",
+          "type": "string"
+        },
+        "Merchant": {
+          "description": "The name of the merchant.",
+          "type": "string"
+        },
+        "MerchantTaxNumer": {
+          "description": "A Tax number identifier for the merchant.",
+          "type": "string"
+        },
+        "Notes": {
+          "description": "Expense Notes",
+          "type": "string"
+        },
+        "ProjectIDFK": {
+          "description": "The Avaza project ID to associate the Expense with.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "ProjectName": {
+          "description": "Can work for matching an expense to a project, but only if it's an exact match for a single project under the customer.",
+          "type": "string"
+        },
+        "TaxIDFK": {
+          "description": "Avaza Tax ID the expense belongs to. If left blank then Tax Name must be provided.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "TaxName": {
+          "description": "Must exactly match an existing Tax Name that you have configured in Avaza Tax settings. If left blank then Tax ID must be provided.",
+          "type": "string"
+        },
+        "TransactionTaxConfigCode": {
+          "description": "Optional - Enter \"INC\" if the tax amount is included in the expense amount otherwise enter \"EX\" when the amount exlcudes the tax. Defaults to \"Ex\". The tax amount on the expense will be autocalculated.",
+          "type": "string"
+        },
+        "UserEmail": {
+          "description": "The email address of a Timesheet/Expense user in Avaza. If not provided, UserIDFK field must be provided.",
+          "type": "string"
+        },
+        "UserIDFK": {
+          "description": "UserID for a Timesheet/Expense user in Avaza. If not provided, UserEmail field must be provided",
+          "format": "int32",
+          "type": "integer"
+        },
+        "isChargeable": {
+          "description": "aka Billable. Defaults to false if not provided. If set to true, a CustomerIDFK or CustomerName must be provided.",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "NewExpense"
+    },
+    "NewInvoice": {
+      "description": "New invoice to be created",
+      "properties": {
+        "CompanyIDFK": {
+          "description": "If left blank then you must specify Company Name.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "CompanyName": {
+          "type": "string"
+        },
+        "CurrencyCode": {
+          "description": "Expects ISO Standard 3 character currency code. If left blank the currency will default to account's currency in general setting. For existing companies this field will be ignored and the invoice will use the currency of the customer. For new customers if the currency is not specified then account currency will be used otherwise the specified currency will be used.",
+          "type": "string"
+        },
+        "DateIssued": {
+          "description": "If not specified it will use today's date. The date should be specified as local date.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "DueDate": {
+          "description": "It will be auto calculated based on the payment term and issue date. Due Date must be greater than or equal to Issue Date. If the Due Date is specified then Payment Terms will be set to -1 (Custom)",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "ExchangeRate": {
+          "description": "Exchange rate is only valid for invoices in currency other than default account currency. If not specified it will get the market rate based on the Date Issued.",
+          "format": "double",
+          "type": "number"
+        },
+        "Firstname": {
+          "description": "Specified value will be used to create a new customer contact only if a new customer is being created.",
+          "type": "string"
+        },
+        "InvoiceNumber": {
+          "description": "Pass any string. If left blank it will use the next number in the auto incrementing sequence. If an integer is passed then the largest integer will be use as the seed to auto generate the next invoice number in the sequence.",
+          "type": "string"
+        },
+        "InvoiceTemplateIDFK": {
+          "description": "If left blank the account default invoice template will be used.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "Lastname": {
+          "description": "Specified value will be used to create a new customer contact only if a new customer is being created.",
+          "type": "string"
+        },
+        "LineItems": {
+          "items": {
+            "$ref": "#/definitions/NewInvoiceLineItem"
+          },
+          "type": "array"
+        },
+        "Notes": {
+          "description": "Plain UTF8 text. (no HTML). Max 2000 characters",
+          "type": "string"
+        },
+        "PaymentTerms": {
+          "description": " \"If left blank we will set it to customer default. If specified then it must match one of your existing pre configured payment term periods. Your account starts with:\r\n(-1 --- Custom, 0 --- Upon Receipt, 7 --- 7 Days, 15 --- 15 Days, 30 --- 30 Days, 45 --- 45 Days, 60 --- 60 Days)",
+          "format": "int32",
+          "type": "integer"
+        },
+        "Subject": {
+          "description": "Plain UTF8 text. (no HTML). 255 characters max",
+          "type": "string"
+        },
+        "TransactionPrefix": {
+          "description": "A prefix for the Invoice number. e.g. 'INV'. If left blank it will be set to the account default. Max length 20 characters.",
+          "type": "string"
+        },
+        "TransactionTaxConfigCode": {
+          "description": "Possible values are (EX --- Tax Exclusive, INC --- Tax Inclusive). If left empty it will use the account default.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NewInvoice"
+    },
+    "NewInvoiceLineItem": {
+      "description": "Line item to be added to new invoice",
+      "properties": {
+        "Description": {
+          "description": "Plain UTF8 text. (no HTML)",
+          "type": "string"
+        },
+        "Discount": {
+          "description": "Enter 10.5 to give a 10.5% discount",
+          "format": "double",
+          "type": "number"
+        },
+        "InventoryItemIDFK": {
+          "description": "If not specified then Inventory Item Name must be specified.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "InventoryItemName": {
+          "description": "If not specified then Inventory item ID must be specified. If specified and not matched to any existing inventory items then a new inventory item will be created. Max 200 characters.",
+          "type": "string"
+        },
+        "Quantity": {
+          "description": "The quantity for the line item",
+          "format": "double",
+          "type": "number"
+        },
+        "TaxIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TaxName": {
+          "description": "Must be specified if the Tax ID is blank. If the Tax Name is specified it will be matched to an existing Tax Name or else a new Tax will be created.",
+          "type": "string"
+        },
+        "TaxPercent": {
+          "description": "The Tax Percent will only be used if a new tax is being created.",
+          "format": "double",
+          "type": "number"
+        },
+        "UnitPrice": {
+          "description": "The unit price for the lineitem.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "Quantity",
+        "UnitPrice"
+      ],
+      "type": "object",
+      "title": "NewInvoiceLineItem"
+    },
+    "NewPayment": {
+      "properties": {
+        "Amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "CustomerIDFK": {
+          "description": "Only required if no invoice allocations specified.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "DateIssued": {
+          "description": "Date of Payment. If not specified, assumes today.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "ExchangeRate": {
+          "description": "Optional. Only used when the Customer's currecy is different from the Avaza account's base currency. Specifies the exchange rate that should apply between the customer currency and base currency. If not provided we will obtain an up to date exchange rate for the Payment Issue Date.",
+          "format": "double",
+          "type": "number"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "PaymentAllocations": {
+          "description": "List of amounts within this payment that are allocated to invoices. The sum of these be less than or equal to the payment amount.",
+          "items": {
+            "$ref": "#/definitions/NewPaymentAllocation"
+          },
+          "type": "array"
+        },
+        "PaymentNumber": {
+          "description": "Optional. If not specified will be automatically generated",
+          "type": "string"
+        },
+        "TransactionPrefix": {
+          "description": "Optional to override the default prefix added to Payment Numbers",
+          "type": "string"
+        },
+        "TransactionReference": {
+          "description": "Optional for storing the reference # of the payment method.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NewPayment"
+    },
+    "NewPaymentAllocation": {
+      "properties": {
+        "AllocationAmount": {
+          "description": "The Amount being allocated to the invoice. Expects same currency as invoice currency",
+          "format": "double",
+          "type": "number"
+        },
+        "AllocationDate": {
+          "description": "Optional. Defaults to the current time in the Avaza account's timezone. The date the allocation is applied to the invoice. Can be difference from the Payment Date when doing prepayments etc.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "InvoiceTransactionIDFK": {
+          "description": "The Avaza Invoice TransactionID that is having a payment amount allocated to it.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "NewPaymentAllocation"
+    },
+    "NewProjectModel": {
+      "properties": {
+        "CompanyIDFK": {
+          "description": "An ID of a company in Avaza to create the Project under. You must provide either a CompanyID, or a CompanyName",
+          "format": "int32",
+          "type": "integer"
+        },
+        "CompanyName": {
+          "description": "The name for a Company to create the project under. Will create company unless it matches an existing company name",
+          "type": "string"
+        },
+        "CurrencyCode": {
+          "description": "The ISO 3 letter currency code to use when creating a new Company. If not provided, the account's default currency will be used.",
+          "type": "string"
+        },
+        "PopulateDefaultProjectMembers": {
+          "type": "boolean"
+        },
+        "ProjectNotes": {
+          "description": "Any descriptive notes about the project. (2000 characters max)",
+          "type": "string"
+        },
+        "ProjectTitle": {
+          "description": "The title of the new project. (255 characters max)",
+          "type": "string"
+        },
+        "TimesheetApprovalRequiredbyDefault": {
+          "type": "boolean"
+        },
+        "isTaskRequiredOnTimesheet": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ProjectTitle"
+      ],
+      "type": "object",
+      "title": "NewProjectModel"
+    },
+    "NewSection": {
+      "properties": {
+        "EndDateUTC": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ProjectIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StartDateUTC": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NewSection"
+    },
+    "NewTask": {
+      "properties": {
+        "AssignedToUserIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DateDue": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateDueUTC": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "EstimatedEffort": {
+          "description": "Decimal hours",
+          "format": "double",
+          "type": "number"
+        },
+        "ProjectIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SectionIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ProjectIDFK",
+        "SectionIDFK",
+        "Title"
+      ],
+      "type": "object",
+      "title": "NewTask"
+    },
+    "NewTimesheet": {
+      "properties": {
+        "Duration": {
+          "description": "The duration of the timesheet, in decimal hours.",
+          "format": "double",
+          "type": "number"
+        },
+        "EntryDate": {
+          "description": "The date of the timesheet entry, with an optional start time component.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Notes": {
+          "description": "Timesheet Notes",
+          "type": "string"
+        },
+        "ProjectIDFK": {
+          "description": "The project to associate the timesheet with",
+          "format": "int32",
+          "type": "integer"
+        },
+        "TaskIDFK": {
+          "description": "Optional. Link the timesheet to a specific task",
+          "format": "int32",
+          "type": "integer"
+        },
+        "TimesheetCategoryIDFK": {
+          "description": "The Project timesheet category to link the timesheet to",
+          "format": "int32",
+          "type": "integer"
+        },
+        "UserIDFK": {
+          "description": "UserID for a Timesheet user in Avaza",
+          "format": "int32",
+          "type": "integer"
+        },
+        "hasStartEndTime": {
+          "description": "If true, the start time will be take from the time component of the Entry Date field, and the end time will be calculated by adding the Duration to the StartDate",
+          "type": "boolean"
+        },
+        "isInvoiced": {
+          "description": "Optional. False by default. Allows you to mark the timesheet as invoiced in an external system.",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "NewTimesheet"
+    },
+    "Payment": {
+      "properties": {
+        "AccountIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Balance": {
+          "format": "double",
+          "type": "number"
+        },
+        "CurrencyCode": {
+          "type": "string"
+        },
+        "CustomerIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DateCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateIssued": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateUpdated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ExchangeRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "PaymentAllocations": {
+          "items": {
+            "$ref": "#/definitions/PaymentAllocation"
+          },
+          "type": "array"
+        },
+        "PaymentNumber": {
+          "type": "string"
+        },
+        "PaymentProviderCode": {
+          "type": "string"
+        },
+        "TotalAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "TransactionID": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TransactionPrefix": {
+          "type": "string"
+        },
+        "TransactionReference": {
+          "type": "string"
+        },
+        "TransactionStatusCode": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Payment"
+    },
+    "PaymentAllocation": {
+      "properties": {
+        "AllocationAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "AllocationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "InvoiceTransactionIDFK": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "PaymentTransactionIDFK": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TransactionAllocationID": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "PaymentAllocation"
+    },
+    "PaymentList": {
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PageSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Payments": {
+          "items": {
+            "$ref": "#/definitions/Payment"
+          },
+          "type": "array"
+        },
+        "TotalCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "PaymentList"
+    },
+    "ProjectDetails": {
+      "properties": {
+        "CompanyIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CompanyName": {
+          "type": "string"
+        },
+        "DateCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateUpdated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Members": {
+          "items": {
+            "$ref": "#/definitions/ProjectMemberDetails"
+          },
+          "type": "array"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "ProjectID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Sections": {
+          "items": {
+            "$ref": "#/definitions/ProjectSectionDetails"
+          },
+          "type": "array"
+        },
+        "Title": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ProjectDetails"
+    },
+    "ProjectList": {
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PageSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Projects": {
+          "items": {
+            "$ref": "#/definitions/ProjectListDetails"
+          },
+          "type": "array"
+        },
+        "TotalCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "ProjectList"
+    },
+    "ProjectListDetails": {
+      "properties": {
+        "CompanyIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CompanyName": {
+          "type": "string"
+        },
+        "DateCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateUpdated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "ProjectID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Title": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ProjectListDetails"
+    },
+    "ProjectMemberDetails": {
+      "properties": {
+        "Email": {
+          "type": "string"
+        },
+        "Firstname": {
+          "type": "string"
+        },
+        "Fullname": {
+          "type": "string"
+        },
+        "Lastname": {
+          "type": "string"
+        },
+        "UserIDFK": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "ProjectMemberDetails"
+    },
+    "ProjectSectionDetails": {
+      "properties": {
+        "DisplayOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EndDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "SectionID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StartDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ProjectSectionDetails"
+    },
+    "ProjectTimesheetCategoryDetails": {
+      "properties": {
+        "AccountIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BudgetHours": {
+          "format": "double",
+          "type": "number"
+        },
+        "CostAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "ProjectIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RateAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "TimeSheetCategoryIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isBillable": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "ProjectTimesheetCategoryDetails"
+    },
+    "ProjectTimesheetCategoryList": {
+      "properties": {
+        "Categories": {
+          "items": {
+            "$ref": "#/definitions/ProjectTimesheetCategoryDetails"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ProjectTimesheetCategoryList"
+    },
+    "RecipientDetails": {
+      "properties": {
+        "CompanyIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CompanyName": {
+          "type": "string"
+        },
+        "RecipientBillingAddressCity": {
+          "type": "string"
+        },
+        "RecipientBillingAddressCountryCode": {
+          "type": "string"
+        },
+        "RecipientBillingAddressLine": {
+          "type": "string"
+        },
+        "RecipientBillingAddressPostCode": {
+          "type": "string"
+        },
+        "RecipientBillingAddressState": {
+          "type": "string"
+        },
+        "RecipientFormattedBillingAddress": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "RecipientDetails"
+    },
+    "RoleDetails": {
+      "properties": {
+        "RoleCode": {
+          "type": "string"
+        },
+        "RoleName": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "RoleDetails"
+    },
+    "SectionDetails": {
+      "properties": {
+        "DisplayOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EndDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "EndDateUTC": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ProjectIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SectionID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StartDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "StartDateUTC": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "SectionDetails"
+    },
+    "SectionList": {
+      "properties": {
+        "Sections": {
+          "items": {
+            "$ref": "#/definitions/SectionDetails"
+          },
+          "type": "array"
+        },
+        "TotalCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "SectionList"
+    },
+    "SubscribeResult": {
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "SubscribeResult"
+    },
+    "TaskDetails": {
+      "properties": {
+        "ActualTime": {
+          "format": "double",
+          "type": "number"
+        },
+        "AssignedToEmail": {
+          "type": "string"
+        },
+        "AssignedToFirstname": {
+          "type": "string"
+        },
+        "AssignedToLastname": {
+          "type": "string"
+        },
+        "AssignedToUserIDFK": {
+          "type": "string"
+        },
+        "DateCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateDue": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateDueUTC": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateUpdated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "DescriptionNoHTML": {
+          "type": "string"
+        },
+        "EstimatedEffort": {
+          "format": "double",
+          "type": "number"
+        },
+        "PercentComplete": {
+          "format": "double",
+          "type": "number"
+        },
+        "ProjectIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ProjectTitle": {
+          "type": "string"
+        },
+        "SectionIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SectionTitle": {
+          "type": "string"
+        },
+        "TaskID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TaskStatusCode": {
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "TaskDetails"
+    },
+    "TaskList": {
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PageSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Tasks": {
+          "items": {
+            "$ref": "#/definitions/TaskDetails"
+          },
+          "type": "array"
+        },
+        "TotalCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "TaskList"
+    },
+    "TaxComponent": {
+      "properties": {
+        "ComponentTaxCode": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Percentage": {
+          "format": "double",
+          "type": "number"
+        },
+        "TaxComponentID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TaxIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isCompound": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "TaxComponent"
+    },
+    "TaxItem": {
+      "properties": {
+        "CalculatedPercent": {
+          "format": "double",
+          "type": "number"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "TaxCode": {
+          "type": "string"
+        },
+        "TaxComponents": {
+          "items": {
+            "$ref": "#/definitions/TaxComponent"
+          },
+          "type": "array"
+        },
+        "TaxID": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "TaxItem"
+    },
+    "TaxList": {
+      "properties": {
+        "Taxes": {
+          "items": {
+            "$ref": "#/definitions/TaxItem"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "TaxList"
+    },
+    "TimesheetDetails": {
+      "properties": {
+        "CategoryName": {
+          "type": "string"
+        },
+        "CustomerIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CustomerName": {
+          "type": "string"
+        },
+        "DateCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "DateUpdated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Duration": {
+          "format": "double",
+          "type": "number"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "EndTimeLocal": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "EndTimeUTC": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "EntryDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Firstname": {
+          "type": "string"
+        },
+        "Lastname": {
+          "type": "string"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "ProjectIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ProjectTitle": {
+          "type": "string"
+        },
+        "StartTimeLocal": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "StartTimeUTC": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "TaskIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TaskTitle": {
+          "type": "string"
+        },
+        "TimesheetCategoryIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TimesheetEntryApprovalStatusCode": {
+          "type": "string"
+        },
+        "TimesheetEntryID": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TimesheetUserTimeZone": {
+          "type": "string"
+        },
+        "UserIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isBillable": {
+          "type": "boolean"
+        },
+        "isInvoiced": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "TimesheetDetails"
+    },
+    "TimesheetList": {
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PageSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Timesheets": {
+          "items": {
+            "$ref": "#/definitions/TimesheetDetails"
+          },
+          "type": "array"
+        },
+        "TotalCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "TimesheetList"
+    },
+    "UserDetails": {
+      "properties": {
+        "AccountIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CompanyIDFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CompanyName": {
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "Firstname": {
+          "type": "string"
+        },
+        "Lastname": {
+          "type": "string"
+        },
+        "Roles": {
+          "items": {
+            "$ref": "#/definitions/RoleDetails"
+          },
+          "type": "array"
+        },
+        "TimeZone": {
+          "type": "string"
+        },
+        "UserID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isTeamMember": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "UserDetails"
+    },
+    "UserList": {
+      "properties": {
+        "Users": {
+          "items": {
+            "$ref": "#/definitions/UserDetails"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "UserList"
+    },
+    "WebhookDetails": {
+      "properties": {
+        "EventCode": {
+          "type": "string"
+        },
+        "NotificationURL": {
+          "type": "string"
+        },
+        "SubscriptionID": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "WebhookDetails"
+    },
+    "WebhookList": {
+      "properties": {
+        "Webhooks": {
+          "items": {
+            "$ref": "#/definitions/WebhookDetails"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "WebhookList"
+    }
+  },
+  "actions": [
+    {
+      "id": "Account_Get",
+      "title": "Account_Get",
+      "description": "Account Details",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/AccountDetails"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Company_Get",
+      "title": "Company_Get",
+      "description": "Gets list of Companies",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "UpdatedAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of results per page"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "description": "1 based page number to retrieve"
+          },
+          "Sort": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CompanyList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Company_GetByID",
+      "title": "Company_GetByID",
+      "description": "Gets Company by Company ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Company ID Number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Company"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Contact_Get",
+      "title": "Contact_Get",
+      "description": "Gets list of Contacts",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "UpdatedAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of items per page"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page to display. Starts from 1."
+          },
+          "Sort": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ContactList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Contact_Post",
+      "title": "Contact_Post",
+      "description": "Create a Contact",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "$ref": "#/definitions/NewCompanyContact"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CompanyContact"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Contact_GetByID",
+      "title": "Contact_GetByID",
+      "description": "Gets Contact by Contact ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Contact ID number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CompanyContact"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "CreditNote_Get",
+      "title": "CreditNote_Get",
+      "description": "Gets list of CreditNotes",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "UpdatedAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of items per page"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page to display. Starts from 1."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreditNoteList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "CreditNote_GetByID",
+      "title": "CreditNote_GetByID",
+      "description": "Gets Invoice by CreditNote ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Credit Note ID Number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreditNote"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Currency_Get",
+      "title": "Currency_Get",
+      "description": "Gets list of Currencies",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/CurrencyList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Expense_Get",
+      "title": "Expense_Get",
+      "description": "Gets list of Expenses",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "UpdatedAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ExpenseDateFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ExpenseDateTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "UserEmail": {
+            "type": "string"
+          },
+          "CategoryName": {
+            "type": "string"
+          },
+          "CustomerID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ProjectID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isChargeable": {
+            "type": "boolean"
+          },
+          "isInvoiced": {
+            "type": "boolean"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of items per page"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page to display. Starts from 1."
+          },
+          "Sort": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ExpenseList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Expense_Post",
+      "title": "Expense_Post",
+      "description": "Create an Expense",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "$ref": "#/definitions/NewExpense"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ExpenseDetails"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Expense_GetByID",
+      "title": "Expense_GetByID",
+      "description": "Gets an Expense Entry by Expense ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Expense ID number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ExpenseDetails"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Inventory_Get",
+      "title": "Inventory_Get",
+      "description": "Gets list of Inventory",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "UpdatedAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of items per page"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page to display. Starts from 1."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/InventoryList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Inventory_GetByID",
+      "title": "Inventory_GetByID",
+      "description": "Gets InventoryItem by InventoryItem ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "InventoryItem ID number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Invoice_Get",
+      "title": "Invoice_Get",
+      "description": "TransactionStatusCode values are: \"Draft\", \"Sent\", \"Late\", \"Paid\", \"Partial\", \"Void\"",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "UpdatedAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of items per page"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page to display. Starts from 1."
+          },
+          "Sort": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/InvoiceList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Invoice_Post",
+      "title": "Invoice_Post",
+      "description": "Create a new draft invoice",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "$ref": "#/definitions/NewInvoice"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Invoice"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Invoice_GetByID",
+      "title": "Invoice_GetByID",
+      "description": "Gets Invoice by Invoice ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Invoice Transaction ID number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Payment_Get",
+      "title": "Payment_Get",
+      "description": "Gets list of Payments",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "UpdatedAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of items per page"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page to display. Starts from 1."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PaymentList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Payment_Post",
+      "title": "Payment_Post",
+      "description": "Create new Payment and optionally assign payment allocations to Invoices",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "$ref": "#/definitions/NewPayment"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Payment"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Payment_GetByID",
+      "title": "Payment_GetByID",
+      "description": "Gets Payment by Payment Transaction ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Invoice Transaction ID Number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Payment"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Project_Get",
+      "title": "Project_Get",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "UpdatedAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sort": {
+            "type": "string"
+          },
+          "TimesheetUserID": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Project_Post",
+      "title": "Project_Post",
+      "description": "Create a Project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "$ref": "#/definitions/NewProjectModel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectDetails"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Project_GetByID",
+      "title": "Project_GetByID",
+      "description": "Gets Project by Project ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectDetails"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "ProjectTimesheetCategory_Get",
+      "title": "ProjectTimesheetCategory_Get",
+      "description": "Gets list of Project Timesheet Categories",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ProjectID": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Get categories filtered by ProjectID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ProjectID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectTimesheetCategoryList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Section_Get",
+      "title": "Section_Get",
+      "description": "Gets list of Sections",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ProjectID": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Get sections for Project with ProjectID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ProjectID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SectionList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Section_Post",
+      "title": "Section_Post",
+      "description": "Create a Section",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "$ref": "#/definitions/NewSection"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SectionDetails"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Task_Get",
+      "title": "Task_Get",
+      "description": "Gets list of Tasks",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "UpdatedAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of items per page"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page to display. Starts from 1."
+          },
+          "Sort": {
+            "type": "string"
+          },
+          "ProjectID": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TaskList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Task_Post",
+      "title": "Task_Post",
+      "description": "Create a Task",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "$ref": "#/definitions/NewTask"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TaskDetails"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Task_GetByID",
+      "title": "Task_GetByID",
+      "description": "Gets Task by Task ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Task ID number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TaskDetails"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Tax_Get",
+      "title": "Tax_Get",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/TaxList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Timesheet_Get",
+      "title": "Timesheet_Get",
+      "description": "Gets list of Timsheets",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "UpdatedAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "EntryDateFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "EntryDateTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "UserEmail": {
+            "type": "string"
+          },
+          "CategoryName": {
+            "type": "string"
+          },
+          "ProjectID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isBillable": {
+            "type": "boolean"
+          },
+          "isInvoiced": {
+            "type": "boolean"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of items per page"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page to display. Starts from 1."
+          },
+          "Sort": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TimesheetList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Timesheet_Post",
+      "title": "Timesheet_Post",
+      "description": "Create a new Timesheet Entry",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "$ref": "#/definitions/NewTimesheet"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TimesheetDetails"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Timesheet_Delete",
+      "title": "Timesheet_Delete",
+      "description": "Delete a Timesheet Entry",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The TimesheetEntryID of the Timesheet Entry"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Timesheet_GetByID",
+      "title": "Timesheet_GetByID",
+      "description": "Gets a Timesheet Entry by Timesheet ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Timesheet ID number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TimesheetDetails"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Timesheet_Put",
+      "title": "Timesheet_Put",
+      "description": "You can Mark a Timesheet as Invoiced/Uninvoiced. Useful if invoicing in an external system to lock timesheets. Note if the timesheet has been invoiced by Avaza you cannot mark it uninvoiced",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "TimesheetEntryID number"
+          },
+          "TaskIDFK": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "UserIDFK": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ProjectIDFK": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TimeSheetCategoryIDFK": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Duration": {
+            "type": "number",
+            "format": "double"
+          },
+          "EntryDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Notes": {
+            "type": "string"
+          },
+          "isInvoiced": {
+            "type": "boolean",
+            "description": "Mark Timesheet as Invoiced (true/false)"
+          },
+          "hasStartEndTime": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TimesheetDetails"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "UserProfile_Get",
+      "title": "UserProfile_Get",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Roles": {
+            "type": "string",
+            "description": "Optional list of comma sepaprated roele codes to filter users by (e.g. \"TimesheetUser,Admin\")"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Webhook_DeleteByUrl",
+      "title": "Webhook_DeleteByUrl",
+      "description": "Delete webhook subscription by URL",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "target_url": {
+            "type": "string",
+            "description": "Target URL that should be used to delete subscriptions"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "target_url"
+        ]
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Webhook_Get",
+      "title": "Webhook_Get",
+      "description": "Get list of Webhook Subscriptions",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/WebhookList"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Webhook_Post",
+      "title": "Webhook_Post",
+      "description": "When you receive a webhook, you should respond with Http 200 OK Status Code, otherwise we will retry. Event values are: \"company_created\", \"company_deleted\", \"company_updated\", \"contact_created\", \"contact_deleted\", \"contact_updated\", \"invoice_created\", \"invoice_sent\", \"project_created\", \"project_deleted\", \"project_updated\", \"task_created\", \"timesheet_created\", \"timesheet_deleted\", \"timesheet_updated\"",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "$ref": "#/definitions/CreateSubscription"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SubscribeResult"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    },
+    {
+      "id": "Webhook_Delete",
+      "title": "Webhook_Delete",
+      "description": "Delete Webhook Subscription by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Subscription id to be deleted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "avaza": {
+          "integration": "avaza"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "collaboration"
+  ]
+}

@@ -1,0 +1,2122 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "appsync.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "AWS AppSync provides API actions for creating and interacting with data sources using GraphQL from your application.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS AppSync",
+    "version": "2017-07-25",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/appsync-2017-07-25.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "appsync",
+    "x-datafire": {
+      "name": "amazonaws_appsync",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/appsync/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/v1/apis": {
+      "get": {
+        "description": "Lists your GraphQL APIs.",
+        "operationId": "ListGraphqlApis",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListGraphqlApisRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListGraphqlApisResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/apis/{apiId}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates a <code>GraphqlApi</code> object.",
+        "operationId": "UpdateGraphqlApi",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateGraphqlApiRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateGraphqlApiResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/apis/{apiId}/apikeys": {
+      "get": {
+        "description": "Lists the API keys for a given API.",
+        "operationId": "ListApiKeys",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListApiKeysRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListApiKeysResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/apis/{apiId}/apikeys/{id}": {
+      "delete": {
+        "description": "Deletes an API key.",
+        "operationId": "DeleteApiKey",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteApiKeyRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteApiKeyResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/apis/{apiId}/datasources": {
+      "get": {
+        "description": "Lists the data sources for a given API.",
+        "operationId": "ListDataSources",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListDataSourcesRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListDataSourcesResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/apis/{apiId}/datasources/{name}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates a <code>DataSource</code> object.",
+        "operationId": "UpdateDataSource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateDataSourceRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateDataSourceResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/apis/{apiId}/schema": {
+      "get": {
+        "description": "Retrieves the introspection schema for a GraphQL API.",
+        "operationId": "GetIntrospectionSchema",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetIntrospectionSchemaRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetIntrospectionSchemaResponse"
+            }
+          },
+          "480": {
+            "description": "GraphQLSchemaException",
+            "schema": {
+              "$ref": "#/definitions/GraphQLSchemaException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/apis/{apiId}/schemacreation": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Adds a new schema to your GraphQL API.</p> <p>This operation is asynchronous. Use to determine when it has completed.</p>",
+        "operationId": "StartSchemaCreation",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartSchemaCreationRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartSchemaCreationResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/apis/{apiId}/types": {
+      "get": {
+        "description": "Lists the types for a given API.",
+        "operationId": "ListTypes",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTypesRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTypesResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/apis/{apiId}/types/{typeName}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates a <code>Type</code> object.",
+        "operationId": "UpdateType",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateTypeRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "typeName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateTypeResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/apis/{apiId}/types/{typeName}/resolvers": {
+      "get": {
+        "description": "Lists the resolvers for a given API and type.",
+        "operationId": "ListResolvers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListResolversRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "typeName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListResolversResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates a <code>Resolver</code> object.",
+        "operationId": "UpdateResolver",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateResolverRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "apiId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "typeName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateResolverResponse"
+            }
+          },
+          "480": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ApiKey": {
+      "description": "Describes an API key.",
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "A description of the purpose of the API key."
+        },
+        "expires": {
+          "$ref": "#/definitions/Long",
+          "description": "The time when the API key expires."
+        },
+        "id": {
+          "$ref": "#/definitions/String",
+          "description": "The API key ID."
+        }
+      },
+      "type": "object"
+    },
+    "ApiKeyLimitExceededException": {
+      "description": "The API key exceeded a limit. Try your request again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "ApiKeys": {
+      "items": {
+        "$ref": "#/definitions/ApiKey"
+      },
+      "type": "array"
+    },
+    "ApiLimitExceededException": {
+      "description": "The GraphQL API exceeded a limit. Try your request again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "AuthenticationType": {
+      "enum": [
+        "API_KEY",
+        "AWS_IAM",
+        "AMAZON_COGNITO_USER_POOLS"
+      ],
+      "type": "string"
+    },
+    "BadRequestException": {
+      "description": "The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "Blob": {
+      "type": "string"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "ConcurrentModificationException": {
+      "description": "Another modification is being made. That modification must complete before you can make your change. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "CreateApiKeyRequest": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "A description of the purpose of the API key."
+        }
+      },
+      "type": "object"
+    },
+    "CreateApiKeyResponse": {
+      "properties": {
+        "apiKey": {
+          "$ref": "#/definitions/ApiKey",
+          "description": "The API key."
+        }
+      },
+      "type": "object"
+    },
+    "CreateDataSourceRequest": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "A description of the <code>DataSource</code>."
+        },
+        "dynamodbConfig": {
+          "$ref": "#/definitions/DynamodbDataSourceConfig",
+          "description": "DynamoDB settings."
+        },
+        "elasticsearchConfig": {
+          "$ref": "#/definitions/ElasticsearchDataSourceConfig",
+          "description": "Amazon Elasticsearch settings."
+        },
+        "lambdaConfig": {
+          "$ref": "#/definitions/LambdaDataSourceConfig",
+          "description": "AWS Lambda settings."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A user-supplied name for the <code>DataSource</code>."
+        },
+        "serviceRoleArn": {
+          "$ref": "#/definitions/String",
+          "description": "The IAM service role ARN for the data source. The system assumes this role when accessing the data source."
+        },
+        "type": {
+          "$ref": "#/definitions/DataSourceType",
+          "description": "The type of the <code>DataSource</code>."
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "type": "object"
+    },
+    "CreateDataSourceResponse": {
+      "properties": {
+        "dataSource": {
+          "$ref": "#/definitions/DataSource",
+          "description": "The <code>DataSource</code> object."
+        }
+      },
+      "type": "object"
+    },
+    "CreateGraphqlApiRequest": {
+      "properties": {
+        "authenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication type: API key, IAM, or Amazon Cognito User Pools."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A user-supplied name for the <code>GraphqlApi</code>."
+        },
+        "userPoolConfig": {
+          "$ref": "#/definitions/UserPoolConfig",
+          "description": "The Amazon Cognito User Pool configuration."
+        }
+      },
+      "required": [
+        "name",
+        "authenticationType"
+      ],
+      "type": "object"
+    },
+    "CreateGraphqlApiResponse": {
+      "properties": {
+        "graphqlApi": {
+          "$ref": "#/definitions/GraphqlApi",
+          "description": "The <code>GraphqlApi</code>."
+        }
+      },
+      "type": "object"
+    },
+    "CreateResolverRequest": {
+      "properties": {
+        "dataSourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the data source for which the resolver is being created."
+        },
+        "fieldName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the field to attach the resolver to."
+        },
+        "requestMappingTemplate": {
+          "$ref": "#/definitions/MappingTemplate",
+          "description": "<p>The mapping template to be used for requests.</p> <p>A resolver use a request mapping template to convert a GraphQL expression into a format that a data source can understand. Mapping templates are written in Apache Velocity Template Language (VTL).</p>"
+        },
+        "responseMappingTemplate": {
+          "$ref": "#/definitions/MappingTemplate",
+          "description": "The mapping template to be used for responses from the data source."
+        }
+      },
+      "required": [
+        "fieldName",
+        "dataSourceName",
+        "requestMappingTemplate"
+      ],
+      "type": "object"
+    },
+    "CreateResolverResponse": {
+      "properties": {
+        "resolver": {
+          "$ref": "#/definitions/Resolver",
+          "description": "The <code>Resolver</code> object."
+        }
+      },
+      "type": "object"
+    },
+    "CreateTypeRequest": {
+      "properties": {
+        "definition": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The type definition, in GraphQL Schema Definition Language (SDL) format.</p> <p>For more information, see the <a href=\"http://graphql.org/learn/schema/\">GraphQL SDL documentation</a>.</p>"
+        },
+        "format": {
+          "$ref": "#/definitions/TypeDefinitionFormat",
+          "description": "The type format: SDL or JSON."
+        }
+      },
+      "required": [
+        "definition",
+        "format"
+      ],
+      "type": "object"
+    },
+    "CreateTypeResponse": {
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/Type",
+          "description": "The <code>Type</code> object."
+        }
+      },
+      "type": "object"
+    },
+    "DataSource": {
+      "description": "Describes a data source.",
+      "properties": {
+        "dataSourceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The data source ARN."
+        },
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "The description of the data source."
+        },
+        "dynamodbConfig": {
+          "$ref": "#/definitions/DynamodbDataSourceConfig",
+          "description": "DynamoDB settings."
+        },
+        "elasticsearchConfig": {
+          "$ref": "#/definitions/ElasticsearchDataSourceConfig",
+          "description": "Amazon Elasticsearch settings."
+        },
+        "lambdaConfig": {
+          "$ref": "#/definitions/LambdaDataSourceConfig",
+          "description": "Lambda settings."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the data source."
+        },
+        "serviceRoleArn": {
+          "$ref": "#/definitions/String",
+          "description": "The IAM service role ARN for the data source. The system assumes this role when accessing the data source."
+        },
+        "type": {
+          "$ref": "#/definitions/DataSourceType",
+          "description": "The type of the data source."
+        }
+      },
+      "type": "object"
+    },
+    "DataSourceType": {
+      "enum": [
+        "AWS_LAMBDA",
+        "AMAZON_DYNAMODB",
+        "AMAZON_ELASTICSEARCH"
+      ],
+      "type": "string"
+    },
+    "DataSources": {
+      "items": {
+        "$ref": "#/definitions/DataSource"
+      },
+      "type": "array"
+    },
+    "DefaultAction": {
+      "enum": [
+        "ALLOW",
+        "DENY"
+      ],
+      "type": "string"
+    },
+    "DeleteApiKeyRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteApiKeyResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteDataSourceRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteDataSourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteGraphqlApiRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteGraphqlApiResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteResolverRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteResolverResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteTypeRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteTypeResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DynamodbDataSourceConfig": {
+      "description": "Describes a DynamoDB data source configuration.",
+      "properties": {
+        "awsRegion": {
+          "$ref": "#/definitions/String",
+          "description": "The AWS region."
+        },
+        "tableName": {
+          "$ref": "#/definitions/String",
+          "description": "The table name."
+        },
+        "useCallerCredentials": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Set to TRUE to use Amazon Cognito credentials with this data source."
+        }
+      },
+      "required": [
+        "tableName",
+        "awsRegion"
+      ],
+      "type": "object"
+    },
+    "ElasticsearchDataSourceConfig": {
+      "description": "Describes an Elasticsearch data source configuration.",
+      "properties": {
+        "awsRegion": {
+          "$ref": "#/definitions/String",
+          "description": "The AWS region."
+        },
+        "endpoint": {
+          "$ref": "#/definitions/String",
+          "description": "The endpoint."
+        }
+      },
+      "required": [
+        "endpoint",
+        "awsRegion"
+      ],
+      "type": "object"
+    },
+    "ErrorMessage": {
+      "type": "string"
+    },
+    "GetDataSourceRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetDataSourceResponse": {
+      "properties": {
+        "dataSource": {
+          "$ref": "#/definitions/DataSource",
+          "description": "The <code>DataSource</code> object."
+        }
+      },
+      "type": "object"
+    },
+    "GetGraphqlApiRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetGraphqlApiResponse": {
+      "properties": {
+        "graphqlApi": {
+          "$ref": "#/definitions/GraphqlApi",
+          "description": "The <code>GraphqlApi</code> object."
+        }
+      },
+      "type": "object"
+    },
+    "GetIntrospectionSchemaRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetIntrospectionSchemaResponse": {
+      "properties": {
+        "schema": {
+          "$ref": "#/definitions/Blob",
+          "description": "<p>The schema, in GraphQL Schema Definition Language (SDL) format.</p> <p>For more information, see the <a href=\"http://graphql.org/learn/schema/\">GraphQL SDL documentation</a>.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "GetResolverRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetResolverResponse": {
+      "properties": {
+        "resolver": {
+          "$ref": "#/definitions/Resolver",
+          "description": "The <code>Resolver</code> object."
+        }
+      },
+      "type": "object"
+    },
+    "GetSchemaCreationStatusRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetSchemaCreationStatusResponse": {
+      "properties": {
+        "details": {
+          "$ref": "#/definitions/String",
+          "description": "Detailed information about the status of the schema creation operation."
+        },
+        "status": {
+          "$ref": "#/definitions/SchemaStatus",
+          "description": "The current state of the schema (PROCESSING, ACTIVE, or DELETING). Once the schema is in the ACTIVE state, you can add data."
+        }
+      },
+      "type": "object"
+    },
+    "GetTypeRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetTypeResponse": {
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/Type",
+          "description": "The <code>Type</code> object."
+        }
+      },
+      "type": "object"
+    },
+    "GraphQLSchemaException": {
+      "description": "The GraphQL schema is not valid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "GraphqlApi": {
+      "description": "Describes a GraphQL API.",
+      "properties": {
+        "apiId": {
+          "$ref": "#/definitions/String",
+          "description": "The API ID."
+        },
+        "arn": {
+          "$ref": "#/definitions/String",
+          "description": "The ARN."
+        },
+        "authenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication type."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The API name."
+        },
+        "uris": {
+          "$ref": "#/definitions/MapOfStringToString",
+          "description": "The URIs."
+        },
+        "userPoolConfig": {
+          "$ref": "#/definitions/UserPoolConfig",
+          "description": "The Amazon Cognito User Pool configuration."
+        }
+      },
+      "type": "object"
+    },
+    "GraphqlApis": {
+      "items": {
+        "$ref": "#/definitions/GraphqlApi"
+      },
+      "type": "array"
+    },
+    "InternalFailureException": {
+      "description": "An internal AWS AppSync error occurred. Try your request again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "LambdaDataSourceConfig": {
+      "description": "Describes a Lambda data source configuration.",
+      "properties": {
+        "lambdaFunctionArn": {
+          "$ref": "#/definitions/String",
+          "description": "The ARN for the Lambda function."
+        }
+      },
+      "required": [
+        "lambdaFunctionArn"
+      ],
+      "type": "object"
+    },
+    "LimitExceededException": {
+      "description": "The request exceeded a limit. Try your request again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "ListApiKeysRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListApiKeysResponse": {
+      "properties": {
+        "apiKeys": {
+          "$ref": "#/definitions/ApiKeys",
+          "description": "The <code>ApiKey</code> objects."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "An identifier to be passed in the next request to this operation to return the next set of items in the list."
+        }
+      },
+      "type": "object"
+    },
+    "ListDataSourcesRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListDataSourcesResponse": {
+      "properties": {
+        "dataSources": {
+          "$ref": "#/definitions/DataSources",
+          "description": "The <code>DataSource</code> objects."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "An identifier to be passed in the next request to this operation to return the next set of items in the list."
+        }
+      },
+      "type": "object"
+    },
+    "ListGraphqlApisRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListGraphqlApisResponse": {
+      "properties": {
+        "graphqlApis": {
+          "$ref": "#/definitions/GraphqlApis",
+          "description": "The <code>GraphqlApi</code> objects."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "An identifier to be passed in the next request to this operation to return the next set of items in the list."
+        }
+      },
+      "type": "object"
+    },
+    "ListResolversRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListResolversResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "An identifier to be passed in the next request to this operation to return the next set of items in the list."
+        },
+        "resolvers": {
+          "$ref": "#/definitions/Resolvers",
+          "description": "The <code>Resolver</code> objects."
+        }
+      },
+      "type": "object"
+    },
+    "ListTypesRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListTypesResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "An identifier to be passed in the next request to this operation to return the next set of items in the list."
+        },
+        "types": {
+          "$ref": "#/definitions/TypeList",
+          "description": "The <code>Type</code> objects."
+        }
+      },
+      "type": "object"
+    },
+    "Long": {
+      "type": "integer"
+    },
+    "MapOfStringToString": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/String"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "MappingTemplate": {
+      "maxLength": 65536,
+      "minLength": 0,
+      "type": "string"
+    },
+    "MaxResults": {
+      "maximum": 25,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "NotFoundException": {
+      "description": "The resource specified in the request was not found. Check the resource and try again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "OutputType": {
+      "enum": [
+        "SDL",
+        "JSON"
+      ],
+      "type": "string"
+    },
+    "PaginationToken": {
+      "pattern": "[\\\\S]+",
+      "type": "string"
+    },
+    "Resolver": {
+      "description": "Describes a resolver.",
+      "properties": {
+        "dataSourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The resolver data source name."
+        },
+        "fieldName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The resolver field name."
+        },
+        "requestMappingTemplate": {
+          "$ref": "#/definitions/MappingTemplate",
+          "description": "The request mapping template."
+        },
+        "resolverArn": {
+          "$ref": "#/definitions/String",
+          "description": "The resolver ARN."
+        },
+        "responseMappingTemplate": {
+          "$ref": "#/definitions/MappingTemplate",
+          "description": "The response mapping template."
+        },
+        "typeName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The resolver type name."
+        }
+      },
+      "type": "object"
+    },
+    "Resolvers": {
+      "items": {
+        "$ref": "#/definitions/Resolver"
+      },
+      "type": "array"
+    },
+    "ResourceName": {
+      "pattern": "[_A-Za-z][_0-9A-Za-z]*",
+      "type": "string"
+    },
+    "SchemaStatus": {
+      "enum": [
+        "PROCESSING",
+        "ACTIVE",
+        "DELETING"
+      ],
+      "type": "string"
+    },
+    "StartSchemaCreationRequest": {
+      "properties": {
+        "definition": {
+          "$ref": "#/definitions/Blob",
+          "description": "The schema definition, in GraphQL schema language format."
+        }
+      },
+      "required": [
+        "definition"
+      ],
+      "type": "object"
+    },
+    "StartSchemaCreationResponse": {
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/SchemaStatus",
+          "description": "The current state of the schema (PROCESSING, ACTIVE, or DELETING). Once the schema is in the ACTIVE state, you can add data."
+        }
+      },
+      "type": "object"
+    },
+    "String": {
+      "type": "string"
+    },
+    "Type": {
+      "description": "Describes a type.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/String",
+          "description": "The type ARN."
+        },
+        "definition": {
+          "$ref": "#/definitions/String",
+          "description": "The type definition."
+        },
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "The type description."
+        },
+        "format": {
+          "$ref": "#/definitions/TypeDefinitionFormat",
+          "description": "The type format: SDL or JSON."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The type name."
+        }
+      },
+      "type": "object"
+    },
+    "TypeDefinitionFormat": {
+      "enum": [
+        "SDL",
+        "JSON"
+      ],
+      "type": "string"
+    },
+    "TypeList": {
+      "items": {
+        "$ref": "#/definitions/Type"
+      },
+      "type": "array"
+    },
+    "UnauthorizedException": {
+      "description": "You are not authorized to perform this operation.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateDataSourceRequest": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "The new description for the data source."
+        },
+        "dynamodbConfig": {
+          "$ref": "#/definitions/DynamodbDataSourceConfig",
+          "description": "The new DynamoDB configuration."
+        },
+        "elasticsearchConfig": {
+          "$ref": "#/definitions/ElasticsearchDataSourceConfig",
+          "description": "The new Elasticsearch configuration."
+        },
+        "lambdaConfig": {
+          "$ref": "#/definitions/LambdaDataSourceConfig",
+          "description": "The new Lambda configuration."
+        },
+        "serviceRoleArn": {
+          "$ref": "#/definitions/String",
+          "description": "The new service role ARN for the data source."
+        },
+        "type": {
+          "$ref": "#/definitions/DataSourceType",
+          "description": "The new data source type."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "UpdateDataSourceResponse": {
+      "properties": {
+        "dataSource": {
+          "$ref": "#/definitions/DataSource",
+          "description": "The updated <code>DataSource</code> object."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateGraphqlApiRequest": {
+      "properties": {
+        "authenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The new authentication type for the <code>GraphqlApi</code> object."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The new name for the <code>GraphqlApi</code> object."
+        },
+        "userPoolConfig": {
+          "$ref": "#/definitions/UserPoolConfig",
+          "description": "The new Amazon Cognito User Pool configuration for the <code>GraphqlApi</code> object."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "UpdateGraphqlApiResponse": {
+      "properties": {
+        "graphqlApi": {
+          "$ref": "#/definitions/GraphqlApi",
+          "description": "The udpated <code>GraphqlApi</code> object."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateResolverRequest": {
+      "properties": {
+        "dataSourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The new data source name."
+        },
+        "requestMappingTemplate": {
+          "$ref": "#/definitions/MappingTemplate",
+          "description": "The new request mapping template."
+        },
+        "responseMappingTemplate": {
+          "$ref": "#/definitions/MappingTemplate",
+          "description": "The new response mapping template."
+        }
+      },
+      "required": [
+        "dataSourceName",
+        "requestMappingTemplate"
+      ],
+      "type": "object"
+    },
+    "UpdateResolverResponse": {
+      "properties": {
+        "resolver": {
+          "$ref": "#/definitions/Resolver",
+          "description": "The updated <code>Resolver</code> object."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateTypeRequest": {
+      "properties": {
+        "definition": {
+          "$ref": "#/definitions/String",
+          "description": "The new definition."
+        },
+        "format": {
+          "$ref": "#/definitions/TypeDefinitionFormat",
+          "description": "The new type format: SDL or JSON."
+        }
+      },
+      "required": [
+        "format"
+      ],
+      "type": "object"
+    },
+    "UpdateTypeResponse": {
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/Type",
+          "description": "The updated <code>Type</code> object."
+        }
+      },
+      "type": "object"
+    },
+    "UserPoolConfig": {
+      "description": "Describes an Amazon Cognito User Pool configuration.",
+      "properties": {
+        "appIdClientRegex": {
+          "$ref": "#/definitions/String",
+          "description": "A regular expression for validating the incoming Amazon Cognito User Pool app client ID."
+        },
+        "awsRegion": {
+          "$ref": "#/definitions/String",
+          "description": "The AWS region in which the user pool was created."
+        },
+        "defaultAction": {
+          "$ref": "#/definitions/DefaultAction",
+          "description": "The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration."
+        },
+        "userPoolId": {
+          "$ref": "#/definitions/String",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "userPoolId",
+        "awsRegion",
+        "defaultAction"
+      ],
+      "type": "object"
+    }
+  }
+}

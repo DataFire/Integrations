@@ -1,0 +1,473 @@
+{
+  "id": "blazemeter",
+  "title": "Blazemeter API Explorer",
+  "description": "Live API Documentation",
+  "security": {
+    "blazemeter": {
+      "integration": "blazemeter",
+      "fields": {
+        "apiKey": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/blazemeter.png"
+  },
+  "actionCount": 15,
+  "definitions": {
+    "ApiResponse": {
+      "description": "ApiResponse Model",
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        },
+        "result": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "api_version",
+        "error",
+        "result"
+      ],
+      "title": "ApiResponse"
+    },
+    "UserModel1": {
+      "description": "UserModel1 Model",
+      "properties": {
+        "currentPassword": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "currentPassword",
+        "newPassword"
+      ],
+      "title": "UserModel1"
+    },
+    "UserModel2": {
+      "description": "UserModel2 Model",
+      "properties": {
+        "currentPassword": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "currentPassword",
+        "newPassword"
+      ],
+      "title": "UserModel2"
+    },
+    "UserModel3": {
+      "description": "UserModel3 Model",
+      "properties": {
+        "currentPassword": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "currentPassword",
+        "newPassword"
+      ],
+      "title": "UserModel3"
+    },
+    "UserModel4": {
+      "description": "UserModel4 Model",
+      "properties": {
+        "email": {
+          "description": "Email address",
+          "type": "string"
+        },
+        "firstName": {
+          "description": "First name",
+          "type": "string"
+        },
+        "lastName": {
+          "description": "Last name",
+          "type": "string"
+        },
+        "password": {
+          "description": "Password",
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "password"
+      ],
+      "title": "UserModel4"
+    },
+    "UserModel5": {
+      "description": "UserModel5 Model",
+      "properties": {
+        "session_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "title": "UserModel5"
+    }
+  },
+  "actions": [
+    {
+      "id": "active_servers",
+      "title": "active_servers",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/ApiResponse"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "active_sessions",
+      "title": "active_sessions",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/ApiResponse"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "panic_terminate",
+      "title": "panic_terminate",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "blazemeter\\Routing\\v4\\UserModel5": {
+            "$ref": "#/definitions/UserModel5"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApiResponse"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "retrieveCollections",
+      "title": "retrieveCollections",
+      "description": "List organization multi-tests",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "skip": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApiResponse"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "retrieveInvites",
+      "title": "retrieveInvites",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "retrieveLocations",
+      "title": "retrieveLocations",
+      "description": "Get user available locations",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/ApiResponse"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "retrieveMasters",
+      "title": "retrieveMasters",
+      "description": "List user private masters",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "skip": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "default": 1000
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApiResponse"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "user.password.patch",
+      "title": "user.password.patch",
+      "description": "Update user name",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "blazemeter\\Routing\\v4\\UserModel1": {
+            "$ref": "#/definitions/UserModel1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "blazemeter\\Routing\\v4\\UserModel1"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApiResponse"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "user.password.post",
+      "title": "user.password.post",
+      "description": "Update user name",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "blazemeter\\Routing\\v4\\UserModel3": {
+            "$ref": "#/definitions/UserModel3"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "blazemeter\\Routing\\v4\\UserModel3"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApiResponse"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "user.password.put",
+      "title": "user.password.put",
+      "description": "Update user name",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "blazemeter\\Routing\\v4\\UserModel2": {
+            "$ref": "#/definitions/UserModel2"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "blazemeter\\Routing\\v4\\UserModel2"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApiResponse"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "retrieveProjects",
+      "title": "retrieveProjects",
+      "description": "Get user projects",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/ApiResponse"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "register_retrieve",
+      "title": "register_retrieve",
+      "description": "Registration",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Email address"
+          },
+          "password": {
+            "type": "string",
+            "description": "Password"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "First name"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Last name"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApiResponse"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "register",
+      "title": "register",
+      "description": "Registration",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "blazemeter\\Routing\\v4\\UserModel4": {
+            "$ref": "#/definitions/UserModel4"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "blazemeter\\Routing\\v4\\UserModel4"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApiResponse"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "retrieveTests",
+      "title": "retrieveTests",
+      "description": "List user private tests",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "skip": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApiResponse"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    },
+    {
+      "id": "top",
+      "title": "top",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "security": {
+        "blazemeter": {
+          "integration": "blazemeter"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "developer tools"
+  ]
+}

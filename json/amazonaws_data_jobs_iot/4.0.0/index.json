@@ -1,0 +1,501 @@
+{
+  "id": "amazonaws_data_jobs_iot",
+  "title": "AWS IoT Jobs Data Plane",
+  "description": "AWS IoT Jobs is a service that allows you to define a set of jobs — remote operations that are sent to and executed on one or more devices connected to AWS IoT. For example, you can define a job that instructs a set of devices to download and install application or firmware updates, reboot, rotate certificates, or perform remote troubleshooting operations.\n\nTo create a job, you make a job document which is a description of the remote operations to be performed, and you specify a list of targets that should perform the operations. The targets can be individual things, thing groups or both.\n\nAWS IoT Jobs sends a message to inform the targets that a job is available. The target starts the execution of the job by downloading the job document, performing the operations it specifies, and reporting its progress to AWS IoT. The Jobs service provides commands to track the progress of a job on a specific target and for all the targets of the job",
+  "security": {
+    "amazonaws_data_jobs_iot": {
+      "integration": "amazonaws_data_jobs_iot",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_data_jobs_iot.jpeg"
+  },
+  "actionCount": 3,
+  "definitions": {
+    "CertificateValidationException": {
+      "description": "The certificate is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "Additional information about the exception."
+        }
+      },
+      "type": "object",
+      "title": "CertificateValidationException"
+    },
+    "DescribeJobExecutionJobId": {
+      "pattern": "[a-zA-Z0-9_-]+|^\\$next",
+      "type": "string",
+      "title": "DescribeJobExecutionJobId"
+    },
+    "DescribeJobExecutionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DescribeJobExecutionRequest"
+    },
+    "DescribeJobExecutionResponse": {
+      "properties": {
+        "execution": {
+          "$ref": "#/definitions/JobExecution",
+          "description": "Contains data about a job execution."
+        }
+      },
+      "type": "object",
+      "title": "DescribeJobExecutionResponse"
+    },
+    "DetailsKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9:_-]+",
+      "type": "string",
+      "title": "DetailsKey"
+    },
+    "DetailsMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/DetailsKey"
+          },
+          "value": {
+            "$ref": "#/definitions/DetailsValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "DetailsMap"
+    },
+    "DetailsValue": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "[^\\p\\{C\\}]*\\+",
+      "type": "string",
+      "title": "DetailsValue"
+    },
+    "ExecutionNumber": {
+      "type": "integer",
+      "title": "ExecutionNumber"
+    },
+    "ExpectedVersion": {
+      "type": "integer",
+      "title": "ExpectedVersion"
+    },
+    "GetPendingJobExecutionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetPendingJobExecutionsRequest"
+    },
+    "GetPendingJobExecutionsResponse": {
+      "properties": {
+        "inProgressJobs": {
+          "$ref": "#/definitions/JobExecutionSummaryList",
+          "description": "A list of JobExecutionSummary objects with status IN_PROGRESS."
+        },
+        "queuedJobs": {
+          "$ref": "#/definitions/JobExecutionSummaryList",
+          "description": "A list of JobExecutionSummary objects with status QUEUED."
+        }
+      },
+      "type": "object",
+      "title": "GetPendingJobExecutionsResponse"
+    },
+    "IncludeExecutionState": {
+      "type": "boolean",
+      "title": "IncludeExecutionState"
+    },
+    "IncludeJobDocument": {
+      "type": "boolean",
+      "title": "IncludeJobDocument"
+    },
+    "InvalidRequestException": {
+      "description": "The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "InvalidRequestException"
+    },
+    "InvalidStateTransitionException": {
+      "description": "An update attempted to change the job execution to a state that is invalid because of the job execution's current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this case, the body of the error message also contains the executionState field.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidStateTransitionException"
+    },
+    "JobDocument": {
+      "maxLength": 32768,
+      "type": "string",
+      "title": "JobDocument"
+    },
+    "JobExecution": {
+      "description": "Contains data about a job execution.",
+      "properties": {
+        "executionNumber": {
+          "$ref": "#/definitions/ExecutionNumber",
+          "description": "A number that identifies a particular job execution on a particular device. It can be used later in commands that return or update job execution information."
+        },
+        "jobDocument": {
+          "$ref": "#/definitions/JobDocument",
+          "description": "The content of the job document."
+        },
+        "jobId": {
+          "$ref": "#/definitions/JobId",
+          "description": "The unique identifier you assigned to this job when it was created."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the job execution was last updated. "
+        },
+        "queuedAt": {
+          "$ref": "#/definitions/QueuedAt",
+          "description": "The time, in milliseconds since the epoch, when the job execution was enqueued."
+        },
+        "startedAt": {
+          "$ref": "#/definitions/StartedAt",
+          "description": "The time, in milliseconds since the epoch, when the job execution was started."
+        },
+        "status": {
+          "$ref": "#/definitions/JobExecutionStatus",
+          "description": "The status of the job execution. Can be one of: \"QUEUED\", \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or \"REMOVED\"."
+        },
+        "statusDetails": {
+          "$ref": "#/definitions/DetailsMap",
+          "description": "A collection of name/value pairs that describe the status of the job execution."
+        },
+        "thingName": {
+          "$ref": "#/definitions/ThingName",
+          "description": "The name of the thing that is executing the job."
+        },
+        "versionNumber": {
+          "$ref": "#/definitions/VersionNumber",
+          "description": "The version of the job execution. Job execution versions are incremented each time they are updated by a device."
+        }
+      },
+      "type": "object",
+      "title": "JobExecution"
+    },
+    "JobExecutionState": {
+      "description": "Contains data about the state of a job execution.",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/JobExecutionStatus",
+          "description": "The status of the job execution. Can be one of: \"QUEUED\", \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or \"REMOVED\"."
+        },
+        "statusDetails": {
+          "$ref": "#/definitions/DetailsMap",
+          "description": "A collection of name/value pairs that describe the status of the job execution."
+        },
+        "versionNumber": {
+          "$ref": "#/definitions/VersionNumber",
+          "description": "The version of the job execution. Job execution versions are incremented each time they are updated by a device."
+        }
+      },
+      "type": "object",
+      "title": "JobExecutionState"
+    },
+    "JobExecutionStatus": {
+      "enum": [
+        "QUEUED",
+        "IN_PROGRESS",
+        "SUCCEEDED",
+        "FAILED",
+        "REJECTED",
+        "REMOVED",
+        "CANCELED"
+      ],
+      "type": "string",
+      "title": "JobExecutionStatus"
+    },
+    "JobExecutionSummary": {
+      "description": "Contains a subset of information about a job execution.",
+      "properties": {
+        "executionNumber": {
+          "$ref": "#/definitions/ExecutionNumber",
+          "description": "A number that identifies a particular job execution on a particular device."
+        },
+        "jobId": {
+          "$ref": "#/definitions/JobId",
+          "description": "The unique identifier you assigned to this job when it was created."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the job execution was last updated."
+        },
+        "queuedAt": {
+          "$ref": "#/definitions/QueuedAt",
+          "description": "The time, in milliseconds since the epoch, when the job execution was enqueued."
+        },
+        "startedAt": {
+          "$ref": "#/definitions/StartedAt",
+          "description": "The time, in milliseconds since the epoch, when the job execution started."
+        },
+        "versionNumber": {
+          "$ref": "#/definitions/VersionNumber",
+          "description": "The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives an update from a device."
+        }
+      },
+      "type": "object",
+      "title": "JobExecutionSummary"
+    },
+    "JobExecutionSummaryList": {
+      "items": {
+        "$ref": "#/definitions/JobExecutionSummary"
+      },
+      "type": "array",
+      "title": "JobExecutionSummaryList"
+    },
+    "JobId": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_-]+",
+      "type": "string",
+      "title": "JobId"
+    },
+    "LastUpdatedAt": {
+      "type": "integer",
+      "title": "LastUpdatedAt"
+    },
+    "QueuedAt": {
+      "type": "integer",
+      "title": "QueuedAt"
+    },
+    "ResourceNotFoundException": {
+      "description": "The specified resource does not exist.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "ServiceUnavailableException": {
+      "description": "The service is temporarily unavailable.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "ServiceUnavailableException"
+    },
+    "StartNextPendingJobExecutionRequest": {
+      "properties": {
+        "statusDetails": {
+          "$ref": "#/definitions/DetailsMap",
+          "description": "A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged."
+        }
+      },
+      "type": "object",
+      "title": "StartNextPendingJobExecutionRequest"
+    },
+    "StartNextPendingJobExecutionResponse": {
+      "properties": {
+        "execution": {
+          "$ref": "#/definitions/JobExecution",
+          "description": "A JobExecution object."
+        }
+      },
+      "type": "object",
+      "title": "StartNextPendingJobExecutionResponse"
+    },
+    "StartedAt": {
+      "type": "integer",
+      "title": "StartedAt"
+    },
+    "TerminalStateException": {
+      "description": "The job is in a terminal state.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "TerminalStateException"
+    },
+    "ThingName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9:_-]+",
+      "type": "string",
+      "title": "ThingName"
+    },
+    "ThrottlingException": {
+      "description": "The rate exceeds the limit.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "ThrottlingException"
+    },
+    "UpdateJobExecutionRequest": {
+      "properties": {
+        "executionNumber": {
+          "$ref": "#/definitions/ExecutionNumber",
+          "description": "Optional. A number that identifies a particular job execution on a particular device."
+        },
+        "expectedVersion": {
+          "$ref": "#/definitions/ExpectedVersion",
+          "description": "Optional. The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)"
+        },
+        "includeJobDocument": {
+          "$ref": "#/definitions/IncludeJobDocument",
+          "description": "Optional. When set to true, the response contains the job document. The default is false."
+        },
+        "includeJobExecutionState": {
+          "$ref": "#/definitions/IncludeExecutionState",
+          "description": "Optional. When included and set to true, the response contains the JobExecutionState data. The default is false."
+        },
+        "status": {
+          "$ref": "#/definitions/JobExecutionStatus",
+          "description": "The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified on every update."
+        },
+        "statusDetails": {
+          "$ref": "#/definitions/DetailsMap",
+          "description": " Optional. A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged."
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "type": "object",
+      "title": "UpdateJobExecutionRequest"
+    },
+    "UpdateJobExecutionResponse": {
+      "properties": {
+        "executionState": {
+          "$ref": "#/definitions/JobExecutionState",
+          "description": "A JobExecutionState object."
+        },
+        "jobDocument": {
+          "$ref": "#/definitions/JobDocument",
+          "description": "The contents of the Job Documents."
+        }
+      },
+      "type": "object",
+      "title": "UpdateJobExecutionResponse"
+    },
+    "VersionNumber": {
+      "type": "integer",
+      "title": "VersionNumber"
+    },
+    "errorMessage": {
+      "type": "string",
+      "title": "errorMessage"
+    }
+  },
+  "actions": [
+    {
+      "id": "GetPendingJobExecutions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "thingName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetPendingJobExecutionsRequest"
+          }
+        ],
+        "required": [
+          "thingName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetPendingJobExecutionsResponse"
+      },
+      "security": {
+        "amazonaws_data_jobs_iot": {
+          "integration": "amazonaws_data_jobs_iot"
+        }
+      }
+    },
+    {
+      "id": "StartNextPendingJobExecution",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "thingName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartNextPendingJobExecutionRequest"
+          }
+        ],
+        "required": [
+          "thingName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartNextPendingJobExecutionResponse"
+      },
+      "security": {
+        "amazonaws_data_jobs_iot": {
+          "integration": "amazonaws_data_jobs_iot"
+        }
+      }
+    },
+    {
+      "id": "UpdateJobExecution",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "jobId": {
+            "type": "string"
+          },
+          "thingName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateJobExecutionRequest"
+          }
+        ],
+        "required": [
+          "jobId",
+          "thingName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateJobExecutionResponse"
+      },
+      "security": {
+        "amazonaws_data_jobs_iot": {
+          "integration": "amazonaws_data_jobs_iot"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

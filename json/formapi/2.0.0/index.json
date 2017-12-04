@@ -1,0 +1,500 @@
+{
+  "id": "formapi",
+  "title": "API V1",
+  "security": {
+    "formapi": {
+      "integration": "formapi",
+      "fields": {
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/formapi.jpeg"
+  },
+  "actionCount": 7,
+  "actions": [
+    {
+      "id": "testAuthentication",
+      "title": "testAuthentication",
+      "description": "Test Authentication",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "status": {
+            "enum": [
+              "success"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "type": "object"
+      },
+      "security": {
+        "formapi": {
+          "integration": "formapi"
+        }
+      }
+    },
+    {
+      "id": "combineSubmissions",
+      "title": "combineSubmissions",
+      "description": "Merge generated PDFs together",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "data": {
+            "properties": {
+              "expires_in": {
+                "type": "number"
+              },
+              "metadata": {
+                "type": "object"
+              },
+              "submission_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "test": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "submission_ids"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "properties": {
+          "combined_submission": {
+            "properties": {
+              "download_url": {
+                "type": "string",
+                "x-nullable": true
+              },
+              "expired": {
+                "type": "boolean"
+              },
+              "expires_at": {
+                "type": "string",
+                "x-nullable": true
+              },
+              "id": {
+                "type": "string"
+              },
+              "metadata": {
+                "type": "object"
+              },
+              "state": {
+                "enum": [
+                  "pending",
+                  "processed",
+                  "error"
+                ],
+                "type": "string"
+              },
+              "submission_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "id",
+              "state",
+              "expired",
+              "submission_ids"
+            ],
+            "type": "object"
+          },
+          "status": {
+            "enum": [
+              "success",
+              "error"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "combined_submission"
+        ],
+        "type": "object"
+      },
+      "security": {
+        "formapi": {
+          "integration": "formapi"
+        }
+      }
+    },
+    {
+      "id": "expireCombinedSubmission",
+      "title": "expireCombinedSubmission",
+      "description": "Expire a combined submission",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "combined_submission_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "combined_submission_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "download_url": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "expired": {
+            "type": "boolean"
+          },
+          "expires_at": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "state": {
+            "enum": [
+              "pending",
+              "processed",
+              "error"
+            ],
+            "type": "string"
+          },
+          "submission_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "state",
+          "expired",
+          "submission_ids"
+        ],
+        "type": "object"
+      },
+      "security": {
+        "formapi": {
+          "integration": "formapi"
+        }
+      }
+    },
+    {
+      "id": "getCombinedSubmission",
+      "title": "getCombinedSubmission",
+      "description": "Check the status of a combined submission (merged PDFs)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "combined_submission_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "combined_submission_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "download_url": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "expired": {
+            "type": "boolean"
+          },
+          "expires_at": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "state": {
+            "enum": [
+              "pending",
+              "processed",
+              "error"
+            ],
+            "type": "string"
+          },
+          "submission_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "state",
+          "expired",
+          "submission_ids"
+        ],
+        "type": "object"
+      },
+      "security": {
+        "formapi": {
+          "integration": "formapi"
+        }
+      }
+    },
+    {
+      "id": "expireSubmission",
+      "title": "expireSubmission",
+      "description": "Expire a PDF submission",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "submission_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "submission_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "download_url": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "expired": {
+            "type": "boolean"
+          },
+          "expires_at": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "state": {
+            "enum": [
+              "pending",
+              "processed",
+              "invalid_data",
+              "error",
+              "image_download_failed",
+              "image_processing_failed"
+            ],
+            "type": "string"
+          },
+          "test": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "state",
+          "test",
+          "expired"
+        ],
+        "type": "object"
+      },
+      "security": {
+        "formapi": {
+          "integration": "formapi"
+        }
+      }
+    },
+    {
+      "id": "getSubmission",
+      "title": "getSubmission",
+      "description": "Check the status of a PDF",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "submission_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "submission_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "download_url": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "expired": {
+            "type": "boolean"
+          },
+          "expires_at": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "state": {
+            "enum": [
+              "pending",
+              "processed",
+              "invalid_data",
+              "error",
+              "image_download_failed",
+              "image_processing_failed"
+            ],
+            "type": "string"
+          },
+          "test": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "state",
+          "test",
+          "expired"
+        ],
+        "type": "object"
+      },
+      "security": {
+        "formapi": {
+          "integration": "formapi"
+        }
+      }
+    },
+    {
+      "id": "generatePDF",
+      "title": "generatePDF",
+      "description": "Generates a new PDF",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "template_id": {
+            "type": "string"
+          },
+          "data": {
+            "properties": {
+              "data": {
+                "type": "object"
+              },
+              "metadata": {
+                "type": "object"
+              },
+              "test": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "data"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "template_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "status": {
+            "enum": [
+              "success",
+              "error"
+            ],
+            "type": "string"
+          },
+          "submission": {
+            "properties": {
+              "download_url": {
+                "type": "string",
+                "x-nullable": true
+              },
+              "expired": {
+                "type": "boolean"
+              },
+              "expires_at": {
+                "type": "string",
+                "x-nullable": true
+              },
+              "id": {
+                "type": "string"
+              },
+              "metadata": {
+                "type": "object"
+              },
+              "state": {
+                "enum": [
+                  "pending",
+                  "processed",
+                  "invalid_data",
+                  "error",
+                  "image_download_failed",
+                  "image_processing_failed"
+                ],
+                "type": "string"
+              },
+              "test": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "state",
+              "test",
+              "expired"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "status",
+          "submission"
+        ],
+        "type": "object"
+      },
+      "security": {
+        "formapi": {
+          "integration": "formapi"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "text"
+  ]
+}

@@ -1,0 +1,5767 @@
+{
+  "id": "weatherbit",
+  "title": "Weatherbit.io - Weather",
+  "description": "This is the documentation for the Weatherbit API.  The base URL for the API is [http://api.weatherbit.io/v2.0/](http://api.weatherbit.io/v2.0/) or [https://api.weatherbit.io/v2.0/](http://api.weatherbit.io/v2.0/). Below is the Swagger UI documentation for the API. All API requests require the `key` parameter.        An Example for a 5 day forecast for London, UK would be `http://api.weatherbit.io/v2.0/forecast/3hourly?city=London`&`country=UK`",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/weatherbit.jpeg"
+  },
+  "actionCount": 51,
+  "definitions": {
+    "CurrentObs": {
+      "properties": {
+        "app_temp": {
+          "description": "Apparent temperature - Default (C)",
+          "example": "14.85",
+          "type": "number"
+        },
+        "city_name": {
+          "description": "City name (closest)",
+          "example": "Raleigh",
+          "type": "string"
+        },
+        "clouds": {
+          "description": "Cloud cover (%)",
+          "example": "42",
+          "type": "integer"
+        },
+        "country_code": {
+          "description": "Country abbreviation",
+          "example": "US",
+          "type": "string"
+        },
+        "datetime": {
+          "description": "Cycle Hour (UTC) of observation",
+          "example": "2017-03-15:13",
+          "type": "string"
+        },
+        "dewpt": {
+          "description": "Dew point temperature - Default (C)",
+          "example": "12",
+          "type": "number"
+        },
+        "dhi": {
+          "description": "Direct component of solar insolation (W/m^2)",
+          "example": "450.4",
+          "type": "number"
+        },
+        "elev_angle": {
+          "description": "Current solar elevation angle (Degrees)",
+          "example": "37",
+          "type": "number"
+        },
+        "hour_angle": {
+          "description": "Current solar hour angle (Degrees)",
+          "example": "45",
+          "type": "number"
+        },
+        "lat": {
+          "description": "Latitude",
+          "example": "38.00",
+          "type": "string"
+        },
+        "lon": {
+          "description": "Longitude",
+          "example": "-78.25",
+          "type": "string"
+        },
+        "ob_time": {
+          "description": "Full time (UTC) of observation (YYYY-MM-DD HH:MM)",
+          "example": "2017-03-15 13:11",
+          "type": "string"
+        },
+        "pod": {
+          "description": "Part of the day (d = day, n = night)",
+          "type": "string"
+        },
+        "precip": {
+          "description": "Precipitation in last hour - Default (mm)",
+          "example": "2",
+          "type": "number"
+        },
+        "pres": {
+          "description": "Pressure (mb)",
+          "example": "1010",
+          "type": "number"
+        },
+        "rh": {
+          "description": "Relative humidity (%)",
+          "example": "75",
+          "type": "integer"
+        },
+        "slp": {
+          "description": "Mean sea level pressure in millibars (mb)",
+          "example": "1013.12",
+          "type": "number"
+        },
+        "snow": {
+          "description": "Snowfall in last hour - Default (mm)",
+          "example": "10",
+          "type": "number"
+        },
+        "state_code": {
+          "description": "State abbreviation",
+          "example": "NC",
+          "type": "string"
+        },
+        "station": {
+          "description": "Source Station ID",
+          "example": "KRDU",
+          "type": "string"
+        },
+        "sunrise": {
+          "description": "Time (UTC) of Sunrise (HH:MM)",
+          "example": "06:22",
+          "type": "string"
+        },
+        "sunset": {
+          "description": "Time (UTC) of Sunset (HH:MM)",
+          "example": "19:34",
+          "type": "string"
+        },
+        "temp": {
+          "description": "Temperature - Default (C)",
+          "example": "13.85",
+          "type": "number"
+        },
+        "timezone": {
+          "description": "Local IANA time zone",
+          "example": "America/New_York",
+          "type": "string"
+        },
+        "ts": {
+          "description": "Unix Timestamp",
+          "example": "1490990400",
+          "type": "number"
+        },
+        "uv": {
+          "description": "UV Index",
+          "example": "6.5",
+          "type": "number"
+        },
+        "vis": {
+          "description": "Visibility - Default (M)",
+          "example": "10000",
+          "type": "string"
+        },
+        "weather": {
+          "properties": {
+            "code": {
+              "description": "Weather Condition code",
+              "example": "802",
+              "type": "string"
+            },
+            "description": {
+              "description": "Weather Condition description",
+              "example": "Broken clouds",
+              "type": "string"
+            },
+            "icon": {
+              "description": "Icon code for forecast image display",
+              "example": "c02",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "wind_cdir": {
+          "description": "Cardinal wind direction",
+          "example": "ENE",
+          "type": "string"
+        },
+        "wind_cdir_full": {
+          "description": "Cardinal wind direction (text)",
+          "example": "East-North-East",
+          "type": "string"
+        },
+        "wind_dir": {
+          "description": "Wind direction (Degrees)",
+          "example": "125",
+          "type": "integer"
+        },
+        "wind_speed": {
+          "description": "Wind speed - Default (m/s)",
+          "example": "5.85",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "CurrentObs"
+    },
+    "CurrentObsGroup": {
+      "properties": {
+        "count": {
+          "description": "Count of found observations",
+          "example": "1",
+          "type": "integer"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/CurrentObs"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "CurrentObsGroup"
+    },
+    "EnergyObs": {
+      "properties": {
+        "cdd": {
+          "description": "Cooling degree days - base 18 degrees (C)",
+          "example": "10",
+          "type": "number"
+        },
+        "city_name": {
+          "description": "City name (closest)",
+          "example": "Raleigh",
+          "type": "string"
+        },
+        "clouds": {
+          "description": "Average cloud cover (%)",
+          "example": "42",
+          "type": "integer"
+        },
+        "country_code": {
+          "description": "Country abbreviation",
+          "example": "US",
+          "type": "string"
+        },
+        "dewpt": {
+          "description": "Average dew point temperature - Default (C)",
+          "example": "12",
+          "type": "number"
+        },
+        "dhi": {
+          "description": "Average direct component of solar insolation (W/m^2)",
+          "example": "450.4",
+          "type": "number"
+        },
+        "hdd": {
+          "description": "Heating degree days - base 18 degrees (C)",
+          "example": "120",
+          "type": "number"
+        },
+        "lat": {
+          "description": "Latitude",
+          "example": "38.00",
+          "type": "string"
+        },
+        "lon": {
+          "description": "Longitude",
+          "example": "-78.25",
+          "type": "string"
+        },
+        "precip": {
+          "description": "Total precipitation in period - Default (mm)",
+          "example": "2",
+          "type": "number"
+        },
+        "rh": {
+          "description": "Average Relative humidity (%)",
+          "example": "75",
+          "type": "integer"
+        },
+        "snow": {
+          "description": "Total snowfall in period - Default (mm)",
+          "example": "10",
+          "type": "number"
+        },
+        "state_code": {
+          "description": "State abbreviation",
+          "example": "NC",
+          "type": "string"
+        },
+        "station_id": {
+          "description": "Source Station ID",
+          "example": "12345-999999",
+          "type": "string"
+        },
+        "sun_hours": {
+          "description": "Average number of daily sun hours - # hours where Solar Insolation > 1000 W/m^2",
+          "example": "4.5",
+          "type": "number"
+        },
+        "temp": {
+          "description": "Average temperature - Default (C)",
+          "example": "13.85",
+          "type": "number"
+        },
+        "timezone": {
+          "description": "Local IANA time zone",
+          "example": "America/New_York",
+          "type": "string"
+        },
+        "wind_dir": {
+          "description": "Average wind direction (Degrees)",
+          "example": "125",
+          "type": "integer"
+        },
+        "wind_speed": {
+          "description": "Average wind speed - Default (m/s)",
+          "example": "5.85",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "EnergyObs"
+    },
+    "EnergyObsGroup": {
+      "properties": {
+        "count": {
+          "description": "Count of found observations",
+          "example": "1",
+          "type": "integer"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/EnergyObs"
+          },
+          "type": "array"
+        },
+        "end_date": {
+          "description": "End Date",
+          "example": "2017-01-30",
+          "type": "integer"
+        },
+        "start_date": {
+          "description": "Start Date",
+          "example": "2017-01-01",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "EnergyObsGroup"
+    },
+    "Error": {
+      "properties": {
+        "code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Error"
+    },
+    "Forecast": {
+      "properties": {
+        "app_max_temp": {
+          "description": "Apparent Maximum daily Temperature - Default (C)",
+          "example": "4",
+          "type": "number"
+        },
+        "app_min_temp": {
+          "description": "Apparent Minimum daily Temperature - Default (C)",
+          "example": "-2",
+          "type": "number"
+        },
+        "clouds": {
+          "description": "Cloud cover as a percentage (%)",
+          "example": "100",
+          "type": "integer"
+        },
+        "datetime": {
+          "description": "(UTC) Date in format \"YYYY-MM-DD\"",
+          "example": "2017-02-06",
+          "type": "string"
+        },
+        "dewpt": {
+          "description": "Dewpoint (Average) - Default (C)",
+          "example": "1.0",
+          "type": "number"
+        },
+        "max_dhi": {
+          "description": "Max direct component of solar insolation (W/m^2)",
+          "example": "655",
+          "type": "number"
+        },
+        "max_temp": {
+          "description": "Maximum daily Temperature - Default (C)",
+          "example": "1.5",
+          "type": "number"
+        },
+        "min_temp": {
+          "description": "Minimum daily Temperature - Default (C)",
+          "example": "-1.23",
+          "type": "number"
+        },
+        "pod": {
+          "description": "Part of the day (d = day, n = night)",
+          "example": "n",
+          "type": "string"
+        },
+        "pop": {
+          "description": "Chance of Precipitation as a percentage (%)",
+          "example": "75",
+          "type": "number"
+        },
+        "precip": {
+          "description": "Accumulated precipitation since last forecast point. Default (mm)",
+          "example": "1.1",
+          "type": "number"
+        },
+        "pres": {
+          "description": "Pressure (mb)",
+          "example": "1005",
+          "type": "number"
+        },
+        "rh": {
+          "description": "Relative Humidity as a percentage (%)",
+          "example": "95",
+          "type": "integer"
+        },
+        "slp": {
+          "description": "Mean Sea level pressure (mb)",
+          "example": "1012.89",
+          "type": "number"
+        },
+        "snow": {
+          "description": "Accumulated snowfall since last forecast point. Default (mm)",
+          "example": "10.45",
+          "type": "number"
+        },
+        "temp": {
+          "description": "Temperature (Average) - Default (C)",
+          "example": "1.0",
+          "type": "number"
+        },
+        "ts": {
+          "description": "Unix Timestamp",
+          "example": "1490990400",
+          "type": "number"
+        },
+        "uv": {
+          "description": "UV Index",
+          "example": "6.5",
+          "type": "number"
+        },
+        "vis": {
+          "description": "Average Visibility default (KM)",
+          "example": "3.0",
+          "type": "number"
+        },
+        "weather": {
+          "properties": {
+            "code": {
+              "description": "Weather Condition code",
+              "example": "601",
+              "type": "string"
+            },
+            "description": {
+              "description": "Weather Condition description",
+              "example": "Snow",
+              "type": "string"
+            },
+            "icon": {
+              "description": "Icon code for forecast image display",
+              "example": "s02n",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "wind_cdir": {
+          "description": "Cardinal wind direction",
+          "example": "ENE",
+          "type": "string"
+        },
+        "wind_cdir_full": {
+          "description": "Cardinal wind direction (text)",
+          "example": "East-North-East",
+          "type": "string"
+        },
+        "wind_dir": {
+          "description": "Wind direction",
+          "example": "105",
+          "type": "integer"
+        },
+        "wind_spd": {
+          "description": "Wind Speed (default m/s)",
+          "example": "13.85",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "Forecast"
+    },
+    "ForecastDay": {
+      "properties": {
+        "city_name": {
+          "description": "City Name",
+          "example": "Raleigh",
+          "type": "string"
+        },
+        "country_code": {
+          "description": "Country Abbreviation",
+          "example": "US",
+          "type": "string"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Forecast"
+          },
+          "type": "array"
+        },
+        "lat": {
+          "description": "Latitude",
+          "example": "38.25",
+          "type": "string"
+        },
+        "lon": {
+          "description": "Longitude",
+          "example": "-78.00",
+          "type": "string"
+        },
+        "state_code": {
+          "description": "State Abbreviation",
+          "example": "NC",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "Local IANA time zone",
+          "example": "America/New_York",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ForecastDay"
+    },
+    "ForecastHour": {
+      "properties": {
+        "app_temp": {
+          "description": "Apparent Temperature - Default (C)",
+          "example": "4.5",
+          "type": "number"
+        },
+        "clouds": {
+          "description": "Cloud cover as a percentage (%)",
+          "example": "100",
+          "type": "integer"
+        },
+        "datetime": {
+          "description": "(UTC) Date in format \"YYYY-MM-DD:HH\"",
+          "example": "2017-02-06:02",
+          "type": "string"
+        },
+        "dewpt": {
+          "description": "Dewpoint - Default (C)",
+          "example": "-4.0",
+          "type": "number"
+        },
+        "dhi": {
+          "description": "Direct component of solar radiation (W/m^2)",
+          "example": "500",
+          "type": "number"
+        },
+        "pod": {
+          "description": "Part of day (d = day, n = night)",
+          "example": "d",
+          "type": "string"
+        },
+        "pop": {
+          "description": "Chance of Precipitation as a percentage (%)",
+          "example": "75",
+          "type": "number"
+        },
+        "precip": {
+          "description": "Accumulated precipitation since last forecast point. Default (mm)",
+          "example": "1.1",
+          "type": "number"
+        },
+        "precip6h": {
+          "description": "Accumulated precipitation since last forecast point. Default (mm)",
+          "example": "14.50",
+          "type": "number"
+        },
+        "pres": {
+          "description": "Pressure (mb)",
+          "example": "1005",
+          "type": "number"
+        },
+        "rh": {
+          "description": "Relative Humidity as a percentage (%)",
+          "example": "95",
+          "type": "integer"
+        },
+        "slp": {
+          "description": "Mean Sea level pressure (mb)",
+          "example": "1012.89",
+          "type": "number"
+        },
+        "snow": {
+          "description": "Accumulated snowfall since last forecast point. Default (mm)",
+          "example": "10.45",
+          "type": "number"
+        },
+        "snow6h": {
+          "description": "6 hour accumulated snowfall. Default (mm)",
+          "example": "140.87",
+          "type": "number"
+        },
+        "temp": {
+          "description": "Temperature - Default (C)",
+          "example": "-1.5",
+          "type": "number"
+        },
+        "ts": {
+          "description": "Unix Timestamp",
+          "example": "1490990400",
+          "type": "number"
+        },
+        "uv": {
+          "description": "UV Index",
+          "example": "6.5",
+          "type": "number"
+        },
+        "vis": {
+          "description": "Visibility - Default (KM)",
+          "example": "1",
+          "type": "number"
+        },
+        "weather": {
+          "properties": {
+            "code": {
+              "description": "Weather Condition code",
+              "example": "601",
+              "type": "string"
+            },
+            "description": {
+              "description": "Weather Condition description",
+              "example": "Snow",
+              "type": "string"
+            },
+            "icon": {
+              "description": "Icon code for forecast image display",
+              "example": "s02d",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "wind_cdir": {
+          "description": "Cardinal wind direction",
+          "example": "ENE",
+          "type": "string"
+        },
+        "wind_cdir_full": {
+          "description": "Cardinal wind direction (text)",
+          "example": "East-North-East",
+          "type": "string"
+        },
+        "wind_dir": {
+          "description": "Wind direction",
+          "example": "105",
+          "type": "integer"
+        },
+        "wind_spd": {
+          "description": "Wind Speed - Default (m/s)",
+          "example": "13.85",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "ForecastHour"
+    },
+    "ForecastHourly": {
+      "properties": {
+        "city_name": {
+          "description": "City Name",
+          "example": "Raleigh",
+          "type": "string"
+        },
+        "country_code": {
+          "description": "Country Abbreviation",
+          "example": "US",
+          "type": "string"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/ForecastHour"
+          },
+          "type": "array"
+        },
+        "lat": {
+          "description": "Latitude",
+          "example": "38.25",
+          "type": "string"
+        },
+        "lon": {
+          "description": "Longitude",
+          "example": "-78.00",
+          "type": "string"
+        },
+        "state_code": {
+          "description": "State Abbreviation",
+          "example": "NC",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "Local IANA time zone",
+          "example": "America/New_York",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ForecastHourly"
+    },
+    "GeoIPObj": {
+      "properties": {
+        "area_code": {
+          "description": "Area Code",
+          "example": "919",
+          "type": "string"
+        },
+        "charset": {
+          "description": "Character encoding",
+          "example": "1",
+          "type": "string"
+        },
+        "city": {
+          "description": "City Name",
+          "example": "Raleigh",
+          "type": "string"
+        },
+        "continent_code": {
+          "description": "Country Abbreviation",
+          "example": "US",
+          "type": "string"
+        },
+        "country_code": {
+          "description": "Country Code (Short)",
+          "example": "US",
+          "type": "string"
+        },
+        "country_code3": {
+          "description": "Country Code (Long)",
+          "example": "USA",
+          "type": "string"
+        },
+        "dma_code": {
+          "description": "Longitude",
+          "example": "560",
+          "type": "string"
+        },
+        "ip": {
+          "description": "IP Address",
+          "example": "192.168.1.102",
+          "type": "string"
+        },
+        "latitude": {
+          "description": "State Abbreviation",
+          "example": "35.811",
+          "type": "string"
+        },
+        "longitude": {
+          "description": "City Name",
+          "example": "-78.64",
+          "type": "string"
+        },
+        "metro_code": {
+          "description": "Longitude",
+          "example": "560",
+          "type": "string"
+        },
+        "offset": {
+          "description": "UTC Offset (deprecated)",
+          "example": "-4",
+          "type": "string"
+        },
+        "organization": {
+          "description": "Organization Name",
+          "example": "AS11426 Time Warner Cable Internet LLC",
+          "type": "string"
+        },
+        "postal_code": {
+          "description": "Postal Code",
+          "example": "27601",
+          "type": "string"
+        },
+        "region": {
+          "description": "Latitude",
+          "example": "NC",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "Local IANA time zone",
+          "example": "America/New_York",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "GeoIPObj"
+    },
+    "History": {
+      "properties": {
+        "city_name": {
+          "description": "City name (Closest)",
+          "example": "Seattle",
+          "type": "string"
+        },
+        "country_code": {
+          "description": "Country abbreviation",
+          "example": "US",
+          "type": "string"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/HistoryObj"
+          },
+          "type": "array"
+        },
+        "lat": {
+          "description": "Latitude",
+          "example": "47.61",
+          "type": "string"
+        },
+        "lon": {
+          "description": "Longitude",
+          "example": "-122.33",
+          "type": "string"
+        },
+        "state_code": {
+          "description": "State abbreviation",
+          "example": "WA",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "Local IANA time zone",
+          "example": "America/New_York",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "History"
+    },
+    "HistoryDay": {
+      "properties": {
+        "city_name": {
+          "description": "City name (Closest)",
+          "example": "Seattle",
+          "type": "string"
+        },
+        "country_code": {
+          "description": "Country abbreviation",
+          "example": "US",
+          "type": "string"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/HistoryDayObj"
+          },
+          "type": "array"
+        },
+        "lat": {
+          "description": "Latitude",
+          "example": "47.61",
+          "type": "string"
+        },
+        "lon": {
+          "description": "Longitude",
+          "example": "-122.33",
+          "type": "string"
+        },
+        "state_code": {
+          "description": "State abbreviation",
+          "example": "WA",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "Local IANA time zone",
+          "example": "America/New_York",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "HistoryDay"
+    },
+    "HistoryDayObj": {
+      "properties": {
+        "datetime": {
+          "description": "Date in format \"YYYY-MM-DD\". All datetime is in (UTC)",
+          "example": "2015-01-03",
+          "type": "string"
+        },
+        "dewpt": {
+          "description": "Average dewpoint - Default (C)",
+          "example": "-1.5",
+          "type": "number"
+        },
+        "dhi": {
+          "description": "Average direct solar insolation (W/m^2)",
+          "example": "125",
+          "type": "integer"
+        },
+        "max_temp": {
+          "description": "Max Temperature - Default (C)",
+          "example": "1.5",
+          "type": "number"
+        },
+        "max_temp_ts": {
+          "description": "Time of Max Temperature - Unix Timestamp",
+          "example": "1501970816",
+          "type": "number"
+        },
+        "max_uv": {
+          "description": "Max UV Index (1-11+)",
+          "example": "6",
+          "type": "integer"
+        },
+        "max_wind_dir": {
+          "description": "Direction of wind at time of max wind - (Degrees)",
+          "example": "325",
+          "type": "integer"
+        },
+        "max_wind_spd": {
+          "description": "Average Wind Speed - Default (m/s)",
+          "example": "19.98",
+          "type": "number"
+        },
+        "max_wind_spd_ts": {
+          "description": "Time of max wind - Unix Timestamp",
+          "example": "1501970516",
+          "type": "number"
+        },
+        "min_temp": {
+          "description": "Min Temperature - Default (C)",
+          "example": "11.7",
+          "type": "number"
+        },
+        "min_temp_ts": {
+          "description": "Time of Max Temperature - Unix Timestamp",
+          "example": "1501970516",
+          "type": "number"
+        },
+        "precip": {
+          "description": "Liquid equivalent precipitation - Default (mm)",
+          "example": "3",
+          "type": "number"
+        },
+        "pres": {
+          "description": "Average pressure (mb)",
+          "example": "885.1",
+          "type": "number"
+        },
+        "rh": {
+          "description": "Average relative humidity as a percentage (%)",
+          "example": "85",
+          "type": "integer"
+        },
+        "slp": {
+          "description": "Average Sea level pressure (mb)",
+          "example": "1020.1",
+          "type": "number"
+        },
+        "snow": {
+          "description": "Snowfall - Default (mm)",
+          "example": "30",
+          "type": "number"
+        },
+        "t_dhi": {
+          "description": "Total/Cumulative direct solar insolation (W/m^2)",
+          "example": "4500",
+          "type": "integer"
+        },
+        "temp": {
+          "description": "Average Temperature - Default (C)",
+          "example": "1.0",
+          "type": "number"
+        },
+        "ts": {
+          "description": "Unix Timestamp of datetime (Midnight UTC)",
+          "example": "1501970516",
+          "type": "number"
+        },
+        "wind_dir": {
+          "description": "Average Wind direction - (Degrees)",
+          "example": "325",
+          "type": "integer"
+        },
+        "wind_spd": {
+          "description": "Average Wind Speed - Default (m/s)",
+          "example": "14.98",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "HistoryDayObj"
+    },
+    "HistoryObj": {
+      "properties": {
+        "datetime": {
+          "description": "Date in format \"YYYY-MM-DD:HH\". All datetime is in (UTC)",
+          "example": "2016-01-01:00",
+          "type": "string"
+        },
+        "dewpt": {
+          "description": "Dew point (Default Celcius)",
+          "example": "-1.5",
+          "type": "integer"
+        },
+        "dhi": {
+          "description": "Direct component of solar insolation (W/m^2)",
+          "example": "150.7",
+          "type": "number"
+        },
+        "elev_angle": {
+          "description": "Solar elevation angle (Degrees)",
+          "example": "27",
+          "type": "integer"
+        },
+        "h_angle": {
+          "description": "Solar hour angle (Degrees)",
+          "example": "4",
+          "type": "integer"
+        },
+        "pod": {
+          "description": "Part of the day (d = day, n = night)",
+          "example": "n",
+          "type": "string"
+        },
+        "precip": {
+          "description": "Liquid equivalent precipitation - Default (mm)",
+          "example": "3",
+          "type": "number"
+        },
+        "precip6h": {
+          "description": "Liquid equivalent precipitation in last 6 hours - Default (mm)",
+          "example": "6",
+          "type": "number"
+        },
+        "pres": {
+          "description": "Pressure (mb)",
+          "example": "845",
+          "type": "number"
+        },
+        "qc": {
+          "description": "Set to 0 measurement has not yet been quality controlled, and should not be considered an authoritative observation",
+          "example": "0",
+          "type": "number"
+        },
+        "rh": {
+          "description": "Relative Humidity as a percentage (%)",
+          "example": "85",
+          "type": "integer"
+        },
+        "slp": {
+          "description": "Sea level pressure (mb)",
+          "example": "1020.10",
+          "type": "number"
+        },
+        "snow": {
+          "description": "Snowfall - Default (mm)",
+          "example": "30",
+          "type": "number"
+        },
+        "snow6h": {
+          "description": "Snowfall in last 6 hours - Default (mm)",
+          "example": "60",
+          "type": "number"
+        },
+        "temp": {
+          "description": "Temperature (Default Celcius)",
+          "example": "-1.2",
+          "type": "number"
+        },
+        "ts": {
+          "description": "Unix Timestamp (UTC)",
+          "example": "1451606400",
+          "type": "string"
+        },
+        "uv": {
+          "description": "UV Index (1-11+)",
+          "example": "4",
+          "type": "integer"
+        },
+        "weather": {
+          "properties": {
+            "code": {
+              "description": "Weather Condition code",
+              "example": "601",
+              "type": "string"
+            },
+            "description": {
+              "description": "Weather Condition description",
+              "example": "Light Snow",
+              "type": "string"
+            },
+            "icon": {
+              "description": "Icon code for forecast image display",
+              "example": "s01n",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "wind_dir": {
+          "description": "Wind direction (Degrees)",
+          "example": "325",
+          "type": "integer"
+        },
+        "wind_spd": {
+          "description": "Wind Speed (Default m/s)",
+          "example": "14.7",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "HistoryObj"
+    }
+  },
+  "actions": [
+    {
+      "id": "bulk.history.daily_city_city_country_country.get",
+      "title": "bulk.history.daily_city_city_country_country.get",
+      "description": "Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "format": "string",
+            "description": "City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR"
+          },
+          "state": {
+            "type": "string",
+            "format": "string",
+            "description": "Full name of state."
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city",
+          "country",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HistoryDay"
+      }
+    },
+    {
+      "id": "bulk.history.daily_city_id_city_id.get",
+      "title": "bulk.history.daily_city_id_city_id.get",
+      "description": "Returns Historical Observations - Given a City ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city_id": {
+            "type": "string",
+            "format": "string",
+            "description": "City ID. Example: 4487042"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city_id",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HistoryDay"
+      }
+    },
+    {
+      "id": "bulk.history.daily_ip_ip.get",
+      "title": "bulk.history.daily_ip_ip.get",
+      "description": "Returns Historical Observations - Given IP Address, or auto.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "format": "string",
+            "description": "IP Address, or auto. Example: ip=auto"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ip",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HistoryDay"
+      }
+    },
+    {
+      "id": "bulk.history.daily_lat_lat_lon_lon.get",
+      "title": "bulk.history.daily_lat_lat_lon_lon.get",
+      "description": "Returns Historical Observations - Given a lat, and lon.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude component of location."
+          },
+          "lon": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude component of location."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HistoryDay"
+      }
+    },
+    {
+      "id": "bulk.history.daily_postal_code_postal_code.get",
+      "title": "bulk.history.daily_postal_code_postal_code.get",
+      "description": "Returns Historical Observations - Given a Postal Code.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "postal_code": {
+            "type": "string",
+            "format": "string",
+            "description": "Postal Code. Example: 28546"
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "postal_code",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HistoryDay"
+      }
+    },
+    {
+      "id": "bulk.history.daily_station_station.get",
+      "title": "bulk.history.daily_station_station.get",
+      "description": "Returns Historical Observations - Given a station ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "station": {
+            "type": "string",
+            "format": "string",
+            "description": "Station ID."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "station",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HistoryDay"
+      }
+    },
+    {
+      "id": "bulk.history.hourly_city_city_country_country.get",
+      "title": "bulk.history.hourly_city_city_country_country.get",
+      "description": "Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "format": "string",
+            "description": "City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR"
+          },
+          "state": {
+            "type": "string",
+            "format": "string",
+            "description": "Full name of state."
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city",
+          "country",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/History"
+      }
+    },
+    {
+      "id": "bulk.history.hourly_city_id_city_id.get",
+      "title": "bulk.history.hourly_city_id_city_id.get",
+      "description": "Returns Historical Observations - Given a City ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city_id": {
+            "type": "string",
+            "format": "string",
+            "description": "City ID. Example: 4487042"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city_id",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/History"
+      }
+    },
+    {
+      "id": "bulk.history.hourly_ip_ip.get",
+      "title": "bulk.history.hourly_ip_ip.get",
+      "description": "Returns Historical Observations - Given IP Address, or auto.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "format": "string",
+            "description": "IP Address, or auto. Example: ip=auto"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ip",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/History"
+      }
+    },
+    {
+      "id": "bulk.history.hourly_lat_lat_lon_lon.get",
+      "title": "bulk.history.hourly_lat_lat_lon_lon.get",
+      "description": "Returns Historical Observations - Given a lat, and lon.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude component of location."
+          },
+          "lon": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude component of location."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/History"
+      }
+    },
+    {
+      "id": "bulk.history.hourly_postal_code_postal_code.get",
+      "title": "bulk.history.hourly_postal_code_postal_code.get",
+      "description": "Returns Historical Observations - Given a Postal Code. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "postal_code": {
+            "type": "string",
+            "format": "string",
+            "description": "Postal Code. Example: 28546"
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "postal_code",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/History"
+      }
+    },
+    {
+      "id": "bulk.history.hourly_station_station.get",
+      "title": "bulk.history.hourly_station_station.get",
+      "description": "Returns Historical Observations - Given a station ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "station": {
+            "type": "string",
+            "format": "string",
+            "description": "Station ID."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "station",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/History"
+      }
+    },
+    {
+      "id": "bulk.file.get",
+      "title": "bulk.file.get",
+      "description": "**(Advanced/Advanced+/Enterprise plans only)** Downloads bulk data files - OPTIONS: (forecast16d.json.gz - 16 day forecasts for cities > 1000 population, current.json.gz - Current observations for cities > 1000 population).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "string",
+            "description": "Filename (ie. forecast16d.json.gz)"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "file",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Error"
+      }
+    },
+    {
+      "id": "current_cities_cities.get",
+      "title": "current_cities_cities.get",
+      "description": "**(Advanced/Advanced+/Enterprise plans only)** Returns a group of Current Observations - Given a list of City IDs. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cities": {
+            "type": "string",
+            "format": "string",
+            "description": "Comma separated list of City ID's. Example: 4487042, 4494942, 4504871"
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "marine": {
+            "type": "string",
+            "format": "string",
+            "description": "Marine stations only (buoys, oil platforms, etc)",
+            "enum": [
+              "t"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback - Example - callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cities",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CurrentObsGroup"
+      }
+    },
+    {
+      "id": "current_city_city_country_country.get",
+      "title": "current_city_city_country_country.get",
+      "description": "Returns a Current Observation - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "format": "string",
+            "description": "City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR"
+          },
+          "state": {
+            "type": "string",
+            "format": "string",
+            "description": "Full name of state."
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "marine": {
+            "type": "string",
+            "format": "string",
+            "description": "Marine stations only (buoys, oil platforms, etc)",
+            "enum": [
+              "t"
+            ]
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback - Example - callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city",
+          "country",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CurrentObsGroup"
+      }
+    },
+    {
+      "id": "current_city_id_city_id.get",
+      "title": "current_city_id_city_id.get",
+      "description": "Returns current weather observation - Given a City ID. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city_id": {
+            "type": "string",
+            "format": "string",
+            "description": "City ID. Example: 4487042"
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "marine": {
+            "type": "string",
+            "format": "string",
+            "description": "Marine stations only (buoys, oil platforms, etc)",
+            "enum": [
+              "t"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback - Example - callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city_id",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CurrentObsGroup"
+      }
+    },
+    {
+      "id": "current_ip_ip.get",
+      "title": "current_ip_ip.get",
+      "description": "Returns a Current Observation - Given an IP address, or auto.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "format": "string",
+            "description": "IP Address, or auto. Example: ip=auto"
+          },
+          "marine": {
+            "type": "string",
+            "format": "string",
+            "description": "Marine stations only (buoys, oil platforms, etc)",
+            "enum": [
+              "t"
+            ]
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback - Example - callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ip",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CurrentObsGroup"
+      }
+    },
+    {
+      "id": "current_lat_lat_lon_lon.get",
+      "title": "current_lat_lat_lon_lon.get",
+      "description": "Returns a Current Observation - given a lat, and a lon.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude component of location."
+          },
+          "lon": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude component of location."
+          },
+          "marine": {
+            "type": "string",
+            "format": "string",
+            "description": "Marine stations only (buoys, oil platforms, etc)",
+            "enum": [
+              "t"
+            ]
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback - Example - callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CurrentObsGroup"
+      }
+    },
+    {
+      "id": "current_postal_code_postal_code.get",
+      "title": "current_postal_code_postal_code.get",
+      "description": "Returns current weather observation - Given a Postal Code. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "postal_code": {
+            "type": "string",
+            "format": "string",
+            "description": "Postal Code. Example: 28546"
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "marine": {
+            "type": "string",
+            "format": "string",
+            "description": "Marine stations only (buoys, oil platforms, etc)",
+            "enum": [
+              "t"
+            ]
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback - Example - callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "postal_code",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CurrentObsGroup"
+      }
+    },
+    {
+      "id": "current_station_station.get",
+      "title": "current_station_station.get",
+      "description": "Returns a Current Observation - Given a station ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "station": {
+            "type": "string",
+            "format": "string",
+            "description": "Station Call ID."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "station",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CurrentObsGroup"
+      }
+    },
+    {
+      "id": "current_stations_stations.get",
+      "title": "current_stations_stations.get",
+      "description": "**(Advanced/Advanced+/Enterprise plans only)** Returns a group of Current Observations - Given a list of Station Call IDs. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "stations": {
+            "type": "string",
+            "format": "string",
+            "description": "Comma separated list of Station Call ID's. Example: KRDU,KBFI,KVNY"
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "stations",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CurrentObsGroup"
+      }
+    },
+    {
+      "id": "forecast.3hourly_city_city_country_country.get",
+      "title": "forecast.3hourly_city_city_country_country.get",
+      "description": "Returns a 3-hourly forecast, where each point represents a three hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "format": "string",
+            "description": "City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR"
+          },
+          "state": {
+            "type": "string",
+            "format": "string",
+            "description": "Full name of state."
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "days": {
+            "type": "number",
+            "format": "integer",
+            "description": "Number of days to return. Default 5."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example - callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city",
+          "country",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastHourly"
+      }
+    },
+    {
+      "id": "forecast.3hourly_city_id_city_id.get",
+      "title": "forecast.3hourly_city_id_city_id.get",
+      "description": "Returns a 3-hourly forecast, where each point represents a three hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city_id": {
+            "type": "integer",
+            "format": "integer",
+            "description": "City ID. Example: 4487042"
+          },
+          "days": {
+            "type": "number",
+            "format": "integer",
+            "description": "Number of days to return. Default 5."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city_id",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastHourly"
+      }
+    },
+    {
+      "id": "forecast.3hourly_ip_ip.get",
+      "title": "forecast.3hourly_ip_ip.get",
+      "description": "Returns a 3-hourly forecast, where each point represents a three hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "format": "string",
+            "description": "IP address, or auto. Example: ip=auto"
+          },
+          "days": {
+            "type": "number",
+            "format": "integer",
+            "description": "Number of days to return. Default 16."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ip",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastHourly"
+      }
+    },
+    {
+      "id": "forecast.3hourly_lat_lat_lon_lon.get",
+      "title": "forecast.3hourly_lat_lat_lon_lon.get",
+      "description": "Returns a 3-hourly forecast, where each point represents a three hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude component of location."
+          },
+          "lon": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude component of location."
+          },
+          "days": {
+            "type": "number",
+            "format": "integer",
+            "description": "Number of days to return. Default 5."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example - callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastHourly"
+      }
+    },
+    {
+      "id": "forecast.3hourly_postal_code_postal_code.get",
+      "title": "forecast.3hourly_postal_code_postal_code.get",
+      "description": "Returns a 3-hourly forecast, where each point represents a three hour period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "postal_code": {
+            "type": "integer",
+            "format": "integer",
+            "description": "Postal Code. Example: 28546"
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "days": {
+            "type": "number",
+            "format": "integer",
+            "description": "Number of days to return. Default 5."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "postal_code",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastHourly"
+      }
+    },
+    {
+      "id": "forecast.daily_city_city_country_country.get",
+      "title": "forecast.daily_city_city_country_country.get",
+      "description": "**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC. Accepts a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "format": "string",
+            "description": "City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR"
+          },
+          "state": {
+            "type": "string",
+            "format": "string",
+            "description": "Full name of state."
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "days": {
+            "type": "number",
+            "format": "integer",
+            "description": "Number of days to return. Default 16."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example - callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city",
+          "country",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastDay"
+      }
+    },
+    {
+      "id": "forecast.daily_city_id_city_id.get",
+      "title": "forecast.daily_city_id_city_id.get",
+      "description": "**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city_id": {
+            "type": "integer",
+            "format": "integer",
+            "description": "City ID. Example: 4487042"
+          },
+          "days": {
+            "type": "number",
+            "format": "integer",
+            "description": "Number of days to return. Default 16."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city_id",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastDay"
+      }
+    },
+    {
+      "id": "forecast.daily_ip_ip.get",
+      "title": "forecast.daily_ip_ip.get",
+      "description": "**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC. \n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "format": "string",
+            "description": "IP address, or auto. Example: ip=auto"
+          },
+          "days": {
+            "type": "number",
+            "format": "integer",
+            "description": "Number of days to return. Default 16."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ip",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastDay"
+      }
+    },
+    {
+      "id": "forecast.daily_lat_lat_lon_lon.get",
+      "title": "forecast.daily_lat_lat_lon_lon.get",
+      "description": "**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC. \n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude component of location."
+          },
+          "lon": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude component of location."
+          },
+          "days": {
+            "type": "number",
+            "format": "integer",
+            "description": "Number of days to return. Default 16."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastDay"
+      }
+    },
+    {
+      "id": "forecast.daily_postal_code_postal_code.get",
+      "title": "forecast.daily_postal_code_postal_code.get",
+      "description": "**(REQUIRED: Basic Plan or Higher)** Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "postal_code": {
+            "type": "integer",
+            "format": "integer",
+            "description": "Postal Code. Example: 28546"
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "days": {
+            "type": "number",
+            "format": "integer",
+            "description": "Number of days to return. Default 16."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "postal_code",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastDay"
+      }
+    },
+    {
+      "id": "forecast.hourly_city_city_country_country.get",
+      "title": "forecast.hourly_city_city_country_country.get",
+      "description": "**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. Accepts a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "format": "string",
+            "description": "City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR"
+          },
+          "state": {
+            "type": "string",
+            "format": "string",
+            "description": "Full name of state."
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "hours": {
+            "type": "integer",
+            "format": "integer",
+            "description": "Number of hours to return."
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city",
+          "country",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastHourly"
+      }
+    },
+    {
+      "id": "forecast.hourly_city_id_city_id.get",
+      "title": "forecast.hourly_city_id_city_id.get",
+      "description": "**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city_id": {
+            "type": "integer",
+            "format": "integer",
+            "description": "City ID. Example: 4487042"
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example - callback=func"
+          },
+          "hours": {
+            "type": "integer",
+            "format": "integer",
+            "description": "Number of hours to return."
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city_id",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastHourly"
+      }
+    },
+    {
+      "id": "forecast.hourly_ip_ip.get",
+      "title": "forecast.hourly_ip_ip.get",
+      "description": "**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "format": "string",
+            "description": "IP address, or auto. Example: ip=auto"
+          },
+          "days": {
+            "type": "number",
+            "format": "integer",
+            "description": "Number of days to return. Default 16."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "hours": {
+            "type": "integer",
+            "format": "integer",
+            "description": "Number of hours to return."
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ip",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastHourly"
+      }
+    },
+    {
+      "id": "forecast.hourly_lat_lat_lon_lon.get",
+      "title": "forecast.hourly_lat_lat_lon_lon.get",
+      "description": "**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude component of location."
+          },
+          "lon": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude component of location."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example - callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          },
+          "hours": {
+            "type": "integer",
+            "format": "integer",
+            "description": "Number of hours to return."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastHourly"
+      }
+    },
+    {
+      "id": "forecast.hourly_postal_code_postal_code.get",
+      "title": "forecast.hourly_postal_code_postal_code.get",
+      "description": "**(REQUIRED: Developer Plan or Higher)** Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "postal_code": {
+            "type": "integer",
+            "format": "integer",
+            "description": "Postal Code. Example: 28546"
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example - callback=func"
+          },
+          "hours": {
+            "type": "integer",
+            "format": "integer",
+            "description": "Number of hours to return."
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "postal_code",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForecastHourly"
+      }
+    },
+    {
+      "id": "history.daily_city_city_country_country.get",
+      "title": "history.daily_city_city_country_country.get",
+      "description": "Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "format": "string",
+            "description": "City search.. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR"
+          },
+          "state": {
+            "type": "string",
+            "format": "string",
+            "description": "Full name of state."
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city",
+          "country",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HistoryDay"
+      }
+    },
+    {
+      "id": "history.daily_city_id_city_id.get",
+      "title": "history.daily_city_id_city_id.get",
+      "description": "Returns Historical Observations - Given a City ID. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city_id": {
+            "type": "string",
+            "format": "string",
+            "description": "City ID. Example: 4487042"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city_id",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HistoryDay"
+      }
+    },
+    {
+      "id": "history.daily_ip_ip.get",
+      "title": "history.daily_ip_ip.get",
+      "description": "Returns Historical Observations - Given IP Address, or auto. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "format": "string",
+            "description": "IP Address, or auto. Example: ip=auto"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ip",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HistoryDay"
+      }
+    },
+    {
+      "id": "history.daily_lat_lat_lon_lon.get",
+      "title": "history.daily_lat_lat_lon_lon.get",
+      "description": "Returns Historical Observations - Given a lat, and lon. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude component of location."
+          },
+          "lon": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude component of location."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HistoryDay"
+      }
+    },
+    {
+      "id": "history.daily_postal_code_postal_code.get",
+      "title": "history.daily_postal_code_postal_code.get",
+      "description": "Returns Historical Observations - Given a Postal Code. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "postal_code": {
+            "type": "string",
+            "format": "string",
+            "description": "Postal Code. Example: 28546"
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "postal_code",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HistoryDay"
+      }
+    },
+    {
+      "id": "history.daily_station_station.get",
+      "title": "history.daily_station_station.get",
+      "description": "Returns Historical Observations - Given a station ID. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "station": {
+            "type": "string",
+            "format": "string",
+            "description": "Station ID."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "station",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HistoryDay"
+      }
+    },
+    {
+      "id": "history.energy.bbox_lat1_lat1_lon1_lon1_lat2_lat2_lon2_lon2.get",
+      "title": "history.energy.bbox_lat1_lat1_lon1_lon1_lat2_lat2_lon2_lon2.get",
+      "description": "Returns aggregate energy specific historical weather fields, over a specified time period. Supply a bounding box ex: lat1=40&lon1=-78&lat2=38&lon2=-80. This API will return UP TO 150 stations, aggregated by the specified time period start_date to end_date. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lat1": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude of upper left corner."
+          },
+          "lon1": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude of upper left corner."
+          },
+          "lat2": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude of lower right corner."
+          },
+          "lon2": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude of lower right corner."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lat1",
+          "lon1",
+          "lat2",
+          "lon2",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EnergyObsGroup"
+      }
+    },
+    {
+      "id": "history.energy_lat_lat_lon_lon.get",
+      "title": "history.energy_lat_lat_lon_lon.get",
+      "description": "Returns aggregate energy specific historical weather fields, over a specified time period.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude component of location."
+          },
+          "lon": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude component of location."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EnergyObsGroup"
+      }
+    },
+    {
+      "id": "history.hourly_city_city_country_country.get",
+      "title": "history.hourly_city_city_country_country.get",
+      "description": "Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "format": "string",
+            "description": "City search. Example - &city=Raleigh,NC or &city=Berlin,DE or city=Paris&country=FR"
+          },
+          "state": {
+            "type": "string",
+            "format": "string",
+            "description": "Full name of state."
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city",
+          "country",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/History"
+      }
+    },
+    {
+      "id": "history.hourly_city_id_city_id.get",
+      "title": "history.hourly_city_id_city_id.get",
+      "description": "Returns Historical Observations - Given a City ID. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city_id": {
+            "type": "string",
+            "format": "string",
+            "description": "City ID. Example: 4487042"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "city_id",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/History"
+      }
+    },
+    {
+      "id": "history.hourly_ip_ip.get",
+      "title": "history.hourly_ip_ip.get",
+      "description": "Returns Historical Observations - Given IP Address, or auto. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "format": "string",
+            "description": "IP Address, or auto. Example: ip=auto"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ip",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/History"
+      }
+    },
+    {
+      "id": "history.hourly_lat_lat_lon_lon.get",
+      "title": "history.hourly_lat_lat_lon_lon.get",
+      "description": "Returns Historical Observations - Given a lat, and lon. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude component of location."
+          },
+          "lon": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude component of location."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/History"
+      }
+    },
+    {
+      "id": "history.hourly_postal_code_postal_code.get",
+      "title": "history.hourly_postal_code_postal_code.get",
+      "description": "Returns Historical Observations - Given a Postal Code. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "postal_code": {
+            "type": "string",
+            "format": "string",
+            "description": "Postal Code. Example: 28546"
+          },
+          "country": {
+            "type": "string",
+            "format": "string",
+            "description": "Country Code (2 letter)."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)"
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "postal_code",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/History"
+      }
+    },
+    {
+      "id": "history.hourly_station_station.get",
+      "title": "history.hourly_station_station.get",
+      "description": "Returns Historical Observations - Given a station ID. **(LIMIT 1 day for Low Volume plans. LIMIT 7 days for Basic/Developer. LIMIT 30 days for Advanced/Advanced+/Enterprise)**",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "station": {
+            "type": "string",
+            "format": "string",
+            "description": "Station ID."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "string",
+            "description": "Start Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "string",
+            "description": "End Date (YYYY-MM-DD or YYYY-MM-DD:HH)."
+          },
+          "units": {
+            "type": "string",
+            "format": "string",
+            "description": "Convert to units. Default Metric See <a href='/api/requests'>units field description</a>",
+            "enum": [
+              "S",
+              "I"
+            ]
+          },
+          "lang": {
+            "type": "string",
+            "format": "string",
+            "description": "Language (Default: English) See <a href='/api/requests'>language field description</a>",
+            "enum": [
+              "ar",
+              "az",
+              "be",
+              "bg",
+              "bs",
+              "ca",
+              "cs",
+              "de",
+              "fi",
+              "fr",
+              "el",
+              "es",
+              "et",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "is",
+              "kw",
+              "nb",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sl",
+              "sr",
+              "sv",
+              "tr",
+              "uk",
+              "zh",
+              "zh-tw"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback. Example: callback=func"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "station",
+          "start_date",
+          "end_date",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/History"
+      }
+    },
+    {
+      "id": "ip_ip_ip.get",
+      "title": "ip_ip_ip.get",
+      "description": "Returns a geolocation object. Given an IP address. If no IP supplied, will use request IP address.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "format": "string",
+            "description": "IP address"
+          },
+          "callback": {
+            "type": "string",
+            "format": "string",
+            "description": "Wraps return in jsonp callback"
+          },
+          "exclude": {
+            "type": "string",
+            "format": "string",
+            "description": "exclude=all => return IP address only"
+          },
+          "format": {
+            "type": "string",
+            "format": "string",
+            "description": "&format=none => return IP address as string"
+          },
+          "key": {
+            "type": "string",
+            "format": "string",
+            "description": "Your registered API key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ip",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GeoIPObj"
+      }
+    }
+  ],
+  "tags": [
+    "location"
+  ]
+}

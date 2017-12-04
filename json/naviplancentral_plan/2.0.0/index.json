@@ -1,0 +1,5265 @@
+{
+  "id": "naviplancentral_plan",
+  "title": "Narrator Connect powered by NaviPlan",
+  "description": "An API for accessing NaviPlan plan data for a client.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/naviplancentral_plan.jpeg"
+  },
+  "actionCount": 43,
+  "definitions": {
+    "Advicent.Altair.Common.ServiceInformation": {
+      "properties": {
+        "altairConnectionStatus": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "serviceVersion": {
+          "$ref": "#/definitions/System.Version"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.Altair.Common.ServiceInformation"
+    },
+    "Advicent.DomainLogic.Models.ProjectedAnnualSummary.CashFlowSummary": {
+      "properties": {
+        "surplusDeficit": {
+          "format": "double",
+          "type": "number"
+        },
+        "totalIncome": {
+          "format": "double",
+          "type": "number"
+        },
+        "totalOutflowsWithTaxes": {
+          "format": "double",
+          "type": "number"
+        },
+        "totalOutflowsWithoutTaxes": {
+          "format": "double",
+          "type": "number"
+        },
+        "totalTaxes": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.DomainLogic.Models.ProjectedAnnualSummary.CashFlowSummary"
+    },
+    "Advicent.DomainLogic.Models.ProjectedAnnualSummary.NetWorthSummary": {
+      "properties": {
+        "totalAssets": {
+          "format": "double",
+          "type": "number"
+        },
+        "totalLiabilities": {
+          "format": "double",
+          "type": "number"
+        },
+        "totalNetWorth": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.DomainLogic.Models.ProjectedAnnualSummary.NetWorthSummary"
+    },
+    "Advicent.DomainLogic.Models.ProjectedAnnualSummary.ProjectedAnnualSummary": {
+      "properties": {
+        "cashFlow": {
+          "$ref": "#/definitions/Advicent.DomainLogic.Models.ProjectedAnnualSummary.CashFlowSummary"
+        },
+        "clientAge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "coClientAge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "netWorth": {
+          "$ref": "#/definitions/Advicent.DomainLogic.Models.ProjectedAnnualSummary.NetWorthSummary"
+        },
+        "year": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.DomainLogic.Models.ProjectedAnnualSummary.ProjectedAnnualSummary"
+    },
+    "Advicent.DomainLogic.Models.ProjectedCashFlow.ProjectedCashFlowSummary": {
+      "properties": {
+        "cashFlow": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowByOwner"
+        },
+        "clientAge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "coClientAge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "year": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.DomainLogic.Models.ProjectedCashFlow.ProjectedCashFlowSummary"
+    },
+    "Advicent.DomainLogic.Models.ProjectedGoals.AssetsFundingGoalSummary": {
+      "properties": {
+        "contributions": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAccumulationCategoryData"
+        },
+        "endOfYearAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAccumulationCategoryData"
+        },
+        "goalType": {
+          "type": "string"
+        },
+        "growthAndReinvestments": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAccumulationCategoryData"
+        },
+        "identifier": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "netWithdrawals": {
+          "format": "double",
+          "type": "number"
+        },
+        "withdrawals": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAccumulationCategoryData"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.DomainLogic.Models.ProjectedGoals.AssetsFundingGoalSummary"
+    },
+    "Advicent.DomainLogic.Models.ProjectedGoals.GoalNeedsVsAbilitiesSummary": {
+      "properties": {
+        "abilities": {
+          "format": "double",
+          "type": "number"
+        },
+        "fixedNeeds": {
+          "format": "double",
+          "type": "number"
+        },
+        "fixedNeedsWithTaxes": {
+          "format": "double",
+          "type": "number"
+        },
+        "goalType": {
+          "type": "string"
+        },
+        "identifier": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalNeeds": {
+          "format": "double",
+          "type": "number"
+        },
+        "totalNeedsWithTaxes": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.DomainLogic.Models.ProjectedGoals.GoalNeedsVsAbilitiesSummary"
+    },
+    "Advicent.DomainLogic.Models.ProjectedGoals.ProjectedGoalsSummary[Advicent.DomainLogic.Models.ProjectedGoals.AssetsFundingGoalSummary]": {
+      "properties": {
+        "clientAge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "coClientAge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "goals": {
+          "items": {
+            "$ref": "#/definitions/Advicent.DomainLogic.Models.ProjectedGoals.AssetsFundingGoalSummary"
+          },
+          "type": "array"
+        },
+        "year": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.DomainLogic.Models.ProjectedGoals.ProjectedGoalsSummary[Advicent.DomainLogic.Models.ProjectedGoals.AssetsFundingGoalSummary]"
+    },
+    "Advicent.DomainLogic.Models.ProjectedGoals.ProjectedGoalsSummary[Advicent.DomainLogic.Models.ProjectedGoals.GoalNeedsVsAbilitiesSummary]": {
+      "properties": {
+        "clientAge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "coClientAge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "goals": {
+          "items": {
+            "$ref": "#/definitions/Advicent.DomainLogic.Models.ProjectedGoals.GoalNeedsVsAbilitiesSummary"
+          },
+          "type": "array"
+        },
+        "year": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.DomainLogic.Models.ProjectedGoals.ProjectedGoalsSummary[Advicent.DomainLogic.Models.ProjectedGoals.GoalNeedsVsAbilitiesSummary]"
+    },
+    "Advicent.DomainLogic.Models.ProjectedNetWorth.ProjectedNetWorthSummary": {
+      "properties": {
+        "clientAge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "coClientAge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "endOfYearNetWorth": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate"
+        },
+        "year": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.DomainLogic.Models.ProjectedNetWorth.ProjectedNetWorthSummary"
+    },
+    "Advicent.PublishedPlanService.Auth.Models.LoginModel": {
+      "properties": {
+        "npoIdentifiers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "password": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Auth.Models.LoginModel"
+    },
+    "Advicent.PublishedPlanService.Models.AdvisorModel": {
+      "properties": {
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "advisorId": {
+          "type": "string"
+        },
+        "advisorTitle": {
+          "type": "string"
+        },
+        "businessPhone": {
+          "type": "string"
+        },
+        "cellPhone": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "faxPhone": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "homePhone": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "middleName": {
+          "type": "string"
+        },
+        "officeName": {
+          "type": "string"
+        },
+        "officeWebsite": {
+          "type": "string"
+        },
+        "pagerNumber": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.AdvisorModel"
+    },
+    "Advicent.PublishedPlanService.Models.AdvisorsModel": {
+      "properties": {
+        "advisors": {
+          "items": {
+            "$ref": "#/definitions/Advicent.PublishedPlanService.Models.AdvisorModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.AdvisorsModel"
+    },
+    "Advicent.PublishedPlanService.Models.AssetsFundingGoalModel": {
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "projections": {
+          "items": {
+            "$ref": "#/definitions/Advicent.DomainLogic.Models.ProjectedGoals.ProjectedGoalsSummary[Advicent.DomainLogic.Models.ProjectedGoals.AssetsFundingGoalSummary]"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.AssetsFundingGoalModel"
+    },
+    "Advicent.PublishedPlanService.Models.AssumptionsModel": {
+      "properties": {
+        "assumptions": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IAssumptions"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.AssumptionsModel"
+    },
+    "Advicent.PublishedPlanService.Models.BusinessEntitiesModel": {
+      "properties": {
+        "businessEntities": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntity"
+          },
+          "type": "array"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.BusinessEntitiesModel"
+    },
+    "Advicent.PublishedPlanService.Models.BusinessEntityModel": {
+      "properties": {
+        "businessEntity": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntity"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.BusinessEntityModel"
+    },
+    "Advicent.PublishedPlanService.Models.CashFlowProjectionModel": {
+      "properties": {
+        "cashFlow": {
+          "$ref": "#/definitions/Advicent.DomainLogic.Models.ProjectedCashFlow.ProjectedCashFlowSummary"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.CashFlowProjectionModel"
+    },
+    "Advicent.PublishedPlanService.Models.CashFlowProjectionsModel": {
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "projections": {
+          "items": {
+            "$ref": "#/definitions/Advicent.PublishedPlanService.Models.CashFlowProjectionModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.CashFlowProjectionsModel"
+    },
+    "Advicent.PublishedPlanService.Models.DefinedBenefitPensionModel": {
+      "properties": {
+        "definedBenefitPension": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.DefinedBenefitPensionData.IDefinedBenefitPension"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.DefinedBenefitPensionModel"
+    },
+    "Advicent.PublishedPlanService.Models.DefinedBenefitPensionsModel": {
+      "properties": {
+        "definedBenefitPensions": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.DefinedBenefitPensionData.IDefinedBenefitPension"
+          },
+          "type": "array"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.DefinedBenefitPensionsModel"
+    },
+    "Advicent.PublishedPlanService.Models.FamilyModel": {
+      "properties": {
+        "family": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamily"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.FamilyModel"
+    },
+    "Advicent.PublishedPlanService.Models.GoalModel": {
+      "properties": {
+        "goal": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.GoalData.IGoal"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.GoalModel"
+    },
+    "Advicent.PublishedPlanService.Models.GoalsModel": {
+      "properties": {
+        "goals": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.GoalData.IGoal"
+          },
+          "type": "array"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.GoalsModel"
+    },
+    "Advicent.PublishedPlanService.Models.HoldingCompaniesModel": {
+      "properties": {
+        "holdingCompanies": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IHoldingCompany"
+          },
+          "type": "array"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.HoldingCompaniesModel"
+    },
+    "Advicent.PublishedPlanService.Models.HoldingCompanyModel": {
+      "properties": {
+        "holdingCompany": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IHoldingCompany"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.HoldingCompanyModel"
+    },
+    "Advicent.PublishedPlanService.Models.LiabilitiesModel": {
+      "properties": {
+        "liabilities": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILiability"
+          },
+          "type": "array"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.LiabilitiesModel"
+    },
+    "Advicent.PublishedPlanService.Models.LiabilityModel": {
+      "properties": {
+        "liability": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILiability"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.LiabilityModel"
+    },
+    "Advicent.PublishedPlanService.Models.LifestyleAssetModel": {
+      "properties": {
+        "lifestyleAsset": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.LifestyleAssetData.ILifestyleAsset"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.LifestyleAssetModel"
+    },
+    "Advicent.PublishedPlanService.Models.LifestyleAssetsModel": {
+      "properties": {
+        "lifestyleAssets": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.LifestyleAssetData.ILifestyleAsset"
+          },
+          "type": "array"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.LifestyleAssetsModel"
+    },
+    "Advicent.PublishedPlanService.Models.NeedsVsAbilitiesModel": {
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "projections": {
+          "items": {
+            "$ref": "#/definitions/Advicent.DomainLogic.Models.ProjectedGoals.ProjectedGoalsSummary[Advicent.DomainLogic.Models.ProjectedGoals.GoalNeedsVsAbilitiesSummary]"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.NeedsVsAbilitiesModel"
+    },
+    "Advicent.PublishedPlanService.Models.NetWorthModel": {
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "netWorth": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorth"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.NetWorthModel"
+    },
+    "Advicent.PublishedPlanService.Models.NetWorthProjectionModel": {
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "netWorth": {
+          "$ref": "#/definitions/Advicent.DomainLogic.Models.ProjectedNetWorth.ProjectedNetWorthSummary"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.NetWorthProjectionModel"
+    },
+    "Advicent.PublishedPlanService.Models.NetWorthProjectionsModel": {
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "projections": {
+          "items": {
+            "$ref": "#/definitions/Advicent.PublishedPlanService.Models.NetWorthProjectionModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.NetWorthProjectionsModel"
+    },
+    "Advicent.PublishedPlanService.Models.PlanInformationModel": {
+      "properties": {
+        "country": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "isJointAnalysis": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "locale": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "planDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "planDescription": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "planId": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "planLevel": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "planModules": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.IPlanModules",
+          "readOnly": true
+        },
+        "planType": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.PlanInformationModel"
+    },
+    "Advicent.PublishedPlanService.Models.PortfolioAccountModel": {
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "portfolioAccount": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAccount"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.PortfolioAccountModel"
+    },
+    "Advicent.PublishedPlanService.Models.PortfolioAccountsModel": {
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "portfolioAccounts": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAccount"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.PortfolioAccountsModel"
+    },
+    "Advicent.PublishedPlanService.Models.ProjectedAnnualSummariesModel": {
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "projections": {
+          "items": {
+            "$ref": "#/definitions/Advicent.PublishedPlanService.Models.ProjectedAnnualSummaryModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.ProjectedAnnualSummariesModel"
+    },
+    "Advicent.PublishedPlanService.Models.ProjectedAnnualSummaryModel": {
+      "properties": {
+        "annualSummary": {
+          "$ref": "#/definitions/Advicent.DomainLogic.Models.ProjectedAnnualSummary.ProjectedAnnualSummary"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.ProjectedAnnualSummaryModel"
+    },
+    "Advicent.PublishedPlanService.Models.PublicSessionInfoModel": {
+      "properties": {
+        "eulaAccepted": {
+          "type": "boolean"
+        },
+        "hasAccountAggregation": {
+          "type": "boolean"
+        },
+        "hasUserSetPassword": {
+          "type": "boolean"
+        },
+        "isAdmin": {
+          "type": "boolean"
+        },
+        "isAdvisor": {
+          "type": "boolean"
+        },
+        "isClient": {
+          "type": "boolean"
+        },
+        "planIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.PublicSessionInfoModel"
+    },
+    "Advicent.PublishedPlanService.Models.RestrictedStockModel": {
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "restrictedStock": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IRestrictedStock"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.RestrictedStockModel"
+    },
+    "Advicent.PublishedPlanService.Models.RestrictedStocksModel": {
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "restrictedStocks": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IRestrictedStock"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.RestrictedStocksModel"
+    },
+    "Advicent.PublishedPlanService.Models.StockOptionModel": {
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "stockOption": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IStockOption"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.StockOptionModel"
+    },
+    "Advicent.PublishedPlanService.Models.StockOptionsModel": {
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Advicent.Web.Base.Links.ObjectLink"
+          },
+          "type": "array"
+        },
+        "stockOptions": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IStockOption"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Models.StockOptionsModel"
+    },
+    "Advicent.PublishedPlanService.Password.Models.ResetPasswordModel": {
+      "properties": {
+        "locale": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Password.Models.ResetPasswordModel"
+    },
+    "Advicent.PublishedPlanService.Password.Models.SetPasswordModel": {
+      "properties": {
+        "newPassword": {
+          "type": "string"
+        },
+        "oldPassword": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.PublishedPlanService.Password.Models.SetPasswordModel"
+    },
+    "Advicent.Web.Base.Links.ObjectLink": {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Advicent.Web.Base.Links.ObjectLink"
+    },
+    "NaviPlan.PlanObjectModel.IPlanModules": {
+      "properties": {
+        "isCriticalIllnessModuleEnabled": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "isDisabilityIncomeModuleEnabled": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "isEstatePlanningModuleEabled": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "isLongTermCareModuleEnabled": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "isSurvivorIncomeModuleEnabled": {
+          "readOnly": true,
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.IPlanModules"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntity": {
+      "properties": {
+        "activities": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntityActivity"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "assetId": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.IAssetId",
+          "readOnly": true
+        },
+        "businessType": {
+          "enum": [
+            "Undefined",
+            "LLC",
+            "Partnership",
+            "SCorporation",
+            "CCorporation"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "businessTypeFormatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "currentAnnualDistributions": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "currentAnnualDividends": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "currentAnnualGrowthRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "currentAnnualNetIncome": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "entityName": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "liquidationEvent": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.ILiquidationEvent",
+          "readOnly": true
+        },
+        "marketValuationDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "marketValue": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "owner": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "purchaseAmount": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "purchaseDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "standardDeviation": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntity"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntityActivity": {
+      "properties": {
+        "applicableDateRange": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedDateRange",
+          "readOnly": true
+        },
+        "distributions": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "expense": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "frequency": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]",
+          "readOnly": true
+        },
+        "income": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "indexRate": {
+          "$ref": "#/definitions/NaviPlan.Util.GrowthRateValues",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntityActivity"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.ILiquidationEvent": {
+      "properties": {
+        "firstSaleDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "lastSaleDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "liquidationType": {
+          "enum": [
+            "SellAtPlanEnd",
+            "SellAllOnSpecificDate",
+            "SellInInstallments"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "liquidationTypeDescription": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "saleDatesDescription": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.ILiquidationEvent"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IRestrictedStock": {
+      "properties": {
+        "annualDividendPerUnit": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "applicableRangeRetirementLiquidatedAssets": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedDateRange",
+          "readOnly": true
+        },
+        "awardedDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "currentUnitValue": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "growthRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "id": {
+          "$ref": "#/definitions/NaviPlan.Util.NaviplanItemIdentifier",
+          "readOnly": true
+        },
+        "numberOfUnits": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "owner": {
+          "enum": [
+            "All",
+            "Head1",
+            "Head2",
+            "NonHead1",
+            "NonHead2",
+            "NonHead3",
+            "NonHead4",
+            "NonHead5",
+            "NonHead6",
+            "NonHead7",
+            "NonHead8",
+            "NonHead9",
+            "CommunityProperty",
+            "Joint",
+            "Other",
+            "AllDependents",
+            "AllFamilyMembers"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "pricePaidForAward": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "type": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IRestrictedStock"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IStockOption": {
+      "properties": {
+        "annualDividendPerUnit": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "applicableRangeRetirementLiquidatedAssets": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedDateRange",
+          "readOnly": true
+        },
+        "company": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "currentUnitPrice": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "currentUnitPriceDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "endOfPlanYearExercisableGrossValue": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "exerciseCost": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "expirationDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "grantDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "grantedOptions": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "growthRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "id": {
+          "$ref": "#/definitions/NaviPlan.Util.NaviplanItemIdentifier",
+          "readOnly": true
+        },
+        "optionsExercisable": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "optionsExercised": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "optionsVested": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "owner": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "preTaxProfit": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "startOfYearAMTBasis": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "startOfYearCostBasis": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "startOfYearUnitPrice": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "strikePrice": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "symbol": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "NonQualifiedStockOption",
+            "IncentiveStockOption"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "typeFormatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "vestingSchedule": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IVestingData"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IStockOption"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IVestingData": {
+      "properties": {
+        "date": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "percentVested": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IVestingData"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IHoldingCompany": {
+      "properties": {
+        "annualDividendYield": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "commonSharesOutstanding": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "corporateYearEnd": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "dividendType": {
+          "enum": [
+            "Taxable",
+            "NonTaxable"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "dividendTypeFormatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "id": {
+          "$ref": "#/definitions/NaviPlan.Util.NaviplanItemIdentifier",
+          "readOnly": true
+        },
+        "investmentAccounts": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IInvestmentAccount"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "marketValue": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "numPreferredShareClasses": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "ownershipAsOfDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "ownershipDetails": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipDetails",
+          "readOnly": true
+        },
+        "preferredSharesOutstanding": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "provinceOfIncorporation": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "provinceOfTaxation": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "valueOfAllCommonShares": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "valueOfAllPreferredShares": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IHoldingCompany"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IInvestmentAccount": {
+      "properties": {
+        "annualFee": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "costBasis": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "excludeInAA": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "id": {
+          "$ref": "#/definitions/NaviPlan.Util.NaviplanItemIdentifier",
+          "readOnly": true
+        },
+        "marketValue": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "rateOfReturn": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnDetails",
+          "readOnly": true
+        },
+        "type": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "valuationDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IInvestmentAccount"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IInvestmentAccountOwnershipData": {
+      "properties": {
+        "owner": {
+          "enum": [
+            "All",
+            "Head1",
+            "Head2",
+            "NonHead1",
+            "NonHead2",
+            "NonHead3",
+            "NonHead4",
+            "NonHead5",
+            "NonHead6",
+            "NonHead7",
+            "NonHead8",
+            "NonHead9",
+            "CommunityProperty",
+            "Joint",
+            "Other",
+            "AllDependents",
+            "AllFamilyMembers"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "ownersName": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "ownershipPercent": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IInvestmentAccountOwnershipData"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipData": {
+      "properties": {
+        "marketValue": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "owner": {
+          "enum": [
+            "All",
+            "Head1",
+            "Head2",
+            "NonHead1",
+            "NonHead2",
+            "NonHead3",
+            "NonHead4",
+            "NonHead5",
+            "NonHead6",
+            "NonHead7",
+            "NonHead8",
+            "NonHead9",
+            "CommunityProperty",
+            "Joint",
+            "Other",
+            "AllDependents",
+            "AllFamilyMembers"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "ownersName": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "ownershipPercent": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "shares": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipData"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipDetails": {
+      "properties": {
+        "common": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipData"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "preferred": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipData"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "shareholderPercentOwnership": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IInvestmentAccountOwnershipData"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipDetails"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.ISEPPRedemptionStrategy": {
+      "properties": {
+        "applicableDateRange": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedDateRange",
+          "readOnly": true
+        },
+        "distributionMethod": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.SEPPDistributionMethod]",
+          "readOnly": true
+        },
+        "lifeExpectancyTable": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.SEPPLifeExpectancyTable]",
+          "readOnly": true
+        },
+        "redemptionFrequency": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.ISEPPRedemptionStrategy"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.LifestyleAssetData.ILifestyleAsset": {
+      "properties": {
+        "afterTaxProceedsAccountName": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "futureValueProjectedGrossSaleValue": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "id": {
+          "$ref": "#/definitions/NaviPlan.Util.NaviplanItemIdentifier",
+          "readOnly": true
+        },
+        "marketValueAsOf": {
+          "$ref": "#/definitions/NaviPlan.Util.CurrencyWithDate",
+          "readOnly": true
+        },
+        "owner": {
+          "enum": [
+            "All",
+            "Head1",
+            "Head2",
+            "NonHead1",
+            "NonHead2",
+            "NonHead3",
+            "NonHead4",
+            "NonHead5",
+            "NonHead6",
+            "NonHead7",
+            "NonHead8",
+            "NonHead9",
+            "CommunityProperty",
+            "Joint",
+            "Other",
+            "AllDependents",
+            "AllFamilyMembers"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "preTaxGrowthRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "presentValueProjectedGrossSaleValue": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "projectedSaleDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "purchaseAmount": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "purchaseDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "standardDeviation": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "type": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedLifestyleType",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.LifestyleAssetData.ILifestyleAsset"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ILumpSumRedemptionStrategy": {
+      "properties": {
+        "amountOrPercentOfValue": {
+          "$ref": "#/definitions/NaviPlan.Util.PercentOr[NaviPlan.Util.Currency]",
+          "readOnly": true
+        },
+        "indexRate": {
+          "$ref": "#/definitions/NaviPlan.Util.GrowthRateValues",
+          "readOnly": true
+        },
+        "redemptionDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ILumpSumRedemptionStrategy"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ILumpSumSavingsStrategy": {
+      "properties": {
+        "amountOrPercentOfSalary": {
+          "$ref": "#/definitions/NaviPlan.Util.PercentOr[NaviPlan.Util.Currency]",
+          "readOnly": true
+        },
+        "formattedSavingsTypeWithDash": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "indexRate": {
+          "$ref": "#/definitions/NaviPlan.Util.GrowthRateValues",
+          "readOnly": true
+        },
+        "savingsDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "savingsType": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.SavingsStrategyType]",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ILumpSumSavingsStrategy"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPeriodicRedemptionStrategy": {
+      "properties": {
+        "amountOrPercentOfValue": {
+          "$ref": "#/definitions/NaviPlan.Util.PercentOr[NaviPlan.Util.Currency]",
+          "readOnly": true
+        },
+        "applicableDateRange": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedDateRange",
+          "readOnly": true
+        },
+        "indexRate": {
+          "$ref": "#/definitions/NaviPlan.Util.GrowthRateValues",
+          "readOnly": true
+        },
+        "redemptionFrequency": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPeriodicRedemptionStrategy"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPeriodicSavingsStrategy": {
+      "properties": {
+        "amountOrPercentOfSalary": {
+          "$ref": "#/definitions/NaviPlan.Util.PercentOr[NaviPlan.Util.Currency]",
+          "readOnly": true
+        },
+        "endDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "formattedFrequencyAbbrv": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedSavingsTypeWithDash": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "indexRate": {
+          "$ref": "#/definitions/NaviPlan.Util.GrowthRateValues",
+          "readOnly": true
+        },
+        "savingsFrequency": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]",
+          "readOnly": true
+        },
+        "savingsType": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.SavingsStrategyType]",
+          "readOnly": true
+        },
+        "startDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPeriodicSavingsStrategy"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAccount": {
+      "properties": {
+        "annualFee": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "applicableRangeRetirementLiquidatedAssets": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedDateRange",
+          "readOnly": true
+        },
+        "costBasis": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "descriptionWithOwner": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "excludeInAA": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "id": {
+          "$ref": "#/definitions/NaviPlan.Util.NaviplanItemIdentifier",
+          "readOnly": true
+        },
+        "isSystemGenerated": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "marketValue": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "owner": {
+          "enum": [
+            "All",
+            "Head1",
+            "Head2",
+            "NonHead1",
+            "NonHead2",
+            "NonHead3",
+            "NonHead4",
+            "NonHead5",
+            "NonHead6",
+            "NonHead7",
+            "NonHead8",
+            "NonHead9",
+            "CommunityProperty",
+            "Joint",
+            "Other",
+            "AllDependents",
+            "AllFamilyMembers"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "portfolioAssets": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAsset"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "rateOfReturn": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnDetails",
+          "readOnly": true
+        },
+        "savingsStrategies": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ISavingsStrategies",
+          "readOnly": true
+        },
+        "seppRedemptionStrategy": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.ISEPPRedemptionStrategy",
+          "readOnly": true
+        },
+        "type": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "valuationDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAccount"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAsset": {
+      "properties": {
+        "applicableRangeRetirementLiquidatedAssets": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedDateRange",
+          "readOnly": true
+        },
+        "costBasis": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "goalFundingDescription": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "goalFundingGoalId": {
+          "$ref": "#/definitions/NaviPlan.Util.GoalId",
+          "readOnly": true
+        },
+        "id": {
+          "$ref": "#/definitions/NaviPlan.Util.NaviplanItemIdentifier",
+          "readOnly": true
+        },
+        "incomeReinvested": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.AssetAllocation.IReturnIncomeReinvestedDetails",
+          "readOnly": true
+        },
+        "isSystemGenerated": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "marketValue": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "parentAccountId": {
+          "$ref": "#/definitions/NaviPlan.Util.NaviplanItemIdentifier",
+          "readOnly": true
+        },
+        "rateOfReturn": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnDetails",
+          "readOnly": true
+        },
+        "redemptionStrategies": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IRedemptionStrategies",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAsset"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IRedemptionStrategies": {
+      "properties": {
+        "lumpSumRedemptionStrategies": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ILumpSumRedemptionStrategy"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "periodicRedemptionStrategies": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPeriodicRedemptionStrategy"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IRedemptionStrategies"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IRrspMaximizerStrategy": {
+      "properties": {
+        "applicable": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "applicableRange": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedDateRange",
+          "readOnly": true
+        },
+        "assetName": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "constrainedByCashflow": {
+          "$ref": "#/definitions/NaviPlan.Util.DescriptiveBoolean",
+          "readOnly": true
+        },
+        "month": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IRrspMaximizerStrategy"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ISavingsStrategies": {
+      "properties": {
+        "lumpSumSavingsStrategies": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ILumpSumSavingsStrategy"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "periodicSavingsStrategies": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPeriodicSavingsStrategy"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "rrspMaximizerStrategies": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IRrspMaximizerStrategy"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "surplusSavingsStrategies": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ISurplusSavingsStrategy"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ISavingsStrategies"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ISurplusSavingsStrategy": {
+      "properties": {
+        "endDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "percentOfSurplus": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "startDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ISurplusSavingsStrategy"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.DefinedBenefitPensionData.IDefinedBenefitPension": {
+      "properties": {
+        "benefit": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Benefit[NaviPlan.Util.CurrencyWithGrowth]]",
+          "readOnly": true
+        },
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "isBenefitFormula": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "isBenefitIntegratedWithCppQpp": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "isFormulaIntegratedWithCppQpp": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "owner": {
+          "enum": [
+            "Client",
+            "CoClient"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "pensionType": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "percentPayableToSurvivor": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "projectedYearsOfService": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "startDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.DefinedBenefitPensionData.IDefinedBenefitPension"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.GoalData.IGoal": {
+      "properties": {
+        "assetsRemainingAfterFundingGoal": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Currency]",
+          "readOnly": true
+        },
+        "coverage": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.GoalCoveragePercent]",
+          "readOnly": true
+        },
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "endDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "identifier": {
+          "$ref": "#/definitions/NaviPlan.Util.GoalId",
+          "readOnly": true
+        },
+        "startDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "type": {
+          "enum": [
+            "Retirement",
+            "SurvivorIncome",
+            "CriticalIllness",
+            "LongTermCareInsurance",
+            "Cashflow",
+            "DisabilityIncome",
+            "Education",
+            "MajorPurchase",
+            "EmergencyFund",
+            "Undefined",
+            "NotSupported"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "yearAssetsDepleted": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Year]",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.GoalData.IGoal"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.IDebtModStrategies": {
+      "properties": {
+        "lumpSumDebtModStrategies": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILumpSumDebtModStrategy"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "periodicDebtModStrategies": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.IPeriodicDebtModStrategy"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.IDebtModStrategies"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILiability": {
+      "properties": {
+        "annualPaymentAmount": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "balanceAsOf": {
+          "$ref": "#/definitions/NaviPlan.Util.CurrencyWithDate",
+          "readOnly": true
+        },
+        "balanceAsOfPlanDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "debtModStrategies": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.IDebtModStrategies",
+          "readOnly": true
+        },
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "insuredForDisability": {
+          "$ref": "#/definitions/NaviPlan.Util.DescriptiveBoolean",
+          "readOnly": true
+        },
+        "insuredForLife": {
+          "$ref": "#/definitions/NaviPlan.Util.DescriptiveBoolean",
+          "readOnly": true
+        },
+        "interestRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "isInterestRateVariable": {
+          "$ref": "#/definitions/NaviPlan.Util.DescriptiveBoolean",
+          "readOnly": true
+        },
+        "linkedAssetName": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "loanDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "originalBalance": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "owner": {
+          "enum": [
+            "All",
+            "Head1",
+            "Head2",
+            "NonHead1",
+            "NonHead2",
+            "NonHead3",
+            "NonHead4",
+            "NonHead5",
+            "NonHead6",
+            "NonHead7",
+            "NonHead8",
+            "NonHead9",
+            "CommunityProperty",
+            "Joint",
+            "Other",
+            "AllDependents",
+            "AllFamilyMembers"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "paidOffByRetirement": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.DescriptiveBoolean]",
+          "readOnly": true
+        },
+        "payOffDate": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Date]",
+          "readOnly": true
+        },
+        "payOffOptionType": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.PayOffOptionsType]",
+          "readOnly": true
+        },
+        "paymentAmount": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Currency]",
+          "readOnly": true
+        },
+        "paymentFrequency": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]",
+          "readOnly": true
+        },
+        "paymentType": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.Util.PaymentType]",
+          "readOnly": true
+        },
+        "type": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.LiabilityType]",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILiability"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILumpSumDebtModStrategy": {
+      "properties": {
+        "amount": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "debtModificationDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "indexRate": {
+          "$ref": "#/definitions/NaviPlan.Util.GrowthRateValues",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILumpSumDebtModStrategy"
+    },
+    "NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.IPeriodicDebtModStrategy": {
+      "properties": {
+        "amount": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "applicableDateRange": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedDateRange",
+          "readOnly": true
+        },
+        "debtModificationFrequency": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]",
+          "readOnly": true
+        },
+        "indexRate": {
+          "$ref": "#/definitions/NaviPlan.Util.GrowthRateValues",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.IPeriodicDebtModStrategy"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IAssumptions": {
+      "properties": {
+        "anyHeadAlreadyRetired": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "bothRetired": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "bucketing": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IBucketing",
+          "readOnly": true
+        },
+        "client": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IHeadAssumptions",
+          "readOnly": true
+        },
+        "coClient": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IHeadAssumptions",
+          "readOnly": true
+        },
+        "firstToDieDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "firstToDieMember": {
+          "enum": [
+            "Client",
+            "CoClient"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "firstToRetireDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "inflationRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "lastToDieDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "lastToDieMember": {
+          "enum": [
+            "Client",
+            "CoClient"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "lastToRetireDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "retirementYearAdjustedIfAlreadyRetired": {
+          "$ref": "#/definitions/NaviPlan.Util.Year",
+          "readOnly": true
+        },
+        "taxMethod": {
+          "enum": [
+            "Average",
+            "Simplified",
+            "Detailed"
+          ],
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IAssumptions"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IBucketing": {
+      "properties": {
+        "distributionBucketTargetBalance": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "endDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "indexedAt": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "returnRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "standardDeviation": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "startDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IBucketing"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.ICanadianGovernmentPensions": {
+      "properties": {
+        "canadianOrQuebecPensionPlan": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "oldAgeSecurity": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.ICanadianGovernmentPensions"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IGovernmentPensions": {
+      "properties": {
+        "estimatedCanadianGovernmentPensions": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.ICanadianGovernmentPensions",
+          "readOnly": true
+        },
+        "estimatedSocialSecurity": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IGovernmentPensions"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IHeadAssumptions": {
+      "properties": {
+        "alreadyRetired": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "deceasedAge": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "deceasedDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "estateIncomeTaxes": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IIncomeTaxes",
+          "readOnly": true
+        },
+        "governmentPensions": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IGovernmentPensions",
+          "readOnly": true
+        },
+        "maritalOrTaxFilingStatus": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedMaritalOrTaxFilingStatus",
+          "readOnly": true
+        },
+        "preRetirementIncomeTaxes": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IIncomeTaxes",
+          "readOnly": true
+        },
+        "retirementAge": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "retirementDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "retirementIncomeTaxes": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IIncomeTaxes",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IHeadAssumptions"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IIncomeTaxes": {
+      "properties": {
+        "averageTaxRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "combinedStateAndAverageTaxRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "combinedStateAndLongTermCapitalGainsTaxRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "combinedStateAndMarginalTaxRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "longTermCapitalGainsTaxRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "marginalTaxRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "stateTaxRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IIncomeTaxes"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlow": {
+      "properties": {
+        "incomes": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowIncomes",
+          "readOnly": true
+        },
+        "outflows": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowOutflows",
+          "readOnly": true
+        },
+        "surplusDeficit": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "taxes": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ITaxes",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlow"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowByOwner": {
+      "properties": {
+        "clientCashFlow": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlow",
+          "readOnly": true
+        },
+        "coClientCashFlow": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlow",
+          "readOnly": true
+        },
+        "totalCashFlow": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlow",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowByOwner"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory": {
+      "properties": {
+        "isItemizedEnabled": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "itemized": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowItem"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "total": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowIncomes": {
+      "properties": {
+        "annuityPayments": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "disabilityIncomes": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "earnedIncome": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "holdingCompanies": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "insuranceBenefits": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "investmentIncomes": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "lifestyleAssetLiquidations": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "lockedInLiquidations": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "longTermCareBenefits": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "miscellaneousIncomes": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "nonQualifiedLiquidations": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "pension": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "qualifiedLiquidations": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "qualifiedLiquidationsNonRequiredMinimumDistributions": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "requiredMinimumDistributions": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "retirementIncome": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "rothLiquidations": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "socialSecurity": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "tfsaLiquidations": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "total": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "withdrawals": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowIncomes"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowItem": {
+      "properties": {
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "descriptionWithOwner": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "isCPP": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "isOAS": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "sourceId": {
+          "$ref": "#/definitions/NaviPlan.Util.NaviplanItemIdentifier",
+          "readOnly": true
+        },
+        "value": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowItem"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowOutflows": {
+      "properties": {
+        "contributions": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "educationExpenses": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "employerExpenses": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "employmentBusinessExpenses": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "holdingCompanyOutflows": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "investmentExpenses": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "lifestyleExpenses": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "lifestyleExpensesDiscretionary": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "lifestyleExpensesFixed": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "lockedInContributions": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "medicalExpenses": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "miscellaneousExpenses": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "miscellaneousExpensesDiscretionary": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "miscellaneousExpensesFixed": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "nonQualifiedContributions": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "nonQualifiedReinvestments": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "qualifiedContributions": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "rothContributions": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "surplusOutflows": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory",
+          "readOnly": true
+        },
+        "surplusSavings": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "tfsaContributions": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "totalNeeds": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "totalWithTaxes": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "totalWithoutTaxes": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowOutflows"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ITaxes": {
+      "properties": {
+        "estate": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "federalIncome": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "giftAndGenerationSkippingTransfer": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "medicare": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "pensionEarlyDistributionPenalty": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "pensionPenaltyOnExcessDistributions": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "refundableCredits": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "socialSecurityEmployer": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "socialSecuritySelfEmployed": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "stateIncome": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "total": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ITaxes"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IDependent": {
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.Demographics.IAddress",
+          "readOnly": true
+        },
+        "ageAsOfPlanDate": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "birthdate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "citizenship": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "dependentOf": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "dependentOfId": {
+          "enum": [
+            "All",
+            "Head1",
+            "Head2",
+            "NonHead1",
+            "NonHead2",
+            "NonHead3",
+            "NonHead4",
+            "NonHead5",
+            "NonHead6",
+            "NonHead7",
+            "NonHead8",
+            "NonHead9",
+            "CommunityProperty",
+            "Joint",
+            "Other",
+            "AllDependents",
+            "AllFamilyMembers"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "email": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "employer": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IEmployer",
+          "readOnly": true
+        },
+        "gender": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.Gender]",
+          "readOnly": true
+        },
+        "name": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.Demographics.IPersonName",
+          "readOnly": true
+        },
+        "ownershipId": {
+          "enum": [
+            "All",
+            "Head1",
+            "Head2",
+            "NonHead1",
+            "NonHead2",
+            "NonHead3",
+            "NonHead4",
+            "NonHead5",
+            "NonHead6",
+            "NonHead7",
+            "NonHead8",
+            "NonHead9",
+            "CommunityProperty",
+            "Joint",
+            "Other",
+            "AllDependents",
+            "AllFamilyMembers"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "phone": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.Demographics.IPhoneNumbers",
+          "readOnly": true
+        },
+        "relationship": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IDependent"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IEmployer": {
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.Demographics.IAddress",
+          "readOnly": true
+        },
+        "name": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "phone": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.Demographics.IBusinessPhoneNumbers",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IEmployer"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamily": {
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.Demographics.IAddress",
+          "readOnly": true
+        },
+        "client": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamilyMember",
+          "readOnly": true
+        },
+        "coClient": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamilyMember",
+          "readOnly": true
+        },
+        "dependents": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IDependent"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "headFullNames": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamily"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamilyMember": {
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.Demographics.IAddress",
+          "readOnly": true
+        },
+        "ageAsOfPlanDate": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "birthdate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "citizenship": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "email": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "employer": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IEmployer",
+          "readOnly": true
+        },
+        "gender": {
+          "$ref": "#/definitions/NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.Gender]",
+          "readOnly": true
+        },
+        "name": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.Demographics.IPersonName",
+          "readOnly": true
+        },
+        "ownershipId": {
+          "enum": [
+            "All",
+            "Head1",
+            "Head2",
+            "NonHead1",
+            "NonHead2",
+            "NonHead3",
+            "NonHead4",
+            "NonHead5",
+            "NonHead6",
+            "NonHead7",
+            "NonHead8",
+            "NonHead9",
+            "CommunityProperty",
+            "Joint",
+            "Other",
+            "AllDependents",
+            "AllFamilyMembers"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "phone": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.Demographics.IPhoneNumbers",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamilyMember"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAccumulationCategoryData": {
+      "properties": {
+        "allAssets": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "lockedIn": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "nonQualified": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "qualified": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "roth": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "tfsa": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAccumulationCategoryData"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories": {
+      "properties": {
+        "allAssets": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.IValueDescriptionPair[NaviPlan.Util.Currency]"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "businessAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "holdingCompany": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "lifestyleAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "nonQualifiedAnnuities": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "nonQualifiedAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "qualifiedAnnuities": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "qualifiedAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "realEstate": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "totalAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssets": {
+      "properties": {
+        "allAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories",
+          "readOnly": true
+        },
+        "clientAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories",
+          "readOnly": true
+        },
+        "coClientAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories",
+          "readOnly": true
+        },
+        "communityPropertyAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories",
+          "readOnly": true
+        },
+        "jointAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssets"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.ILiabilities": {
+      "properties": {
+        "clientLiabilities": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "coClientLiabilities": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "communityPropertyLiabilities": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "jointLiabilities": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "totalLiabilities": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.ILiabilities"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorth": {
+      "properties": {
+        "netWorthAtPlanDate": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate",
+          "readOnly": true
+        },
+        "netWorthAtPlanEnd": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate]",
+          "readOnly": true
+        },
+        "netWorthAtRetirement": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate]",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorth"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate": {
+      "properties": {
+        "assets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssets",
+          "readOnly": true
+        },
+        "assetsFundingRetirement": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssets",
+          "readOnly": true
+        },
+        "clientNetWorth": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "coClientNetWorth": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "communityPropertyNetWorth": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "jointNetWorth": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "liabilities": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.ILiabilities",
+          "readOnly": true
+        },
+        "totalNetWorth": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory": {
+      "properties": {
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "itemized": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.IKeyedValueDescriptionPair[NaviPlan.Util.NaviplanItemIdentifier,NaviPlan.Util.Currency]"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "total": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories": {
+      "properties": {
+        "allAssets": {
+          "items": {
+            "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.IValueDescriptionPair[NaviPlan.Util.Currency]"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "nonQualifiedAnnuities": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "nonQualifiedAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "qualifiedAnnuities": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "qualifiedAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        },
+        "totalAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories"
+    },
+    "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssets": {
+      "properties": {
+        "allAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories",
+          "readOnly": true
+        },
+        "clientAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories",
+          "readOnly": true
+        },
+        "coClientAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories",
+          "readOnly": true
+        },
+        "communityPropertyAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories",
+          "readOnly": true
+        },
+        "jointAssets": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories",
+          "readOnly": true
+        },
+        "withdrawalRate": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssets"
+    },
+    "NaviPlan.PlanObjectModel.Util.AssetAllocation.IPeriodRateOfReturnDetails": {
+      "properties": {
+        "breakdown": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnBreakdown",
+          "readOnly": true
+        },
+        "standardDeviation": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "total": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.AssetAllocation.IPeriodRateOfReturnDetails"
+    },
+    "NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnBreakdown": {
+      "properties": {
+        "capitalGain": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "deferredGrowth": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "dividend": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "interest": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "taxFree": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnBreakdown"
+    },
+    "NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnDetails": {
+      "properties": {
+        "preRetirement": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.AssetAllocation.IPeriodRateOfReturnDetails",
+          "readOnly": true
+        },
+        "retirement": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.AssetAllocation.IPeriodRateOfReturnDetails",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnDetails"
+    },
+    "NaviPlan.PlanObjectModel.Util.AssetAllocation.IReturnIncomeReinvestedDetails": {
+      "properties": {
+        "duringPreRetirementPeriod": {
+          "$ref": "#/definitions/NaviPlan.Util.DescriptiveBoolean",
+          "readOnly": true
+        },
+        "duringRetirementPeriod": {
+          "$ref": "#/definitions/NaviPlan.Util.DescriptiveBoolean",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.AssetAllocation.IReturnIncomeReinvestedDetails"
+    },
+    "NaviPlan.PlanObjectModel.Util.Demographics.IAddress": {
+      "properties": {
+        "city": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "combinedCityStateProvince": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "country": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "stateOrProvince": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "stateOrProvinceAbbrev": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "street1": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "street2": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "zipOrPostalCode": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.Demographics.IAddress"
+    },
+    "NaviPlan.PlanObjectModel.Util.Demographics.IBusinessPhoneNumbers": {
+      "properties": {
+        "business": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "fax": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.Demographics.IBusinessPhoneNumbers"
+    },
+    "NaviPlan.PlanObjectModel.Util.Demographics.IPersonName": {
+      "properties": {
+        "firstName": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formal": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "full": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "lastName": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "middle": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "title": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.Demographics.IPersonName"
+    },
+    "NaviPlan.PlanObjectModel.Util.Demographics.IPhoneNumbers": {
+      "properties": {
+        "additionalNumbers": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.Util.Demographics.IBusinessPhoneNumbers",
+          "readOnly": true
+        },
+        "business": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "cell": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "fax": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "home": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "pager": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.Demographics.IPhoneNumbers"
+    },
+    "NaviPlan.PlanObjectModel.Util.IAssetId": {
+      "properties": {
+        "rawId": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.IAssetId"
+    },
+    "NaviPlan.PlanObjectModel.Util.IKeyedValueDescriptionPair[NaviPlan.Util.NaviplanItemIdentifier,NaviPlan.Util.Currency]": {
+      "properties": {
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "key": {
+          "$ref": "#/definitions/NaviPlan.Util.NaviplanItemIdentifier",
+          "readOnly": true
+        },
+        "value": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.IKeyedValueDescriptionPair[NaviPlan.Util.NaviplanItemIdentifier,NaviPlan.Util.Currency]"
+    },
+    "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate]": {
+      "properties": {
+        "enabled": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "populated": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "value": {
+          "$ref": "#/definitions/NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate]"
+    },
+    "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Benefit[NaviPlan.Util.CurrencyWithGrowth]]": {
+      "properties": {
+        "enabled": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "populated": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "value": {
+          "$ref": "#/definitions/NaviPlan.Util.Benefit[NaviPlan.Util.CurrencyWithGrowth]",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Benefit[NaviPlan.Util.CurrencyWithGrowth]]"
+    },
+    "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Currency]": {
+      "properties": {
+        "enabled": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "populated": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "value": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Currency]"
+    },
+    "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Date]": {
+      "properties": {
+        "enabled": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "populated": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "value": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Date]"
+    },
+    "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.DescriptiveBoolean]": {
+      "properties": {
+        "enabled": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "populated": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "value": {
+          "$ref": "#/definitions/NaviPlan.Util.DescriptiveBoolean",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.DescriptiveBoolean]"
+    },
+    "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.GoalCoveragePercent]": {
+      "properties": {
+        "enabled": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "populated": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "value": {
+          "$ref": "#/definitions/NaviPlan.Util.GoalCoveragePercent",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.GoalCoveragePercent]"
+    },
+    "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Year]": {
+      "properties": {
+        "enabled": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "populated": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "value": {
+          "$ref": "#/definitions/NaviPlan.Util.Year",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Year]"
+    },
+    "NaviPlan.PlanObjectModel.Util.IValueDescriptionPair[NaviPlan.Util.Currency]": {
+      "properties": {
+        "description": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.PlanObjectModel.Util.IValueDescriptionPair[NaviPlan.Util.Currency]"
+    },
+    "NaviPlan.Util.Benefit[NaviPlan.Util.CurrencyWithGrowth]": {
+      "properties": {
+        "benefitType": {
+          "enum": [
+            "DeathBenefit",
+            "MonthlyBenefit",
+            "DailyBenefit",
+            "MaximumBenefit",
+            "WeeklyBenefit",
+            "AnnualBenefit",
+            "LumpSum"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedBenefitType": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/NaviPlan.Util.CurrencyWithGrowth",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.Benefit[NaviPlan.Util.CurrencyWithGrowth]"
+    },
+    "NaviPlan.Util.Currency": {
+      "properties": {
+        "formattedDecimal": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedNoDecimal": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "raw": {
+          "format": "double",
+          "readOnly": true,
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.Currency"
+    },
+    "NaviPlan.Util.CurrencyWithDate": {
+      "properties": {
+        "date": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "formattedDecimal": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedNoDecimal": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "raw": {
+          "format": "double",
+          "readOnly": true,
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.CurrencyWithDate"
+    },
+    "NaviPlan.Util.CurrencyWithGrowth": {
+      "properties": {
+        "formattedDecimal": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedNoDecimal": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "growth": {
+          "$ref": "#/definitions/NaviPlan.Util.GrowthRateValues",
+          "readOnly": true
+        },
+        "raw": {
+          "format": "double",
+          "readOnly": true,
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.CurrencyWithGrowth"
+    },
+    "NaviPlan.Util.Date": {
+      "properties": {
+        "day": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "formatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedMMMMddyyyy": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedMMMdd": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedMMMddyyyy": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedMMMyyyy": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedNA": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "month": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "toDateTime": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "urlEncoded": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "year": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.Date"
+    },
+    "NaviPlan.Util.DescriptiveBoolean": {
+      "properties": {
+        "rawValue": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "valueAsYesNo": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.DescriptiveBoolean"
+    },
+    "NaviPlan.Util.FormattedDateRange": {
+      "properties": {
+        "endDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        },
+        "formattedValue": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "startDate": {
+          "$ref": "#/definitions/NaviPlan.Util.Date",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.FormattedDateRange"
+    },
+    "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]": {
+      "properties": {
+        "formatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedAbbrv": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "enum": [
+            "Annual",
+            "SemiAnnual",
+            "Quarterly",
+            "Bimonthly",
+            "Monthly",
+            "TwiceMonthly",
+            "BiWeekly",
+            "Weekly",
+            "Daily",
+            "Continuously",
+            "Onetime",
+            "EveryXYears"
+          ],
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]"
+    },
+    "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.SavingsStrategyType]": {
+      "properties": {
+        "formatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedAbbrv": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "enum": [
+            "PreTax",
+            "PostTax",
+            "Employer",
+            "Owner",
+            "Mandatory"
+          ],
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.SavingsStrategyType]"
+    },
+    "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.SEPPDistributionMethod]": {
+      "properties": {
+        "formatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedAbbrv": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "enum": [
+            "RequiredMinDistribution",
+            "Amortization",
+            "Annuitization"
+          ],
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.SEPPDistributionMethod]"
+    },
+    "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.SEPPLifeExpectancyTable]": {
+      "properties": {
+        "formatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedAbbrv": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "enum": [
+            "NOT_APPLICABLE_UPPER_CASE",
+            "SingleLifeExpectancy",
+            "NonSingleLifeExpectancy"
+          ],
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.SEPPLifeExpectancyTable]"
+    },
+    "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.LiabilityType]": {
+      "properties": {
+        "formatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedAbbrv": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "enum": [
+            "Personal",
+            "Business",
+            "CreditCard",
+            "Mortgage",
+            "Vehicle",
+            "PolicyLoan"
+          ],
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.LiabilityType]"
+    },
+    "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.PayOffOptionsType]": {
+      "properties": {
+        "formatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedAbbrv": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "enum": [
+            "TransferToSurvivor",
+            "PayOffAtFirstDeath",
+            "PayOffAtOwnerDeath",
+            "InsuredForLife"
+          ],
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.PayOffOptionsType]"
+    },
+    "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.Gender]": {
+      "properties": {
+        "formatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedAbbrv": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "enum": [
+            "Male",
+            "Female"
+          ],
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.Gender]"
+    },
+    "NaviPlan.Util.FormattedEnumType[NaviPlan.Util.PaymentType]": {
+      "properties": {
+        "formatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedAbbrv": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "enum": [
+            "InterestOnly",
+            "PrincipalAndInterest",
+            "SetPayment",
+            "LastPeriodPayment"
+          ],
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.FormattedEnumType[NaviPlan.Util.PaymentType]"
+    },
+    "NaviPlan.Util.FormattedLifestyleType": {
+      "properties": {
+        "formatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "enum": [
+            "Undefined",
+            "PersonalUse",
+            "ListedPersonal",
+            "PrimaryResidence",
+            "SecondaryResidence",
+            "BusinessInterest",
+            "Automobile"
+          ],
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.FormattedLifestyleType"
+    },
+    "NaviPlan.Util.FormattedMaritalOrTaxFilingStatus": {
+      "properties": {
+        "formatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "enum": [
+            "Undefined",
+            "Single",
+            "HeadOfHousehold",
+            "MarriedFilingJointly",
+            "MarriedFilingSeparately",
+            "SingleParent",
+            "Married",
+            "CommonLaw",
+            "Partner",
+            "Divorced",
+            "Widowed",
+            "Separated"
+          ],
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.FormattedMaritalOrTaxFilingStatus"
+    },
+    "NaviPlan.Util.GoalCoveragePercent": {
+      "properties": {
+        "formatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedRaw": {
+          "format": "double",
+          "readOnly": true,
+          "type": "number"
+        },
+        "raw": {
+          "format": "double",
+          "readOnly": true,
+          "type": "number"
+        },
+        "rawCappedAt100": {
+          "format": "double",
+          "readOnly": true,
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.GoalCoveragePercent"
+    },
+    "NaviPlan.Util.GoalId": {
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.GoalId"
+    },
+    "NaviPlan.Util.GrowthRateValues": {
+      "properties": {
+        "additionalGrowthPercent": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        },
+        "isInflationAdjusted": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "totalGrowth": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.GrowthRateValues"
+    },
+    "NaviPlan.Util.NaviplanItemIdentifier": {
+      "properties": {},
+      "type": "object",
+      "title": "NaviPlan.Util.NaviplanItemIdentifier"
+    },
+    "NaviPlan.Util.Percent": {
+      "properties": {
+        "formattedDoubleDecimal": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedNoDecimal": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedSingleDecimal": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "raw": {
+          "format": "double",
+          "readOnly": true,
+          "type": "number"
+        },
+        "rawCappedAt100": {
+          "format": "double",
+          "readOnly": true,
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.Percent"
+    },
+    "NaviPlan.Util.PercentOr[NaviPlan.Util.Currency]": {
+      "properties": {
+        "currency": {
+          "$ref": "#/definitions/NaviPlan.Util.Currency",
+          "readOnly": true
+        },
+        "formattedDecimal": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedNoDecimal": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "formattedPercentDoubleDecimalCurrenyNoDecimal": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "isCurrency": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "isNonZero": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "isPercent": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "percent": {
+          "$ref": "#/definitions/NaviPlan.Util.Percent",
+          "readOnly": true
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.PercentOr[NaviPlan.Util.Currency]"
+    },
+    "NaviPlan.Util.Year": {
+      "properties": {
+        "formatted": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "raw": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "NaviPlan.Util.Year"
+    },
+    "System.Object": {
+      "properties": {},
+      "type": "object",
+      "title": "System.Object"
+    },
+    "System.Version": {
+      "properties": {
+        "build": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "major": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "majorRevision": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "minor": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "minorRevision": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "revision": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "System.Version"
+    }
+  },
+  "actions": [
+    {
+      "id": "Advisors_Get",
+      "title": "Advisors_Get",
+      "description": "This operation retrieves a list of all of the Advisors in the plan.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.AdvisorsModel"
+      }
+    },
+    {
+      "id": "Advisors_GetById",
+      "title": "Advisors_GetById",
+      "description": "This operation retrieves an Advisor from the plan.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.AdvisorModel"
+      }
+    },
+    {
+      "id": "Assumptions_GetByPlanidScenariotype",
+      "title": "Assumptions_GetByPlanidScenariotype",
+      "description": "This operation retrieves an object containing all assumptions for the specified plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.AssumptionsModel"
+      }
+    },
+    {
+      "id": "BusinessEntities_GetByPlanidScenariotype",
+      "title": "BusinessEntities_GetByPlanidScenariotype",
+      "description": "This operation retrieves a list of all of the business entities in the plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.BusinessEntitiesModel"
+      }
+    },
+    {
+      "id": "BusinessEntities_GetByIdPlanidScenariotype",
+      "title": "BusinessEntities_GetByIdPlanidScenariotype",
+      "description": "This operation retrieves a business entity from the plan.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of business entity to retrieve"
+          },
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.BusinessEntityModel"
+      }
+    },
+    {
+      "id": "Calculations_GetByPlanidScenariotype",
+      "title": "Calculations_GetByPlanidScenariotype",
+      "description": "Currently just stubbed out, POC in development",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "id": "DefinedBenefitPensions_GetByPlanidScenariotype",
+      "title": "DefinedBenefitPensions_GetByPlanidScenariotype",
+      "description": "This operation retrieves a list of all of the defined benefit pensions in the plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.DefinedBenefitPensionsModel"
+      }
+    },
+    {
+      "id": "DefinedBenefitPensions_GetByIdPlanidScenariotype",
+      "title": "DefinedBenefitPensions_GetByIdPlanidScenariotype",
+      "description": "This operation retrieves a defined benefit pension from the plan.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of defined benefit pension to retrieve"
+          },
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.DefinedBenefitPensionModel"
+      }
+    },
+    {
+      "id": "Eula_Accept",
+      "title": "Eula_Accept",
+      "description": "Accepts the EULA",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "Family_GetByPlanidScenariotype",
+      "title": "Family_GetByPlanidScenariotype",
+      "description": "This operation retrieves an object containing all familymembers for the specified plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.FamilyModel"
+      }
+    },
+    {
+      "id": "Goals_GetByPlanidScenariotype",
+      "title": "Goals_GetByPlanidScenariotype",
+      "description": "This operation retrieves a list of all of the goals in the plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.GoalsModel"
+      }
+    },
+    {
+      "id": "Goals_GetByIdPlanidScenariotype",
+      "title": "Goals_GetByIdPlanidScenariotype",
+      "description": "This operation retrieves a goal from the plan.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of goal to retrieve"
+          },
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.GoalModel"
+      }
+    },
+    {
+      "id": "HoldingCompanies_GetByPlanidScenariotype",
+      "title": "HoldingCompanies_GetByPlanidScenariotype",
+      "description": "This operation retrieves a list of all of the holding companies in the plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.HoldingCompaniesModel"
+      }
+    },
+    {
+      "id": "HoldingCompanies_GetByIdPlanidScenariotype",
+      "title": "HoldingCompanies_GetByIdPlanidScenariotype",
+      "description": "This operation retrieves a holding company from the plan.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of holding company to retrieve"
+          },
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.HoldingCompanyModel"
+      }
+    },
+    {
+      "id": "Liabilities_GetByPlanidScenariotype",
+      "title": "Liabilities_GetByPlanidScenariotype",
+      "description": "This operation retrieves a list of all of the liabilities in the plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.LiabilitiesModel"
+      }
+    },
+    {
+      "id": "Liabilities_GetByIdPlanidScenariotype",
+      "title": "Liabilities_GetByIdPlanidScenariotype",
+      "description": "This operation retrieves a liability from the plan.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of liability to retrieve"
+          },
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.LiabilityModel"
+      }
+    },
+    {
+      "id": "LifestyleAssets_GetByPlanidScenariotype",
+      "title": "LifestyleAssets_GetByPlanidScenariotype",
+      "description": "This operation retrieves a list of all of the lifestyle assets in the plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.LifestyleAssetsModel"
+      }
+    },
+    {
+      "id": "LifestyleAssets_GetByIdPlanidScenariotype",
+      "title": "LifestyleAssets_GetByIdPlanidScenariotype",
+      "description": "This operation retrieves a lifestyle asset from the plan.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of lifestyle asset to retrieve"
+          },
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.LifestyleAssetModel"
+      }
+    },
+    {
+      "id": "NetWorth_GetByPlanidScenariotype",
+      "title": "NetWorth_GetByPlanidScenariotype",
+      "description": "This operation retrieves an object containing net worth values for specific dates within the plan:\r\n              * Plan Start Date\r\n              * Retirement Date\r\n              * Plan End Date.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.NetWorthModel"
+      }
+    },
+    {
+      "id": "Password_HasUserSetPassword",
+      "title": "Password_HasUserSetPassword",
+      "description": "Determines if the currently logged in user has set their own password",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "Password_PasswordRequirements",
+      "title": "Password_PasswordRequirements",
+      "description": "Gets the password complexity requirements",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "Password_ResetByModel",
+      "title": "Password_ResetByModel",
+      "description": "Resets the password for the supplied user name",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "$ref": "#/definitions/Advicent.PublishedPlanService.Password.Models.ResetPasswordModel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "Password_SetByModel",
+      "title": "Password_SetByModel",
+      "description": "Sets the password for the currently logged in user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "$ref": "#/definitions/Advicent.PublishedPlanService.Password.Models.SetPasswordModel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "PlanInformation_GetByPlanidScenariotype",
+      "title": "PlanInformation_GetByPlanidScenariotype",
+      "description": "This operation retrieves the high level plan information for a given plan",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.PlanInformationModel"
+      }
+    },
+    {
+      "id": "PortfolioAccounts_GetByPlanidScenariotype",
+      "title": "PortfolioAccounts_GetByPlanidScenariotype",
+      "description": "This operation retrieves a list of all of the portfolio accounts in the plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.PortfolioAccountsModel"
+      }
+    },
+    {
+      "id": "PortfolioAccounts_GetByIdPlanidScenariotype",
+      "title": "PortfolioAccounts_GetByIdPlanidScenariotype",
+      "description": "This operation retrieves a portfolio account from the plan.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of portfolio account to retrieve"
+          },
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.PortfolioAccountModel"
+      }
+    },
+    {
+      "id": "ProjectedAnnualSummary_GetByPlanidScenariotype",
+      "title": "ProjectedAnnualSummary_GetByPlanidScenariotype",
+      "description": "This operation retrieves an object containing annual summary information \r\n              for each year of the projected plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.ProjectedAnnualSummariesModel"
+      }
+    },
+    {
+      "id": "ProjectedAnnualSummary_GetByIdPlanidScenariotype",
+      "title": "ProjectedAnnualSummary_GetByIdPlanidScenariotype",
+      "description": "This operation retrieves an object containing annual summary information \r\n              for a single specified year of the projected plan.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Index into the list of annual projections"
+          },
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.ProjectedAnnualSummaryModel"
+      }
+    },
+    {
+      "id": "ProjectedCashFlow_GetByPlanidScenariotype",
+      "title": "ProjectedCashFlow_GetByPlanidScenariotype",
+      "description": "This operation retrieves an object containing cash flow information \r\n              for each year of the projected plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.CashFlowProjectionsModel"
+      }
+    },
+    {
+      "id": "ProjectedCashFlow_GetByIdPlanidScenariotype",
+      "title": "ProjectedCashFlow_GetByIdPlanidScenariotype",
+      "description": "This operation retrieves an object containing cash flow information \r\n              for a single specified year of the projected plan.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Index into the list of annual projections"
+          },
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.CashFlowProjectionModel"
+      }
+    },
+    {
+      "id": "ProjectedGoals_GetAssetsFundingGoalsByPlanidScenariotype",
+      "title": "ProjectedGoals_GetAssetsFundingGoalsByPlanidScenariotype",
+      "description": "This operation retrieves the assets funding each goal throughout the plan years",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.AssetsFundingGoalModel"
+      }
+    },
+    {
+      "id": "ProjectedGoals_GetNeedsVsAbilitiesByPlanidScenariotype",
+      "title": "ProjectedGoals_GetNeedsVsAbilitiesByPlanidScenariotype",
+      "description": "This operation retrieves a needs and abilities data for all goals throughout\r\n              the plan years.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.NeedsVsAbilitiesModel"
+      }
+    },
+    {
+      "id": "ProjectedNetWorth_GetByPlanidScenariotype",
+      "title": "ProjectedNetWorth_GetByPlanidScenariotype",
+      "description": "This operation retrieves an object containing net worth information \r\n              for each year of the projected plan. These are EOY numbers.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.NetWorthProjectionsModel"
+      }
+    },
+    {
+      "id": "ProjectedNetWorth_GetByIdPlanidScenariotype",
+      "title": "ProjectedNetWorth_GetByIdPlanidScenariotype",
+      "description": "This operation retrieves an object containing net worth information \r\n              for a single specified year of the projected plan. These are EOY numbers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Index into the list of annual projections"
+          },
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.NetWorthProjectionModel"
+      }
+    },
+    {
+      "id": "RestrictedStocks_GetByPlanidScenariotype",
+      "title": "RestrictedStocks_GetByPlanidScenariotype",
+      "description": "This operation retrieves a list of all of the restricted stocks in the plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.RestrictedStocksModel"
+      }
+    },
+    {
+      "id": "RestrictedStocks_GetByIdPlanidScenariotype",
+      "title": "RestrictedStocks_GetByIdPlanidScenariotype",
+      "description": "This operation retrieves a restricted stock from the plan.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of restricted stock to retrieve"
+          },
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.RestrictedStockModel"
+      }
+    },
+    {
+      "id": "ServiceInformation_Statistics",
+      "title": "ServiceInformation_Statistics",
+      "description": "This resource can be used to check the status of the service.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.Altair.Common.ServiceInformation"
+      }
+    },
+    {
+      "id": "StockOptions_GetByPlanidScenariotype",
+      "title": "StockOptions_GetByPlanidScenariotype",
+      "description": "This operation retrieves a list of all of the stock options in the plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.StockOptionsModel"
+      }
+    },
+    {
+      "id": "StockOptions_GetByIdPlanidScenariotype",
+      "title": "StockOptions_GetByIdPlanidScenariotype",
+      "description": "This operation retrieves a stock option from the plan.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of stock option to retrieve"
+          },
+          "planId": {
+            "type": "string",
+            "description": "Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access."
+          },
+          "scenarioType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Type of plan to retrieve data from (0:Current-default, 1:Recommended)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.StockOptionModel"
+      }
+    },
+    {
+      "id": "Auth_LoginByModel",
+      "title": "Auth_LoginByModel",
+      "description": "Start a session with the DomainProviders user store",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "$ref": "#/definitions/Advicent.PublishedPlanService.Auth.Models.LoginModel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.PublicSessionInfoModel"
+      }
+    },
+    {
+      "id": "Auth_PasswordRequirements",
+      "title": "Auth_PasswordRequirements",
+      "description": "Gets the login rules",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "Auth_Logout",
+      "title": "Auth_Logout",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "Auth_ResumeSession",
+      "title": "Auth_ResumeSession",
+      "description": "Validate a session",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Advicent.PublishedPlanService.Models.PublicSessionInfoModel"
+      }
+    }
+  ],
+  "tags": [
+    "financial"
+  ]
+}

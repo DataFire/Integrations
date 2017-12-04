@@ -1,0 +1,2202 @@
+{
+  "id": "mcw_edu",
+  "title": "Rat Genome Database",
+  "description": "The RGD REST API provides programmatic access to information and annotation stored in Rat Genome Database",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mcw_edu.jpeg"
+  },
+  "actionCount": 55,
+  "definitions": {
+    "Annotation": {
+      "properties": {
+        "annotatedObjectRgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "aspect": {
+          "type": "string"
+        },
+        "createdBy": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "dataSrc": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "string"
+        },
+        "expRgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "key": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "lastModifiedBy": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "lastModifiedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "objectName": {
+          "type": "string"
+        },
+        "objectSymbol": {
+          "type": "string"
+        },
+        "qualifier": {
+          "type": "string"
+        },
+        "refRgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "relativeTo": {
+          "type": "string"
+        },
+        "rgdObjectKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "speciesTypeKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "term": {
+          "type": "string"
+        },
+        "termAcc": {
+          "type": "string"
+        },
+        "withInfo": {
+          "type": "string"
+        },
+        "xrefSource": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Annotation"
+    },
+    "Gene": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "function": {
+          "type": "string"
+        },
+        "key": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "ncbiAnnotStatus": {
+          "type": "string"
+        },
+        "nomenReviewDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "refSeqStatus": {
+          "type": "string"
+        },
+        "rgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "soAccId": {
+          "type": "string"
+        },
+        "speciesTypeKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "variant": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "Gene"
+    },
+    "Map": {
+      "properties": {
+        "dbsnpVersion": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "history": {
+          "type": "string"
+        },
+        "key": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "length": {
+          "type": "string"
+        },
+        "methodKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "primaryRefAssembly": {
+          "type": "boolean"
+        },
+        "rank": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "rgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "speciesTypeKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Map"
+    },
+    "MapPair": {
+      "properties": {
+        "keyValue": {
+          "type": "string"
+        },
+        "stringValue": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "MapPair"
+    },
+    "MappedGene": {
+      "properties": {
+        "chromosome": {
+          "type": "string"
+        },
+        "gene": {
+          "$ref": "#/definitions/Gene"
+        },
+        "mapKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "start": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "stop": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "strand": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "MappedGene"
+    },
+    "Pathway": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "hasAlteredPath": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "objectList": {
+          "items": {
+            "$ref": "#/definitions/PathwayObject"
+          },
+          "type": "array"
+        },
+        "pathwayCategories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "referenceList": {
+          "items": {
+            "$ref": "#/definitions/Reference"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Pathway"
+    },
+    "PathwayObject": {
+      "properties": {
+        "accId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "objDesc": {
+          "type": "string"
+        },
+        "objName": {
+          "type": "string"
+        },
+        "typeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "typeName": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "xdb_key": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "PathwayObject"
+    },
+    "QTL": {
+      "properties": {
+        "chromosome": {
+          "type": "string"
+        },
+        "flank1RgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "flank2RgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "inheritanceType": {
+          "type": "string"
+        },
+        "key": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "linkageImage": {
+          "type": "string"
+        },
+        "lod": {
+          "format": "double",
+          "type": "number"
+        },
+        "lodImage": {
+          "type": "string"
+        },
+        "mostSignificantCmoTerm": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "peakOffset": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "peakRgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pvalue": {
+          "format": "double",
+          "type": "number"
+        },
+        "rgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "sourceUrl": {
+          "type": "string"
+        },
+        "speciesTypeKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "variance": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "QTL"
+    },
+    "Reference": {
+      "properties": {
+        "citation": {
+          "type": "string"
+        },
+        "doi": {
+          "type": "string"
+        },
+        "editors": {
+          "type": "string"
+        },
+        "issue": {
+          "type": "string"
+        },
+        "key": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "pages": {
+          "type": "string"
+        },
+        "pubDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "pubStatus": {
+          "type": "string"
+        },
+        "publication": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "publisherCity": {
+          "type": "string"
+        },
+        "refAbstract": {
+          "type": "string"
+        },
+        "referenceType": {
+          "type": "string"
+        },
+        "rgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "speciesTypeKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "urlWebReference": {
+          "type": "string"
+        },
+        "volume": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Reference"
+    },
+    "Status": {
+      "properties": {
+        "cryopreservedEmbryo": {
+          "type": "boolean"
+        },
+        "cryopreservedSperm": {
+          "type": "boolean"
+        },
+        "cryorecovery": {
+          "type": "boolean"
+        },
+        "key": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "liveAnimals": {
+          "type": "boolean"
+        },
+        "statusDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "strainRgdId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Status"
+    },
+    "Strain": {
+      "properties": {
+        "backgroundStrainRgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "chrAltered": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "geneticStatus": {
+          "type": "string"
+        },
+        "genetics": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "inbredGen": {
+          "type": "string"
+        },
+        "key": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "lastStatus": {
+          "type": "string"
+        },
+        "lastStatusObject": {
+          "$ref": "#/definitions/Status"
+        },
+        "modificationMethod": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "researchUse": {
+          "type": "string"
+        },
+        "rgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
+        },
+        "speciesTypeKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "statusLog": {
+          "items": {
+            "$ref": "#/definitions/Status"
+          },
+          "type": "array"
+        },
+        "strain": {
+          "type": "string"
+        },
+        "strainTypeName": {
+          "type": "string"
+        },
+        "substrain": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Strain"
+    }
+  },
+  "actions": [
+    {
+      "id": "getTermAccIdsUsingGET",
+      "title": "getTermAccIdsUsingGET",
+      "description": "Returns a list ontology term accession IDs annotated to an rgd object",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rgdId": {
+            "type": "integer",
+            "format": "int32",
+            "description": "RGD ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rgdId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/MapPair"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getAnnotationCountByAccIdUsingGET",
+      "title": "getAnnotationCountByAccIdUsingGET",
+      "description": "Returns annotation count for ontology accession ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accId": {
+            "type": "string",
+            "description": "Ontology term accession ID"
+          },
+          "includeChildren": {
+            "type": "boolean",
+            "description": "true: return annotations for the term and children, false: return annotations for the term only "
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accId",
+          "includeChildren"
+        ]
+      },
+      "outputSchema": {
+        "format": "int32",
+        "type": "integer"
+      }
+    },
+    {
+      "id": "getAnnotationCountByAccIdAndSpeciesUsingGET",
+      "title": "getAnnotationCountByAccIdAndSpeciesUsingGET",
+      "description": "Returns annotation count for ontology accession ID and speicies",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accId": {
+            "type": "string",
+            "description": "Ontology term accession ID"
+          },
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A list of species type keys can be found using the lookup service"
+          },
+          "includeChildren": {
+            "type": "boolean",
+            "description": "true: return annotations for the term and children, false: return annotations for the term only "
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accId",
+          "speciesTypeKey",
+          "includeChildren"
+        ]
+      },
+      "outputSchema": {
+        "format": "int32",
+        "type": "integer"
+      }
+    },
+    {
+      "id": "getAnnotationCountByAccIdAndObjectTypeUsingGET",
+      "title": "getAnnotationCountByAccIdAndObjectTypeUsingGET",
+      "description": "Returns annotation count for ontology accession ID and object type",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accId": {
+            "type": "string",
+            "description": "Ontology term accession ID"
+          },
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A list of species type keys can be found using the lookup service"
+          },
+          "includeChildren": {
+            "type": "boolean",
+            "description": "true: return annotations for the term and children, false: return annotations for the term only "
+          },
+          "objectType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A list of object types can be found using the lookup service"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accId",
+          "speciesTypeKey",
+          "includeChildren",
+          "objectType"
+        ]
+      },
+      "outputSchema": {
+        "format": "int32",
+        "type": "integer"
+      }
+    },
+    {
+      "id": "getAnnotsByRefrerenceUsingGET",
+      "title": "getAnnotsByRefrerenceUsingGET",
+      "description": "Returns a list of annotations for a reference",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "refRgdId": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Reference RGD ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "refRgdId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Annotation"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getAnnotationsByRgdIdUsingGET",
+      "title": "getAnnotationsByRgdIdUsingGET",
+      "description": "Returns a list of annotations by RGD ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rgdId": {
+            "type": "integer",
+            "format": "int32",
+            "description": "RGD ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rgdId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Annotation"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getAnnotationsByRgdIdAndOntologyUsingGET",
+      "title": "getAnnotationsByRgdIdAndOntologyUsingGET",
+      "description": "Returns a list of annotations by RGD ID and ontology prefix",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rgdId": {
+            "type": "integer",
+            "format": "int32",
+            "description": "RGD ID"
+          },
+          "ontologyPrefix": {
+            "type": "string",
+            "description": "Ontology Prefix.  The prefix can be found left of the semicolon in an ontology term accession ID.  As an example, term accession PW:0000034 has the ontology prefix PW"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rgdId",
+          "ontologyPrefix"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Annotation"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getAnnotationsByAccIdAndRgdIdUsingGET",
+      "title": "getAnnotationsByAccIdAndRgdIdUsingGET",
+      "description": "Returns a list of annotations by RGD ID and ontology term accession ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accId": {
+            "type": "string",
+            "description": "Ontology Term Accession ID"
+          },
+          "rgdId": {
+            "type": "integer",
+            "format": "int32",
+            "description": "RGD ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accId",
+          "rgdId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Annotation"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getAnnotationsUsingGET",
+      "title": "getAnnotationsUsingGET",
+      "description": "Returns a list annotations for an ontology term or a term and it's children",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accId": {
+            "type": "string",
+            "description": "Ontology term accession ID"
+          },
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A list of species type keys can be found using the lookup service"
+          },
+          "includeChildren": {
+            "type": "boolean",
+            "description": "true: return annotations for the term and children, false: return annotations for the term only "
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accId",
+          "speciesTypeKey",
+          "includeChildren"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Annotation"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getGenesByAffyIdUsingGET",
+      "title": "getGenesByAffyIdUsingGET",
+      "description": "Return a list of genes for an affymetrix ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "affyId": {
+            "type": "string",
+            "description": "Affymetrix ID"
+          },
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A list of RGD species type keys can be found in the lookup service"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "affyId",
+          "speciesTypeKey"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Gene"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getGenesByAliasSymbolUsingGET",
+      "title": "getGenesByAliasSymbolUsingGET",
+      "description": "Return a list of genes for an alias and species",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "aliasSymbol": {
+            "type": "string",
+            "description": "Gene alias symbol"
+          },
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A list of RGD species type keys can be found in the lookup service"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "aliasSymbol",
+          "speciesTypeKey"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Gene"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getGeneAllelesUsingGET",
+      "title": "getGeneAllelesUsingGET",
+      "description": "Return a list of gene alleles",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rgdId": {
+            "type": "integer",
+            "format": "int32",
+            "description": "RGD ID of gene"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rgdId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Gene"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getGenesAnnotatedUsingGET",
+      "title": "getGenesAnnotatedUsingGET",
+      "description": "Return a list of genes annotated to an ontology term",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accId": {
+            "type": "string",
+            "description": "Ontology term accession ID"
+          },
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Species type key.  A list of species type keys can be found in the lookup service"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accId",
+          "speciesTypeKey"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Gene"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getGenesByKeywordUsingGET",
+      "title": "getGenesByKeywordUsingGET",
+      "description": "Return a list of genes by keyword and species type key",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "description": "Search keyword"
+          },
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Species type key.  A list of species type keys can be found in the lookup service"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "keyword",
+          "speciesTypeKey"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Gene"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getGeneByMapKeyUsingGET",
+      "title": "getGeneByMapKeyUsingGET",
+      "description": "Return a list of all genes with position information for an assembly",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mapKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A list of RGD assembly map keys can be found in the lookup service"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mapKey"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/MappedGene"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getGeneOrthologsUsingGET",
+      "title": "getGeneOrthologsUsingGET",
+      "description": "Return a list of gene orthologs",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rgdId": {
+            "type": "integer",
+            "format": "int32",
+            "description": "RGD ID of a gene"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rgdId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Gene"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getGenesBySpeciesUsingGET",
+      "title": "getGenesBySpeciesUsingGET",
+      "description": "Return a list of all genes for a species in RGD",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A list of RGD species type keys can be found in the lookup service"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Gene"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getGenesByPositionUsingGET",
+      "title": "getGenesByPositionUsingGET",
+      "description": "Return a list of genes position and map key",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "chr": {
+            "type": "string",
+            "description": "Chromosome"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start Position"
+          },
+          "stop": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Stop Position"
+          },
+          "mapKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A list of RGD assembly map keys can be found in the lookup service"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "chr",
+          "start",
+          "stop",
+          "mapKey"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Gene"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getGeneByRgdIdUsingGET",
+      "title": "getGeneByRgdIdUsingGET",
+      "description": "Get a gene record by RGD ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rgdId": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The RGD ID of a Gene in RGD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rgdId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Gene"
+      }
+    },
+    {
+      "id": "getGeneBySymbolUsingGET",
+      "title": "getGeneBySymbolUsingGET",
+      "description": "Get a gene record by symbol and species type key",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Gene Symbol"
+          },
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Species type key.  A list of species type keys can be found in the lookup service"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "symbol",
+          "speciesTypeKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Gene"
+      }
+    },
+    {
+      "id": "getGeneTypesUsingGET",
+      "title": "getGeneTypesUsingGET",
+      "description": "Returns a list of gene types avialable in RGD",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getMapsUsingGET",
+      "title": "getMapsUsingGET",
+      "description": "Return a list assembly maps for a species",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "RGD species type key. A full list of keys is available throught the lookup service.  1=human, 2=mouse, 3=rat,ect"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Map"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getSpeciesTypesUsingGET",
+      "title": "getSpeciesTypesUsingGET",
+      "description": "Return a Map of species type keys available in RGD",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "id": "searchPathwaysUsingGET",
+      "title": "searchPathwaysUsingGET",
+      "description": "Return a list of pathways based on search term",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "searchString": {
+            "type": "string",
+            "description": "Free text search string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "searchString"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Pathway"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getPathwaysWithDiagramsForCategoryUsingGET",
+      "title": "getPathwaysWithDiagramsForCategoryUsingGET",
+      "description": "Return a list of pathways based on category provided",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Pathway Category"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "category"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Pathway"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getChartInfoUsingGET",
+      "title": "getChartInfoUsingGET",
+      "description": "Return a list of pathways based on search term and species type.  3=rat 4=chinchilla",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Species Type Key - 3=rat 4=chinchilla "
+          },
+          "termString": {
+            "type": "string",
+            "description": "List of term accession IDs"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "termString"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "object"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getQtlListByPositionUsingGET",
+      "title": "getQtlListByPositionUsingGET",
+      "description": "Returns a list QTL for given position and assembly map",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "chr": {
+            "type": "string",
+            "description": "Chromosome"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start Position"
+          },
+          "stop": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Stop Position"
+          },
+          "mapKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A list of assembly map keys can be found using the lookup service"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "chr",
+          "start",
+          "stop",
+          "mapKey"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/QTL"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getQTLByRgdIdUsingGET",
+      "title": "getQTLByRgdIdUsingGET",
+      "description": "Return a QTL for provided RGD ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rgdId": {
+            "type": "integer",
+            "format": "int32",
+            "description": "RGD ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rgdId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/QTL"
+      }
+    },
+    {
+      "id": "getActiveObjectCountUsingGET",
+      "title": "getActiveObjectCountUsingGET",
+      "description": "getActiveObjectCount",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateYYYYMMDD": {
+            "type": "string",
+            "description": "dateYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getGeneTypeCountUsingGET",
+      "title": "getGeneTypeCountUsingGET",
+      "description": "getGeneTypeCount",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateYYYYMMDD": {
+            "type": "string",
+            "description": "dateYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getObjectStatusCountUsingGET",
+      "title": "getObjectStatusCountUsingGET",
+      "description": "getObjectStatusCount",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateYYYYMMDD": {
+            "type": "string",
+            "description": "dateYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getObjectsWithRefSeqCountUsingGET",
+      "title": "getObjectsWithRefSeqCountUsingGET",
+      "description": "getObjectsWithRefSeqCount",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateYYYYMMDD": {
+            "type": "string",
+            "description": "dateYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getObjectsWithReferenceCountUsingGET",
+      "title": "getObjectsWithReferenceCountUsingGET",
+      "description": "getObjectsWithReferenceCount",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateYYYYMMDD": {
+            "type": "string",
+            "description": "dateYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getObjectsWithXDBsCountUsingGET",
+      "title": "getObjectsWithXDBsCountUsingGET",
+      "description": "getObjectsWithXDBsCount",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "objectKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "objectKey"
+          },
+          "dateYYYYMMDD": {
+            "type": "string",
+            "description": "dateYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "objectKey",
+          "dateYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getProteinInteractionCountUsingGET",
+      "title": "getProteinInteractionCountUsingGET",
+      "description": "getProteinInteractionCount",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateYYYYMMDD": {
+            "type": "string",
+            "description": "dateYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getQtlInheritanceTypeCountUsingGET",
+      "title": "getQtlInheritanceTypeCountUsingGET",
+      "description": "getQtlInheritanceTypeCount",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateYYYYMMDD": {
+            "type": "string",
+            "description": "dateYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getRetiredObjectCountUsingGET",
+      "title": "getRetiredObjectCountUsingGET",
+      "description": "getRetiredObjectCount",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateYYYYMMDD": {
+            "type": "string",
+            "description": "dateYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getStrainTypeCountUsingGET",
+      "title": "getStrainTypeCountUsingGET",
+      "description": "getStrainTypeCount",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateYYYYMMDD": {
+            "type": "string",
+            "description": "dateYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getWithdrawnObjectCountUsingGET",
+      "title": "getWithdrawnObjectCountUsingGET",
+      "description": "getWithdrawnObjectCount",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateYYYYMMDD": {
+            "type": "string",
+            "description": "dateYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getXdbsCountUsingGET",
+      "title": "getXdbsCountUsingGET",
+      "description": "getXdbsCount",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateYYYYMMDD": {
+            "type": "string",
+            "description": "dateYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getActiveObjectDiffUsingGET",
+      "title": "getActiveObjectDiffUsingGET",
+      "description": "getActiveObjectDiff",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateFromYYYYMMDD": {
+            "type": "string",
+            "description": "dateFromYYYYMMDD"
+          },
+          "dateToYYYYMMDD": {
+            "type": "string",
+            "description": "dateToYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateFromYYYYMMDD",
+          "dateToYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getGeneTypeDiffUsingGET",
+      "title": "getGeneTypeDiffUsingGET",
+      "description": "getGeneTypeDiff",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateFromYYYYMMDD": {
+            "type": "string",
+            "description": "dateFromYYYYMMDD"
+          },
+          "dateToYYYYMMDD": {
+            "type": "string",
+            "description": "dateToYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateFromYYYYMMDD",
+          "dateToYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getObjectStatusDiffUsingGET",
+      "title": "getObjectStatusDiffUsingGET",
+      "description": "getObjectStatusDiff",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateFromYYYYMMDD": {
+            "type": "string",
+            "description": "dateFromYYYYMMDD"
+          },
+          "dateToYYYYMMDD": {
+            "type": "string",
+            "description": "dateToYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateFromYYYYMMDD",
+          "dateToYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getObjectsWithRefSeqDiffUsingGET",
+      "title": "getObjectsWithRefSeqDiffUsingGET",
+      "description": "getObjectsWithRefSeqDiff",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateFromYYYYMMDD": {
+            "type": "string",
+            "description": "dateFromYYYYMMDD"
+          },
+          "dateToYYYYMMDD": {
+            "type": "string",
+            "description": "dateToYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateFromYYYYMMDD",
+          "dateToYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getObjectsWithReferenceDiffUsingGET",
+      "title": "getObjectsWithReferenceDiffUsingGET",
+      "description": "getObjectsWithReferenceDiff",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateFromYYYYMMDD": {
+            "type": "string",
+            "description": "dateFromYYYYMMDD"
+          },
+          "dateToYYYYMMDD": {
+            "type": "string",
+            "description": "dateToYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateFromYYYYMMDD",
+          "dateToYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getObjectsWithXDBsDiffUsingGET",
+      "title": "getObjectsWithXDBsDiffUsingGET",
+      "description": "getObjectsWithXDBsDiff",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "objectKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "objectKey"
+          },
+          "dateFromYYYYMMDD": {
+            "type": "string",
+            "description": "dateFromYYYYMMDD"
+          },
+          "dateToYYYYMMDD": {
+            "type": "string",
+            "description": "dateToYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "objectKey",
+          "dateFromYYYYMMDD",
+          "dateToYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getProteinInteractionDiffUsingGET",
+      "title": "getProteinInteractionDiffUsingGET",
+      "description": "getProteinInteractionDiff",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateFromYYYYMMDD": {
+            "type": "string",
+            "description": "dateFromYYYYMMDD"
+          },
+          "dateToYYYYMMDD": {
+            "type": "string",
+            "description": "dateToYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateFromYYYYMMDD",
+          "dateToYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getQtlInheritanceTypeDiffUsingGET",
+      "title": "getQtlInheritanceTypeDiffUsingGET",
+      "description": "getQtlInheritanceTypeDiff",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateFromYYYYMMDD": {
+            "type": "string",
+            "description": "dateFromYYYYMMDD"
+          },
+          "dateToYYYYMMDD": {
+            "type": "string",
+            "description": "dateToYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateFromYYYYMMDD",
+          "dateToYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getRetiredObjectDiffUsingGET",
+      "title": "getRetiredObjectDiffUsingGET",
+      "description": "getRetiredObjectDiff",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateFromYYYYMMDD": {
+            "type": "string",
+            "description": "dateFromYYYYMMDD"
+          },
+          "dateToYYYYMMDD": {
+            "type": "string",
+            "description": "dateToYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateFromYYYYMMDD",
+          "dateToYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getStrainTypeDiffUsingGET",
+      "title": "getStrainTypeDiffUsingGET",
+      "description": "getStrainTypeDiff",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateFromYYYYMMDD": {
+            "type": "string",
+            "description": "dateFromYYYYMMDD"
+          },
+          "dateToYYYYMMDD": {
+            "type": "string",
+            "description": "dateToYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateFromYYYYMMDD",
+          "dateToYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getWithdrawnObjectDiffUsingGET",
+      "title": "getWithdrawnObjectDiffUsingGET",
+      "description": "getWithdrawnObjectDiff",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateFromYYYYMMDD": {
+            "type": "string",
+            "description": "dateFromYYYYMMDD"
+          },
+          "dateToYYYYMMDD": {
+            "type": "string",
+            "description": "dateToYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateFromYYYYMMDD",
+          "dateToYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getXdbsDiffUsingGET",
+      "title": "getXdbsDiffUsingGET",
+      "description": "getXdbsDiff",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "speciesTypeKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "speciesTypeKey"
+          },
+          "dateFromYYYYMMDD": {
+            "type": "string",
+            "description": "dateFromYYYYMMDD"
+          },
+          "dateToYYYYMMDD": {
+            "type": "string",
+            "description": "dateToYYYYMMDD"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "speciesTypeKey",
+          "dateFromYYYYMMDD",
+          "dateToYYYYMMDD"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getAllStrainsUsingGET",
+      "title": "getAllStrainsUsingGET",
+      "description": "Return all active strains in RGD",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Strain"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getStrainsByPositionUsingGET",
+      "title": "getStrainsByPositionUsingGET",
+      "description": "getStrainsByPosition",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "chr": {
+            "type": "string",
+            "description": "Chromosome"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start Position"
+          },
+          "stop": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Stop Position"
+          },
+          "mapKey": {
+            "type": "integer",
+            "format": "int32",
+            "description": "RGD Map Key (available through lookup service)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "chr",
+          "start",
+          "stop",
+          "mapKey"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Strain"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getStrainByRgdIdUsingGET",
+      "title": "getStrainByRgdIdUsingGET",
+      "description": "Return a strain by RGD ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rgdId": {
+            "type": "integer",
+            "format": "int32",
+            "description": "RGD ID of the strain"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rgdId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Strain"
+      }
+    }
+  ],
+  "tags": [
+    "open data"
+  ]
+}

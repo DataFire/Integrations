@@ -1,0 +1,1218 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "resource-groups.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>AWS Resource Groups</fullname> <p>AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances, Amazon Relational Database Service databases, and Amazon S3 buckets into groups using criteria that you define as tags. A resource group is a collection of resources that match the resource types specified in a query, and share one or more tags or portions of tags. You can create a group of resources based on their roles in your cloud infrastructure, lifecycle stages, regions, application layers, or virtually any criteria. Resource groups enable you to automate management tasks, such as those in AWS Systems Manager Automation documents, on tag-related resources in AWS Systems Manager. Groups of tagged resources also let you quickly view a custom console in AWS Systems Manager that shows AWS Config compliance and other monitoring data about member resources.</p> <p>To create a resource group, build a resource query, and specify tags that identify the criteria that members of the group have in common. Tags are key-value pairs.</p> <p>For more information about Resource Groups, see the <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html\">AWS Resource Groups User Guide</a>.</p> <p>AWS Resource Groups uses a REST-compliant API that you can use to perform the following types of operations.</p> <ul> <li> <p>Create, Read, Update, and Delete (CRUD) operations on resource groups and resource query entities</p> </li> <li> <p>Applying, editing, and removing tags from resource groups</p> </li> <li> <p>Resolving resource group member ARNs so they can be returned as search results</p> </li> <li> <p>Getting data about resources that are members of a group</p> </li> <li> <p>Searching AWS resources based on a resource query</p> </li> </ul>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Resource Groups",
+    "version": "2017-11-27",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/resource-groups-2017-11-27.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "resource-groups",
+    "x-datafire": {
+      "name": "amazonaws_resource_groups",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/resource-groups/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/groups": {
+      "get": {
+        "description": "Returns a list of existing resource groups in your account.",
+        "operationId": "ListGroups",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListGroupsInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListGroupsOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "484": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/groups/{GroupName}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Updates an existing group with a new or changed description. You cannot update the name of a resource group.",
+        "operationId": "UpdateGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateGroupInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "GroupName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateGroupOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "485": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/groups/{GroupName}/query": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Updates the resource query of a group.",
+        "operationId": "UpdateGroupQuery",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateGroupQueryInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "GroupName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateGroupQueryOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "485": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/groups/{GroupName}/resource-identifiers": {
+      "get": {
+        "description": "Returns a list of ARNs of resources that are members of a specified resource group.",
+        "operationId": "ListGroupResources",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListGroupResourcesInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "GroupName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListGroupResourcesOutput"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "486": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/resources/search": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns a list of AWS resource identifiers that matches a specified query. The query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery operation.",
+        "operationId": "SearchResources",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchResourcesInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SearchResourcesOutput"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "485": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/resources/{Arn}/tags": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "patch": {
+        "description": "Deletes specified tags from a specified resource.",
+        "operationId": "Untag",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UntagInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Arn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "MethodNotAllowedException",
+            "schema": {
+              "$ref": "#/definitions/MethodNotAllowedException"
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "485": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BadRequestException": {
+      "description": "The request does not comply with validation rules that are defined for the request parameters.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "CreateGroupInput": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/GroupDescription",
+          "description": "The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores, punctuation, and spaces."
+        },
+        "Name": {
+          "$ref": "#/definitions/GroupName",
+          "description": "The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with <code>AWS</code> or <code>aws</code>; these are reserved. A resource group name must be unique within your account."
+        },
+        "ResourceQuery": {
+          "$ref": "#/definitions/ResourceQuery",
+          "description": "The resource query that determines which AWS resources are members of this group."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters."
+        }
+      },
+      "required": [
+        "Name",
+        "ResourceQuery"
+      ],
+      "type": "object"
+    },
+    "CreateGroupOutput": {
+      "properties": {
+        "Group": {
+          "$ref": "#/definitions/Group",
+          "description": "A full description of the resource group after it is created."
+        },
+        "ResourceQuery": {
+          "$ref": "#/definitions/ResourceQuery",
+          "description": "The resource query associated with the group."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags associated with the group."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteGroupInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteGroupOutput": {
+      "properties": {
+        "Group": {
+          "$ref": "#/definitions/Group",
+          "description": "A full description of the deleted resource group."
+        }
+      },
+      "type": "object"
+    },
+    "ErrorMessage": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ForbiddenException": {
+      "description": "The caller is not authorized to make the request.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "GetGroupInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetGroupOutput": {
+      "properties": {
+        "Group": {
+          "$ref": "#/definitions/Group",
+          "description": "A full description of the resource group."
+        }
+      },
+      "type": "object"
+    },
+    "GetGroupQueryInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetGroupQueryOutput": {
+      "properties": {
+        "GroupQuery": {
+          "$ref": "#/definitions/GroupQuery",
+          "description": "The resource query associated with the specified group."
+        }
+      },
+      "type": "object"
+    },
+    "GetTagsInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetTagsOutput": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/GroupArn",
+          "description": "The ARN of the tagged resource."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags associated with the specified resource."
+        }
+      },
+      "type": "object"
+    },
+    "Group": {
+      "description": "A resource group.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/GroupDescription",
+          "description": "The description of the resource group."
+        },
+        "GroupArn": {
+          "$ref": "#/definitions/GroupArn",
+          "description": "The ARN of a resource group."
+        },
+        "Name": {
+          "$ref": "#/definitions/GroupName",
+          "description": "The name of a resource group."
+        }
+      },
+      "required": [
+        "GroupArn",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "GroupArn": {
+      "pattern": "arn:aws:resource-groups:[a-z]{2}-[a-z]+-\\d{1}:[0-9]{12}:group/[a-zA-Z0-9_\\.-]{1,128}",
+      "type": "string"
+    },
+    "GroupDescription": {
+      "maxLength": 512,
+      "pattern": "[\\sa-zA-Z0-9_\\.-]+",
+      "type": "string"
+    },
+    "GroupList": {
+      "items": {
+        "$ref": "#/definitions/Group"
+      },
+      "type": "array"
+    },
+    "GroupName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_\\.-]+",
+      "type": "string"
+    },
+    "GroupQuery": {
+      "description": "The underlying resource query of a resource group. Resources that match query results are part of the group.",
+      "properties": {
+        "GroupName": {
+          "$ref": "#/definitions/GroupName",
+          "description": "The name of a resource group that is associated with a specific resource query."
+        },
+        "ResourceQuery": {
+          "$ref": "#/definitions/ResourceQuery",
+          "description": "The resource query which determines which AWS resources are members of the associated resource group."
+        }
+      },
+      "required": [
+        "GroupName",
+        "ResourceQuery"
+      ],
+      "type": "object"
+    },
+    "InternalServerErrorException": {
+      "description": "An internal error occurred while processing the request.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ListGroupResourcesInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListGroupResourcesOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The NextToken value to include in a subsequent <code>ListGroupResources</code> request, to get more results."
+        },
+        "ResourceIdentifiers": {
+          "$ref": "#/definitions/ResourceIdentifierList",
+          "description": "The ARNs and resource types of resources that are members of the group that you specified."
+        }
+      },
+      "type": "object"
+    },
+    "ListGroupsInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListGroupsOutput": {
+      "properties": {
+        "Groups": {
+          "$ref": "#/definitions/GroupList",
+          "description": "A list of resource groups."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The NextToken value to include in a subsequent <code>ListGroups</code> request, to get more results."
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MethodNotAllowedException": {
+      "description": "The request uses an HTTP method which is not allowed for the specified resource.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "NextToken": {
+      "type": "string"
+    },
+    "NotFoundException": {
+      "description": "One or more resources specified in the request do not exist.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "Query": {
+      "maxLength": 2048,
+      "type": "string"
+    },
+    "QueryType": {
+      "enum": [
+        "TAG_FILTERS_1_0"
+      ],
+      "type": "string"
+    },
+    "ResourceArn": {
+      "pattern": "arn:aws:[a-z0-9]*:([a-z]{2}-[a-z]+-\\d{1})?:([0-9]{12})?:.+",
+      "type": "string"
+    },
+    "ResourceIdentifier": {
+      "description": "The ARN of a resource, and its resource type.",
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The ARN of a resource."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The resource type of a resource, such as <code>AWS::EC2::Instance</code>."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceIdentifierList": {
+      "items": {
+        "$ref": "#/definitions/ResourceIdentifier"
+      },
+      "type": "array"
+    },
+    "ResourceQuery": {
+      "description": "The query that is used to define a resource group or a search for resources.",
+      "properties": {
+        "Query": {
+          "$ref": "#/definitions/Query",
+          "description": "The query that defines a group or a search."
+        },
+        "Type": {
+          "$ref": "#/definitions/QueryType",
+          "description": "<p>The type of the query. The valid value in this release is <code>TAG_FILTERS_1_0</code>.</p> <p> <i> <code>TAG_FILTERS_1_0:</code> </i> A JSON syntax that lets you specify a collection of simple tag filters for resource types and tags, as supported by the AWS Tagging API GetResources operation. When more than one element is present, only resources that match all filters are part of the result. If a filter specifies more than one value for a key, a resource matches the filter if its tag value matches any of the specified values.</p>"
+        }
+      },
+      "required": [
+        "Type",
+        "Query"
+      ],
+      "type": "object"
+    },
+    "ResourceType": {
+      "pattern": "AWS::[a-zA-Z0-9]+::\\w+",
+      "type": "string"
+    },
+    "SearchResourcesInput": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of group member ARNs returned by <code>SearchResources</code> in paginated output. By default, this number is 50."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The NextToken value that is returned in a paginated <code>SearchResources</code> request. To get the next page of results, run the call again, add the NextToken parameter, and specify the NextToken value."
+        },
+        "ResourceQuery": {
+          "$ref": "#/definitions/ResourceQuery",
+          "description": "The search query, using the same formats that are supported for resource group definition."
+        }
+      },
+      "required": [
+        "ResourceQuery"
+      ],
+      "type": "object"
+    },
+    "SearchResourcesOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The NextToken value to include in a subsequent <code>SearchResources</code> request, to get more results."
+        },
+        "ResourceIdentifiers": {
+          "$ref": "#/definitions/ResourceIdentifierList",
+          "description": "The ARNs and resource types of resources that are members of the group that you specified."
+        }
+      },
+      "type": "object"
+    },
+    "TagInput": {
+      "properties": {
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags to add to the specified resource. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters."
+        }
+      },
+      "required": [
+        "Tags"
+      ],
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array"
+    },
+    "TagOutput": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/GroupArn",
+          "description": "The ARN of the tagged resource."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags that have been added to the specified resource."
+        }
+      },
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "Tags": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/TagKey"
+          },
+          "value": {
+            "$ref": "#/definitions/TagValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "TooManyRequestsException": {
+      "description": "The caller has exceeded throttling limits.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "UnauthorizedException": {
+      "description": "The request has not been applied because it lacks valid authentication credentials for the target resource.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "UntagInput": {
+      "properties": {
+        "Keys": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "The keys of the tags to be removed."
+        }
+      },
+      "required": [
+        "Keys"
+      ],
+      "type": "object"
+    },
+    "UntagOutput": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/GroupArn",
+          "description": "The ARN of the resource from which tags have been removed."
+        },
+        "Keys": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "The keys of tags that have been removed."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateGroupInput": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/GroupDescription",
+          "description": "The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores, punctuation, and spaces."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateGroupOutput": {
+      "properties": {
+        "Group": {
+          "$ref": "#/definitions/Group",
+          "description": "The full description of the resource group after it has been updated."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateGroupQueryInput": {
+      "properties": {
+        "ResourceQuery": {
+          "$ref": "#/definitions/ResourceQuery",
+          "description": "The resource query that determines which AWS resources are members of the resource group."
+        }
+      },
+      "required": [
+        "ResourceQuery"
+      ],
+      "type": "object"
+    },
+    "UpdateGroupQueryOutput": {
+      "properties": {
+        "GroupQuery": {
+          "$ref": "#/definitions/GroupQuery",
+          "description": "The resource query associated with the resource group after the update."
+        }
+      },
+      "type": "object"
+    }
+  }
+}

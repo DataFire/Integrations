@@ -1,0 +1,1914 @@
+{
+  "id": "art19",
+  "title": "ART19 Content",
+  "description": "The ART19 Content API conforms to the JSON-API specification. Details and examples can be found at http://jsonapi.org.  \n\nAPI requests **MUST** use the HTTP Accept header:  \n`Accept: application/vnd.api+json`  \n\nAPI requests **MUST** be authenticated using the HTTP Authorization header:  \n`Authorization: Token token=\"your-token\", credential=\"your-credential\"`",
+  "security": {
+    "art19": {
+      "integration": "art19",
+      "fields": {
+        "api_key": "Authorization: Token token=\"your-token\", credential=\"your-credential\""
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/art19.png"
+  },
+  "actionCount": 22,
+  "definitions": {
+    "Classification": {
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "properties": {
+                "created_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "metadata": {
+                  "type": "object"
+                },
+                "parent_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "tree_path": {
+                  "items": {
+                    "format": "uuid",
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "value_path": {
+                  "type": "string"
+                }
+              }
+            },
+            "id": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "title": "Classification"
+    },
+    "ClassificationDocument": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Classification"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "title": "ClassificationDocument"
+    },
+    "ClassificationInclusion": {
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "properties": {
+                "classification_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "classification_type": {
+                  "type": "string"
+                },
+                "classified_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "classified_type": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "primary": {
+                  "type": "boolean"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "type": "string"
+                }
+              }
+            },
+            "id": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "relationships": {
+              "properties": {
+                "classification": {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/ResourceIdentifier"
+                    }
+                  }
+                }
+              }
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "title": "ClassificationInclusion"
+    },
+    "ClassificationInclusionDocument": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/ClassificationInclusion"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "title": "ClassificationInclusionDocument"
+    },
+    "Credit": {
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "properties": {
+                "created_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "creditable_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "creditable_type": {
+                  "type": "string"
+                },
+                "position": {
+                  "type": "integer"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "type": "string"
+                }
+              }
+            },
+            "id": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "relationships": {
+              "properties": {
+                "person": {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/ResourceIdentifier"
+                    }
+                  }
+                }
+              }
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "title": "Credit"
+    },
+    "CreditDocument": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Credit"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "title": "CreditDocument"
+    },
+    "Episode": {
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "properties": {
+                "allow_user_comments": {
+                  "description": "Credential must own the series",
+                  "type": "boolean"
+                },
+                "cascaded_cover_image_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "cover_image_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "created_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "description_is_html": {
+                  "type": "boolean"
+                },
+                "description_plain": {
+                  "type": "string"
+                },
+                "file_name": {
+                  "type": "string"
+                },
+                "listen_count": {
+                  "description": "Credential must have stats access to series",
+                  "type": "integer"
+                },
+                "premium_status": {
+                  "type": "string"
+                },
+                "published": {
+                  "type": "boolean"
+                },
+                "release_immediately": {
+                  "description": "Credential must own the series",
+                  "type": "boolean"
+                },
+                "released_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "rss_guid": {
+                  "type": "string"
+                },
+                "sort_title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "type": "string"
+                }
+              },
+              "title": "Episode.Attributes"
+            },
+            "id": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "relationships": {
+              "properties": {
+                "classification_inclusions": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "title": "ClassificationInclusions"
+                },
+                "credits": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "title": "Credits"
+                },
+                "default_marker_points": {
+                  "description": "Credential must own the series",
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "title": "DefaultMarkerPoints"
+                },
+                "episode_versions": {
+                  "description": "Credential must own the series",
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "title": "EpisodeVersions"
+                },
+                "images": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "title": "Images"
+                },
+                "season": {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/ResourceIdentifier"
+                    }
+                  },
+                  "title": "Season"
+                },
+                "segment_lists": {
+                  "description": "Credential must own the series",
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "title": "SegmentLists"
+                },
+                "series": {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/ResourceIdentifier"
+                    }
+                  },
+                  "title": "Series"
+                },
+                "taggings": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "title": "Taggings"
+                },
+                "tags": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "title": "Tags"
+                }
+              },
+              "title": "Episode.Relationships"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "title": "Episode.Data"
+        }
+      },
+      "title": "Episode"
+    },
+    "EpisodesDocument": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Episode"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "title": "EpisodesDocument"
+    },
+    "Image": {
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "properties": {
+                "bucket_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "bucket_type": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "crop_data": {
+                  "properties": {
+                    "height": {
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "left": {
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "top": {
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "width": {
+                      "format": "float",
+                      "type": "number"
+                    }
+                  }
+                },
+                "status": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "type": "string"
+                }
+              }
+            },
+            "id": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "relationships": {
+              "properties": {
+                "media_assets": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "title": "Image"
+    },
+    "ImageDocument": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Image"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "title": "ImageDocument"
+    },
+    "Links": {
+      "properties": {
+        "first": {
+          "type": "string"
+        },
+        "last": {
+          "type": "string"
+        },
+        "next": {
+          "type": "string"
+        },
+        "prev": {
+          "type": "string"
+        },
+        "self": {
+          "type": "string"
+        }
+      },
+      "title": "Links"
+    },
+    "MediaAsset": {
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "properties": {
+                "attachment_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "attachment_type": {
+                  "type": "string"
+                },
+                "cdn_url": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "file_name": {
+                  "type": "string"
+                },
+                "file_size": {
+                  "type": "string"
+                },
+                "size_height": {
+                  "type": "integer"
+                },
+                "size_width": {
+                  "type": "integer"
+                },
+                "style": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "type": "string"
+                }
+              }
+            },
+            "id": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "title": "MediaAsset"
+    },
+    "MediaAssetDocument": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/MediaAsset"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "title": "MediaAssetDocument"
+    },
+    "Network": {
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "properties": {
+                "copyright": {
+                  "type": "string"
+                },
+                "cover_image_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "created_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "facebook_url": {
+                  "type": "string"
+                },
+                "global_id": {
+                  "type": "string"
+                },
+                "linkedin_url": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "public_email": {
+                  "type": "string"
+                },
+                "public_page_enabled": {
+                  "type": "boolean"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "tumblr_url": {
+                  "type": "string"
+                },
+                "twitter_url": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "website_url": {
+                  "type": "string"
+                }
+              }
+            },
+            "id": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "relationships": {
+              "properties": {
+                "images": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                },
+                "series": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "title": "Network"
+    },
+    "NetworkDocument": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Network"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "title": "NetworkDocument"
+    },
+    "Person": {
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "properties": {
+                "avatar_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "biography": {
+                  "type": "string"
+                },
+                "born": {
+                  "format": "date",
+                  "type": "string"
+                },
+                "created_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "died": {
+                  "format": "date",
+                  "type": "string"
+                },
+                "first_name": {
+                  "type": "string"
+                },
+                "from_country": {
+                  "type": "string"
+                },
+                "from_locality": {
+                  "type": "string"
+                },
+                "from_region": {
+                  "type": "string"
+                },
+                "last_name": {
+                  "type": "string"
+                },
+                "public_email": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "type": "string"
+                }
+              }
+            },
+            "id": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "title": "Person"
+    },
+    "PersonDocument": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Person"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "title": "PersonDocument"
+    },
+    "ResourceIdentifier": {
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "ResourceIdentifier"
+    },
+    "Season": {
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "properties": {
+                "cascaded_cover_image_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "cover_image_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "created_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "description_is_html": {
+                  "type": "boolean"
+                },
+                "description_plain": {
+                  "type": "string"
+                },
+                "first_released_episode_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "last_released_episode_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "sort_title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "type": "string"
+                }
+              }
+            },
+            "id": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "relationships": {
+              "properties": {
+                "classification_inclusions": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                },
+                "credits": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                },
+                "episodes": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                },
+                "images": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                },
+                "series": {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/ResourceIdentifier"
+                    }
+                  }
+                },
+                "taggings": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                },
+                "tags": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "title": "Season"
+    },
+    "SeasonDocument": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Season"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "title": "SeasonDocument"
+    },
+    "Series": {
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "properties": {
+                "cover_image_id": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "created_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "description_is_html": {
+                  "type": "boolean"
+                },
+                "description_plain": {
+                  "type": "string"
+                },
+                "facebook_url": {
+                  "type": "string"
+                },
+                "global_id": {
+                  "type": "string"
+                },
+                "itunes_subscription_url": {
+                  "type": "string"
+                },
+                "linkedin_url": {
+                  "type": "string"
+                },
+                "podcast_subscription_url": {
+                  "type": "string"
+                },
+                "public_page_enabled": {
+                  "type": "boolean"
+                },
+                "rss_author": {
+                  "type": "string"
+                },
+                "rss_copyright": {
+                  "type": "string"
+                },
+                "rss_email": {
+                  "type": "string"
+                },
+                "rss_owner": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "sort_title": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "stitcher_subscription_url": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "tumblr_url": {
+                  "type": "string"
+                },
+                "twitter_url": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "website_url": {
+                  "type": "string"
+                }
+              }
+            },
+            "id": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "relationships": {
+              "properties": {
+                "classification_inclusions": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                },
+                "credits": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                },
+                "episodes": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                },
+                "images": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                },
+                "network": {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/ResourceIdentifier"
+                    }
+                  }
+                },
+                "seasons": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                },
+                "taggings": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                },
+                "tags": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/definitions/ResourceIdentifier"
+                      },
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "title": "Series"
+    },
+    "SeriesDocument": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Series"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "title": "SeriesDocument"
+    }
+  },
+  "actions": [
+    {
+      "id": "classification_inclusions.get",
+      "title": "classification_inclusions.get",
+      "description": "Fetch resource collection",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids[]": {
+            "type": "string",
+            "description": "Filter by ID's"
+          },
+          "page[number]": {
+            "type": "integer",
+            "description": "Filter by page number"
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Change page size"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort by created_at"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClassificationInclusionDocument"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "classification_inclusions.id.get",
+      "title": "classification_inclusions.id.get",
+      "description": "Fetch resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClassificationInclusion"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "classifications.get",
+      "title": "classifications.get",
+      "description": "Fetch resource collection",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids[]": {
+            "type": "string",
+            "description": "Filter by ID's"
+          },
+          "type": {
+            "type": "string",
+            "description": "Filter by type"
+          },
+          "q": {
+            "type": "string",
+            "description": "Filter by value"
+          },
+          "page[number]": {
+            "type": "integer",
+            "description": "Filter by page number"
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Change page size"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort by created_at, value, updated_at"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClassificationDocument"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "classifications.id.get",
+      "title": "classifications.id.get",
+      "description": "Fetch resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Classification"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "credits.get",
+      "title": "credits.get",
+      "description": "Fetch resource collection",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids[]": {
+            "type": "string",
+            "description": "Filter by ID's"
+          },
+          "creditable_id": {
+            "type": "string",
+            "description": "Filter by creditable_id"
+          },
+          "creditable_type": {
+            "type": "string",
+            "description": "Filter by creditable_type"
+          },
+          "page[number]": {
+            "type": "integer",
+            "description": "Filter by page number"
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Change page size"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort by created_at, position, updated_at"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreditDocument"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "credits.id.get",
+      "title": "credits.id.get",
+      "description": "Fetch resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Credit"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "episodes.get",
+      "title": "episodes.get",
+      "description": "Fetch resource collection",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids[]": {
+            "type": "string",
+            "description": "Filter by ID's"
+          },
+          "page[number]": {
+            "type": "integer",
+            "description": "Filter by page number"
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Change page size"
+          },
+          "series_id": {
+            "type": "string",
+            "description": "Filter by Series"
+          },
+          "season_id": {
+            "type": "string",
+            "description": "Filter by Season"
+          },
+          "q": {
+            "type": "string",
+            "description": "Filter by title"
+          },
+          "year": {
+            "type": "string",
+            "description": "Filter by released_at year"
+          },
+          "month": {
+            "type": "string",
+            "description": "Filter by released_at month"
+          },
+          "rss": {
+            "type": "boolean",
+            "description": "Filter by RSS episodes only"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort by created_at, released_at, released_or_created_at, sort_title, title, updated_at"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EpisodesDocument"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "episodes.id.get",
+      "title": "episodes.id.get",
+      "description": "Fetch resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Series"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "episodes.id.next_sibling.get",
+      "title": "episodes.id.next_sibling.get",
+      "description": "Fetch next resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID"
+          },
+          "rss": {
+            "type": "boolean",
+            "description": "Filter by RSS episodes only"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Series"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "episodes.id.previous_sibling.get",
+      "title": "episodes.id.previous_sibling.get",
+      "description": "Fetch previous resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID"
+          },
+          "rss": {
+            "type": "boolean",
+            "description": "Filter by RSS episodes only"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Series"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "images.get",
+      "title": "images.get",
+      "description": "Fetch resource collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ids[]": {
+            "type": "string",
+            "description": "Filter by ID's"
+          },
+          "page[number]": {
+            "type": "integer",
+            "description": "Filter by page number"
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Change page size"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort by created_at"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ids[]"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ImageDocument"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "images.id.get",
+      "title": "images.id.get",
+      "description": "Fetch resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Image"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "media_assets.get",
+      "title": "media_assets.get",
+      "description": "Fetch resource collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ids[]": {
+            "type": "string",
+            "description": "Filter by ID's"
+          },
+          "page[number]": {
+            "type": "integer",
+            "description": "Filter by page number"
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Change page size"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort by created_at"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ids[]"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MediaAssetDocument"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "media_assets.id.get",
+      "title": "media_assets.id.get",
+      "description": "Fetch resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MediaAsset"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "networks.get",
+      "title": "networks.get",
+      "description": "Fetch resource collection",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids[]": {
+            "type": "string",
+            "description": "Filter by ID's"
+          },
+          "q": {
+            "type": "string",
+            "description": "Filter by name"
+          },
+          "page[number]": {
+            "type": "integer",
+            "description": "Filter by page number"
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Change page size"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort by created_at, name, updated_at"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NetworkDocument"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "networks.id.get",
+      "title": "networks.id.get",
+      "description": "Fetch resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Network"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "people.get",
+      "title": "people.get",
+      "description": "Fetch resource collection",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids[]": {
+            "type": "string",
+            "description": "Filter by ID's"
+          },
+          "q": {
+            "type": "string",
+            "description": "Filter by first_name and last_name"
+          },
+          "page[number]": {
+            "type": "integer",
+            "description": "Filter by page number"
+          },
+          "exclude_ids[]": {
+            "type": "integer",
+            "description": "Filter by excluding ids"
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Change page size"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort by created_at, first_name, last_name, updated_at"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonDocument"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "people.id.get",
+      "title": "people.id.get",
+      "description": "Fetch resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Person"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "seasons.get",
+      "title": "seasons.get",
+      "description": "Fetch resource collection",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids[]": {
+            "type": "string",
+            "description": "Filter by ID's"
+          },
+          "series_id": {
+            "type": "string",
+            "description": "Filter by Series"
+          },
+          "page[number]": {
+            "type": "integer",
+            "description": "Filter by page number"
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Change page size"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort by created_at, sort_title, title, updated_at"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SeasonDocument"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "seasons.id.get",
+      "title": "seasons.id.get",
+      "description": "Fetch resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Season"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "series.get",
+      "title": "series.get",
+      "description": "Fetch resource collection",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids[]": {
+            "type": "string",
+            "description": "Filter by ID's"
+          },
+          "network_id": {
+            "type": "string",
+            "description": "Filter by Network"
+          },
+          "page[number]": {
+            "type": "integer",
+            "description": "Filter by page number"
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Change page size"
+          },
+          "q": {
+            "type": "string",
+            "description": "Filter by title"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort by created_at, episode_released_at, sort_title, title, updated_at"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SeriesDocument"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    },
+    {
+      "id": "series.id.get",
+      "title": "series.id.get",
+      "description": "Fetch resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Series"
+      },
+      "security": {
+        "art19": {
+          "integration": "art19"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "media"
+  ]
+}

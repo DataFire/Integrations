@@ -112,6 +112,31 @@
     "tags": [],
     "latestVersion": "3.0.0"
   },
+  "amazonaws_a4b": {
+    "id": "amazonaws_a4b",
+    "title": "Alexa For Business",
+    "description": "Alexa for Business makes it easy for you to use Alexa in your organization. Alexa for Business gives you the tools you n...",
+    "security": {
+      "amazonaws_a4b": {
+        "integration": "amazonaws_a4b",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_a4b.jpeg"
+    },
+    "actionCount": 36,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
+  },
   "amazonaws_acm": {
     "id": "amazonaws_acm",
     "title": "AWS Certificate Manager",
@@ -135,7 +160,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_api_pricing": {
     "id": "amazonaws_api_pricing",
@@ -160,7 +185,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_apigateway": {
     "id": "amazonaws_apigateway",
@@ -184,7 +209,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_appstream2": {
     "id": "amazonaws_appstream2",
@@ -209,7 +234,32 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_appsync": {
+    "id": "amazonaws_appsync",
+    "title": "AWS AppSync",
+    "description": "AWS AppSync provides API actions for creating and interacting with data sources using GraphQL from your application.",
+    "security": {
+      "amazonaws_appsync": {
+        "integration": "amazonaws_appsync",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_appsync.jpeg"
+    },
+    "actionCount": 12,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_athena": {
     "id": "amazonaws_athena",
@@ -233,7 +283,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_autoscaling": {
     "id": "amazonaws_autoscaling",
@@ -257,7 +307,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_batch": {
     "id": "amazonaws_batch",
@@ -281,7 +331,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_budgets": {
     "id": "amazonaws_budgets",
@@ -306,7 +356,57 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_ce": {
+    "id": "amazonaws_ce",
+    "title": "AWS Cost Explorer Service",
+    "description": "The Cost Explorer API allows you to programmatically query your cost and usage data. You can query for aggregated data s...",
+    "security": {
+      "amazonaws_ce": {
+        "integration": "amazonaws_ce",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ce.jpeg"
+    },
+    "actionCount": 4,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_cloud9": {
+    "id": "amazonaws_cloud9",
+    "title": "AWS Cloud9",
+    "description": "AWS Cloud9",
+    "security": {
+      "amazonaws_cloud9": {
+        "integration": "amazonaws_cloud9",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloud9.jpeg"
+    },
+    "actionCount": 10,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_clouddirectory": {
     "id": "amazonaws_clouddirectory",
@@ -331,7 +431,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_cloudformation": {
     "id": "amazonaws_cloudformation",
@@ -355,7 +455,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_cloudfront": {
     "id": "amazonaws_cloudfront",
@@ -379,7 +479,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_cloudhsm": {
     "id": "amazonaws_cloudhsm",
@@ -403,7 +503,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_cloudhsmv2": {
     "id": "amazonaws_cloudhsmv2",
@@ -428,7 +528,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_cloudsearch": {
     "id": "amazonaws_cloudsearch",
@@ -452,7 +552,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_cloudsearchdomain": {
     "id": "amazonaws_cloudsearchdomain",
@@ -477,7 +577,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_cloudtrail": {
     "id": "amazonaws_cloudtrail",
@@ -501,7 +601,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_codebuild": {
     "id": "amazonaws_codebuild",
@@ -525,7 +625,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_codecommit": {
     "id": "amazonaws_codecommit",
@@ -549,7 +649,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_codedeploy": {
     "id": "amazonaws_codedeploy",
@@ -573,7 +673,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_codepipeline": {
     "id": "amazonaws_codepipeline",
@@ -597,7 +697,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_codestar": {
     "id": "amazonaws_codestar",
@@ -622,7 +722,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_cognito_identity": {
     "id": "amazonaws_cognito_identity",
@@ -647,7 +747,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_cognito_idp": {
     "id": "amazonaws_cognito_idp",
@@ -672,7 +772,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_cognito_sync": {
     "id": "amazonaws_cognito_sync",
@@ -697,7 +797,32 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_comprehend": {
+    "id": "amazonaws_comprehend",
+    "title": "Amazon Comprehend",
+    "description": "Amazon Comprehend is an AWS service for gaining insight into the content of documents. Use these actions to determine th...",
+    "security": {
+      "amazonaws_comprehend": {
+        "integration": "amazonaws_comprehend",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_comprehend.jpeg"
+    },
+    "actionCount": 11,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_config": {
     "id": "amazonaws_config",
@@ -721,7 +846,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_cur": {
     "id": "amazonaws_cur",
@@ -746,7 +871,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_data_iot": {
     "id": "amazonaws_data_iot",
@@ -771,7 +896,57 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_data_jobs_iot": {
+    "id": "amazonaws_data_jobs_iot",
+    "title": "AWS IoT Jobs Data Plane",
+    "description": "AWS IoT Jobs is a service that allows you to define a set of jobs — remote operations that are sent to and executed on o...",
+    "security": {
+      "amazonaws_data_jobs_iot": {
+        "integration": "amazonaws_data_jobs_iot",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_data_jobs_iot.jpeg"
+    },
+    "actionCount": 3,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_data_mediastore": {
+    "id": "amazonaws_data_mediastore",
+    "title": "AWS Elemental MediaStore Data Plane",
+    "description": "An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3 service. Objects are the fundament...",
+    "security": {
+      "amazonaws_data_mediastore": {
+        "integration": "amazonaws_data_mediastore",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_data_mediastore.jpeg"
+    },
+    "actionCount": 2,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_datapipeline": {
     "id": "amazonaws_datapipeline",
@@ -795,7 +970,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_dax": {
     "id": "amazonaws_dax",
@@ -820,7 +995,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_devicefarm": {
     "id": "amazonaws_devicefarm",
@@ -844,7 +1019,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_directconnect": {
     "id": "amazonaws_directconnect",
@@ -868,7 +1043,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_discovery": {
     "id": "amazonaws_discovery",
@@ -893,7 +1068,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_dms": {
     "id": "amazonaws_dms",
@@ -917,7 +1092,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_ds": {
     "id": "amazonaws_ds",
@@ -941,7 +1116,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_dynamodb": {
     "id": "amazonaws_dynamodb",
@@ -965,7 +1140,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_ec2": {
     "id": "amazonaws_ec2",
@@ -989,7 +1164,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_ecr": {
     "id": "amazonaws_ecr",
@@ -1013,7 +1188,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_ecs": {
     "id": "amazonaws_ecs",
@@ -1037,7 +1212,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_elasticache": {
     "id": "amazonaws_elasticache",
@@ -1061,7 +1236,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_elasticbeanstalk": {
     "id": "amazonaws_elasticbeanstalk",
@@ -1085,7 +1260,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_elasticfilesystem": {
     "id": "amazonaws_elasticfilesystem",
@@ -1110,7 +1285,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_elasticloadbalancing": {
     "id": "amazonaws_elasticloadbalancing",
@@ -1134,7 +1309,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_elasticmapreduce": {
     "id": "amazonaws_elasticmapreduce",
@@ -1159,7 +1334,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_elastictranscoder": {
     "id": "amazonaws_elastictranscoder",
@@ -1183,7 +1358,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_email": {
     "id": "amazonaws_email",
@@ -1207,7 +1382,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_entitlement_marketplace": {
     "id": "amazonaws_entitlement_marketplace",
@@ -1232,7 +1407,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_es": {
     "id": "amazonaws_es",
@@ -1257,7 +1432,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_events": {
     "id": "amazonaws_events",
@@ -1282,7 +1457,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_firehose": {
     "id": "amazonaws_firehose",
@@ -1301,12 +1476,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_firehose.svg"
     },
-    "actionCount": 8,
+    "actionCount": 7,
     "tags": [
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_gamelift": {
     "id": "amazonaws_gamelift",
@@ -1330,7 +1505,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_glacier": {
     "id": "amazonaws_glacier",
@@ -1354,7 +1529,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_glue": {
     "id": "amazonaws_glue",
@@ -1379,7 +1554,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_greengrass": {
     "id": "amazonaws_greengrass",
@@ -1403,7 +1578,32 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_guardduty": {
+    "id": "amazonaws_guardduty",
+    "title": "Amazon GuardDuty",
+    "description": "Assess, monitor, manage, and remediate security issues across your AWS infrastructure, applications, and data.",
+    "security": {
+      "amazonaws_guardduty": {
+        "integration": "amazonaws_guardduty",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_guardduty.jpeg"
+    },
+    "actionCount": 26,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_health": {
     "id": "amazonaws_health",
@@ -1428,7 +1628,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_iam": {
     "id": "amazonaws_iam",
@@ -1452,7 +1652,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_importexport": {
     "id": "amazonaws_importexport",
@@ -1476,7 +1676,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_inspector": {
     "id": "amazonaws_inspector",
@@ -1500,7 +1700,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_iot": {
     "id": "amazonaws_iot",
@@ -1524,7 +1724,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_kinesis": {
     "id": "amazonaws_kinesis",
@@ -1548,7 +1748,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_kinesisanalytics": {
     "id": "amazonaws_kinesisanalytics",
@@ -1571,7 +1771,32 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_kinesisvideo": {
+    "id": "amazonaws_kinesisvideo",
+    "title": "Amazon Kinesis Video Streams",
+    "description": "",
+    "security": {
+      "amazonaws_kinesisvideo": {
+        "integration": "amazonaws_kinesisvideo",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesisvideo.jpeg"
+    },
+    "actionCount": 10,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_kms": {
     "id": "amazonaws_kms",
@@ -1595,7 +1820,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_lambda": {
     "id": "amazonaws_lambda",
@@ -1619,7 +1844,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_lightsail": {
     "id": "amazonaws_lightsail",
@@ -1643,7 +1868,32 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_logs": {
+    "id": "amazonaws_logs",
+    "title": "Amazon CloudWatch Logs",
+    "description": "You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon EC2 instances, AWS CloudTrai...",
+    "security": {
+      "amazonaws_logs": {
+        "integration": "amazonaws_logs",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_logs.jpeg"
+    },
+    "actionCount": 33,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_machinelearning": {
     "id": "amazonaws_machinelearning",
@@ -1667,7 +1917,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_marketplacecommerceanalytics": {
     "id": "amazonaws_marketplacecommerceanalytics",
@@ -1692,7 +1942,107 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_mediaconvert": {
+    "id": "amazonaws_mediaconvert",
+    "title": "AWS Elemental MediaConvert",
+    "description": "AWS Elemental MediaConvert",
+    "security": {
+      "amazonaws_mediaconvert": {
+        "integration": "amazonaws_mediaconvert",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mediaconvert.jpeg"
+    },
+    "actionCount": 9,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_medialive": {
+    "id": "amazonaws_medialive",
+    "title": "AWS Elemental MediaLive",
+    "description": "API for AWS Elemental MediaLive",
+    "security": {
+      "amazonaws_medialive": {
+        "integration": "amazonaws_medialive",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_medialive.jpeg"
+    },
+    "actionCount": 8,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_mediapackage": {
+    "id": "amazonaws_mediapackage",
+    "title": "AWS Elemental MediaPackage",
+    "description": "AWS Elemental MediaPackage",
+    "security": {
+      "amazonaws_mediapackage": {
+        "integration": "amazonaws_mediapackage",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mediapackage.jpeg"
+    },
+    "actionCount": 5,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_mediastore": {
+    "id": "amazonaws_mediastore",
+    "title": "AWS Elemental MediaStore",
+    "description": "An AWS Elemental MediaStore container is a namespace that holds folders and objects. You use a container endpoint to cre...",
+    "security": {
+      "amazonaws_mediastore": {
+        "integration": "amazonaws_mediastore",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mediastore.jpeg"
+    },
+    "actionCount": 7,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_metering_marketplace": {
     "id": "amazonaws_metering_marketplace",
@@ -1717,7 +2067,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_mgh": {
     "id": "amazonaws_mgh",
@@ -1742,7 +2092,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_mobile": {
     "id": "amazonaws_mobile",
@@ -1767,7 +2117,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_mobileanalytics": {
     "id": "amazonaws_mobileanalytics",
@@ -1791,7 +2141,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_models_lex": {
     "id": "amazonaws_models_lex",
@@ -1816,7 +2166,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_monitoring": {
     "id": "amazonaws_monitoring",
@@ -1840,7 +2190,32 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_mq": {
+    "id": "amazonaws_mq",
+    "title": "AmazonMQ",
+    "description": "Amazon MQ is a managed message broker service for Apache ActiveMQ that makes it easy to set up and operate message broke...",
+    "security": {
+      "amazonaws_mq": {
+        "integration": "amazonaws_mq",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mq.jpeg"
+    },
+    "actionCount": 9,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_mturk_requester": {
     "id": "amazonaws_mturk_requester",
@@ -1865,7 +2240,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_opsworks": {
     "id": "amazonaws_opsworks",
@@ -1889,7 +2264,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_opsworks_cm": {
     "id": "amazonaws_opsworks_cm",
@@ -1914,7 +2289,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_organizations": {
     "id": "amazonaws_organizations",
@@ -1938,7 +2313,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_pinpoint": {
     "id": "amazonaws_pinpoint",
@@ -1961,7 +2336,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_polly": {
     "id": "amazonaws_polly",
@@ -1985,7 +2360,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_rds": {
     "id": "amazonaws_rds",
@@ -2009,7 +2384,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_redshift": {
     "id": "amazonaws_redshift",
@@ -2033,7 +2408,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_rekognition": {
     "id": "amazonaws_rekognition",
@@ -2057,7 +2432,32 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_resource_groups": {
+    "id": "amazonaws_resource_groups",
+    "title": "AWS Resource Groups",
+    "description": "AWS Resource Groups",
+    "security": {
+      "amazonaws_resource_groups": {
+        "integration": "amazonaws_resource_groups",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_resource_groups.jpeg"
+    },
+    "actionCount": 6,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_route53": {
     "id": "amazonaws_route53",
@@ -2080,7 +2480,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_route53domains": {
     "id": "amazonaws_route53domains",
@@ -2105,7 +2505,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_runtime_lex": {
     "id": "amazonaws_runtime_lex",
@@ -2130,7 +2530,32 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_runtime_sagemaker": {
+    "id": "amazonaws_runtime_sagemaker",
+    "title": "Amazon SageMaker Runtime",
+    "description": " Amazon SageMaker runtime API. ",
+    "security": {
+      "amazonaws_runtime_sagemaker": {
+        "integration": "amazonaws_runtime_sagemaker",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_runtime_sagemaker.jpeg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_s3": {
     "id": "amazonaws_s3",
@@ -2153,7 +2578,32 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_sagemaker": {
+    "id": "amazonaws_sagemaker",
+    "title": "Amazon SageMaker Service",
+    "description": "Definition of the public APIs exposed by SageMaker",
+    "security": {
+      "amazonaws_sagemaker": {
+        "integration": "amazonaws_sagemaker",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sagemaker.jpeg"
+    },
+    "actionCount": 29,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_sdb": {
     "id": "amazonaws_sdb",
@@ -2178,7 +2628,32 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_serverlessrepo": {
+    "id": "amazonaws_serverlessrepo",
+    "title": "AWSServerlessApplicationRepository",
+    "description": "AWS Serverless Repository",
+    "security": {
+      "amazonaws_serverlessrepo": {
+        "integration": "amazonaws_serverlessrepo",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_serverlessrepo.jpeg"
+    },
+    "actionCount": 6,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_servicecatalog": {
     "id": "amazonaws_servicecatalog",
@@ -2202,7 +2677,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_shield": {
     "id": "amazonaws_shield",
@@ -2226,7 +2701,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_sms": {
     "id": "amazonaws_sms",
@@ -2250,7 +2725,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_snowball": {
     "id": "amazonaws_snowball",
@@ -2274,7 +2749,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_sns": {
     "id": "amazonaws_sns",
@@ -2298,7 +2773,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_sqs": {
     "id": "amazonaws_sqs",
@@ -2322,7 +2797,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_ssm": {
     "id": "amazonaws_ssm",
@@ -2347,7 +2822,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_states": {
     "id": "amazonaws_states",
@@ -2372,7 +2847,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_storagegateway": {
     "id": "amazonaws_storagegateway",
@@ -2396,7 +2871,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_streams_dynamodb": {
     "id": "amazonaws_streams_dynamodb",
@@ -2421,7 +2896,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_sts": {
     "id": "amazonaws_sts",
@@ -2445,7 +2920,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_support": {
     "id": "amazonaws_support",
@@ -2470,7 +2945,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_swf": {
     "id": "amazonaws_swf",
@@ -2494,7 +2969,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_tagging": {
     "id": "amazonaws_tagging",
@@ -2519,7 +2994,32 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
+  },
+  "amazonaws_translate": {
+    "id": "amazonaws_translate",
+    "title": "Amazon Translate",
+    "description": "Provides translation between English and one of six languages, or between one of the six languages and English.",
+    "security": {
+      "amazonaws_translate": {
+        "integration": "amazonaws_translate",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_translate.jpeg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "4.0.0"
   },
   "amazonaws_waf": {
     "id": "amazonaws_waf",
@@ -2543,7 +3043,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_waf_regional": {
     "id": "amazonaws_waf_regional",
@@ -2568,7 +3068,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_workdocs": {
     "id": "amazonaws_workdocs",
@@ -2592,7 +3092,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_workspaces": {
     "id": "amazonaws_workspaces",
@@ -2616,7 +3116,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "amazonaws_xray": {
     "id": "amazonaws_xray",
@@ -2641,7 +3141,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.4"
+    "latestVersion": "4.0.0"
   },
   "apacta": {
     "id": "apacta",
@@ -3275,6 +3775,27 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "art19": {
+    "id": "art19",
+    "title": "ART19 Content",
+    "description": "The ART19 Content API conforms to the JSON-API specification. Details and examples can be found at http://jsonapi.org.  ",
+    "security": {
+      "art19": {
+        "integration": "art19",
+        "fields": {
+          "api_key": "Authorization: Token token=\"your-token\", credential=\"your-credential\""
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/art19.png"
+    },
+    "actionCount": 22,
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "ato_gov_au": {
     "id": "ato_gov_au",
     "title": "Business Registries",
@@ -3347,6 +3868,62 @@
       "security"
     ],
     "latestVersion": "3.0.0"
+  },
+  "avaza": {
+    "id": "avaza",
+    "title": "Avaza",
+    "description": "For testing and experimenting with Avaza's API features.",
+    "security": {
+      "avaza": {
+        "integration": "avaza",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://any.avaza.com/oauth2/authorize",
+          "description": "OAuth2 Implicit Grant",
+          "flow": "implicit",
+          "scopes": {
+            "read": "Read access to protected resources",
+            "write": "Write access to protected resources"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/avaza.jpeg"
+    },
+    "actionCount": 40,
+    "tags": [
+      "collaboration"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "aviationdata_systems": {
+    "id": "aviationdata_systems",
+    "title": "AviationData.Systems Airports API V1",
+    "security": {
+      "aviationdata_systems": {
+        "integration": "aviationdata_systems",
+        "fields": {
+          "username": "Your username",
+          "password": "Your password"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/aviationdata_systems.jpeg"
+    },
+    "actionCount": 6,
+    "tags": [
+      "transport"
+    ],
+    "latestVersion": "2.0.0"
   },
   "azure_arm_advisor": {
     "id": "azure_arm_advisor",
@@ -3999,6 +4576,41 @@
       "azure"
     ],
     "latestVersion": "3.0.0"
+  },
+  "azure_arm_hdinsight": {
+    "id": "azure_arm_hdinsight",
+    "title": "HDInsightManagementClient",
+    "description": "The HDInsight Management Client.",
+    "security": {
+      "azure_arm_hdinsight": {
+        "integration": "azure_arm_hdinsight",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+          "description": "Azure Active Directory OAuth2 Flow",
+          "flow": "implicit",
+          "scopes": {
+            "user_impersonation": "impersonate your user account"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_hdinsight.png"
+    },
+    "actionCount": 1,
+    "tags": [
+      "cloud",
+      "azure"
+    ],
+    "latestVersion": "2.0.0"
   },
   "azure_arm_insights": {
     "id": "azure_arm_insights",
@@ -5209,6 +5821,20 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "betfair": {
+    "id": "betfair",
+    "title": "Betfair: Exchange Streaming",
+    "description": "API to receive streamed updates. This is an ssl socket connection of CRLF delimited json messages (see RequestMessage & ...",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/betfair.jpeg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "entertainment"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "bigoven": {
     "id": "bigoven",
     "title": "BigOven",
@@ -5303,6 +5929,27 @@
       "collaboration"
     ],
     "latestVersion": "3.0.0"
+  },
+  "blazemeter": {
+    "id": "blazemeter",
+    "title": "Blazemeter API Explorer",
+    "description": "Live API Documentation",
+    "security": {
+      "blazemeter": {
+        "integration": "blazemeter",
+        "fields": {
+          "apiKey": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/blazemeter.png"
+    },
+    "actionCount": 15,
+    "tags": [
+      "developer tools"
+    ],
+    "latestVersion": "2.0.0"
   },
   "bluemix_containers": {
     "id": "bluemix_containers",
@@ -5920,6 +6567,20 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "clever_cloud": {
+    "id": "clever_cloud",
+    "title": "Clever-Cloud",
+    "description": "Public API for managing Clever-Cloud data and products",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/clever_cloud.png"
+    },
+    "actionCount": 263,
+    "tags": [
+      "cloud"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "clickmeter": {
     "id": "clickmeter",
     "title": "ClickMeter",
@@ -6096,6 +6757,27 @@
       "text"
     ],
     "latestVersion": "3.0.0"
+  },
+  "deeparteffects": {
+    "id": "deeparteffects",
+    "title": "Deep Art Effects",
+    "security": {
+      "deeparteffects": {
+        "integration": "deeparteffects",
+        "fields": {
+          "api_key": "API key",
+          "sigv4": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deeparteffects.jpeg"
+    },
+    "actionCount": 3,
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
   },
   "deutschebahn_betriebsstellen": {
     "id": "deutschebahn_betriebsstellen",
@@ -6320,6 +7002,41 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "ebay_buy_feed": {
+    "id": "ebay_buy_feed",
+    "title": "Item Feed Service",
+    "description": "The Feed API provides the ability to download daily TSV_GZIP feed files containing all the newly listed eBay items in a ...",
+    "security": {
+      "ebay_buy_feed": {
+        "integration": "ebay_buy_feed",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "description": "The security definitions for this API. Please check individual operations for applicable scopes.",
+          "flow": "application",
+          "scopes": {
+            "https://api.ebay.com/oauth/api_scope/buy.item.feed": "View curated feeds of eBay items"
+          },
+          "tokenUrl": "https://api.ebay.com/identity/v1/oauth2/token",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_feed.jpeg"
+    },
+    "actionCount": 4,
+    "tags": [
+      "ecommerce"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "ebay_buy_marketing": {
     "id": "ebay_buy_marketing",
     "title": "Buy Marketing",
@@ -6389,6 +7106,43 @@
       "ecommerce"
     ],
     "latestVersion": "3.0.0"
+  },
+  "ebay_sell_fulfillment": {
+    "id": "ebay_sell_fulfillment",
+    "title": "Fulfillment",
+    "description": "Use the Fulfillment API to complete the process of packaging, addressing, handling, and shipping each order on behalf of...",
+    "security": {
+      "ebay_sell_fulfillment": {
+        "integration": "ebay_sell_fulfillment",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://signin.ebay.com/authorize",
+          "description": "The security definitions for this API. Please check individual operations for applicable scopes.",
+          "flow": "accessCode",
+          "scopes": {
+            "https://api.ebay.com/oauth/api_scope/sell.fulfillment": "View and manage your order fulfillments",
+            "https://api.ebay.com/oauth/api_scope/sell.fulfillment.readonly": "View your order fulfillments"
+          },
+          "tokenUrl": "https://api.ebay.com/identity/v1/oauth2/token",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_sell_fulfillment.jpeg"
+    },
+    "actionCount": 7,
+    "tags": [
+      "ecommerce"
+    ],
+    "latestVersion": "2.0.0"
   },
   "epa_gov_air": {
     "id": "epa_gov_air",
@@ -6799,6 +7553,27 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "formapi": {
+    "id": "formapi",
+    "title": "API V1",
+    "security": {
+      "formapi": {
+        "integration": "formapi",
+        "fields": {
+          "username": "Your username",
+          "password": "Your password"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/formapi.jpeg"
+    },
+    "actionCount": 7,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "freesound": {
     "id": "freesound",
     "title": "Freesound",
@@ -6813,6 +7588,27 @@
       "media"
     ],
     "latestVersion": "3.0.0"
+  },
+  "funtranslations": {
+    "id": "funtranslations",
+    "title": "FunTranslations",
+    "description": "Funtranslations API gives access to the full set of translations available at funtranslations.com so that you can integr...",
+    "security": {
+      "funtranslations": {
+        "integration": "funtranslations",
+        "fields": {
+          "X-Funtranslations-Api-Secret": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/funtranslations.png"
+    },
+    "actionCount": 36,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
   },
   "furkot": {
     "id": "furkot",
@@ -10410,6 +11206,42 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "google_serviceconsumermanagement": {
+    "id": "google_serviceconsumermanagement",
+    "title": "Service Consumer Management",
+    "description": "Provides management methods for configuring service producer resources on Google Cloud.",
+    "security": {
+      "google_serviceconsumermanagement": {
+        "integration": "google_serviceconsumermanagement",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "accessCode",
+          "scopes": {
+            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+            "https://www.googleapis.com/auth/service.management": "Manage your Google API service configuration"
+          },
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_serviceconsumermanagement.png"
+    },
+    "actionCount": 10,
+    "tags": [
+      "google"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "google_servicecontrol": {
     "id": "google_servicecontrol",
     "title": "Google Service Control",
@@ -11182,6 +12014,41 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "google_tpu": {
+    "id": "google_tpu",
+    "title": "Cloud TPU",
+    "description": "TPU API provides customers with access to Google TPU technology.",
+    "security": {
+      "google_tpu": {
+        "integration": "google_tpu",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "accessCode",
+          "scopes": {
+            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+          },
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_tpu.png"
+    },
+    "actionCount": 11,
+    "tags": [
+      "google"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "google_tracing": {
     "id": "google_tracing",
     "title": "Stackdriver Trace",
@@ -11759,6 +12626,19 @@
     "tags": [],
     "latestVersion": "2.0.3"
   },
+  "hackathonwatch": {
+    "id": "hackathonwatch",
+    "title": "HackathonWatch",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hackathonwatch.png"
+    },
+    "actionCount": 4,
+    "tags": [
+      "social"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "hacker_news": {
     "id": "hacker_news",
     "title": "Hacker News",
@@ -11770,6 +12650,94 @@
     "actionCount": 3,
     "tags": [],
     "latestVersion": "2.0.2"
+  },
+  "haloapi_metadata": {
+    "id": "haloapi_metadata",
+    "title": "Metadata",
+    "description": "API that provides Metadata information.",
+    "security": {
+      "haloapi_metadata": {
+        "integration": "haloapi_metadata",
+        "fields": {
+          "apiKeyHeader": "API key",
+          "apiKeyQuery": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/haloapi_metadata.jpeg"
+    },
+    "actionCount": 36,
+    "tags": [
+      "entertainment"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "haloapi_profile": {
+    "id": "haloapi_profile",
+    "title": "Profile",
+    "description": "API that provides Profile information about Players.",
+    "security": {
+      "haloapi_profile": {
+        "integration": "haloapi_profile",
+        "fields": {
+          "apiKeyHeader": "API key",
+          "apiKeyQuery": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/haloapi_profile.jpeg"
+    },
+    "actionCount": 3,
+    "tags": [
+      "entertainment"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "haloapi_stats": {
+    "id": "haloapi_stats",
+    "title": "Stats",
+    "description": "API that provides statistical data about Players and Matches.",
+    "security": {
+      "haloapi_stats": {
+        "integration": "haloapi_stats",
+        "fields": {
+          "apiKeyHeader": "API key",
+          "apiKeyQuery": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/haloapi_stats.jpeg"
+    },
+    "actionCount": 26,
+    "tags": [
+      "entertainment"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "haloapi_ugc": {
+    "id": "haloapi_ugc",
+    "title": "UGC",
+    "description": "API that provides Metadata about User-Generated Content (Maps and Game Variants).",
+    "security": {
+      "haloapi_ugc": {
+        "integration": "haloapi_ugc",
+        "fields": {
+          "apiKeyHeader": "API key",
+          "apiKeyQuery": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/haloapi_ugc.jpeg"
+    },
+    "actionCount": 4,
+    "tags": [
+      "entertainment"
+    ],
+    "latestVersion": "2.0.0"
   },
   "healthcare_gov": {
     "id": "healthcare_gov",
@@ -11857,6 +12825,19 @@
       "open data"
     ],
     "latestVersion": "3.0.0"
+  },
+  "hsbc": {
+    "id": "hsbc",
+    "title": "HSBC UK",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hsbc.jpeg"
+    },
+    "actionCount": 19,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "2.0.0"
   },
   "icons8": {
     "id": "icons8",
@@ -12102,6 +13083,90 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "instawell": {
+    "id": "instawell",
+    "title": "Instawell",
+    "description": "The Instawell API gives you access to  helpers all over the world. Integrate Instawell with your app using our API to ge...",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/instawell.png"
+    },
+    "actionCount": 8,
+    "tags": [
+      "social"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "iqualify": {
+    "id": "iqualify",
+    "title": "iQualify",
+    "security": {
+      "iqualify": {
+        "integration": "iqualify",
+        "fields": {
+          "jwt": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/iqualify.png"
+    },
+    "actionCount": 46,
+    "tags": [
+      "education"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "isendpro": {
+    "id": "isendpro",
+    "title": "API iSendPro",
+    "description": "[1] Liste des fonctionnalités :",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/isendpro.jpeg"
+    },
+    "actionCount": 11,
+    "tags": [
+      "messaging"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "iva_api": {
+    "id": "iva_api",
+    "title": "Entertainment Express",
+    "description": "Your Gateway to Building Incredible Movie, TV, and Game Content Discovery Experiences.",
+    "security": {
+      "iva_api": {
+        "integration": "iva_api",
+        "fields": {
+          "ApiKeyHeader": "Authorize requests passing your apiKey in HTTP header.",
+          "ApiKeyQuery": "Authorize requests passing your apiKey in Querystring."
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/iva_api.jpeg"
+    },
+    "actionCount": 116,
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "jumpseller": {
+    "id": "jumpseller",
+    "title": "Jumpseller API",
+    "description": "Explore all our endpoints with your own set of of access tokens. All changes affect your production Jumpseller store.",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/jumpseller.png"
+    },
+    "actionCount": 95,
+    "tags": [
+      "ecommerce"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "kaltura": {
     "id": "kaltura",
     "title": "Kaltura VPaaS",
@@ -12120,6 +13185,27 @@
     "actionCount": 746,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "koomalooma": {
+    "id": "koomalooma",
+    "title": "koomalooma Partner",
+    "description": "This is the koomalooma Partner API. koomalooma is the first Loyalty BPaaS (Business Process as a Service) for mobile and...",
+    "security": {
+      "koomalooma": {
+        "integration": "koomalooma",
+        "fields": {
+          "api_key": "Authenticate using the JWT token assigned to you by your koomalooma technical support specialist"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/koomalooma.jpeg"
+    },
+    "actionCount": 2,
+    "tags": [
+      "ecommerce"
+    ],
+    "latestVersion": "2.0.0"
   },
   "launchdarkly": {
     "id": "launchdarkly",
@@ -12155,6 +13241,29 @@
       "education"
     ],
     "latestVersion": "3.0.0"
+  },
+  "link_fish": {
+    "id": "link_fish",
+    "title": "link.fish",
+    "description": "API to easily extract data from websites.",
+    "security": {
+      "link_fish": {
+        "integration": "link_fish",
+        "fields": {
+          "username": "Your username",
+          "password": "Your password"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#fafafa",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/link_fish.png"
+    },
+    "actionCount": 6,
+    "tags": [
+      "developer tools"
+    ],
+    "latestVersion": "2.0.0"
   },
   "linkedin": {
     "id": "linkedin",
@@ -12402,6 +13511,20 @@
     ],
     "latestVersion": "2.0.0"
   },
+  "mcw_edu": {
+    "id": "mcw_edu",
+    "title": "Rat Genome Database",
+    "description": "The RGD REST API provides programmatic access to information and annotation stored in Rat Genome Database",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mcw_edu.jpeg"
+    },
+    "actionCount": 55,
+    "tags": [
+      "open data"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "medium": {
     "id": "medium",
     "title": "Medium.com",
@@ -12559,6 +13682,34 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "naviplancentral_factfinder": {
+    "id": "naviplancentral_factfinder",
+    "title": "Advicent.FactFinderService",
+    "description": "An API for accessing the Narrator Fact Finder.",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/naviplancentral_factfinder.jpeg"
+    },
+    "actionCount": 129,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "naviplancentral_plan": {
+    "id": "naviplancentral_plan",
+    "title": "Narrator Connect powered by NaviPlan",
+    "description": "An API for accessing NaviPlan plan data for a client.",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/naviplancentral_plan.jpeg"
+    },
+    "actionCount": 43,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "nba": {
     "id": "nba",
     "title": "NBA Stats",
@@ -12686,6 +13837,27 @@
     "tags": [],
     "latestVersion": "2.0.3"
   },
+  "nfusionsolutions_biz": {
+    "id": "nfusionsolutions_biz",
+    "title": "nFusion Solutions Market Data API v1",
+    "description": "nFusion Solutions provides REST and streaming APIs that deliver enterprise-grade financial data. Data sets include real-...",
+    "security": {
+      "nfusionsolutions_biz": {
+        "integration": "nfusionsolutions_biz",
+        "fields": {
+          "token": "Authorization Token included in request"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nfusionsolutions_biz.png"
+    },
+    "actionCount": 14,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "npr": {
     "id": "npr",
     "title": "NPR One API Reference",
@@ -12748,8 +13920,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#0079C5",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nrel_building_case_studies.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nrel_building_case_studies.svg"
     },
     "actionCount": 2,
     "tags": [
@@ -12792,6 +13963,27 @@
       "open data"
     ],
     "latestVersion": "3.0.0"
+  },
+  "nytimes_archive": {
+    "id": "nytimes_archive",
+    "title": "Archive",
+    "description": "The Archive API provides lists of NYT articles by month going back to 1851.  You can use it to build your own local data...",
+    "security": {
+      "nytimes_archive": {
+        "integration": "nytimes_archive",
+        "fields": {
+          "apikey": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_archive.png"
+    },
+    "actionCount": 1,
+    "tags": [
+      "open data"
+    ],
+    "latestVersion": "2.0.0"
   },
   "nytimes_article_search": {
     "id": "nytimes_article_search",
@@ -13138,6 +14330,28 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "opendatasoft": {
+    "id": "opendatasoft",
+    "title": "opendatasoft",
+    "security": {
+      "opendatasoft": {
+        "integration": "opendatasoft",
+        "fields": {
+          "api_key": "API key",
+          "username": "Your username",
+          "password": "Your password"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/opendatasoft.jpeg"
+    },
+    "actionCount": 34,
+    "tags": [
+      "open data"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "openfintech": {
     "id": "openfintech",
     "title": "OpenFinTech.io",
@@ -13170,6 +14384,20 @@
     "actionCount": 6,
     "tags": [],
     "latestVersion": "3.0.0"
+  },
+  "osf": {
+    "id": "osf",
+    "title": "OSF APIv2 Documentation",
+    "description": "Welcome to the documentation for the Open Science Framework API. With this API you can access users, projects, component...",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/osf.png"
+    },
+    "actionCount": 127,
+    "tags": [
+      "open data"
+    ],
+    "latestVersion": "2.0.0"
   },
   "osisoft": {
     "id": "osisoft",
@@ -13220,6 +14448,19 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "paccurate": {
+    "id": "paccurate",
+    "title": "paccurate.io",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/paccurate.jpeg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "transport"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "pandorabots": {
     "id": "pandorabots",
     "title": "Pandorabots AIaaS",
@@ -13262,6 +14503,39 @@
     "tags": [],
     "latestVersion": "3.0.0"
   },
+  "paylocity": {
+    "id": "paylocity",
+    "title": "Paylocity",
+    "description": "For general questions and support of the API, contact: vendorrelations@paylocity.com # Overview Paylocity Web Services A...",
+    "security": {
+      "paylocity": {
+        "integration": "paylocity",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "flow": "application",
+          "scopes": {
+            "WebLinkAPI": "Web Link Api"
+          },
+          "tokenUrl": "https://api.paylocity.com/IdentityServer/connect/token",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/paylocity.jpeg"
+    },
+    "actionCount": 21,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "paypal": {
     "id": "paypal",
     "title": "PayPal Sandbox",
@@ -13273,6 +14547,20 @@
     "actionCount": 32,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "payrun": {
+    "id": "payrun",
+    "title": "PayRun.IO",
+    "description": "Open, scableable, transparent payroll API.",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/payrun.jpeg"
+    },
+    "actionCount": 247,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "2.0.0"
   },
   "peel_ci": {
     "id": "peel_ci",
@@ -13323,6 +14611,27 @@
     "actionCount": 31,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "polygon": {
+    "id": "polygon",
+    "title": "Polygon",
+    "description": "The future of fintech.",
+    "security": {
+      "polygon": {
+        "integration": "polygon",
+        "fields": {
+          "apiKey": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/polygon.jpeg"
+    },
+    "actionCount": 10,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "2.0.0"
   },
   "postmark": {
     "id": "postmark",
@@ -13421,6 +14730,28 @@
       "transport"
     ],
     "latestVersion": "3.0.0"
+  },
+  "qualpay": {
+    "id": "qualpay",
+    "title": "Qualpay Payment Gateway",
+    "description": "This document describes the Qualpay Payment Gateway API.",
+    "security": {
+      "qualpay": {
+        "integration": "qualpay",
+        "fields": {
+          "username": "Your username",
+          "password": "Your password"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/qualpay.png"
+    },
+    "actionCount": 10,
+    "tags": [
+      "ecommerce"
+    ],
+    "latestVersion": "2.0.0"
   },
   "quandl": {
     "id": "quandl",
@@ -13684,6 +15015,36 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "roaring": {
+    "id": "roaring",
+    "title": "CompanyAPI",
+    "security": {
+      "roaring": {
+        "integration": "roaring",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://api.roaring.io/authorize",
+          "flow": "implicit",
+          "scopes": {},
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/roaring.jpeg"
+    },
+    "actionCount": 11,
+    "tags": [
+      "customer relation"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "rottentomatoes": {
     "id": "rottentomatoes",
     "title": "Rotten Tomatoes",
@@ -13821,6 +15182,38 @@
     "actionCount": 58,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "salesloft": {
+    "id": "salesloft",
+    "title": "SalesLoft Platform",
+    "description": "SalesLoft helps transform sales teams into modern sales organizations  - converting more target accounts into customer a...",
+    "security": {
+      "salesloft": {
+        "integration": "salesloft",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "flow": "application",
+          "scopes": {},
+          "tokenUrl": "https://accounts.salesloft.com/oauth/token",
+          "type": "oauth2",
+          "x-authorizationUrl": "https://accounts.salesloft.com/oauth/authorize"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/salesloft.jpeg"
+    },
+    "actionCount": 50,
+    "tags": [
+      "customer relation"
+    ],
+    "latestVersion": "2.0.0"
   },
   "schooldigger": {
     "id": "schooldigger",
@@ -14130,6 +15523,22 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "spinbot": {
+    "id": "spinbot",
+    "title": "Article Rewriter and Article Extractor",
+    "description": "Spinbot.net propose a new solution based on high technologies for faster article spinner and extractor that you will lov...",
+    "security": {
+      "spinbot": {
+        "integration": "spinbot",
+        "fields": {
+          "key": "API key"
+        }
+      }
+    },
+    "actionCount": 4,
+    "tags": [],
+    "latestVersion": "2.0.0"
+  },
   "spotify": {
     "id": "spotify",
     "title": "Spotify",
@@ -14315,6 +15724,20 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "stripe": {
+    "id": "stripe",
+    "title": "Stripe",
+    "description": "The Stripe REST API. Please see https://stripe.com/docs/api for more details.",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/stripe.jpeg"
+    },
+    "actionCount": 190,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "swagger_generator": {
     "id": "swagger_generator",
     "title": "Swagger Generator",
@@ -14379,6 +15802,27 @@
       "ecommerce"
     ],
     "latestVersion": "2.0.2"
+  },
+  "taggun": {
+    "id": "taggun",
+    "title": "taggun.io",
+    "description": "Expects only running software, real reactions, and beautifully crafted APIs to serve your every desire to transcript a p...",
+    "security": {
+      "taggun": {
+        "integration": "taggun",
+        "fields": {
+          "apikey": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/taggun.jpeg"
+    },
+    "actionCount": 10,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
   },
   "taxamo": {
     "id": "taxamo",
@@ -14502,6 +15946,28 @@
       "location"
     ],
     "latestVersion": "3.0.0"
+  },
+  "transavia": {
+    "id": "transavia",
+    "title": "Airports API v2",
+    "description": "Returns all airports",
+    "security": {
+      "transavia": {
+        "integration": "transavia",
+        "fields": {
+          "apiKeyHeader": "API key",
+          "apiKeyQuery": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/transavia.jpeg"
+    },
+    "actionCount": 5,
+    "tags": [
+      "transport"
+    ],
+    "latestVersion": "2.0.0"
   },
   "trello": {
     "id": "trello",
@@ -14765,6 +16231,40 @@
     ],
     "latestVersion": "3.0.0"
   },
+  "vocadb": {
+    "id": "vocadb",
+    "title": "VocaDB",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/vocadb.jpeg"
+    },
+    "actionCount": 110,
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "voodoomfg": {
+    "id": "voodoomfg",
+    "title": "Voodoo Manufacturing",
+    "description": "Welcome to the Voodoo Manufacturing API docs! Your Voodoo Manufacturing API key must be included with each request to th...",
+    "security": {
+      "voodoomfg": {
+        "integration": "voodoomfg",
+        "fields": {
+          "Voodoo Manufacturing API Key": "Your Voodoo Manufacturing API key must be included with each request to the API. The API will look for the key in the \"api_key\" header of the request."
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/voodoomfg.png"
+    },
+    "actionCount": 11,
+    "tags": [
+      "tools"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "waag": {
     "id": "waag",
     "title": "CitySDK Linked Data",
@@ -14837,6 +16337,139 @@
       "machine learning"
     ],
     "latestVersion": "3.0.0"
+  },
+  "weatherbit": {
+    "id": "weatherbit",
+    "title": "Weatherbit.io - Weather",
+    "description": "This is the documentation for the Weatherbit API.  The base URL for the API is [http://api.weatherbit.io/v2.0/](http://a...",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/weatherbit.jpeg"
+    },
+    "actionCount": 51,
+    "tags": [
+      "location"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "whapi_accounts": {
+    "id": "whapi_accounts",
+    "title": "Accounts",
+    "description": "The Accounts API is a collection of methods used to query a customer account. It allows the developer to retrieve accoun...",
+    "security": {
+      "whapi_accounts": {
+        "integration": "whapi_accounts",
+        "fields": {
+          "apiKey": "A unique identifier of your application that is generated by the API portal."
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/whapi_accounts.jpeg"
+    },
+    "actionCount": 5,
+    "tags": [
+      "entertainment"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "whapi_bets": {
+    "id": "whapi_bets",
+    "title": "Bets",
+    "description": "The Bets API methods are used to place single, multiple and complex bets and to retrieve a customer’s bet history. When ...",
+    "security": {
+      "whapi_bets": {
+        "integration": "whapi_bets",
+        "fields": {
+          "apiKey": "A unique identifier of your application that is generated by the API portal."
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/whapi_bets.jpeg"
+    },
+    "actionCount": 6,
+    "tags": [
+      "entertainment"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "whapi_locations": {
+    "id": "whapi_locations",
+    "title": "Locations",
+    "description": "The Locations API is a collection of methods that support geographical information. The first method is an address looku...",
+    "security": {
+      "whapi_locations": {
+        "integration": "whapi_locations",
+        "fields": {
+          "apiKey": "A unique identifier of your application that is generated by the API portal and presented in the header."
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/whapi_locations.jpeg"
+    },
+    "actionCount": 5,
+    "tags": [
+      "entertainment"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "whapi_numbers": {
+    "id": "whapi_numbers",
+    "title": "Numbers",
+    "description": "The William Hill Numbers API uses a single method that allows you to generate random numbers for your application. Numbe...",
+    "security": {
+      "whapi_numbers": {
+        "integration": "whapi_numbers",
+        "fields": {
+          "apiKey": "A unique identifier of your application that is generated by the API portal and presented in the header."
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/whapi_numbers.jpeg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "entertainment"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "whapi_sessions": {
+    "id": "whapi_sessions",
+    "title": "Sessions",
+    "description": "The William Hill Sessions API uses a central authentication service (CAS*) on all resources that require access to a cus...",
+    "security": {
+      "whapi_sessions": {
+        "integration": "whapi_sessions",
+        "fields": {
+          "apiKey": "A unique identifier of your application that is generated by the API portal."
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/whapi_sessions.jpeg"
+    },
+    "actionCount": 4,
+    "tags": [
+      "entertainment"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "whapi_sportsdata": {
+    "id": "whapi_sportsdata",
+    "title": "SportsData",
+    "description": "The William Hill SportsData REST API is a collection of GET methods to provide William Hill product data such as sport, ...",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/whapi_sportsdata.jpeg"
+    },
+    "actionCount": 13,
+    "tags": [
+      "entertainment"
+    ],
+    "latestVersion": "2.0.0"
   },
   "wikimedia": {
     "id": "wikimedia",
@@ -15059,6 +16692,59 @@
       "text"
     ],
     "latestVersion": "3.0.0"
+  },
+  "wowza": {
+    "id": "wowza",
+    "title": "Wowza Streaming Cloud REST API Reference Documentation",
+    "description": "# About the REST API The Wowza Streaming CloudTM REST API (application programming interface) offers complete programmat...",
+    "security": {
+      "wowza": {
+        "integration": "wowza",
+        "fields": {
+          "wsc-access-key": "A valid 64-digit, alphanumeric API access key.",
+          "wsc-api-key": "Your account's 64-digit, alphanumeric API key. "
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wowza.jpeg"
+    },
+    "actionCount": 104,
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "wso2apistore_transform": {
+    "id": "wso2apistore_transform",
+    "title": "Transform",
+    "description": "This API provides XML to JSON, JSON to XML transformations.",
+    "security": {
+      "wso2apistore_transform": {
+        "integration": "wso2apistore_transform",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://gateway.api.cloud.wso2.com:443/authorize",
+          "flow": "implicit",
+          "scopes": {},
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wso2apistore_transform.jpeg"
+    },
+    "actionCount": 2,
+    "tags": [
+      "developer tools"
+    ],
+    "latestVersion": "2.0.0"
   },
   "xkcd": {
     "id": "xkcd",

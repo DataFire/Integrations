@@ -1,0 +1,611 @@
+{
+  "id": "amazonaws_cloudsearchdomain",
+  "title": "Amazon CloudSearch Domain",
+  "description": "You use the AmazonCloudSearch2013 API to upload documents to a search domain and search those documents.\n\nThe endpoints for submitting `UploadDocuments`, `Search`, and `Suggest` requests are domain-specific. To get the endpoints for your domain, use the Amazon CloudSearch configuration service `DescribeDomains` action. The domain endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. You submit suggest requests to the search endpoint.\n\nFor more information, see the [Amazon CloudSearch Developer Guide](http://docs.aws.amazon.com/cloudsearch/latest/developerguide).",
+  "security": {
+    "amazonaws_cloudsearchdomain": {
+      "integration": "amazonaws_cloudsearchdomain",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudsearchdomain.jpg"
+  },
+  "actionCount": 3,
+  "definitions": {
+    "Adds": {
+      "type": "integer",
+      "title": "Adds"
+    },
+    "Blob": {
+      "type": "string",
+      "title": "Blob"
+    },
+    "Bucket": {
+      "description": "A container for facet information. ",
+      "properties": {
+        "count": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of hits that contain the facet value in the specified facet field."
+        },
+        "value": {
+          "$ref": "#/definitions/String",
+          "description": "The facet value being counted."
+        }
+      },
+      "type": "object",
+      "title": "Bucket"
+    },
+    "BucketInfo": {
+      "description": "A container for the calculated facet values and counts.",
+      "properties": {
+        "buckets": {
+          "$ref": "#/definitions/BucketList",
+          "description": "A list of the calculated facet values and counts."
+        }
+      },
+      "type": "object",
+      "title": "BucketInfo"
+    },
+    "BucketList": {
+      "items": {
+        "$ref": "#/definitions/Bucket"
+      },
+      "type": "array",
+      "title": "BucketList"
+    },
+    "ContentType": {
+      "enum": [
+        "application/json",
+        "application/xml"
+      ],
+      "type": "string",
+      "title": "ContentType"
+    },
+    "Cursor": {
+      "type": "string",
+      "title": "Cursor"
+    },
+    "Deletes": {
+      "type": "integer",
+      "title": "Deletes"
+    },
+    "DocumentServiceException": {
+      "description": "Information about any problems encountered while processing an upload request.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "The description of the errors returned by the document service."
+        },
+        "status": {
+          "$ref": "#/definitions/String",
+          "description": "The return status of a document upload request, <code>error</code> or <code>success</code>."
+        }
+      },
+      "type": "object",
+      "title": "DocumentServiceException"
+    },
+    "DocumentServiceWarning": {
+      "description": "A warning returned by the document service when an issue is discovered while processing an upload request.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "The description for a warning returned by the document service."
+        }
+      },
+      "type": "object",
+      "title": "DocumentServiceWarning"
+    },
+    "DocumentServiceWarnings": {
+      "items": {
+        "$ref": "#/definitions/DocumentServiceWarning"
+      },
+      "type": "array",
+      "title": "DocumentServiceWarnings"
+    },
+    "Double": {
+      "format": "double",
+      "type": "number",
+      "title": "Double"
+    },
+    "Expr": {
+      "type": "string",
+      "title": "Expr"
+    },
+    "Exprs": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/String"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Exprs"
+    },
+    "Facet": {
+      "type": "string",
+      "title": "Facet"
+    },
+    "Facets": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/BucketInfo"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Facets"
+    },
+    "FieldStats": {
+      "description": "The statistics for a field calculated in the request.",
+      "properties": {
+        "count": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of documents that contain a value in the specified field in the result set."
+        },
+        "max": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The maximum value found in the specified field in the result set.</p> <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>max</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>max</code> is the string representation of a date with the format specified in <a href=\"http://tools.ietf.org/html/rfc3339\">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>"
+        },
+        "mean": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The average of the values found in the specified field in the result set.</p> <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>mean</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>mean</code> is the string representation of a date with the format specified in <a href=\"http://tools.ietf.org/html/rfc3339\">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>"
+        },
+        "min": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The minimum value found in the specified field in the result set.</p> <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>min</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>min</code> is the string representation of a date with the format specified in <a href=\"http://tools.ietf.org/html/rfc3339\">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>"
+        },
+        "missing": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of documents that do not contain a value in the specified field in the result set."
+        },
+        "stddev": {
+          "$ref": "#/definitions/Double",
+          "description": "The standard deviation of the values in the specified field in the result set."
+        },
+        "sum": {
+          "$ref": "#/definitions/Double",
+          "description": "The sum of the field values across the documents in the result set. <code>null</code> for date fields."
+        },
+        "sumOfSquares": {
+          "$ref": "#/definitions/Double",
+          "description": "The sum of all field values in the result set squared."
+        }
+      },
+      "type": "object",
+      "title": "FieldStats"
+    },
+    "FieldValue": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array",
+      "title": "FieldValue"
+    },
+    "Fields": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/FieldValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Fields"
+    },
+    "FilterQuery": {
+      "type": "string",
+      "title": "FilterQuery"
+    },
+    "Highlight": {
+      "type": "string",
+      "title": "Highlight"
+    },
+    "Highlights": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/String"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Highlights"
+    },
+    "Hit": {
+      "description": "Information about a document that matches the search request.",
+      "properties": {
+        "exprs": {
+          "$ref": "#/definitions/Exprs",
+          "description": "The expressions returned from a document that matches the search request."
+        },
+        "fields": {
+          "$ref": "#/definitions/Fields",
+          "description": "The fields returned from a document that matches the search request."
+        },
+        "highlights": {
+          "$ref": "#/definitions/Highlights",
+          "description": "The highlights returned from a document that matches the search request."
+        },
+        "id": {
+          "$ref": "#/definitions/String",
+          "description": "The document ID of a document that matches the search request."
+        }
+      },
+      "type": "object",
+      "title": "Hit"
+    },
+    "HitList": {
+      "items": {
+        "$ref": "#/definitions/Hit"
+      },
+      "type": "array",
+      "title": "HitList"
+    },
+    "Hits": {
+      "description": "The collection of documents that match the search request.",
+      "properties": {
+        "cursor": {
+          "$ref": "#/definitions/String",
+          "description": "A cursor that can be used to retrieve the next set of matching documents when you want to page through a large result set."
+        },
+        "found": {
+          "$ref": "#/definitions/Long",
+          "description": "The total number of documents that match the search request."
+        },
+        "hit": {
+          "$ref": "#/definitions/HitList",
+          "description": "A document that matches the search request."
+        },
+        "start": {
+          "$ref": "#/definitions/Long",
+          "description": "The index of the first matching document."
+        }
+      },
+      "type": "object",
+      "title": "Hits"
+    },
+    "Long": {
+      "type": "integer",
+      "title": "Long"
+    },
+    "Partial": {
+      "type": "boolean",
+      "title": "Partial"
+    },
+    "Query": {
+      "type": "string",
+      "title": "Query"
+    },
+    "QueryOptions": {
+      "type": "string",
+      "title": "QueryOptions"
+    },
+    "QueryParser": {
+      "enum": [
+        "simple",
+        "structured",
+        "lucene",
+        "dismax"
+      ],
+      "type": "string",
+      "title": "QueryParser"
+    },
+    "Return": {
+      "type": "string",
+      "title": "Return"
+    },
+    "SearchException": {
+      "description": "Information about any problems encountered while processing a search request.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "A description of the error returned by the search service."
+        }
+      },
+      "type": "object",
+      "title": "SearchException"
+    },
+    "SearchRequest": {
+      "description": "Container for the parameters to the <code>Search</code> request.",
+      "properties": {},
+      "type": "object",
+      "title": "SearchRequest"
+    },
+    "SearchResponse": {
+      "description": "The result of a <code>Search</code> request. Contains the documents that match the specified search criteria and any requested fields, highlights, and facet information.",
+      "properties": {
+        "facets": {
+          "$ref": "#/definitions/Facets",
+          "description": "The requested facet information."
+        },
+        "hits": {
+          "$ref": "#/definitions/Hits",
+          "description": "The documents that match the search criteria."
+        },
+        "stats": {
+          "$ref": "#/definitions/Stats",
+          "description": "The requested field statistics information."
+        },
+        "status": {
+          "$ref": "#/definitions/SearchStatus",
+          "description": "The status information returned for the search request."
+        }
+      },
+      "type": "object",
+      "title": "SearchResponse"
+    },
+    "SearchStatus": {
+      "description": "Contains the resource id (<code>rid</code>) and the time it took to process the request (<code>timems</code>).",
+      "properties": {
+        "rid": {
+          "$ref": "#/definitions/String",
+          "description": "The encrypted resource ID for the request."
+        },
+        "timems": {
+          "$ref": "#/definitions/Long",
+          "description": "How long it took to process the request, in milliseconds."
+        }
+      },
+      "type": "object",
+      "title": "SearchStatus"
+    },
+    "Size": {
+      "type": "integer",
+      "title": "Size"
+    },
+    "Sort": {
+      "type": "string",
+      "title": "Sort"
+    },
+    "Start": {
+      "type": "integer",
+      "title": "Start"
+    },
+    "Stat": {
+      "type": "string",
+      "title": "Stat"
+    },
+    "Stats": {
+      "description": "The statistics calculated in the request.",
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/FieldStats"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Stats"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "SuggestModel": {
+      "description": "Container for the suggestion information returned in a <code>SuggestResponse</code>.",
+      "properties": {
+        "found": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of documents that were found to match the query string."
+        },
+        "query": {
+          "$ref": "#/definitions/String",
+          "description": "The query string specified in the suggest request."
+        },
+        "suggestions": {
+          "$ref": "#/definitions/Suggestions",
+          "description": "The documents that match the query string."
+        }
+      },
+      "type": "object",
+      "title": "SuggestModel"
+    },
+    "SuggestRequest": {
+      "description": "Container for the parameters to the <code>Suggest</code> request.",
+      "properties": {},
+      "type": "object",
+      "title": "SuggestRequest"
+    },
+    "SuggestResponse": {
+      "description": "Contains the response to a <code>Suggest</code> request.",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/SuggestStatus",
+          "description": "The status of a <code>SuggestRequest</code>. Contains the resource ID (<code>rid</code>) and how long it took to process the request (<code>timems</code>)."
+        },
+        "suggest": {
+          "$ref": "#/definitions/SuggestModel",
+          "description": "Container for the matching search suggestion information."
+        }
+      },
+      "type": "object",
+      "title": "SuggestResponse"
+    },
+    "SuggestStatus": {
+      "description": "Contains the resource id (<code>rid</code>) and the time it took to process the request (<code>timems</code>).",
+      "properties": {
+        "rid": {
+          "$ref": "#/definitions/String",
+          "description": "The encrypted resource ID for the request."
+        },
+        "timems": {
+          "$ref": "#/definitions/Long",
+          "description": "How long it took to process the request, in milliseconds."
+        }
+      },
+      "type": "object",
+      "title": "SuggestStatus"
+    },
+    "Suggester": {
+      "type": "string",
+      "title": "Suggester"
+    },
+    "SuggestionMatch": {
+      "description": "An autocomplete suggestion that matches the query string specified in a <code>SuggestRequest</code>. ",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/String",
+          "description": "The document ID of the suggested document."
+        },
+        "score": {
+          "$ref": "#/definitions/Long",
+          "description": "The relevance score of a suggested match."
+        },
+        "suggestion": {
+          "$ref": "#/definitions/String",
+          "description": "The string that matches the query string specified in the <code>SuggestRequest</code>. "
+        }
+      },
+      "type": "object",
+      "title": "SuggestionMatch"
+    },
+    "Suggestions": {
+      "items": {
+        "$ref": "#/definitions/SuggestionMatch"
+      },
+      "type": "array",
+      "title": "Suggestions"
+    },
+    "SuggestionsSize": {
+      "type": "integer",
+      "title": "SuggestionsSize"
+    },
+    "UploadDocumentsRequest": {
+      "description": "Container for the parameters to the <code>UploadDocuments</code> request.",
+      "properties": {
+        "documents": {
+          "$ref": "#/definitions/Blob",
+          "description": "A batch of documents formatted in JSON or HTML."
+        }
+      },
+      "required": [
+        "documents"
+      ],
+      "type": "object",
+      "title": "UploadDocumentsRequest"
+    },
+    "UploadDocumentsResponse": {
+      "description": "Contains the response to an <code>UploadDocuments</code> request.",
+      "properties": {
+        "adds": {
+          "$ref": "#/definitions/Adds",
+          "description": "The number of documents that were added to the search domain."
+        },
+        "deletes": {
+          "$ref": "#/definitions/Deletes",
+          "description": "The number of documents that were deleted from the search domain."
+        },
+        "status": {
+          "$ref": "#/definitions/String",
+          "description": "The status of an <code>UploadDocumentsRequest</code>."
+        },
+        "warnings": {
+          "$ref": "#/definitions/DocumentServiceWarnings",
+          "description": "Any warnings returned by the document service about the documents being uploaded."
+        }
+      },
+      "type": "object",
+      "title": "UploadDocumentsResponse"
+    }
+  },
+  "actions": [
+    {
+      "id": "UploadDocuments",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UploadDocumentsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UploadDocumentsResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearchdomain": {
+          "integration": "amazonaws_cloudsearchdomain"
+        }
+      }
+    },
+    {
+      "id": "Search",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SearchRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SearchResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearchdomain": {
+          "integration": "amazonaws_cloudsearchdomain"
+        }
+      }
+    },
+    {
+      "id": "Suggest",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SuggestRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SuggestResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearchdomain": {
+          "integration": "amazonaws_cloudsearchdomain"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

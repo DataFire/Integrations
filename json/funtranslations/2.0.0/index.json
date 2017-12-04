@@ -1,0 +1,934 @@
+{
+  "id": "funtranslations",
+  "title": "FunTranslations",
+  "description": "Funtranslations API gives access to the full set of translations available at funtranslations.com so that you can integrate them in your workflow or an app. [Click here to get details and subscribe](http://funtranslations.com/api) . Here are the individual API links:\n\n  ## Morse code API ##\n  Morse code conversion API on the cloud. Translate to and from Morse Code.[Click here to subscribe](http://funtranslations.com/api/morse)\n  ## Braille API ##\n  Braille conversion API on the cloud. Translate to Braille and get Braille results suitable for many display types.[Click here to subscribe](http://funtranslations.com/api/braille)     \n  ## Starwars Translation API ##\n  Ever wonder how to talk like Yoda? Well, use our API and let your APP/webpage speak like Yoda too.[Click here to subscribe](http://funtranslations.com/api/yoda)  \n  \n  Sith Translator API. [Click here to subscribe](http://funtranslations.com/api/sith) \n  \n  Cheunh Translator API. [Click here to subscribe](http://funtranslations.com/api/cheunh) \n  \n  Huttese Translator API. [Click here to subscribe](http://funtranslations.com/api/huttese)\n  \n  Mandalorian Translator API. [Click here to subscribe](http://funtranslations.com/api/mandalorian)\n  \n  Gungan Translator API. [Click here to subscribe](http://funtranslations.com/api/gungan)\n  \n  ## Pirate Speak Translation API ##\n  Ahoy, matey. Let's get those land lubbers speak our tounge too! Our evergreen pirate speak tranlsator API.[Click here to subscribe](http://funtranslations.com/api/pirate) \n  ## Valley Speak Translation API ##\n  Our throwback Valspeak translations API.[Click here to subscribe](http://funtranslations.com/api/valspeak)    \n  ## Minion Speak Translation API ##\n  Our evil master following minion speak translations API.[Click here to subscribe](http://funtranslations.com/api/minion)     \n",
+  "security": {
+    "funtranslations": {
+      "integration": "funtranslations",
+      "fields": {
+        "X-Funtranslations-Api-Secret": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/funtranslations.png"
+  },
+  "actionCount": 36,
+  "actions": [
+    {
+      "id": "translate.braille.get",
+      "title": "translate.braille.get",
+      "description": "Translate from English to Braille. This is what you use if you have a braille display. This API translates the English text into characters that a braille display understands and you can feed the translated text directly to the display.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.braille.dots.get",
+      "title": "translate.braille.dots.get",
+      "description": "Use this to see which dots are enabled for each Braille letters. This is highly educational (to see which dots are enabled) and can potentially drive a non braille display which works on individual dots.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.braille.html.get",
+      "title": "translate.braille.html.get",
+      "description": "Translate from English to Braille Image characters. This is probably what you want to use if you are displaying braille in a browser.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.braille.image.get",
+      "title": "translate.braille.image.get",
+      "description": "Translate from English to Braille image characters. This is probably what you want to use if you are displaying braille in a browser.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.braille.unicode.get",
+      "title": "translate.braille.unicode.get",
+      "description": "Translate from English to Braille Unicode characters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.brooklyn.get",
+      "title": "translate.brooklyn.get",
+      "description": "Translate from English to Brooklyn Speak.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.chef.get",
+      "title": "translate.chef.get",
+      "description": "Translate from English to Swedish Chef speak.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.cheunh.get",
+      "title": "translate.cheunh.get",
+      "description": "Translate from English to Starwars cheunh.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.cockney.get",
+      "title": "translate.cockney.get",
+      "description": "Translate from English to Cockney Speak.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.dolan.get",
+      "title": "translate.dolan.get",
+      "description": "Translate from English to Dolan Speak.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.dothraki.get",
+      "title": "translate.dothraki.get",
+      "description": "Translate from English to Dothraki.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.ermahgerd.get",
+      "title": "translate.ermahgerd.get",
+      "description": "Translate from English to ERMAHGERD.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.ferblatin.get",
+      "title": "translate.ferblatin.get",
+      "description": "Translate from English to Ferb Latin.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.fudd.get",
+      "title": "translate.fudd.get",
+      "description": "Translate from English to Fudd Speak.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.gungan.get",
+      "title": "translate.gungan.get",
+      "description": "Translate from English to Starwars Gungan Language.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.huttese.get",
+      "title": "translate.huttese.get",
+      "description": "Translate from English to Starwars Huttese Language.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.jive.get",
+      "title": "translate.jive.get",
+      "description": "Translate from normal English to Jive Speak.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.klingon.get",
+      "title": "translate.klingon.get",
+      "description": "Translate from English to Startrek Klingon Language.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.mandalorian.get",
+      "title": "translate.mandalorian.get",
+      "description": "Translate from English to Starwars Mandalorian Language.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.minion.get",
+      "title": "translate.minion.get",
+      "description": "Translate from English to Minion Speak.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.morse.get",
+      "title": "translate.morse.get",
+      "description": "Translate from English to morse code.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.morse.audio.get",
+      "title": "translate.morse.audio.get",
+      "description": "Translate from English to morse code and get the result as an audio file.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          },
+          "speed": {
+            "type": "integer",
+            "format": "integer",
+            "description": "Audio Speed (Words/Minute)"
+          },
+          "tone": {
+            "type": "integer",
+            "format": "integer",
+            "description": "Audio Tone Frequency(Hz)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text",
+          "speed",
+          "tone"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.morse2english.get",
+      "title": "translate.morse2english.get",
+      "description": "Translate from Morse code to English.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.oldenglish.get",
+      "title": "translate.oldenglish.get",
+      "description": "Translate from English to Old English.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.piglatin.get",
+      "title": "translate.piglatin.get",
+      "description": "Translate from English to Pig Latin.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.pirate.get",
+      "title": "translate.pirate.get",
+      "description": "Translate from English to Pirate Speak.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.quneya.get",
+      "title": "translate.quneya.get",
+      "description": "Translate from English to Elvish Quenya Language.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.shakespeare.get",
+      "title": "translate.shakespeare.get",
+      "description": "Translate from English to Shakespeare English.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.sindarin.get",
+      "title": "translate.sindarin.get",
+      "description": "Translate from English to Elvish Sindarin Language.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.sith.get",
+      "title": "translate.sith.get",
+      "description": "Translate from English to Sith Speak.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.uk2us.get",
+      "title": "translate.uk2us.get",
+      "description": "Translate from UK English to US English.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.us2uk.get",
+      "title": "translate.us2uk.get",
+      "description": "Translate from US English to UK English.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.valspeak.get",
+      "title": "translate.valspeak.get",
+      "description": "Translate from English to Valley Speak.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.valyrian.get",
+      "title": "translate.valyrian.get",
+      "description": "Translate from English to Valyrian.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.vulcan.get",
+      "title": "translate.vulcan.get",
+      "description": "Translate from English to Startrek Vulcan Language.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    },
+    {
+      "id": "translate.yoda.get",
+      "title": "translate.yoda.get",
+      "description": "Translate from English to Yoda Speak.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "format": "string",
+            "description": "Text to translate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "funtranslations": {
+          "integration": "funtranslations"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "text"
+  ]
+}

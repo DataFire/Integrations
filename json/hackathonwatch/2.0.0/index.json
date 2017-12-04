@@ -1,0 +1,81 @@
+{
+  "id": "hackathonwatch",
+  "title": "HackathonWatch",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hackathonwatch.png"
+  },
+  "actionCount": 4,
+  "actions": [
+    {
+      "id": "hackathons.coming.json.get",
+      "title": "hackathons.coming.json.get",
+      "description": "Return a list of coming hackathons",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Specify the page of coming hackathons.",
+            "default": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "hackathons.id.json.get",
+      "title": "hackathons.id.json.get",
+      "description": "Return the detail of a given hackathon",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the hackathon for detail information"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "swagger_doc.json.get",
+      "title": "swagger_doc.json.get",
+      "description": "Swagger compatible API description",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "swagger_doc.name.json.get",
+      "title": "swagger_doc.name.json.get",
+      "description": "Swagger compatible API description for specific API",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Resource name of mounted API"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ],
+  "tags": [
+    "social"
+  ]
+}

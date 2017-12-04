@@ -1,0 +1,795 @@
+{
+  "id": "amazonaws_cloud9",
+  "title": "AWS Cloud9",
+  "description": "AWS Cloud9\n\nAWS Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and release software in the cloud.\n\nIn the background, these tools are available through development environments running on Amazon Elastic Compute Cloud (Amazon EC2) instances (known as _Amazon EC2 environments_), your own servers (known as _SSH environments_), or a combination. This enables you to create and switch between multiple environments, with each environment set up for a specific development project.\n\nFor more information about AWS Cloud9, see the _AWS Cloud9 User Guide_.\n\nAWS Cloud9 supports these operations:\n\n*   `CreateEnvironmentEC2`: Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then hosts the environment on the instance.\n\n*   `CreateEnvironmentMembership`: Adds an environment member to an environment.\n\n*   `DeleteEnvironment`: Deletes an environment. If the environment is hosted on an Amazon EC2 instance, also terminates the instance.\n\n*   `DeleteEnvironmentMembership`: Deletes an environment member from an environment.\n\n*   `DescribeEnvironmentMemberships`: Gets information about environment members for an environment.\n\n*   `DescribeEnvironments`: Gets information about environments.\n\n*   `DescribeEnvironmentStatus`: Gets status information for an environment.\n\n*   `ListEnvironments`: Gets a list of environment identifiers.\n\n*   `UpdateEnvironment`: Changes the settings of an existing environment.\n\n*   `UpdateEnvironmentMembership`: Changes the settings of an existing environment member for an environment.",
+  "security": {
+    "amazonaws_cloud9": {
+      "integration": "amazonaws_cloud9",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloud9.jpeg"
+  },
+  "actionCount": 10,
+  "definitions": {
+    "AutomaticStopTimeMinutes": {
+      "maximum": 20160,
+      "type": "integer",
+      "title": "AutomaticStopTimeMinutes"
+    },
+    "BadRequestException": {
+      "description": "The target request is invalid.",
+      "properties": {},
+      "type": "object",
+      "title": "BadRequestException"
+    },
+    "BoundedEnvironmentIdList": {
+      "items": {
+        "$ref": "#/definitions/EnvironmentId"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array",
+      "title": "BoundedEnvironmentIdList"
+    },
+    "ClientRequestToken": {
+      "pattern": "[\\x20-\\x7E]{10,128}",
+      "type": "string",
+      "title": "ClientRequestToken"
+    },
+    "ConflictException": {
+      "description": "A conflict occurred.",
+      "properties": {},
+      "type": "object",
+      "title": "ConflictException"
+    },
+    "CreateEnvironmentEC2Request": {
+      "properties": {
+        "automaticStopTimeMinutes": {
+          "$ref": "#/definitions/AutomaticStopTimeMinutes",
+          "description": "The number of minutes until the running instance is shut down after the environment has last been used."
+        },
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "<p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>"
+        },
+        "description": {
+          "$ref": "#/definitions/EnvironmentDescription",
+          "description": "The description of the environment to create."
+        },
+        "instanceType": {
+          "$ref": "#/definitions/InstanceType",
+          "description": "The type of instance to host the environment on (for example, <code>t2.micro</code>)."
+        },
+        "name": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.</p>"
+        },
+        "ownerArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator."
+        },
+        "subnetId": {
+          "$ref": "#/definitions/SubnetId",
+          "description": "The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance."
+        }
+      },
+      "required": [
+        "name",
+        "instanceType"
+      ],
+      "type": "object",
+      "title": "CreateEnvironmentEC2Request"
+    },
+    "CreateEnvironmentEC2Result": {
+      "properties": {
+        "environmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "The ID of the environment that was created."
+        }
+      },
+      "type": "object",
+      "title": "CreateEnvironmentEC2Result"
+    },
+    "CreateEnvironmentMembershipRequest": {
+      "properties": {
+        "environmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "The ID of the environment that contains the environment member you want to add."
+        },
+        "permissions": {
+          "$ref": "#/definitions/MemberPermissions",
+          "description": "<p>The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>"
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the environment member you want to add."
+        }
+      },
+      "required": [
+        "environmentId",
+        "userArn",
+        "permissions"
+      ],
+      "type": "object",
+      "title": "CreateEnvironmentMembershipRequest"
+    },
+    "CreateEnvironmentMembershipResult": {
+      "properties": {
+        "membership": {
+          "$ref": "#/definitions/EnvironmentMember",
+          "description": "Information about the environment member that was added."
+        }
+      },
+      "type": "object",
+      "title": "CreateEnvironmentMembershipResult"
+    },
+    "DeleteEnvironmentMembershipRequest": {
+      "properties": {
+        "environmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "The ID of the environment to delete the environment member from."
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the environment member to delete from the environment."
+        }
+      },
+      "required": [
+        "environmentId",
+        "userArn"
+      ],
+      "type": "object",
+      "title": "DeleteEnvironmentMembershipRequest"
+    },
+    "DeleteEnvironmentMembershipResult": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteEnvironmentMembershipResult"
+    },
+    "DeleteEnvironmentRequest": {
+      "properties": {
+        "environmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "The ID of the environment to delete."
+        }
+      },
+      "required": [
+        "environmentId"
+      ],
+      "type": "object",
+      "title": "DeleteEnvironmentRequest"
+    },
+    "DeleteEnvironmentResult": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteEnvironmentResult"
+    },
+    "DescribeEnvironmentMembershipsRequest": {
+      "properties": {
+        "environmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "The ID of the environment to get environment member information about."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of environment members to get information about."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned."
+        },
+        "permissions": {
+          "$ref": "#/definitions/PermissionsList",
+          "description": "<p>The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.</p>"
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned."
+        }
+      },
+      "type": "object",
+      "title": "DescribeEnvironmentMembershipsRequest"
+    },
+    "DescribeEnvironmentMembershipsResult": {
+      "properties": {
+        "memberships": {
+          "$ref": "#/definitions/EnvironmentMembersList",
+          "description": "Information about the environment members for the environment."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call."
+        }
+      },
+      "type": "object",
+      "title": "DescribeEnvironmentMembershipsResult"
+    },
+    "DescribeEnvironmentStatusRequest": {
+      "properties": {
+        "environmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "The ID of the environment to get status information about."
+        }
+      },
+      "required": [
+        "environmentId"
+      ],
+      "type": "object",
+      "title": "DescribeEnvironmentStatusRequest"
+    },
+    "DescribeEnvironmentStatusResult": {
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "Any informational message about the status of the environment."
+        },
+        "status": {
+          "$ref": "#/definitions/EnvironmentStatus",
+          "description": "<p>The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li> </ul>"
+        }
+      },
+      "type": "object",
+      "title": "DescribeEnvironmentStatusResult"
+    },
+    "DescribeEnvironmentsRequest": {
+      "properties": {
+        "environmentIds": {
+          "$ref": "#/definitions/BoundedEnvironmentIdList",
+          "description": "The IDs of invidividual environments to get information about."
+        }
+      },
+      "required": [
+        "environmentIds"
+      ],
+      "type": "object",
+      "title": "DescribeEnvironmentsRequest"
+    },
+    "DescribeEnvironmentsResult": {
+      "properties": {
+        "environments": {
+          "$ref": "#/definitions/EnvironmentList",
+          "description": "Information about the environments that are returned."
+        }
+      },
+      "type": "object",
+      "title": "DescribeEnvironmentsResult"
+    },
+    "Environment": {
+      "description": "Information about an AWS Cloud9 development environment.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the environment."
+        },
+        "description": {
+          "$ref": "#/definitions/EnvironmentDescription",
+          "description": "The description for the environment."
+        },
+        "id": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "The ID of the environment."
+        },
+        "name": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "The name of the environment."
+        },
+        "ownerArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the environment owner."
+        },
+        "type": {
+          "$ref": "#/definitions/EnvironmentType",
+          "description": "<p>The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An environment hosted on an Amazon Elastic Compute Cloud (Amazon EC2) instance.</p> </li> <li> <p> <code>ssh</code>: An environment hosted on your own server.</p> </li> </ul>"
+        }
+      },
+      "type": "object",
+      "title": "Environment"
+    },
+    "EnvironmentDescription": {
+      "maxLength": 200,
+      "type": "string",
+      "title": "EnvironmentDescription"
+    },
+    "EnvironmentId": {
+      "pattern": "^[a-zA-Z0-9]{8,32}$",
+      "type": "string",
+      "title": "EnvironmentId"
+    },
+    "EnvironmentIdList": {
+      "items": {
+        "$ref": "#/definitions/EnvironmentId"
+      },
+      "type": "array",
+      "title": "EnvironmentIdList"
+    },
+    "EnvironmentList": {
+      "items": {
+        "$ref": "#/definitions/Environment"
+      },
+      "type": "array",
+      "title": "EnvironmentList"
+    },
+    "EnvironmentMember": {
+      "description": "Information about an environment member for an AWS Cloud9 development environment.",
+      "properties": {
+        "environmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "The ID of the environment for the environment member."
+        },
+        "lastAccess": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time, expressed in epoch time format, when the environment member last opened the environment."
+        },
+        "permissions": {
+          "$ref": "#/definitions/Permissions",
+          "description": "<p>The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>"
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the environment member."
+        },
+        "userId": {
+          "$ref": "#/definitions/String",
+          "description": "The user ID in AWS Identity and Access Management (AWS IAM) of the environment member."
+        }
+      },
+      "type": "object",
+      "title": "EnvironmentMember"
+    },
+    "EnvironmentMembersList": {
+      "items": {
+        "$ref": "#/definitions/EnvironmentMember"
+      },
+      "type": "array",
+      "title": "EnvironmentMembersList"
+    },
+    "EnvironmentName": {
+      "maxLength": 60,
+      "minLength": 1,
+      "type": "string",
+      "title": "EnvironmentName"
+    },
+    "EnvironmentStatus": {
+      "enum": [
+        "error",
+        "creating",
+        "connecting",
+        "ready",
+        "stopping",
+        "stopped",
+        "deleting"
+      ],
+      "type": "string",
+      "title": "EnvironmentStatus"
+    },
+    "EnvironmentType": {
+      "enum": [
+        "ssh",
+        "ec2"
+      ],
+      "type": "string",
+      "title": "EnvironmentType"
+    },
+    "ForbiddenException": {
+      "description": "An access permissions issue occurred.",
+      "properties": {},
+      "type": "object",
+      "title": "ForbiddenException"
+    },
+    "InstanceType": {
+      "maxLength": 20,
+      "minLength": 5,
+      "pattern": "^[a-z][1-9][.][a-z0-9]+$",
+      "type": "string",
+      "title": "InstanceType"
+    },
+    "InternalServerErrorException": {
+      "description": "An internal server error occurred.",
+      "properties": {},
+      "type": "object",
+      "title": "InternalServerErrorException"
+    },
+    "LimitExceededException": {
+      "description": "A service limit was exceeded.",
+      "properties": {},
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListEnvironmentsRequest": {
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of environments to get identifiers for."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned."
+        }
+      },
+      "type": "object",
+      "title": "ListEnvironmentsRequest"
+    },
+    "ListEnvironmentsResult": {
+      "properties": {
+        "environmentIds": {
+          "$ref": "#/definitions/EnvironmentIdList",
+          "description": "The list of environment identifiers."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call."
+        }
+      },
+      "type": "object",
+      "title": "ListEnvironmentsResult"
+    },
+    "MaxResults": {
+      "maximum": 25,
+      "minimum": 0,
+      "type": "integer",
+      "title": "MaxResults"
+    },
+    "MemberPermissions": {
+      "enum": [
+        "read-write",
+        "read-only"
+      ],
+      "type": "string",
+      "title": "MemberPermissions"
+    },
+    "NotFoundException": {
+      "description": "The target resource cannot be found.",
+      "properties": {},
+      "type": "object",
+      "title": "NotFoundException"
+    },
+    "Permissions": {
+      "enum": [
+        "owner",
+        "read-write",
+        "read-only"
+      ],
+      "type": "string",
+      "title": "Permissions"
+    },
+    "PermissionsList": {
+      "items": {
+        "$ref": "#/definitions/Permissions"
+      },
+      "type": "array",
+      "title": "PermissionsList"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "SubnetId": {
+      "maxLength": 30,
+      "minLength": 5,
+      "type": "string",
+      "title": "SubnetId"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "TooManyRequestsException": {
+      "description": "Too many service requests were made over the given time period.",
+      "properties": {},
+      "type": "object",
+      "title": "TooManyRequestsException"
+    },
+    "UpdateEnvironmentMembershipRequest": {
+      "properties": {
+        "environmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "The ID of the environment for the environment member whose settings you want to change."
+        },
+        "permissions": {
+          "$ref": "#/definitions/MemberPermissions",
+          "description": "<p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>"
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the environment member whose settings you want to change."
+        }
+      },
+      "required": [
+        "environmentId",
+        "userArn",
+        "permissions"
+      ],
+      "type": "object",
+      "title": "UpdateEnvironmentMembershipRequest"
+    },
+    "UpdateEnvironmentMembershipResult": {
+      "properties": {
+        "membership": {
+          "$ref": "#/definitions/EnvironmentMember",
+          "description": "Information about the environment member whose settings were changed."
+        }
+      },
+      "type": "object",
+      "title": "UpdateEnvironmentMembershipResult"
+    },
+    "UpdateEnvironmentRequest": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/EnvironmentDescription",
+          "description": "Any new or replacement description for the environment."
+        },
+        "environmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "The ID of the environment to change settings."
+        },
+        "name": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "Any replacement name for the environment."
+        }
+      },
+      "required": [
+        "environmentId"
+      ],
+      "type": "object",
+      "title": "UpdateEnvironmentRequest"
+    },
+    "UpdateEnvironmentResult": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateEnvironmentResult"
+    },
+    "UserArn": {
+      "pattern": "arn:aws:(iam|sts)::\\d+:\\S+",
+      "type": "string",
+      "title": "UserArn"
+    }
+  },
+  "actions": [
+    {
+      "id": "CreateEnvironmentEC2",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateEnvironmentEC2Request"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateEnvironmentEC2Result"
+      },
+      "security": {
+        "amazonaws_cloud9": {
+          "integration": "amazonaws_cloud9"
+        }
+      }
+    },
+    {
+      "id": "CreateEnvironmentMembership",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateEnvironmentMembershipRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateEnvironmentMembershipResult"
+      },
+      "security": {
+        "amazonaws_cloud9": {
+          "integration": "amazonaws_cloud9"
+        }
+      }
+    },
+    {
+      "id": "DeleteEnvironment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteEnvironmentRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteEnvironmentResult"
+      },
+      "security": {
+        "amazonaws_cloud9": {
+          "integration": "amazonaws_cloud9"
+        }
+      }
+    },
+    {
+      "id": "DeleteEnvironmentMembership",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteEnvironmentMembershipRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteEnvironmentMembershipResult"
+      },
+      "security": {
+        "amazonaws_cloud9": {
+          "integration": "amazonaws_cloud9"
+        }
+      }
+    },
+    {
+      "id": "DescribeEnvironmentMemberships",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeEnvironmentMembershipsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeEnvironmentMembershipsResult"
+      },
+      "security": {
+        "amazonaws_cloud9": {
+          "integration": "amazonaws_cloud9"
+        }
+      }
+    },
+    {
+      "id": "DescribeEnvironmentStatus",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeEnvironmentStatusRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeEnvironmentStatusResult"
+      },
+      "security": {
+        "amazonaws_cloud9": {
+          "integration": "amazonaws_cloud9"
+        }
+      }
+    },
+    {
+      "id": "DescribeEnvironments",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeEnvironmentsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeEnvironmentsResult"
+      },
+      "security": {
+        "amazonaws_cloud9": {
+          "integration": "amazonaws_cloud9"
+        }
+      }
+    },
+    {
+      "id": "ListEnvironments",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListEnvironmentsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListEnvironmentsResult"
+      },
+      "security": {
+        "amazonaws_cloud9": {
+          "integration": "amazonaws_cloud9"
+        }
+      }
+    },
+    {
+      "id": "UpdateEnvironment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateEnvironmentRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateEnvironmentResult"
+      },
+      "security": {
+        "amazonaws_cloud9": {
+          "integration": "amazonaws_cloud9"
+        }
+      }
+    },
+    {
+      "id": "UpdateEnvironmentMembership",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateEnvironmentMembershipRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateEnvironmentMembershipResult"
+      },
+      "security": {
+        "amazonaws_cloud9": {
+          "integration": "amazonaws_cloud9"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

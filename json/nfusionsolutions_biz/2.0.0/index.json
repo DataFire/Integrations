@@ -1,0 +1,867 @@
+{
+  "id": "nfusionsolutions_biz",
+  "title": "nFusion Solutions Market Data API v1",
+  "description": "nFusion Solutions provides REST and streaming APIs that deliver enterprise-grade financial data. Data sets include real-time and historical pricing for Spot prices of precious metals such as Gold, Silver, Platinum, and Palladium, exchange rates for major currency pairs, exchange rates for Crypto Currencies such as BTC, ETH, and LTC. All API access requires authentication. In order to be issued access credentials you must first enter into a service agreement with nFusion Solutions and acquire a commercial license. For information on how to obtain a licence contact sales@nfusionsolutions.com.",
+  "security": {
+    "nfusionsolutions_biz": {
+      "integration": "nfusionsolutions_biz",
+      "fields": {
+        "token": "Authorization Token included in request"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nfusionsolutions_biz.png"
+  },
+  "actionCount": 14,
+  "definitions": {
+    "FullQuote": {
+      "properties": {
+        "ask": {
+          "$ref": "#/definitions/SingleQuote"
+        },
+        "baseCurrency": {
+          "type": "string"
+        },
+        "bid": {
+          "$ref": "#/definitions/SingleQuote"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "FullQuote"
+    },
+    "Interval": {
+      "properties": {
+        "end": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "high": {
+          "format": "double",
+          "type": "number"
+        },
+        "last": {
+          "format": "double",
+          "type": "number"
+        },
+        "low": {
+          "format": "double",
+          "type": "number"
+        },
+        "open": {
+          "format": "double",
+          "type": "number"
+        },
+        "start": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Interval"
+    },
+    "IntervalCollection": {
+      "properties": {
+        "baseCurrency": {
+          "type": "string"
+        },
+        "intervals": {
+          "items": {
+            "$ref": "#/definitions/Interval"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "IntervalCollection"
+    },
+    "Rate": {
+      "properties": {
+        "symbol": {
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "value": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "Rate"
+    },
+    "Response[FullQuote]": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/FullQuote"
+        },
+        "error": {
+          "type": "string"
+        },
+        "requestedCurrency": {
+          "type": "string"
+        },
+        "requestedSymbol": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "Response[FullQuote]"
+    },
+    "Response[IntervalCollection]": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/IntervalCollection"
+        },
+        "error": {
+          "type": "string"
+        },
+        "requestedCurrency": {
+          "type": "string"
+        },
+        "requestedSymbol": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "Response[IntervalCollection]"
+    },
+    "Response[Rate]": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Rate"
+        },
+        "error": {
+          "type": "string"
+        },
+        "requestedCurrency": {
+          "type": "string"
+        },
+        "requestedSymbol": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "Response[Rate]"
+    },
+    "Response[Summary]": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Summary"
+        },
+        "error": {
+          "type": "string"
+        },
+        "requestedCurrency": {
+          "type": "string"
+        },
+        "requestedSymbol": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "Response[Summary]"
+    },
+    "SingleQuote": {
+      "properties": {
+        "marketMaker": {
+          "type": "string"
+        },
+        "price": {
+          "format": "double",
+          "type": "number"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "SingleQuote"
+    },
+    "Summary": {
+      "properties": {
+        "ask": {
+          "format": "double",
+          "type": "number"
+        },
+        "baseCurrency": {
+          "type": "string"
+        },
+        "bid": {
+          "format": "double",
+          "type": "number"
+        },
+        "high": {
+          "format": "double",
+          "type": "number"
+        },
+        "last": {
+          "format": "double",
+          "type": "number"
+        },
+        "low": {
+          "format": "double",
+          "type": "number"
+        },
+        "oneDayChange": {
+          "format": "double",
+          "type": "number"
+        },
+        "oneDayPercentChange": {
+          "format": "double",
+          "type": "number"
+        },
+        "oneDayValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "timeStamp": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Summary"
+    }
+  },
+  "actions": [
+    {
+      "id": "api.vversion.Currencies.bbo.get",
+      "title": "api.vversion.Currencies.bbo.get",
+      "description": "Current Best Bid and Offer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pairs": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - comma separated list of currency pairs. For example: USD/CAD,USD/EUR,USD/AUD"
+          },
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Response[FullQuote]"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    },
+    {
+      "id": "api.vversion.Currencies.bbo.supported.get",
+      "title": "api.vversion.Currencies.bbo.supported.get",
+      "description": "Only the currency pairs in the direction noted can be used with the BBO endpoint.\r\nFor example: USD/CAD is not the same as CAD/USD",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    },
+    {
+      "id": "api.vversion.Currencies.history.get",
+      "title": "api.vversion.Currencies.history.get",
+      "description": "Historical OHLC data for the specified period and interval size\r\n\r\nThe combination of the interval parameter and start and end dates can result in results\r\nbeing truncated to conform to result size limits. See comments on interval parameter for details on valid interval values.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pairs": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - comma separated list of currency pairs. For example: USD/CAD,USD/EUR,USD/AUD"
+          },
+          "interval": {
+            "type": "string",
+            "description": "optional - aggregation interval. Composed of an optional integer value (which defaults to 1 when not specified), \r\nfollowed by a type string which must be one of the following values:\r\ny=year,\r\nm=month,\r\nw=week,\r\nd=day,\r\nh=hour,\r\nmi=minute\r\n\r\nFor example, a yearly interval can be specified as \"y\" and 6 month interval as \"6m\". \r\n\r\nIf not specified the interval parameter default is 1 Day."
+          },
+          "start": {
+            "type": "string",
+            "format": "date-time",
+            "description": "<b>REQUIRED</b> - start date of time period. format is <i>yyyy-mm-dd</i>"
+          },
+          "end": {
+            "type": "string",
+            "format": "date-time",
+            "description": "optional - end date of time period. format is <i>yyyy-mm-dd</i>. Default is current date."
+          },
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Response[IntervalCollection]"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    },
+    {
+      "id": "api.vversion.Currencies.history.supported.get",
+      "title": "api.vversion.Currencies.history.supported.get",
+      "description": "Only the currency pairs in the direction noted can be used with the history endpoint.\r\nFor example: USD/CAD is not the same as CAD/USD",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    },
+    {
+      "id": "api.vversion.Currencies.level2.supported.get",
+      "title": "api.vversion.Currencies.level2.supported.get",
+      "description": "Only the currency pairs in the direction noted can be used with the Level2 endpoint.\r\nFor example: USD/CAD is not the same as CAD/USD",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    },
+    {
+      "id": "api.vversion.Currencies.rate.get",
+      "title": "api.vversion.Currencies.rate.get",
+      "description": "Current Mid Rate",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pairs": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - comma separated list of currency pairs. For example: USD/CAD,USD/EUR,USD/AUD"
+          },
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Response[Rate]"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    },
+    {
+      "id": "api.vversion.Currencies.rate.supported.get",
+      "title": "api.vversion.Currencies.rate.supported.get",
+      "description": "Any of the currencies in this list can be paired with any other currency in this list when supplied to the Rate endpoint.\r\nFor example: USD/CAD,CAD/USD,USD/EUR,EUR/CAD",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    },
+    {
+      "id": "api.vversion.Currencies.summary.get",
+      "title": "api.vversion.Currencies.summary.get",
+      "description": "Current and daily summary information combined into a single quote",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pairs": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - comma separated list of currency pairs. For example: USD/CAD,USD/EUR,USD/AUD"
+          },
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Response[Summary]"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    },
+    {
+      "id": "api.vversion.Currencies.summary.supported.get",
+      "title": "api.vversion.Currencies.summary.supported.get",
+      "description": "Only the currency pairs in the direction noted can be used with the Summary endpoint.\r\nFor example: USD/CAD is not the same as CAD/USD",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    },
+    {
+      "id": "api.vversion.Metals.spot.bbo.get",
+      "title": "api.vversion.Metals.spot.bbo.get",
+      "description": "Current Spot Price Best Bid and Offer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "metals": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - comma separated list of metals"
+          },
+          "currency": {
+            "type": "string",
+            "description": "optional - currency for pricing, defaults to USD"
+          },
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Response[FullQuote]"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    },
+    {
+      "id": "api.vversion.Metals.spot.history.get",
+      "title": "api.vversion.Metals.spot.history.get",
+      "description": "Historical OHLC data for the specified period and interval size\r\n\r\nThe combination of the interval parameter and start and end dates can result in results\r\nbeing truncated to conform to result size limits. See comments on interval parameter for details on valid interval values.\r\n\r\nThe historicalfx flag is used to determine whether to apply today's fx rates to a historical period, or to apply the historical rates from that same time frame.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "metals": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - comma separated list of metals"
+          },
+          "currency": {
+            "type": "string",
+            "description": "optional - currency for pricing, defaults to USD"
+          },
+          "interval": {
+            "type": "string",
+            "description": "optional - aggregation interval. Composed of an optional integer value (which defaults to 1 when not specified), \r\nfollowed by a type string which must be one of the following values:\r\ny=year,\r\nm=month,\r\nw=week,\r\nd=day,\r\nh=hour,\r\nmi=minute\r\n\r\nFor example, a yearly interval can be specified as \"y\" and 6 month interval as \"6m\". \r\n\r\nIf not specified the interval parameter default is 1 Day."
+          },
+          "start": {
+            "type": "string",
+            "format": "date-time",
+            "description": "<b>REQUIRED</b> - start date of time period. format is <i>yyyy-mm-dd</i>"
+          },
+          "end": {
+            "type": "string",
+            "format": "date-time",
+            "description": "optional - end date of time period. format is <i>yyyy-mm-dd</i>. Default is current date."
+          },
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "historicalfx": {
+            "type": "boolean",
+            "description": "optional - if true use historical currency rates otherwise current currency rates. Defaults to false."
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Response[IntervalCollection]"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    },
+    {
+      "id": "api.vversion.Metals.spot.summary.get",
+      "title": "api.vversion.Metals.spot.summary.get",
+      "description": "Current and daily summary information combined into a single quote",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "metals": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - comma separated list of metals"
+          },
+          "currency": {
+            "type": "string",
+            "description": "optional - currency for pricing, defaults to USD"
+          },
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "adjust": {
+            "type": "boolean",
+            "description": "optional - apply global and per-tenant spot price adjustments. Defaults to true."
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Response[Summary]"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    },
+    {
+      "id": "api.vversion.Metals.spot.supported.get",
+      "title": "api.vversion.Metals.spot.supported.get",
+      "description": "Get list of symbols supported by the spot endpoints",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    },
+    {
+      "id": "api.vversion.Metals.spot.supported.currency.get",
+      "title": "api.vversion.Metals.spot.supported.currency.get",
+      "description": "Get list of currencies supported by the spot endpoints for currency conversion",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "<b>REQUIRED</b> - auth token"
+          },
+          "format": {
+            "type": "string",
+            "description": "optional - to override content negotiation specify a value of json or xml"
+          },
+          "version": {
+            "type": "string",
+            "description": "The requested API version",
+            "default": "1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nfusionsolutions_biz": {
+          "integration": "nfusionsolutions_biz"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "financial"
+  ]
+}

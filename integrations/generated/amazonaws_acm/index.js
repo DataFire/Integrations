@@ -35,7 +35,10 @@ for (let path in openapi.paths) {
     let op = openapi.paths[path][method];
     let actionID = op.operationId;
     let functionID = actionID.charAt(0).toLowerCase() + actionID.substring(1);
-    if (!dummyInstance[functionID]) throw new Error("AWS SDK " + SDK_ID + ": Function " + functionID + " not found");
+    if (!dummyInstance[functionID]) {
+      console.error("AWS SDK " + SDK_ID + ": Function " + functionID + " not found");
+      continue;
+    }
 
     let inputParam = (op.parameters || []).filter(p => p.in === 'body')[0] || {};
     let response = (op.responses || {})[200] || {};

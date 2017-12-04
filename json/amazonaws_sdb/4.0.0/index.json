@@ -1,0 +1,923 @@
+{
+  "id": "amazonaws_sdb",
+  "title": "Amazon SimpleDB",
+  "description": "Amazon SimpleDB is a web service providing the core database functions of data indexing and querying in the cloud. By offloading the time and effort associated with building and operating a web-scale database, SimpleDB provides developers the freedom to focus on application development.\n\nA traditional, clustered relational database requires a sizable upfront capital outlay, is complex to design, and often requires extensive and repetitive database administration. Amazon SimpleDB is dramatically simpler, requiring no schema, automatically indexing your data and providing a simple API for storage and access. This approach eliminates the administrative burden of data modeling, index maintenance, and performance tuning. Developers gain access to this functionality within Amazon's proven computing environment, are able to scale instantly, and pay only for what they use.\n\nVisit [http://aws.amazon.com/simpledb/](http://aws.amazon.com/simpledb/) for more information.",
+  "security": {
+    "amazonaws_sdb": {
+      "integration": "amazonaws_sdb",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sdb.jpg"
+  },
+  "actionCount": 10,
+  "definitions": {
+    "Attribute": {
+      "description": "",
+      "properties": {
+        "AlternateNameEncoding": {
+          "$ref": "#/definitions/String",
+          "description": ""
+        },
+        "AlternateValueEncoding": {
+          "$ref": "#/definitions/String",
+          "description": ""
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the attribute."
+        },
+        "Value": {
+          "$ref": "#/definitions/String",
+          "description": "The value of the attribute."
+        }
+      },
+      "required": [
+        "Name",
+        "Value"
+      ],
+      "type": "object",
+      "title": "Attribute"
+    },
+    "AttributeDoesNotExist": {
+      "description": "The specified attribute does not exist.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "AttributeDoesNotExist"
+    },
+    "AttributeList": {
+      "items": {
+        "$ref": "#/definitions/Attribute"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "AttributeList"
+    },
+    "AttributeNameList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "AttributeNameList"
+    },
+    "BatchDeleteAttributesRequest": {
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the domain in which the attributes are being deleted."
+        },
+        "Items": {
+          "$ref": "#/definitions/DeletableItemList",
+          "description": "A list of items on which to perform the operation."
+        }
+      },
+      "required": [
+        "DomainName",
+        "Items"
+      ],
+      "type": "object",
+      "title": "BatchDeleteAttributesRequest"
+    },
+    "BatchPutAttributesRequest": {
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the domain in which the attributes are being stored."
+        },
+        "Items": {
+          "$ref": "#/definitions/ReplaceableItemList",
+          "description": "A list of items on which to perform the operation."
+        }
+      },
+      "required": [
+        "DomainName",
+        "Items"
+      ],
+      "type": "object",
+      "title": "BatchPutAttributesRequest"
+    },
+    "Boolean": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "CreateDomainRequest": {
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'."
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object",
+      "title": "CreateDomainRequest"
+    },
+    "DeletableAttribute": {
+      "description": "",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the attribute."
+        },
+        "Value": {
+          "$ref": "#/definitions/String",
+          "description": "The value of the attribute."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "DeletableAttribute"
+    },
+    "DeletableAttributeList": {
+      "items": {
+        "$ref": "#/definitions/DeletableAttribute"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "DeletableAttributeList"
+    },
+    "DeletableItem": {
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/DeletableAttributeList"
+        },
+        "Name": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "DeletableItem"
+    },
+    "DeletableItemList": {
+      "items": {
+        "$ref": "#/definitions/DeletableItem"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "DeletableItemList"
+    },
+    "DeleteAttributesRequest": {
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/DeletableAttributeList",
+          "description": "A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items."
+        },
+        "DomainName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the domain in which to perform the operation."
+        },
+        "Expected": {
+          "$ref": "#/definitions/UpdateCondition",
+          "description": "The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted."
+        },
+        "ItemName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs."
+        }
+      },
+      "required": [
+        "DomainName",
+        "ItemName"
+      ],
+      "type": "object",
+      "title": "DeleteAttributesRequest"
+    },
+    "DeleteDomainRequest": {
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the domain to delete."
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object",
+      "title": "DeleteDomainRequest"
+    },
+    "DomainMetadataRequest": {
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the domain for which to display the metadata of."
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object",
+      "title": "DomainMetadataRequest"
+    },
+    "DomainMetadataResult": {
+      "properties": {
+        "AttributeNameCount": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of unique attribute names in the domain."
+        },
+        "AttributeNamesSizeBytes": {
+          "$ref": "#/definitions/Long",
+          "description": "The total size of all unique attribute names in the domain, in bytes."
+        },
+        "AttributeValueCount": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of all attribute name/value pairs in the domain."
+        },
+        "AttributeValuesSizeBytes": {
+          "$ref": "#/definitions/Long",
+          "description": "The total size of all attribute values in the domain, in bytes."
+        },
+        "ItemCount": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of all items in the domain."
+        },
+        "ItemNamesSizeBytes": {
+          "$ref": "#/definitions/Long",
+          "description": "The total size of all item names in the domain, in bytes."
+        },
+        "Timestamp": {
+          "$ref": "#/definitions/Integer",
+          "description": "The data and time when metadata was calculated, in Epoch (UNIX) seconds."
+        }
+      },
+      "type": "object",
+      "title": "DomainMetadataResult"
+    },
+    "DomainNameList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "DomainNameList"
+    },
+    "DuplicateItemName": {
+      "description": "The item name was specified more than once. ",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "DuplicateItemName"
+    },
+    "Float": {
+      "format": "float",
+      "type": "number",
+      "title": "Float"
+    },
+    "GetAttributesRequest": {
+      "properties": {
+        "AttributeNames": {
+          "$ref": "#/definitions/AttributeNameList",
+          "description": "The names of the attributes."
+        },
+        "ConsistentRead": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If <code>true</code>, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read."
+        },
+        "DomainName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the domain in which to perform the operation."
+        },
+        "ItemName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the item."
+        }
+      },
+      "required": [
+        "DomainName",
+        "ItemName"
+      ],
+      "type": "object",
+      "title": "GetAttributesRequest"
+    },
+    "GetAttributesResult": {
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/AttributeList",
+          "description": "The list of attributes returned by the operation."
+        }
+      },
+      "type": "object",
+      "title": "GetAttributesResult"
+    },
+    "Integer": {
+      "type": "integer",
+      "title": "Integer"
+    },
+    "InvalidNextToken": {
+      "description": "The specified NextToken is not valid. ",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "InvalidNextToken"
+    },
+    "InvalidNumberPredicates": {
+      "description": "Too many predicates exist in the query expression.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "InvalidNumberPredicates"
+    },
+    "InvalidNumberValueTests": {
+      "description": "Too many predicates exist in the query expression.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "InvalidNumberValueTests"
+    },
+    "InvalidParameterValue": {
+      "description": "The value for a parameter is invalid.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "InvalidParameterValue"
+    },
+    "InvalidQueryExpression": {
+      "description": "The specified query expression syntax is not valid.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "InvalidQueryExpression"
+    },
+    "Item": {
+      "description": "",
+      "properties": {
+        "AlternateNameEncoding": {
+          "$ref": "#/definitions/String",
+          "description": ""
+        },
+        "Attributes": {
+          "$ref": "#/definitions/AttributeList",
+          "description": "A list of attributes."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the item."
+        }
+      },
+      "required": [
+        "Name",
+        "Attributes"
+      ],
+      "type": "object",
+      "title": "Item"
+    },
+    "ItemList": {
+      "items": {
+        "$ref": "#/definitions/Item"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "ItemList"
+    },
+    "ListDomainsRequest": {
+      "properties": {
+        "MaxNumberOfDomains": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "A string informing Amazon SimpleDB where to start the next list of domain names."
+        }
+      },
+      "type": "object",
+      "title": "ListDomainsRequest"
+    },
+    "ListDomainsResult": {
+      "properties": {
+        "DomainNames": {
+          "$ref": "#/definitions/DomainNameList",
+          "description": "A list of domain names that match the expression."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "An opaque token indicating that there are more domains than the specified <code>MaxNumberOfDomains</code> still available."
+        }
+      },
+      "type": "object",
+      "title": "ListDomainsResult"
+    },
+    "Long": {
+      "type": "integer",
+      "title": "Long"
+    },
+    "MissingParameter": {
+      "description": "The request must contain the specified missing parameter.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "MissingParameter"
+    },
+    "NoSuchDomain": {
+      "description": "The specified domain does not exist.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "NoSuchDomain"
+    },
+    "NumberDomainAttributesExceeded": {
+      "description": "Too many attributes in this domain.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "NumberDomainAttributesExceeded"
+    },
+    "NumberDomainBytesExceeded": {
+      "description": "Too many bytes in this domain.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "NumberDomainBytesExceeded"
+    },
+    "NumberDomainsExceeded": {
+      "description": "Too many domains exist per this account.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "NumberDomainsExceeded"
+    },
+    "NumberItemAttributesExceeded": {
+      "description": "Too many attributes in this item.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "NumberItemAttributesExceeded"
+    },
+    "NumberSubmittedAttributesExceeded": {
+      "description": "Too many attributes exist in a single call.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "NumberSubmittedAttributesExceeded"
+    },
+    "NumberSubmittedItemsExceeded": {
+      "description": "Too many items exist in a single call.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "NumberSubmittedItemsExceeded"
+    },
+    "PutAttributesRequest": {
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/ReplaceableAttributeList",
+          "description": "The list of attributes."
+        },
+        "DomainName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the domain in which to perform the operation."
+        },
+        "Expected": {
+          "$ref": "#/definitions/UpdateCondition",
+          "description": "The update condition which, if specified, determines whether the specified attributes will be updated or not. The update condition must be satisfied in order for this request to be processed and the attributes to be updated."
+        },
+        "ItemName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the item."
+        }
+      },
+      "required": [
+        "DomainName",
+        "ItemName",
+        "Attributes"
+      ],
+      "type": "object",
+      "title": "PutAttributesRequest"
+    },
+    "ReplaceableAttribute": {
+      "description": "",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the replaceable attribute."
+        },
+        "Replace": {
+          "$ref": "#/definitions/Boolean",
+          "description": "A flag specifying whether or not to replace the attribute/value pair or to add a new attribute/value pair. The default setting is <code>false</code>."
+        },
+        "Value": {
+          "$ref": "#/definitions/String",
+          "description": "The value of the replaceable attribute."
+        }
+      },
+      "required": [
+        "Name",
+        "Value"
+      ],
+      "type": "object",
+      "title": "ReplaceableAttribute"
+    },
+    "ReplaceableAttributeList": {
+      "items": {
+        "$ref": "#/definitions/ReplaceableAttribute"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "ReplaceableAttributeList"
+    },
+    "ReplaceableItem": {
+      "description": "",
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/ReplaceableAttributeList",
+          "description": "The list of attributes for a replaceable item."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the replaceable item."
+        }
+      },
+      "required": [
+        "Name",
+        "Attributes"
+      ],
+      "type": "object",
+      "title": "ReplaceableItem"
+    },
+    "ReplaceableItemList": {
+      "items": {
+        "$ref": "#/definitions/ReplaceableItem"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "ReplaceableItemList"
+    },
+    "RequestTimeout": {
+      "description": "A timeout occurred when attempting to query the specified domain with specified query expression.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "RequestTimeout"
+    },
+    "SelectRequest": {
+      "properties": {
+        "ConsistentRead": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If <code>true</code>, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "A string informing Amazon SimpleDB where to start the next list of <code>ItemNames</code>."
+        },
+        "SelectExpression": {
+          "$ref": "#/definitions/String",
+          "description": "The expression used to query the domain."
+        }
+      },
+      "required": [
+        "SelectExpression"
+      ],
+      "type": "object",
+      "title": "SelectRequest"
+    },
+    "SelectResult": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/ItemList",
+          "description": "A list of items that match the select expression."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "An opaque token indicating that more items than <code>MaxNumberOfItems</code> were matched, the response size exceeded 1 megabyte, or the execution time exceeded 5 seconds."
+        }
+      },
+      "type": "object",
+      "title": "SelectResult"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "TooManyRequestedAttributes": {
+      "description": "Too many attributes requested.",
+      "properties": {
+        "BoxUsage": {
+          "$ref": "#/definitions/Float"
+        }
+      },
+      "type": "object",
+      "title": "TooManyRequestedAttributes"
+    },
+    "UpdateCondition": {
+      "description": " Specifies the conditions under which data should be updated. If an update condition is specified for a request, the data will only be updated if the condition is satisfied. For example, if an attribute with a specific name and value exists, or if a specific attribute doesn't exist. ",
+      "properties": {
+        "Exists": {
+          "$ref": "#/definitions/Boolean",
+          "description": "A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify <code>true</code> if the attribute must exist for the update condition to be satisfied. Specify <code>false</code> if the attribute should not exist in order for the update condition to be satisfied."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the attribute involved in the condition."
+        },
+        "Value": {
+          "$ref": "#/definitions/String",
+          "description": "The value of an attribute. This value can only be specified when the <code>Exists</code> parameter is equal to <code>true</code>."
+        }
+      },
+      "type": "object",
+      "title": "UpdateCondition"
+    }
+  },
+  "actions": [
+    {
+      "id": "BatchDeleteAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/BatchDeleteAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_sdb": {
+          "integration": "amazonaws_sdb"
+        }
+      }
+    },
+    {
+      "id": "BatchPutAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/BatchPutAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_sdb": {
+          "integration": "amazonaws_sdb"
+        }
+      }
+    },
+    {
+      "id": "CreateDomain",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateDomainRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_sdb": {
+          "integration": "amazonaws_sdb"
+        }
+      }
+    },
+    {
+      "id": "DeleteAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_sdb": {
+          "integration": "amazonaws_sdb"
+        }
+      }
+    },
+    {
+      "id": "DeleteDomain",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteDomainRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_sdb": {
+          "integration": "amazonaws_sdb"
+        }
+      }
+    },
+    {
+      "id": "DomainMetadata",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DomainMetadataRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DomainMetadataResult"
+      },
+      "security": {
+        "amazonaws_sdb": {
+          "integration": "amazonaws_sdb"
+        }
+      }
+    },
+    {
+      "id": "GetAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetAttributesResult"
+      },
+      "security": {
+        "amazonaws_sdb": {
+          "integration": "amazonaws_sdb"
+        }
+      }
+    },
+    {
+      "id": "ListDomains",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxNumberOfDomains": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListDomainsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDomainsResult"
+      },
+      "security": {
+        "amazonaws_sdb": {
+          "integration": "amazonaws_sdb"
+        }
+      }
+    },
+    {
+      "id": "PutAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_sdb": {
+          "integration": "amazonaws_sdb"
+        }
+      }
+    },
+    {
+      "id": "Select",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/SelectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SelectResult"
+      },
+      "security": {
+        "amazonaws_sdb": {
+          "integration": "amazonaws_sdb"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

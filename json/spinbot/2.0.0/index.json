@@ -1,0 +1,136 @@
+{
+  "id": "spinbot",
+  "title": "Article Rewriter and Article Extractor",
+  "description": "Spinbot.net propose a new solution based on high technologies for faster article spinner and extractor that you will love to use it. ",
+  "security": {
+    "spinbot": {
+      "integration": "spinbot",
+      "fields": {
+        "key": "API key"
+      }
+    }
+  },
+  "actionCount": 4,
+  "actions": [
+    {
+      "id": "getInfo",
+      "title": "getInfo",
+      "description": "Return the user credit information.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Your api key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "spinbot": {
+          "integration": "spinbot"
+        }
+      }
+    },
+    {
+      "id": "postArticle",
+      "title": "postArticle",
+      "description": "Extracting the main article of the given URL. The response is in JSON format.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Your spinbot API key"
+          },
+          "url": {
+            "type": "string",
+            "description": "The url of target article"
+          },
+          "faster_mode": {
+            "type": "string",
+            "description": "you can set this input value to 1 to skip detecting the size (width and height in pixel) of all the images inside the extracted article. The response time of your request will be shortened if you set this input value to 1."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "url"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "spinbot": {
+          "integration": "spinbot"
+        }
+      }
+    },
+    {
+      "id": "postSpiner",
+      "title": "postSpiner",
+      "description": "Rewriting (spinning) you input article. The response is in JSON format.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Your spinbot API key"
+          },
+          "text": {
+            "type": "string",
+            "description": "Input article that need to be rewrited."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "spinbot": {
+          "integration": "spinbot"
+        }
+      }
+    },
+    {
+      "id": "postSpintax",
+      "title": "postSpintax",
+      "description": "Generate Spintax format for the input article, so you can rewrite it yourself. The response is in JSON format.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Your spinbot API key"
+          },
+          "text": {
+            "type": "string",
+            "description": "Input article that need to be rewritten."
+          },
+          "full_mode": {
+            "type": "string",
+            "description": "Full mode option."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "text"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "spinbot": {
+          "integration": "spinbot"
+        }
+      }
+    }
+  ],
+  "tags": []
+}

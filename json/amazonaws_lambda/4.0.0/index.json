@@ -1,0 +1,2254 @@
+{
+  "id": "amazonaws_lambda",
+  "title": "AWS Lambda",
+  "description": "AWS Lambda\n\n**Overview**\n\nThis is the _AWS Lambda API Reference_. The AWS Lambda Developer Guide provides additional information. For the service overview, see [What is AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html), and for information about how the service works, see [AWS Lambda: How it Works](http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html) in the _AWS Lambda Developer Guide_.",
+  "security": {
+    "amazonaws_lambda": {
+      "integration": "amazonaws_lambda",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_lambda.svg"
+  },
+  "actionCount": 16,
+  "definitions": {
+    "AccountLimit": {
+      "description": "Provides limits of code size and concurrency associated with the current account and region.",
+      "properties": {
+        "CodeSizeUnzipped": {
+          "$ref": "#/definitions/Long",
+          "description": "Size, in bytes, of code/dependencies that you can zip into a deployment package (uncompressed zip/jar size) for uploading. The default limit is 250 MB."
+        },
+        "CodeSizeZipped": {
+          "$ref": "#/definitions/Long",
+          "description": "Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda function(.zip/.jar file). Try using Amazon S3 for uploading larger files. Default limit is 50 MB."
+        },
+        "ConcurrentExecutions": {
+          "$ref": "#/definitions/Integer",
+          "description": "Number of simultaneous executions of your function per region. For more information or to request a limit increase for concurrent executions, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html\">Lambda Function Concurrent Executions</a>. The default limit is 100."
+        },
+        "TotalCodeSize": {
+          "$ref": "#/definitions/Long",
+          "description": "Maximum size, in bytes, of a code package you can upload per region. The default size is 75 GB. "
+        }
+      },
+      "type": "object",
+      "title": "AccountLimit"
+    },
+    "AccountUsage": {
+      "description": "Provides code size usage and function count associated with the current account and region.",
+      "properties": {
+        "FunctionCount": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of your account's existing functions per region."
+        },
+        "TotalCodeSize": {
+          "$ref": "#/definitions/Long",
+          "description": "Total size, in bytes, of the account's deployment packages per region."
+        }
+      },
+      "type": "object",
+      "title": "AccountUsage"
+    },
+    "Action": {
+      "pattern": "(lambda:[*]|lambda:[a-zA-Z]+|[*])",
+      "type": "string",
+      "title": "Action"
+    },
+    "AddPermissionRequest": {
+      "description": "<p/>",
+      "example": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": "MyFunction",
+        "Principal": "s3.amazonaws.com",
+        "SourceAccount": "123456789012",
+        "SourceArn": "arn:aws:s3:::examplebucket/*",
+        "StatementId": "ID-1"
+      },
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/Action",
+          "description": "The AWS Lambda action you want to allow in this statement. Each Lambda action is a string starting with <code>lambda:</code> followed by the API name . For example, <code>lambda:CreateFunction</code>. You can use wildcard (<code>lambda:*</code>) to grant permission for all AWS Lambda actions. "
+        },
+        "EventSourceToken": {
+          "$ref": "#/definitions/EventSourceToken",
+          "description": "A unique token that must be supplied by the principal invoking the function. This is currently only used for Alexa Smart Home functions."
+        },
+        "Principal": {
+          "$ref": "#/definitions/Principal",
+          "description": "The principal who is getting this permission. It can be Amazon S3 service Principal (<code>s3.amazonaws.com</code>) if you want Amazon S3 to invoke the function, an AWS account ID if you are granting cross-account permission, or any valid AWS service principal such as <code>sns.amazonaws.com</code>. For example, you might want to allow a custom application in another AWS account to push events to AWS Lambda by invoking your function. "
+        },
+        "SourceAccount": {
+          "$ref": "#/definitions/SourceOwner",
+          "description": "This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner. For example, if the <code>SourceArn</code> identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the <code>SourceArn</code>) owned by a specific account. "
+        },
+        "SourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "<p>This is optional; however, when granting permission to invoke your function, you should specify this field with the Amazon Resource Name (ARN) as its value. This ensures that only events generated from the specified source can invoke the function.</p> <important> <p>If you add a permission without providing the source ARN, any AWS account that creates a mapping to your function ARN can send events to invoke your Lambda function.</p> </important>"
+        },
+        "StatementId": {
+          "$ref": "#/definitions/StatementId",
+          "description": "A unique statement identifier."
+        }
+      },
+      "required": [
+        "StatementId",
+        "Action",
+        "Principal"
+      ],
+      "type": "object",
+      "title": "AddPermissionRequest"
+    },
+    "AddPermissionResponse": {
+      "description": "<p/>",
+      "example": {
+        "Statement": "ID-1"
+      },
+      "properties": {
+        "Statement": {
+          "$ref": "#/definitions/String",
+          "description": "The permission statement you specified in the request. The response returns the same as a string using a backslash (\"\\\") as an escape character in the JSON."
+        }
+      },
+      "type": "object",
+      "title": "AddPermissionResponse"
+    },
+    "Alias": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_]+)",
+      "type": "string",
+      "title": "Alias"
+    },
+    "AliasConfiguration": {
+      "description": "Provides configuration information about a Lambda function version alias.",
+      "example": {
+        "AliasArn": "arn:aws:lambda:us-west-2:123456789012:function:functionAlias",
+        "Description": "",
+        "FunctionVersion": "1",
+        "Name": "functionAlias"
+      },
+      "properties": {
+        "AliasArn": {
+          "$ref": "#/definitions/FunctionArn",
+          "description": "Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an alias called <code>BETA</code> that points to a helloworld function version, the ARN is <code>arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA</code>."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "Alias description."
+        },
+        "FunctionVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "Function version to which the alias points."
+        },
+        "Name": {
+          "$ref": "#/definitions/Alias",
+          "description": "Alias name."
+        }
+      },
+      "type": "object",
+      "title": "AliasConfiguration"
+    },
+    "AliasList": {
+      "items": {
+        "$ref": "#/definitions/AliasConfiguration"
+      },
+      "type": "array",
+      "title": "AliasList"
+    },
+    "Arn": {
+      "pattern": "arn:aws:([a-zA-Z0-9\\-])+:([a-z]{2}-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
+      "type": "string",
+      "title": "Arn"
+    },
+    "BatchSize": {
+      "maximum": 10000,
+      "minimum": 1,
+      "type": "integer",
+      "title": "BatchSize"
+    },
+    "Blob": {
+      "format": "password",
+      "type": "string",
+      "title": "Blob"
+    },
+    "BlobStream": {
+      "type": "string",
+      "title": "BlobStream"
+    },
+    "Boolean": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "CodeStorageExceededException": {
+      "description": "You have exceeded your maximum total code size per account. <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/limits.html\">Limits</a> ",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/String",
+          "description": "<p/>"
+        },
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "CodeStorageExceededException"
+    },
+    "CreateAliasRequest": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "Description of the alias."
+        },
+        "FunctionVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "Lambda function version for which you are creating the alias."
+        },
+        "Name": {
+          "$ref": "#/definitions/Alias",
+          "description": "Name for the alias you are creating."
+        }
+      },
+      "required": [
+        "Name",
+        "FunctionVersion"
+      ],
+      "type": "object",
+      "title": "CreateAliasRequest"
+    },
+    "CreateEventSourceMappingRequest": {
+      "description": "<p/>",
+      "properties": {
+        "BatchSize": {
+          "$ref": "#/definitions/BatchSize",
+          "description": "The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records. The default is 100 records."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/Enabled",
+          "description": "Indicates whether AWS Lambda should begin polling the event source. By default, <code>Enabled</code> is true. "
+        },
+        "EventSourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream that is the event source. Any record added to this stream could cause AWS Lambda to invoke your Lambda function, it depends on the <code>BatchSize</code>. AWS Lambda POSTs the Amazon Kinesis event, containing records, to your Lambda function as JSON."
+        },
+        "FunctionName": {
+          "$ref": "#/definitions/FunctionName",
+          "description": "<p>The Lambda function to invoke when AWS Lambda detects an event on the stream.</p> <p> You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). </p> <p> If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). For more information about versioning, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a> </p> <p>AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, <code>account-id:Thumbnail</code>). </p> <p>Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.</p>"
+        },
+        "StartingPosition": {
+          "$ref": "#/definitions/EventSourcePosition",
+          "description": "The position in the stream where AWS Lambda should start reading. Valid only for Kinesis streams. For more information, see <a href=\"http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType\">ShardIteratorType</a> in the <i>Amazon Kinesis API Reference</i>. "
+        },
+        "StartingPositionTimestamp": {
+          "$ref": "#/definitions/Date",
+          "description": "The timestamp of the data record from which to start reading. Used with <a href=\"http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType\">shard iterator type</a> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for Kinesis streams. "
+        }
+      },
+      "required": [
+        "EventSourceArn",
+        "FunctionName",
+        "StartingPosition"
+      ],
+      "type": "object",
+      "title": "CreateEventSourceMappingRequest"
+    },
+    "CreateFunctionRequest": {
+      "description": "<p/>",
+      "example": {
+        "Code": {},
+        "Description": "",
+        "FunctionName": "MyFunction",
+        "Handler": "souce_file.handler_name",
+        "MemorySize": 128,
+        "Publish": true,
+        "Role": "arn:aws:iam::123456789012:role/service-role/role-name",
+        "Runtime": "nodejs4.3",
+        "Timeout": 15,
+        "VpcConfig": {}
+      },
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/FunctionCode",
+          "description": "The code for the Lambda function."
+        },
+        "DeadLetterConfig": {
+          "$ref": "#/definitions/DeadLetterConfig",
+          "description": "The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. "
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "A short, user-defined function description. Lambda does not use this value. Assign a meaningful description as you see fit."
+        },
+        "Environment": {
+          "$ref": "#/definitions/Environment"
+        },
+        "FunctionName": {
+          "$ref": "#/definitions/FunctionName",
+          "description": "The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the <a>ListFunctions</a> API. Function names are used to specify functions to other AWS Lambda API operations, such as <a>Invoke</a>. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. "
+        },
+        "Handler": {
+          "$ref": "#/definitions/Handler",
+          "description": "The function within your code that Lambda calls to begin execution. For Node.js, it is the <i>module-name</i>.<i>export</i> value in your function. For Java, it can be <code>package.class-name::handler</code> or <code>package.class-name</code>. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html\">Lambda Function Handler (Java)</a>. "
+        },
+        "KMSKeyArn": {
+          "$ref": "#/definitions/KMSKeyArn",
+          "description": "The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If not provided, AWS Lambda will use a default service key."
+        },
+        "MemorySize": {
+          "$ref": "#/definitions/MemorySize",
+          "description": "The amount of memory, in MB, your Lambda function is given. Lambda uses this memory size to infer the amount of CPU and memory allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB."
+        },
+        "Publish": {
+          "$ref": "#/definitions/Boolean",
+          "description": "This boolean parameter can be used to request AWS Lambda to create the Lambda function and publish a version as an atomic operation."
+        },
+        "Role": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html\">AWS Lambda: How it Works</a>. "
+        },
+        "Runtime": {
+          "$ref": "#/definitions/Runtime",
+          "description": "<p>The runtime environment for the Lambda function you are uploading.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\".</p> <note> <p>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. You can request a one-time extension until June 30, 2017 by going to the Lambda console and following the instructions provided. Failure to do so will result in an invalid parmaeter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.</p> </note>"
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The list of tags (key-value pairs) assigned to the new function."
+        },
+        "Timeout": {
+          "$ref": "#/definitions/Timeout",
+          "description": "The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds."
+        },
+        "TracingConfig": {
+          "$ref": "#/definitions/TracingConfig",
+          "description": "The parent object that contains your function's tracing settings."
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID."
+        }
+      },
+      "required": [
+        "FunctionName",
+        "Runtime",
+        "Role",
+        "Handler",
+        "Code"
+      ],
+      "type": "object",
+      "title": "CreateFunctionRequest"
+    },
+    "Date": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Date"
+    },
+    "DeadLetterConfig": {
+      "description": "The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.",
+      "properties": {
+        "TargetArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ)."
+        }
+      },
+      "type": "object",
+      "title": "DeadLetterConfig"
+    },
+    "DeleteAliasRequest": {
+      "example": {
+        "FunctionName": "myFunction",
+        "Name": "alias"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "DeleteAliasRequest"
+    },
+    "DeleteEventSourceMappingRequest": {
+      "description": "<p/>",
+      "example": {
+        "UUID": "12345kxodurf3443"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "DeleteEventSourceMappingRequest"
+    },
+    "DeleteFunctionRequest": {
+      "example": {
+        "FunctionName": "myFunction",
+        "Qualifier": "1"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "DeleteFunctionRequest"
+    },
+    "Description": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string",
+      "title": "Description"
+    },
+    "EC2AccessDeniedException": {
+      "description": "<p/>",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "EC2AccessDeniedException"
+    },
+    "EC2ThrottledException": {
+      "description": "AWS Lambda was throttled by Amazon EC2 during Lambda function initialization using the execution role provided for the Lambda function.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "EC2ThrottledException"
+    },
+    "EC2UnexpectedException": {
+      "description": "AWS Lambda received an unexpected EC2 client exception while setting up for the Lambda function.",
+      "properties": {
+        "EC2ErrorCode": {
+          "$ref": "#/definitions/String"
+        },
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "EC2UnexpectedException"
+    },
+    "ENILimitReachedException": {
+      "description": "AWS Lambda was not able to create an Elastic Network Interface (ENI) in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "ENILimitReachedException"
+    },
+    "Enabled": {
+      "type": "boolean",
+      "title": "Enabled"
+    },
+    "Environment": {
+      "description": "The parent object that contains your environment's configuration settings.",
+      "properties": {
+        "Variables": {
+          "$ref": "#/definitions/EnvironmentVariables",
+          "description": "The key-value pairs that represent your environment's configuration settings."
+        }
+      },
+      "type": "object",
+      "title": "Environment"
+    },
+    "EnvironmentError": {
+      "description": "The parent object that contains error information associated with your configuration settings.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/String",
+          "description": "The error code returned by the environment error object."
+        },
+        "Message": {
+          "$ref": "#/definitions/SensitiveString",
+          "description": "The message returned by the environment error object."
+        }
+      },
+      "type": "object",
+      "title": "EnvironmentError"
+    },
+    "EnvironmentResponse": {
+      "description": "The parent object returned that contains your environment's configuration settings or any error information associated with your configuration settings.",
+      "properties": {
+        "Error": {
+          "$ref": "#/definitions/EnvironmentError"
+        },
+        "Variables": {
+          "$ref": "#/definitions/EnvironmentVariables",
+          "description": "The key-value pairs returned that represent your environment's configuration settings or error information."
+        }
+      },
+      "type": "object",
+      "title": "EnvironmentResponse"
+    },
+    "EnvironmentVariableName": {
+      "format": "password",
+      "pattern": "[a-zA-Z]([a-zA-Z0-9_])+",
+      "type": "string",
+      "title": "EnvironmentVariableName"
+    },
+    "EnvironmentVariableValue": {
+      "format": "password",
+      "type": "string",
+      "title": "EnvironmentVariableValue"
+    },
+    "EnvironmentVariables": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/EnvironmentVariableName"
+          },
+          "value": {
+            "$ref": "#/definitions/EnvironmentVariableValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "EnvironmentVariables"
+    },
+    "EventSourceMappingConfiguration": {
+      "description": "Describes mapping between an Amazon Kinesis stream and a Lambda function.",
+      "example": {
+        "BatchSize": 123,
+        "EventSourceArn": "arn:aws:s3:::examplebucket/*",
+        "FunctionArn": "arn:aws:lambda:us-west-2:123456789012:function:myFunction",
+        "LastModified": "2016-11-21T19:49:20.006+0000",
+        "LastProcessingResult": "",
+        "State": "",
+        "StateTransitionReason": "",
+        "UUID": "1234xCy789012"
+      },
+      "properties": {
+        "BatchSize": {
+          "$ref": "#/definitions/BatchSize",
+          "description": "The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records."
+        },
+        "EventSourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis stream that is the source of events."
+        },
+        "FunctionArn": {
+          "$ref": "#/definitions/FunctionArn",
+          "description": "The Lambda function to invoke when AWS Lambda detects an event on the stream."
+        },
+        "LastModified": {
+          "$ref": "#/definitions/Date",
+          "description": "The UTC time string indicating the last time the event mapping was updated."
+        },
+        "LastProcessingResult": {
+          "$ref": "#/definitions/String",
+          "description": "The result of the last AWS Lambda invocation of your Lambda function."
+        },
+        "State": {
+          "$ref": "#/definitions/String",
+          "description": "The state of the event source mapping. It can be <code>Creating</code>, <code>Enabled</code>, <code>Disabled</code>, <code>Enabling</code>, <code>Disabling</code>, <code>Updating</code>, or <code>Deleting</code>."
+        },
+        "StateTransitionReason": {
+          "$ref": "#/definitions/String",
+          "description": "The reason the event source mapping is in its current state. It is either user-requested or an AWS Lambda-initiated state transition."
+        },
+        "UUID": {
+          "$ref": "#/definitions/String",
+          "description": "The AWS Lambda assigned opaque identifier for the mapping."
+        }
+      },
+      "type": "object",
+      "title": "EventSourceMappingConfiguration"
+    },
+    "EventSourceMappingsList": {
+      "items": {
+        "$ref": "#/definitions/EventSourceMappingConfiguration"
+      },
+      "type": "array",
+      "title": "EventSourceMappingsList"
+    },
+    "EventSourcePosition": {
+      "enum": [
+        "TRIM_HORIZON",
+        "LATEST",
+        "AT_TIMESTAMP"
+      ],
+      "type": "string",
+      "title": "EventSourcePosition"
+    },
+    "EventSourceToken": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "[a-zA-Z0-9._\\-]+",
+      "type": "string",
+      "title": "EventSourceToken"
+    },
+    "FunctionArn": {
+      "pattern": "arn:aws:lambda:[a-z]{2}-[a-z]+-\\d{1}:\\d{12}:function:[a-zA-Z0-9-_]+(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
+      "type": "string",
+      "title": "FunctionArn"
+    },
+    "FunctionCode": {
+      "description": "The code for the Lambda function.",
+      "properties": {
+        "S3Bucket": {
+          "$ref": "#/definitions/S3Bucket",
+          "description": "Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS region where you are creating the Lambda function."
+        },
+        "S3Key": {
+          "$ref": "#/definitions/S3Key",
+          "description": "The Amazon S3 object (the deployment package) key name you want to upload."
+        },
+        "S3ObjectVersion": {
+          "$ref": "#/definitions/S3ObjectVersion",
+          "description": "The Amazon S3 object (the deployment package) version you want to upload."
+        },
+        "ZipFile": {
+          "$ref": "#/definitions/Blob",
+          "description": "The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html\">Execution Permissions</a> in the <i>AWS Lambda Developer Guide</i>. "
+        }
+      },
+      "type": "object",
+      "title": "FunctionCode"
+    },
+    "FunctionCodeLocation": {
+      "description": "The object for the Lambda function location.",
+      "properties": {
+        "Location": {
+          "$ref": "#/definitions/String",
+          "description": "The presigned URL you can use to download the function's .zip file that you previously uploaded. The URL is valid for up to 10 minutes."
+        },
+        "RepositoryType": {
+          "$ref": "#/definitions/String",
+          "description": "The repository from which you can download the function."
+        }
+      },
+      "type": "object",
+      "title": "FunctionCodeLocation"
+    },
+    "FunctionConfiguration": {
+      "description": "A complex type that describes function metadata.",
+      "example": {
+        "CodeSha256": "LQT+0DHxxxxcfwLyQjzoEFKZtdqQjHXanlSdfXBlEW0VA=",
+        "CodeSize": 123,
+        "Description": "",
+        "FunctionArn": "arn:aws:lambda:us-west-2:123456789012:function:myFunction",
+        "FunctionName": "myFunction",
+        "Handler": "index.handler",
+        "LastModified": "2016-11-21T19:49:20.006+0000",
+        "MemorySize": 128,
+        "Role": "arn:aws:iam::123456789012:role/lambda_basic_execution",
+        "Runtime": "python2.7",
+        "Timeout": 123,
+        "Version": "1",
+        "VpcConfig": {}
+      },
+      "properties": {
+        "CodeSha256": {
+          "$ref": "#/definitions/String",
+          "description": "It is the SHA256 hash of your function deployment package."
+        },
+        "CodeSize": {
+          "$ref": "#/definitions/Long",
+          "description": "The size, in bytes, of the function .zip file you uploaded."
+        },
+        "DeadLetterConfig": {
+          "$ref": "#/definitions/DeadLetterConfig",
+          "description": "The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The user-provided description."
+        },
+        "Environment": {
+          "$ref": "#/definitions/EnvironmentResponse",
+          "description": "The parent object that contains your environment's configuration settings."
+        },
+        "FunctionArn": {
+          "$ref": "#/definitions/NameSpacedFunctionArn",
+          "description": "The Amazon Resource Name (ARN) assigned to the function."
+        },
+        "FunctionName": {
+          "$ref": "#/definitions/NamespacedFunctionName",
+          "description": "The name of the function. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length."
+        },
+        "Handler": {
+          "$ref": "#/definitions/Handler",
+          "description": "The function Lambda calls to begin executing your function."
+        },
+        "KMSKeyArn": {
+          "$ref": "#/definitions/KMSKeyArn",
+          "description": "The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If empty, it means you are using the AWS Lambda default service key."
+        },
+        "LastModified": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying with ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information, see <a href=\"https://www.w3.org/TR/NOTE-datetime\">Date and Time Formats</a>."
+        },
+        "MasterArn": {
+          "$ref": "#/definitions/FunctionArn",
+          "description": "Returns the ARN (Amazon Resource Name) of the master function."
+        },
+        "MemorySize": {
+          "$ref": "#/definitions/MemorySize",
+          "description": "The memory size, in MB, you configured for the function. Must be a multiple of 64 MB."
+        },
+        "Role": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources."
+        },
+        "Runtime": {
+          "$ref": "#/definitions/Runtime",
+          "description": "The runtime environment for the Lambda function."
+        },
+        "Timeout": {
+          "$ref": "#/definitions/Timeout",
+          "description": "The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds."
+        },
+        "TracingConfig": {
+          "$ref": "#/definitions/TracingConfigResponse",
+          "description": "The parent object that contains your function's tracing settings."
+        },
+        "Version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the Lambda function."
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfigResponse",
+          "description": "VPC configuration associated with your Lambda function."
+        }
+      },
+      "type": "object",
+      "title": "FunctionConfiguration"
+    },
+    "FunctionList": {
+      "items": {
+        "$ref": "#/definitions/FunctionConfiguration"
+      },
+      "type": "array",
+      "title": "FunctionList"
+    },
+    "FunctionName": {
+      "maxLength": 140,
+      "minLength": 1,
+      "pattern": "(arn:aws:lambda:)?([a-z]{2}-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
+      "type": "string",
+      "title": "FunctionName"
+    },
+    "FunctionVersion": {
+      "enum": [
+        "ALL"
+      ],
+      "type": "string",
+      "title": "FunctionVersion"
+    },
+    "GetAccountSettingsRequest": {
+      "example": {},
+      "properties": {},
+      "type": "object",
+      "title": "GetAccountSettingsRequest"
+    },
+    "GetAccountSettingsResponse": {
+      "example": {
+        "AccountLimit": {},
+        "AccountUsage": {}
+      },
+      "properties": {
+        "AccountLimit": {
+          "$ref": "#/definitions/AccountLimit"
+        },
+        "AccountUsage": {
+          "$ref": "#/definitions/AccountUsage"
+        }
+      },
+      "type": "object",
+      "title": "GetAccountSettingsResponse"
+    },
+    "GetAliasRequest": {
+      "example": {
+        "FunctionName": "myFunction",
+        "Name": "myFunctionAlias"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "GetAliasRequest"
+    },
+    "GetEventSourceMappingRequest": {
+      "description": "<p/>",
+      "example": {
+        "UUID": "123489-xxxxx-kdla8d89d7"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "GetEventSourceMappingRequest"
+    },
+    "GetFunctionConfigurationRequest": {
+      "description": "<p/>",
+      "example": {
+        "FunctionName": "myFunction",
+        "Qualifier": "1"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "GetFunctionConfigurationRequest"
+    },
+    "GetFunctionRequest": {
+      "description": "<p/>",
+      "example": {
+        "FunctionName": "myFunction",
+        "Qualifier": "1"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "GetFunctionRequest"
+    },
+    "GetFunctionResponse": {
+      "description": "This response contains the object for the Lambda function location (see <a>FunctionCodeLocation</a>.",
+      "example": {
+        "Code": {
+          "Location": "somelocation",
+          "RepositoryType": "S3"
+        },
+        "Configuration": {
+          "CodeSha256": "LQT+0DHxxxxcfwLyQjzoEFKZtdqQjHXanlSdfXBlEW0VA=",
+          "CodeSize": 262,
+          "Description": "A starter AWS Lambda function.",
+          "Environment": {
+            "Variables": {
+              "S3_BUCKET": "test"
+            }
+          },
+          "FunctionArn": "arn:aws:lambda:us-west-2:123456789012:function:myFunction",
+          "FunctionName": "myFunction",
+          "Handler": "index.handler",
+          "LastModified": "2016-11-21T19:49:20.006+0000",
+          "MemorySize": 128,
+          "Role": "arn:aws:iam::123456789012:role/lambda_basic_execution",
+          "Runtime": "nodejs4.3",
+          "Timeout": 3,
+          "Version": "$LATEST",
+          "VpcConfig": {
+            "SecurityGroupIds": [],
+            "SubnetIds": []
+          }
+        }
+      },
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/FunctionCodeLocation"
+        },
+        "Configuration": {
+          "$ref": "#/definitions/FunctionConfiguration"
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "Returns the list of tags associated with the function."
+        }
+      },
+      "type": "object",
+      "title": "GetFunctionResponse"
+    },
+    "GetPolicyRequest": {
+      "description": "<p/>",
+      "example": {
+        "FunctionName": "myFunction",
+        "Qualifier": "1"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "GetPolicyRequest"
+    },
+    "GetPolicyResponse": {
+      "description": "<p/>",
+      "example": {
+        "Policy": ""
+      },
+      "properties": {
+        "Policy": {
+          "$ref": "#/definitions/String",
+          "description": "The resource policy associated with the specified function. The response returns the same as a string using a backslash (\"\\\") as an escape character in the JSON."
+        }
+      },
+      "type": "object",
+      "title": "GetPolicyResponse"
+    },
+    "Handler": {
+      "maxLength": 128,
+      "pattern": "[^\\s]+",
+      "type": "string",
+      "title": "Handler"
+    },
+    "HttpStatus": {
+      "type": "integer",
+      "title": "HttpStatus"
+    },
+    "Integer": {
+      "type": "integer",
+      "title": "Integer"
+    },
+    "InvalidParameterValueException": {
+      "description": "One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that AWS Lambda is unable to assume you will get this exception. You will also get this exception if you have selected a deprecated runtime, such as Node v0.10.42. ",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/String",
+          "description": "<p/>"
+        },
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "InvalidParameterValueException"
+    },
+    "InvalidRequestContentException": {
+      "description": "The request body could not be parsed as JSON.",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/String",
+          "description": "<p/>"
+        },
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "InvalidRequestContentException"
+    },
+    "InvalidRuntimeException": {
+      "description": "The runtime or runtime version specified is not supported.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "InvalidRuntimeException"
+    },
+    "InvalidSecurityGroupIDException": {
+      "description": "The Security Group ID provided in the Lambda function VPC configuration is invalid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "InvalidSecurityGroupIDException"
+    },
+    "InvalidSubnetIDException": {
+      "description": "The Subnet ID provided in the Lambda function VPC configuration is invalid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "InvalidSubnetIDException"
+    },
+    "InvalidZipFileException": {
+      "description": "AWS Lambda could not unzip the function zip file.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "InvalidZipFileException"
+    },
+    "InvocationRequest": {
+      "description": "<p/>",
+      "example": {
+        "ClientContext": "MyApp",
+        "FunctionName": "MyFunction",
+        "InvocationType": "Event",
+        "LogType": "Tail",
+        "Payload": "fileb://file-path/input.json",
+        "Qualifier": "1"
+      },
+      "properties": {
+        "Payload": {
+          "$ref": "#/definitions/Blob",
+          "description": "JSON that you want to provide to your Lambda function as input."
+        }
+      },
+      "type": "object",
+      "title": "InvocationRequest"
+    },
+    "InvocationResponse": {
+      "description": "Upon success, returns an empty response. Otherwise, throws an exception.",
+      "example": {
+        "FunctionError": "",
+        "LogResult": "",
+        "Payload": "?",
+        "StatusCode": 123
+      },
+      "properties": {
+        "Payload": {
+          "$ref": "#/definitions/Blob",
+          "description": "<p> It is the JSON representation of the object returned by the Lambda function. This is present only if the invocation type is <code>RequestResponse</code>. </p> <p>In the event of a function error this field contains a message describing the error. For the <code>Handled</code> errors the Lambda function will report this message. For <code>Unhandled</code> errors AWS Lambda reports the message. </p>"
+        }
+      },
+      "type": "object",
+      "title": "InvocationResponse"
+    },
+    "InvocationType": {
+      "enum": [
+        "Event",
+        "RequestResponse",
+        "DryRun"
+      ],
+      "type": "string",
+      "title": "InvocationType"
+    },
+    "InvokeAsyncRequest": {
+      "description": "<p/>",
+      "example": {
+        "FunctionName": "myFunction",
+        "InvokeArgs": "fileb://file-path/input.json"
+      },
+      "properties": {
+        "InvokeArgs": {
+          "$ref": "#/definitions/BlobStream",
+          "description": "JSON that you want to provide to your Lambda function as input."
+        }
+      },
+      "required": [
+        "InvokeArgs"
+      ],
+      "type": "object",
+      "title": "InvokeAsyncRequest"
+    },
+    "InvokeAsyncResponse": {
+      "description": "Upon success, it returns empty response. Otherwise, throws an exception.",
+      "example": {
+        "Status": 123
+      },
+      "properties": {},
+      "type": "object",
+      "title": "InvokeAsyncResponse"
+    },
+    "KMSAccessDeniedException": {
+      "description": "Lambda was unable to decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "KMSAccessDeniedException"
+    },
+    "KMSDisabledException": {
+      "description": "Lambda was unable to decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "KMSDisabledException"
+    },
+    "KMSInvalidStateException": {
+      "description": "Lambda was unable to decrypt the environment variables because the KMS key used is in an invalid state for Decrypt. Check the function's KMS key settings.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "KMSInvalidStateException"
+    },
+    "KMSKeyArn": {
+      "pattern": "(arn:aws:[a-z0-9-.]+:.*)|()",
+      "type": "string",
+      "title": "KMSKeyArn"
+    },
+    "KMSNotFoundException": {
+      "description": "Lambda was unable to decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings. ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "KMSNotFoundException"
+    },
+    "ListAliasesRequest": {
+      "example": {
+        "FunctionName": "myFunction",
+        "FunctionVersion": "1",
+        "Marker": "",
+        "MaxItems": 123
+      },
+      "properties": {},
+      "type": "object",
+      "title": "ListAliasesRequest"
+    },
+    "ListAliasesResponse": {
+      "example": {
+        "Aliases": [],
+        "NextMarker": ""
+      },
+      "properties": {
+        "Aliases": {
+          "$ref": "#/definitions/AliasList",
+          "description": "A list of aliases."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/String",
+          "description": "A string, present if there are more aliases."
+        }
+      },
+      "type": "object",
+      "title": "ListAliasesResponse"
+    },
+    "ListEventSourceMappingsRequest": {
+      "description": "<p/>",
+      "properties": {},
+      "type": "object",
+      "title": "ListEventSourceMappingsRequest"
+    },
+    "ListEventSourceMappingsResponse": {
+      "description": "Contains a list of event sources (see <a>EventSourceMappingConfiguration</a>)",
+      "properties": {
+        "EventSourceMappings": {
+          "$ref": "#/definitions/EventSourceMappingsList",
+          "description": "An array of <code>EventSourceMappingConfiguration</code> objects."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/String",
+          "description": "A string, present if there are more event source mappings."
+        }
+      },
+      "type": "object",
+      "title": "ListEventSourceMappingsResponse"
+    },
+    "ListFunctionsRequest": {
+      "description": "<p/>",
+      "example": {
+        "Marker": "",
+        "MaxItems": 123
+      },
+      "properties": {},
+      "type": "object",
+      "title": "ListFunctionsRequest"
+    },
+    "ListFunctionsResponse": {
+      "description": "Contains a list of AWS Lambda function configurations (see <a>FunctionConfiguration</a>.",
+      "example": {
+        "Functions": [],
+        "NextMarker": ""
+      },
+      "properties": {
+        "Functions": {
+          "$ref": "#/definitions/FunctionList",
+          "description": "A list of Lambda functions."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/String",
+          "description": "A string, present if there are more functions."
+        }
+      },
+      "type": "object",
+      "title": "ListFunctionsResponse"
+    },
+    "ListTagsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListTagsRequest"
+    },
+    "ListTagsResponse": {
+      "properties": {
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The list of tags assigned to the function."
+        }
+      },
+      "type": "object",
+      "title": "ListTagsResponse"
+    },
+    "ListVersionsByFunctionRequest": {
+      "description": "<p/>",
+      "example": {
+        "FunctionName": "myFunction",
+        "Marker": "",
+        "MaxItems": 123
+      },
+      "properties": {},
+      "type": "object",
+      "title": "ListVersionsByFunctionRequest"
+    },
+    "ListVersionsByFunctionResponse": {
+      "description": "<p/>",
+      "example": {
+        "NextMarker": "",
+        "Versions": []
+      },
+      "properties": {
+        "NextMarker": {
+          "$ref": "#/definitions/String",
+          "description": "A string, present if there are more function versions."
+        },
+        "Versions": {
+          "$ref": "#/definitions/FunctionList",
+          "description": "A list of Lambda function versions."
+        }
+      },
+      "type": "object",
+      "title": "ListVersionsByFunctionResponse"
+    },
+    "LogType": {
+      "enum": [
+        "None",
+        "Tail"
+      ],
+      "type": "string",
+      "title": "LogType"
+    },
+    "Long": {
+      "type": "integer",
+      "title": "Long"
+    },
+    "MasterRegion": {
+      "pattern": "ALL|[a-z]{2}(-gov)?-[a-z]+-\\d{1}",
+      "type": "string",
+      "title": "MasterRegion"
+    },
+    "MaxListItems": {
+      "maximum": 10000,
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxListItems"
+    },
+    "MemorySize": {
+      "maximum": 1536,
+      "minimum": 128,
+      "type": "integer",
+      "title": "MemorySize"
+    },
+    "NameSpacedFunctionArn": {
+      "pattern": "arn:aws:lambda:[a-z]{2}-[a-z]+-\\d{1}:\\d{12}:function:[a-zA-Z0-9-_\\.]+(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
+      "type": "string",
+      "title": "NameSpacedFunctionArn"
+    },
+    "NamespacedFunctionName": {
+      "maxLength": 170,
+      "minLength": 1,
+      "pattern": "(arn:aws:lambda:)?([a-z]{2}-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_\\.]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
+      "type": "string",
+      "title": "NamespacedFunctionName"
+    },
+    "NamespacedStatementId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "([a-zA-Z0-9-_.]+)",
+      "type": "string",
+      "title": "NamespacedStatementId"
+    },
+    "PolicyLengthExceededException": {
+      "description": "Lambda function access policy is limited to 20 KB.",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/String"
+        },
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "PolicyLengthExceededException"
+    },
+    "Principal": {
+      "pattern": ".*",
+      "type": "string",
+      "title": "Principal"
+    },
+    "PublishVersionRequest": {
+      "description": "<p/>",
+      "example": {
+        "CodeSha256": "",
+        "Description": "",
+        "FunctionName": "myFunction"
+      },
+      "properties": {
+        "CodeSha256": {
+          "$ref": "#/definitions/String",
+          "description": "The SHA256 hash of the deployment package you want to publish. This provides validation on the code you are publishing. If you provide this parameter value must match the SHA256 of the $LATEST version for the publication to succeed."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description for the version you are publishing. If not provided, AWS Lambda copies the description from the $LATEST version."
+        }
+      },
+      "type": "object",
+      "title": "PublishVersionRequest"
+    },
+    "Qualifier": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "(|[a-zA-Z0-9$_-]+)",
+      "type": "string",
+      "title": "Qualifier"
+    },
+    "RemovePermissionRequest": {
+      "description": "<p/>",
+      "example": {
+        "FunctionName": "myFunction",
+        "Qualifier": "1",
+        "StatementId": "role-statement-id"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "RemovePermissionRequest"
+    },
+    "RequestTooLargeException": {
+      "description": "The request payload exceeded the <code>Invoke</code> request body JSON input limit. For more information, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/limits.html\">Limits</a>. ",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/String"
+        },
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "RequestTooLargeException"
+    },
+    "ResourceArn": {
+      "pattern": "(arn:aws:[a-z0-9-.]+:.*)|()",
+      "type": "string",
+      "title": "ResourceArn"
+    },
+    "ResourceConflictException": {
+      "description": "The resource already exists.",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/String",
+          "description": "<p/>"
+        },
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "ResourceConflictException"
+    },
+    "ResourceNotFoundException": {
+      "description": "The resource (for example, a Lambda function or access policy statement) specified in the request does not exist.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "RoleArn": {
+      "pattern": "arn:aws:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+",
+      "type": "string",
+      "title": "RoleArn"
+    },
+    "Runtime": {
+      "enum": [
+        "nodejs",
+        "nodejs4.3",
+        "nodejs6.10",
+        "java8",
+        "python2.7",
+        "python3.6",
+        "dotnetcore1.0",
+        "nodejs4.3-edge"
+      ],
+      "type": "string",
+      "title": "Runtime"
+    },
+    "S3Bucket": {
+      "maxLength": 63,
+      "minLength": 3,
+      "pattern": "^[0-9A-Za-z\\.\\-_]*$",
+      "type": "string",
+      "title": "S3Bucket"
+    },
+    "S3Key": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string",
+      "title": "S3Key"
+    },
+    "S3ObjectVersion": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string",
+      "title": "S3ObjectVersion"
+    },
+    "SecurityGroupId": {
+      "type": "string",
+      "title": "SecurityGroupId"
+    },
+    "SecurityGroupIds": {
+      "items": {
+        "$ref": "#/definitions/SecurityGroupId"
+      },
+      "maxItems": 5,
+      "type": "array",
+      "title": "SecurityGroupIds"
+    },
+    "SensitiveString": {
+      "format": "password",
+      "type": "string",
+      "title": "SensitiveString"
+    },
+    "ServiceException": {
+      "description": "The AWS Lambda service encountered an internal error.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "ServiceException"
+    },
+    "SourceOwner": {
+      "pattern": "\\d{12}",
+      "type": "string",
+      "title": "SourceOwner"
+    },
+    "StatementId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "([a-zA-Z0-9-_]+)",
+      "type": "string",
+      "title": "StatementId"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "SubnetIPAddressLimitReachedException": {
+      "description": "AWS Lambda was not able to set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "SubnetIPAddressLimitReachedException"
+    },
+    "SubnetId": {
+      "type": "string",
+      "title": "SubnetId"
+    },
+    "SubnetIds": {
+      "items": {
+        "$ref": "#/definitions/SubnetId"
+      },
+      "maxItems": 16,
+      "type": "array",
+      "title": "SubnetIds"
+    },
+    "TagKey": {
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array",
+      "title": "TagKeyList"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The list of tags (key-value pairs) you are assigning to the Lambda function."
+        }
+      },
+      "required": [
+        "Tags"
+      ],
+      "type": "object",
+      "title": "TagResourceRequest"
+    },
+    "TagValue": {
+      "type": "string",
+      "title": "TagValue"
+    },
+    "Tags": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/TagKey"
+          },
+          "value": {
+            "$ref": "#/definitions/TagValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Tags"
+    },
+    "ThrottleReason": {
+      "enum": [
+        "ConcurrentInvocationLimitExceeded",
+        "FunctionInvocationRateLimitExceeded",
+        "CallerRateLimitExceeded"
+      ],
+      "type": "string",
+      "title": "ThrottleReason"
+    },
+    "Timeout": {
+      "minimum": 1,
+      "type": "integer",
+      "title": "Timeout"
+    },
+    "Timestamp": {
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "TooManyRequestsException": {
+      "description": "<p/>",
+      "properties": {
+        "Reason": {
+          "$ref": "#/definitions/ThrottleReason"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
+        },
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "TooManyRequestsException"
+    },
+    "TracingConfig": {
+      "description": "The parent object that contains your function's tracing settings.",
+      "properties": {
+        "Mode": {
+          "$ref": "#/definitions/TracingMode",
+          "description": "Can be either PassThrough or Active. If PassThrough, Lambda will only trace the request from an upstream service if it contains a tracing header with \"sampled=1\". If Active, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision."
+        }
+      },
+      "type": "object",
+      "title": "TracingConfig"
+    },
+    "TracingConfigResponse": {
+      "description": "Parent object of the tracing information associated with your Lambda function.",
+      "properties": {
+        "Mode": {
+          "$ref": "#/definitions/TracingMode",
+          "description": "The tracing mode associated with your Lambda function."
+        }
+      },
+      "type": "object",
+      "title": "TracingConfigResponse"
+    },
+    "TracingMode": {
+      "enum": [
+        "Active",
+        "PassThrough"
+      ],
+      "type": "string",
+      "title": "TracingMode"
+    },
+    "UnsupportedMediaTypeException": {
+      "description": "The content type of the <code>Invoke</code> request body is not JSON.",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/String"
+        },
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "UnsupportedMediaTypeException"
+    },
+    "UntagResourceRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "UntagResourceRequest"
+    },
+    "UpdateAliasRequest": {
+      "example": {
+        "Description": "",
+        "FunctionName": "myFunction",
+        "FunctionVersion": "1",
+        "Name": "functionAlias"
+      },
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "You can change the description of the alias using this parameter."
+        },
+        "FunctionVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "Using this parameter you can change the Lambda function version to which the alias points."
+        }
+      },
+      "type": "object",
+      "title": "UpdateAliasRequest"
+    },
+    "UpdateEventSourceMappingRequest": {
+      "description": "<p/>",
+      "example": {
+        "BatchSize": 123,
+        "Enabled": true,
+        "FunctionName": "myFunction",
+        "UUID": "1234xCy789012"
+      },
+      "properties": {
+        "BatchSize": {
+          "$ref": "#/definitions/BatchSize",
+          "description": "The maximum number of stream records that can be sent to your Lambda function for a single invocation."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/Enabled",
+          "description": "Specifies whether AWS Lambda should actively poll the stream or not. If disabled, AWS Lambda will not poll the stream."
+        },
+        "FunctionName": {
+          "$ref": "#/definitions/FunctionName",
+          "description": "<p>The Lambda function to which you want the stream records sent.</p> <p> You can specify a function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). AWS Lambda also allows you to specify a partial ARN (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. </p> <p>If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). For more information about versioning, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a> </p> <p>Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.</p>"
+        }
+      },
+      "type": "object",
+      "title": "UpdateEventSourceMappingRequest"
+    },
+    "UpdateFunctionCodeRequest": {
+      "description": "<p/>",
+      "example": {
+        "FunctionName": "myFunction",
+        "Publish": true,
+        "S3Bucket": "myBucket",
+        "S3Key": "myKey",
+        "S3ObjectVersion": "1",
+        "ZipFile": "fileb://file-path/file.zip"
+      },
+      "properties": {
+        "DryRun": {
+          "$ref": "#/definitions/Boolean",
+          "description": "This boolean parameter can be used to test your request to AWS Lambda to update the Lambda function and publish a version as an atomic operation. It will do all necessary computation and validation of your code but will not upload it or a publish a version. Each time this operation is invoked, the <code>CodeSha256</code> hash value the provided code will also be computed and returned in the response."
+        },
+        "Publish": {
+          "$ref": "#/definitions/Boolean",
+          "description": "This boolean parameter can be used to request AWS Lambda to update the Lambda function and publish a version as an atomic operation."
+        },
+        "S3Bucket": {
+          "$ref": "#/definitions/S3Bucket",
+          "description": "Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS Region where you are creating the Lambda function."
+        },
+        "S3Key": {
+          "$ref": "#/definitions/S3Key",
+          "description": "The Amazon S3 object (the deployment package) key name you want to upload."
+        },
+        "S3ObjectVersion": {
+          "$ref": "#/definitions/S3ObjectVersion",
+          "description": "The Amazon S3 object (the deployment package) version you want to upload."
+        },
+        "ZipFile": {
+          "$ref": "#/definitions/Blob",
+          "description": "The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html\">Execution Permissions</a> in the <i>AWS Lambda Developer Guide</i>. "
+        }
+      },
+      "type": "object",
+      "title": "UpdateFunctionCodeRequest"
+    },
+    "UpdateFunctionConfigurationRequest": {
+      "description": "<p/>",
+      "example": {
+        "Description": "",
+        "FunctionName": "myFunction",
+        "Handler": "index.handler",
+        "MemorySize": 128,
+        "Role": "arn:aws:iam::123456789012:role/lambda_basic_execution",
+        "Runtime": "python2.7",
+        "Timeout": 123,
+        "VpcConfig": {}
+      },
+      "properties": {
+        "DeadLetterConfig": {
+          "$ref": "#/definitions/DeadLetterConfig",
+          "description": "The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "A short user-defined function description. AWS Lambda does not use this value. Assign a meaningful description as you see fit."
+        },
+        "Environment": {
+          "$ref": "#/definitions/Environment",
+          "description": "The parent object that contains your environment's configuration settings."
+        },
+        "Handler": {
+          "$ref": "#/definitions/Handler",
+          "description": "The function that Lambda calls to begin executing your function. For Node.js, it is the <code>module-name.export</code> value in your function. "
+        },
+        "KMSKeyArn": {
+          "$ref": "#/definitions/KMSKeyArn",
+          "description": "The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If you elect to use the AWS Lambda default service key, pass in an empty string (\"\") for this parameter."
+        },
+        "MemorySize": {
+          "$ref": "#/definitions/MemorySize",
+          "description": "The amount of memory, in MB, your Lambda function is given. AWS Lambda uses this memory size to infer the amount of CPU allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB."
+        },
+        "Role": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes your function."
+        },
+        "Runtime": {
+          "$ref": "#/definitions/Runtime",
+          "description": "<p>The runtime environment for the Lambda function.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use the Python runtime v3.6, set the value to \"python3.6\".</p> <note> <p>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. You can request a one-time extension until June 30, 2017 by going to the Lambda console and following the instructions provided. Failure to do so will result in an invalid parameter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.</p> </note>"
+        },
+        "Timeout": {
+          "$ref": "#/definitions/Timeout",
+          "description": "The function execution time at which AWS Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds."
+        },
+        "TracingConfig": {
+          "$ref": "#/definitions/TracingConfig",
+          "description": "The parent object that contains your function's tracing settings."
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig"
+        }
+      },
+      "type": "object",
+      "title": "UpdateFunctionConfigurationRequest"
+    },
+    "Version": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "(\\$LATEST|[0-9]+)",
+      "type": "string",
+      "title": "Version"
+    },
+    "VpcConfig": {
+      "description": "If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.",
+      "properties": {
+        "SecurityGroupIds": {
+          "$ref": "#/definitions/SecurityGroupIds",
+          "description": "A list of one or more security groups IDs in your VPC."
+        },
+        "SubnetIds": {
+          "$ref": "#/definitions/SubnetIds",
+          "description": "A list of one or more subnet IDs in your VPC."
+        }
+      },
+      "type": "object",
+      "title": "VpcConfig"
+    },
+    "VpcConfigResponse": {
+      "description": "VPC configuration associated with your Lambda function.",
+      "properties": {
+        "SecurityGroupIds": {
+          "$ref": "#/definitions/SecurityGroupIds",
+          "description": "A list of security group IDs associated with the Lambda function."
+        },
+        "SubnetIds": {
+          "$ref": "#/definitions/SubnetIds",
+          "description": "A list of subnet IDs associated with the Lambda function."
+        },
+        "VpcId": {
+          "$ref": "#/definitions/VpcId",
+          "description": "The VPC ID associated with you Lambda function."
+        }
+      },
+      "type": "object",
+      "title": "VpcConfigResponse"
+    },
+    "VpcId": {
+      "type": "string",
+      "title": "VpcId"
+    }
+  },
+  "actions": [
+    {
+      "id": "InvokeAsync",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FunctionName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/InvokeAsyncRequest"
+          }
+        ],
+        "required": [
+          "FunctionName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "ListEventSourceMappings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxItems": {
+            "type": "string"
+          },
+          "Marker": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListEventSourceMappingsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListEventSourceMappingsResponse"
+      },
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "UpdateEventSourceMapping",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "UUID": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateEventSourceMappingRequest"
+          }
+        ],
+        "required": [
+          "UUID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "CreateFunction",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateFunctionRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "ListFunctions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxItems": {
+            "type": "string"
+          },
+          "Marker": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListFunctionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListFunctionsResponse"
+      },
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "GetFunction",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FunctionName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetFunctionRequest"
+          }
+        ],
+        "required": [
+          "FunctionName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetFunctionResponse"
+      },
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "ListAliases",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FunctionName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListAliasesRequest"
+          }
+        ],
+        "required": [
+          "FunctionName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListAliasesResponse"
+      },
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "UpdateAlias",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FunctionName": {
+            "type": "string"
+          },
+          "Name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateAliasRequest"
+          }
+        ],
+        "required": [
+          "FunctionName",
+          "Name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AliasConfiguration"
+      },
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "UpdateFunctionCode",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FunctionName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateFunctionCodeRequest"
+          }
+        ],
+        "required": [
+          "FunctionName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FunctionConfiguration"
+      },
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "UpdateFunctionConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FunctionName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateFunctionConfigurationRequest"
+          }
+        ],
+        "required": [
+          "FunctionName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FunctionConfiguration"
+      },
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "Invoke",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FunctionName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/InvocationRequest"
+          }
+        ],
+        "required": [
+          "FunctionName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/InvocationResponse"
+      },
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "GetPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FunctionName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetPolicyRequest"
+          }
+        ],
+        "required": [
+          "FunctionName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetPolicyResponse"
+      },
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "RemovePermission",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FunctionName": {
+            "type": "string"
+          },
+          "StatementId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/RemovePermissionRequest"
+          }
+        ],
+        "required": [
+          "FunctionName",
+          "StatementId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "PublishVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FunctionName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PublishVersionRequest"
+          }
+        ],
+        "required": [
+          "FunctionName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "GetAccountSettings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetAccountSettingsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetAccountSettingsResponse"
+      },
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    },
+    {
+      "id": "UntagResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ARN": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UntagResourceRequest"
+          }
+        ],
+        "required": [
+          "ARN"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_lambda": {
+          "integration": "amazonaws_lambda"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

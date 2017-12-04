@@ -1,0 +1,5122 @@
+{
+  "id": "amazonaws_pinpoint",
+  "title": "Amazon Pinpoint",
+  "security": {
+    "amazonaws_pinpoint": {
+      "integration": "amazonaws_pinpoint",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_pinpoint.svg"
+  },
+  "actionCount": 29,
+  "definitions": {
+    "ADMChannelRequest": {
+      "description": "Amazon Device Messaging channel definition.",
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/__string",
+          "description": "Client ID as gotten from Amazon"
+        },
+        "ClientSecret": {
+          "$ref": "#/definitions/__string",
+          "description": "Client secret as gotten from Amazon"
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        }
+      },
+      "type": "object",
+      "title": "ADMChannelRequest"
+    },
+    "ADMChannelResponse": {
+      "description": "Amazon Device Messaging channel definition.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "Application id"
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "When was this segment created"
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "HasCredential": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is registered with a credential for authentication."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Channel ID. Not used, only for backwards compatibility."
+        },
+        "IsArchived": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Is this channel archived"
+        },
+        "LastModifiedBy": {
+          "$ref": "#/definitions/__string",
+          "description": "Who last updated this entry"
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "Last date this was updated"
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "Platform type. Will be \"ADM\""
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "Version of channel"
+        }
+      },
+      "type": "object",
+      "title": "ADMChannelResponse"
+    },
+    "ADMMessage": {
+      "description": "ADM Message.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/Action",
+          "description": "The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL"
+        },
+        "Body": {
+          "$ref": "#/definitions/__string",
+          "description": "The message body of the notification, the email body or the text message."
+        },
+        "ConsolidationKey": {
+          "$ref": "#/definitions/__string",
+          "description": "Optional. Arbitrary string used to indicate multiple messages are logically the same and that ADM is allowed to drop previously enqueued messages in favor of this one."
+        },
+        "Data": {
+          "$ref": "#/definitions/MapOf__string",
+          "description": "The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object"
+        },
+        "ExpiresAfter": {
+          "$ref": "#/definitions/__string",
+          "description": "Optional. Number of seconds ADM should retain the message if the device is offline"
+        },
+        "IconReference": {
+          "$ref": "#/definitions/__string",
+          "description": "The icon image name of the asset saved in your application."
+        },
+        "ImageIconUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to an image used as the large icon to the notification content view."
+        },
+        "ImageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to an image used in the push notification."
+        },
+        "MD5": {
+          "$ref": "#/definitions/__string",
+          "description": "Optional. Base-64-encoded MD5 checksum of the data parameter. Used to verify data integrity"
+        },
+        "RawContent": {
+          "$ref": "#/definitions/__string",
+          "description": "The Raw JSON formatted string to be used as the payload. This value overrides the message."
+        },
+        "SilentPush": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases."
+        },
+        "SmallImageIconUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to an image used as the small icon for the notification which will be used to represent the notification in the status bar and content view"
+        },
+        "Sound": {
+          "$ref": "#/definitions/__string",
+          "description": "Indicates a sound to play when the device receives the notification. Supports default, or the filename of a sound resource bundled in the app. Android sound files must reside in /res/raw/"
+        },
+        "Substitutions": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Default message substitutions. Can be overridden by individual address substitutions."
+        },
+        "Title": {
+          "$ref": "#/definitions/__string",
+          "description": "The message title that displays above the message on the user's device."
+        },
+        "Url": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL to open in the user's mobile browser. Used if the value for Action is URL."
+        }
+      },
+      "type": "object",
+      "title": "ADMMessage"
+    },
+    "APNSChannelRequest": {
+      "description": "Apple Push Notification Service channel definition.",
+      "properties": {
+        "BundleId": {
+          "$ref": "#/definitions/__string",
+          "description": "The bundle id used for APNs Tokens."
+        },
+        "Certificate": {
+          "$ref": "#/definitions/__string",
+          "description": "The distribution certificate from Apple."
+        },
+        "DefaultAuthenticationMethod": {
+          "$ref": "#/definitions/__string",
+          "description": "The default authentication method used for APNs."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "PrivateKey": {
+          "$ref": "#/definitions/__string",
+          "description": "The certificate private key."
+        },
+        "TeamId": {
+          "$ref": "#/definitions/__string",
+          "description": "The team id used for APNs Tokens."
+        },
+        "TokenKey": {
+          "$ref": "#/definitions/__string",
+          "description": "The token key used for APNs Tokens."
+        },
+        "TokenKeyId": {
+          "$ref": "#/definitions/__string",
+          "description": "The token key used for APNs Tokens."
+        }
+      },
+      "type": "object",
+      "title": "APNSChannelRequest"
+    },
+    "APNSChannelResponse": {
+      "description": "Apple Distribution Push Notification Service channel definition.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application to which the channel applies."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "When was this segment created"
+        },
+        "DefaultAuthenticationMethod": {
+          "$ref": "#/definitions/__string",
+          "description": "The default authentication method used for APNs."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "HasCredential": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is registered with a credential for authentication."
+        },
+        "HasTokenKey": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is registered with a token key for authentication."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Channel ID. Not used. Present only for backwards compatibility."
+        },
+        "IsArchived": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Is this channel archived"
+        },
+        "LastModifiedBy": {
+          "$ref": "#/definitions/__string",
+          "description": "Who last updated this entry"
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "Last date this was updated"
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "The platform type. Will be APNS."
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "Version of channel"
+        }
+      },
+      "type": "object",
+      "title": "APNSChannelResponse"
+    },
+    "APNSMessage": {
+      "description": "APNS Message.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/Action",
+          "description": "The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL"
+        },
+        "Badge": {
+          "$ref": "#/definitions/__integer",
+          "description": "Include this key when you want the system to modify the badge of your app icon. If this key is not included in the dictionary, the badge is not changed. To remove the badge, set the value of this key to 0."
+        },
+        "Body": {
+          "$ref": "#/definitions/__string",
+          "description": "The message body of the notification, the email body or the text message."
+        },
+        "Category": {
+          "$ref": "#/definitions/__string",
+          "description": "Provide this key with a string value that represents the notification's type. This value corresponds to the value in the identifier property of one of your app's registered categories."
+        },
+        "CollapseId": {
+          "$ref": "#/definitions/__string",
+          "description": "Multiple notifications with the same collapse identifier are displayed to the user as a single notification. The value of this key must not exceed 64 bytes."
+        },
+        "Data": {
+          "$ref": "#/definitions/MapOf__string",
+          "description": "The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object"
+        },
+        "MediaUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to a video used in the push notification."
+        },
+        "PreferredAuthenticationMethod": {
+          "$ref": "#/definitions/__string",
+          "description": "The preferred authentication method, either \"CERTIFICATE\" or \"TOKEN\""
+        },
+        "Priority": {
+          "$ref": "#/definitions/__string",
+          "description": "Is this a transaction priority message or lower priority."
+        },
+        "RawContent": {
+          "$ref": "#/definitions/__string",
+          "description": "The Raw JSON formatted string to be used as the payload. This value overrides the message."
+        },
+        "SilentPush": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases."
+        },
+        "Sound": {
+          "$ref": "#/definitions/__string",
+          "description": "Include this key when you want the system to play a sound. The value of this key is the name of a sound file in your app's main bundle or in the Library/Sounds folder of your app's data container. If the sound file cannot be found, or if you specify defaultfor the value, the system plays the default alert sound."
+        },
+        "Substitutions": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Default message substitutions. Can be overridden by individual address substitutions."
+        },
+        "ThreadId": {
+          "$ref": "#/definitions/__string",
+          "description": "Provide this key with a string value that represents the app-specific identifier for grouping notifications. If you provide a Notification Content app extension, you can use this value to group your notifications together."
+        },
+        "TimeToLive": {
+          "$ref": "#/definitions/__integer",
+          "description": "This parameter specifies how long (in seconds) the message should be kept if APNS is unable to deliver the notification the first time. If the value is 0, APNS treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to APNS"
+        },
+        "Title": {
+          "$ref": "#/definitions/__string",
+          "description": "The message title that displays above the message on the user's device."
+        },
+        "Url": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL to open in the user's mobile browser. Used if the value for Action is URL."
+        }
+      },
+      "type": "object",
+      "title": "APNSMessage"
+    },
+    "APNSSandboxChannelRequest": {
+      "description": "Apple Development Push Notification Service channel definition.",
+      "properties": {
+        "BundleId": {
+          "$ref": "#/definitions/__string",
+          "description": "The bundle id used for APNs Tokens."
+        },
+        "Certificate": {
+          "$ref": "#/definitions/__string",
+          "description": "The distribution certificate from Apple."
+        },
+        "DefaultAuthenticationMethod": {
+          "$ref": "#/definitions/__string",
+          "description": "The default authentication method used for APNs."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "PrivateKey": {
+          "$ref": "#/definitions/__string",
+          "description": "The certificate private key."
+        },
+        "TeamId": {
+          "$ref": "#/definitions/__string",
+          "description": "The team id used for APNs Tokens."
+        },
+        "TokenKey": {
+          "$ref": "#/definitions/__string",
+          "description": "The token key used for APNs Tokens."
+        },
+        "TokenKeyId": {
+          "$ref": "#/definitions/__string",
+          "description": "The token key used for APNs Tokens."
+        }
+      },
+      "type": "object",
+      "title": "APNSSandboxChannelRequest"
+    },
+    "APNSSandboxChannelResponse": {
+      "description": "Apple Development Push Notification Service channel definition.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "Application id"
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "When was this segment created"
+        },
+        "DefaultAuthenticationMethod": {
+          "$ref": "#/definitions/__string",
+          "description": "The default authentication method used for APNs."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "HasCredential": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is registered with a credential for authentication."
+        },
+        "HasTokenKey": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is registered with a token key for authentication."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Channel ID. Not used, only for backwards compatibility."
+        },
+        "IsArchived": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Is this channel archived"
+        },
+        "LastModifiedBy": {
+          "$ref": "#/definitions/__string",
+          "description": "Who last updated this entry"
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "Last date this was updated"
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "The platform type. Will be APNS_SANDBOX."
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "Version of channel"
+        }
+      },
+      "type": "object",
+      "title": "APNSSandboxChannelResponse"
+    },
+    "APNSVoipChannelRequest": {
+      "description": "Apple VoIP Push Notification Service channel definition.",
+      "properties": {
+        "BundleId": {
+          "$ref": "#/definitions/__string",
+          "description": "The bundle id used for APNs Tokens."
+        },
+        "Certificate": {
+          "$ref": "#/definitions/__string",
+          "description": "The distribution certificate from Apple."
+        },
+        "DefaultAuthenticationMethod": {
+          "$ref": "#/definitions/__string",
+          "description": "The default authentication method used for APNs."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "PrivateKey": {
+          "$ref": "#/definitions/__string",
+          "description": "The certificate private key."
+        },
+        "TeamId": {
+          "$ref": "#/definitions/__string",
+          "description": "The team id used for APNs Tokens."
+        },
+        "TokenKey": {
+          "$ref": "#/definitions/__string",
+          "description": "The token key used for APNs Tokens."
+        },
+        "TokenKeyId": {
+          "$ref": "#/definitions/__string",
+          "description": "The token key used for APNs Tokens."
+        }
+      },
+      "type": "object",
+      "title": "APNSVoipChannelRequest"
+    },
+    "APNSVoipChannelResponse": {
+      "description": "Apple VoIP Push Notification Service channel definition.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "Application id"
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "When was this segment created"
+        },
+        "DefaultAuthenticationMethod": {
+          "$ref": "#/definitions/__string",
+          "description": "The default authentication method used for APNs."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "HasCredential": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is registered with a credential for authentication."
+        },
+        "HasTokenKey": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is registered with a token key for authentication."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Channel ID. Not used, only for backwards compatibility."
+        },
+        "IsArchived": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Is this channel archived"
+        },
+        "LastModifiedBy": {
+          "$ref": "#/definitions/__string",
+          "description": "Who made the last change"
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "Last date this was updated"
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "The platform type. Will be APNS."
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "Version of channel"
+        }
+      },
+      "type": "object",
+      "title": "APNSVoipChannelResponse"
+    },
+    "APNSVoipSandboxChannelRequest": {
+      "description": "Apple VoIP Developer Push Notification Service channel definition.",
+      "properties": {
+        "BundleId": {
+          "$ref": "#/definitions/__string",
+          "description": "The bundle id used for APNs Tokens."
+        },
+        "Certificate": {
+          "$ref": "#/definitions/__string",
+          "description": "The distribution certificate from Apple."
+        },
+        "DefaultAuthenticationMethod": {
+          "$ref": "#/definitions/__string",
+          "description": "The default authentication method used for APNs."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "PrivateKey": {
+          "$ref": "#/definitions/__string",
+          "description": "The certificate private key."
+        },
+        "TeamId": {
+          "$ref": "#/definitions/__string",
+          "description": "The team id used for APNs Tokens."
+        },
+        "TokenKey": {
+          "$ref": "#/definitions/__string",
+          "description": "The token key used for APNs Tokens."
+        },
+        "TokenKeyId": {
+          "$ref": "#/definitions/__string",
+          "description": "The token key used for APNs Tokens."
+        }
+      },
+      "type": "object",
+      "title": "APNSVoipSandboxChannelRequest"
+    },
+    "APNSVoipSandboxChannelResponse": {
+      "description": "Apple VoIP Developer Push Notification Service channel definition.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "Application id"
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "When was this segment created"
+        },
+        "DefaultAuthenticationMethod": {
+          "$ref": "#/definitions/__string",
+          "description": "The default authentication method used for APNs."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "HasCredential": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is registered with a credential for authentication."
+        },
+        "HasTokenKey": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is registered with a token key for authentication."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Channel ID. Not used, only for backwards compatibility."
+        },
+        "IsArchived": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Is this channel archived"
+        },
+        "LastModifiedBy": {
+          "$ref": "#/definitions/__string",
+          "description": "Who made the last change"
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "Last date this was updated"
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "The platform type. Will be APNS."
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "Version of channel"
+        }
+      },
+      "type": "object",
+      "title": "APNSVoipSandboxChannelResponse"
+    },
+    "Action": {
+      "enum": [
+        "OPEN_APP",
+        "DEEP_LINK",
+        "URL"
+      ],
+      "type": "string",
+      "title": "Action"
+    },
+    "ActivitiesResponse": {
+      "description": "Activities for campaign.",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/ListOfActivityResponse",
+          "description": "List of campaign activities"
+        }
+      },
+      "type": "object",
+      "title": "ActivitiesResponse"
+    },
+    "ActivityResponse": {
+      "description": "Activity definition",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application to which the campaign applies."
+        },
+        "CampaignId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the campaign to which the activity applies."
+        },
+        "End": {
+          "$ref": "#/definitions/__string",
+          "description": "The actual time the activity was marked CANCELLED or COMPLETED. Provided in ISO 8601 format."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique activity ID."
+        },
+        "Result": {
+          "$ref": "#/definitions/__string",
+          "description": "Indicates whether the activity succeeded.\n\nValid values: SUCCESS, FAIL"
+        },
+        "ScheduledStart": {
+          "$ref": "#/definitions/__string",
+          "description": "The scheduled start time for the activity in ISO 8601 format."
+        },
+        "Start": {
+          "$ref": "#/definitions/__string",
+          "description": "The actual start time of the activity in ISO 8601 format."
+        },
+        "State": {
+          "$ref": "#/definitions/__string",
+          "description": "The state of the activity.\n\nValid values: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, COMPLETED"
+        },
+        "SuccessfulEndpointCount": {
+          "$ref": "#/definitions/__integer",
+          "description": "The total number of endpoints to which the campaign successfully delivered messages."
+        },
+        "TimezonesCompletedCount": {
+          "$ref": "#/definitions/__integer",
+          "description": "The total number of timezones completed."
+        },
+        "TimezonesTotalCount": {
+          "$ref": "#/definitions/__integer",
+          "description": "The total number of unique timezones present in the segment."
+        },
+        "TotalEndpointCount": {
+          "$ref": "#/definitions/__integer",
+          "description": "The total number of endpoints to which the campaign attempts to deliver messages."
+        },
+        "TreatmentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of a variation of the campaign used for A/B testing."
+        }
+      },
+      "type": "object",
+      "title": "ActivityResponse"
+    },
+    "AddressConfiguration": {
+      "description": "Address configuration.",
+      "properties": {
+        "BodyOverride": {
+          "$ref": "#/definitions/__string",
+          "description": "Body override. If specified will override default body."
+        },
+        "ChannelType": {
+          "$ref": "#/definitions/ChannelType",
+          "description": "The channel type.\n\nValid values: GCM | APNS | SMS | EMAIL"
+        },
+        "Context": {
+          "$ref": "#/definitions/MapOf__string",
+          "description": "A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes."
+        },
+        "RawContent": {
+          "$ref": "#/definitions/__string",
+          "description": "The Raw JSON formatted string to be used as the payload. This value overrides the message."
+        },
+        "Substitutions": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "A map of substitution values for the message to be merged with the DefaultMessage's substitutions. Substitutions on this map take precedence over the all other substitutions."
+        },
+        "TitleOverride": {
+          "$ref": "#/definitions/__string",
+          "description": "Title override. If specified will override default title if applicable."
+        }
+      },
+      "type": "object",
+      "title": "AddressConfiguration"
+    },
+    "ApplicationResponse": {
+      "description": "Application Response.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique application ID."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The display name of the application."
+        }
+      },
+      "type": "object",
+      "title": "ApplicationResponse"
+    },
+    "ApplicationSettingsResource": {
+      "description": "Application settings.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID for the application."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date that the settings were last updated in ISO 8601 format."
+        },
+        "Limits": {
+          "$ref": "#/definitions/CampaignLimits",
+          "description": "The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own."
+        },
+        "QuietTime": {
+          "$ref": "#/definitions/QuietTime",
+          "description": "The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own."
+        }
+      },
+      "type": "object",
+      "title": "ApplicationSettingsResource"
+    },
+    "ApplicationsResponse": {
+      "description": "Get Applications Result.",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/ListOfApplicationResponse",
+          "description": "List of applications returned in this page."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object",
+      "title": "ApplicationsResponse"
+    },
+    "AttributeDimension": {
+      "description": "Custom attibute dimension",
+      "properties": {
+        "AttributeType": {
+          "$ref": "#/definitions/AttributeType",
+          "description": "The type of dimension:\nINCLUSIVE - Endpoints that match the criteria are included in the segment.\nEXCLUSIVE - Endpoints that match the criteria are excluded from the segment."
+        },
+        "Values": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type."
+        }
+      },
+      "type": "object",
+      "title": "AttributeDimension"
+    },
+    "AttributeType": {
+      "enum": [
+        "INCLUSIVE",
+        "EXCLUSIVE"
+      ],
+      "type": "string",
+      "title": "AttributeType"
+    },
+    "BadRequestException": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object",
+      "title": "BadRequestException"
+    },
+    "BaiduChannelRequest": {
+      "description": "Baidu Cloud Push credentials",
+      "properties": {
+        "ApiKey": {
+          "$ref": "#/definitions/__string",
+          "description": "Platform credential API key from Baidu."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "SecretKey": {
+          "$ref": "#/definitions/__string",
+          "description": "Platform credential Secret key from Baidu."
+        }
+      },
+      "type": "object",
+      "title": "BaiduChannelRequest"
+    },
+    "BaiduChannelResponse": {
+      "description": "Baidu Cloud Messaging channel definition",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "Application id"
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "When was this segment created"
+        },
+        "Credential": {
+          "$ref": "#/definitions/__string",
+          "description": "The Baidu API key from Baidu."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "HasCredential": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is registered with a credential for authentication."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Channel ID. Not used, only for backwards compatibility."
+        },
+        "IsArchived": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Is this channel archived"
+        },
+        "LastModifiedBy": {
+          "$ref": "#/definitions/__string",
+          "description": "Who made the last change"
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "Last date this was updated"
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "The platform type. Will be BAIDU"
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "Version of channel"
+        }
+      },
+      "type": "object",
+      "title": "BaiduChannelResponse"
+    },
+    "BaiduMessage": {
+      "description": "Baidu Message.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/Action",
+          "description": "The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL"
+        },
+        "Body": {
+          "$ref": "#/definitions/__string",
+          "description": "The message body of the notification, the email body or the text message."
+        },
+        "Data": {
+          "$ref": "#/definitions/MapOf__string",
+          "description": "The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object"
+        },
+        "IconReference": {
+          "$ref": "#/definitions/__string",
+          "description": "The icon image name of the asset saved in your application."
+        },
+        "ImageIconUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to an image used as the large icon to the notification content view."
+        },
+        "ImageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to an image used in the push notification."
+        },
+        "RawContent": {
+          "$ref": "#/definitions/__string",
+          "description": "The Raw JSON formatted string to be used as the payload. This value overrides the message."
+        },
+        "SilentPush": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases."
+        },
+        "SmallImageIconUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to an image used as the small icon for the notification which will be used to represent the notification in the status bar and content view"
+        },
+        "Sound": {
+          "$ref": "#/definitions/__string",
+          "description": "Indicates a sound to play when the device receives the notification. Supports default, or the filename of a sound resource bundled in the app. Android sound files must reside in /res/raw/"
+        },
+        "Substitutions": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Default message substitutions. Can be overridden by individual address substitutions."
+        },
+        "Title": {
+          "$ref": "#/definitions/__string",
+          "description": "The message title that displays above the message on the user's device."
+        },
+        "Url": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL to open in the user's mobile browser. Used if the value for Action is URL."
+        }
+      },
+      "type": "object",
+      "title": "BaiduMessage"
+    },
+    "CampaignEmailMessage": {
+      "description": "The email message configuration.",
+      "properties": {
+        "Body": {
+          "$ref": "#/definitions/__string",
+          "description": "The email text body."
+        },
+        "FromAddress": {
+          "$ref": "#/definitions/__string",
+          "description": "The email address used to send the email from. Defaults to use FromAddress specified in the Email Channel."
+        },
+        "HtmlBody": {
+          "$ref": "#/definitions/__string",
+          "description": "The email html body."
+        },
+        "Title": {
+          "$ref": "#/definitions/__string",
+          "description": "The email title (Or subject)."
+        }
+      },
+      "type": "object",
+      "title": "CampaignEmailMessage"
+    },
+    "CampaignLimits": {
+      "description": "Campaign Limits are used to limit the number of messages that can be sent to a user.",
+      "properties": {
+        "Daily": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum number of messages that the campaign can send daily."
+        },
+        "MaximumDuration": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum duration of a campaign from the scheduled start. Must be a minimum of 60 seconds."
+        },
+        "MessagesPerSecond": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum number of messages per second that the campaign will send. This is a best effort maximum cap and can go as high as 20000 and as low as 50"
+        },
+        "Total": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum total number of messages that the campaign can send."
+        }
+      },
+      "type": "object",
+      "title": "CampaignLimits"
+    },
+    "CampaignResponse": {
+      "description": "Campaign definition",
+      "properties": {
+        "AdditionalTreatments": {
+          "$ref": "#/definitions/ListOfTreatmentResource",
+          "description": "Treatments that are defined in addition to the default treatment."
+        },
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application to which the campaign applies."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the campaign was created in ISO 8601 format."
+        },
+        "DefaultState": {
+          "$ref": "#/definitions/CampaignState",
+          "description": "The status of the campaign's default treatment. Only present for A/B test campaigns."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description of the campaign."
+        },
+        "HoldoutPercent": {
+          "$ref": "#/definitions/__integer",
+          "description": "The allocated percentage of end users who will not receive messages from this campaign."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique campaign ID."
+        },
+        "IsPaused": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates whether the campaign is paused. A paused campaign does not send messages unless you resume it by setting IsPaused to false."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the campaign was last updated in ISO 8601 format.\t"
+        },
+        "Limits": {
+          "$ref": "#/definitions/CampaignLimits",
+          "description": "The campaign limits settings."
+        },
+        "MessageConfiguration": {
+          "$ref": "#/definitions/MessageConfiguration",
+          "description": "The message configuration settings."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The custom name of the campaign."
+        },
+        "Schedule": {
+          "$ref": "#/definitions/Schedule",
+          "description": "The campaign schedule."
+        },
+        "SegmentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the segment to which the campaign sends messages."
+        },
+        "SegmentVersion": {
+          "$ref": "#/definitions/__integer",
+          "description": "The version of the segment to which the campaign sends messages."
+        },
+        "State": {
+          "$ref": "#/definitions/CampaignState",
+          "description": "The campaign status.\n\nAn A/B test campaign will have a status of COMPLETED only when all treatments have a status of COMPLETED."
+        },
+        "TreatmentDescription": {
+          "$ref": "#/definitions/__string",
+          "description": "A custom description for the treatment."
+        },
+        "TreatmentName": {
+          "$ref": "#/definitions/__string",
+          "description": "The custom name of a variation of the campaign used for A/B testing."
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "The campaign version number."
+        }
+      },
+      "type": "object",
+      "title": "CampaignResponse"
+    },
+    "CampaignSmsMessage": {
+      "description": "SMS message configuration.",
+      "properties": {
+        "Body": {
+          "$ref": "#/definitions/__string",
+          "description": "The SMS text body."
+        },
+        "MessageType": {
+          "$ref": "#/definitions/MessageType",
+          "description": "Is this is a transactional SMS message, otherwise a promotional message."
+        },
+        "SenderId": {
+          "$ref": "#/definitions/__string",
+          "description": "Sender ID of sent message."
+        }
+      },
+      "type": "object",
+      "title": "CampaignSmsMessage"
+    },
+    "CampaignState": {
+      "description": "State of the Campaign",
+      "properties": {
+        "CampaignStatus": {
+          "$ref": "#/definitions/CampaignStatus",
+          "description": "The status of the campaign, or the status of a treatment that belongs to an A/B test campaign.\n\nValid values: SCHEDULED, EXECUTING, PENDING_NEXT_RUN, COMPLETED, PAUSED"
+        }
+      },
+      "type": "object",
+      "title": "CampaignState"
+    },
+    "CampaignStatus": {
+      "enum": [
+        "SCHEDULED",
+        "EXECUTING",
+        "PENDING_NEXT_RUN",
+        "COMPLETED",
+        "PAUSED"
+      ],
+      "type": "string",
+      "title": "CampaignStatus"
+    },
+    "CampaignsResponse": {
+      "description": "List of available campaigns.",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/ListOfCampaignResponse",
+          "description": "A list of campaigns."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object",
+      "title": "CampaignsResponse"
+    },
+    "ChannelType": {
+      "enum": [
+        "GCM",
+        "APNS",
+        "APNS_SANDBOX",
+        "APNS_VOIP",
+        "APNS_VOIP_SANDBOX",
+        "ADM",
+        "SMS",
+        "EMAIL",
+        "BAIDU"
+      ],
+      "type": "string",
+      "title": "ChannelType"
+    },
+    "CreateAppRequest": {
+      "properties": {
+        "CreateApplicationRequest": {
+          "$ref": "#/definitions/CreateApplicationRequest"
+        }
+      },
+      "required": [
+        "CreateApplicationRequest"
+      ],
+      "type": "object",
+      "title": "CreateAppRequest"
+    },
+    "CreateAppResponse": {
+      "properties": {
+        "ApplicationResponse": {
+          "$ref": "#/definitions/ApplicationResponse"
+        }
+      },
+      "required": [
+        "ApplicationResponse"
+      ],
+      "type": "object",
+      "title": "CreateAppResponse"
+    },
+    "CreateApplicationRequest": {
+      "description": "Application Request.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The display name of the application. Used in the Amazon Pinpoint console."
+        }
+      },
+      "type": "object",
+      "title": "CreateApplicationRequest"
+    },
+    "CreateCampaignRequest": {
+      "properties": {
+        "WriteCampaignRequest": {
+          "$ref": "#/definitions/WriteCampaignRequest"
+        }
+      },
+      "required": [
+        "WriteCampaignRequest"
+      ],
+      "type": "object",
+      "title": "CreateCampaignRequest"
+    },
+    "CreateCampaignResponse": {
+      "properties": {
+        "CampaignResponse": {
+          "$ref": "#/definitions/CampaignResponse"
+        }
+      },
+      "required": [
+        "CampaignResponse"
+      ],
+      "type": "object",
+      "title": "CreateCampaignResponse"
+    },
+    "CreateImportJobRequest": {
+      "properties": {
+        "ImportJobRequest": {
+          "$ref": "#/definitions/ImportJobRequest"
+        }
+      },
+      "required": [
+        "ImportJobRequest"
+      ],
+      "type": "object",
+      "title": "CreateImportJobRequest"
+    },
+    "CreateImportJobResponse": {
+      "properties": {
+        "ImportJobResponse": {
+          "$ref": "#/definitions/ImportJobResponse"
+        }
+      },
+      "required": [
+        "ImportJobResponse"
+      ],
+      "type": "object",
+      "title": "CreateImportJobResponse"
+    },
+    "CreateSegmentRequest": {
+      "properties": {
+        "WriteSegmentRequest": {
+          "$ref": "#/definitions/WriteSegmentRequest"
+        }
+      },
+      "required": [
+        "WriteSegmentRequest"
+      ],
+      "type": "object",
+      "title": "CreateSegmentRequest"
+    },
+    "CreateSegmentResponse": {
+      "properties": {
+        "SegmentResponse": {
+          "$ref": "#/definitions/SegmentResponse"
+        }
+      },
+      "required": [
+        "SegmentResponse"
+      ],
+      "type": "object",
+      "title": "CreateSegmentResponse"
+    },
+    "DefaultMessage": {
+      "description": "Default Message across push notification, email, and sms.",
+      "properties": {
+        "Body": {
+          "$ref": "#/definitions/__string",
+          "description": "The message body of the notification, the email body or the text message."
+        },
+        "Substitutions": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Default message substitutions. Can be overridden by individual address substitutions."
+        }
+      },
+      "type": "object",
+      "title": "DefaultMessage"
+    },
+    "DefaultPushNotificationMessage": {
+      "description": "Default Push Notification Message.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/Action",
+          "description": "The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL"
+        },
+        "Body": {
+          "$ref": "#/definitions/__string",
+          "description": "The message body of the notification, the email body or the text message."
+        },
+        "Data": {
+          "$ref": "#/definitions/MapOf__string",
+          "description": "The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object"
+        },
+        "SilentPush": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases."
+        },
+        "Substitutions": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Default message substitutions. Can be overridden by individual address substitutions."
+        },
+        "Title": {
+          "$ref": "#/definitions/__string",
+          "description": "The message title that displays above the message on the user's device."
+        },
+        "Url": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL to open in the user's mobile browser. Used if the value for Action is URL."
+        }
+      },
+      "type": "object",
+      "title": "DefaultPushNotificationMessage"
+    },
+    "DeleteAdmChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteAdmChannelRequest"
+    },
+    "DeleteAdmChannelResponse": {
+      "properties": {
+        "ADMChannelResponse": {
+          "$ref": "#/definitions/ADMChannelResponse"
+        }
+      },
+      "required": [
+        "ADMChannelResponse"
+      ],
+      "type": "object",
+      "title": "DeleteAdmChannelResponse"
+    },
+    "DeleteApnsChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteApnsChannelRequest"
+    },
+    "DeleteApnsChannelResponse": {
+      "properties": {
+        "APNSChannelResponse": {
+          "$ref": "#/definitions/APNSChannelResponse"
+        }
+      },
+      "required": [
+        "APNSChannelResponse"
+      ],
+      "type": "object",
+      "title": "DeleteApnsChannelResponse"
+    },
+    "DeleteApnsSandboxChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteApnsSandboxChannelRequest"
+    },
+    "DeleteApnsSandboxChannelResponse": {
+      "properties": {
+        "APNSSandboxChannelResponse": {
+          "$ref": "#/definitions/APNSSandboxChannelResponse"
+        }
+      },
+      "required": [
+        "APNSSandboxChannelResponse"
+      ],
+      "type": "object",
+      "title": "DeleteApnsSandboxChannelResponse"
+    },
+    "DeleteApnsVoipChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteApnsVoipChannelRequest"
+    },
+    "DeleteApnsVoipChannelResponse": {
+      "properties": {
+        "APNSVoipChannelResponse": {
+          "$ref": "#/definitions/APNSVoipChannelResponse"
+        }
+      },
+      "required": [
+        "APNSVoipChannelResponse"
+      ],
+      "type": "object",
+      "title": "DeleteApnsVoipChannelResponse"
+    },
+    "DeleteApnsVoipSandboxChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteApnsVoipSandboxChannelRequest"
+    },
+    "DeleteApnsVoipSandboxChannelResponse": {
+      "properties": {
+        "APNSVoipSandboxChannelResponse": {
+          "$ref": "#/definitions/APNSVoipSandboxChannelResponse"
+        }
+      },
+      "required": [
+        "APNSVoipSandboxChannelResponse"
+      ],
+      "type": "object",
+      "title": "DeleteApnsVoipSandboxChannelResponse"
+    },
+    "DeleteAppRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteAppRequest"
+    },
+    "DeleteAppResponse": {
+      "properties": {
+        "ApplicationResponse": {
+          "$ref": "#/definitions/ApplicationResponse"
+        }
+      },
+      "required": [
+        "ApplicationResponse"
+      ],
+      "type": "object",
+      "title": "DeleteAppResponse"
+    },
+    "DeleteBaiduChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBaiduChannelRequest"
+    },
+    "DeleteBaiduChannelResponse": {
+      "properties": {
+        "BaiduChannelResponse": {
+          "$ref": "#/definitions/BaiduChannelResponse"
+        }
+      },
+      "required": [
+        "BaiduChannelResponse"
+      ],
+      "type": "object",
+      "title": "DeleteBaiduChannelResponse"
+    },
+    "DeleteCampaignRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteCampaignRequest"
+    },
+    "DeleteCampaignResponse": {
+      "properties": {
+        "CampaignResponse": {
+          "$ref": "#/definitions/CampaignResponse"
+        }
+      },
+      "required": [
+        "CampaignResponse"
+      ],
+      "type": "object",
+      "title": "DeleteCampaignResponse"
+    },
+    "DeleteEmailChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteEmailChannelRequest"
+    },
+    "DeleteEmailChannelResponse": {
+      "properties": {
+        "EmailChannelResponse": {
+          "$ref": "#/definitions/EmailChannelResponse"
+        }
+      },
+      "required": [
+        "EmailChannelResponse"
+      ],
+      "type": "object",
+      "title": "DeleteEmailChannelResponse"
+    },
+    "DeleteEventStreamRequest": {
+      "description": "DeleteEventStream Request",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteEventStreamRequest"
+    },
+    "DeleteEventStreamResponse": {
+      "properties": {
+        "EventStream": {
+          "$ref": "#/definitions/EventStream"
+        }
+      },
+      "required": [
+        "EventStream"
+      ],
+      "type": "object",
+      "title": "DeleteEventStreamResponse"
+    },
+    "DeleteGcmChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteGcmChannelRequest"
+    },
+    "DeleteGcmChannelResponse": {
+      "properties": {
+        "GCMChannelResponse": {
+          "$ref": "#/definitions/GCMChannelResponse"
+        }
+      },
+      "required": [
+        "GCMChannelResponse"
+      ],
+      "type": "object",
+      "title": "DeleteGcmChannelResponse"
+    },
+    "DeleteSegmentRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteSegmentRequest"
+    },
+    "DeleteSegmentResponse": {
+      "properties": {
+        "SegmentResponse": {
+          "$ref": "#/definitions/SegmentResponse"
+        }
+      },
+      "required": [
+        "SegmentResponse"
+      ],
+      "type": "object",
+      "title": "DeleteSegmentResponse"
+    },
+    "DeleteSmsChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteSmsChannelRequest"
+    },
+    "DeleteSmsChannelResponse": {
+      "properties": {
+        "SMSChannelResponse": {
+          "$ref": "#/definitions/SMSChannelResponse"
+        }
+      },
+      "required": [
+        "SMSChannelResponse"
+      ],
+      "type": "object",
+      "title": "DeleteSmsChannelResponse"
+    },
+    "DeliveryStatus": {
+      "enum": [
+        "SUCCESSFUL",
+        "THROTTLED",
+        "TEMPORARY_FAILURE",
+        "PERMANENT_FAILURE",
+        "UNKNOWN_FAILURE",
+        "OPT_OUT",
+        "DUPLICATE"
+      ],
+      "type": "string",
+      "title": "DeliveryStatus"
+    },
+    "DimensionType": {
+      "enum": [
+        "INCLUSIVE",
+        "EXCLUSIVE"
+      ],
+      "type": "string",
+      "title": "DimensionType"
+    },
+    "DirectMessageConfiguration": {
+      "description": "The message configuration.",
+      "properties": {
+        "ADMMessage": {
+          "$ref": "#/definitions/ADMMessage",
+          "description": "The message to ADM channels. Overrides the default push notification message."
+        },
+        "APNSMessage": {
+          "$ref": "#/definitions/APNSMessage",
+          "description": "The message to APNS channels. Overrides the default push notification message."
+        },
+        "BaiduMessage": {
+          "$ref": "#/definitions/BaiduMessage",
+          "description": "The message to Baidu GCM channels. Overrides the default push notification message."
+        },
+        "DefaultMessage": {
+          "$ref": "#/definitions/DefaultMessage",
+          "description": "The default message for all channels."
+        },
+        "DefaultPushNotificationMessage": {
+          "$ref": "#/definitions/DefaultPushNotificationMessage",
+          "description": "The default push notification message for all push channels."
+        },
+        "GCMMessage": {
+          "$ref": "#/definitions/GCMMessage",
+          "description": "The message to GCM channels. Overrides the default push notification message."
+        },
+        "SMSMessage": {
+          "$ref": "#/definitions/SMSMessage",
+          "description": "The message to SMS channels. Overrides the default message."
+        }
+      },
+      "type": "object",
+      "title": "DirectMessageConfiguration"
+    },
+    "Duration": {
+      "enum": [
+        "HR_24",
+        "DAY_7",
+        "DAY_14",
+        "DAY_30"
+      ],
+      "type": "string",
+      "title": "Duration"
+    },
+    "EmailChannelRequest": {
+      "description": "Email Channel Request",
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "FromAddress": {
+          "$ref": "#/definitions/__string",
+          "description": "The email address used to send emails from."
+        },
+        "Identity": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of an identity verified with SES."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service"
+        }
+      },
+      "type": "object",
+      "title": "EmailChannelRequest"
+    },
+    "EmailChannelResponse": {
+      "description": "Email Channel Response.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID of the application to which the email channel belongs."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date that the settings were last updated in ISO 8601 format."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "FromAddress": {
+          "$ref": "#/definitions/__string",
+          "description": "The email address used to send emails from."
+        },
+        "HasCredential": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is registered with a credential for authentication."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Channel ID. Not used, only for backwards compatibility."
+        },
+        "Identity": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of an identity verified with SES."
+        },
+        "IsArchived": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Is this channel archived"
+        },
+        "LastModifiedBy": {
+          "$ref": "#/definitions/__string",
+          "description": "Who last updated this entry"
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "Last date this was updated"
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "Platform type. Will be \"EMAIL\""
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service"
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "Version of channel"
+        }
+      },
+      "type": "object",
+      "title": "EmailChannelResponse"
+    },
+    "EndpointBatchItem": {
+      "description": "Endpoint update request",
+      "properties": {
+        "Address": {
+          "$ref": "#/definitions/__string",
+          "description": "The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId)."
+        },
+        "Attributes": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment."
+        },
+        "ChannelType": {
+          "$ref": "#/definitions/ChannelType",
+          "description": "The channel type.\n\nValid values: GCM | APNS | SMS | EMAIL"
+        },
+        "Demographic": {
+          "$ref": "#/definitions/EndpointDemographic",
+          "description": "The endpoint demographic attributes."
+        },
+        "EffectiveDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The last time the endpoint was updated. Provided in ISO 8601 format."
+        },
+        "EndpointStatus": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique Id for the Endpoint in the batch."
+        },
+        "Location": {
+          "$ref": "#/definitions/EndpointLocation",
+          "description": "The endpoint location attributes."
+        },
+        "Metrics": {
+          "$ref": "#/definitions/MapOf__double",
+          "description": "Custom metrics that your app reports to Amazon Pinpoint."
+        },
+        "OptOut": {
+          "$ref": "#/definitions/__string",
+          "description": "Indicates whether a user has opted out of receiving messages with one of the following values:\n\nALL - User has opted out of all messages.\n\nNONE - Users has not opted out and receives all messages."
+        },
+        "RequestId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID for the most recent request to update the endpoint."
+        },
+        "User": {
+          "$ref": "#/definitions/EndpointUser",
+          "description": "Custom user-specific attributes that your app reports to Amazon Pinpoint."
+        }
+      },
+      "type": "object",
+      "title": "EndpointBatchItem"
+    },
+    "EndpointBatchRequest": {
+      "description": "Endpoint batch update request.",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/ListOfEndpointBatchItem",
+          "description": "List of items to update. Maximum 100 items"
+        }
+      },
+      "type": "object",
+      "title": "EndpointBatchRequest"
+    },
+    "EndpointDemographic": {
+      "description": "Endpoint demographic data",
+      "properties": {
+        "AppVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "The version of the application associated with the endpoint."
+        },
+        "Locale": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint locale in the following format: The ISO 639-1 alpha-2 code, followed by an underscore, followed by an ISO 3166-1 alpha-2 value.\n"
+        },
+        "Make": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint make, such as such as Apple or Samsung."
+        },
+        "Model": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint model, such as iPhone."
+        },
+        "ModelVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint model version."
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint platform, such as ios or android."
+        },
+        "PlatformVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint platform version."
+        },
+        "Timezone": {
+          "$ref": "#/definitions/__string",
+          "description": "The timezone of the endpoint. Specified as a tz database value, such as Americas/Los_Angeles."
+        }
+      },
+      "type": "object",
+      "title": "EndpointDemographic"
+    },
+    "EndpointLocation": {
+      "description": "Endpoint location data",
+      "properties": {
+        "City": {
+          "$ref": "#/definitions/__string",
+          "description": "The city where the endpoint is located."
+        },
+        "Country": {
+          "$ref": "#/definitions/__string",
+          "description": "Country according to ISO 3166-1 Alpha-2 codes. For example, US."
+        },
+        "Latitude": {
+          "$ref": "#/definitions/__double",
+          "description": "The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile)."
+        },
+        "Longitude": {
+          "$ref": "#/definitions/__double",
+          "description": "The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile)."
+        },
+        "PostalCode": {
+          "$ref": "#/definitions/__string",
+          "description": "The postal code or zip code of the endpoint."
+        },
+        "Region": {
+          "$ref": "#/definitions/__string",
+          "description": "The region of the endpoint location. For example, corresponds to a state in US."
+        }
+      },
+      "type": "object",
+      "title": "EndpointLocation"
+    },
+    "EndpointMessageResult": {
+      "description": "The result from sending a message to an endpoint.",
+      "properties": {
+        "Address": {
+          "$ref": "#/definitions/__string",
+          "description": "Address that endpoint message was delivered to."
+        },
+        "DeliveryStatus": {
+          "$ref": "#/definitions/DeliveryStatus",
+          "description": "Delivery status of message."
+        },
+        "StatusCode": {
+          "$ref": "#/definitions/__integer",
+          "description": "Downstream service status code."
+        },
+        "StatusMessage": {
+          "$ref": "#/definitions/__string",
+          "description": "Status message for message delivery."
+        },
+        "UpdatedToken": {
+          "$ref": "#/definitions/__string",
+          "description": "If token was updated as part of delivery. (This is GCM Specific)"
+        }
+      },
+      "type": "object",
+      "title": "EndpointMessageResult"
+    },
+    "EndpointRequest": {
+      "description": "Endpoint update request",
+      "properties": {
+        "Address": {
+          "$ref": "#/definitions/__string",
+          "description": "The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId)."
+        },
+        "Attributes": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment."
+        },
+        "ChannelType": {
+          "$ref": "#/definitions/ChannelType",
+          "description": "The channel type.\n\nValid values: GCM | APNS | SMS | EMAIL"
+        },
+        "Demographic": {
+          "$ref": "#/definitions/EndpointDemographic",
+          "description": "The endpoint demographic attributes."
+        },
+        "EffectiveDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The last time the endpoint was updated. Provided in ISO 8601 format."
+        },
+        "EndpointStatus": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated."
+        },
+        "Location": {
+          "$ref": "#/definitions/EndpointLocation",
+          "description": "The endpoint location attributes."
+        },
+        "Metrics": {
+          "$ref": "#/definitions/MapOf__double",
+          "description": "Custom metrics that your app reports to Amazon Pinpoint."
+        },
+        "OptOut": {
+          "$ref": "#/definitions/__string",
+          "description": "Indicates whether a user has opted out of receiving messages with one of the following values:\n\nALL - User has opted out of all messages.\n\nNONE - Users has not opted out and receives all messages."
+        },
+        "RequestId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID for the most recent request to update the endpoint."
+        },
+        "User": {
+          "$ref": "#/definitions/EndpointUser",
+          "description": "Custom user-specific attributes that your app reports to Amazon Pinpoint."
+        }
+      },
+      "type": "object",
+      "title": "EndpointRequest"
+    },
+    "EndpointResponse": {
+      "description": "Endpoint response",
+      "properties": {
+        "Address": {
+          "$ref": "#/definitions/__string",
+          "description": "The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId)."
+        },
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application associated with the endpoint."
+        },
+        "Attributes": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment."
+        },
+        "ChannelType": {
+          "$ref": "#/definitions/ChannelType",
+          "description": "The channel type.\n\nValid values: GCM | APNS | SMS | EMAIL"
+        },
+        "CohortId": {
+          "$ref": "#/definitions/__string",
+          "description": "A number from 0 - 99 that represents the cohort the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an app. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for a campaign."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The last time the endpoint was created. Provided in ISO 8601 format."
+        },
+        "Demographic": {
+          "$ref": "#/definitions/EndpointDemographic",
+          "description": "The endpoint demographic attributes."
+        },
+        "EffectiveDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The last time the endpoint was updated. Provided in ISO 8601 format."
+        },
+        "EndpointStatus": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it is unique compared to all other endpoints for the application."
+        },
+        "Location": {
+          "$ref": "#/definitions/EndpointLocation",
+          "description": "The endpoint location attributes."
+        },
+        "Metrics": {
+          "$ref": "#/definitions/MapOf__double",
+          "description": "Custom metrics that your app reports to Amazon Pinpoint."
+        },
+        "OptOut": {
+          "$ref": "#/definitions/__string",
+          "description": "Indicates whether a user has opted out of receiving messages with one of the following values:\n\nALL - User has opted out of all messages.\n\nNONE - Users has not opted out and receives all messages."
+        },
+        "RequestId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID for the most recent request to update the endpoint."
+        },
+        "User": {
+          "$ref": "#/definitions/EndpointUser",
+          "description": "Custom user-specific attributes that your app reports to Amazon Pinpoint."
+        }
+      },
+      "type": "object",
+      "title": "EndpointResponse"
+    },
+    "EndpointSendConfiguration": {
+      "description": "Endpoint send configuration.",
+      "properties": {
+        "BodyOverride": {
+          "$ref": "#/definitions/__string",
+          "description": "Body override. If specified will override default body."
+        },
+        "Context": {
+          "$ref": "#/definitions/MapOf__string",
+          "description": "A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes."
+        },
+        "RawContent": {
+          "$ref": "#/definitions/__string",
+          "description": "The Raw JSON formatted string to be used as the payload. This value overrides the message."
+        },
+        "Substitutions": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "A map of substitution values for the message to be merged with the DefaultMessage's substitutions. Substitutions on this map take precedence over the all other substitutions."
+        },
+        "TitleOverride": {
+          "$ref": "#/definitions/__string",
+          "description": "Title override. If specified will override default title if applicable."
+        }
+      },
+      "type": "object",
+      "title": "EndpointSendConfiguration"
+    },
+    "EndpointUser": {
+      "description": "Endpoint user specific custom userAttributes",
+      "properties": {
+        "UserAttributes": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Custom attributes specific to the user."
+        },
+        "UserId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID of the user."
+        }
+      },
+      "type": "object",
+      "title": "EndpointUser"
+    },
+    "EventStream": {
+      "description": "Model for an event publishing subscription export.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application from which events should be published."
+        },
+        "DestinationStreamArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.\n Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAME\n Kinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME"
+        },
+        "ExternalId": {
+          "$ref": "#/definitions/__string",
+          "description": "The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the event stream was last updated in ISO 8601 format."
+        },
+        "LastUpdatedBy": {
+          "$ref": "#/definitions/__string",
+          "description": "The IAM user who last modified the event stream."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account."
+        }
+      },
+      "type": "object",
+      "title": "EventStream"
+    },
+    "ForbiddenException": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object",
+      "title": "ForbiddenException"
+    },
+    "Format": {
+      "enum": [
+        "CSV",
+        "JSON"
+      ],
+      "type": "string",
+      "title": "Format"
+    },
+    "Frequency": {
+      "enum": [
+        "ONCE",
+        "HOURLY",
+        "DAILY",
+        "WEEKLY",
+        "MONTHLY"
+      ],
+      "type": "string",
+      "title": "Frequency"
+    },
+    "GCMChannelRequest": {
+      "description": "Google Cloud Messaging credentials",
+      "properties": {
+        "ApiKey": {
+          "$ref": "#/definitions/__string",
+          "description": "Platform credential API key from Google."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        }
+      },
+      "type": "object",
+      "title": "GCMChannelRequest"
+    },
+    "GCMChannelResponse": {
+      "description": "Google Cloud Messaging channel definition",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application to which the channel applies."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "When was this segment created"
+        },
+        "Credential": {
+          "$ref": "#/definitions/__string",
+          "description": "The GCM API key from Google."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "HasCredential": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is registered with a credential for authentication."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Channel ID. Not used. Present only for backwards compatibility."
+        },
+        "IsArchived": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Is this channel archived"
+        },
+        "LastModifiedBy": {
+          "$ref": "#/definitions/__string",
+          "description": "Who last updated this entry"
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "Last date this was updated"
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "The platform type. Will be GCM"
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "Version of channel"
+        }
+      },
+      "type": "object",
+      "title": "GCMChannelResponse"
+    },
+    "GCMMessage": {
+      "description": "GCM Message.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/Action",
+          "description": "The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL"
+        },
+        "Body": {
+          "$ref": "#/definitions/__string",
+          "description": "The message body of the notification, the email body or the text message."
+        },
+        "CollapseKey": {
+          "$ref": "#/definitions/__string",
+          "description": "This parameter identifies a group of messages (e.g., with collapse_key: \"Updates Available\") that can be collapsed, so that only the last message gets sent when delivery can be resumed. This is intended to avoid sending too many of the same messages when the device comes back online or becomes active."
+        },
+        "Data": {
+          "$ref": "#/definitions/MapOf__string",
+          "description": "The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object"
+        },
+        "IconReference": {
+          "$ref": "#/definitions/__string",
+          "description": "The icon image name of the asset saved in your application."
+        },
+        "ImageIconUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to an image used as the large icon to the notification content view."
+        },
+        "ImageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to an image used in the push notification."
+        },
+        "Priority": {
+          "$ref": "#/definitions/__string",
+          "description": "Is this a transaction priority message or lower priority."
+        },
+        "RawContent": {
+          "$ref": "#/definitions/__string",
+          "description": "The Raw JSON formatted string to be used as the payload. This value overrides the message."
+        },
+        "RestrictedPackageName": {
+          "$ref": "#/definitions/__string",
+          "description": "This parameter specifies the package name of the application where the registration tokens must match in order to receive the message."
+        },
+        "SilentPush": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases."
+        },
+        "SmallImageIconUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to an image used as the small icon for the notification which will be used to represent the notification in the status bar and content view"
+        },
+        "Sound": {
+          "$ref": "#/definitions/__string",
+          "description": "Indicates a sound to play when the device receives the notification. Supports default, or the filename of a sound resource bundled in the app. Android sound files must reside in /res/raw/"
+        },
+        "Substitutions": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Default message substitutions. Can be overridden by individual address substitutions."
+        },
+        "TimeToLive": {
+          "$ref": "#/definitions/__integer",
+          "description": "This parameter specifies how long (in seconds) the message should be kept in GCM storage if the device is offline. The maximum time to live supported is 4 weeks, and the default value is 4 weeks."
+        },
+        "Title": {
+          "$ref": "#/definitions/__string",
+          "description": "The message title that displays above the message on the user's device."
+        },
+        "Url": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL to open in the user's mobile browser. Used if the value for Action is URL."
+        }
+      },
+      "type": "object",
+      "title": "GCMMessage"
+    },
+    "GetAdmChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetAdmChannelRequest"
+    },
+    "GetAdmChannelResponse": {
+      "properties": {
+        "ADMChannelResponse": {
+          "$ref": "#/definitions/ADMChannelResponse"
+        }
+      },
+      "required": [
+        "ADMChannelResponse"
+      ],
+      "type": "object",
+      "title": "GetAdmChannelResponse"
+    },
+    "GetApnsChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetApnsChannelRequest"
+    },
+    "GetApnsChannelResponse": {
+      "properties": {
+        "APNSChannelResponse": {
+          "$ref": "#/definitions/APNSChannelResponse"
+        }
+      },
+      "required": [
+        "APNSChannelResponse"
+      ],
+      "type": "object",
+      "title": "GetApnsChannelResponse"
+    },
+    "GetApnsSandboxChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetApnsSandboxChannelRequest"
+    },
+    "GetApnsSandboxChannelResponse": {
+      "properties": {
+        "APNSSandboxChannelResponse": {
+          "$ref": "#/definitions/APNSSandboxChannelResponse"
+        }
+      },
+      "required": [
+        "APNSSandboxChannelResponse"
+      ],
+      "type": "object",
+      "title": "GetApnsSandboxChannelResponse"
+    },
+    "GetApnsVoipChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetApnsVoipChannelRequest"
+    },
+    "GetApnsVoipChannelResponse": {
+      "properties": {
+        "APNSVoipChannelResponse": {
+          "$ref": "#/definitions/APNSVoipChannelResponse"
+        }
+      },
+      "required": [
+        "APNSVoipChannelResponse"
+      ],
+      "type": "object",
+      "title": "GetApnsVoipChannelResponse"
+    },
+    "GetApnsVoipSandboxChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetApnsVoipSandboxChannelRequest"
+    },
+    "GetApnsVoipSandboxChannelResponse": {
+      "properties": {
+        "APNSVoipSandboxChannelResponse": {
+          "$ref": "#/definitions/APNSVoipSandboxChannelResponse"
+        }
+      },
+      "required": [
+        "APNSVoipSandboxChannelResponse"
+      ],
+      "type": "object",
+      "title": "GetApnsVoipSandboxChannelResponse"
+    },
+    "GetAppRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetAppRequest"
+    },
+    "GetAppResponse": {
+      "properties": {
+        "ApplicationResponse": {
+          "$ref": "#/definitions/ApplicationResponse"
+        }
+      },
+      "required": [
+        "ApplicationResponse"
+      ],
+      "type": "object",
+      "title": "GetAppResponse"
+    },
+    "GetApplicationSettingsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetApplicationSettingsRequest"
+    },
+    "GetApplicationSettingsResponse": {
+      "properties": {
+        "ApplicationSettingsResource": {
+          "$ref": "#/definitions/ApplicationSettingsResource"
+        }
+      },
+      "required": [
+        "ApplicationSettingsResource"
+      ],
+      "type": "object",
+      "title": "GetApplicationSettingsResponse"
+    },
+    "GetAppsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetAppsRequest"
+    },
+    "GetAppsResponse": {
+      "properties": {
+        "ApplicationsResponse": {
+          "$ref": "#/definitions/ApplicationsResponse"
+        }
+      },
+      "required": [
+        "ApplicationsResponse"
+      ],
+      "type": "object",
+      "title": "GetAppsResponse"
+    },
+    "GetBaiduChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBaiduChannelRequest"
+    },
+    "GetBaiduChannelResponse": {
+      "properties": {
+        "BaiduChannelResponse": {
+          "$ref": "#/definitions/BaiduChannelResponse"
+        }
+      },
+      "required": [
+        "BaiduChannelResponse"
+      ],
+      "type": "object",
+      "title": "GetBaiduChannelResponse"
+    },
+    "GetCampaignActivitiesRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetCampaignActivitiesRequest"
+    },
+    "GetCampaignActivitiesResponse": {
+      "properties": {
+        "ActivitiesResponse": {
+          "$ref": "#/definitions/ActivitiesResponse"
+        }
+      },
+      "required": [
+        "ActivitiesResponse"
+      ],
+      "type": "object",
+      "title": "GetCampaignActivitiesResponse"
+    },
+    "GetCampaignRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetCampaignRequest"
+    },
+    "GetCampaignResponse": {
+      "properties": {
+        "CampaignResponse": {
+          "$ref": "#/definitions/CampaignResponse"
+        }
+      },
+      "required": [
+        "CampaignResponse"
+      ],
+      "type": "object",
+      "title": "GetCampaignResponse"
+    },
+    "GetCampaignVersionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetCampaignVersionRequest"
+    },
+    "GetCampaignVersionResponse": {
+      "properties": {
+        "CampaignResponse": {
+          "$ref": "#/definitions/CampaignResponse"
+        }
+      },
+      "required": [
+        "CampaignResponse"
+      ],
+      "type": "object",
+      "title": "GetCampaignVersionResponse"
+    },
+    "GetCampaignVersionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetCampaignVersionsRequest"
+    },
+    "GetCampaignVersionsResponse": {
+      "properties": {
+        "CampaignsResponse": {
+          "$ref": "#/definitions/CampaignsResponse"
+        }
+      },
+      "required": [
+        "CampaignsResponse"
+      ],
+      "type": "object",
+      "title": "GetCampaignVersionsResponse"
+    },
+    "GetCampaignsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetCampaignsRequest"
+    },
+    "GetCampaignsResponse": {
+      "properties": {
+        "CampaignsResponse": {
+          "$ref": "#/definitions/CampaignsResponse"
+        }
+      },
+      "required": [
+        "CampaignsResponse"
+      ],
+      "type": "object",
+      "title": "GetCampaignsResponse"
+    },
+    "GetEmailChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetEmailChannelRequest"
+    },
+    "GetEmailChannelResponse": {
+      "properties": {
+        "EmailChannelResponse": {
+          "$ref": "#/definitions/EmailChannelResponse"
+        }
+      },
+      "required": [
+        "EmailChannelResponse"
+      ],
+      "type": "object",
+      "title": "GetEmailChannelResponse"
+    },
+    "GetEndpointRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetEndpointRequest"
+    },
+    "GetEndpointResponse": {
+      "properties": {
+        "EndpointResponse": {
+          "$ref": "#/definitions/EndpointResponse"
+        }
+      },
+      "required": [
+        "EndpointResponse"
+      ],
+      "type": "object",
+      "title": "GetEndpointResponse"
+    },
+    "GetEventStreamRequest": {
+      "description": "GetEventStreamRequest",
+      "properties": {},
+      "type": "object",
+      "title": "GetEventStreamRequest"
+    },
+    "GetEventStreamResponse": {
+      "properties": {
+        "EventStream": {
+          "$ref": "#/definitions/EventStream"
+        }
+      },
+      "required": [
+        "EventStream"
+      ],
+      "type": "object",
+      "title": "GetEventStreamResponse"
+    },
+    "GetGcmChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetGcmChannelRequest"
+    },
+    "GetGcmChannelResponse": {
+      "properties": {
+        "GCMChannelResponse": {
+          "$ref": "#/definitions/GCMChannelResponse"
+        }
+      },
+      "required": [
+        "GCMChannelResponse"
+      ],
+      "type": "object",
+      "title": "GetGcmChannelResponse"
+    },
+    "GetImportJobRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetImportJobRequest"
+    },
+    "GetImportJobResponse": {
+      "properties": {
+        "ImportJobResponse": {
+          "$ref": "#/definitions/ImportJobResponse"
+        }
+      },
+      "required": [
+        "ImportJobResponse"
+      ],
+      "type": "object",
+      "title": "GetImportJobResponse"
+    },
+    "GetImportJobsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetImportJobsRequest"
+    },
+    "GetImportJobsResponse": {
+      "properties": {
+        "ImportJobsResponse": {
+          "$ref": "#/definitions/ImportJobsResponse"
+        }
+      },
+      "required": [
+        "ImportJobsResponse"
+      ],
+      "type": "object",
+      "title": "GetImportJobsResponse"
+    },
+    "GetSegmentImportJobsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetSegmentImportJobsRequest"
+    },
+    "GetSegmentImportJobsResponse": {
+      "properties": {
+        "ImportJobsResponse": {
+          "$ref": "#/definitions/ImportJobsResponse"
+        }
+      },
+      "required": [
+        "ImportJobsResponse"
+      ],
+      "type": "object",
+      "title": "GetSegmentImportJobsResponse"
+    },
+    "GetSegmentRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetSegmentRequest"
+    },
+    "GetSegmentResponse": {
+      "properties": {
+        "SegmentResponse": {
+          "$ref": "#/definitions/SegmentResponse"
+        }
+      },
+      "required": [
+        "SegmentResponse"
+      ],
+      "type": "object",
+      "title": "GetSegmentResponse"
+    },
+    "GetSegmentVersionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetSegmentVersionRequest"
+    },
+    "GetSegmentVersionResponse": {
+      "properties": {
+        "SegmentResponse": {
+          "$ref": "#/definitions/SegmentResponse"
+        }
+      },
+      "required": [
+        "SegmentResponse"
+      ],
+      "type": "object",
+      "title": "GetSegmentVersionResponse"
+    },
+    "GetSegmentVersionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetSegmentVersionsRequest"
+    },
+    "GetSegmentVersionsResponse": {
+      "properties": {
+        "SegmentsResponse": {
+          "$ref": "#/definitions/SegmentsResponse"
+        }
+      },
+      "required": [
+        "SegmentsResponse"
+      ],
+      "type": "object",
+      "title": "GetSegmentVersionsResponse"
+    },
+    "GetSegmentsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetSegmentsRequest"
+    },
+    "GetSegmentsResponse": {
+      "properties": {
+        "SegmentsResponse": {
+          "$ref": "#/definitions/SegmentsResponse"
+        }
+      },
+      "required": [
+        "SegmentsResponse"
+      ],
+      "type": "object",
+      "title": "GetSegmentsResponse"
+    },
+    "GetSmsChannelRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetSmsChannelRequest"
+    },
+    "GetSmsChannelResponse": {
+      "properties": {
+        "SMSChannelResponse": {
+          "$ref": "#/definitions/SMSChannelResponse"
+        }
+      },
+      "required": [
+        "SMSChannelResponse"
+      ],
+      "type": "object",
+      "title": "GetSmsChannelResponse"
+    },
+    "ImportJobRequest": {
+      "properties": {
+        "DefineSegment": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Sets whether the endpoints create a segment when they are imported."
+        },
+        "ExternalId": {
+          "$ref": "#/definitions/__string",
+          "description": "A unique, custom ID assigned to the IAM role that restricts who can assume the role.\t"
+        },
+        "Format": {
+          "$ref": "#/definitions/Format",
+          "description": "The format of the files that contain the endpoint definitions.\nValid values: CSV, JSON"
+        },
+        "RegisterEndpoints": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Sets whether the endpoints are registered with Amazon Pinpoint when they are imported."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that contains the endpoints to import."
+        },
+        "S3Url": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL that points to the location within an Amazon S3 bucket that contains the endpoints to import. The location can be a folder or a single file.\nThe URL should follow this format: s3://bucket-name/folder-name/file-name\n\nAmazon Pinpoint will import endpoints from this location and any subfolders it contains."
+        },
+        "SegmentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the segment to update if the import job is meant to update an existing segment."
+        },
+        "SegmentName": {
+          "$ref": "#/definitions/__string",
+          "description": "A custom name for the segment created by the import job. Use if DefineSegment is true."
+        }
+      },
+      "type": "object",
+      "title": "ImportJobRequest"
+    },
+    "ImportJobResource": {
+      "properties": {
+        "DefineSegment": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Sets whether the endpoints create a segment when they are imported."
+        },
+        "ExternalId": {
+          "$ref": "#/definitions/__string",
+          "description": "A unique, custom ID assigned to the IAM role that restricts who can assume the role.\t"
+        },
+        "Format": {
+          "$ref": "#/definitions/Format",
+          "description": "The format of the files that contain the endpoint definitions.\nValid values: CSV, JSON"
+        },
+        "RegisterEndpoints": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Sets whether the endpoints are registered with Amazon Pinpoint when they are imported."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that contains the endpoints to import."
+        },
+        "S3Url": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL that points to the location within an Amazon S3 bucket that contains the endpoints to import. The location can be a folder or a single file.\nThe URL should follow this format: s3://bucket-name/folder-name/file-name\n\nAmazon Pinpoint will import endpoints from this location and any subfolders it contains."
+        },
+        "SegmentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the segment to update if the import job is meant to update an existing segment."
+        },
+        "SegmentName": {
+          "$ref": "#/definitions/__string",
+          "description": "A custom name for the segment created by the import job. Use if DefineSegment is true."
+        }
+      },
+      "type": "object",
+      "title": "ImportJobResource"
+    },
+    "ImportJobResponse": {
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID of the application to which the import job applies."
+        },
+        "CompletedPieces": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of pieces that have successfully imported as of the time of the request."
+        },
+        "CompletionDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the import job completed in ISO 8601 format."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the import job was created in ISO 8601 format."
+        },
+        "Definition": {
+          "$ref": "#/definitions/ImportJobResource",
+          "description": "The import job settings."
+        },
+        "FailedPieces": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of pieces that have failed to import as of the time of the request."
+        },
+        "Failures": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "Provides up to 100 of the first failed entries for the job, if any exist."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID of the import job."
+        },
+        "JobStatus": {
+          "$ref": "#/definitions/JobStatus",
+          "description": "The status of the import job.\nValid values: CREATED, INITIALIZING, PROCESSING, COMPLETING, COMPLETED, FAILING, FAILED\n\nThe job status is FAILED if one or more pieces failed to import."
+        },
+        "TotalFailures": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of endpoints that failed to import; for example, because of syntax errors."
+        },
+        "TotalPieces": {
+          "$ref": "#/definitions/__integer",
+          "description": "The total number of pieces that must be imported to finish the job. Each piece is an approximately equal portion of the endpoints to import."
+        },
+        "TotalProcessed": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of endpoints that were processed by the import job."
+        },
+        "Type": {
+          "$ref": "#/definitions/__string",
+          "description": "The job type. Will be Import."
+        }
+      },
+      "type": "object",
+      "title": "ImportJobResponse"
+    },
+    "ImportJobsResponse": {
+      "description": "Import job list.",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/ListOfImportJobResponse",
+          "description": "A list of import jobs for the application."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object",
+      "title": "ImportJobsResponse"
+    },
+    "InternalServerErrorException": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object",
+      "title": "InternalServerErrorException"
+    },
+    "JobStatus": {
+      "enum": [
+        "CREATED",
+        "INITIALIZING",
+        "PROCESSING",
+        "COMPLETING",
+        "COMPLETED",
+        "FAILING",
+        "FAILED"
+      ],
+      "type": "string",
+      "title": "JobStatus"
+    },
+    "ListOfActivityResponse": {
+      "items": {
+        "$ref": "#/definitions/ActivityResponse"
+      },
+      "type": "array",
+      "title": "ListOfActivityResponse"
+    },
+    "ListOfApplicationResponse": {
+      "items": {
+        "$ref": "#/definitions/ApplicationResponse"
+      },
+      "type": "array",
+      "title": "ListOfApplicationResponse"
+    },
+    "ListOfCampaignResponse": {
+      "items": {
+        "$ref": "#/definitions/CampaignResponse"
+      },
+      "type": "array",
+      "title": "ListOfCampaignResponse"
+    },
+    "ListOfEndpointBatchItem": {
+      "items": {
+        "$ref": "#/definitions/EndpointBatchItem"
+      },
+      "type": "array",
+      "title": "ListOfEndpointBatchItem"
+    },
+    "ListOfImportJobResponse": {
+      "items": {
+        "$ref": "#/definitions/ImportJobResponse"
+      },
+      "type": "array",
+      "title": "ListOfImportJobResponse"
+    },
+    "ListOfSegmentResponse": {
+      "items": {
+        "$ref": "#/definitions/SegmentResponse"
+      },
+      "type": "array",
+      "title": "ListOfSegmentResponse"
+    },
+    "ListOfTreatmentResource": {
+      "items": {
+        "$ref": "#/definitions/TreatmentResource"
+      },
+      "type": "array",
+      "title": "ListOfTreatmentResource"
+    },
+    "ListOfWriteTreatmentResource": {
+      "items": {
+        "$ref": "#/definitions/WriteTreatmentResource"
+      },
+      "type": "array",
+      "title": "ListOfWriteTreatmentResource"
+    },
+    "ListOf__string": {
+      "items": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "array",
+      "title": "ListOf__string"
+    },
+    "MapOfAddressConfiguration": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/AddressConfiguration"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOfAddressConfiguration"
+    },
+    "MapOfAttributeDimension": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/AttributeDimension"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOfAttributeDimension"
+    },
+    "MapOfEndpointMessageResult": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/EndpointMessageResult"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOfEndpointMessageResult"
+    },
+    "MapOfEndpointSendConfiguration": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/EndpointSendConfiguration"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOfEndpointSendConfiguration"
+    },
+    "MapOfListOf__string": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/ListOf__string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOfListOf__string"
+    },
+    "MapOfMapOfEndpointMessageResult": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/MapOfEndpointMessageResult"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOfMapOfEndpointMessageResult"
+    },
+    "MapOfMessageResult": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/MessageResult"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOfMessageResult"
+    },
+    "MapOf__double": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/__double"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOf__double"
+    },
+    "MapOf__integer": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/__integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOf__integer"
+    },
+    "MapOf__string": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/__string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOf__string"
+    },
+    "Message": {
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/Action",
+          "description": "The action that occurs if the user taps a push notification delivered by the campaign:\nOPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action.\n\nDEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app.\n\nURL - The default mobile browser on the user's device launches and opens a web page at the URL you specify."
+        },
+        "Body": {
+          "$ref": "#/definitions/__string",
+          "description": "The message body. Can include up to 140 characters."
+        },
+        "ImageIconUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to the icon image for the push notification icon, for example, the app icon."
+        },
+        "ImageSmallIconUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to the small icon image for the push notification icon, for example, the app icon."
+        },
+        "ImageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to an image used in the push notification."
+        },
+        "JsonBody": {
+          "$ref": "#/definitions/__string",
+          "description": "The JSON payload used for a silent push."
+        },
+        "MediaUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to the media resource, for example a .mp4 or .gif file."
+        },
+        "RawContent": {
+          "$ref": "#/definitions/__string",
+          "description": "The Raw JSON formatted string to be used as the payload. This value overrides the message."
+        },
+        "SilentPush": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates if the message should display on the users device.\n\nSilent pushes can be used for Remote Configuration and Phone Home use cases. "
+        },
+        "Title": {
+          "$ref": "#/definitions/__string",
+          "description": "The message title that displays above the message on the user's device."
+        },
+        "Url": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL to open in the user's mobile browser. Used if the value for Action is URL."
+        }
+      },
+      "type": "object",
+      "title": "Message"
+    },
+    "MessageBody": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object",
+      "title": "MessageBody"
+    },
+    "MessageConfiguration": {
+      "description": "Message configuration for a campaign.",
+      "properties": {
+        "ADMMessage": {
+          "$ref": "#/definitions/Message",
+          "description": "The message that the campaign delivers to ADM channels. Overrides the default message."
+        },
+        "APNSMessage": {
+          "$ref": "#/definitions/Message",
+          "description": "The message that the campaign delivers to APNS channels. Overrides the default message."
+        },
+        "BaiduMessage": {
+          "$ref": "#/definitions/Message",
+          "description": "The message that the campaign delivers to Baidu channels. Overrides the default message."
+        },
+        "DefaultMessage": {
+          "$ref": "#/definitions/Message",
+          "description": "The default message for all channels."
+        },
+        "EmailMessage": {
+          "$ref": "#/definitions/CampaignEmailMessage",
+          "description": "The email message configuration."
+        },
+        "GCMMessage": {
+          "$ref": "#/definitions/Message",
+          "description": "The message that the campaign delivers to GCM channels. Overrides the default message."
+        },
+        "SMSMessage": {
+          "$ref": "#/definitions/CampaignSmsMessage",
+          "description": "The SMS message configuration."
+        }
+      },
+      "type": "object",
+      "title": "MessageConfiguration"
+    },
+    "MessageRequest": {
+      "description": "Send message request.",
+      "properties": {
+        "Addresses": {
+          "$ref": "#/definitions/MapOfAddressConfiguration",
+          "description": "A map of destination addresses, with the address as the key(Email address, phone number or push token) and the Address Configuration as the value."
+        },
+        "Context": {
+          "$ref": "#/definitions/MapOf__string",
+          "description": "A map of custom attributes to attributes to be attached to the message. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes."
+        },
+        "Endpoints": {
+          "$ref": "#/definitions/MapOfEndpointSendConfiguration",
+          "description": "A map of destination addresses, with the address as the key(Email address, phone number or push token) and the Address Configuration as the value."
+        },
+        "MessageConfiguration": {
+          "$ref": "#/definitions/DirectMessageConfiguration",
+          "description": "Message configuration."
+        }
+      },
+      "type": "object",
+      "title": "MessageRequest"
+    },
+    "MessageResponse": {
+      "description": "Send message response.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "Application id of the message."
+        },
+        "EndpointResult": {
+          "$ref": "#/definitions/MapOfEndpointMessageResult",
+          "description": "A map containing a multi part response for each address, with the endpointId as the key and the result as the value."
+        },
+        "RequestId": {
+          "$ref": "#/definitions/__string",
+          "description": "Original request Id for which this message was delivered."
+        },
+        "Result": {
+          "$ref": "#/definitions/MapOfMessageResult",
+          "description": "A map containing a multi part response for each address, with the address as the key(Email address, phone number or push token) and the result as the value."
+        }
+      },
+      "type": "object",
+      "title": "MessageResponse"
+    },
+    "MessageResult": {
+      "description": "The result from sending a message to an address.",
+      "properties": {
+        "DeliveryStatus": {
+          "$ref": "#/definitions/DeliveryStatus",
+          "description": "Delivery status of message."
+        },
+        "StatusCode": {
+          "$ref": "#/definitions/__integer",
+          "description": "Downstream service status code."
+        },
+        "StatusMessage": {
+          "$ref": "#/definitions/__string",
+          "description": "Status message for message delivery."
+        },
+        "UpdatedToken": {
+          "$ref": "#/definitions/__string",
+          "description": "If token was updated as part of delivery. (This is GCM Specific)"
+        }
+      },
+      "type": "object",
+      "title": "MessageResult"
+    },
+    "MessageType": {
+      "enum": [
+        "TRANSACTIONAL",
+        "PROMOTIONAL"
+      ],
+      "type": "string",
+      "title": "MessageType"
+    },
+    "MethodNotAllowedException": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object",
+      "title": "MethodNotAllowedException"
+    },
+    "NotFoundException": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object",
+      "title": "NotFoundException"
+    },
+    "PutEventStreamRequest": {
+      "properties": {
+        "WriteEventStream": {
+          "$ref": "#/definitions/WriteEventStream",
+          "description": "EventStream to write."
+        }
+      },
+      "required": [
+        "WriteEventStream"
+      ],
+      "type": "object",
+      "title": "PutEventStreamRequest"
+    },
+    "PutEventStreamResponse": {
+      "properties": {
+        "EventStream": {
+          "$ref": "#/definitions/EventStream"
+        }
+      },
+      "required": [
+        "EventStream"
+      ],
+      "type": "object",
+      "title": "PutEventStreamResponse"
+    },
+    "QuietTime": {
+      "description": "Quiet Time",
+      "properties": {
+        "End": {
+          "$ref": "#/definitions/__string",
+          "description": "The default end time for quiet time in ISO 8601 format."
+        },
+        "Start": {
+          "$ref": "#/definitions/__string",
+          "description": "The default start time for quiet time in ISO 8601 format."
+        }
+      },
+      "type": "object",
+      "title": "QuietTime"
+    },
+    "RecencyDimension": {
+      "description": "Define how a segment based on recency of use.",
+      "properties": {
+        "Duration": {
+          "$ref": "#/definitions/Duration",
+          "description": "The length of time during which users have been active or inactive with your app.\nValid values: HR_24, DAY_7, DAY_14, DAY_30"
+        },
+        "RecencyType": {
+          "$ref": "#/definitions/RecencyType",
+          "description": "The recency dimension type:\nACTIVE - Users who have used your app within the specified duration are included in the segment.\nINACTIVE - Users who have not used your app within the specified duration are included in the segment."
+        }
+      },
+      "type": "object",
+      "title": "RecencyDimension"
+    },
+    "RecencyType": {
+      "enum": [
+        "ACTIVE",
+        "INACTIVE"
+      ],
+      "type": "string",
+      "title": "RecencyType"
+    },
+    "SMSChannelRequest": {
+      "description": "SMS Channel Request",
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "SenderId": {
+          "$ref": "#/definitions/__string",
+          "description": "Sender identifier of your messages."
+        },
+        "ShortCode": {
+          "$ref": "#/definitions/__string",
+          "description": "ShortCode registered with phone provider."
+        }
+      },
+      "type": "object",
+      "title": "SMSChannelRequest"
+    },
+    "SMSChannelResponse": {
+      "description": "SMS Channel Response.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID of the application to which the SMS channel belongs."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date that the settings were last updated in ISO 8601 format."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is enabled for sending messages."
+        },
+        "HasCredential": {
+          "$ref": "#/definitions/__boolean",
+          "description": "If the channel is registered with a credential for authentication."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Channel ID. Not used, only for backwards compatibility."
+        },
+        "IsArchived": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Is this channel archived"
+        },
+        "LastModifiedBy": {
+          "$ref": "#/definitions/__string",
+          "description": "Who last updated this entry"
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "Last date this was updated"
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "Platform type. Will be \"SMS\""
+        },
+        "SenderId": {
+          "$ref": "#/definitions/__string",
+          "description": "Sender identifier of your messages."
+        },
+        "ShortCode": {
+          "$ref": "#/definitions/__string",
+          "description": "The short code registered with the phone provider."
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "Version of channel"
+        }
+      },
+      "type": "object",
+      "title": "SMSChannelResponse"
+    },
+    "SMSMessage": {
+      "description": "SMS Message.",
+      "properties": {
+        "Body": {
+          "$ref": "#/definitions/__string",
+          "description": "The message body of the notification, the email body or the text message."
+        },
+        "MessageType": {
+          "$ref": "#/definitions/MessageType",
+          "description": "Is this a transaction priority message or lower priority."
+        },
+        "SenderId": {
+          "$ref": "#/definitions/__string",
+          "description": "Sender ID of sent message."
+        },
+        "Substitutions": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Default message substitutions. Can be overridden by individual address substitutions."
+        }
+      },
+      "type": "object",
+      "title": "SMSMessage"
+    },
+    "Schedule": {
+      "description": "Shcedule that defines when a campaign is run.",
+      "properties": {
+        "EndTime": {
+          "$ref": "#/definitions/__string",
+          "description": "The scheduled time that the campaign ends in ISO 8601 format."
+        },
+        "Frequency": {
+          "$ref": "#/definitions/Frequency",
+          "description": "How often the campaign delivers messages.\n\nValid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY"
+        },
+        "IsLocalTime": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates whether the campaign schedule takes effect according to each user's local time."
+        },
+        "QuietTime": {
+          "$ref": "#/definitions/QuietTime",
+          "description": "The time during which the campaign sends no messages."
+        },
+        "StartTime": {
+          "$ref": "#/definitions/__string",
+          "description": "The scheduled time that the campaign begins in ISO 8601 format."
+        },
+        "Timezone": {
+          "$ref": "#/definitions/__string",
+          "description": "The starting UTC offset for the schedule if the value for isLocalTime is true\n\nValid values: \nUTC\nUTC+01\nUTC+02\nUTC+03\nUTC+03:30\nUTC+04\nUTC+04:30\nUTC+05\nUTC+05:30\nUTC+05:45\nUTC+06\nUTC+06:30\nUTC+07\nUTC+08\nUTC+09\nUTC+09:30\nUTC+10\nUTC+10:30\nUTC+11\nUTC+12\nUTC+13\nUTC-02\nUTC-03\nUTC-04\nUTC-05\nUTC-06\nUTC-07\nUTC-08\nUTC-09\nUTC-10\nUTC-11"
+        }
+      },
+      "type": "object",
+      "title": "Schedule"
+    },
+    "SegmentBehaviors": {
+      "description": "Segment behavior dimensions",
+      "properties": {
+        "Recency": {
+          "$ref": "#/definitions/RecencyDimension",
+          "description": "The recency of use."
+        }
+      },
+      "type": "object",
+      "title": "SegmentBehaviors"
+    },
+    "SegmentDemographics": {
+      "description": "Segment demographic dimensions",
+      "properties": {
+        "AppVersion": {
+          "$ref": "#/definitions/SetDimension",
+          "description": "The app version criteria for the segment."
+        },
+        "Channel": {
+          "$ref": "#/definitions/SetDimension",
+          "description": "The channel criteria for the segment."
+        },
+        "DeviceType": {
+          "$ref": "#/definitions/SetDimension",
+          "description": "The device type criteria for the segment."
+        },
+        "Make": {
+          "$ref": "#/definitions/SetDimension",
+          "description": "The device make criteria for the segment."
+        },
+        "Model": {
+          "$ref": "#/definitions/SetDimension",
+          "description": "The device model criteria for the segment."
+        },
+        "Platform": {
+          "$ref": "#/definitions/SetDimension",
+          "description": "The device platform criteria for the segment."
+        }
+      },
+      "type": "object",
+      "title": "SegmentDemographics"
+    },
+    "SegmentDimensions": {
+      "description": "Segment dimensions",
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/MapOfAttributeDimension",
+          "description": "Custom segment attributes."
+        },
+        "Behavior": {
+          "$ref": "#/definitions/SegmentBehaviors",
+          "description": "The segment behaviors attributes."
+        },
+        "Demographic": {
+          "$ref": "#/definitions/SegmentDemographics",
+          "description": "The segment demographics attributes."
+        },
+        "Location": {
+          "$ref": "#/definitions/SegmentLocation",
+          "description": "The segment location attributes."
+        },
+        "UserAttributes": {
+          "$ref": "#/definitions/MapOfAttributeDimension",
+          "description": "Custom segment user attributes."
+        }
+      },
+      "type": "object",
+      "title": "SegmentDimensions"
+    },
+    "SegmentImportResource": {
+      "description": "Segment import definition.",
+      "properties": {
+        "ChannelCounts": {
+          "$ref": "#/definitions/MapOf__integer",
+          "description": "Channel type counts"
+        },
+        "ExternalId": {
+          "$ref": "#/definitions/__string",
+          "description": "A unique, custom ID assigned to the IAM role that restricts who can assume the role."
+        },
+        "Format": {
+          "$ref": "#/definitions/Format",
+          "description": "The format of the endpoint files that were imported to create this segment.\nValid values: CSV, JSON"
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the endpoints in Amazon S3."
+        },
+        "S3Url": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL that points to the Amazon S3 location from which the endpoints for this segment were imported."
+        },
+        "Size": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of endpoints that were successfully imported to create this segment."
+        }
+      },
+      "type": "object",
+      "title": "SegmentImportResource"
+    },
+    "SegmentLocation": {
+      "description": "Segment location dimensions",
+      "properties": {
+        "Country": {
+          "$ref": "#/definitions/SetDimension",
+          "description": "The country filter according to ISO 3166-1 Alpha-2 codes."
+        }
+      },
+      "type": "object",
+      "title": "SegmentLocation"
+    },
+    "SegmentResponse": {
+      "description": "Segment definition.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application to which the segment applies."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the segment was created in ISO 8601 format."
+        },
+        "Dimensions": {
+          "$ref": "#/definitions/SegmentDimensions",
+          "description": "The segment dimensions attributes."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique segment ID."
+        },
+        "ImportDefinition": {
+          "$ref": "#/definitions/SegmentImportResource",
+          "description": "The import job settings."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the segment was last updated in ISO 8601 format."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of segment"
+        },
+        "SegmentType": {
+          "$ref": "#/definitions/SegmentType",
+          "description": "The segment type:\nDIMENSIONAL - A dynamic segment built from selection criteria based on endpoint data reported by your app. You create this type of segment by using the segment builder in the Amazon Pinpoint console or by making a POST request to the segments resource.\nIMPORT - A static segment built from an imported set of endpoint definitions. You create this type of segment by importing a segment in the Amazon Pinpoint console or by making a POST request to the jobs/import resource."
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "The segment version number."
+        }
+      },
+      "type": "object",
+      "title": "SegmentResponse"
+    },
+    "SegmentType": {
+      "enum": [
+        "DIMENSIONAL",
+        "IMPORT"
+      ],
+      "type": "string",
+      "title": "SegmentType"
+    },
+    "SegmentsResponse": {
+      "description": "Segments in your account.",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/ListOfSegmentResponse",
+          "description": "The list of segments."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "An identifier used to retrieve the next page of results. The token is null if no additional pages exist."
+        }
+      },
+      "type": "object",
+      "title": "SegmentsResponse"
+    },
+    "SendMessagesRequest": {
+      "properties": {
+        "MessageRequest": {
+          "$ref": "#/definitions/MessageRequest"
+        }
+      },
+      "required": [
+        "MessageRequest"
+      ],
+      "type": "object",
+      "title": "SendMessagesRequest"
+    },
+    "SendMessagesResponse": {
+      "properties": {
+        "MessageResponse": {
+          "$ref": "#/definitions/MessageResponse"
+        }
+      },
+      "required": [
+        "MessageResponse"
+      ],
+      "type": "object",
+      "title": "SendMessagesResponse"
+    },
+    "SendUsersMessageRequest": {
+      "description": "Send message request.",
+      "properties": {
+        "Context": {
+          "$ref": "#/definitions/MapOf__string",
+          "description": "A map of custom attributes to attributes to be attached to the message. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes."
+        },
+        "MessageConfiguration": {
+          "$ref": "#/definitions/DirectMessageConfiguration",
+          "description": "Message configuration."
+        },
+        "Users": {
+          "$ref": "#/definitions/MapOfEndpointSendConfiguration",
+          "description": "A map of destination endpoints, with the EndpointId as the key Endpoint Message Configuration as the value."
+        }
+      },
+      "type": "object",
+      "title": "SendUsersMessageRequest"
+    },
+    "SendUsersMessageResponse": {
+      "description": "User send message response.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "Application id of the message."
+        },
+        "RequestId": {
+          "$ref": "#/definitions/__string",
+          "description": "Original request Id for which this message was delivered."
+        },
+        "Result": {
+          "$ref": "#/definitions/MapOfMapOfEndpointMessageResult",
+          "description": "A map containing of UserId to Map of EndpointId to Endpoint Message Result."
+        }
+      },
+      "type": "object",
+      "title": "SendUsersMessageResponse"
+    },
+    "SendUsersMessagesRequest": {
+      "properties": {
+        "SendUsersMessageRequest": {
+          "$ref": "#/definitions/SendUsersMessageRequest"
+        }
+      },
+      "required": [
+        "SendUsersMessageRequest"
+      ],
+      "type": "object",
+      "title": "SendUsersMessagesRequest"
+    },
+    "SendUsersMessagesResponse": {
+      "properties": {
+        "SendUsersMessageResponse": {
+          "$ref": "#/definitions/SendUsersMessageResponse"
+        }
+      },
+      "required": [
+        "SendUsersMessageResponse"
+      ],
+      "type": "object",
+      "title": "SendUsersMessagesResponse"
+    },
+    "SetDimension": {
+      "description": "Dimension specification of a segment.",
+      "properties": {
+        "DimensionType": {
+          "$ref": "#/definitions/DimensionType",
+          "description": "The type of dimension:\nINCLUSIVE - Endpoints that match the criteria are included in the segment.\nEXCLUSIVE - Endpoints that match the criteria are excluded from the segment."
+        },
+        "Values": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type."
+        }
+      },
+      "type": "object",
+      "title": "SetDimension"
+    },
+    "TooManyRequestsException": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object",
+      "title": "TooManyRequestsException"
+    },
+    "TreatmentResource": {
+      "description": "Treatment resource",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique treatment ID."
+        },
+        "MessageConfiguration": {
+          "$ref": "#/definitions/MessageConfiguration",
+          "description": "The message configuration settings."
+        },
+        "Schedule": {
+          "$ref": "#/definitions/Schedule",
+          "description": "The campaign schedule."
+        },
+        "SizePercent": {
+          "$ref": "#/definitions/__integer",
+          "description": "The allocated percentage of users for this treatment."
+        },
+        "State": {
+          "$ref": "#/definitions/CampaignState",
+          "description": "The treatment status."
+        },
+        "TreatmentDescription": {
+          "$ref": "#/definitions/__string",
+          "description": "A custom description for the treatment."
+        },
+        "TreatmentName": {
+          "$ref": "#/definitions/__string",
+          "description": "The custom name of a variation of the campaign used for A/B testing."
+        }
+      },
+      "type": "object",
+      "title": "TreatmentResource"
+    },
+    "UpdateAdmChannelRequest": {
+      "properties": {
+        "ADMChannelRequest": {
+          "$ref": "#/definitions/ADMChannelRequest"
+        }
+      },
+      "required": [
+        "ADMChannelRequest"
+      ],
+      "type": "object",
+      "title": "UpdateAdmChannelRequest"
+    },
+    "UpdateAdmChannelResponse": {
+      "properties": {
+        "ADMChannelResponse": {
+          "$ref": "#/definitions/ADMChannelResponse"
+        }
+      },
+      "required": [
+        "ADMChannelResponse"
+      ],
+      "type": "object",
+      "title": "UpdateAdmChannelResponse"
+    },
+    "UpdateApnsChannelRequest": {
+      "properties": {
+        "APNSChannelRequest": {
+          "$ref": "#/definitions/APNSChannelRequest"
+        }
+      },
+      "required": [
+        "APNSChannelRequest"
+      ],
+      "type": "object",
+      "title": "UpdateApnsChannelRequest"
+    },
+    "UpdateApnsChannelResponse": {
+      "properties": {
+        "APNSChannelResponse": {
+          "$ref": "#/definitions/APNSChannelResponse"
+        }
+      },
+      "required": [
+        "APNSChannelResponse"
+      ],
+      "type": "object",
+      "title": "UpdateApnsChannelResponse"
+    },
+    "UpdateApnsSandboxChannelRequest": {
+      "properties": {
+        "APNSSandboxChannelRequest": {
+          "$ref": "#/definitions/APNSSandboxChannelRequest"
+        }
+      },
+      "required": [
+        "APNSSandboxChannelRequest"
+      ],
+      "type": "object",
+      "title": "UpdateApnsSandboxChannelRequest"
+    },
+    "UpdateApnsSandboxChannelResponse": {
+      "properties": {
+        "APNSSandboxChannelResponse": {
+          "$ref": "#/definitions/APNSSandboxChannelResponse"
+        }
+      },
+      "required": [
+        "APNSSandboxChannelResponse"
+      ],
+      "type": "object",
+      "title": "UpdateApnsSandboxChannelResponse"
+    },
+    "UpdateApnsVoipChannelRequest": {
+      "properties": {
+        "APNSVoipChannelRequest": {
+          "$ref": "#/definitions/APNSVoipChannelRequest"
+        }
+      },
+      "required": [
+        "APNSVoipChannelRequest"
+      ],
+      "type": "object",
+      "title": "UpdateApnsVoipChannelRequest"
+    },
+    "UpdateApnsVoipChannelResponse": {
+      "properties": {
+        "APNSVoipChannelResponse": {
+          "$ref": "#/definitions/APNSVoipChannelResponse"
+        }
+      },
+      "required": [
+        "APNSVoipChannelResponse"
+      ],
+      "type": "object",
+      "title": "UpdateApnsVoipChannelResponse"
+    },
+    "UpdateApnsVoipSandboxChannelRequest": {
+      "properties": {
+        "APNSVoipSandboxChannelRequest": {
+          "$ref": "#/definitions/APNSVoipSandboxChannelRequest"
+        }
+      },
+      "required": [
+        "APNSVoipSandboxChannelRequest"
+      ],
+      "type": "object",
+      "title": "UpdateApnsVoipSandboxChannelRequest"
+    },
+    "UpdateApnsVoipSandboxChannelResponse": {
+      "properties": {
+        "APNSVoipSandboxChannelResponse": {
+          "$ref": "#/definitions/APNSVoipSandboxChannelResponse"
+        }
+      },
+      "required": [
+        "APNSVoipSandboxChannelResponse"
+      ],
+      "type": "object",
+      "title": "UpdateApnsVoipSandboxChannelResponse"
+    },
+    "UpdateApplicationSettingsRequest": {
+      "properties": {
+        "WriteApplicationSettingsRequest": {
+          "$ref": "#/definitions/WriteApplicationSettingsRequest"
+        }
+      },
+      "required": [
+        "WriteApplicationSettingsRequest"
+      ],
+      "type": "object",
+      "title": "UpdateApplicationSettingsRequest"
+    },
+    "UpdateApplicationSettingsResponse": {
+      "properties": {
+        "ApplicationSettingsResource": {
+          "$ref": "#/definitions/ApplicationSettingsResource"
+        }
+      },
+      "required": [
+        "ApplicationSettingsResource"
+      ],
+      "type": "object",
+      "title": "UpdateApplicationSettingsResponse"
+    },
+    "UpdateBaiduChannelRequest": {
+      "properties": {
+        "BaiduChannelRequest": {
+          "$ref": "#/definitions/BaiduChannelRequest"
+        }
+      },
+      "required": [
+        "BaiduChannelRequest"
+      ],
+      "type": "object",
+      "title": "UpdateBaiduChannelRequest"
+    },
+    "UpdateBaiduChannelResponse": {
+      "properties": {
+        "BaiduChannelResponse": {
+          "$ref": "#/definitions/BaiduChannelResponse"
+        }
+      },
+      "required": [
+        "BaiduChannelResponse"
+      ],
+      "type": "object",
+      "title": "UpdateBaiduChannelResponse"
+    },
+    "UpdateCampaignRequest": {
+      "properties": {
+        "WriteCampaignRequest": {
+          "$ref": "#/definitions/WriteCampaignRequest"
+        }
+      },
+      "required": [
+        "WriteCampaignRequest"
+      ],
+      "type": "object",
+      "title": "UpdateCampaignRequest"
+    },
+    "UpdateCampaignResponse": {
+      "properties": {
+        "CampaignResponse": {
+          "$ref": "#/definitions/CampaignResponse"
+        }
+      },
+      "required": [
+        "CampaignResponse"
+      ],
+      "type": "object",
+      "title": "UpdateCampaignResponse"
+    },
+    "UpdateEmailChannelRequest": {
+      "properties": {
+        "EmailChannelRequest": {
+          "$ref": "#/definitions/EmailChannelRequest"
+        }
+      },
+      "required": [
+        "EmailChannelRequest"
+      ],
+      "type": "object",
+      "title": "UpdateEmailChannelRequest"
+    },
+    "UpdateEmailChannelResponse": {
+      "properties": {
+        "EmailChannelResponse": {
+          "$ref": "#/definitions/EmailChannelResponse"
+        }
+      },
+      "required": [
+        "EmailChannelResponse"
+      ],
+      "type": "object",
+      "title": "UpdateEmailChannelResponse"
+    },
+    "UpdateEndpointRequest": {
+      "properties": {
+        "EndpointRequest": {
+          "$ref": "#/definitions/EndpointRequest"
+        }
+      },
+      "required": [
+        "EndpointRequest"
+      ],
+      "type": "object",
+      "title": "UpdateEndpointRequest"
+    },
+    "UpdateEndpointResponse": {
+      "properties": {
+        "MessageBody": {
+          "$ref": "#/definitions/MessageBody"
+        }
+      },
+      "required": [
+        "MessageBody"
+      ],
+      "type": "object",
+      "title": "UpdateEndpointResponse"
+    },
+    "UpdateEndpointsBatchRequest": {
+      "properties": {
+        "EndpointBatchRequest": {
+          "$ref": "#/definitions/EndpointBatchRequest"
+        }
+      },
+      "required": [
+        "EndpointBatchRequest"
+      ],
+      "type": "object",
+      "title": "UpdateEndpointsBatchRequest"
+    },
+    "UpdateEndpointsBatchResponse": {
+      "properties": {
+        "MessageBody": {
+          "$ref": "#/definitions/MessageBody"
+        }
+      },
+      "required": [
+        "MessageBody"
+      ],
+      "type": "object",
+      "title": "UpdateEndpointsBatchResponse"
+    },
+    "UpdateGcmChannelRequest": {
+      "properties": {
+        "GCMChannelRequest": {
+          "$ref": "#/definitions/GCMChannelRequest"
+        }
+      },
+      "required": [
+        "GCMChannelRequest"
+      ],
+      "type": "object",
+      "title": "UpdateGcmChannelRequest"
+    },
+    "UpdateGcmChannelResponse": {
+      "properties": {
+        "GCMChannelResponse": {
+          "$ref": "#/definitions/GCMChannelResponse"
+        }
+      },
+      "required": [
+        "GCMChannelResponse"
+      ],
+      "type": "object",
+      "title": "UpdateGcmChannelResponse"
+    },
+    "UpdateSegmentRequest": {
+      "properties": {
+        "WriteSegmentRequest": {
+          "$ref": "#/definitions/WriteSegmentRequest"
+        }
+      },
+      "required": [
+        "WriteSegmentRequest"
+      ],
+      "type": "object",
+      "title": "UpdateSegmentRequest"
+    },
+    "UpdateSegmentResponse": {
+      "properties": {
+        "SegmentResponse": {
+          "$ref": "#/definitions/SegmentResponse"
+        }
+      },
+      "required": [
+        "SegmentResponse"
+      ],
+      "type": "object",
+      "title": "UpdateSegmentResponse"
+    },
+    "UpdateSmsChannelRequest": {
+      "properties": {
+        "SMSChannelRequest": {
+          "$ref": "#/definitions/SMSChannelRequest"
+        }
+      },
+      "required": [
+        "SMSChannelRequest"
+      ],
+      "type": "object",
+      "title": "UpdateSmsChannelRequest"
+    },
+    "UpdateSmsChannelResponse": {
+      "properties": {
+        "SMSChannelResponse": {
+          "$ref": "#/definitions/SMSChannelResponse"
+        }
+      },
+      "required": [
+        "SMSChannelResponse"
+      ],
+      "type": "object",
+      "title": "UpdateSmsChannelResponse"
+    },
+    "WriteApplicationSettingsRequest": {
+      "description": "Creating application setting request",
+      "properties": {
+        "Limits": {
+          "$ref": "#/definitions/CampaignLimits",
+          "description": "The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own."
+        },
+        "QuietTime": {
+          "$ref": "#/definitions/QuietTime",
+          "description": "The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own."
+        }
+      },
+      "type": "object",
+      "title": "WriteApplicationSettingsRequest"
+    },
+    "WriteCampaignRequest": {
+      "description": "Used to create a campaign.",
+      "properties": {
+        "AdditionalTreatments": {
+          "$ref": "#/definitions/ListOfWriteTreatmentResource",
+          "description": "Treatments that are defined in addition to the default treatment."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description of the campaign."
+        },
+        "HoldoutPercent": {
+          "$ref": "#/definitions/__integer",
+          "description": "The allocated percentage of end users who will not receive messages from this campaign."
+        },
+        "IsPaused": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates whether the campaign is paused. A paused campaign does not send messages unless you resume it by setting IsPaused to false."
+        },
+        "Limits": {
+          "$ref": "#/definitions/CampaignLimits",
+          "description": "The campaign limits settings."
+        },
+        "MessageConfiguration": {
+          "$ref": "#/definitions/MessageConfiguration",
+          "description": "The message configuration settings."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The custom name of the campaign."
+        },
+        "Schedule": {
+          "$ref": "#/definitions/Schedule",
+          "description": "The campaign schedule."
+        },
+        "SegmentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the segment to which the campaign sends messages."
+        },
+        "SegmentVersion": {
+          "$ref": "#/definitions/__integer",
+          "description": "The version of the segment to which the campaign sends messages."
+        },
+        "TreatmentDescription": {
+          "$ref": "#/definitions/__string",
+          "description": "A custom description for the treatment."
+        },
+        "TreatmentName": {
+          "$ref": "#/definitions/__string",
+          "description": "The custom name of a variation of the campaign used for A/B testing."
+        }
+      },
+      "type": "object",
+      "title": "WriteCampaignRequest"
+    },
+    "WriteEventStream": {
+      "description": "Request to save an EventStream.",
+      "properties": {
+        "DestinationStreamArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.\n Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAME\n Kinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME"
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account."
+        }
+      },
+      "type": "object",
+      "title": "WriteEventStream"
+    },
+    "WriteSegmentRequest": {
+      "description": "Segment definition.",
+      "properties": {
+        "Dimensions": {
+          "$ref": "#/definitions/SegmentDimensions",
+          "description": "The segment dimensions attributes."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of segment"
+        }
+      },
+      "type": "object",
+      "title": "WriteSegmentRequest"
+    },
+    "WriteTreatmentResource": {
+      "description": "Used to create a campaign treatment.",
+      "properties": {
+        "MessageConfiguration": {
+          "$ref": "#/definitions/MessageConfiguration",
+          "description": "The message configuration settings."
+        },
+        "Schedule": {
+          "$ref": "#/definitions/Schedule",
+          "description": "The campaign schedule."
+        },
+        "SizePercent": {
+          "$ref": "#/definitions/__integer",
+          "description": "The allocated percentage of users for this treatment."
+        },
+        "TreatmentDescription": {
+          "$ref": "#/definitions/__string",
+          "description": "A custom description for the treatment."
+        },
+        "TreatmentName": {
+          "$ref": "#/definitions/__string",
+          "description": "The custom name of a variation of the campaign used for A/B testing."
+        }
+      },
+      "type": "object",
+      "title": "WriteTreatmentResource"
+    },
+    "__boolean": {
+      "type": "boolean",
+      "title": "__boolean"
+    },
+    "__double": {
+      "format": "double",
+      "type": "number",
+      "title": "__double"
+    },
+    "__integer": {
+      "type": "integer",
+      "title": "__integer"
+    },
+    "__string": {
+      "type": "string",
+      "title": "__string"
+    },
+    "__timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "__timestamp"
+    }
+  },
+  "actions": [
+    {
+      "id": "GetApps",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetAppsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetAppsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetApp",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetAppRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetAppResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetCampaigns",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetCampaignsRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetCampaignsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateCampaign",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "campaign-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateCampaignRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "campaign-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateCampaignResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetCampaignActivities",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "campaign-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetCampaignActivitiesRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "campaign-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetCampaignActivitiesResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetCampaignVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "campaign-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetCampaignVersionsRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "campaign-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetCampaignVersionsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetCampaignVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "campaign-id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetCampaignVersionRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "campaign-id",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetCampaignVersionResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateAdmChannel",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateAdmChannelRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateAdmChannelResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateApnsChannel",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateApnsChannelRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateApnsChannelResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateApnsSandboxChannel",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateApnsSandboxChannelRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateApnsSandboxChannelResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateApnsVoipChannel",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateApnsVoipChannelRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateApnsVoipChannelResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateApnsVoipSandboxChannel",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateApnsVoipSandboxChannelRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateApnsVoipSandboxChannelResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateBaiduChannel",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateBaiduChannelRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateBaiduChannelResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateEmailChannel",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateEmailChannelRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateEmailChannelResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateGcmChannel",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateGcmChannelRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateGcmChannelResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateSmsChannel",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateSmsChannelRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateSmsChannelResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateEndpointsBatch",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateEndpointsBatchRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateEndpoint",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "endpoint-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateEndpointRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "endpoint-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "PutEventStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutEventStreamRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutEventStreamResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetImportJobs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetImportJobsRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetImportJobsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetImportJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "job-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetImportJobRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "job-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetImportJobResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "SendMessages",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/SendMessagesRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SendMessagesResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetSegments",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetSegmentsRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetSegmentsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateSegment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "segment-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateSegmentRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "segment-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateSegmentResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetSegmentImportJobs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "segment-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetSegmentImportJobsRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "segment-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetSegmentImportJobsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetSegmentVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "segment-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetSegmentVersionsRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "segment-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetSegmentVersionsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetSegmentVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "segment-id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetSegmentVersionRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "segment-id",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetSegmentVersionResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateApplicationSettings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateApplicationSettingsRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateApplicationSettingsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "SendUsersMessages",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/SendUsersMessagesRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SendUsersMessagesResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

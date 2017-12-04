@@ -1,0 +1,165 @@
+{
+  "id": "amazonaws_runtime_sagemaker",
+  "title": "Amazon SageMaker Runtime",
+  "description": " Amazon SageMaker runtime API. ",
+  "security": {
+    "amazonaws_runtime_sagemaker": {
+      "integration": "amazonaws_runtime_sagemaker",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_runtime_sagemaker.jpeg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "BodyBlob": {
+      "format": "password",
+      "maxLength": 5242880,
+      "type": "string",
+      "title": "BodyBlob"
+    },
+    "EndpointName": {
+      "maxLength": 63,
+      "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+      "type": "string",
+      "title": "EndpointName"
+    },
+    "Header": {
+      "maxLength": 1024,
+      "type": "string",
+      "title": "Header"
+    },
+    "InternalFailure": {
+      "description": " Internal failure occurred. ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/Message"
+        }
+      },
+      "type": "object",
+      "title": "InternalFailure"
+    },
+    "InvokeEndpointInput": {
+      "properties": {
+        "Body": {
+          "$ref": "#/definitions/BodyBlob",
+          "description": "Provides input data, in the format specified in the <code>ContentType</code> request header. Amazon SageMaker passes all of the data in the body to the model. "
+        }
+      },
+      "required": [
+        "Body"
+      ],
+      "type": "object",
+      "title": "InvokeEndpointInput"
+    },
+    "InvokeEndpointOutput": {
+      "properties": {
+        "Body": {
+          "$ref": "#/definitions/BodyBlob",
+          "description": "Includes the inference provided by the model."
+        }
+      },
+      "required": [
+        "Body"
+      ],
+      "type": "object",
+      "title": "InvokeEndpointOutput"
+    },
+    "LogStreamArn": {
+      "type": "string",
+      "title": "LogStreamArn"
+    },
+    "Message": {
+      "maxLength": 2048,
+      "type": "string",
+      "title": "Message"
+    },
+    "ModelError": {
+      "description": " Model (owned by the customer in the container) returned an error 500. ",
+      "properties": {
+        "LogStreamArn": {
+          "$ref": "#/definitions/LogStreamArn",
+          "description": " Amazon Resource Name (ARN) of the log stream. "
+        },
+        "Message": {
+          "$ref": "#/definitions/Message"
+        },
+        "OriginalMessage": {
+          "$ref": "#/definitions/Message",
+          "description": " Original message. "
+        },
+        "OriginalStatusCode": {
+          "$ref": "#/definitions/StatusCode",
+          "description": " Original status code. "
+        }
+      },
+      "type": "object",
+      "title": "ModelError"
+    },
+    "ServiceUnavailable": {
+      "description": " Service is unavailable. Try your call again. ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/Message"
+        }
+      },
+      "type": "object",
+      "title": "ServiceUnavailable"
+    },
+    "StatusCode": {
+      "type": "integer",
+      "title": "StatusCode"
+    },
+    "ValidationError": {
+      "description": " Inspect your request and try again. ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/Message"
+        }
+      },
+      "type": "object",
+      "title": "ValidationError"
+    }
+  },
+  "actions": [
+    {
+      "id": "InvokeEndpoint",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "EndpointName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/InvokeEndpointInput"
+          }
+        ],
+        "required": [
+          "EndpointName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/InvokeEndpointOutput"
+      },
+      "security": {
+        "amazonaws_runtime_sagemaker": {
+          "integration": "amazonaws_runtime_sagemaker"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

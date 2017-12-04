@@ -1,0 +1,993 @@
+{
+  "id": "haloapi_metadata",
+  "title": "Metadata",
+  "description": "API that provides Metadata information.",
+  "security": {
+    "haloapi_metadata": {
+      "integration": "haloapi_metadata",
+      "fields": {
+        "apiKeyHeader": "API key",
+        "apiKeyQuery": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/haloapi_metadata.jpeg"
+  },
+  "actionCount": 36,
+  "actions": [
+    {
+      "id": "h5.metadata.campaign_missions.get",
+      "title": "h5.metadata.campaign_missions.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Campaign Missions\" to \"Halo 5 - Campaign Missions\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.commendations.get",
+      "title": "h5.metadata.commendations.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Commendations\" to \"Halo 5 - Commendations\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.csr_designations.get",
+      "title": "h5.metadata.csr_designations.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"CSR Designations\" to \"Halo 5 - CSR Designations\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.enemies.get",
+      "title": "h5.metadata.enemies.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Enemies\" to \"Halo 5 - Enemies\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n\n\n\n\n**April 20, 2016:**\n\n*   Corrected documentation typo. The field \"largeIconImageUrl\" was incorrectly named \"lageIconImageUrl\".\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.flexible_stats.get",
+      "title": "h5.metadata.flexible_stats.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Flexible Stats\" to \"Halo 5 - Flexible Stats\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.game_base_variants.get",
+      "title": "h5.metadata.game_base_variants.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Game Base Variants\" to \"Halo 5 - Game Base Variants\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.game_variants.id.get",
+      "title": "h5.metadata.game_variants.id.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Game Variants\" to \"Halo 5 - Game Variant\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "An ID that uniquely identifies a Game Variant."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.impulses.get",
+      "title": "h5.metadata.impulses.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Impulses\" to \"Halo 5 - Impulses\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.map_variants.id.get",
+      "title": "h5.metadata.map_variants.id.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Map Variants\" to \"Halo 5 - Map Variant\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "An ID that uniquely identifies a Map Variant."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.maps.get",
+      "title": "h5.metadata.maps.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Maps\" to \"Halo 5 - Maps\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.medals.get",
+      "title": "h5.metadata.medals.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Medals\" to \"Halo 5 - Medals\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.playlists.get",
+      "title": "h5.metadata.playlists.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Playlists\" to \"Halo 5 - Playlists\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.requisition_packs.id.get",
+      "title": "h5.metadata.requisition_packs.id.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Requisition Packs\" to \"Halo 5 - Requisition Pack\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "An ID that uniquely identifies a Requisition Pack."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.requisitions.id.get",
+      "title": "h5.metadata.requisitions.id.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Requisitions\" to \"Halo 5 - Requisition\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "An ID that uniquely identifies a Requisition."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.seasons.get",
+      "title": "h5.metadata.seasons.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Seasons\" to \"Halo 5 - Seasons\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.skulls.get",
+      "title": "h5.metadata.skulls.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Skulls\" to \"Halo 5 - Skulls\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.spartan_ranks.get",
+      "title": "h5.metadata.spartan_ranks.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Spartan Ranks\" to \"Halo 5 - Spartan Ranks\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.team_colors.get",
+      "title": "h5.metadata.team_colors.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Team Colors\" to \"Halo 5 - Team Colors\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.vehicles.get",
+      "title": "h5.metadata.vehicles.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Vehicles\" to \"Halo 5 - Vehicles\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "h5.metadata.weapons.get",
+      "title": "h5.metadata.weapons.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Renamed Endpoint from \"Weapons\" to \"Halo 5 - Weapons\".\n*   Removed \"{title}\" Request Parameter.\n*   Documented \"Accept-Language\" Request Header.\n\n\n\n\n\n**April 26, 2016:**\n\n*   Corrected documentation issue. The documentation for the \"type\" field was incorrect.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.campaign_levels.get",
+      "title": "hw2.campaign_levels.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.campaign_logs.get",
+      "title": "hw2.campaign_logs.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.card_keywords.get",
+      "title": "hw2.card_keywords.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 22, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.cards.get",
+      "title": "hw2.cards.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.csr_designations.get",
+      "title": "hw2.csr_designations.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 22, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.difficulties.get",
+      "title": "hw2.difficulties.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.game_object_categories.get",
+      "title": "hw2.game_object_categories.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.game_objects.get",
+      "title": "hw2.game_objects.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.leader_powers.get",
+      "title": "hw2.leader_powers.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.leaders.get",
+      "title": "hw2.leaders.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.maps.get",
+      "title": "hw2.maps.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.packs.get",
+      "title": "hw2.packs.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.playlists.get",
+      "title": "hw2.playlists.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.seasons.get",
+      "title": "hw2.seasons.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.spartan_ranks.get",
+      "title": "hw2.spartan_ranks.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 27, 2017:**\n\n*   Updated documentation to clarify the relationship between the Spartan Rank content item and the Spartan Rank Display Info content item.\n\n\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    },
+    {
+      "id": "hw2.techs.get",
+      "title": "hw2.techs.get",
+      "description": "  \n\n#### Changelog\n\n\n\n**February 21, 2017:**\n\n*   Added Endpoint.\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "startAt": {
+            "type": "number",
+            "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "The desired language for the Metadata.",
+            "default": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "haloapi_metadata": {
+          "integration": "haloapi_metadata"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "entertainment"
+  ]
+}

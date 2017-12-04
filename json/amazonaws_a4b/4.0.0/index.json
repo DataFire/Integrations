@@ -1,0 +1,2716 @@
+{
+  "id": "amazonaws_a4b",
+  "title": "Alexa For Business",
+  "description": "Alexa for Business makes it easy for you to use Alexa in your organization. Alexa for Business gives you the tools you need to manage Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit, and the Alexa for Business APIs, and you can make these available as private skills for your organization. Alexa for Business also makes it easy to voice-enable your products and services, providing context-aware voice experiences for your customers.",
+  "security": {
+    "amazonaws_a4b": {
+      "integration": "amazonaws_a4b",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_a4b.jpeg"
+  },
+  "actionCount": 36,
+  "definitions": {
+    "Address": {
+      "maxLength": 500,
+      "minLength": 1,
+      "type": "string",
+      "title": "Address"
+    },
+    "AlreadyExistsException": {
+      "description": "The resource being created already exists. HTTP Status Code: 400",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "AlreadyExistsException"
+    },
+    "Arn": {
+      "pattern": "arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
+      "type": "string",
+      "title": "Arn"
+    },
+    "AssociateDeviceWithRoomRequest": {
+      "properties": {
+        "DeviceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the device to associate to a room. Required."
+        },
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room with which to associate the device. Required."
+        }
+      },
+      "type": "object",
+      "title": "AssociateDeviceWithRoomRequest"
+    },
+    "AssociateDeviceWithRoomResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "AssociateDeviceWithRoomResponse"
+    },
+    "AssociateSkillGroupWithRoomRequest": {
+      "properties": {
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room with which to associate the skill group. Required."
+        },
+        "SkillGroupArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the skill group to associate with a room. Required."
+        }
+      },
+      "type": "object",
+      "title": "AssociateSkillGroupWithRoomRequest"
+    },
+    "AssociateSkillGroupWithRoomResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "AssociateSkillGroupWithRoomResponse"
+    },
+    "Boolean": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "ClientRequestToken": {
+      "description": "User specified token that is used to support idempotency during Create Resource",
+      "maxLength": 150,
+      "minLength": 10,
+      "pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*",
+      "type": "string",
+      "title": "ClientRequestToken"
+    },
+    "CreateProfileRequest": {
+      "properties": {
+        "Address": {
+          "$ref": "#/definitions/Address",
+          "description": "The valid address for the room."
+        },
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "The user-specified token that is used during the creation of a profile."
+        },
+        "DistanceUnit": {
+          "$ref": "#/definitions/DistanceUnit",
+          "description": "The distance unit to be used by devices in the profile."
+        },
+        "MaxVolumeLimit": {
+          "$ref": "#/definitions/MaxVolumeLimit",
+          "description": "The maximum volume limit for a room profile."
+        },
+        "PSTNEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether PSTN calling is enabled."
+        },
+        "ProfileName": {
+          "$ref": "#/definitions/ProfileName",
+          "description": "The name of a room profile."
+        },
+        "SetupModeDisabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether room profile setup is enabled."
+        },
+        "TemperatureUnit": {
+          "$ref": "#/definitions/TemperatureUnit",
+          "description": "The temperature unit to be used by devices in the profile."
+        },
+        "Timezone": {
+          "$ref": "#/definitions/Timezone",
+          "description": "The time zone used by a room profile."
+        },
+        "WakeWord": {
+          "$ref": "#/definitions/WakeWord",
+          "description": "A wake word for Alexa, Echo, Amazon, or a computer."
+        }
+      },
+      "required": [
+        "ProfileName",
+        "Timezone",
+        "Address",
+        "DistanceUnit",
+        "TemperatureUnit",
+        "WakeWord"
+      ],
+      "type": "object",
+      "title": "CreateProfileRequest"
+    },
+    "CreateProfileResponse": {
+      "properties": {
+        "ProfileArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the newly created room profile in the response."
+        }
+      },
+      "type": "object",
+      "title": "CreateProfileResponse"
+    },
+    "CreateRoomRequest": {
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A unique, user-specified identifier for this request that ensures idempotency. "
+        },
+        "Description": {
+          "$ref": "#/definitions/RoomDescription",
+          "description": "The description for the room."
+        },
+        "ProfileArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The profile ARN for the room."
+        },
+        "ProviderCalendarId": {
+          "$ref": "#/definitions/ProviderCalendarId",
+          "description": "The calendar ARN for the room."
+        },
+        "RoomName": {
+          "$ref": "#/definitions/RoomName",
+          "description": "The name for the room."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tags for the room."
+        }
+      },
+      "required": [
+        "RoomName"
+      ],
+      "type": "object",
+      "title": "CreateRoomRequest"
+    },
+    "CreateRoomResponse": {
+      "properties": {
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the newly created room in the response."
+        }
+      },
+      "type": "object",
+      "title": "CreateRoomResponse"
+    },
+    "CreateSkillGroupRequest": {
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A unique, user-specified identifier for this request that ensures idempotency. "
+        },
+        "Description": {
+          "$ref": "#/definitions/SkillGroupDescription",
+          "description": "The description for the skill group."
+        },
+        "SkillGroupName": {
+          "$ref": "#/definitions/SkillGroupName",
+          "description": "The name for the skill group."
+        }
+      },
+      "required": [
+        "SkillGroupName"
+      ],
+      "type": "object",
+      "title": "CreateSkillGroupRequest"
+    },
+    "CreateSkillGroupResponse": {
+      "properties": {
+        "SkillGroupArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the newly created skill group in the response."
+        }
+      },
+      "type": "object",
+      "title": "CreateSkillGroupResponse"
+    },
+    "CreateUserRequest": {
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A unique, user-specified identifier for this request that ensures idempotency. "
+        },
+        "Email": {
+          "$ref": "#/definitions/Email",
+          "description": "The email address for the user."
+        },
+        "FirstName": {
+          "$ref": "#/definitions/user_FirstName",
+          "description": "The first name for the user."
+        },
+        "LastName": {
+          "$ref": "#/definitions/user_LastName",
+          "description": "The last name for the user."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tags for the user."
+        },
+        "UserId": {
+          "$ref": "#/definitions/user_UserId",
+          "description": "The ARN for the user."
+        }
+      },
+      "required": [
+        "UserId"
+      ],
+      "type": "object",
+      "title": "CreateUserRequest"
+    },
+    "CreateUserResponse": {
+      "properties": {
+        "UserArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the newly created user in the response."
+        }
+      },
+      "type": "object",
+      "title": "CreateUserResponse"
+    },
+    "DeleteProfileRequest": {
+      "properties": {
+        "ProfileArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room profile to delete. Required."
+        }
+      },
+      "type": "object",
+      "title": "DeleteProfileRequest"
+    },
+    "DeleteProfileResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteProfileResponse"
+    },
+    "DeleteRoomRequest": {
+      "properties": {
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room to delete. Required."
+        }
+      },
+      "type": "object",
+      "title": "DeleteRoomRequest"
+    },
+    "DeleteRoomResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteRoomResponse"
+    },
+    "DeleteRoomSkillParameterRequest": {
+      "properties": {
+        "ParameterKey": {
+          "$ref": "#/definitions/RoomSkillParameterKey",
+          "description": "The room skill parameter key for which to remove details."
+        },
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room from which to remove the room skill parameter details."
+        },
+        "SkillId": {
+          "$ref": "#/definitions/SkillId",
+          "description": "The ID of the skill from which to remove the room skill parameter details."
+        }
+      },
+      "required": [
+        "SkillId",
+        "ParameterKey"
+      ],
+      "type": "object",
+      "title": "DeleteRoomSkillParameterRequest"
+    },
+    "DeleteRoomSkillParameterResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteRoomSkillParameterResponse"
+    },
+    "DeleteSkillGroupRequest": {
+      "properties": {
+        "SkillGroupArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the skill group to delete. Required."
+        }
+      },
+      "type": "object",
+      "title": "DeleteSkillGroupRequest"
+    },
+    "DeleteSkillGroupResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteSkillGroupResponse"
+    },
+    "DeleteUserRequest": {
+      "properties": {
+        "EnrollmentId": {
+          "$ref": "#/definitions/EnrollmentId",
+          "description": "The ARN of the user's enrollment in the organization. Required."
+        },
+        "UserArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the user to delete in the organization. Required."
+        }
+      },
+      "required": [
+        "EnrollmentId"
+      ],
+      "type": "object",
+      "title": "DeleteUserRequest"
+    },
+    "DeleteUserResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteUserResponse"
+    },
+    "Device": {
+      "description": "A device with attributes.",
+      "properties": {
+        "DeviceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of a device."
+        },
+        "DeviceName": {
+          "$ref": "#/definitions/DeviceName",
+          "description": "The name of a device."
+        },
+        "DeviceSerialNumber": {
+          "$ref": "#/definitions/DeviceSerialNumber",
+          "description": "The serial number of a device."
+        },
+        "DeviceStatus": {
+          "$ref": "#/definitions/DeviceStatus",
+          "description": "The status of a device."
+        },
+        "DeviceType": {
+          "$ref": "#/definitions/DeviceType",
+          "description": "The type of a device."
+        },
+        "MacAddress": {
+          "$ref": "#/definitions/MacAddress",
+          "description": "The MAC address of a device."
+        },
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The room ARN of a device."
+        },
+        "SoftwareVersion": {
+          "$ref": "#/definitions/SoftwareVersion",
+          "description": "The software version of a device."
+        }
+      },
+      "type": "object",
+      "title": "Device"
+    },
+    "DeviceData": {
+      "description": "Device attributes.",
+      "properties": {
+        "DeviceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of a device."
+        },
+        "DeviceName": {
+          "$ref": "#/definitions/DeviceName",
+          "description": "The name of a device."
+        },
+        "DeviceSerialNumber": {
+          "$ref": "#/definitions/DeviceSerialNumber",
+          "description": "The serial number of a device."
+        },
+        "DeviceStatus": {
+          "$ref": "#/definitions/DeviceStatus",
+          "description": "The status of a device."
+        },
+        "DeviceType": {
+          "$ref": "#/definitions/DeviceType",
+          "description": "The type of a device."
+        },
+        "MacAddress": {
+          "$ref": "#/definitions/MacAddress",
+          "description": "The MAC address of a device."
+        },
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The room ARN associated with a device."
+        },
+        "RoomName": {
+          "$ref": "#/definitions/RoomName",
+          "description": "The name of the room associated with a device."
+        },
+        "SoftwareVersion": {
+          "$ref": "#/definitions/SoftwareVersion",
+          "description": "The software version of a device."
+        }
+      },
+      "type": "object",
+      "title": "DeviceData"
+    },
+    "DeviceDataList": {
+      "items": {
+        "$ref": "#/definitions/DeviceData"
+      },
+      "type": "array",
+      "title": "DeviceDataList"
+    },
+    "DeviceName": {
+      "maxLength": 100,
+      "minLength": 2,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+      "type": "string",
+      "title": "DeviceName"
+    },
+    "DeviceSerialNumber": {
+      "pattern": "[a-zA-Z0-9]{1,200}",
+      "type": "string",
+      "title": "DeviceSerialNumber"
+    },
+    "DeviceStatus": {
+      "enum": [
+        "READY",
+        "PENDING",
+        "WAS_OFFLINE"
+      ],
+      "type": "string",
+      "title": "DeviceStatus"
+    },
+    "DeviceType": {
+      "pattern": "[a-zA-Z0-9]{1,200}",
+      "type": "string",
+      "title": "DeviceType"
+    },
+    "DisassociateDeviceFromRoomRequest": {
+      "properties": {
+        "DeviceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the device to disassociate from a room. Required."
+        }
+      },
+      "type": "object",
+      "title": "DisassociateDeviceFromRoomRequest"
+    },
+    "DisassociateDeviceFromRoomResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DisassociateDeviceFromRoomResponse"
+    },
+    "DisassociateSkillGroupFromRoomRequest": {
+      "properties": {
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room from which the skill group is to be disassociated. Required."
+        },
+        "SkillGroupArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the skill group to disassociate from a room. Required."
+        }
+      },
+      "type": "object",
+      "title": "DisassociateSkillGroupFromRoomRequest"
+    },
+    "DisassociateSkillGroupFromRoomResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DisassociateSkillGroupFromRoomResponse"
+    },
+    "DistanceUnit": {
+      "enum": [
+        "METRIC",
+        "IMPERIAL"
+      ],
+      "type": "string",
+      "title": "DistanceUnit"
+    },
+    "Email": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "([0-9a-zA-Z]([+-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})",
+      "type": "string",
+      "title": "Email"
+    },
+    "EnrollmentId": {
+      "maxLength": 128,
+      "minLength": 0,
+      "type": "string",
+      "title": "EnrollmentId"
+    },
+    "EnrollmentStatus": {
+      "enum": [
+        "INITIALIZED",
+        "PENDING",
+        "REGISTERED",
+        "DEREGISTERING"
+      ],
+      "type": "string",
+      "title": "EnrollmentStatus"
+    },
+    "ErrorMessage": {
+      "type": "string",
+      "title": "ErrorMessage"
+    },
+    "Feature": {
+      "enum": [
+        "BLUETOOTH",
+        "VOLUME",
+        "NOTIFICATIONS",
+        "LISTS",
+        "SKILLS",
+        "ALL"
+      ],
+      "type": "string",
+      "title": "Feature"
+    },
+    "Features": {
+      "items": {
+        "$ref": "#/definitions/Feature"
+      },
+      "type": "array",
+      "title": "Features"
+    },
+    "Filter": {
+      "description": "A filter name and value pair that is used to return a more specific list of results. Filters can be used to match a set of resources by various criteria.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/FilterKey",
+          "description": "The key of a filter."
+        },
+        "Values": {
+          "$ref": "#/definitions/FilterValueList",
+          "description": "The values of a filter."
+        }
+      },
+      "required": [
+        "Key",
+        "Values"
+      ],
+      "type": "object",
+      "title": "Filter"
+    },
+    "FilterKey": {
+      "maxLength": 500,
+      "minLength": 1,
+      "type": "string",
+      "title": "FilterKey"
+    },
+    "FilterList": {
+      "items": {
+        "$ref": "#/definitions/Filter"
+      },
+      "maxItems": 25,
+      "type": "array",
+      "title": "FilterList"
+    },
+    "FilterValue": {
+      "maxLength": 500,
+      "minLength": 1,
+      "type": "string",
+      "title": "FilterValue"
+    },
+    "FilterValueList": {
+      "items": {
+        "$ref": "#/definitions/FilterValue"
+      },
+      "maxItems": 5,
+      "type": "array",
+      "title": "FilterValueList"
+    },
+    "GetDeviceRequest": {
+      "properties": {
+        "DeviceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the device for which to request details. Required."
+        }
+      },
+      "type": "object",
+      "title": "GetDeviceRequest"
+    },
+    "GetDeviceResponse": {
+      "properties": {
+        "Device": {
+          "$ref": "#/definitions/Device",
+          "description": "The details of the device requested. Required."
+        }
+      },
+      "type": "object",
+      "title": "GetDeviceResponse"
+    },
+    "GetProfileRequest": {
+      "properties": {
+        "ProfileArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room profile for which to request details. Required."
+        }
+      },
+      "type": "object",
+      "title": "GetProfileRequest"
+    },
+    "GetProfileResponse": {
+      "properties": {
+        "Profile": {
+          "$ref": "#/definitions/Profile",
+          "description": "The details of the room profile requested. Required."
+        }
+      },
+      "type": "object",
+      "title": "GetProfileResponse"
+    },
+    "GetRoomRequest": {
+      "properties": {
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room for which to request details. Required."
+        }
+      },
+      "type": "object",
+      "title": "GetRoomRequest"
+    },
+    "GetRoomResponse": {
+      "properties": {
+        "Room": {
+          "$ref": "#/definitions/Room",
+          "description": "The details of the room requested."
+        }
+      },
+      "type": "object",
+      "title": "GetRoomResponse"
+    },
+    "GetRoomSkillParameterRequest": {
+      "properties": {
+        "ParameterKey": {
+          "$ref": "#/definitions/RoomSkillParameterKey",
+          "description": "The room skill parameter key for which to get details. Required."
+        },
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room from which to get the room skill parameter details. "
+        },
+        "SkillId": {
+          "$ref": "#/definitions/SkillId",
+          "description": "The ARN of the skill from which to get the room skill parameter details. Required."
+        }
+      },
+      "required": [
+        "SkillId",
+        "ParameterKey"
+      ],
+      "type": "object",
+      "title": "GetRoomSkillParameterRequest"
+    },
+    "GetRoomSkillParameterResponse": {
+      "properties": {
+        "RoomSkillParameter": {
+          "$ref": "#/definitions/RoomSkillParameter",
+          "description": "The details of the room skill parameter requested. Required."
+        }
+      },
+      "type": "object",
+      "title": "GetRoomSkillParameterResponse"
+    },
+    "GetSkillGroupRequest": {
+      "properties": {
+        "SkillGroupArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the skill group for which to get details. Required."
+        }
+      },
+      "type": "object",
+      "title": "GetSkillGroupRequest"
+    },
+    "GetSkillGroupResponse": {
+      "properties": {
+        "SkillGroup": {
+          "$ref": "#/definitions/SkillGroup",
+          "description": "The details of the skill group requested. Required."
+        }
+      },
+      "type": "object",
+      "title": "GetSkillGroupResponse"
+    },
+    "InvalidUserStatusException": {
+      "description": "The attempt to update a user is invalid due to the user's current status. HTTP Status Code: 400",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidUserStatusException"
+    },
+    "LimitExceededException": {
+      "description": "You are performing an action that would put you beyond your account's limits. HTTP Status Code: 400",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListSkillsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/SkillListMaxResults",
+          "description": "The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved. Required."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>. Required."
+        },
+        "SkillGroupArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the skill group for which to list enabled skills. Required."
+        }
+      },
+      "type": "object",
+      "title": "ListSkillsRequest"
+    },
+    "ListSkillsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token returned to indicate that there is more data available."
+        },
+        "SkillSummaries": {
+          "$ref": "#/definitions/SkillSummaryList",
+          "description": "The list of enabled skills requested. Required."
+        }
+      },
+      "type": "object",
+      "title": "ListSkillsResponse"
+    },
+    "ListTagsRequest": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the specific resource for which to list tags. Required."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>. "
+        }
+      },
+      "required": [
+        "Arn"
+      ],
+      "type": "object",
+      "title": "ListTagsRequest"
+    },
+    "ListTagsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token returned to indicate that there is more data available."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The list of tags requested for the specific resource."
+        }
+      },
+      "type": "object",
+      "title": "ListTagsResponse"
+    },
+    "MacAddress": {
+      "type": "string",
+      "title": "MacAddress"
+    },
+    "MaxResults": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxResults"
+    },
+    "MaxVolumeLimit": {
+      "type": "integer",
+      "title": "MaxVolumeLimit"
+    },
+    "NameInUseException": {
+      "description": "The name sent in the request is already in use. HTTP Status Code: 400",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "NameInUseException"
+    },
+    "NextToken": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string",
+      "title": "NextToken"
+    },
+    "NotFoundException": {
+      "description": "The resource is not found. HTTP Status Code: 400",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "NotFoundException"
+    },
+    "Profile": {
+      "description": "A room profile with attributes.",
+      "properties": {
+        "Address": {
+          "$ref": "#/definitions/Address",
+          "description": "The address of a room profile."
+        },
+        "DistanceUnit": {
+          "$ref": "#/definitions/DistanceUnit",
+          "description": "The distance unit of a room profile."
+        },
+        "MaxVolumeLimit": {
+          "$ref": "#/definitions/MaxVolumeLimit",
+          "description": "The max volume limit of a room profile."
+        },
+        "PSTNEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "The PSTN setting of a room profile."
+        },
+        "ProfileArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of a room profile."
+        },
+        "ProfileName": {
+          "$ref": "#/definitions/ProfileName",
+          "description": "The name of a room profile."
+        },
+        "SetupModeDisabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "The setup mode of a room profile."
+        },
+        "TemperatureUnit": {
+          "$ref": "#/definitions/TemperatureUnit",
+          "description": "The temperature unit of a room profile."
+        },
+        "Timezone": {
+          "$ref": "#/definitions/Timezone",
+          "description": "The time zone of a room profile."
+        },
+        "WakeWord": {
+          "$ref": "#/definitions/WakeWord",
+          "description": "The wake word of a room profile."
+        }
+      },
+      "type": "object",
+      "title": "Profile"
+    },
+    "ProfileData": {
+      "description": "The data of a room profile.",
+      "properties": {
+        "Address": {
+          "$ref": "#/definitions/Address",
+          "description": "The address of a room profile."
+        },
+        "DistanceUnit": {
+          "$ref": "#/definitions/DistanceUnit",
+          "description": "The distance unit of a room profile."
+        },
+        "ProfileArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of a room profile."
+        },
+        "ProfileName": {
+          "$ref": "#/definitions/ProfileName",
+          "description": "The name of a room profile."
+        },
+        "TemperatureUnit": {
+          "$ref": "#/definitions/TemperatureUnit",
+          "description": "The temperature unit of a room profile."
+        },
+        "Timezone": {
+          "$ref": "#/definitions/Timezone",
+          "description": "The timezone of a room profile."
+        },
+        "WakeWord": {
+          "$ref": "#/definitions/WakeWord",
+          "description": "The wake word of a room profile."
+        }
+      },
+      "type": "object",
+      "title": "ProfileData"
+    },
+    "ProfileDataList": {
+      "items": {
+        "$ref": "#/definitions/ProfileData"
+      },
+      "type": "array",
+      "title": "ProfileDataList"
+    },
+    "ProfileName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+      "type": "string",
+      "title": "ProfileName"
+    },
+    "ProviderCalendarId": {
+      "maxLength": 100,
+      "minLength": 0,
+      "type": "string",
+      "title": "ProviderCalendarId"
+    },
+    "PutRoomSkillParameterRequest": {
+      "properties": {
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room associated with the room skill parameter. Required."
+        },
+        "RoomSkillParameter": {
+          "$ref": "#/definitions/RoomSkillParameter",
+          "description": "The updated room skill parameter. Required."
+        },
+        "SkillId": {
+          "$ref": "#/definitions/SkillId",
+          "description": "The ARN of the skill associated with the room skill parameter. Required."
+        }
+      },
+      "required": [
+        "SkillId",
+        "RoomSkillParameter"
+      ],
+      "type": "object",
+      "title": "PutRoomSkillParameterRequest"
+    },
+    "PutRoomSkillParameterResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "PutRoomSkillParameterResponse"
+    },
+    "ResolveRoomRequest": {
+      "properties": {
+        "SkillId": {
+          "$ref": "#/definitions/SkillId",
+          "description": "The ARN of the skill that was requested. Required."
+        },
+        "UserId": {
+          "$ref": "#/definitions/UserId",
+          "description": "The ARN of the user. Required."
+        }
+      },
+      "required": [
+        "UserId",
+        "SkillId"
+      ],
+      "type": "object",
+      "title": "ResolveRoomRequest"
+    },
+    "ResolveRoomResponse": {
+      "properties": {
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room from which the skill request was invoked."
+        },
+        "RoomName": {
+          "$ref": "#/definitions/RoomName",
+          "description": "The name of the room from which the skill request was invoked."
+        },
+        "RoomSkillParameters": {
+          "$ref": "#/definitions/RoomSkillParameters",
+          "description": "Response to get the room profile request. Required."
+        }
+      },
+      "type": "object",
+      "title": "ResolveRoomResponse"
+    },
+    "ResourceInUseException": {
+      "description": "The resource in the request is already in use. HTTP Status Code: 400",
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ResourceInUseException"
+    },
+    "RevokeInvitationRequest": {
+      "properties": {
+        "EnrollmentId": {
+          "$ref": "#/definitions/EnrollmentId",
+          "description": "The ARN of the enrollment invitation to revoke. Required."
+        },
+        "UserArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the user for whom to revoke an enrollment invitation. Required."
+        }
+      },
+      "type": "object",
+      "title": "RevokeInvitationRequest"
+    },
+    "RevokeInvitationResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "RevokeInvitationResponse"
+    },
+    "Room": {
+      "description": "A room with attributes.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/RoomDescription",
+          "description": "The description of a room."
+        },
+        "ProfileArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The profile ARN of a room."
+        },
+        "ProviderCalendarId": {
+          "$ref": "#/definitions/ProviderCalendarId",
+          "description": "The provider calendar ARN of a room."
+        },
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of a room."
+        },
+        "RoomName": {
+          "$ref": "#/definitions/RoomName",
+          "description": "The name of a room."
+        }
+      },
+      "type": "object",
+      "title": "Room"
+    },
+    "RoomData": {
+      "description": "The data of a room.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/RoomDescription",
+          "description": "The description of a room."
+        },
+        "ProfileArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The profile ARN of a room."
+        },
+        "ProfileName": {
+          "$ref": "#/definitions/ProfileName",
+          "description": "The profile name of a room."
+        },
+        "ProviderCalendarId": {
+          "$ref": "#/definitions/ProviderCalendarId",
+          "description": "The provider calendar ARN of a room."
+        },
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of a room."
+        },
+        "RoomName": {
+          "$ref": "#/definitions/RoomName",
+          "description": "The name of a room."
+        }
+      },
+      "type": "object",
+      "title": "RoomData"
+    },
+    "RoomDataList": {
+      "items": {
+        "$ref": "#/definitions/RoomData"
+      },
+      "type": "array",
+      "title": "RoomDataList"
+    },
+    "RoomDescription": {
+      "maxLength": 200,
+      "minLength": 1,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+      "type": "string",
+      "title": "RoomDescription"
+    },
+    "RoomName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+      "type": "string",
+      "title": "RoomName"
+    },
+    "RoomSkillParameter": {
+      "description": "A skill parameter associated with a room.",
+      "properties": {
+        "ParameterKey": {
+          "$ref": "#/definitions/RoomSkillParameterKey",
+          "description": "The parameter key of a room skill parameter. ParameterKey is an enumerated type that only takes “DEFAULT” or “SCOPE” as valid values."
+        },
+        "ParameterValue": {
+          "$ref": "#/definitions/RoomSkillParameterValue",
+          "description": "The parameter value of a room skill parameter."
+        }
+      },
+      "required": [
+        "ParameterKey",
+        "ParameterValue"
+      ],
+      "type": "object",
+      "title": "RoomSkillParameter"
+    },
+    "RoomSkillParameterKey": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string",
+      "title": "RoomSkillParameterKey"
+    },
+    "RoomSkillParameterValue": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string",
+      "title": "RoomSkillParameterValue"
+    },
+    "RoomSkillParameters": {
+      "items": {
+        "$ref": "#/definitions/RoomSkillParameter"
+      },
+      "type": "array",
+      "title": "RoomSkillParameters"
+    },
+    "SearchDevicesRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "The filters to use to list a specified set of devices. Supported filter keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, and UnassociatedOnly."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+        },
+        "SortCriteria": {
+          "$ref": "#/definitions/SortList",
+          "description": "The sort order to use in listing the specified set of devices. Supported sort keys are DeviceName, DeviceStatus, RoomName, DeviceType, and DeviceSerialNumber."
+        }
+      },
+      "type": "object",
+      "title": "SearchDevicesRequest"
+    },
+    "SearchDevicesResponse": {
+      "properties": {
+        "Devices": {
+          "$ref": "#/definitions/DeviceDataList",
+          "description": "The devices that meet the specified set of filter criteria, in sort order."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token returned to indicate that there is more data available."
+        },
+        "TotalCount": {
+          "$ref": "#/definitions/TotalCount",
+          "description": "The total number of devices returned."
+        }
+      },
+      "type": "object",
+      "title": "SearchDevicesResponse"
+    },
+    "SearchProfilesRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "The filters to use to list a specified set of room profiles. Supported filter keys are ProfileName and Address. Required. "
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+        },
+        "SortCriteria": {
+          "$ref": "#/definitions/SortList",
+          "description": "The sort order to use in listing the specified set of room profiles. Supported sort keys are ProfileName and Address."
+        }
+      },
+      "type": "object",
+      "title": "SearchProfilesRequest"
+    },
+    "SearchProfilesResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token returned to indicate that there is more data available."
+        },
+        "Profiles": {
+          "$ref": "#/definitions/ProfileDataList",
+          "description": "The profiles that meet the specified set of filter criteria, in sort order."
+        },
+        "TotalCount": {
+          "$ref": "#/definitions/TotalCount",
+          "description": "The total number of room profiles returned."
+        }
+      },
+      "type": "object",
+      "title": "SearchProfilesResponse"
+    },
+    "SearchRoomsRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "The filters to use to list a specified set of rooms. The supported filter keys are RoomName and ProfileName."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved. "
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>."
+        },
+        "SortCriteria": {
+          "$ref": "#/definitions/SortList",
+          "description": "The sort order to use in listing the specified set of rooms. The supported sort keys are RoomName and ProfileName."
+        }
+      },
+      "type": "object",
+      "title": "SearchRoomsRequest"
+    },
+    "SearchRoomsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token returned to indicate that there is more data available."
+        },
+        "Rooms": {
+          "$ref": "#/definitions/RoomDataList",
+          "description": "The rooms that meet the specified set of filter criteria, in sort order."
+        },
+        "TotalCount": {
+          "$ref": "#/definitions/TotalCount",
+          "description": "The total number of rooms returned."
+        }
+      },
+      "type": "object",
+      "title": "SearchRoomsResponse"
+    },
+    "SearchSkillGroupsRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "The filters to use to list a specified set of skill groups. The supported filter key is SkillGroupName. "
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved. "
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>. Required."
+        },
+        "SortCriteria": {
+          "$ref": "#/definitions/SortList",
+          "description": "The sort order to use in listing the specified set of skill groups. The supported sort key is SkillGroupName. "
+        }
+      },
+      "type": "object",
+      "title": "SearchSkillGroupsRequest"
+    },
+    "SearchSkillGroupsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token returned to indicate that there is more data available."
+        },
+        "SkillGroups": {
+          "$ref": "#/definitions/SkillGroupDataList",
+          "description": "The skill groups that meet the filter criteria, in sort order."
+        },
+        "TotalCount": {
+          "$ref": "#/definitions/TotalCount",
+          "description": "The total number of skill groups returned."
+        }
+      },
+      "type": "object",
+      "title": "SearchSkillGroupsResponse"
+    },
+    "SearchUsersRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "The filters to use for listing a specific set of users. Required. Supported filter keys are UserId, FirstName, LastName, Email, and EnrollmentStatus."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved. Required."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>. Required."
+        },
+        "SortCriteria": {
+          "$ref": "#/definitions/SortList",
+          "description": "The sort order to use in listing the filtered set of users. Required. Supported sort keys are UserId, FirstName, LastName, Email, and EnrollmentStatus."
+        }
+      },
+      "type": "object",
+      "title": "SearchUsersRequest"
+    },
+    "SearchUsersResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token returned to indicate that there is more data available."
+        },
+        "TotalCount": {
+          "$ref": "#/definitions/TotalCount",
+          "description": "The total number of users returned."
+        },
+        "Users": {
+          "$ref": "#/definitions/UserDataList",
+          "description": "The users that meet the specified set of filter criteria, in sort order."
+        }
+      },
+      "type": "object",
+      "title": "SearchUsersResponse"
+    },
+    "SendInvitationRequest": {
+      "properties": {
+        "UserArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the user to whom to send an invitation. Required."
+        }
+      },
+      "type": "object",
+      "title": "SendInvitationRequest"
+    },
+    "SendInvitationResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "SendInvitationResponse"
+    },
+    "SkillGroup": {
+      "description": "A skill group with attributes.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/SkillGroupDescription",
+          "description": "The description of a skill group."
+        },
+        "SkillGroupArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of a skill group."
+        },
+        "SkillGroupName": {
+          "$ref": "#/definitions/SkillGroupName",
+          "description": "The name of a skill group."
+        }
+      },
+      "type": "object",
+      "title": "SkillGroup"
+    },
+    "SkillGroupData": {
+      "description": "The attributes of a skill group.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/SkillGroupDescription",
+          "description": "The description of a skill group."
+        },
+        "SkillGroupArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The skill group ARN of a skill group."
+        },
+        "SkillGroupName": {
+          "$ref": "#/definitions/SkillGroupName",
+          "description": "The skill group name of a skill group."
+        }
+      },
+      "type": "object",
+      "title": "SkillGroupData"
+    },
+    "SkillGroupDataList": {
+      "items": {
+        "$ref": "#/definitions/SkillGroupData"
+      },
+      "type": "array",
+      "title": "SkillGroupDataList"
+    },
+    "SkillGroupDescription": {
+      "maxLength": 200,
+      "minLength": 1,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+      "type": "string",
+      "title": "SkillGroupDescription"
+    },
+    "SkillGroupName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+      "type": "string",
+      "title": "SkillGroupName"
+    },
+    "SkillId": {
+      "pattern": "(^amzn1\\.ask\\.skill\\.[0-9a-f\\-]{1,200})|(^amzn1\\.echo-sdk-ams\\.app\\.[0-9a-f\\-]{1,200})",
+      "type": "string",
+      "title": "SkillId"
+    },
+    "SkillListMaxResults": {
+      "maximum": 10,
+      "minimum": 1,
+      "type": "integer",
+      "title": "SkillListMaxResults"
+    },
+    "SkillName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+      "type": "string",
+      "title": "SkillName"
+    },
+    "SkillSummary": {
+      "description": "The summary of skills.",
+      "properties": {
+        "SkillId": {
+          "$ref": "#/definitions/SkillId",
+          "description": "The ARN of the skill summary."
+        },
+        "SkillName": {
+          "$ref": "#/definitions/SkillName",
+          "description": "The name of the skill."
+        },
+        "SupportsLinking": {
+          "$ref": "#/definitions/boolean",
+          "description": "Linking support for a skill."
+        }
+      },
+      "type": "object",
+      "title": "SkillSummary"
+    },
+    "SkillSummaryList": {
+      "items": {
+        "$ref": "#/definitions/SkillSummary"
+      },
+      "type": "array",
+      "title": "SkillSummaryList"
+    },
+    "SoftwareVersion": {
+      "type": "string",
+      "title": "SoftwareVersion"
+    },
+    "Sort": {
+      "description": "An object representing a sort criteria. ",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/SortKey",
+          "description": "The sort key of a sort object."
+        },
+        "Value": {
+          "$ref": "#/definitions/SortValue",
+          "description": "The sort value of a sort object."
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object",
+      "title": "Sort"
+    },
+    "SortKey": {
+      "maxLength": 500,
+      "minLength": 1,
+      "type": "string",
+      "title": "SortKey"
+    },
+    "SortList": {
+      "items": {
+        "$ref": "#/definitions/Sort"
+      },
+      "maxItems": 25,
+      "type": "array",
+      "title": "SortList"
+    },
+    "SortValue": {
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "type": "string",
+      "title": "SortValue"
+    },
+    "StartDeviceSyncRequest": {
+      "properties": {
+        "DeviceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the device to sync. Required."
+        },
+        "Features": {
+          "$ref": "#/definitions/Features",
+          "description": "Request structure to start the device sync. Required."
+        },
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room with which the device to sync is associated. Required."
+        }
+      },
+      "required": [
+        "Features"
+      ],
+      "type": "object",
+      "title": "StartDeviceSyncRequest"
+    },
+    "StartDeviceSyncResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "StartDeviceSyncResponse"
+    },
+    "Tag": {
+      "description": "A key-value pair that can be associated with a resource. ",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "The key of a tag. Tag keys are case-sensitive. "
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "The value of a tag. Tag values are case-sensitive and can be null."
+        }
+      },
+      "type": "object",
+      "title": "Tag"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array",
+      "title": "TagKeyList"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array",
+      "title": "TagList"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the resource to which to add metadata tags. Required. "
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tags to be added to the specified resource. Do not provide system tags. Required. "
+        }
+      },
+      "required": [
+        "Arn",
+        "Tags"
+      ],
+      "type": "object",
+      "title": "TagResourceRequest"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "TagResourceResponse"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string",
+      "title": "TagValue"
+    },
+    "TemperatureUnit": {
+      "enum": [
+        "FAHRENHEIT",
+        "CELSIUS"
+      ],
+      "type": "string",
+      "title": "TemperatureUnit"
+    },
+    "Timezone": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string",
+      "title": "Timezone"
+    },
+    "TotalCount": {
+      "type": "integer",
+      "title": "TotalCount"
+    },
+    "UntagResourceRequest": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the resource from which to remove metadata tags. Required. "
+        },
+        "TagKeys": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "The tags to be removed from the specified resource. Do not provide system tags. Required. "
+        }
+      },
+      "required": [
+        "Arn",
+        "TagKeys"
+      ],
+      "type": "object",
+      "title": "UntagResourceRequest"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UntagResourceResponse"
+    },
+    "UpdateDeviceRequest": {
+      "properties": {
+        "DeviceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the device to update. Required."
+        },
+        "DeviceName": {
+          "$ref": "#/definitions/DeviceName",
+          "description": "The updated device name. Required."
+        }
+      },
+      "type": "object",
+      "title": "UpdateDeviceRequest"
+    },
+    "UpdateDeviceResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateDeviceResponse"
+    },
+    "UpdateProfileRequest": {
+      "properties": {
+        "Address": {
+          "$ref": "#/definitions/Address",
+          "description": "The updated address for the room profile."
+        },
+        "DistanceUnit": {
+          "$ref": "#/definitions/DistanceUnit",
+          "description": "The updated distance unit for the room profile."
+        },
+        "MaxVolumeLimit": {
+          "$ref": "#/definitions/MaxVolumeLimit",
+          "description": "The updated maximum volume limit for the room profile."
+        },
+        "PSTNEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the PSTN setting of the room profile is enabled."
+        },
+        "ProfileArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room profile to update. Required."
+        },
+        "ProfileName": {
+          "$ref": "#/definitions/ProfileName",
+          "description": "The updated name for the room profile."
+        },
+        "SetupModeDisabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the setup mode of the profile is enabled."
+        },
+        "TemperatureUnit": {
+          "$ref": "#/definitions/TemperatureUnit",
+          "description": "The updated temperature unit for the room profile."
+        },
+        "Timezone": {
+          "$ref": "#/definitions/Timezone",
+          "description": "The updated timezone for the room profile."
+        },
+        "WakeWord": {
+          "$ref": "#/definitions/WakeWord",
+          "description": "The updated wake word for the room profile."
+        }
+      },
+      "type": "object",
+      "title": "UpdateProfileRequest"
+    },
+    "UpdateProfileResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateProfileResponse"
+    },
+    "UpdateRoomRequest": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/RoomDescription",
+          "description": "The updated description for the room."
+        },
+        "ProfileArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The updated profile ARN for the room."
+        },
+        "ProviderCalendarId": {
+          "$ref": "#/definitions/ProviderCalendarId",
+          "description": "The updated provider calendar ARN for the room."
+        },
+        "RoomArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the room to update. "
+        },
+        "RoomName": {
+          "$ref": "#/definitions/RoomName",
+          "description": "The updated name for the room."
+        }
+      },
+      "type": "object",
+      "title": "UpdateRoomRequest"
+    },
+    "UpdateRoomResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateRoomResponse"
+    },
+    "UpdateSkillGroupRequest": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/SkillGroupDescription",
+          "description": "The updated description for the skill group."
+        },
+        "SkillGroupArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the skill group to update. "
+        },
+        "SkillGroupName": {
+          "$ref": "#/definitions/SkillGroupName",
+          "description": "The updated name for the skill group."
+        }
+      },
+      "type": "object",
+      "title": "UpdateSkillGroupRequest"
+    },
+    "UpdateSkillGroupResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateSkillGroupResponse"
+    },
+    "UserData": {
+      "description": "Information related to a user.",
+      "properties": {
+        "Email": {
+          "$ref": "#/definitions/Email",
+          "description": "The email of a user."
+        },
+        "EnrollmentId": {
+          "$ref": "#/definitions/EnrollmentId",
+          "description": "The enrollment ARN of a user."
+        },
+        "EnrollmentStatus": {
+          "$ref": "#/definitions/EnrollmentStatus",
+          "description": "The enrollment status of a user."
+        },
+        "FirstName": {
+          "$ref": "#/definitions/user_FirstName",
+          "description": "The first name of a user."
+        },
+        "LastName": {
+          "$ref": "#/definitions/user_LastName",
+          "description": "The last name of a user."
+        },
+        "UserArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of a user."
+        }
+      },
+      "type": "object",
+      "title": "UserData"
+    },
+    "UserDataList": {
+      "items": {
+        "$ref": "#/definitions/UserData"
+      },
+      "type": "array",
+      "title": "UserDataList"
+    },
+    "UserId": {
+      "pattern": "amzn1\\.[A-Za-z0-9+-\\/=.]{1,300}",
+      "type": "string",
+      "title": "UserId"
+    },
+    "WakeWord": {
+      "enum": [
+        "ALEXA",
+        "AMAZON",
+        "ECHO",
+        "COMPUTER"
+      ],
+      "type": "string",
+      "title": "WakeWord"
+    },
+    "boolean": {
+      "type": "boolean",
+      "title": "boolean"
+    },
+    "user_FirstName": {
+      "maxLength": 30,
+      "minLength": 0,
+      "pattern": "([A-Za-z\\-' 0-9._]|\\p{IsLetter})*",
+      "type": "string",
+      "title": "user_FirstName"
+    },
+    "user_LastName": {
+      "maxLength": 30,
+      "minLength": 0,
+      "pattern": "([A-Za-z\\-' 0-9._]|\\p{IsLetter})*",
+      "type": "string",
+      "title": "user_LastName"
+    },
+    "user_UserId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9@_+.-]*",
+      "type": "string",
+      "title": "user_UserId"
+    }
+  },
+  "actions": [
+    {
+      "id": "AssociateDeviceWithRoom",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AssociateDeviceWithRoomRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AssociateDeviceWithRoomResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "AssociateSkillGroupWithRoom",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AssociateSkillGroupWithRoomRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AssociateSkillGroupWithRoomResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "CreateProfile",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateProfileRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateProfileResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "CreateRoom",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateRoomRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateRoomResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "CreateSkillGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateSkillGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateSkillGroupResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "CreateUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateUserRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateUserResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "DeleteProfile",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteProfileRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteProfileResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "DeleteRoom",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteRoomRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteRoomResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "DeleteRoomSkillParameter",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteRoomSkillParameterRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteRoomSkillParameterResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "DeleteSkillGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteSkillGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteSkillGroupResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "DeleteUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteUserRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteUserResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "DisassociateDeviceFromRoom",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisassociateDeviceFromRoomRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisassociateDeviceFromRoomResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "DisassociateSkillGroupFromRoom",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisassociateSkillGroupFromRoomRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisassociateSkillGroupFromRoomResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "GetDevice",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetDeviceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDeviceResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "GetProfile",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetProfileRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetProfileResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "GetRoom",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetRoomRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetRoomResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "GetRoomSkillParameter",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetRoomSkillParameterRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetRoomSkillParameterResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "GetSkillGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetSkillGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetSkillGroupResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "ListSkills",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListSkillsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListSkillsResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "ListTags",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTagsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTagsResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "PutRoomSkillParameter",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutRoomSkillParameterRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutRoomSkillParameterResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "ResolveRoom",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ResolveRoomRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ResolveRoomResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "RevokeInvitation",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RevokeInvitationRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RevokeInvitationResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "SearchDevices",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/SearchDevicesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SearchDevicesResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "SearchProfiles",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/SearchProfilesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SearchProfilesResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "SearchRooms",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/SearchRoomsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SearchRoomsResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "SearchSkillGroups",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/SearchSkillGroupsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SearchSkillGroupsResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "SearchUsers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/SearchUsersRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SearchUsersResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "SendInvitation",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SendInvitationRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SendInvitationResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "StartDeviceSync",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartDeviceSyncRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartDeviceSyncResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "TagResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TagResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TagResourceResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "UntagResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UntagResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UntagResourceResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "UpdateDevice",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateDeviceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateDeviceResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "UpdateProfile",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateProfileRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateProfileResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "UpdateRoom",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateRoomRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateRoomResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    },
+    {
+      "id": "UpdateSkillGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateSkillGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateSkillGroupResponse"
+      },
+      "security": {
+        "amazonaws_a4b": {
+          "integration": "amazonaws_a4b"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

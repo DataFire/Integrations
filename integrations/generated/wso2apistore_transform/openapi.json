@@ -1,0 +1,107 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "gateway.wso2apistore.com",
+  "basePath": "/transform/1.0.0",
+  "info": {
+    "contact": {
+      "x-twitter": "wso2"
+    },
+    "description": "This API provides XML to JSON, JSON to XML transformations.",
+    "title": "Transform",
+    "version": "1.0.0",
+    "x-apisguru-categories": [
+      "developer_tools"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_wso2_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://developers.wso2apistore.com/api-docs/manjular-AT-wso2.com-AT-developer/Transform/1.0.0",
+        "version": "2.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "wso2apistore.com",
+    "x-serviceName": "transform",
+    "x-datafire": {
+      "name": "wso2apistore_transform",
+      "type": "openapi"
+    }
+  },
+  "securityDefinitions": {
+    "default": {
+      "authorizationUrl": "https://gateway.api.cloud.wso2.com:443/authorize",
+      "flow": "implicit",
+      "scopes": {},
+      "type": "oauth2"
+    }
+  },
+  "paths": {
+    "/jsontoxml": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "JSON payload",
+            "in": "body",
+            "name": "Payload",
+            "required": true,
+            "schema": {
+              "default": "{\"foo\":\"bar\"}",
+              "type": "string"
+            }
+          }
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-auth-type": "None",
+        "x-throttling-tier": "Unlimited",
+        "operationId": "jsontoxml.post"
+      }
+    },
+    "/xmltojson": {
+      "post": {
+        "consumes": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "description": "XML payload",
+            "in": "body",
+            "name": "Payload",
+            "required": true,
+            "schema": {
+              "default": "<foo>bar</foo>",
+              "type": "string"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-auth-type": "None",
+        "x-throttling-tier": "Unlimited",
+        "operationId": "xmltojson.post"
+      }
+    }
+  }
+}

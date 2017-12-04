@@ -1,0 +1,1458 @@
+{
+  "id": "amazonaws_cloudhsm",
+  "title": "Amazon CloudHSM",
+  "description": "AWS CloudHSM Service\n\nThis is documentation for **AWS CloudHSM Classic**. For more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User Guide](http://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API Reference](http://docs.aws.amazon.com/cloudhsm/classic/APIReference/).\n\n**For information about the current version of AWS CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User Guide](http://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS CloudHSM API Reference](http://docs.aws.amazon.com/cloudhsm/latest/APIReference/).",
+  "security": {
+    "amazonaws_cloudhsm": {
+      "integration": "amazonaws_cloudhsm",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudhsm.svg"
+  },
+  "actionCount": 20,
+  "definitions": {
+    "AZ": {
+      "pattern": "[a-zA-Z0-9\\-]*",
+      "type": "string",
+      "title": "AZ"
+    },
+    "AZList": {
+      "items": {
+        "$ref": "#/definitions/AZ"
+      },
+      "type": "array",
+      "title": "AZList"
+    },
+    "AddTagsToResourceRequest": {
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag."
+        },
+        "TagList": {
+          "$ref": "#/definitions/TagList",
+          "description": "One or more tags."
+        }
+      },
+      "required": [
+        "ResourceArn",
+        "TagList"
+      ],
+      "type": "object",
+      "title": "AddTagsToResourceRequest"
+    },
+    "AddTagsToResourceResponse": {
+      "properties": {
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "The status of the operation."
+        }
+      },
+      "required": [
+        "Status"
+      ],
+      "type": "object",
+      "title": "AddTagsToResourceResponse"
+    },
+    "Boolean": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "Certificate": {
+      "maxLength": 2400,
+      "minLength": 600,
+      "pattern": "[\\w :+=./\\n-]*",
+      "type": "string",
+      "title": "Certificate"
+    },
+    "CertificateFingerprint": {
+      "pattern": "([0-9a-fA-F][0-9a-fA-F]:){15}[0-9a-fA-F][0-9a-fA-F]",
+      "type": "string",
+      "title": "CertificateFingerprint"
+    },
+    "ClientArn": {
+      "pattern": "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\\-]*:[0-9]{12}:client-[0-9a-f]{8}",
+      "type": "string",
+      "title": "ClientArn"
+    },
+    "ClientLabel": {
+      "pattern": "[a-zA-Z0-9_.-]{2,64}",
+      "type": "string",
+      "title": "ClientLabel"
+    },
+    "ClientList": {
+      "items": {
+        "$ref": "#/definitions/ClientArn"
+      },
+      "type": "array",
+      "title": "ClientList"
+    },
+    "ClientToken": {
+      "pattern": "[a-zA-Z0-9]{1,64}",
+      "type": "string",
+      "title": "ClientToken"
+    },
+    "ClientVersion": {
+      "enum": [
+        "5.1",
+        "5.3"
+      ],
+      "type": "string",
+      "title": "ClientVersion"
+    },
+    "CloudHsmInternalException": {
+      "description": "Indicates that an internal error occurred.",
+      "properties": {},
+      "type": "object",
+      "title": "CloudHsmInternalException"
+    },
+    "CloudHsmObjectState": {
+      "enum": [
+        "READY",
+        "UPDATING",
+        "DEGRADED"
+      ],
+      "type": "string",
+      "title": "CloudHsmObjectState"
+    },
+    "CloudHsmServiceException": {
+      "description": "Indicates that an exception occurred in the AWS CloudHSM service.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "Additional information about the error."
+        },
+        "retryable": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates if the action can be retried."
+        }
+      },
+      "type": "object",
+      "title": "CloudHsmServiceException"
+    },
+    "CreateHapgRequest": {
+      "description": "Contains the inputs for the <a>CreateHapgRequest</a> action.",
+      "properties": {
+        "Label": {
+          "$ref": "#/definitions/Label",
+          "description": "The label of the new high-availability partition group."
+        }
+      },
+      "required": [
+        "Label"
+      ],
+      "type": "object",
+      "title": "CreateHapgRequest"
+    },
+    "CreateHapgResponse": {
+      "description": "Contains the output of the <a>CreateHAPartitionGroup</a> action.",
+      "properties": {
+        "HapgArn": {
+          "$ref": "#/definitions/HapgArn",
+          "description": "The ARN of the high-availability partition group."
+        }
+      },
+      "type": "object",
+      "title": "CreateHapgResponse"
+    },
+    "CreateHsmRequest": {
+      "description": "Contains the inputs for the <code>CreateHsm</code> operation.",
+      "properties": {
+        "ClientToken": {
+          "$ref": "#/definitions/ClientToken",
+          "description": "A user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored."
+        },
+        "EniIp": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "<p>The IP address to assign to the HSM's ENI.</p> <p>If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.</p>"
+        },
+        "ExternalId": {
+          "$ref": "#/definitions/ExternalId",
+          "description": "The external ID from <code>IamRoleArn</code>, if present."
+        },
+        "IamRoleArn": {
+          "$ref": "#/definitions/IamRoleArn",
+          "description": "The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf."
+        },
+        "SshKey": {
+          "$ref": "#/definitions/SshKey",
+          "description": "The SSH public key to install on the HSM."
+        },
+        "SubnetId": {
+          "$ref": "#/definitions/SubnetId",
+          "description": "The identifier of the subnet in your VPC in which to place the HSM."
+        },
+        "SubscriptionType": {
+          "$ref": "#/definitions/SubscriptionType"
+        },
+        "SyslogIp": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server."
+        }
+      },
+      "required": [
+        "SubnetId",
+        "SshKey",
+        "IamRoleArn",
+        "SubscriptionType"
+      ],
+      "type": "object",
+      "title": "CreateHsmRequest"
+    },
+    "CreateHsmResponse": {
+      "description": "Contains the output of the <code>CreateHsm</code> operation.",
+      "properties": {
+        "HsmArn": {
+          "$ref": "#/definitions/HsmArn",
+          "description": "The ARN of the HSM."
+        }
+      },
+      "type": "object",
+      "title": "CreateHsmResponse"
+    },
+    "CreateLunaClientRequest": {
+      "description": "Contains the inputs for the <a>CreateLunaClient</a> action.",
+      "properties": {
+        "Certificate": {
+          "$ref": "#/definitions/Certificate",
+          "description": "The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used by this client."
+        },
+        "Label": {
+          "$ref": "#/definitions/ClientLabel",
+          "description": "The label for the client."
+        }
+      },
+      "required": [
+        "Certificate"
+      ],
+      "type": "object",
+      "title": "CreateLunaClientRequest"
+    },
+    "CreateLunaClientResponse": {
+      "description": "Contains the output of the <a>CreateLunaClient</a> action.",
+      "properties": {
+        "ClientArn": {
+          "$ref": "#/definitions/ClientArn",
+          "description": "The ARN of the client."
+        }
+      },
+      "type": "object",
+      "title": "CreateLunaClientResponse"
+    },
+    "DeleteHapgRequest": {
+      "description": "Contains the inputs for the <a>DeleteHapg</a> action.",
+      "properties": {
+        "HapgArn": {
+          "$ref": "#/definitions/HapgArn",
+          "description": "The ARN of the high-availability partition group to delete."
+        }
+      },
+      "required": [
+        "HapgArn"
+      ],
+      "type": "object",
+      "title": "DeleteHapgRequest"
+    },
+    "DeleteHapgResponse": {
+      "description": "Contains the output of the <a>DeleteHapg</a> action.",
+      "properties": {
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "The status of the action."
+        }
+      },
+      "required": [
+        "Status"
+      ],
+      "type": "object",
+      "title": "DeleteHapgResponse"
+    },
+    "DeleteHsmRequest": {
+      "description": "Contains the inputs for the <a>DeleteHsm</a> operation.",
+      "properties": {
+        "HsmArn": {
+          "$ref": "#/definitions/HsmArn",
+          "description": "The ARN of the HSM to delete."
+        }
+      },
+      "required": [
+        "HsmArn"
+      ],
+      "type": "object",
+      "title": "DeleteHsmRequest"
+    },
+    "DeleteHsmResponse": {
+      "description": "Contains the output of the <a>DeleteHsm</a> operation.",
+      "properties": {
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "The status of the operation."
+        }
+      },
+      "required": [
+        "Status"
+      ],
+      "type": "object",
+      "title": "DeleteHsmResponse"
+    },
+    "DeleteLunaClientRequest": {
+      "properties": {
+        "ClientArn": {
+          "$ref": "#/definitions/ClientArn",
+          "description": "The ARN of the client to delete."
+        }
+      },
+      "required": [
+        "ClientArn"
+      ],
+      "type": "object",
+      "title": "DeleteLunaClientRequest"
+    },
+    "DeleteLunaClientResponse": {
+      "properties": {
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "The status of the action."
+        }
+      },
+      "required": [
+        "Status"
+      ],
+      "type": "object",
+      "title": "DeleteLunaClientResponse"
+    },
+    "DescribeHapgRequest": {
+      "description": "Contains the inputs for the <a>DescribeHapg</a> action.",
+      "properties": {
+        "HapgArn": {
+          "$ref": "#/definitions/HapgArn",
+          "description": "The ARN of the high-availability partition group to describe."
+        }
+      },
+      "required": [
+        "HapgArn"
+      ],
+      "type": "object",
+      "title": "DescribeHapgRequest"
+    },
+    "DescribeHapgResponse": {
+      "description": "Contains the output of the <a>DescribeHapg</a> action.",
+      "properties": {
+        "HapgArn": {
+          "$ref": "#/definitions/HapgArn",
+          "description": "The ARN of the high-availability partition group."
+        },
+        "HapgSerial": {
+          "$ref": "#/definitions/String",
+          "description": "The serial number of the high-availability partition group."
+        },
+        "HsmsLastActionFailed": {
+          "$ref": "#/definitions/HsmList",
+          "description": "<p/>"
+        },
+        "HsmsPendingDeletion": {
+          "$ref": "#/definitions/HsmList",
+          "description": "<p/>"
+        },
+        "HsmsPendingRegistration": {
+          "$ref": "#/definitions/HsmList",
+          "description": "<p/>"
+        },
+        "Label": {
+          "$ref": "#/definitions/Label",
+          "description": "The label for the high-availability partition group."
+        },
+        "LastModifiedTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time the high-availability partition group was last modified."
+        },
+        "PartitionSerialList": {
+          "$ref": "#/definitions/PartitionSerialList",
+          "description": "The list of partition serial numbers that belong to the high-availability partition group."
+        },
+        "State": {
+          "$ref": "#/definitions/CloudHsmObjectState",
+          "description": "The state of the high-availability partition group."
+        }
+      },
+      "type": "object",
+      "title": "DescribeHapgResponse"
+    },
+    "DescribeHsmRequest": {
+      "description": "Contains the inputs for the <a>DescribeHsm</a> operation.",
+      "properties": {
+        "HsmArn": {
+          "$ref": "#/definitions/HsmArn",
+          "description": "The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code> parameter must be specified."
+        },
+        "HsmSerialNumber": {
+          "$ref": "#/definitions/HsmSerialNumber",
+          "description": "The serial number of the HSM. Either the <code>HsmArn</code> or the <code>HsmSerialNumber</code> parameter must be specified."
+        }
+      },
+      "type": "object",
+      "title": "DescribeHsmRequest"
+    },
+    "DescribeHsmResponse": {
+      "description": "Contains the output of the <a>DescribeHsm</a> operation.",
+      "properties": {
+        "AvailabilityZone": {
+          "$ref": "#/definitions/AZ",
+          "description": "The Availability Zone that the HSM is in."
+        },
+        "EniId": {
+          "$ref": "#/definitions/EniId",
+          "description": "The identifier of the elastic network interface (ENI) attached to the HSM."
+        },
+        "EniIp": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "The IP address assigned to the HSM's ENI."
+        },
+        "HsmArn": {
+          "$ref": "#/definitions/HsmArn",
+          "description": "The ARN of the HSM."
+        },
+        "HsmType": {
+          "$ref": "#/definitions/String",
+          "description": "The HSM model type."
+        },
+        "IamRoleArn": {
+          "$ref": "#/definitions/IamRoleArn",
+          "description": "The ARN of the IAM role assigned to the HSM."
+        },
+        "Partitions": {
+          "$ref": "#/definitions/PartitionList",
+          "description": "The list of partitions on the HSM."
+        },
+        "SerialNumber": {
+          "$ref": "#/definitions/HsmSerialNumber",
+          "description": "The serial number of the HSM."
+        },
+        "ServerCertLastUpdated": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the server certificate was last updated."
+        },
+        "ServerCertUri": {
+          "$ref": "#/definitions/String",
+          "description": "The URI of the certificate server."
+        },
+        "SoftwareVersion": {
+          "$ref": "#/definitions/String",
+          "description": "The HSM software version."
+        },
+        "SshKeyLastUpdated": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the SSH key was last updated."
+        },
+        "SshPublicKey": {
+          "$ref": "#/definitions/SshKey",
+          "description": "The public SSH key."
+        },
+        "Status": {
+          "$ref": "#/definitions/HsmStatus",
+          "description": "The status of the HSM."
+        },
+        "StatusDetails": {
+          "$ref": "#/definitions/String",
+          "description": "Contains additional information about the status of the HSM."
+        },
+        "SubnetId": {
+          "$ref": "#/definitions/SubnetId",
+          "description": "The identifier of the subnet that the HSM is in."
+        },
+        "SubscriptionEndDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The subscription end date."
+        },
+        "SubscriptionStartDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The subscription start date."
+        },
+        "SubscriptionType": {
+          "$ref": "#/definitions/SubscriptionType"
+        },
+        "VendorName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the HSM vendor."
+        },
+        "VpcId": {
+          "$ref": "#/definitions/VpcId",
+          "description": "The identifier of the VPC that the HSM is in."
+        }
+      },
+      "type": "object",
+      "title": "DescribeHsmResponse"
+    },
+    "DescribeLunaClientRequest": {
+      "properties": {
+        "CertificateFingerprint": {
+          "$ref": "#/definitions/CertificateFingerprint",
+          "description": "The certificate fingerprint."
+        },
+        "ClientArn": {
+          "$ref": "#/definitions/ClientArn",
+          "description": "The ARN of the client."
+        }
+      },
+      "type": "object",
+      "title": "DescribeLunaClientRequest"
+    },
+    "DescribeLunaClientResponse": {
+      "properties": {
+        "Certificate": {
+          "$ref": "#/definitions/Certificate",
+          "description": "The certificate installed on the HSMs used by this client."
+        },
+        "CertificateFingerprint": {
+          "$ref": "#/definitions/CertificateFingerprint",
+          "description": "The certificate fingerprint."
+        },
+        "ClientArn": {
+          "$ref": "#/definitions/ClientArn",
+          "description": "The ARN of the client."
+        },
+        "Label": {
+          "$ref": "#/definitions/Label",
+          "description": "The label of the client."
+        },
+        "LastModifiedTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time the client was last modified."
+        }
+      },
+      "type": "object",
+      "title": "DescribeLunaClientResponse"
+    },
+    "EniId": {
+      "pattern": "eni-[0-9a-f]{8}",
+      "type": "string",
+      "title": "EniId"
+    },
+    "ExternalId": {
+      "pattern": "[\\w :+=./-]*",
+      "type": "string",
+      "title": "ExternalId"
+    },
+    "GetConfigRequest": {
+      "properties": {
+        "ClientArn": {
+          "$ref": "#/definitions/ClientArn",
+          "description": "The ARN of the client."
+        },
+        "ClientVersion": {
+          "$ref": "#/definitions/ClientVersion",
+          "description": "The client version."
+        },
+        "HapgList": {
+          "$ref": "#/definitions/HapgList",
+          "description": "A list of ARNs that identify the high-availability partition groups that are associated with the client."
+        }
+      },
+      "required": [
+        "ClientArn",
+        "ClientVersion",
+        "HapgList"
+      ],
+      "type": "object",
+      "title": "GetConfigRequest"
+    },
+    "GetConfigResponse": {
+      "properties": {
+        "ConfigCred": {
+          "$ref": "#/definitions/String",
+          "description": "The certificate file containing the server.pem files of the HSMs."
+        },
+        "ConfigFile": {
+          "$ref": "#/definitions/String",
+          "description": "The chrystoki.conf configuration file."
+        },
+        "ConfigType": {
+          "$ref": "#/definitions/String",
+          "description": "The type of credentials."
+        }
+      },
+      "type": "object",
+      "title": "GetConfigResponse"
+    },
+    "HapgArn": {
+      "pattern": "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\\-]*:[0-9]{12}:hapg-[0-9a-f]{8}",
+      "type": "string",
+      "title": "HapgArn"
+    },
+    "HapgList": {
+      "items": {
+        "$ref": "#/definitions/HapgArn"
+      },
+      "type": "array",
+      "title": "HapgList"
+    },
+    "HsmArn": {
+      "description": "An ARN that identifies an HSM.",
+      "pattern": "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\\-]*:[0-9]{12}:hsm-[0-9a-f]{8}",
+      "type": "string",
+      "title": "HsmArn"
+    },
+    "HsmList": {
+      "description": "Contains a list of ARNs that identify the HSMs.",
+      "items": {
+        "$ref": "#/definitions/HsmArn"
+      },
+      "type": "array",
+      "title": "HsmList"
+    },
+    "HsmSerialNumber": {
+      "pattern": "\\d{1,16}",
+      "type": "string",
+      "title": "HsmSerialNumber"
+    },
+    "HsmStatus": {
+      "enum": [
+        "PENDING",
+        "RUNNING",
+        "UPDATING",
+        "SUSPENDED",
+        "TERMINATING",
+        "TERMINATED",
+        "DEGRADED"
+      ],
+      "type": "string",
+      "title": "HsmStatus"
+    },
+    "IamRoleArn": {
+      "pattern": "arn:aws(-iso)?:iam::[0-9]{12}:role/[a-zA-Z0-9_\\+=,\\.\\-@]{1,64}",
+      "type": "string",
+      "title": "IamRoleArn"
+    },
+    "InvalidRequestException": {
+      "description": "Indicates that one or more of the request parameters are not valid.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidRequestException"
+    },
+    "IpAddress": {
+      "pattern": "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}",
+      "type": "string",
+      "title": "IpAddress"
+    },
+    "Label": {
+      "pattern": "[a-zA-Z0-9_.-]{1,64}",
+      "type": "string",
+      "title": "Label"
+    },
+    "ListAvailableZonesRequest": {
+      "description": "Contains the inputs for the <a>ListAvailableZones</a> action.",
+      "properties": {},
+      "type": "object",
+      "title": "ListAvailableZonesRequest"
+    },
+    "ListAvailableZonesResponse": {
+      "properties": {
+        "AZList": {
+          "$ref": "#/definitions/AZList",
+          "description": "The list of Availability Zones that have available AWS CloudHSM capacity."
+        }
+      },
+      "type": "object",
+      "title": "ListAvailableZonesResponse"
+    },
+    "ListHapgsRequest": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The <code>NextToken</code> value from a previous call to <code>ListHapgs</code>. Pass null if this is the first call."
+        }
+      },
+      "type": "object",
+      "title": "ListHapgsRequest"
+    },
+    "ListHapgsResponse": {
+      "properties": {
+        "HapgList": {
+          "$ref": "#/definitions/HapgList",
+          "description": "The list of high-availability partition groups."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "If not null, more results are available. Pass this value to <code>ListHapgs</code> to retrieve the next set of items."
+        }
+      },
+      "required": [
+        "HapgList"
+      ],
+      "type": "object",
+      "title": "ListHapgsResponse"
+    },
+    "ListHsmsRequest": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The <code>NextToken</code> value from a previous call to <code>ListHsms</code>. Pass null if this is the first call."
+        }
+      },
+      "type": "object",
+      "title": "ListHsmsRequest"
+    },
+    "ListHsmsResponse": {
+      "description": "Contains the output of the <code>ListHsms</code> operation.",
+      "properties": {
+        "HsmList": {
+          "$ref": "#/definitions/HsmList",
+          "description": "The list of ARNs that identify the HSMs."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "If not null, more results are available. Pass this value to <code>ListHsms</code> to retrieve the next set of items."
+        }
+      },
+      "type": "object",
+      "title": "ListHsmsResponse"
+    },
+    "ListLunaClientsRequest": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The <code>NextToken</code> value from a previous call to <code>ListLunaClients</code>. Pass null if this is the first call."
+        }
+      },
+      "type": "object",
+      "title": "ListLunaClientsRequest"
+    },
+    "ListLunaClientsResponse": {
+      "properties": {
+        "ClientList": {
+          "$ref": "#/definitions/ClientList",
+          "description": "The list of clients."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "If not null, more results are available. Pass this to <code>ListLunaClients</code> to retrieve the next set of items."
+        }
+      },
+      "required": [
+        "ClientList"
+      ],
+      "type": "object",
+      "title": "ListLunaClientsResponse"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the AWS CloudHSM resource."
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "type": "object",
+      "title": "ListTagsForResourceRequest"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "TagList": {
+          "$ref": "#/definitions/TagList",
+          "description": "One or more tags."
+        }
+      },
+      "required": [
+        "TagList"
+      ],
+      "type": "object",
+      "title": "ListTagsForResourceResponse"
+    },
+    "ModifyHapgRequest": {
+      "properties": {
+        "HapgArn": {
+          "$ref": "#/definitions/HapgArn",
+          "description": "The ARN of the high-availability partition group to modify."
+        },
+        "Label": {
+          "$ref": "#/definitions/Label",
+          "description": "The new label for the high-availability partition group."
+        },
+        "PartitionSerialList": {
+          "$ref": "#/definitions/PartitionSerialList",
+          "description": "The list of partition serial numbers to make members of the high-availability partition group."
+        }
+      },
+      "required": [
+        "HapgArn"
+      ],
+      "type": "object",
+      "title": "ModifyHapgRequest"
+    },
+    "ModifyHapgResponse": {
+      "properties": {
+        "HapgArn": {
+          "$ref": "#/definitions/HapgArn",
+          "description": "The ARN of the high-availability partition group."
+        }
+      },
+      "type": "object",
+      "title": "ModifyHapgResponse"
+    },
+    "ModifyHsmRequest": {
+      "description": "Contains the inputs for the <a>ModifyHsm</a> operation.",
+      "properties": {
+        "EniIp": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "<p>The new IP address for the elastic network interface (ENI) attached to the HSM.</p> <p>If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.</p>"
+        },
+        "ExternalId": {
+          "$ref": "#/definitions/ExternalId",
+          "description": "The new external ID."
+        },
+        "HsmArn": {
+          "$ref": "#/definitions/HsmArn",
+          "description": "The ARN of the HSM to modify."
+        },
+        "IamRoleArn": {
+          "$ref": "#/definitions/IamRoleArn",
+          "description": "The new IAM role ARN."
+        },
+        "SubnetId": {
+          "$ref": "#/definitions/SubnetId",
+          "description": "The new identifier of the subnet that the HSM is in. The new subnet must be in the same Availability Zone as the current subnet."
+        },
+        "SyslogIp": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server."
+        }
+      },
+      "required": [
+        "HsmArn"
+      ],
+      "type": "object",
+      "title": "ModifyHsmRequest"
+    },
+    "ModifyHsmResponse": {
+      "description": "Contains the output of the <a>ModifyHsm</a> operation.",
+      "properties": {
+        "HsmArn": {
+          "$ref": "#/definitions/HsmArn",
+          "description": "The ARN of the HSM."
+        }
+      },
+      "type": "object",
+      "title": "ModifyHsmResponse"
+    },
+    "ModifyLunaClientRequest": {
+      "properties": {
+        "Certificate": {
+          "$ref": "#/definitions/Certificate",
+          "description": "The new certificate for the client."
+        },
+        "ClientArn": {
+          "$ref": "#/definitions/ClientArn",
+          "description": "The ARN of the client."
+        }
+      },
+      "required": [
+        "ClientArn",
+        "Certificate"
+      ],
+      "type": "object",
+      "title": "ModifyLunaClientRequest"
+    },
+    "ModifyLunaClientResponse": {
+      "properties": {
+        "ClientArn": {
+          "$ref": "#/definitions/ClientArn",
+          "description": "The ARN of the client."
+        }
+      },
+      "type": "object",
+      "title": "ModifyLunaClientResponse"
+    },
+    "PaginationToken": {
+      "pattern": "[a-zA-Z0-9+/]*",
+      "type": "string",
+      "title": "PaginationToken"
+    },
+    "PartitionArn": {
+      "pattern": "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\\-]*:[0-9]{12}:hsm-[0-9a-f]{8}/partition-[0-9]{6,12}",
+      "type": "string",
+      "title": "PartitionArn"
+    },
+    "PartitionList": {
+      "items": {
+        "$ref": "#/definitions/PartitionArn"
+      },
+      "type": "array",
+      "title": "PartitionList"
+    },
+    "PartitionSerial": {
+      "pattern": "\\d{6,12}",
+      "type": "string",
+      "title": "PartitionSerial"
+    },
+    "PartitionSerialList": {
+      "items": {
+        "$ref": "#/definitions/PartitionSerial"
+      },
+      "type": "array",
+      "title": "PartitionSerialList"
+    },
+    "RemoveTagsFromResourceRequest": {
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the AWS CloudHSM resource."
+        },
+        "TagKeyList": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "<p>The tag key or keys to remove.</p> <p>Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use <a>AddTagsToResource</a>.</p>"
+        }
+      },
+      "required": [
+        "ResourceArn",
+        "TagKeyList"
+      ],
+      "type": "object",
+      "title": "RemoveTagsFromResourceRequest"
+    },
+    "RemoveTagsFromResourceResponse": {
+      "properties": {
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "The status of the operation."
+        }
+      },
+      "required": [
+        "Status"
+      ],
+      "type": "object",
+      "title": "RemoveTagsFromResourceResponse"
+    },
+    "SshKey": {
+      "pattern": "[a-zA-Z0-9+/= ._:\\\\@-]*",
+      "type": "string",
+      "title": "SshKey"
+    },
+    "String": {
+      "pattern": "[\\w :+=./\\\\-]*",
+      "type": "string",
+      "title": "String"
+    },
+    "SubnetId": {
+      "pattern": "subnet-[0-9a-f]{8}",
+      "type": "string",
+      "title": "SubnetId"
+    },
+    "SubscriptionType": {
+      "description": "<p>Specifies the type of subscription for the HSM.</p> <ul> <li> <p> <b>PRODUCTION</b> - The HSM is being used in a production environment.</p> </li> <li> <p> <b>TRIAL</b> - The HSM is being used in a product trial.</p> </li> </ul>",
+      "enum": [
+        "PRODUCTION"
+      ],
+      "type": "string",
+      "title": "SubscriptionType"
+    },
+    "Tag": {
+      "description": "A key-value pair that identifies or specifies metadata about an AWS CloudHSM resource.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "The key of the tag."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "The value of the tag."
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object",
+      "title": "Tag"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array",
+      "title": "TagKeyList"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array",
+      "title": "TagList"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string",
+      "title": "TagValue"
+    },
+    "Timestamp": {
+      "pattern": "\\d*",
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "VpcId": {
+      "pattern": "vpc-[0-9a-f]{8}",
+      "type": "string",
+      "title": "VpcId"
+    }
+  },
+  "actions": [
+    {
+      "id": "AddTagsToResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AddTagsToResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddTagsToResourceResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "CreateHapg",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateHapgRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateHapgResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "CreateHsm",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateHsmRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateHsmResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "CreateLunaClient",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateLunaClientRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateLunaClientResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "DeleteHapg",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteHapgRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteHapgResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "DeleteHsm",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteHsmRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteHsmResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "DeleteLunaClient",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteLunaClientRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteLunaClientResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "DescribeHapg",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeHapgRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeHapgResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "DescribeHsm",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeHsmRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeHsmResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "DescribeLunaClient",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeLunaClientRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeLunaClientResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "GetConfig",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetConfigRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetConfigResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "ListAvailableZones",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListAvailableZonesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListAvailableZonesResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "ListHapgs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListHapgsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListHapgsResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "ListHsms",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListHsmsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListHsmsResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "ListLunaClients",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListLunaClientsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListLunaClientsResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "ListTagsForResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTagsForResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTagsForResourceResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "ModifyHapg",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ModifyHapgRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModifyHapgResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "ModifyHsm",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ModifyHsmRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModifyHsmResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "ModifyLunaClient",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ModifyLunaClientRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModifyLunaClientResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    },
+    {
+      "id": "RemoveTagsFromResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RemoveTagsFromResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RemoveTagsFromResourceResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsm": {
+          "integration": "amazonaws_cloudhsm"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

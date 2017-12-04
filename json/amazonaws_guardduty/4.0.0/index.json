@@ -1,0 +1,2707 @@
+{
+  "id": "amazonaws_guardduty",
+  "title": "Amazon GuardDuty",
+  "description": "Assess, monitor, manage, and remediate security issues across your AWS infrastructure, applications, and data.",
+  "security": {
+    "amazonaws_guardduty": {
+      "integration": "amazonaws_guardduty",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_guardduty.jpeg"
+  },
+  "actionCount": 26,
+  "definitions": {
+    "AcceptInvitationRequest": {
+      "description": "AcceptInvitation request body.",
+      "properties": {
+        "InvitationId": {
+          "$ref": "#/definitions/InvitationId",
+          "description": "This value is used to validate the master account to the member account."
+        },
+        "MasterId": {
+          "$ref": "#/definitions/MasterId",
+          "description": "The account ID of the master GuardDuty account whose invitation you're accepting."
+        }
+      },
+      "type": "object",
+      "title": "AcceptInvitationRequest"
+    },
+    "AcceptInvitationResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "AcceptInvitationResponse"
+    },
+    "AccountDetail": {
+      "description": "An object containing the member's accountId and email address.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "Member account ID."
+        },
+        "Email": {
+          "$ref": "#/definitions/Email",
+          "description": "Member account's email address."
+        }
+      },
+      "type": "object",
+      "title": "AccountDetail"
+    },
+    "AccountDetails": {
+      "description": "A list of account/email pairs.",
+      "items": {
+        "$ref": "#/definitions/AccountDetail"
+      },
+      "type": "array",
+      "title": "AccountDetails"
+    },
+    "AccountId": {
+      "description": "AWS account ID.",
+      "type": "string",
+      "title": "AccountId"
+    },
+    "AccountIds": {
+      "description": "A list of account IDs.",
+      "items": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "array",
+      "title": "AccountIds"
+    },
+    "Action": {
+      "description": "Information about the activity described in a finding.",
+      "properties": {
+        "ActionType": {
+          "$ref": "#/definitions/__string",
+          "description": "GuardDuty Finding activity type."
+        },
+        "AwsApiCallAction": {
+          "$ref": "#/definitions/AwsApiCallAction",
+          "description": "Information about the AWS_API_CALL action described in this finding."
+        },
+        "DnsRequestAction": {
+          "$ref": "#/definitions/DnsRequestAction",
+          "description": "Information about the DNS_REQUEST action described in this finding."
+        },
+        "NetworkConnectionAction": {
+          "$ref": "#/definitions/NetworkConnectionAction",
+          "description": "Information about the NETWORK_CONNECTION action described in this finding."
+        }
+      },
+      "type": "object",
+      "title": "Action"
+    },
+    "Activate": {
+      "description": "Whether we should start processing the list immediately or not.",
+      "type": "boolean",
+      "title": "Activate"
+    },
+    "ArchiveFindingsRequest": {
+      "description": "ArchiveFindings request body.",
+      "properties": {
+        "FindingIds": {
+          "$ref": "#/definitions/FindingIds",
+          "description": "IDs of the findings that you want to archive."
+        }
+      },
+      "type": "object",
+      "title": "ArchiveFindingsRequest"
+    },
+    "ArchiveFindingsResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "ArchiveFindingsResponse"
+    },
+    "AwsApiCallAction": {
+      "description": "Information about the AWS_API_CALL action described in this finding.",
+      "properties": {
+        "Api": {
+          "$ref": "#/definitions/__string",
+          "description": "AWS API name."
+        },
+        "CallerType": {
+          "$ref": "#/definitions/__string",
+          "description": "AWS API caller type."
+        },
+        "DomainDetails": {
+          "$ref": "#/definitions/DomainDetails",
+          "description": "Domain information for the AWS API call."
+        },
+        "RemoteIpDetails": {
+          "$ref": "#/definitions/RemoteIpDetails",
+          "description": "Remote IP information of the connection."
+        },
+        "ServiceName": {
+          "$ref": "#/definitions/__string",
+          "description": "AWS service name whose API was invoked."
+        }
+      },
+      "type": "object",
+      "title": "AwsApiCallAction"
+    },
+    "BadRequestException": {
+      "description": "Error response object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message."
+        },
+        "Type": {
+          "$ref": "#/definitions/__string",
+          "description": "The error type."
+        }
+      },
+      "type": "object",
+      "title": "BadRequestException"
+    },
+    "City": {
+      "description": "City information of the remote IP address.",
+      "properties": {
+        "CityName": {
+          "$ref": "#/definitions/__string",
+          "description": "City name of the remote IP address."
+        }
+      },
+      "type": "object",
+      "title": "City"
+    },
+    "Comments": {
+      "description": "Additional feedback about the GuardDuty findings.",
+      "type": "string",
+      "title": "Comments"
+    },
+    "Condition": {
+      "description": "Finding attribute (for example, accountId) for which conditions and values must be specified when querying findings.",
+      "properties": {
+        "Eq": {
+          "$ref": "#/definitions/Eq",
+          "description": "Represents the equal condition to be applied to a single field when querying for findings."
+        },
+        "Gt": {
+          "$ref": "#/definitions/__integer",
+          "description": "Represents the greater than condition to be applied to a single field when querying for findings."
+        },
+        "Gte": {
+          "$ref": "#/definitions/__integer",
+          "description": "Represents the greater than equal condition to be applied to a single field when querying for findings."
+        },
+        "Lt": {
+          "$ref": "#/definitions/__integer",
+          "description": "Represents the less than condition to be applied to a single field when querying for findings."
+        },
+        "Lte": {
+          "$ref": "#/definitions/__integer",
+          "description": "Represents the less than equal condition to be applied to a single field when querying for findings."
+        },
+        "Neq": {
+          "$ref": "#/definitions/Neq",
+          "description": "Represents the not equal condition to be applied to a single field when querying for findings."
+        }
+      },
+      "type": "object",
+      "title": "Condition"
+    },
+    "CountBySeverityFindingStatistic": {
+      "description": "The count of findings for the given severity.",
+      "type": "integer",
+      "title": "CountBySeverityFindingStatistic"
+    },
+    "Country": {
+      "description": "Country information of the remote IP address.",
+      "properties": {
+        "CountryCode": {
+          "$ref": "#/definitions/__string",
+          "description": "Country code of the remote IP address."
+        },
+        "CountryName": {
+          "$ref": "#/definitions/__string",
+          "description": "Country name of the remote IP address."
+        }
+      },
+      "type": "object",
+      "title": "Country"
+    },
+    "CreateDetectorRequest": {
+      "description": "CreateDetector request body.",
+      "properties": {
+        "Enable": {
+          "$ref": "#/definitions/Enable",
+          "description": "A boolean value that specifies whether the detector is to be enabled."
+        }
+      },
+      "type": "object",
+      "title": "CreateDetectorRequest"
+    },
+    "CreateDetectorResponse": {
+      "properties": {
+        "DetectorId": {
+          "$ref": "#/definitions/DetectorId",
+          "description": "The unique ID of the created detector."
+        }
+      },
+      "type": "object",
+      "title": "CreateDetectorResponse"
+    },
+    "CreateIPSetRequest": {
+      "description": "CreateIPSet request body.",
+      "properties": {
+        "Activate": {
+          "$ref": "#/definitions/Activate",
+          "description": "A boolean value that indicates whether GuardDuty is to start using the uploaded IPSet."
+        },
+        "Format": {
+          "$ref": "#/definitions/IpSetFormat",
+          "description": "The format of the file that contains the IPSet."
+        },
+        "Location": {
+          "$ref": "#/definitions/Location",
+          "description": "The URI of the file that contains the IPSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)"
+        },
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "The user friendly name to identify the IPSet. This name is displayed in all findings that are triggered by activity that involves IP addresses included in this IPSet."
+        }
+      },
+      "type": "object",
+      "title": "CreateIPSetRequest"
+    },
+    "CreateIPSetResponse": {
+      "properties": {
+        "IpSetId": {
+          "$ref": "#/definitions/IpSetId"
+        }
+      },
+      "type": "object",
+      "title": "CreateIPSetResponse"
+    },
+    "CreateMembersRequest": {
+      "description": "CreateMembers request body.",
+      "properties": {
+        "AccountDetails": {
+          "$ref": "#/definitions/AccountDetails",
+          "description": "A list of account ID and email address pairs of the accounts that you want to associate with the master GuardDuty account."
+        }
+      },
+      "type": "object",
+      "title": "CreateMembersRequest"
+    },
+    "CreateMembersResponse": {
+      "properties": {
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/UnprocessedAccounts",
+          "description": "A list of objects containing the unprocessed account and a result string explaining why it was unprocessed."
+        }
+      },
+      "type": "object",
+      "title": "CreateMembersResponse"
+    },
+    "CreateSampleFindingsRequest": {
+      "description": "CreateSampleFindings request body.",
+      "properties": {
+        "FindingTypes": {
+          "$ref": "#/definitions/FindingTypes",
+          "description": "Types of sample findings that you want to generate."
+        }
+      },
+      "type": "object",
+      "title": "CreateSampleFindingsRequest"
+    },
+    "CreateSampleFindingsResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateSampleFindingsResponse"
+    },
+    "CreateThreatIntelSetRequest": {
+      "description": "CreateThreatIntelSet request body.",
+      "properties": {
+        "Activate": {
+          "$ref": "#/definitions/Activate",
+          "description": "A boolean value that indicates whether GuardDuty is to start using the uploaded ThreatIntelSet."
+        },
+        "Format": {
+          "$ref": "#/definitions/ThreatIntelSetFormat",
+          "description": "The format of the file that contains the ThreatIntelSet."
+        },
+        "Location": {
+          "$ref": "#/definitions/Location",
+          "description": "The URI of the file that contains the ThreatIntelSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)."
+        },
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "A user-friendly ThreatIntelSet name that is displayed in all finding generated by activity that involves IP addresses included in this ThreatIntelSet."
+        }
+      },
+      "type": "object",
+      "title": "CreateThreatIntelSetRequest"
+    },
+    "CreateThreatIntelSetResponse": {
+      "properties": {
+        "ThreatIntelSetId": {
+          "$ref": "#/definitions/ThreatIntelSetId"
+        }
+      },
+      "type": "object",
+      "title": "CreateThreatIntelSetResponse"
+    },
+    "CreatedAt": {
+      "description": "The first time a resource was created. The format will be ISO-8601.",
+      "type": "string",
+      "title": "CreatedAt"
+    },
+    "DeclineInvitationsRequest": {
+      "description": "DeclineInvitations request body.",
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIds",
+          "description": "A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to decline invitations from."
+        }
+      },
+      "type": "object",
+      "title": "DeclineInvitationsRequest"
+    },
+    "DeclineInvitationsResponse": {
+      "properties": {
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/UnprocessedAccounts",
+          "description": "A list of objects containing the unprocessed account and a result string explaining why it was unprocessed."
+        }
+      },
+      "type": "object",
+      "title": "DeclineInvitationsResponse"
+    },
+    "DeleteDetectorRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteDetectorRequest"
+    },
+    "DeleteDetectorResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteDetectorResponse"
+    },
+    "DeleteIPSetRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteIPSetRequest"
+    },
+    "DeleteIPSetResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteIPSetResponse"
+    },
+    "DeleteInvitationsRequest": {
+      "description": "DeleteInvitations request body.",
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIds",
+          "description": "A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to delete invitations from."
+        }
+      },
+      "type": "object",
+      "title": "DeleteInvitationsRequest"
+    },
+    "DeleteInvitationsResponse": {
+      "properties": {
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/UnprocessedAccounts",
+          "description": "A list of objects containing the unprocessed account and a result string explaining why it was unprocessed."
+        }
+      },
+      "type": "object",
+      "title": "DeleteInvitationsResponse"
+    },
+    "DeleteMembersRequest": {
+      "description": "DeleteMembers request body.",
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIds",
+          "description": "A list of account IDs of the GuardDuty member accounts that you want to delete."
+        }
+      },
+      "type": "object",
+      "title": "DeleteMembersRequest"
+    },
+    "DeleteMembersResponse": {
+      "properties": {
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/UnprocessedAccounts",
+          "description": "A list of objects containing the unprocessed account and a result string explaining why it was unprocessed."
+        }
+      },
+      "type": "object",
+      "title": "DeleteMembersResponse"
+    },
+    "DeleteThreatIntelSetRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteThreatIntelSetRequest"
+    },
+    "DeleteThreatIntelSetResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteThreatIntelSetResponse"
+    },
+    "DetectorId": {
+      "description": "The unique identifier for a detector.",
+      "type": "string",
+      "title": "DetectorId"
+    },
+    "DetectorIds": {
+      "description": "A list of detector Ids.",
+      "items": {
+        "$ref": "#/definitions/DetectorId"
+      },
+      "type": "array",
+      "title": "DetectorIds"
+    },
+    "DetectorStatus": {
+      "description": "The status of detector.",
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ],
+      "type": "string",
+      "title": "DetectorStatus"
+    },
+    "DisassociateFromMasterAccountRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DisassociateFromMasterAccountRequest"
+    },
+    "DisassociateFromMasterAccountResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DisassociateFromMasterAccountResponse"
+    },
+    "DisassociateMembersRequest": {
+      "description": "DisassociateMembers request body.",
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIds",
+          "description": "A list of account IDs of the GuardDuty member accounts that you want to disassociate from master."
+        }
+      },
+      "type": "object",
+      "title": "DisassociateMembersRequest"
+    },
+    "DisassociateMembersResponse": {
+      "properties": {
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/UnprocessedAccounts",
+          "description": "A list of objects containing the unprocessed account and a result string explaining why it was unprocessed."
+        }
+      },
+      "type": "object",
+      "title": "DisassociateMembersResponse"
+    },
+    "DnsRequestAction": {
+      "description": "Information about the DNS_REQUEST action described in this finding.",
+      "properties": {
+        "Domain": {
+          "$ref": "#/definitions/Domain",
+          "description": "Domain information for the DNS request."
+        }
+      },
+      "type": "object",
+      "title": "DnsRequestAction"
+    },
+    "Domain": {
+      "description": "A domain name.",
+      "type": "string",
+      "title": "Domain"
+    },
+    "DomainDetails": {
+      "description": "Domain information for the AWS API call.",
+      "properties": {},
+      "type": "object",
+      "title": "DomainDetails"
+    },
+    "Email": {
+      "description": "Member account's email address.",
+      "type": "string",
+      "title": "Email"
+    },
+    "Enable": {
+      "description": "A boolean value that specifies whether the detector is to be enabled.",
+      "type": "boolean",
+      "title": "Enable"
+    },
+    "Eq": {
+      "description": "Represents the equal condition to be applied to a single field when querying for findings.",
+      "items": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "array",
+      "title": "Eq"
+    },
+    "ErrorResponse": {
+      "description": "Error response object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message."
+        },
+        "Type": {
+          "$ref": "#/definitions/__string",
+          "description": "The error type."
+        }
+      },
+      "type": "object",
+      "title": "ErrorResponse"
+    },
+    "Feedback": {
+      "description": "Finding Feedback Value",
+      "enum": [
+        "USEFUL",
+        "NOT_USEFUL"
+      ],
+      "type": "string",
+      "title": "Feedback"
+    },
+    "Finding": {
+      "description": "Representation of a abnormal or suspicious activity.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/__string",
+          "description": "AWS account ID where the activity occurred that prompted GuardDuty to generate a finding."
+        },
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of a finding described by the action."
+        },
+        "Confidence": {
+          "$ref": "#/definitions/__double",
+          "description": "The confidence level of a finding."
+        },
+        "CreatedAt": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time stamp at which a finding was generated."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "The description of a finding."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The identifier that corresponds to a finding described by the action."
+        },
+        "Partition": {
+          "$ref": "#/definitions/__string",
+          "description": "The AWS resource partition."
+        },
+        "Region": {
+          "$ref": "#/definitions/__string",
+          "description": "The AWS region where the activity occurred that prompted GuardDuty to generate a finding."
+        },
+        "Resource": {
+          "$ref": "#/definitions/Resource",
+          "description": "The AWS resource associated with the activity that prompted GuardDuty to generate a finding."
+        },
+        "SchemaVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Findings' schema version."
+        },
+        "Service": {
+          "$ref": "#/definitions/Service",
+          "description": "Additional information assigned to the generated finding by GuardDuty."
+        },
+        "Severity": {
+          "$ref": "#/definitions/__double",
+          "description": "The severity of a finding."
+        },
+        "Title": {
+          "$ref": "#/definitions/__string",
+          "description": "The title of a finding."
+        },
+        "Type": {
+          "$ref": "#/definitions/__string",
+          "description": "The type of a finding described by the action."
+        },
+        "UpdatedAt": {
+          "$ref": "#/definitions/UpdatedAt",
+          "description": "The time stamp at which a finding was last updated."
+        }
+      },
+      "type": "object",
+      "title": "Finding"
+    },
+    "FindingCriteria": {
+      "description": "Represents the criteria used for querying findings.",
+      "properties": {
+        "Criterion": {
+          "$ref": "#/definitions/MapOfCondition",
+          "description": "Represents a map of finding properties that match specified conditions and values when querying findings."
+        }
+      },
+      "type": "object",
+      "title": "FindingCriteria"
+    },
+    "FindingId": {
+      "description": "The unique identifier for the Finding",
+      "type": "string",
+      "title": "FindingId"
+    },
+    "FindingIds": {
+      "description": "The list of the Findings.",
+      "items": {
+        "$ref": "#/definitions/FindingId"
+      },
+      "type": "array",
+      "title": "FindingIds"
+    },
+    "FindingStatisticType": {
+      "description": "The types of finding statistics.",
+      "enum": [
+        "COUNT_BY_SEVERITY"
+      ],
+      "type": "string",
+      "title": "FindingStatisticType"
+    },
+    "FindingStatisticTypes": {
+      "description": "The list of the finding statistics.",
+      "items": {
+        "$ref": "#/definitions/FindingStatisticType"
+      },
+      "type": "array",
+      "title": "FindingStatisticTypes"
+    },
+    "FindingStatistics": {
+      "description": "Finding statistics object.",
+      "properties": {
+        "CountBySeverity": {
+          "$ref": "#/definitions/MapOfCountBySeverityFindingStatistic",
+          "description": "Represents a map of severity to count statistic for a set of findings"
+        }
+      },
+      "type": "object",
+      "title": "FindingStatistics"
+    },
+    "FindingType": {
+      "description": "The finding type for the finding",
+      "type": "string",
+      "title": "FindingType"
+    },
+    "FindingTypes": {
+      "description": "The list of the finding types.",
+      "items": {
+        "$ref": "#/definitions/FindingType"
+      },
+      "type": "array",
+      "title": "FindingTypes"
+    },
+    "Findings": {
+      "description": "A list of findings.",
+      "items": {
+        "$ref": "#/definitions/Finding"
+      },
+      "type": "array",
+      "title": "Findings"
+    },
+    "GeoLocation": {
+      "description": "Location information of the remote IP address.",
+      "properties": {
+        "Lat": {
+          "$ref": "#/definitions/__double",
+          "description": "Latitude information of remote IP address."
+        },
+        "Lon": {
+          "$ref": "#/definitions/__double",
+          "description": "Longitude information of remote IP address."
+        }
+      },
+      "type": "object",
+      "title": "GeoLocation"
+    },
+    "GetDetectorRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetDetectorRequest"
+    },
+    "GetDetectorResponse": {
+      "properties": {
+        "CreatedAt": {
+          "$ref": "#/definitions/CreatedAt"
+        },
+        "ServiceRole": {
+          "$ref": "#/definitions/ServiceRole"
+        },
+        "Status": {
+          "$ref": "#/definitions/DetectorStatus"
+        },
+        "UpdatedAt": {
+          "$ref": "#/definitions/UpdatedAt"
+        }
+      },
+      "type": "object",
+      "title": "GetDetectorResponse"
+    },
+    "GetFindingsRequest": {
+      "description": "GetFindings request body.",
+      "properties": {
+        "FindingIds": {
+          "$ref": "#/definitions/FindingIds",
+          "description": "IDs of the findings that you want to retrieve."
+        },
+        "SortCriteria": {
+          "$ref": "#/definitions/SortCriteria",
+          "description": "Represents the criteria used for sorting findings."
+        }
+      },
+      "type": "object",
+      "title": "GetFindingsRequest"
+    },
+    "GetFindingsResponse": {
+      "properties": {
+        "Findings": {
+          "$ref": "#/definitions/Findings"
+        }
+      },
+      "type": "object",
+      "title": "GetFindingsResponse"
+    },
+    "GetFindingsStatisticsRequest": {
+      "description": "GetFindingsStatistics request body.",
+      "properties": {
+        "FindingCriteria": {
+          "$ref": "#/definitions/FindingCriteria",
+          "description": "Represents the criteria used for querying findings."
+        },
+        "FindingStatisticTypes": {
+          "$ref": "#/definitions/FindingStatisticTypes",
+          "description": "Types of finding statistics to retrieve."
+        }
+      },
+      "type": "object",
+      "title": "GetFindingsStatisticsRequest"
+    },
+    "GetFindingsStatisticsResponse": {
+      "properties": {
+        "FindingStatistics": {
+          "$ref": "#/definitions/FindingStatistics",
+          "description": "Finding statistics object."
+        }
+      },
+      "type": "object",
+      "title": "GetFindingsStatisticsResponse"
+    },
+    "GetIPSetRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetIPSetRequest"
+    },
+    "GetIPSetResponse": {
+      "properties": {
+        "Format": {
+          "$ref": "#/definitions/IpSetFormat",
+          "description": "The format of the file that contains the IPSet."
+        },
+        "Location": {
+          "$ref": "#/definitions/Location",
+          "description": "The URI of the file that contains the IPSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)"
+        },
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "The user friendly name to identify the IPSet. This name is displayed in all findings that are triggered by activity that involves IP addresses included in this IPSet."
+        },
+        "Status": {
+          "$ref": "#/definitions/IpSetStatus",
+          "description": "The status of ipSet file uploaded."
+        }
+      },
+      "type": "object",
+      "title": "GetIPSetResponse"
+    },
+    "GetInvitationsCountRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetInvitationsCountRequest"
+    },
+    "GetInvitationsCountResponse": {
+      "properties": {
+        "InvitationsCount": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of received invitations."
+        }
+      },
+      "type": "object",
+      "title": "GetInvitationsCountResponse"
+    },
+    "GetMasterAccountRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetMasterAccountRequest"
+    },
+    "GetMasterAccountResponse": {
+      "properties": {
+        "Master": {
+          "$ref": "#/definitions/Master"
+        }
+      },
+      "type": "object",
+      "title": "GetMasterAccountResponse"
+    },
+    "GetMembersRequest": {
+      "description": "GetMembers request body.",
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIds",
+          "description": "A list of account IDs of the GuardDuty member accounts that you want to describe."
+        }
+      },
+      "type": "object",
+      "title": "GetMembersRequest"
+    },
+    "GetMembersResponse": {
+      "properties": {
+        "Members": {
+          "$ref": "#/definitions/Members"
+        },
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/UnprocessedAccounts",
+          "description": "A list of objects containing the unprocessed account and a result string explaining why it was unprocessed."
+        }
+      },
+      "type": "object",
+      "title": "GetMembersResponse"
+    },
+    "GetThreatIntelSetRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetThreatIntelSetRequest"
+    },
+    "GetThreatIntelSetResponse": {
+      "properties": {
+        "Format": {
+          "$ref": "#/definitions/ThreatIntelSetFormat",
+          "description": "The format of the threatIntelSet."
+        },
+        "Location": {
+          "$ref": "#/definitions/Location",
+          "description": "The URI of the file that contains the ThreatIntelSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)."
+        },
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "A user-friendly ThreatIntelSet name that is displayed in all finding generated by activity that involves IP addresses included in this ThreatIntelSet."
+        },
+        "Status": {
+          "$ref": "#/definitions/ThreatIntelSetStatus",
+          "description": "The status of threatIntelSet file uploaded."
+        }
+      },
+      "type": "object",
+      "title": "GetThreatIntelSetResponse"
+    },
+    "IamInstanceProfile": {
+      "description": "The profile information of the EC2 instance.",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "AWS EC2 instance profile ARN."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "AWS EC2 instance profile ID."
+        }
+      },
+      "type": "object",
+      "title": "IamInstanceProfile"
+    },
+    "InstanceDetails": {
+      "description": "The information about the EC2 instance associated with the activity that prompted GuardDuty to generate a finding.",
+      "properties": {
+        "AvailabilityZone": {
+          "$ref": "#/definitions/__string",
+          "description": "The availability zone of the EC2 instance."
+        },
+        "IamInstanceProfile": {
+          "$ref": "#/definitions/IamInstanceProfile"
+        },
+        "ImageId": {
+          "$ref": "#/definitions/__string",
+          "description": "The image ID of the EC2 instance."
+        },
+        "InstanceId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the EC2 instance."
+        },
+        "InstanceState": {
+          "$ref": "#/definitions/__string",
+          "description": "The state of the EC2 instance."
+        },
+        "InstanceType": {
+          "$ref": "#/definitions/__string",
+          "description": "The type of the EC2 instance."
+        },
+        "LaunchTime": {
+          "$ref": "#/definitions/__string",
+          "description": "The launch time of the EC2 instance."
+        },
+        "NetworkInterfaces": {
+          "$ref": "#/definitions/NetworkInterfaces",
+          "description": "The network interface information of the EC2 instance."
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "The platform of the EC2 instance."
+        },
+        "ProductCodes": {
+          "$ref": "#/definitions/ProductCodes",
+          "description": "The product code of the EC2 instance."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags of the EC2 instance."
+        }
+      },
+      "type": "object",
+      "title": "InstanceDetails"
+    },
+    "InternalServerErrorException": {
+      "description": "Error response object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message."
+        },
+        "Type": {
+          "$ref": "#/definitions/__string",
+          "description": "The error type."
+        }
+      },
+      "type": "object",
+      "title": "InternalServerErrorException"
+    },
+    "Invitation": {
+      "description": "Invitation from an AWS account to become the current account's master.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/__string",
+          "description": "Inviter account ID"
+        },
+        "InvitationId": {
+          "$ref": "#/definitions/InvitationId",
+          "description": "This value is used to validate the inviter account to the member account."
+        },
+        "InvitedAt": {
+          "$ref": "#/definitions/InvitedAt",
+          "description": "Timestamp at which the invitation was sent"
+        },
+        "RelationshipStatus": {
+          "$ref": "#/definitions/__string",
+          "description": "The status of the relationship between the inviter and invitee accounts."
+        }
+      },
+      "type": "object",
+      "title": "Invitation"
+    },
+    "InvitationId": {
+      "description": "This value is used to validate the master account to the member account.",
+      "type": "string",
+      "title": "InvitationId"
+    },
+    "Invitations": {
+      "description": "A list of invitation descriptions.",
+      "items": {
+        "$ref": "#/definitions/Invitation"
+      },
+      "type": "array",
+      "title": "Invitations"
+    },
+    "InviteMembersRequest": {
+      "description": "InviteMembers request body.",
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIds",
+          "description": "A list of account IDs of the accounts that you want to invite to GuardDuty as members."
+        },
+        "Message": {
+          "$ref": "#/definitions/Message",
+          "description": "The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members."
+        }
+      },
+      "type": "object",
+      "title": "InviteMembersRequest"
+    },
+    "InviteMembersResponse": {
+      "properties": {
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/UnprocessedAccounts",
+          "description": "A list of objects containing the unprocessed account and a result string explaining why it was unprocessed."
+        }
+      },
+      "type": "object",
+      "title": "InviteMembersResponse"
+    },
+    "InvitedAt": {
+      "description": "Timestamp at which a member has been invited. The format will be ISO-8601.",
+      "type": "string",
+      "title": "InvitedAt"
+    },
+    "IpSetFormat": {
+      "description": "The format of the ipSet.",
+      "enum": [
+        "TXT",
+        "STIX",
+        "OTX_CSV",
+        "ALIEN_VAULT",
+        "PROOF_POINT",
+        "FIRE_EYE"
+      ],
+      "type": "string",
+      "title": "IpSetFormat"
+    },
+    "IpSetId": {
+      "description": "The unique identifier for an IP Set",
+      "type": "string",
+      "title": "IpSetId"
+    },
+    "IpSetIds": {
+      "description": "A list of the IP set IDs",
+      "items": {
+        "$ref": "#/definitions/IpSetId"
+      },
+      "type": "array",
+      "title": "IpSetIds"
+    },
+    "IpSetStatus": {
+      "description": "The status of ipSet file uploaded.",
+      "enum": [
+        "INACTIVE",
+        "ACTIVATING",
+        "ACTIVE",
+        "DEACTIVATING",
+        "ERROR",
+        "DELETE_PENDING",
+        "DELETED"
+      ],
+      "type": "string",
+      "title": "IpSetStatus"
+    },
+    "Ipv6Address": {
+      "description": "IpV6 address of the EC2 instance.",
+      "type": "string",
+      "title": "Ipv6Address"
+    },
+    "Ipv6Addresses": {
+      "description": "A list of EC2 instance IPv6 address information.",
+      "items": {
+        "$ref": "#/definitions/Ipv6Address"
+      },
+      "type": "array",
+      "title": "Ipv6Addresses"
+    },
+    "ListDetectorsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListDetectorsRequest"
+    },
+    "ListDetectorsResponse": {
+      "properties": {
+        "DetectorIds": {
+          "$ref": "#/definitions/DetectorIds"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "ListDetectorsResponse"
+    },
+    "ListFindingsRequest": {
+      "description": "ListFindings request body.",
+      "properties": {
+        "FindingCriteria": {
+          "$ref": "#/definitions/FindingCriteria",
+          "description": "Represents the criteria used for querying findings."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListFindings action. For subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data."
+        },
+        "SortCriteria": {
+          "$ref": "#/definitions/SortCriteria",
+          "description": "Represents the criteria used for sorting findings."
+        }
+      },
+      "type": "object",
+      "title": "ListFindingsRequest"
+    },
+    "ListFindingsResponse": {
+      "properties": {
+        "FindingIds": {
+          "$ref": "#/definitions/FindingIds"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "ListFindingsResponse"
+    },
+    "ListIPSetsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListIPSetsRequest"
+    },
+    "ListIPSetsResponse": {
+      "properties": {
+        "IpSetIds": {
+          "$ref": "#/definitions/IpSetIds"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "ListIPSetsResponse"
+    },
+    "ListInvitationsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListInvitationsRequest"
+    },
+    "ListInvitationsResponse": {
+      "properties": {
+        "Invitations": {
+          "$ref": "#/definitions/Invitations"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "ListInvitationsResponse"
+    },
+    "ListMembersRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListMembersRequest"
+    },
+    "ListMembersResponse": {
+      "properties": {
+        "Members": {
+          "$ref": "#/definitions/Members"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "ListMembersResponse"
+    },
+    "ListThreatIntelSetsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListThreatIntelSetsRequest"
+    },
+    "ListThreatIntelSetsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "ThreatIntelSetIds": {
+          "$ref": "#/definitions/ThreatIntelSetIds"
+        }
+      },
+      "type": "object",
+      "title": "ListThreatIntelSetsResponse"
+    },
+    "LocalPortDetails": {
+      "description": "Local port information of the connection.",
+      "properties": {
+        "Port": {
+          "$ref": "#/definitions/__integer",
+          "description": "Port number of the local connection."
+        },
+        "PortName": {
+          "$ref": "#/definitions/__string",
+          "description": "Port name of the local connection."
+        }
+      },
+      "type": "object",
+      "title": "LocalPortDetails"
+    },
+    "Location": {
+      "description": "The location of the S3 bucket where the list resides. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)",
+      "type": "string",
+      "title": "Location"
+    },
+    "MapOfCondition": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/Condition"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOfCondition"
+    },
+    "MapOfCountBySeverityFindingStatistic": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/CountBySeverityFindingStatistic"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "MapOfCountBySeverityFindingStatistic"
+    },
+    "Master": {
+      "description": "Contains details about the master account.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/__string",
+          "description": "Master account ID"
+        },
+        "InvitationId": {
+          "$ref": "#/definitions/InvitationId",
+          "description": "This value is used to validate the master account to the member account."
+        },
+        "InvitedAt": {
+          "$ref": "#/definitions/InvitedAt",
+          "description": "Timestamp at which the invitation was sent"
+        },
+        "RelationshipStatus": {
+          "$ref": "#/definitions/__string",
+          "description": "The status of the relationship between the master and member accounts."
+        }
+      },
+      "type": "object",
+      "title": "Master"
+    },
+    "MasterId": {
+      "description": "The master account ID.",
+      "type": "string",
+      "title": "MasterId"
+    },
+    "MaxResults": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxResults"
+    },
+    "Member": {
+      "description": "Contains details about the member account.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "DetectorId": {
+          "$ref": "#/definitions/DetectorId"
+        },
+        "Email": {
+          "$ref": "#/definitions/Email",
+          "description": "Member account's email address."
+        },
+        "InvitedAt": {
+          "$ref": "#/definitions/InvitedAt",
+          "description": "Timestamp at which the invitation was sent"
+        },
+        "MasterId": {
+          "$ref": "#/definitions/MasterId"
+        },
+        "RelationshipStatus": {
+          "$ref": "#/definitions/__string",
+          "description": "The status of the relationship between the member and the master."
+        },
+        "UpdatedAt": {
+          "$ref": "#/definitions/UpdatedAt"
+        }
+      },
+      "type": "object",
+      "title": "Member"
+    },
+    "Members": {
+      "description": "A list of member descriptions.",
+      "items": {
+        "$ref": "#/definitions/Member"
+      },
+      "type": "array",
+      "title": "Members"
+    },
+    "Message": {
+      "description": "The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.",
+      "type": "string",
+      "title": "Message"
+    },
+    "Name": {
+      "description": "The user-friendly name to identify the list.",
+      "type": "string",
+      "title": "Name"
+    },
+    "Neq": {
+      "description": "Represents the not equal condition to be applied to a single field when querying for findings.",
+      "items": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "array",
+      "title": "Neq"
+    },
+    "NetworkConnectionAction": {
+      "description": "Information about the NETWORK_CONNECTION action described in this finding.",
+      "properties": {
+        "Blocked": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Network connection blocked information."
+        },
+        "ConnectionDirection": {
+          "$ref": "#/definitions/__string",
+          "description": "Network connection direction."
+        },
+        "LocalPortDetails": {
+          "$ref": "#/definitions/LocalPortDetails",
+          "description": "Local port information of the connection."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/__string",
+          "description": "Network connection protocol."
+        },
+        "RemoteIpDetails": {
+          "$ref": "#/definitions/RemoteIpDetails",
+          "description": "Remote IP information of the connection."
+        },
+        "RemotePortDetails": {
+          "$ref": "#/definitions/RemotePortDetails",
+          "description": "Remote port information of the connection."
+        }
+      },
+      "type": "object",
+      "title": "NetworkConnectionAction"
+    },
+    "NetworkInterface": {
+      "description": "The network interface information of the EC2 instance.",
+      "properties": {
+        "Ipv6Addresses": {
+          "$ref": "#/definitions/Ipv6Addresses",
+          "description": "A list of EC2 instance IPv6 address information."
+        },
+        "PrivateDnsName": {
+          "$ref": "#/definitions/PrivateDnsName",
+          "description": "Private DNS name of the EC2 instance."
+        },
+        "PrivateIpAddress": {
+          "$ref": "#/definitions/PrivateIpAddress",
+          "description": "Private IP address of the EC2 instance."
+        },
+        "PrivateIpAddresses": {
+          "$ref": "#/definitions/PrivateIpAddresses",
+          "description": "Other private IP address information of the EC2 instance."
+        },
+        "PublicDnsName": {
+          "$ref": "#/definitions/__string",
+          "description": "Public DNS name of the EC2 instance."
+        },
+        "PublicIp": {
+          "$ref": "#/definitions/__string",
+          "description": "Public IP address of the EC2 instance."
+        },
+        "SecurityGroups": {
+          "$ref": "#/definitions/SecurityGroups",
+          "description": "Security groups associated with the EC2 instance."
+        },
+        "SubnetId": {
+          "$ref": "#/definitions/__string",
+          "description": "The subnet ID of the EC2 instance."
+        },
+        "VpcId": {
+          "$ref": "#/definitions/__string",
+          "description": "The VPC ID of the EC2 instance."
+        }
+      },
+      "type": "object",
+      "title": "NetworkInterface"
+    },
+    "NetworkInterfaces": {
+      "description": "The network interface information of the EC2 instance.",
+      "items": {
+        "$ref": "#/definitions/NetworkInterface"
+      },
+      "type": "array",
+      "title": "NetworkInterfaces"
+    },
+    "NextToken": {
+      "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action fill nextToken in the request with the value of NextToken from the previous response to continue listing data.",
+      "type": "string",
+      "title": "NextToken"
+    },
+    "OrderBy": {
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "type": "string",
+      "title": "OrderBy"
+    },
+    "Organization": {
+      "description": "ISP Organization information of the remote IP address.",
+      "properties": {
+        "Asn": {
+          "$ref": "#/definitions/__string",
+          "description": "Autonomous system number of the internet provider of the remote IP address."
+        },
+        "AsnOrg": {
+          "$ref": "#/definitions/__string",
+          "description": "Organization that registered this ASN."
+        },
+        "Isp": {
+          "$ref": "#/definitions/__string",
+          "description": "ISP information for the internet provider."
+        },
+        "Org": {
+          "$ref": "#/definitions/__string",
+          "description": "Name of the internet provider."
+        }
+      },
+      "type": "object",
+      "title": "Organization"
+    },
+    "PrivateDnsName": {
+      "description": "Private DNS name of the EC2 instance.",
+      "type": "string",
+      "title": "PrivateDnsName"
+    },
+    "PrivateIpAddress": {
+      "description": "Private IP address of the EC2 instance.",
+      "type": "string",
+      "title": "PrivateIpAddress"
+    },
+    "PrivateIpAddressDetails": {
+      "description": "Other private IP address information of the EC2 instance.",
+      "properties": {
+        "PrivateDnsName": {
+          "$ref": "#/definitions/PrivateDnsName",
+          "description": "Private DNS name of the EC2 instance."
+        },
+        "PrivateIpAddress": {
+          "$ref": "#/definitions/PrivateIpAddress",
+          "description": "Private IP address of the EC2 instance."
+        }
+      },
+      "type": "object",
+      "title": "PrivateIpAddressDetails"
+    },
+    "PrivateIpAddresses": {
+      "description": "Other private IP address information of the EC2 instance.",
+      "items": {
+        "$ref": "#/definitions/PrivateIpAddressDetails"
+      },
+      "type": "array",
+      "title": "PrivateIpAddresses"
+    },
+    "ProductCode": {
+      "description": "The product code of the EC2 instance.",
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/__string",
+          "description": "Product code information."
+        },
+        "ProductType": {
+          "$ref": "#/definitions/__string",
+          "description": "Product code type."
+        }
+      },
+      "type": "object",
+      "title": "ProductCode"
+    },
+    "ProductCodes": {
+      "description": "The product code of the EC2 instance.",
+      "items": {
+        "$ref": "#/definitions/ProductCode"
+      },
+      "type": "array",
+      "title": "ProductCodes"
+    },
+    "RemoteIpDetails": {
+      "description": "Remote IP information of the connection.",
+      "properties": {
+        "City": {
+          "$ref": "#/definitions/City",
+          "description": "City information of the remote IP address."
+        },
+        "Country": {
+          "$ref": "#/definitions/Country",
+          "description": "Country code of the remote IP address."
+        },
+        "GeoLocation": {
+          "$ref": "#/definitions/GeoLocation",
+          "description": "Location information of the remote IP address."
+        },
+        "IpAddressV4": {
+          "$ref": "#/definitions/__string",
+          "description": "IPV4 remote address of the connection."
+        },
+        "Organization": {
+          "$ref": "#/definitions/Organization",
+          "description": "ISP Organization information of the remote IP address."
+        }
+      },
+      "type": "object",
+      "title": "RemoteIpDetails"
+    },
+    "RemotePortDetails": {
+      "description": "Remote port information of the connection.",
+      "properties": {
+        "Port": {
+          "$ref": "#/definitions/__integer",
+          "description": "Port number of the remote connection."
+        },
+        "PortName": {
+          "$ref": "#/definitions/__string",
+          "description": "Port name of the remote connection."
+        }
+      },
+      "type": "object",
+      "title": "RemotePortDetails"
+    },
+    "Resource": {
+      "description": "The AWS resource associated with the activity that prompted GuardDuty to generate a finding.",
+      "properties": {
+        "InstanceDetails": {
+          "$ref": "#/definitions/InstanceDetails"
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/__string",
+          "description": "The type of the AWS resource."
+        }
+      },
+      "type": "object",
+      "title": "Resource"
+    },
+    "SecurityGroup": {
+      "description": "Security groups associated with the EC2 instance.",
+      "properties": {
+        "GroupId": {
+          "$ref": "#/definitions/__string",
+          "description": "EC2 instance's security group ID."
+        },
+        "GroupName": {
+          "$ref": "#/definitions/__string",
+          "description": "EC2 instance's security group name."
+        }
+      },
+      "type": "object",
+      "title": "SecurityGroup"
+    },
+    "SecurityGroups": {
+      "description": "Security groups associated with the EC2 instance.",
+      "items": {
+        "$ref": "#/definitions/SecurityGroup"
+      },
+      "type": "array",
+      "title": "SecurityGroups"
+    },
+    "Service": {
+      "description": "Additional information assigned to the generated finding by GuardDuty.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/Action",
+          "description": "Information about the activity described in a finding."
+        },
+        "Archived": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates whether this finding is archived."
+        },
+        "Count": {
+          "$ref": "#/definitions/__integer",
+          "description": "Total count of the occurrences of this finding type."
+        },
+        "DetectorId": {
+          "$ref": "#/definitions/DetectorId",
+          "description": "Detector ID for the GuardDuty service."
+        },
+        "EventFirstSeen": {
+          "$ref": "#/definitions/__string",
+          "description": "First seen timestamp of the activity that prompted GuardDuty to generate this finding."
+        },
+        "EventLastSeen": {
+          "$ref": "#/definitions/__string",
+          "description": "Last seen timestamp of the activity that prompted GuardDuty to generate this finding."
+        },
+        "ResourceRole": {
+          "$ref": "#/definitions/__string",
+          "description": "Resource role information for this finding."
+        },
+        "ServiceName": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the AWS service (GuardDuty) that generated a finding."
+        },
+        "UserFeedback": {
+          "$ref": "#/definitions/__string",
+          "description": "Feedback left about the finding."
+        }
+      },
+      "type": "object",
+      "title": "Service"
+    },
+    "ServiceRole": {
+      "description": "Customer serviceRole name or ARN for accessing customer resources",
+      "type": "string",
+      "title": "ServiceRole"
+    },
+    "SortCriteria": {
+      "description": "Represents the criteria used for sorting findings.",
+      "properties": {
+        "AttributeName": {
+          "$ref": "#/definitions/__string",
+          "description": "Represents the finding attribute (for example, accountId) by which to sort findings."
+        },
+        "OrderBy": {
+          "$ref": "#/definitions/OrderBy",
+          "description": "Order by which the sorted findings are to be displayed."
+        }
+      },
+      "type": "object",
+      "title": "SortCriteria"
+    },
+    "StartMonitoringMembersRequest": {
+      "description": "StartMonitoringMembers request body.",
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIds",
+          "description": "A list of account IDs of the GuardDuty member accounts whose findings you want the master account to monitor."
+        }
+      },
+      "type": "object",
+      "title": "StartMonitoringMembersRequest"
+    },
+    "StartMonitoringMembersResponse": {
+      "properties": {
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/UnprocessedAccounts",
+          "description": "A list of objects containing the unprocessed account and a result string explaining why it was unprocessed."
+        }
+      },
+      "type": "object",
+      "title": "StartMonitoringMembersResponse"
+    },
+    "StopMonitoringMembersRequest": {
+      "description": "StopMonitoringMembers request body.",
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIds",
+          "description": "A list of account IDs of the GuardDuty member accounts whose findings you want the master account to stop monitoring."
+        }
+      },
+      "type": "object",
+      "title": "StopMonitoringMembersRequest"
+    },
+    "StopMonitoringMembersResponse": {
+      "properties": {
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/UnprocessedAccounts",
+          "description": "A list of objects containing the unprocessed account and a result string explaining why it was unprocessed."
+        }
+      },
+      "type": "object",
+      "title": "StopMonitoringMembersResponse"
+    },
+    "Tag": {
+      "description": "A tag of the EC2 instance.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/__string",
+          "description": "EC2 instance tag key."
+        },
+        "Value": {
+          "$ref": "#/definitions/__string",
+          "description": "EC2 instance tag value."
+        }
+      },
+      "type": "object",
+      "title": "Tag"
+    },
+    "Tags": {
+      "description": "The tags of the EC2 instance.",
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array",
+      "title": "Tags"
+    },
+    "ThreatIntelSetFormat": {
+      "description": "The format of the threatIntelSet.",
+      "enum": [
+        "TXT",
+        "STIX",
+        "OTX_CSV",
+        "ALIEN_VAULT",
+        "PROOF_POINT",
+        "FIRE_EYE"
+      ],
+      "type": "string",
+      "title": "ThreatIntelSetFormat"
+    },
+    "ThreatIntelSetId": {
+      "description": "The unique identifier for an threat intel set",
+      "type": "string",
+      "title": "ThreatIntelSetId"
+    },
+    "ThreatIntelSetIds": {
+      "description": "The list of the threat intel set IDs",
+      "items": {
+        "$ref": "#/definitions/ThreatIntelSetId"
+      },
+      "type": "array",
+      "title": "ThreatIntelSetIds"
+    },
+    "ThreatIntelSetStatus": {
+      "description": "The status of threatIntelSet file uploaded.",
+      "enum": [
+        "INACTIVE",
+        "ACTIVATING",
+        "ACTIVE",
+        "DEACTIVATING",
+        "ERROR",
+        "DELETE_PENDING",
+        "DELETED"
+      ],
+      "type": "string",
+      "title": "ThreatIntelSetStatus"
+    },
+    "UnarchiveFindingsRequest": {
+      "description": "UnarchiveFindings request body.",
+      "properties": {
+        "FindingIds": {
+          "$ref": "#/definitions/FindingIds",
+          "description": "IDs of the findings that you want to unarchive."
+        }
+      },
+      "type": "object",
+      "title": "UnarchiveFindingsRequest"
+    },
+    "UnarchiveFindingsResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UnarchiveFindingsResponse"
+    },
+    "UnprocessedAccount": {
+      "description": "An object containing the unprocessed account and a result string explaining why it was unprocessed.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/__string",
+          "description": "AWS Account ID."
+        },
+        "Result": {
+          "$ref": "#/definitions/__string",
+          "description": "A reason why the account hasn't been processed."
+        }
+      },
+      "type": "object",
+      "title": "UnprocessedAccount"
+    },
+    "UnprocessedAccounts": {
+      "description": "A list of objects containing the unprocessed account and a result string explaining why it was unprocessed.",
+      "items": {
+        "$ref": "#/definitions/UnprocessedAccount"
+      },
+      "type": "array",
+      "title": "UnprocessedAccounts"
+    },
+    "UpdateDetectorRequest": {
+      "description": "UpdateDetector request body.",
+      "properties": {
+        "Enable": {
+          "$ref": "#/definitions/Enable",
+          "description": "Updated boolean value for the detector that specifies whether the detector is enabled."
+        }
+      },
+      "type": "object",
+      "title": "UpdateDetectorRequest"
+    },
+    "UpdateDetectorResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateDetectorResponse"
+    },
+    "UpdateFindingsFeedbackRequest": {
+      "description": "UpdateFindingsFeedback request body.",
+      "properties": {
+        "Comments": {
+          "$ref": "#/definitions/Comments",
+          "description": "Additional feedback about the GuardDuty findings."
+        },
+        "Feedback": {
+          "$ref": "#/definitions/Feedback",
+          "description": "Valid values: USEFUL | NOT_USEFUL"
+        },
+        "FindingIds": {
+          "$ref": "#/definitions/FindingIds",
+          "description": "IDs of the findings that you want to mark as useful or not useful."
+        }
+      },
+      "type": "object",
+      "title": "UpdateFindingsFeedbackRequest"
+    },
+    "UpdateFindingsFeedbackResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateFindingsFeedbackResponse"
+    },
+    "UpdateIPSetRequest": {
+      "description": "UpdateIPSet request body.",
+      "properties": {
+        "Activate": {
+          "$ref": "#/definitions/Activate",
+          "description": "The updated boolean value that specifies whether the IPSet is active or not."
+        },
+        "Location": {
+          "$ref": "#/definitions/Location",
+          "description": "The updated URI of the file that contains the IPSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)."
+        },
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "The unique ID that specifies the IPSet that you want to update."
+        }
+      },
+      "type": "object",
+      "title": "UpdateIPSetRequest"
+    },
+    "UpdateIPSetResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateIPSetResponse"
+    },
+    "UpdateThreatIntelSetRequest": {
+      "description": "UpdateThreatIntelSet request body.",
+      "properties": {
+        "Activate": {
+          "$ref": "#/definitions/Activate",
+          "description": "The updated boolean value that specifies whether the ThreateIntelSet is active or not."
+        },
+        "Location": {
+          "$ref": "#/definitions/Location",
+          "description": "The updated URI of the file that contains the ThreateIntelSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)"
+        },
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "The unique ID that specifies the ThreatIntelSet that you want to update."
+        }
+      },
+      "type": "object",
+      "title": "UpdateThreatIntelSetRequest"
+    },
+    "UpdateThreatIntelSetResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateThreatIntelSetResponse"
+    },
+    "UpdatedAt": {
+      "description": "The first time a resource was created. The format will be ISO-8601.",
+      "type": "string",
+      "title": "UpdatedAt"
+    },
+    "__boolean": {
+      "type": "boolean",
+      "title": "__boolean"
+    },
+    "__double": {
+      "format": "double",
+      "type": "number",
+      "title": "__double"
+    },
+    "__integer": {
+      "type": "integer",
+      "title": "__integer"
+    },
+    "__string": {
+      "type": "string",
+      "title": "__string"
+    },
+    "__timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "__timestamp"
+    }
+  },
+  "actions": [
+    {
+      "id": "ListDetectors",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListDetectorsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDetectorsResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "UpdateDetector",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateDetectorRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateDetectorResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "ListFindings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          },
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListFindingsRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListFindingsResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "ArchiveFindings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ArchiveFindingsRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArchiveFindingsResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "CreateSampleFindings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateSampleFindingsRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateSampleFindingsResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "UpdateFindingsFeedback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateFindingsFeedbackRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateFindingsFeedbackResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "GetFindings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetFindingsRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetFindingsResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "GetFindingsStatistics",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetFindingsStatisticsRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetFindingsStatisticsResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "UnarchiveFindings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UnarchiveFindingsRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UnarchiveFindingsResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "ListIPSets",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          },
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListIPSetsRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListIPSetsResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "UpdateIPSet",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          },
+          "ipSetId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateIPSetRequest"
+          }
+        ],
+        "required": [
+          "detectorId",
+          "ipSetId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateIPSetResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "GetMasterAccount",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetMasterAccountRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetMasterAccountResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "DisassociateFromMasterAccount",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisassociateFromMasterAccountRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisassociateFromMasterAccountResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "ListMembers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          },
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListMembersRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListMembersResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "DeleteMembers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteMembersRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteMembersResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "DisassociateMembers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisassociateMembersRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisassociateMembersResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "GetMembers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetMembersRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetMembersResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "InviteMembers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/InviteMembersRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/InviteMembersResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "StartMonitoringMembers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartMonitoringMembersRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartMonitoringMembersResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "StopMonitoringMembers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/StopMonitoringMembersRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StopMonitoringMembersResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "ListThreatIntelSets",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          },
+          "detectorId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListThreatIntelSetsRequest"
+          }
+        ],
+        "required": [
+          "detectorId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListThreatIntelSetsResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "UpdateThreatIntelSet",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "detectorId": {
+            "type": "string"
+          },
+          "threatIntelSetId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateThreatIntelSetRequest"
+          }
+        ],
+        "required": [
+          "detectorId",
+          "threatIntelSetId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateThreatIntelSetResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "ListInvitations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListInvitationsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListInvitationsResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "GetInvitationsCount",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetInvitationsCountRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetInvitationsCountResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "DeclineInvitations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeclineInvitationsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeclineInvitationsResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    },
+    {
+      "id": "DeleteInvitations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteInvitationsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteInvitationsResponse"
+      },
+      "security": {
+        "amazonaws_guardduty": {
+          "integration": "amazonaws_guardduty"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "id": "deeparteffects",
+  "title": "Deep Art Effects",
+  "security": {
+    "deeparteffects": {
+      "integration": "deeparteffects",
+      "fields": {
+        "api_key": "API key",
+        "sigv4": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deeparteffects.jpeg"
+  },
+  "actionCount": 3,
+  "definitions": {
+    "Empty": {
+      "title": "Empty Schema",
+      "type": "object"
+    },
+    "Error": {
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "Error Schema",
+      "type": "object"
+    },
+    "Result": {
+      "properties": {
+        "status": {
+          "description": "Submissiond status. Can be 'new', 'error', 'processing', 'finished'",
+          "type": "string"
+        },
+        "url": {
+          "description": "Result url for the artwork",
+          "type": "string"
+        }
+      },
+      "title": "GetResult Schema",
+      "type": "object"
+    },
+    "Style": {
+      "properties": {
+        "description": {
+          "description": "Style description",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique identifier for a style",
+          "type": "string"
+        },
+        "title": {
+          "description": "Style title",
+          "type": "string"
+        },
+        "url": {
+          "description": "Style URL",
+          "type": "string"
+        }
+      },
+      "title": "Style Schema",
+      "type": "object"
+    },
+    "Styles": {
+      "properties": {
+        "styles": {
+          "items": {
+            "$ref": "#/definitions/Style"
+          },
+          "type": "array"
+        }
+      },
+      "title": "List Styles Schema",
+      "type": "object"
+    },
+    "UploadRequest": {
+      "properties": {
+        "imageBase64Encoded": {
+          "description": "Base64 decoded image",
+          "type": "string"
+        },
+        "imageSize": {
+          "description": "Image size in px. Picture will be resized for processing.",
+          "type": "integer"
+        },
+        "optimizeForPrint": {
+          "description": "Use this flag to get an artwork optimized for print.",
+          "type": "boolean"
+        },
+        "partnerId": {
+          "description": "The unique identifier for a partner with dedicated api access.",
+          "type": "string"
+        },
+        "styleId": {
+          "description": "The unique identifier for a style",
+          "type": "string"
+        },
+        "useOriginalColors": {
+          "description": "Use this flag to use the original color from your photo for the artwork.",
+          "type": "boolean"
+        }
+      },
+      "title": "Request schema for a submission",
+      "type": "object"
+    },
+    "UploadResponse": {
+      "properties": {
+        "submissionId": {
+          "type": "string"
+        }
+      },
+      "title": "Response Schema for upload request",
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "noauth.result.get",
+      "title": "noauth.result.get",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "submissionId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Result"
+      },
+      "security": {
+        "deeparteffects": {
+          "integration": "deeparteffects"
+        }
+      }
+    },
+    {
+      "id": "noauth.styles.get",
+      "title": "noauth.styles.get",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Styles"
+      },
+      "security": {
+        "deeparteffects": {
+          "integration": "deeparteffects"
+        }
+      }
+    },
+    {
+      "id": "noauth.upload.post",
+      "title": "noauth.upload.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "UploadRequest": {
+            "$ref": "#/definitions/UploadRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "UploadRequest"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UploadResponse"
+      },
+      "security": {
+        "deeparteffects": {
+          "integration": "deeparteffects"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "media"
+  ]
+}

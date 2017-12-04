@@ -1,0 +1,1078 @@
+{
+  "id": "amazonaws_sms",
+  "title": "AWS Server Migration Service",
+  "description": "Amazon Server Migration Service automates the process of migrating servers to EC2.",
+  "security": {
+    "amazonaws_sms": {
+      "integration": "amazonaws_sms",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sms.svg"
+  },
+  "actionCount": 11,
+  "definitions": {
+    "AmiId": {
+      "description": "The AMI id for the image resulting from a Replication Run.",
+      "type": "string",
+      "title": "AmiId"
+    },
+    "Connector": {
+      "description": "Object representing a Connector",
+      "properties": {
+        "associatedOn": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "capabilityList": {
+          "$ref": "#/definitions/ConnectorCapabilityList"
+        },
+        "connectorId": {
+          "$ref": "#/definitions/ConnectorId"
+        },
+        "ipAddress": {
+          "$ref": "#/definitions/IpAddress"
+        },
+        "macAddress": {
+          "$ref": "#/definitions/MacAddress"
+        },
+        "status": {
+          "$ref": "#/definitions/ConnectorStatus"
+        },
+        "version": {
+          "$ref": "#/definitions/ConnectorVersion"
+        },
+        "vmManagerId": {
+          "$ref": "#/definitions/VmManagerId"
+        },
+        "vmManagerName": {
+          "$ref": "#/definitions/VmManagerName"
+        },
+        "vmManagerType": {
+          "$ref": "#/definitions/VmManagerType"
+        }
+      },
+      "type": "object",
+      "title": "Connector"
+    },
+    "ConnectorCapability": {
+      "description": "Capabilities for a Connector",
+      "enum": [
+        "VSPHERE"
+      ],
+      "type": "string",
+      "title": "ConnectorCapability"
+    },
+    "ConnectorCapabilityList": {
+      "description": "List of Connector Capabilities",
+      "items": {
+        "$ref": "#/definitions/ConnectorCapability"
+      },
+      "type": "array",
+      "title": "ConnectorCapabilityList"
+    },
+    "ConnectorId": {
+      "description": "Unique Identifier for Connector",
+      "type": "string",
+      "title": "ConnectorId"
+    },
+    "ConnectorList": {
+      "description": "List of connectors",
+      "items": {
+        "$ref": "#/definitions/Connector"
+      },
+      "type": "array",
+      "title": "ConnectorList"
+    },
+    "ConnectorStatus": {
+      "description": "Status of on-premise Connector",
+      "enum": [
+        "HEALTHY",
+        "UNHEALTHY"
+      ],
+      "type": "string",
+      "title": "ConnectorStatus"
+    },
+    "ConnectorVersion": {
+      "description": "Connector version string",
+      "type": "string",
+      "title": "ConnectorVersion"
+    },
+    "CreateReplicationJobRequest": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/Description"
+        },
+        "frequency": {
+          "$ref": "#/definitions/Frequency"
+        },
+        "licenseType": {
+          "$ref": "#/definitions/LicenseType"
+        },
+        "roleName": {
+          "$ref": "#/definitions/RoleName"
+        },
+        "seedReplicationTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "serverId": {
+          "$ref": "#/definitions/ServerId"
+        }
+      },
+      "required": [
+        "serverId",
+        "seedReplicationTime",
+        "frequency"
+      ],
+      "type": "object",
+      "title": "CreateReplicationJobRequest"
+    },
+    "CreateReplicationJobResponse": {
+      "properties": {
+        "replicationJobId": {
+          "$ref": "#/definitions/ReplicationJobId"
+        }
+      },
+      "type": "object",
+      "title": "CreateReplicationJobResponse"
+    },
+    "DeleteReplicationJobRequest": {
+      "properties": {
+        "replicationJobId": {
+          "$ref": "#/definitions/ReplicationJobId"
+        }
+      },
+      "required": [
+        "replicationJobId"
+      ],
+      "type": "object",
+      "title": "DeleteReplicationJobRequest"
+    },
+    "DeleteReplicationJobResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteReplicationJobResponse"
+    },
+    "DeleteServerCatalogRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteServerCatalogRequest"
+    },
+    "DeleteServerCatalogResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteServerCatalogResponse"
+    },
+    "Description": {
+      "description": "The description for a Replication Job/Run.",
+      "type": "string",
+      "title": "Description"
+    },
+    "DisassociateConnectorRequest": {
+      "properties": {
+        "connectorId": {
+          "$ref": "#/definitions/ConnectorId"
+        }
+      },
+      "required": [
+        "connectorId"
+      ],
+      "type": "object",
+      "title": "DisassociateConnectorRequest"
+    },
+    "DisassociateConnectorResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DisassociateConnectorResponse"
+    },
+    "ErrorMessage": {
+      "description": "Error Message string",
+      "type": "string",
+      "title": "ErrorMessage"
+    },
+    "Frequency": {
+      "description": "Interval between Replication Runs. This value is specified in hours, and represents the time between consecutive Replication Runs.",
+      "type": "integer",
+      "title": "Frequency"
+    },
+    "GetConnectorsRequest": {
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults"
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "GetConnectorsRequest"
+    },
+    "GetConnectorsResponse": {
+      "properties": {
+        "connectorList": {
+          "$ref": "#/definitions/ConnectorList"
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "GetConnectorsResponse"
+    },
+    "GetReplicationJobsRequest": {
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults"
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "replicationJobId": {
+          "$ref": "#/definitions/ReplicationJobId"
+        }
+      },
+      "type": "object",
+      "title": "GetReplicationJobsRequest"
+    },
+    "GetReplicationJobsResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "replicationJobList": {
+          "$ref": "#/definitions/ReplicationJobList"
+        }
+      },
+      "type": "object",
+      "title": "GetReplicationJobsResponse"
+    },
+    "GetReplicationRunsRequest": {
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults"
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "replicationJobId": {
+          "$ref": "#/definitions/ReplicationJobId"
+        }
+      },
+      "required": [
+        "replicationJobId"
+      ],
+      "type": "object",
+      "title": "GetReplicationRunsRequest"
+    },
+    "GetReplicationRunsResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "replicationJob": {
+          "$ref": "#/definitions/ReplicationJob"
+        },
+        "replicationRunList": {
+          "$ref": "#/definitions/ReplicationRunList"
+        }
+      },
+      "type": "object",
+      "title": "GetReplicationRunsResponse"
+    },
+    "GetServersRequest": {
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults"
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object",
+      "title": "GetServersRequest"
+    },
+    "GetServersResponse": {
+      "properties": {
+        "lastModifiedOn": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "serverCatalogStatus": {
+          "$ref": "#/definitions/ServerCatalogStatus"
+        },
+        "serverList": {
+          "$ref": "#/definitions/ServerList"
+        }
+      },
+      "type": "object",
+      "title": "GetServersResponse"
+    },
+    "ImportServerCatalogRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ImportServerCatalogRequest"
+    },
+    "ImportServerCatalogResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "ImportServerCatalogResponse"
+    },
+    "InternalError": {
+      "description": "An internal error has occured.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InternalError"
+    },
+    "InvalidParameterException": {
+      "description": "A parameter specified in the request is not valid, is unsupported, or cannot be used.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidParameterException"
+    },
+    "IpAddress": {
+      "description": "Internet Protocol (IP) Address",
+      "type": "string",
+      "title": "IpAddress"
+    },
+    "LicenseType": {
+      "description": "The license type to be used for the Amazon Machine Image (AMI) created after a successful ReplicationRun.",
+      "enum": [
+        "AWS",
+        "BYOL"
+      ],
+      "type": "string",
+      "title": "LicenseType"
+    },
+    "MacAddress": {
+      "description": "Hardware (MAC) address",
+      "type": "string",
+      "title": "MacAddress"
+    },
+    "MaxResults": {
+      "description": "The maximum number of results to return in one API call. If left empty, this will default to 50.",
+      "type": "integer",
+      "title": "MaxResults"
+    },
+    "MissingRequiredParameterException": {
+      "description": "The request is missing a required parameter. Ensure that you have supplied all the required parameters for the request.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "MissingRequiredParameterException"
+    },
+    "NextToken": {
+      "description": "Pagination token to pass as input to API call",
+      "type": "string",
+      "title": "NextToken"
+    },
+    "NoConnectorsAvailableException": {
+      "description": "No connectors are available to handle this request. Please associate connector(s) and verify any existing connectors are healthy and can respond to requests.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "NoConnectorsAvailableException"
+    },
+    "OperationNotPermittedException": {
+      "description": "The specified operation is not allowed. This error can occur for a number of reasons; for example, you might be trying to start a Replication Run before seed Replication Run.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "OperationNotPermittedException"
+    },
+    "ReplicationJob": {
+      "description": "Object representing a Replication Job",
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/Description"
+        },
+        "frequency": {
+          "$ref": "#/definitions/Frequency"
+        },
+        "latestAmiId": {
+          "$ref": "#/definitions/AmiId"
+        },
+        "licenseType": {
+          "$ref": "#/definitions/LicenseType"
+        },
+        "nextReplicationRunStartTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "replicationJobId": {
+          "$ref": "#/definitions/ReplicationJobId"
+        },
+        "replicationRunList": {
+          "$ref": "#/definitions/ReplicationRunList"
+        },
+        "roleName": {
+          "$ref": "#/definitions/RoleName"
+        },
+        "seedReplicationTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "serverId": {
+          "$ref": "#/definitions/ServerId"
+        },
+        "serverType": {
+          "$ref": "#/definitions/ServerType"
+        },
+        "state": {
+          "$ref": "#/definitions/ReplicationJobState"
+        },
+        "statusMessage": {
+          "$ref": "#/definitions/ReplicationJobStatusMessage"
+        },
+        "vmServer": {
+          "$ref": "#/definitions/VmServer"
+        }
+      },
+      "type": "object",
+      "title": "ReplicationJob"
+    },
+    "ReplicationJobAlreadyExistsException": {
+      "description": "An active Replication Job already exists for the specified server.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ReplicationJobAlreadyExistsException"
+    },
+    "ReplicationJobId": {
+      "description": "The unique identifier for a Replication Job.",
+      "type": "string",
+      "title": "ReplicationJobId"
+    },
+    "ReplicationJobList": {
+      "description": "List of Replication Jobs",
+      "items": {
+        "$ref": "#/definitions/ReplicationJob"
+      },
+      "type": "array",
+      "title": "ReplicationJobList"
+    },
+    "ReplicationJobNotFoundException": {
+      "description": "The specified Replication Job cannot be found.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ReplicationJobNotFoundException"
+    },
+    "ReplicationJobState": {
+      "description": "Current state of Replication Job",
+      "enum": [
+        "PENDING",
+        "ACTIVE",
+        "FAILED",
+        "DELETING",
+        "DELETED"
+      ],
+      "type": "string",
+      "title": "ReplicationJobState"
+    },
+    "ReplicationJobStatusMessage": {
+      "description": "String describing current status of Replication Job",
+      "type": "string",
+      "title": "ReplicationJobStatusMessage"
+    },
+    "ReplicationJobTerminated": {
+      "description": "An indicator of the Replication Job being deleted or failed.",
+      "type": "boolean",
+      "title": "ReplicationJobTerminated"
+    },
+    "ReplicationRun": {
+      "description": "Object representing a Replication Run",
+      "properties": {
+        "amiId": {
+          "$ref": "#/definitions/AmiId"
+        },
+        "completedTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "description": {
+          "$ref": "#/definitions/Description"
+        },
+        "replicationRunId": {
+          "$ref": "#/definitions/ReplicationRunId"
+        },
+        "scheduledStartTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "state": {
+          "$ref": "#/definitions/ReplicationRunState"
+        },
+        "statusMessage": {
+          "$ref": "#/definitions/ReplicationRunStatusMessage"
+        },
+        "type": {
+          "$ref": "#/definitions/ReplicationRunType"
+        }
+      },
+      "type": "object",
+      "title": "ReplicationRun"
+    },
+    "ReplicationRunId": {
+      "description": "The unique identifier for a Replication Run.",
+      "type": "string",
+      "title": "ReplicationRunId"
+    },
+    "ReplicationRunLimitExceededException": {
+      "description": "This user has exceeded the maximum allowed Replication Run limit.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ReplicationRunLimitExceededException"
+    },
+    "ReplicationRunList": {
+      "description": "List of Replication Runs",
+      "items": {
+        "$ref": "#/definitions/ReplicationRun"
+      },
+      "type": "array",
+      "title": "ReplicationRunList"
+    },
+    "ReplicationRunState": {
+      "description": "Current state of Replication Run",
+      "enum": [
+        "PENDING",
+        "MISSED",
+        "ACTIVE",
+        "FAILED",
+        "COMPLETED",
+        "DELETING",
+        "DELETED"
+      ],
+      "type": "string",
+      "title": "ReplicationRunState"
+    },
+    "ReplicationRunStatusMessage": {
+      "description": "String describing current status of Replication Run",
+      "type": "string",
+      "title": "ReplicationRunStatusMessage"
+    },
+    "ReplicationRunType": {
+      "description": "Type of Replication Run",
+      "enum": [
+        "ON_DEMAND",
+        "AUTOMATIC"
+      ],
+      "type": "string",
+      "title": "ReplicationRunType"
+    },
+    "RoleName": {
+      "description": "Name of service role in customer's account to be used by SMS service.",
+      "type": "string",
+      "title": "RoleName"
+    },
+    "Server": {
+      "description": "Object representing a server",
+      "properties": {
+        "replicationJobId": {
+          "$ref": "#/definitions/ReplicationJobId"
+        },
+        "replicationJobTerminated": {
+          "$ref": "#/definitions/ReplicationJobTerminated"
+        },
+        "serverId": {
+          "$ref": "#/definitions/ServerId"
+        },
+        "serverType": {
+          "$ref": "#/definitions/ServerType"
+        },
+        "vmServer": {
+          "$ref": "#/definitions/VmServer"
+        }
+      },
+      "type": "object",
+      "title": "Server"
+    },
+    "ServerCannotBeReplicatedException": {
+      "description": "The provided server cannot be replicated.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ServerCannotBeReplicatedException"
+    },
+    "ServerCatalogStatus": {
+      "description": "Status of Server catalog",
+      "enum": [
+        "NOT_IMPORTED",
+        "IMPORTING",
+        "AVAILABLE",
+        "DELETED",
+        "EXPIRED"
+      ],
+      "type": "string",
+      "title": "ServerCatalogStatus"
+    },
+    "ServerId": {
+      "description": "Unique Identifier for a server",
+      "type": "string",
+      "title": "ServerId"
+    },
+    "ServerList": {
+      "description": "List of servers from catalog",
+      "items": {
+        "$ref": "#/definitions/Server"
+      },
+      "type": "array",
+      "title": "ServerList"
+    },
+    "ServerType": {
+      "description": "Type of server.",
+      "enum": [
+        "VIRTUAL_MACHINE"
+      ],
+      "type": "string",
+      "title": "ServerType"
+    },
+    "StartOnDemandReplicationRunRequest": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/Description"
+        },
+        "replicationJobId": {
+          "$ref": "#/definitions/ReplicationJobId"
+        }
+      },
+      "required": [
+        "replicationJobId"
+      ],
+      "type": "object",
+      "title": "StartOnDemandReplicationRunRequest"
+    },
+    "StartOnDemandReplicationRunResponse": {
+      "properties": {
+        "replicationRunId": {
+          "$ref": "#/definitions/ReplicationRunId"
+        }
+      },
+      "type": "object",
+      "title": "StartOnDemandReplicationRunResponse"
+    },
+    "Timestamp": {
+      "description": "Timestamp of an operation",
+      "format": "date-time",
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "UnauthorizedOperationException": {
+      "description": "This user does not have permissions to perform this operation.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "UnauthorizedOperationException"
+    },
+    "UpdateReplicationJobRequest": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/Description"
+        },
+        "frequency": {
+          "$ref": "#/definitions/Frequency"
+        },
+        "licenseType": {
+          "$ref": "#/definitions/LicenseType"
+        },
+        "nextReplicationRunStartTime": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "replicationJobId": {
+          "$ref": "#/definitions/ReplicationJobId"
+        },
+        "roleName": {
+          "$ref": "#/definitions/RoleName"
+        }
+      },
+      "required": [
+        "replicationJobId"
+      ],
+      "type": "object",
+      "title": "UpdateReplicationJobRequest"
+    },
+    "UpdateReplicationJobResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateReplicationJobResponse"
+    },
+    "VmId": {
+      "description": "Unique Identifier for a VM",
+      "type": "string",
+      "title": "VmId"
+    },
+    "VmManagerId": {
+      "description": "Unique Identifier for VM Manager",
+      "type": "string",
+      "title": "VmManagerId"
+    },
+    "VmManagerName": {
+      "description": "VM Manager Name",
+      "type": "string",
+      "title": "VmManagerName"
+    },
+    "VmManagerType": {
+      "description": "VM Management Product",
+      "enum": [
+        "VSPHERE"
+      ],
+      "type": "string",
+      "title": "VmManagerType"
+    },
+    "VmName": {
+      "description": "Name of Virtual Machine",
+      "type": "string",
+      "title": "VmName"
+    },
+    "VmPath": {
+      "description": "Path to VM",
+      "type": "string",
+      "title": "VmPath"
+    },
+    "VmServer": {
+      "description": "Object representing a VM server",
+      "properties": {
+        "vmManagerName": {
+          "$ref": "#/definitions/VmManagerName"
+        },
+        "vmManagerType": {
+          "$ref": "#/definitions/VmManagerType"
+        },
+        "vmName": {
+          "$ref": "#/definitions/VmName"
+        },
+        "vmPath": {
+          "$ref": "#/definitions/VmPath"
+        },
+        "vmServerAddress": {
+          "$ref": "#/definitions/VmServerAddress"
+        }
+      },
+      "type": "object",
+      "title": "VmServer"
+    },
+    "VmServerAddress": {
+      "description": "Object representing a server's location",
+      "properties": {
+        "vmId": {
+          "$ref": "#/definitions/VmId"
+        },
+        "vmManagerId": {
+          "$ref": "#/definitions/VmManagerId"
+        }
+      },
+      "type": "object",
+      "title": "VmServerAddress"
+    }
+  },
+  "actions": [
+    {
+      "id": "CreateReplicationJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateReplicationJobRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateReplicationJobResponse"
+      },
+      "security": {
+        "amazonaws_sms": {
+          "integration": "amazonaws_sms"
+        }
+      }
+    },
+    {
+      "id": "DeleteReplicationJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteReplicationJobRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteReplicationJobResponse"
+      },
+      "security": {
+        "amazonaws_sms": {
+          "integration": "amazonaws_sms"
+        }
+      }
+    },
+    {
+      "id": "DeleteServerCatalog",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteServerCatalogRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteServerCatalogResponse"
+      },
+      "security": {
+        "amazonaws_sms": {
+          "integration": "amazonaws_sms"
+        }
+      }
+    },
+    {
+      "id": "DisassociateConnector",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisassociateConnectorRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisassociateConnectorResponse"
+      },
+      "security": {
+        "amazonaws_sms": {
+          "integration": "amazonaws_sms"
+        }
+      }
+    },
+    {
+      "id": "GetConnectors",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetConnectorsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetConnectorsResponse"
+      },
+      "security": {
+        "amazonaws_sms": {
+          "integration": "amazonaws_sms"
+        }
+      }
+    },
+    {
+      "id": "GetReplicationJobs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetReplicationJobsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetReplicationJobsResponse"
+      },
+      "security": {
+        "amazonaws_sms": {
+          "integration": "amazonaws_sms"
+        }
+      }
+    },
+    {
+      "id": "GetReplicationRuns",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetReplicationRunsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetReplicationRunsResponse"
+      },
+      "security": {
+        "amazonaws_sms": {
+          "integration": "amazonaws_sms"
+        }
+      }
+    },
+    {
+      "id": "GetServers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetServersRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetServersResponse"
+      },
+      "security": {
+        "amazonaws_sms": {
+          "integration": "amazonaws_sms"
+        }
+      }
+    },
+    {
+      "id": "ImportServerCatalog",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ImportServerCatalogRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ImportServerCatalogResponse"
+      },
+      "security": {
+        "amazonaws_sms": {
+          "integration": "amazonaws_sms"
+        }
+      }
+    },
+    {
+      "id": "StartOnDemandReplicationRun",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartOnDemandReplicationRunRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartOnDemandReplicationRunResponse"
+      },
+      "security": {
+        "amazonaws_sms": {
+          "integration": "amazonaws_sms"
+        }
+      }
+    },
+    {
+      "id": "UpdateReplicationJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateReplicationJobRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateReplicationJobResponse"
+      },
+      "security": {
+        "amazonaws_sms": {
+          "integration": "amazonaws_sms"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

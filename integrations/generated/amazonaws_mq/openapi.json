@@ -1,0 +1,2235 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "mq.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Amazon MQ is a managed message broker service for Apache ActiveMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AmazonMQ",
+    "version": "2017-11-27",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mq-2017-11-27.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "mq",
+    "x-datafire": {
+      "name": "amazonaws_mq",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/mq/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/v1/brokers": {
+      "get": {
+        "description": "Returns a list of all brokers.",
+        "operationId": "ListBrokers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListBrokersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListBrokersResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/brokers/{broker-id}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Adds a pending configuration change to a broker.",
+        "operationId": "UpdateBroker",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateBrokerRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "broker-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateBrokerResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/brokers/{broker-id}/reboot": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Reboots a broker. Note: This API is asynchronous.",
+        "operationId": "RebootBroker",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RebootBrokerRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "broker-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RebootBrokerResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/brokers/{broker-id}/users": {
+      "get": {
+        "description": "Returns a list of all ActiveMQ users.",
+        "operationId": "ListUsers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListUsersRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "broker-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListUsersResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/brokers/{broker-id}/users/{username}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Updates the information for an ActiveMQ user.",
+        "operationId": "UpdateUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateUserRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "broker-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateUserResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/configurations": {
+      "get": {
+        "description": "Returns a list of all configurations.",
+        "operationId": "ListConfigurations",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListConfigurationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListConfigurationsResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/configurations/{configuration-id}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Updates the specified configuration.",
+        "operationId": "UpdateConfiguration",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateConfigurationRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "configuration-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateConfigurationResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/configurations/{configuration-id}/revisions": {
+      "get": {
+        "description": "Returns a list of all revisions for the specified configuration.",
+        "operationId": "ListConfigurationRevisions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListConfigurationRevisionsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "configuration-id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListConfigurationRevisionsResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/configurations/{configuration-id}/revisions/{configuration-revision}": {
+      "get": {
+        "description": "Returns the specified configuration revision for the specified configuration.",
+        "operationId": "DescribeConfigurationRevision",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeConfigurationRevisionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "configuration-id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "configuration-revision",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeConfigurationRevisionResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "BadRequestException": {
+      "description": "Returns information about an error.",
+      "properties": {
+        "ErrorAttribute": {
+          "$ref": "#/definitions/__string",
+          "description": "The error attribute."
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message."
+        }
+      },
+      "type": "object"
+    },
+    "BrokerInstance": {
+      "description": "Returns information about all brokers.",
+      "properties": {
+        "ConsoleURL": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL of the broker's ActiveMQ Web Console."
+        },
+        "Endpoints": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The broker's wire-level protocol endpoints."
+        }
+      },
+      "type": "object"
+    },
+    "BrokerState": {
+      "description": "The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING, REBOOT_IN_PROGRESS",
+      "enum": [
+        "CREATION_IN_PROGRESS",
+        "CREATION_FAILED",
+        "DELETION_IN_PROGRESS",
+        "RUNNING",
+        "REBOOT_IN_PROGRESS"
+      ],
+      "type": "string"
+    },
+    "BrokerSummary": {
+      "description": "The Amazon Resource Name (ARN) of the broker.",
+      "properties": {
+        "BrokerArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of the broker."
+        },
+        "BrokerId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID that Amazon MQ generates for the broker."
+        },
+        "BrokerName": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters."
+        },
+        "BrokerState": {
+          "$ref": "#/definitions/BrokerState",
+          "description": "The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING, REBOOT_IN_PROGRESS"
+        },
+        "DeploymentMode": {
+          "$ref": "#/definitions/DeploymentMode",
+          "description": "Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates an active/standby broker for high availability."
+        },
+        "HostInstanceType": {
+          "$ref": "#/definitions/__string",
+          "description": "The broker's instance type. Possible values: mq.t2.micro, mq.m4.large"
+        }
+      },
+      "type": "object"
+    },
+    "ChangeType": {
+      "description": "The type of change pending for the ActiveMQ user. Possible values: CREATE, UPDATE, DELETE",
+      "enum": [
+        "CREATE",
+        "UPDATE",
+        "DELETE"
+      ],
+      "type": "string"
+    },
+    "Configuration": {
+      "description": "Returns information about all configurations.",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The ARN of the configuration."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The description of the configuration."
+        },
+        "EngineType": {
+          "$ref": "#/definitions/EngineType",
+          "description": "Required. The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ."
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The version of the broker engine."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the configuration."
+        },
+        "LatestRevision": {
+          "$ref": "#/definitions/ConfigurationRevision",
+          "description": "Required. The latest revision of the configuration."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long."
+        }
+      },
+      "type": "object"
+    },
+    "ConfigurationId": {
+      "description": "A list of information about the configuration.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the configuration."
+        },
+        "Revision": {
+          "$ref": "#/definitions/__integer",
+          "description": "The Universally Unique Identifier (UUID) of the request."
+        }
+      },
+      "type": "object"
+    },
+    "ConfigurationRevision": {
+      "description": "Returns information about the specified configuration revision.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "The description of the configuration revision."
+        },
+        "Revision": {
+          "$ref": "#/definitions/__integer",
+          "description": "Required. The revision of the configuration."
+        }
+      },
+      "type": "object"
+    },
+    "Configurations": {
+      "description": "Broker configuration information",
+      "properties": {
+        "Current": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "The current configuration of the broker."
+        },
+        "History": {
+          "$ref": "#/definitions/ListOfConfigurationId",
+          "description": "The history of configurations applied to the broker."
+        },
+        "Pending": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "The pending configuration of the broker."
+        }
+      },
+      "type": "object"
+    },
+    "ConflictException": {
+      "description": "Returns information about an error.",
+      "properties": {
+        "ErrorAttribute": {
+          "$ref": "#/definitions/__string",
+          "description": "The error attribute."
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message."
+        }
+      },
+      "type": "object"
+    },
+    "CreateBrokerInput": {
+      "description": "Required. The time period during which Amazon MQ applies pending updates or patches to the broker.",
+      "properties": {
+        "AutoMinorVersionUpgrade": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot."
+        },
+        "BrokerName": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters."
+        },
+        "Configuration": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "A list of information about the configuration."
+        },
+        "CreatorRequestId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency."
+        },
+        "DeploymentMode": {
+          "$ref": "#/definitions/DeploymentMode",
+          "description": "Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates an active/standby broker for high availability."
+        },
+        "EngineType": {
+          "$ref": "#/definitions/EngineType",
+          "description": "Required. The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ."
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0."
+        },
+        "HostInstanceType": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The broker's instance type. Possible values: mq.t2.micro, mq.m4.large"
+        },
+        "MaintenanceWindowStartTime": {
+          "$ref": "#/definitions/WeeklyStartTime",
+          "description": "The parameters that determine the WeeklyStartTime."
+        },
+        "PubliclyAccessible": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Required. Enables connections from applications outside of the VPC that hosts the broker's subnets."
+        },
+        "SecurityGroups": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers."
+        },
+        "SubnetIds": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "Required. The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets."
+        },
+        "Users": {
+          "$ref": "#/definitions/ListOfUser",
+          "description": "Required. The list of ActiveMQ users (persons or applications) who can access queues and topics. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        }
+      },
+      "type": "object"
+    },
+    "CreateBrokerOutput": {
+      "description": "Returns information about the created broker.",
+      "properties": {
+        "BrokerArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of the broker."
+        },
+        "BrokerId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID that Amazon MQ generates for the broker."
+        }
+      },
+      "type": "object"
+    },
+    "CreateBrokerRequest": {
+      "description": "Creates a broker using the specified properties.",
+      "properties": {
+        "AutoMinorVersionUpgrade": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot."
+        },
+        "BrokerName": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters."
+        },
+        "Configuration": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "A list of information about the configuration."
+        },
+        "CreatorRequestId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency."
+        },
+        "DeploymentMode": {
+          "$ref": "#/definitions/DeploymentMode",
+          "description": "Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates an active/standby broker for high availability."
+        },
+        "EngineType": {
+          "$ref": "#/definitions/EngineType",
+          "description": "Required. The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ."
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0."
+        },
+        "HostInstanceType": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The broker's instance type. Possible values: mq.t2.micro, mq.m4.large"
+        },
+        "MaintenanceWindowStartTime": {
+          "$ref": "#/definitions/WeeklyStartTime",
+          "description": "The parameters that determine the WeeklyStartTime."
+        },
+        "PubliclyAccessible": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Required. Enables connections from applications outside of the VPC that hosts the broker's subnets."
+        },
+        "SecurityGroups": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers."
+        },
+        "SubnetIds": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "Required. The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets."
+        },
+        "Users": {
+          "$ref": "#/definitions/ListOfUser",
+          "description": "Required. The list of ActiveMQ users (persons or applications) who can access queues and topics. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        }
+      },
+      "type": "object"
+    },
+    "CreateBrokerResponse": {
+      "properties": {
+        "BrokerArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of the broker."
+        },
+        "BrokerId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID that Amazon MQ generates for the broker."
+        }
+      },
+      "type": "object"
+    },
+    "CreateConfigurationInput": {
+      "description": "Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version). Note: If the configuration name already exists, Amazon MQ doesn't create a configuration.",
+      "properties": {
+        "EngineType": {
+          "$ref": "#/definitions/EngineType",
+          "description": "Required. The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ."
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long."
+        }
+      },
+      "type": "object"
+    },
+    "CreateConfigurationOutput": {
+      "description": "Returns information about the created configuration.",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The Amazon Resource Name (ARN) of the configuration."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the configuration."
+        },
+        "LatestRevision": {
+          "$ref": "#/definitions/ConfigurationRevision",
+          "description": "The latest revision of the configuration."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long."
+        }
+      },
+      "type": "object"
+    },
+    "CreateConfigurationRequest": {
+      "description": "Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version). Note: If the configuration name already exists, Amazon MQ doesn't create a configuration.",
+      "properties": {
+        "EngineType": {
+          "$ref": "#/definitions/EngineType",
+          "description": "Required. The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ."
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long."
+        }
+      },
+      "type": "object"
+    },
+    "CreateConfigurationResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The Amazon Resource Name (ARN) of the configuration."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the configuration."
+        },
+        "LatestRevision": {
+          "$ref": "#/definitions/ConfigurationRevision",
+          "description": "The latest revision of the configuration."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long."
+        }
+      },
+      "type": "object"
+    },
+    "CreateUserInput": {
+      "description": "Creates a new ActiveMQ user.",
+      "properties": {
+        "ConsoleAccess": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Enables access to the the ActiveMQ Web Console for the ActiveMQ user."
+        },
+        "Groups": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        },
+        "Password": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas."
+        }
+      },
+      "type": "object"
+    },
+    "CreateUserRequest": {
+      "description": "Creates a new ActiveMQ user.",
+      "properties": {
+        "ConsoleAccess": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Enables access to the the ActiveMQ Web Console for the ActiveMQ user."
+        },
+        "Groups": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        },
+        "Password": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas."
+        }
+      },
+      "type": "object"
+    },
+    "CreateUserResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DayOfWeek": {
+      "enum": [
+        "MONDAY",
+        "TUESDAY",
+        "WEDNESDAY",
+        "THURSDAY",
+        "FRIDAY",
+        "SATURDAY",
+        "SUNDAY"
+      ],
+      "type": "string"
+    },
+    "DeleteBrokerOutput": {
+      "description": "Returns information about the deleted broker.",
+      "properties": {
+        "BrokerId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID that Amazon MQ generates for the broker."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteBrokerRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteBrokerResponse": {
+      "properties": {
+        "BrokerId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID that Amazon MQ generates for the broker."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteUserRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteUserResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentMode": {
+      "description": "The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates an active/standby broker for high availability.",
+      "enum": [
+        "SINGLE_INSTANCE",
+        "ACTIVE_STANDBY_MULTI_AZ"
+      ],
+      "type": "string"
+    },
+    "DescribeBrokerOutput": {
+      "description": "The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0.",
+      "properties": {
+        "AutoMinorVersionUpgrade": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot."
+        },
+        "BrokerArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of the broker."
+        },
+        "BrokerId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID that Amazon MQ generates for the broker."
+        },
+        "BrokerInstances": {
+          "$ref": "#/definitions/ListOfBrokerInstance",
+          "description": "A list of information about allocated brokers."
+        },
+        "BrokerName": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters."
+        },
+        "BrokerState": {
+          "$ref": "#/definitions/BrokerState",
+          "description": "The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING, REBOOT_IN_PROGRESS"
+        },
+        "Configurations": {
+          "$ref": "#/definitions/Configurations",
+          "description": "The list of all revisions for the specified configuration."
+        },
+        "DeploymentMode": {
+          "$ref": "#/definitions/DeploymentMode",
+          "description": "Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates an active/standby broker for high availability."
+        },
+        "EngineType": {
+          "$ref": "#/definitions/EngineType",
+          "description": "Required. The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ."
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0."
+        },
+        "HostInstanceType": {
+          "$ref": "#/definitions/__string",
+          "description": "The broker's instance type. Possible values: mq.t2.micro, mq.m4.large"
+        },
+        "MaintenanceWindowStartTime": {
+          "$ref": "#/definitions/WeeklyStartTime",
+          "description": "The parameters that determine the WeeklyStartTime."
+        },
+        "PubliclyAccessible": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Required. Enables connections from applications outside of the VPC that hosts the broker's subnets."
+        },
+        "SecurityGroups": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers."
+        },
+        "SubnetIds": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets."
+        },
+        "Users": {
+          "$ref": "#/definitions/ListOfUserSummary",
+          "description": "The list of all ActiveMQ usernames for the specified broker."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeBrokerRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeBrokerResponse": {
+      "properties": {
+        "AutoMinorVersionUpgrade": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot."
+        },
+        "BrokerArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of the broker."
+        },
+        "BrokerId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID that Amazon MQ generates for the broker."
+        },
+        "BrokerInstances": {
+          "$ref": "#/definitions/ListOfBrokerInstance",
+          "description": "A list of information about allocated brokers."
+        },
+        "BrokerName": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters."
+        },
+        "BrokerState": {
+          "$ref": "#/definitions/BrokerState",
+          "description": "The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING, REBOOT_IN_PROGRESS"
+        },
+        "Configurations": {
+          "$ref": "#/definitions/Configurations",
+          "description": "The list of all revisions for the specified configuration."
+        },
+        "DeploymentMode": {
+          "$ref": "#/definitions/DeploymentMode",
+          "description": "Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates an active/standby broker for high availability."
+        },
+        "EngineType": {
+          "$ref": "#/definitions/EngineType",
+          "description": "Required. The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ."
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0."
+        },
+        "HostInstanceType": {
+          "$ref": "#/definitions/__string",
+          "description": "The broker's instance type. Possible values: mq.t2.micro, mq.m4.large"
+        },
+        "MaintenanceWindowStartTime": {
+          "$ref": "#/definitions/WeeklyStartTime",
+          "description": "The parameters that determine the WeeklyStartTime."
+        },
+        "PubliclyAccessible": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Required. Enables connections from applications outside of the VPC that hosts the broker's subnets."
+        },
+        "SecurityGroups": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers."
+        },
+        "SubnetIds": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets."
+        },
+        "Users": {
+          "$ref": "#/definitions/ListOfUserSummary",
+          "description": "The list of all ActiveMQ usernames for the specified broker."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeConfigurationRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeConfigurationResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The ARN of the configuration."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The description of the configuration."
+        },
+        "EngineType": {
+          "$ref": "#/definitions/EngineType",
+          "description": "Required. The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ."
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The version of the broker engine."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the configuration."
+        },
+        "LatestRevision": {
+          "$ref": "#/definitions/ConfigurationRevision",
+          "description": "Required. The latest revision of the configuration."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeConfigurationRevisionOutput": {
+      "description": "Returns the specified configuration revision for the specified configuration.",
+      "properties": {
+        "ConfigurationId": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the configuration."
+        },
+        "Data": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The base64-encoded XML configuration."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "The description of the configuration."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeConfigurationRevisionRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeConfigurationRevisionResponse": {
+      "properties": {
+        "ConfigurationId": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the configuration."
+        },
+        "Data": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The base64-encoded XML configuration."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "The description of the configuration."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeUserOutput": {
+      "description": "Returns information about an ActiveMQ user.",
+      "properties": {
+        "BrokerId": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the broker."
+        },
+        "ConsoleAccess": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Enables access to the the ActiveMQ Web Console for the ActiveMQ user."
+        },
+        "Groups": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        },
+        "Pending": {
+          "$ref": "#/definitions/UserPendingChanges",
+          "description": "The status of the changes pending for the ActiveMQ user."
+        },
+        "Username": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeUserRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeUserResponse": {
+      "properties": {
+        "BrokerId": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the broker."
+        },
+        "ConsoleAccess": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Enables access to the the ActiveMQ Web Console for the ActiveMQ user."
+        },
+        "Groups": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        },
+        "Pending": {
+          "$ref": "#/definitions/UserPendingChanges",
+          "description": "The status of the changes pending for the ActiveMQ user."
+        },
+        "Username": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        }
+      },
+      "type": "object"
+    },
+    "EngineType": {
+      "description": "The type of broker engine. Note: Currently, Amazon MQ supports only ActiveMQ.",
+      "enum": [
+        "ACTIVEMQ"
+      ],
+      "type": "string"
+    },
+    "Error": {
+      "description": "Returns information about an error.",
+      "properties": {
+        "ErrorAttribute": {
+          "$ref": "#/definitions/__string",
+          "description": "The error attribute."
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message."
+        }
+      },
+      "type": "object"
+    },
+    "ForbiddenException": {
+      "description": "Returns information about an error.",
+      "properties": {
+        "ErrorAttribute": {
+          "$ref": "#/definitions/__string",
+          "description": "The error attribute."
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message."
+        }
+      },
+      "type": "object"
+    },
+    "InternalServerErrorException": {
+      "description": "Returns information about an error.",
+      "properties": {
+        "ErrorAttribute": {
+          "$ref": "#/definitions/__string",
+          "description": "The error attribute."
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message."
+        }
+      },
+      "type": "object"
+    },
+    "ListBrokersOutput": {
+      "description": "A list of information about all brokers.",
+      "properties": {
+        "BrokerSummaries": {
+          "$ref": "#/definitions/ListOfBrokerSummary",
+          "description": "A list of information about all brokers."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        }
+      },
+      "type": "object"
+    },
+    "ListBrokersRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListBrokersResponse": {
+      "properties": {
+        "BrokerSummaries": {
+          "$ref": "#/definitions/ListOfBrokerSummary",
+          "description": "A list of information about all brokers."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        }
+      },
+      "type": "object"
+    },
+    "ListConfigurationRevisionsOutput": {
+      "description": "Returns a list of all revisions for the specified configuration.",
+      "properties": {
+        "ConfigurationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID that Amazon MQ generates for the configuration."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum number of configuration revisions that can be returned per page (20 by default). This value must be an integer from 5 to 100."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        },
+        "Revisions": {
+          "$ref": "#/definitions/ListOfConfigurationRevision",
+          "description": "The list of all revisions for the specified configuration."
+        }
+      },
+      "type": "object"
+    },
+    "ListConfigurationRevisionsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListConfigurationRevisionsResponse": {
+      "properties": {
+        "ConfigurationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID that Amazon MQ generates for the configuration."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum number of configuration revisions that can be returned per page (20 by default). This value must be an integer from 5 to 100."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        },
+        "Revisions": {
+          "$ref": "#/definitions/ListOfConfigurationRevision",
+          "description": "The list of all revisions for the specified configuration."
+        }
+      },
+      "type": "object"
+    },
+    "ListConfigurationsOutput": {
+      "description": "Returns a list of all configurations.",
+      "properties": {
+        "Configurations": {
+          "$ref": "#/definitions/ListOfConfiguration",
+          "description": "The list of all revisions for the specified configuration."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        }
+      },
+      "type": "object"
+    },
+    "ListConfigurationsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListConfigurationsResponse": {
+      "properties": {
+        "Configurations": {
+          "$ref": "#/definitions/ListOfConfiguration",
+          "description": "The list of all revisions for the specified configuration."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        }
+      },
+      "type": "object"
+    },
+    "ListOfBrokerInstance": {
+      "items": {
+        "$ref": "#/definitions/BrokerInstance"
+      },
+      "type": "array"
+    },
+    "ListOfBrokerSummary": {
+      "items": {
+        "$ref": "#/definitions/BrokerSummary"
+      },
+      "type": "array"
+    },
+    "ListOfConfiguration": {
+      "items": {
+        "$ref": "#/definitions/Configuration"
+      },
+      "type": "array"
+    },
+    "ListOfConfigurationId": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationId"
+      },
+      "type": "array"
+    },
+    "ListOfConfigurationRevision": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationRevision"
+      },
+      "type": "array"
+    },
+    "ListOfSanitizationWarning": {
+      "items": {
+        "$ref": "#/definitions/SanitizationWarning"
+      },
+      "type": "array"
+    },
+    "ListOfUser": {
+      "items": {
+        "$ref": "#/definitions/User"
+      },
+      "type": "array"
+    },
+    "ListOfUserSummary": {
+      "items": {
+        "$ref": "#/definitions/UserSummary"
+      },
+      "type": "array"
+    },
+    "ListOf__string": {
+      "items": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "array"
+    },
+    "ListUsersOutput": {
+      "description": "Returns a list of all ActiveMQ users.",
+      "properties": {
+        "BrokerId": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the broker."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/__integer",
+          "description": "Required. The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        },
+        "Users": {
+          "$ref": "#/definitions/ListOfUserSummary",
+          "description": "Required. The list of all ActiveMQ usernames for the specified broker."
+        }
+      },
+      "type": "object"
+    },
+    "ListUsersRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListUsersResponse": {
+      "properties": {
+        "BrokerId": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the broker."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/__integer",
+          "description": "Required. The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        },
+        "Users": {
+          "$ref": "#/definitions/ListOfUserSummary",
+          "description": "Required. The list of all ActiveMQ usernames for the specified broker."
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NotFoundException": {
+      "description": "Returns information about an error.",
+      "properties": {
+        "ErrorAttribute": {
+          "$ref": "#/definitions/__string",
+          "description": "The error attribute."
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message."
+        }
+      },
+      "type": "object"
+    },
+    "RebootBrokerRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "RebootBrokerResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "SanitizationWarning": {
+      "description": "Returns information about the XML element or attribute that was sanitized in the configuration.",
+      "properties": {
+        "AttributeName": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the XML attribute that has been sanitized."
+        },
+        "ElementName": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the XML element that has been sanitized."
+        },
+        "Reason": {
+          "$ref": "#/definitions/SanitizationWarningReason",
+          "description": "Required. The reason for which the XML elements or attributes were sanitized. Possible values: DISALLOWED_ELEMENT_REMOVED, DISALLOWED_ATTRIBUTE_REMOVED, INVALID_ATTRIBUTE_VALUE_REMOVED DISALLOWED_ELEMENT_REMOVED shows that the provided element isn't allowed and has been removed. DISALLOWED_ATTRIBUTE_REMOVED shows that the provided attribute isn't allowed and has been removed. INVALID_ATTRIBUTE_VALUE_REMOVED shows that the provided value for the attribute isn't allowed and has been removed."
+        }
+      },
+      "type": "object"
+    },
+    "SanitizationWarningReason": {
+      "description": "The reason for which the XML elements or attributes were sanitized. Possible values: DISALLOWED_ELEMENT_REMOVED, DISALLOWED_ATTRIBUTE_REMOVED, INVALID_ATTRIBUTE_VALUE_REMOVED DISALLOWED_ELEMENT_REMOVED shows that the provided element isn't allowed and has been removed. DISALLOWED_ATTRIBUTE_REMOVED shows that the provided attribute isn't allowed and has been removed. INVALID_ATTRIBUTE_VALUE_REMOVED shows that the provided value for the attribute isn't allowed and has been removed.",
+      "enum": [
+        "DISALLOWED_ELEMENT_REMOVED",
+        "DISALLOWED_ATTRIBUTE_REMOVED",
+        "INVALID_ATTRIBUTE_VALUE_REMOVED"
+      ],
+      "type": "string"
+    },
+    "UnauthorizedException": {
+      "description": "Returns information about an error.",
+      "properties": {
+        "ErrorAttribute": {
+          "$ref": "#/definitions/__string",
+          "description": "The error attribute."
+        },
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateBrokerInput": {
+      "description": "Updates the broker using the specified properties.",
+      "properties": {
+        "Configuration": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "A list of information about the configuration."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateBrokerOutput": {
+      "description": "Returns information about the updated broker.",
+      "properties": {
+        "BrokerId": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the broker."
+        },
+        "Configuration": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "The ID of the updated configuration."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateBrokerRequest": {
+      "description": "Updates the broker using the specified properties.",
+      "properties": {
+        "Configuration": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "A list of information about the configuration."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateBrokerResponse": {
+      "properties": {
+        "BrokerId": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the broker."
+        },
+        "Configuration": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "The ID of the updated configuration."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateConfigurationInput": {
+      "description": "Updates the specified configuration.",
+      "properties": {
+        "Data": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The base64-encoded XML configuration."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "The description of the configuration."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateConfigurationOutput": {
+      "description": "Returns information about the updated configuration.",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The Amazon Resource Name (ARN) of the configuration."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the configuration."
+        },
+        "LatestRevision": {
+          "$ref": "#/definitions/ConfigurationRevision",
+          "description": "The latest revision of the configuration."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long."
+        },
+        "Warnings": {
+          "$ref": "#/definitions/ListOfSanitizationWarning",
+          "description": "The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateConfigurationRequest": {
+      "description": "Updates the specified configuration.",
+      "properties": {
+        "Data": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The base64-encoded XML configuration."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "The description of the configuration."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateConfigurationResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The Amazon Resource Name (ARN) of the configuration."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The unique ID that Amazon MQ generates for the configuration."
+        },
+        "LatestRevision": {
+          "$ref": "#/definitions/ConfigurationRevision",
+          "description": "The latest revision of the configuration."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long."
+        },
+        "Warnings": {
+          "$ref": "#/definitions/ListOfSanitizationWarning",
+          "description": "The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateUserInput": {
+      "description": "Updates the information for an ActiveMQ user.",
+      "properties": {
+        "ConsoleAccess": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Enables access to the the ActiveMQ Web Console for the ActiveMQ user."
+        },
+        "Groups": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        },
+        "Password": {
+          "$ref": "#/definitions/__string",
+          "description": "The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateUserRequest": {
+      "description": "Updates the information for an ActiveMQ user.",
+      "properties": {
+        "ConsoleAccess": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Enables access to the the ActiveMQ Web Console for the ActiveMQ user."
+        },
+        "Groups": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        },
+        "Password": {
+          "$ref": "#/definitions/__string",
+          "description": "The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateUserResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "User": {
+      "description": "An ActiveMQ user associated with the broker.",
+      "properties": {
+        "ConsoleAccess": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Enables access to the the ActiveMQ Web Console for the ActiveMQ user."
+        },
+        "Groups": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        },
+        "Password": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The password of the ActiveMQ user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas."
+        },
+        "Username": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        }
+      },
+      "type": "object"
+    },
+    "UserPendingChanges": {
+      "description": "Returns information about the status of the changes pending for the ActiveMQ user.",
+      "properties": {
+        "ConsoleAccess": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Enables access to the the ActiveMQ Web Console for the ActiveMQ user."
+        },
+        "Groups": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        },
+        "PendingChange": {
+          "$ref": "#/definitions/ChangeType",
+          "description": "Required. The type of change pending for the ActiveMQ user. Possible values: CREATE, UPDATE, DELETE"
+        }
+      },
+      "type": "object"
+    },
+    "UserSummary": {
+      "description": "Returns a list of all ActiveMQ users.",
+      "properties": {
+        "PendingChange": {
+          "$ref": "#/definitions/ChangeType",
+          "description": "The type of change pending for the ActiveMQ user. Possible values: CREATE, UPDATE, DELETE"
+        },
+        "Username": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long."
+        }
+      },
+      "type": "object"
+    },
+    "WeeklyStartTime": {
+      "description": "The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.",
+      "properties": {
+        "DayOfWeek": {
+          "$ref": "#/definitions/DayOfWeek",
+          "description": "Required. The day of the week. Possible values: MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY"
+        },
+        "TimeOfDay": {
+          "$ref": "#/definitions/__string",
+          "description": "Required. The time, in 24-hour format."
+        },
+        "TimeZone": {
+          "$ref": "#/definitions/__string",
+          "description": "The time zone, UTC by default, in either the Country/City format, or the UTC offset format."
+        }
+      },
+      "type": "object"
+    },
+    "__boolean": {
+      "type": "boolean"
+    },
+    "__double": {
+      "format": "double",
+      "type": "number"
+    },
+    "__integer": {
+      "type": "integer"
+    },
+    "__string": {
+      "type": "string"
+    },
+    "__timestamp": {
+      "format": "date-time",
+      "type": "string"
+    }
+  }
+}

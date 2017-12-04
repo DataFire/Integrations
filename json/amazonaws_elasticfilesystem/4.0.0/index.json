@@ -1,0 +1,1117 @@
+{
+  "id": "amazonaws_elasticfilesystem",
+  "title": "Amazon Elastic File System",
+  "description": "Amazon Elastic File System\n\nAmazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it. For more information, see the [User Guide](http://docs.aws.amazon.com/efs/latest/ug/api-reference.html).",
+  "security": {
+    "amazonaws_elasticfilesystem": {
+      "integration": "amazonaws_elasticfilesystem",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticfilesystem.jpg"
+  },
+  "actionCount": 8,
+  "definitions": {
+    "AwsAccountId": {
+      "type": "string",
+      "title": "AwsAccountId"
+    },
+    "BadRequest": {
+      "description": "Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "BadRequest"
+    },
+    "CreateFileSystemRequest": {
+      "example": {
+        "CreationToken": "tokenstring",
+        "PerformanceMode": "generalPurpose"
+      },
+      "properties": {
+        "CreationToken": {
+          "$ref": "#/definitions/CreationToken",
+          "description": "String of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation."
+        },
+        "Encrypted": {
+          "$ref": "#/definitions/Encrypted",
+          "description": "A boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have the option of specifying a <a>CreateFileSystemRequest$KmsKeyId</a> for an existing AWS Key Management Service (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK for Amazon EFS, <code>/aws/elasticfilesystem</code>, is used to protect the encrypted file system. "
+        },
+        "KmsKeyId": {
+          "$ref": "#/definitions/KmsKeyId",
+          "description": "<p>The id of the AWS KMS CMK that will be used to protect the encrypted file system. This parameter is only required if you want to use a non-default CMK. If this parameter is not specified, the default CMK for Amazon EFS is used. This id can be in one of the following formats:</p> <ul> <li> <p>Key ID - A unique identifier of the key. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p> </li> <li> <p>ARN - An Amazon Resource Name for the key. For example, <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p> </li> <li> <p>Key alias - A previously created display name for a key. For example, <code>alias/projectKey1</code>.</p> </li> <li> <p>Key alias ARN - An Amazon Resource Name for a key alias. For example, <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</p> </li> </ul> <p>Note that if the KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to true.</p>"
+        },
+        "PerformanceMode": {
+          "$ref": "#/definitions/PerformanceMode",
+          "description": "The <code>PerformanceMode</code> of the file system. We recommend <code>generalPurpose</code> performance mode for most file systems. File systems using the <code>maxIO</code> performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. This can't be changed after the file system has been created."
+        }
+      },
+      "required": [
+        "CreationToken"
+      ],
+      "type": "object",
+      "title": "CreateFileSystemRequest"
+    },
+    "CreateMountTargetRequest": {
+      "description": "<p/>",
+      "example": {
+        "FileSystemId": "fs-01234567",
+        "SubnetId": "subnet-1234abcd"
+      },
+      "properties": {
+        "FileSystemId": {
+          "$ref": "#/definitions/FileSystemId",
+          "description": "ID of the file system for which to create the mount target."
+        },
+        "IpAddress": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "Valid IPv4 address within the address range of the specified subnet."
+        },
+        "SecurityGroups": {
+          "$ref": "#/definitions/SecurityGroups",
+          "description": "Up to five VPC security group IDs, of the form <code>sg-xxxxxxxx</code>. These must be for the same VPC as subnet specified."
+        },
+        "SubnetId": {
+          "$ref": "#/definitions/SubnetId",
+          "description": "ID of the subnet to add the mount target in."
+        }
+      },
+      "required": [
+        "FileSystemId",
+        "SubnetId"
+      ],
+      "type": "object",
+      "title": "CreateMountTargetRequest"
+    },
+    "CreateTagsRequest": {
+      "description": "<p/>",
+      "example": {
+        "FileSystemId": "fs-01234567",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "MyFileSystem"
+          }
+        ]
+      },
+      "properties": {
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "Array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value pair. "
+        }
+      },
+      "required": [
+        "Tags"
+      ],
+      "type": "object",
+      "title": "CreateTagsRequest"
+    },
+    "CreationToken": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string",
+      "title": "CreationToken"
+    },
+    "DeleteFileSystemRequest": {
+      "description": "<p/>",
+      "example": {
+        "FileSystemId": "fs-01234567"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "DeleteFileSystemRequest"
+    },
+    "DeleteMountTargetRequest": {
+      "description": "<p/>",
+      "example": {
+        "MountTargetId": "fsmt-12340abc"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "DeleteMountTargetRequest"
+    },
+    "DeleteTagsRequest": {
+      "description": "<p/>",
+      "example": {
+        "FileSystemId": "fs-01234567",
+        "TagKeys": [
+          "Name"
+        ]
+      },
+      "properties": {
+        "TagKeys": {
+          "$ref": "#/definitions/TagKeys",
+          "description": "List of tag keys to delete."
+        }
+      },
+      "required": [
+        "TagKeys"
+      ],
+      "type": "object",
+      "title": "DeleteTagsRequest"
+    },
+    "DependencyTimeout": {
+      "description": "The service timed out trying to fulfill the request, and the client should try the call again.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "DependencyTimeout"
+    },
+    "DescribeFileSystemsRequest": {
+      "description": "<p/>",
+      "example": {},
+      "properties": {},
+      "type": "object",
+      "title": "DescribeFileSystemsRequest"
+    },
+    "DescribeFileSystemsResponse": {
+      "example": {
+        "FileSystems": [
+          {
+            "CreationTime": "1481841524.0",
+            "CreationToken": "tokenstring",
+            "FileSystemId": "fs-01234567",
+            "LifeCycleState": "available",
+            "Name": "MyFileSystem",
+            "NumberOfMountTargets": 1,
+            "OwnerId": "012345678912",
+            "PerformanceMode": "generalPurpose",
+            "SizeInBytes": {
+              "Value": 6144
+            }
+          }
+        ]
+      },
+      "properties": {
+        "FileSystems": {
+          "$ref": "#/definitions/FileSystemDescriptions",
+          "description": "Array of file system descriptions."
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "Present if provided by caller in the request (String)."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "Present if there are more file systems than returned in the response (String). You can use the <code>NextMarker</code> in the subsequent request to fetch the descriptions."
+        }
+      },
+      "type": "object",
+      "title": "DescribeFileSystemsResponse"
+    },
+    "DescribeMountTargetSecurityGroupsRequest": {
+      "description": "<p/>",
+      "example": {
+        "MountTargetId": "fsmt-12340abc"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "DescribeMountTargetSecurityGroupsRequest"
+    },
+    "DescribeMountTargetSecurityGroupsResponse": {
+      "example": {
+        "SecurityGroups": [
+          "sg-fghi4567"
+        ]
+      },
+      "properties": {
+        "SecurityGroups": {
+          "$ref": "#/definitions/SecurityGroups",
+          "description": "Array of security groups."
+        }
+      },
+      "required": [
+        "SecurityGroups"
+      ],
+      "type": "object",
+      "title": "DescribeMountTargetSecurityGroupsResponse"
+    },
+    "DescribeMountTargetsRequest": {
+      "description": "<p/>",
+      "example": {
+        "FileSystemId": "fs-01234567"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "DescribeMountTargetsRequest"
+    },
+    "DescribeMountTargetsResponse": {
+      "description": "<p/>",
+      "example": {
+        "MountTargets": [
+          {
+            "FileSystemId": "fs-01234567",
+            "IpAddress": "192.0.0.2",
+            "LifeCycleState": "available",
+            "MountTargetId": "fsmt-12340abc",
+            "NetworkInterfaceId": "eni-cedf6789",
+            "OwnerId": "012345678912",
+            "SubnetId": "subnet-1234abcd"
+          }
+        ]
+      },
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "If the request included the <code>Marker</code>, the response returns that value in this field."
+        },
+        "MountTargets": {
+          "$ref": "#/definitions/MountTargetDescriptions",
+          "description": "Returns the file system's mount targets as an array of <code>MountTargetDescription</code> objects."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "If a value is present, there are more mount targets to return. In a subsequent request, you can provide <code>Marker</code> in your request with this value to retrieve the next set of mount targets."
+        }
+      },
+      "type": "object",
+      "title": "DescribeMountTargetsResponse"
+    },
+    "DescribeTagsRequest": {
+      "description": "<p/>",
+      "example": {
+        "FileSystemId": "fs-01234567"
+      },
+      "properties": {},
+      "type": "object",
+      "title": "DescribeTagsRequest"
+    },
+    "DescribeTagsResponse": {
+      "description": "<p/>",
+      "example": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "MyFileSystem"
+          }
+        ]
+      },
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "If the request included a <code>Marker</code>, the response returns that value in this field."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "If a value is present, there are more tags to return. In a subsequent request, you can provide the value of <code>NextMarker</code> as the value of the <code>Marker</code> parameter in your next request to retrieve the next set of tags."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "Returns tags associated with the file system as an array of <code>Tag</code> objects. "
+        }
+      },
+      "required": [
+        "Tags"
+      ],
+      "type": "object",
+      "title": "DescribeTagsResponse"
+    },
+    "Encrypted": {
+      "type": "boolean",
+      "title": "Encrypted"
+    },
+    "ErrorCode": {
+      "minLength": 1,
+      "type": "string",
+      "title": "ErrorCode"
+    },
+    "ErrorMessage": {
+      "type": "string",
+      "title": "ErrorMessage"
+    },
+    "FileSystemAlreadyExists": {
+      "description": "Returned if the file system you are trying to create already exists, with the creation token you provided.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "FileSystemId": {
+          "$ref": "#/definitions/FileSystemId"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode",
+        "FileSystemId"
+      ],
+      "type": "object",
+      "title": "FileSystemAlreadyExists"
+    },
+    "FileSystemDescription": {
+      "description": "Description of the file system.",
+      "example": {
+        "CreationTime": "1481841524.0",
+        "CreationToken": "tokenstring",
+        "FileSystemId": "fs-01234567",
+        "LifeCycleState": "creating",
+        "NumberOfMountTargets": 0,
+        "OwnerId": "012345678912",
+        "PerformanceMode": "generalPurpose",
+        "SizeInBytes": {
+          "Value": 0
+        }
+      },
+      "properties": {
+        "CreationTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Time that the file system was created, in seconds (since 1970-01-01T00:00:00Z)."
+        },
+        "CreationToken": {
+          "$ref": "#/definitions/CreationToken",
+          "description": "Opaque string specified in the request."
+        },
+        "Encrypted": {
+          "$ref": "#/definitions/Encrypted",
+          "description": "A boolean value that, if true, indicates that the file system is encrypted."
+        },
+        "FileSystemId": {
+          "$ref": "#/definitions/FileSystemId",
+          "description": "ID of the file system, assigned by Amazon EFS."
+        },
+        "KmsKeyId": {
+          "$ref": "#/definitions/KmsKeyId",
+          "description": "The id of an AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to protect the encrypted file system."
+        },
+        "LifeCycleState": {
+          "$ref": "#/definitions/LifeCycleState",
+          "description": "Lifecycle phase of the file system."
+        },
+        "Name": {
+          "$ref": "#/definitions/TagValue",
+          "description": "You can add tags to a file system, including a <code>Name</code> tag. For more information, see <a>CreateTags</a>. If the file system has a <code>Name</code> tag, Amazon EFS returns the value in this field. "
+        },
+        "NumberOfMountTargets": {
+          "$ref": "#/definitions/MountTargetCount",
+          "description": "Current number of mount targets that the file system has. For more information, see <a>CreateMountTarget</a>."
+        },
+        "OwnerId": {
+          "$ref": "#/definitions/AwsAccountId",
+          "description": "AWS account that created the file system. If the file system was created by an IAM user, the parent account to which the user belongs is the owner."
+        },
+        "PerformanceMode": {
+          "$ref": "#/definitions/PerformanceMode",
+          "description": "The <code>PerformanceMode</code> of the file system."
+        },
+        "SizeInBytes": {
+          "$ref": "#/definitions/FileSystemSize",
+          "description": "Latest known metered size (in bytes) of data stored in the file system, in bytes, in its <code>Value</code> field, and the time at which that size was determined in its <code>Timestamp</code> field. The <code>Timestamp</code> value is the integer number of seconds since 1970-01-01T00:00:00Z. Note that the value does not represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, the value will represent actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not the exact size the file system was at any instant in time. "
+        }
+      },
+      "required": [
+        "OwnerId",
+        "CreationToken",
+        "FileSystemId",
+        "CreationTime",
+        "LifeCycleState",
+        "NumberOfMountTargets",
+        "SizeInBytes",
+        "PerformanceMode"
+      ],
+      "type": "object",
+      "title": "FileSystemDescription"
+    },
+    "FileSystemDescriptions": {
+      "items": {
+        "$ref": "#/definitions/FileSystemDescription"
+      },
+      "type": "array",
+      "title": "FileSystemDescriptions"
+    },
+    "FileSystemId": {
+      "type": "string",
+      "title": "FileSystemId"
+    },
+    "FileSystemInUse": {
+      "description": "Returned if a file system has mount targets.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "FileSystemInUse"
+    },
+    "FileSystemLimitExceeded": {
+      "description": "Returned if the AWS account has already created maximum number of file systems allowed per account.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "FileSystemLimitExceeded"
+    },
+    "FileSystemNotFound": {
+      "description": "Returned if the specified <code>FileSystemId</code> does not exist in the requester's AWS account.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "FileSystemNotFound"
+    },
+    "FileSystemSize": {
+      "description": "Latest known metered size (in bytes) of data stored in the file system, in its <code>Value</code> field, and the time at which that size was determined in its <code>Timestamp</code> field. Note that the value does not represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, the value will represent the actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not necessarily the exact size the file system was at any instant in time.",
+      "properties": {
+        "Timestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Time at which the size of data, returned in the <code>Value</code> field, was determined. The value is the integer number of seconds since 1970-01-01T00:00:00Z."
+        },
+        "Value": {
+          "$ref": "#/definitions/FileSystemSizeValue",
+          "description": "Latest known metered size (in bytes) of data stored in the file system."
+        }
+      },
+      "required": [
+        "Value"
+      ],
+      "type": "object",
+      "title": "FileSystemSize"
+    },
+    "FileSystemSizeValue": {
+      "minimum": 0,
+      "type": "integer",
+      "title": "FileSystemSizeValue"
+    },
+    "IncorrectFileSystemLifeCycleState": {
+      "description": "Returned if the file system's life cycle state is not \"created\".",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "IncorrectFileSystemLifeCycleState"
+    },
+    "IncorrectMountTargetState": {
+      "description": "Returned if the mount target is not in the correct state for the operation.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "IncorrectMountTargetState"
+    },
+    "InternalServerError": {
+      "description": "Returned if an error occurred on the server side.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "InternalServerError"
+    },
+    "IpAddress": {
+      "type": "string",
+      "title": "IpAddress"
+    },
+    "IpAddressInUse": {
+      "description": "Returned if the request specified an <code>IpAddress</code> that is already in use in the subnet.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "IpAddressInUse"
+    },
+    "KmsKeyId": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string",
+      "title": "KmsKeyId"
+    },
+    "LifeCycleState": {
+      "enum": [
+        "creating",
+        "available",
+        "deleting",
+        "deleted"
+      ],
+      "type": "string",
+      "title": "LifeCycleState"
+    },
+    "Marker": {
+      "type": "string",
+      "title": "Marker"
+    },
+    "MaxItems": {
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxItems"
+    },
+    "ModifyMountTargetSecurityGroupsRequest": {
+      "description": "<p/>",
+      "example": {
+        "MountTargetId": "fsmt-12340abc",
+        "SecurityGroups": [
+          "sg-abcd1234"
+        ]
+      },
+      "properties": {
+        "SecurityGroups": {
+          "$ref": "#/definitions/SecurityGroups",
+          "description": "Array of up to five VPC security group IDs."
+        }
+      },
+      "type": "object",
+      "title": "ModifyMountTargetSecurityGroupsRequest"
+    },
+    "MountTargetConflict": {
+      "description": "Returned if the mount target would violate one of the specified restrictions based on the file system's existing mount targets.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "MountTargetConflict"
+    },
+    "MountTargetCount": {
+      "minimum": 0,
+      "type": "integer",
+      "title": "MountTargetCount"
+    },
+    "MountTargetDescription": {
+      "description": "Provides a description of a mount target.",
+      "example": {
+        "FileSystemId": "fs-01234567",
+        "IpAddress": "192.0.0.2",
+        "LifeCycleState": "creating",
+        "MountTargetId": "fsmt-12340abc",
+        "NetworkInterfaceId": "eni-cedf6789",
+        "OwnerId": "012345678912",
+        "SubnetId": "subnet-1234abcd"
+      },
+      "properties": {
+        "FileSystemId": {
+          "$ref": "#/definitions/FileSystemId",
+          "description": "ID of the file system for which the mount target is intended."
+        },
+        "IpAddress": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "Address at which the file system may be mounted via the mount target."
+        },
+        "LifeCycleState": {
+          "$ref": "#/definitions/LifeCycleState",
+          "description": "Lifecycle state of the mount target."
+        },
+        "MountTargetId": {
+          "$ref": "#/definitions/MountTargetId",
+          "description": "System-assigned mount target ID."
+        },
+        "NetworkInterfaceId": {
+          "$ref": "#/definitions/NetworkInterfaceId",
+          "description": "ID of the network interface that Amazon EFS created when it created the mount target."
+        },
+        "OwnerId": {
+          "$ref": "#/definitions/AwsAccountId",
+          "description": "AWS account ID that owns the resource."
+        },
+        "SubnetId": {
+          "$ref": "#/definitions/SubnetId",
+          "description": "ID of the mount target's subnet."
+        }
+      },
+      "required": [
+        "MountTargetId",
+        "FileSystemId",
+        "SubnetId",
+        "LifeCycleState"
+      ],
+      "type": "object",
+      "title": "MountTargetDescription"
+    },
+    "MountTargetDescriptions": {
+      "items": {
+        "$ref": "#/definitions/MountTargetDescription"
+      },
+      "type": "array",
+      "title": "MountTargetDescriptions"
+    },
+    "MountTargetId": {
+      "type": "string",
+      "title": "MountTargetId"
+    },
+    "MountTargetNotFound": {
+      "description": "Returned if there is no mount target with the specified ID found in the caller's account.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "MountTargetNotFound"
+    },
+    "NetworkInterfaceId": {
+      "type": "string",
+      "title": "NetworkInterfaceId"
+    },
+    "NetworkInterfaceLimitExceeded": {
+      "description": " The calling account has reached the ENI limit for the specific AWS region. Client should try to delete some ENIs or get its account limit raised. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html\">Amazon VPC Limits</a> in the Amazon Virtual Private Cloud User Guide (see the Network interfaces per VPC entry in the table). ",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "NetworkInterfaceLimitExceeded"
+    },
+    "NoFreeAddressesInSubnet": {
+      "description": "Returned if <code>IpAddress</code> was not specified in the request and there are no free IP addresses in the subnet.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "NoFreeAddressesInSubnet"
+    },
+    "PerformanceMode": {
+      "enum": [
+        "generalPurpose",
+        "maxIO"
+      ],
+      "type": "string",
+      "title": "PerformanceMode"
+    },
+    "SecurityGroup": {
+      "type": "string",
+      "title": "SecurityGroup"
+    },
+    "SecurityGroupLimitExceeded": {
+      "description": "Returned if the size of <code>SecurityGroups</code> specified in the request is greater than five.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "SecurityGroupLimitExceeded"
+    },
+    "SecurityGroupNotFound": {
+      "description": "Returned if one of the specified security groups does not exist in the subnet's VPC.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "SecurityGroupNotFound"
+    },
+    "SecurityGroups": {
+      "items": {
+        "$ref": "#/definitions/SecurityGroup"
+      },
+      "maxItems": 5,
+      "type": "array",
+      "title": "SecurityGroups"
+    },
+    "SubnetId": {
+      "type": "string",
+      "title": "SubnetId"
+    },
+    "SubnetNotFound": {
+      "description": "Returned if there is no subnet with ID <code>SubnetId</code> provided in the request.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "SubnetNotFound"
+    },
+    "Tag": {
+      "description": "A tag is a key-value pair. Allowed characters: letters, whitespace, and numbers, representable in UTF-8, and the following characters:<code> + - = . _ : /</code> ",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "Tag key (String). The key can't start with <code>aws:</code>."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "Value of the tag key."
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object",
+      "title": "Tag"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagKeys": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array",
+      "title": "TagKeys"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "type": "string",
+      "title": "TagValue"
+    },
+    "Tags": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array",
+      "title": "Tags"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "UnsupportedAvailabilityZone": {
+      "description": "<p/>",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "required": [
+        "ErrorCode"
+      ],
+      "type": "object",
+      "title": "UnsupportedAvailabilityZone"
+    }
+  },
+  "actions": [
+    {
+      "id": "CreateTags",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FileSystemId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateTagsRequest"
+          }
+        ],
+        "required": [
+          "FileSystemId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticfilesystem": {
+          "integration": "amazonaws_elasticfilesystem"
+        }
+      }
+    },
+    {
+      "id": "DeleteTags",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FileSystemId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteTagsRequest"
+          }
+        ],
+        "required": [
+          "FileSystemId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticfilesystem": {
+          "integration": "amazonaws_elasticfilesystem"
+        }
+      }
+    },
+    {
+      "id": "DescribeFileSystems",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeFileSystemsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeFileSystemsResponse"
+      },
+      "security": {
+        "amazonaws_elasticfilesystem": {
+          "integration": "amazonaws_elasticfilesystem"
+        }
+      }
+    },
+    {
+      "id": "DeleteFileSystem",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FileSystemId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteFileSystemRequest"
+          }
+        ],
+        "required": [
+          "FileSystemId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticfilesystem": {
+          "integration": "amazonaws_elasticfilesystem"
+        }
+      }
+    },
+    {
+      "id": "DescribeMountTargets",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeMountTargetsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeMountTargetsResponse"
+      },
+      "security": {
+        "amazonaws_elasticfilesystem": {
+          "integration": "amazonaws_elasticfilesystem"
+        }
+      }
+    },
+    {
+      "id": "DeleteMountTarget",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MountTargetId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteMountTargetRequest"
+          }
+        ],
+        "required": [
+          "MountTargetId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticfilesystem": {
+          "integration": "amazonaws_elasticfilesystem"
+        }
+      }
+    },
+    {
+      "id": "ModifyMountTargetSecurityGroups",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MountTargetId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ModifyMountTargetSecurityGroupsRequest"
+          }
+        ],
+        "required": [
+          "MountTargetId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticfilesystem": {
+          "integration": "amazonaws_elasticfilesystem"
+        }
+      }
+    },
+    {
+      "id": "DescribeTags",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FileSystemId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeTagsRequest"
+          }
+        ],
+        "required": [
+          "FileSystemId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeTagsResponse"
+      },
+      "security": {
+        "amazonaws_elasticfilesystem": {
+          "integration": "amazonaws_elasticfilesystem"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

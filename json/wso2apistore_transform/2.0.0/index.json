@@ -1,0 +1,80 @@
+{
+  "id": "wso2apistore_transform",
+  "title": "Transform",
+  "description": "This API provides XML to JSON, JSON to XML transformations.",
+  "security": {
+    "wso2apistore_transform": {
+      "integration": "wso2apistore_transform",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://gateway.api.cloud.wso2.com:443/authorize",
+        "flow": "implicit",
+        "scopes": {},
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wso2apistore_transform.jpeg"
+  },
+  "actionCount": 2,
+  "actions": [
+    {
+      "id": "jsontoxml.post",
+      "title": "jsontoxml.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Payload": {
+            "default": "{\"foo\":\"bar\"}",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Payload"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wso2apistore_transform": {
+          "integration": "wso2apistore_transform"
+        }
+      }
+    },
+    {
+      "id": "xmltojson.post",
+      "title": "xmltojson.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Payload": {
+            "default": "<foo>bar</foo>",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Payload"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wso2apistore_transform": {
+          "integration": "wso2apistore_transform"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "developer tools"
+  ]
+}

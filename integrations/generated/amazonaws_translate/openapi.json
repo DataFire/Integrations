@@ -1,0 +1,339 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "translate.amazonaws.com",
+  "basePath": "/",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Provides translation between English and one of six languages, or between one of the six languages and English.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Translate",
+    "version": "2017-07-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/translate-2017-07-01.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "translate",
+    "x-datafire": {
+      "name": "amazonaws_translate",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/translate/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Translates input text from the source language to the target language. You can translate between English (en) and one of the following languages, or between one of the following languages and English.</p> <ul> <li> <p>Arabic (ar)</p> </li> <li> <p>Chinese (Simplified) (zh)</p> </li> <li> <p>French (fr)</p> </li> <li> <p>German (de)</p> </li> <li> <p>Portuguese (pt)</p> </li> <li> <p>Spanish (es)</p> </li> </ul>",
+        "operationId": "TranslateText",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TranslateTextRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TranslateTextResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "TextSizeLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/TextSizeLimitExceededException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "UnsupportedLanguagePairException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedLanguagePairException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BoundedLengthString": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "InternalServerException": {
+      "description": "An internal server error occurred. Retry your request.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidRequestException": {
+      "description": "The request is invalid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "LanguageCodeString": {
+      "maxLength": 5,
+      "minLength": 2,
+      "type": "string"
+    },
+    "ServiceUnavailableException": {
+      "description": "Amazon Translate is unavailable. Retry your request later.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "String": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "TextSizeLimitExceededException": {
+      "description": "The size of the input text exceeds the length constraint for the <code>Text</code> field. Try again with a shorter text. ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "TooManyRequestsException": {
+      "description": "The number of requests exceeds the limit. Resubmit your request later.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    },
+    "TranslateTextRequest": {
+      "properties": {
+        "SourceLanguageCode": {
+          "$ref": "#/definitions/LanguageCodeString",
+          "description": "One of the supported language codes for the source text. If the <code>TargetLanguageCode</code> is not \"en\", the <code>SourceLanguageCode</code> must be \"en\"."
+        },
+        "TargetLanguageCode": {
+          "$ref": "#/definitions/LanguageCodeString",
+          "description": "One of the supported language codes for the target text. If the <code>SourceLanguageCode</code> is not \"en\", the <code>TargetLanguageCode</code> must be \"en\"."
+        },
+        "Text": {
+          "$ref": "#/definitions/BoundedLengthString",
+          "description": "The text to translate."
+        }
+      },
+      "required": [
+        "Text",
+        "SourceLanguageCode",
+        "TargetLanguageCode"
+      ],
+      "type": "object"
+    },
+    "TranslateTextResponse": {
+      "properties": {
+        "SourceLanguageCode": {
+          "$ref": "#/definitions/LanguageCodeString",
+          "description": "The language code for the language of the input text. "
+        },
+        "TargetLanguageCode": {
+          "$ref": "#/definitions/LanguageCodeString",
+          "description": "The language code for the language of the translated text. "
+        },
+        "TranslatedText": {
+          "$ref": "#/definitions/String",
+          "description": "The text translated into the target language."
+        }
+      },
+      "required": [
+        "TranslatedText",
+        "SourceLanguageCode",
+        "TargetLanguageCode"
+      ],
+      "type": "object"
+    },
+    "UnsupportedLanguagePairException": {
+      "description": "Amazon Translate cannot translate input text in the source language into this target language. For more information, see <a>how-to-error-msg</a>. ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

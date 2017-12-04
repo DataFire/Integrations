@@ -1,0 +1,3924 @@
+{
+  "id": "salesloft",
+  "title": "SalesLoft Platform",
+  "description": "SalesLoft helps transform sales teams into modern sales organizations  - converting more target accounts into customer accounts\n",
+  "security": {
+    "salesloft": {
+      "integration": "salesloft",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "flow": "application",
+        "scopes": {},
+        "tokenUrl": "https://accounts.salesloft.com/oauth/token",
+        "type": "oauth2",
+        "x-authorizationUrl": "https://accounts.salesloft.com/oauth/authorize"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/salesloft.jpeg"
+  },
+  "actionCount": 50,
+  "definitions": {
+    "Account": {
+      "properties": {
+        "archived_at": {
+          "description": "Datetime of when the Account was archived, if archived",
+          "example": "2017-11-28T21:25:05.212408-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "city": {
+          "description": "City",
+          "example": "Dufftown",
+          "type": "string"
+        },
+        "company_stage": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Company Stage that this Account has set",
+          "example": {
+            "id": 1
+          }
+        },
+        "company_type": {
+          "description": "Type of the Account's company",
+          "example": "Private",
+          "type": "string"
+        },
+        "conversational_name": {
+          "description": "Conversational name of the Account",
+          "example": "Hogwarts",
+          "type": "string"
+        },
+        "country": {
+          "description": "Country",
+          "example": "Scotland",
+          "type": "string"
+        },
+        "counts": {
+          "$ref": "#/definitions/AccountCounts",
+          "description": "Various counts for this Account",
+          "example": {
+            "people": 15
+          }
+        },
+        "created_at": {
+          "description": "Datetime of when the Account was created",
+          "example": "2017-11-28T21:25:05.212340-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "creator": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that created this Account",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        },
+        "crm_id": {
+          "description": "CRM ID, currently Salesforce.com only",
+          "example": "003i000001mnhpD",
+          "type": "string"
+        },
+        "crm_object_type": {
+          "description": "CRM object type, currently Salesforce.com only",
+          "example": "account",
+          "type": "string"
+        },
+        "crm_url": {
+          "description": "CRM url, currently Salesforce.com only",
+          "example": "https://na15.salesforce.com/003i000001mnhpD",
+          "type": "string"
+        },
+        "custom_fields": {
+          "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API.",
+          "example": {
+            "MyField": "A Value",
+            "Other": "Field"
+          },
+          "type": "object"
+        },
+        "description": {
+          "description": "Description",
+          "example": "British school of magic for students",
+          "type": "string"
+        },
+        "do_not_contact": {
+          "description": "Whether this company has opted out of communications. Do not contact someone at this company when this is set to true",
+          "example": true,
+          "type": "boolean"
+        },
+        "domain": {
+          "description": "Website domain, not a fully qualified URI",
+          "example": "salesloft.com",
+          "type": "string"
+        },
+        "founded": {
+          "description": "Date or year of founding",
+          "example": "March 1st, 1820",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID of Account",
+          "example": 1,
+          "type": "integer"
+        },
+        "industry": {
+          "description": "Industry",
+          "example": "Education",
+          "type": "string"
+        },
+        "last_contacted_at": {
+          "description": "Datetime this Account was last contacted",
+          "example": "2017-11-28T21:25:05.212924-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "last_contacted_by": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that last contacted this Account",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        },
+        "last_contacted_person": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Person who was last contacted at this Account",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/people/1",
+            "id": 1
+          }
+        },
+        "last_contacted_type": {
+          "description": "The type of the last touch to this Account. Can be call, email, other",
+          "example": "call",
+          "type": "string"
+        },
+        "linkedin_url": {
+          "description": "Full LinkedIn url",
+          "example": "https://www.linkedin.com/company/2296178/",
+          "type": "string"
+        },
+        "locale": {
+          "description": "Time locale",
+          "example": "Europe/London",
+          "type": "string"
+        },
+        "name": {
+          "description": "Account Full Name",
+          "example": "Hogwarts School of Witchcraft and Wizardry",
+          "type": "string"
+        },
+        "owner": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that is marked as the owner of this Account",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        },
+        "owner_crm_id": {
+          "description": "Mapped owner field from the CRM, currently Salesforce.com only",
+          "example": "003i000001mnhpD",
+          "type": "string"
+        },
+        "phone": {
+          "description": "Phone number without formatting",
+          "example": "+1 444 555 6666",
+          "type": "string"
+        },
+        "postal_code": {
+          "description": "Postal code",
+          "example": "55555",
+          "type": "string"
+        },
+        "revenue_range": {
+          "description": "Estimated revenue range",
+          "example": "1,000,000-2,000,000",
+          "type": "string"
+        },
+        "size": {
+          "description": "Estimated number of people in employment",
+          "example": "1500",
+          "type": "string"
+        },
+        "state": {
+          "description": "State",
+          "example": "Mortlach",
+          "type": "string"
+        },
+        "street": {
+          "description": "Street name and number",
+          "example": "4 Picket Drive",
+          "type": "string"
+        },
+        "tags": {
+          "description": "All tags applied to this Account",
+          "example": [
+            "7-23-2017",
+            "dreamforce"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "twitter_handle": {
+          "description": "Twitter handle, with @",
+          "example": "@kyleporter",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the Account was last updated",
+          "example": "2017-11-28T21:25:05.212383-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "website": {
+          "description": "Website",
+          "example": "https://salesloft.com",
+          "type": "string"
+        }
+      },
+      "title": "Account"
+    },
+    "AccountCounts": {
+      "properties": {
+        "people": {
+          "description": "Number of people in SalesLoft associated with this Account",
+          "example": 15,
+          "type": "integer"
+        }
+      },
+      "title": "AccountCounts"
+    },
+    "Cadence": {
+      "properties": {
+        "added_stage": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Stage set when person is added to cadence",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/person_stages/3",
+            "id": 3
+          }
+        },
+        "archived_at": {
+          "description": "Datetime of when the cadence was archived, if archived",
+          "example": "2017-11-28T21:25:05.206433-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "bounced_stage": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Stage set when person on cadence bounces",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/person_stages/1",
+            "id": 1
+          }
+        },
+        "counts": {
+          "$ref": "#/definitions/CadenceCounts",
+          "description": "Various counts for this cadence",
+          "example": {
+            "cadence_people": 59,
+            "target_daily_people": 10
+          }
+        },
+        "created_at": {
+          "description": "Datetime of when the cadence was created",
+          "example": "2017-11-28T21:25:05.206361-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "creator": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that created this cadence",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        },
+        "finished_stage": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Stage set when person is finished with cadence",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/person_stages/3",
+            "id": 3
+          }
+        },
+        "id": {
+          "description": "ID of cadence",
+          "example": 1,
+          "type": "integer"
+        },
+        "name": {
+          "description": "Cadence name",
+          "example": "Prospecting - VP of Sales",
+          "type": "string"
+        },
+        "opt_out_link_included": {
+          "description": "Whether this cadence is configured to include an opt-out link by default",
+          "example": true,
+          "type": "boolean"
+        },
+        "owner": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that is marked as the owner of this cadence",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        },
+        "remove_bounces_enabled": {
+          "description": "Whether this cadence is configured to automatically remove people who have bounced",
+          "example": true,
+          "type": "boolean"
+        },
+        "remove_replies_enabled": {
+          "description": "Whether this cadence is configured to automatically remove people who have replied",
+          "example": true,
+          "type": "boolean"
+        },
+        "replied_stage": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Stage set when person on cadence replies",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/person_stages/2",
+            "id": 2
+          }
+        },
+        "shared": {
+          "description": "Whether this cadence is visible to team members (shared)",
+          "example": false,
+          "type": "boolean"
+        },
+        "tags": {
+          "description": "All tags applied to this cadence",
+          "example": [
+            "7-23-2017",
+            "dreamforce"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "team_cadence": {
+          "description": "Whether this cadence is a team cadence.  A team cadence is created by an admin and can be run by all users",
+          "example": false,
+          "type": "boolean"
+        },
+        "updated_at": {
+          "description": "Datetime of when the cadence was last updated",
+          "example": "2017-11-28T21:25:05.206407-05:00",
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "title": "Cadence"
+    },
+    "CadenceCounts": {
+      "properties": {
+        "cadence_people": {
+          "description": "The number of people that have ever been added to the cadence",
+          "example": 59,
+          "type": "integer"
+        },
+        "target_daily_people": {
+          "description": "The user defined target for number of people to add to the cadence each day",
+          "example": 10,
+          "type": "integer"
+        }
+      },
+      "title": "CadenceCounts"
+    },
+    "CadenceMembership": {
+      "properties": {
+        "added_at": {
+          "description": "Datetime of when the person was last added to this cadence",
+          "example": "2017-11-28T21:25:05.222151-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "cadence": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The cadence that the person is on",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/cadences/1",
+            "id": 1
+          }
+        },
+        "counts": {
+          "$ref": "#/definitions/CadenceMembershipCounts",
+          "description": "Various counts for the record",
+          "example": {
+            "bounces": 0,
+            "calls": 2,
+            "clicks": 5,
+            "replies": 2,
+            "sent_emails": 4,
+            "views": 10
+          }
+        },
+        "created_at": {
+          "description": "Datetime of when the person was first added to this cadence",
+          "example": "2017-11-28T21:25:05.222199-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "current_state": {
+          "description": "The current state of the person on the cadence. Possible values are:\n\nstaged: The person is waiting for the first step in the cadence to occur\n\nactive: The cadence has begun processing this person and is still in the process, but idle\n\nscheduled: The cadence has begun processing this person and is still in the process, with an activity scheduled to occur\n\ncompleted: The cadence has been completed for this person\n\nremoved: The person was manually or automatically removed from the cadence\n\nremoved_no_action: The person was removed from the cadence before any action occurred\n\nreassigned: The person's cadence execution was transferred to a different user, ending this user's interaction\n",
+          "example": "staged",
+          "type": "string"
+        },
+        "id": {
+          "description": "Cadence membership ID",
+          "example": 1,
+          "type": "integer"
+        },
+        "latest_action": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The most recent action associated with the record",
+          "example": {
+            "id": 4
+          }
+        },
+        "person": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The person that is on the cadence",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/people/2",
+            "id": 2
+          }
+        },
+        "person_deleted": {
+          "description": "Whether the associated person has since been deleted",
+          "example": false,
+          "type": "boolean"
+        },
+        "updated_at": {
+          "description": "Datetime of when the record was last updated",
+          "example": "2017-11-28T21:25:05.222224-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The user that is acting on the person in the cadence",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/3",
+            "id": 3
+          }
+        }
+      },
+      "title": "CadenceMembership"
+    },
+    "CadenceMembershipCounts": {
+      "properties": {
+        "bounces": {
+          "description": "The number of times emails sent from the cadence to the person bounced",
+          "example": 0,
+          "type": "integer"
+        },
+        "calls": {
+          "description": "The number of times a call was logged from the cadence to the person",
+          "example": 2,
+          "type": "integer"
+        },
+        "clicks": {
+          "description": "The number of times emails sent from the cadence to the person were clicked",
+          "example": 5,
+          "type": "integer"
+        },
+        "replies": {
+          "description": "The number of times emails sent from the cadence to the person were replied to",
+          "example": 2,
+          "type": "integer"
+        },
+        "sent_emails": {
+          "description": "The number of times emails were sent from the cadence to the person",
+          "example": 4,
+          "type": "integer"
+        },
+        "views": {
+          "description": "The number of times emails sent from the cadence to the person were opened",
+          "example": 10,
+          "type": "integer"
+        }
+      },
+      "title": "CadenceMembershipCounts"
+    },
+    "Call": {
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Action associated to the call",
+          "example": {
+            "id": 1
+          }
+        },
+        "called_person": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The person called",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/people/1",
+            "id": 1
+          }
+        },
+        "created_at": {
+          "description": "Datetime of when the call was created",
+          "example": "2017-11-28T21:25:05.288555-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "crm_activity": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "CRM Activity associated with the call",
+          "example": {
+            "id": 1
+          }
+        },
+        "disposition": {
+          "description": "Result of the call",
+          "example": "Connected",
+          "type": "string"
+        },
+        "duration": {
+          "description": "Length of the call in seconds",
+          "example": 60,
+          "type": "integer"
+        },
+        "id": {
+          "description": "ID of Call",
+          "example": 1,
+          "type": "integer"
+        },
+        "note": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Note for this call",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/notes/1",
+            "id": 1
+          }
+        },
+        "recordings": {
+          "description": "The recordings for this this call and their status",
+          "example": [
+            {
+              "status": "completed",
+              "url": "https://example.com/recording1"
+            }
+          ],
+          "items": {
+            "$ref": "#/definitions/EmbeddedRecordingResource"
+          },
+          "type": "array"
+        },
+        "sentiment": {
+          "description": "Outcome of the conversation",
+          "example": "Demo Scheduled",
+          "type": "string"
+        },
+        "to": {
+          "description": "Phone number that received the call",
+          "example": "7705551234",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the call was last updated",
+          "example": "2017-11-28T21:25:05.288604-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that made the call",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        }
+      },
+      "title": "Call"
+    },
+    "CustomField": {
+      "properties": {
+        "created_at": {
+          "description": "Datetime of when the Custom Field was created",
+          "example": "2017-11-28T21:25:05.229238-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "field_type": {
+          "description": "Type of the Custom Field. Value must be one of: person, company, opportunity.",
+          "example": "person",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID of Custom Field",
+          "example": 1,
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the Custom Field",
+          "example": "My Custom Field",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the Custom Field was last updated",
+          "example": "2017-11-28T21:25:05.229279-05:00",
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "title": "CustomField"
+    },
+    "Email": {
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Action that this email was sent from, or null if not sent through a cadence",
+          "example": {
+            "id": 1
+          }
+        },
+        "bounced": {
+          "description": "Whether this email bounced",
+          "example": false,
+          "type": "boolean"
+        },
+        "click_tracking": {
+          "description": "Whether this email had click tracking enabled",
+          "example": true,
+          "type": "boolean"
+        },
+        "counts": {
+          "$ref": "#/definitions/EmailCounts",
+          "description": "Various counts for this email",
+          "example": {
+            "attachments": 0,
+            "clicks": 2,
+            "replies": 1,
+            "unique_devices": 4,
+            "unique_locations": 3,
+            "views": 3
+          }
+        },
+        "created_at": {
+          "description": "Datetime of when the email was created",
+          "example": "2017-11-28T21:25:05.294316-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "crm_activity": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "CRM Activity associated with this email",
+          "example": {
+            "id": 1
+          }
+        },
+        "headers": {
+          "description": "Selected headers that are included if this email used them. Available keys are: cc, bcc",
+          "example": {
+            "bcc": "track@salesforce.com",
+            "cc": "sb@salesloft.com"
+          },
+          "type": "object"
+        },
+        "id": {
+          "description": "ID of Email",
+          "example": 1,
+          "type": "integer"
+        },
+        "mailing": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The mailing that this email was a part of",
+          "example": {
+            "id": 1
+          }
+        },
+        "recipient": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The person whom received this email",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/people/1",
+            "id": 1
+          }
+        },
+        "recipient_email_address": {
+          "description": "Email address of the recipient",
+          "example": "bob.smith@example.com",
+          "type": "string"
+        },
+        "send_after": {
+          "description": "When this email will be sent, or null if already sent",
+          "example": "2017-11-28T21:25:05.306963-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "sent_at": {
+          "description": "When this email was sent, or null if it was not sent",
+          "example": "2017-11-28T21:25:05.307022-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of this email through the sending process. Possible values are: sent, sent_from_gmail, sent_from_external, pending, pending_reply_check, scheduled, sending, delivering, failed, cancelled, pending_through_gmail, pending_through_external",
+          "example": "sent",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the email was last updated",
+          "example": "2017-11-28T21:25:05.294364-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that sent this email",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        },
+        "view_tracking": {
+          "description": "Whether this email had view tracking enabled",
+          "example": true,
+          "type": "boolean"
+        }
+      },
+      "title": "Email"
+    },
+    "EmailCounts": {
+      "properties": {
+        "attachments": {
+          "description": "The number of attachments on the email",
+          "example": 0,
+          "type": "integer"
+        },
+        "clicks": {
+          "description": "The number of times links in the email were clicked",
+          "example": 2,
+          "type": "integer"
+        },
+        "replies": {
+          "description": "The number of replies the email received",
+          "example": 1,
+          "type": "integer"
+        },
+        "unique_devices": {
+          "description": "The number of unique devices that opened the email",
+          "example": 4,
+          "type": "integer"
+        },
+        "unique_locations": {
+          "description": "The number of unique locations that opened the email",
+          "example": 3,
+          "type": "integer"
+        },
+        "views": {
+          "description": "The number of times the email was opened",
+          "example": 3,
+          "type": "integer"
+        }
+      },
+      "title": "EmailCounts"
+    },
+    "EmailTemplate": {
+      "properties": {
+        "archived_at": {
+          "description": "Datetime of when the email template was archived, if archived",
+          "example": "2017-11-28T21:25:05.277787-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "body": {
+          "description": "Sanitized body of the email template without email signature",
+          "example": "<div><div>Welcome to the SalesLoft family! My name is Sarah and I’m your implementation consultant. I’m here to get you up and running. It's my job to help you configure your team's SalesLoft access, provide customized training for your specific goals, and make sure that you and your team are ready to crush your goals.</div><div dir=\"ltr\"><br></div>Thank you,<br></div>",
+          "type": "string"
+        },
+        "cadence_template": {
+          "description": "Whether this email template is only used on a cadence step. These templates are not visible in the SalesLoft application template list. If false, this email template is visible in the SalesLoft application, and may be used when composing an email or creating a cadence step.",
+          "example": true,
+          "type": "boolean"
+        },
+        "click_tracking_enabled": {
+          "description": "Whether click tracking is enabled for this email template",
+          "example": true,
+          "type": "boolean"
+        },
+        "counts": {
+          "$ref": "#/definitions/EmailTemplateCounts",
+          "description": "Various counts for this team template",
+          "example": {
+            "bounces": 10,
+            "clicks": 20,
+            "replies": 1,
+            "sent_emails": 59,
+            "views": 3
+          }
+        },
+        "created_at": {
+          "description": "Datetime of when the email template was created",
+          "example": "2017-11-28T21:25:05.277704-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID of email template",
+          "example": 5,
+          "type": "integer"
+        },
+        "last_used_at": {
+          "description": "Datetime of when the email template was last used",
+          "example": "2017-11-28T21:25:05.277762-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "open_tracking_enabled": {
+          "description": "Whether open tracking is enabled for this email template",
+          "example": true,
+          "type": "boolean"
+        },
+        "shared": {
+          "description": "Whether this email template is visible to team members (shared)",
+          "example": false,
+          "type": "boolean"
+        },
+        "subject": {
+          "description": "Subject of the email template",
+          "example": "Welcome to SalesLoft!",
+          "type": "string"
+        },
+        "team_template": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Associated team template, if any",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/team_templates/00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "template_owner": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that owns this email template",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        },
+        "title": {
+          "description": "Title of the email template",
+          "example": "Welcome email",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the email template was last updated",
+          "example": "2017-11-28T21:25:05.277740-05:00",
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "title": "EmailTemplate"
+    },
+    "EmailTemplateCounts": {
+      "properties": {
+        "bounces": {
+          "description": "The number of bounces the email template received",
+          "example": 10,
+          "type": "integer"
+        },
+        "clicks": {
+          "description": "The number of times links in the email template were clicked",
+          "example": 20,
+          "type": "integer"
+        },
+        "replies": {
+          "description": "The number of replies the email template received",
+          "example": 1,
+          "type": "integer"
+        },
+        "sent_emails": {
+          "description": "The number of times the email template was sent out",
+          "example": 59,
+          "type": "integer"
+        },
+        "views": {
+          "description": "The number of times the email template was opened",
+          "example": 3,
+          "type": "integer"
+        }
+      },
+      "title": "EmailTemplateCounts"
+    },
+    "EmbeddedRecordingResource": {
+      "properties": {
+        "status": {
+          "description": "The processing status of the recording. A completed status means that the recording is fully available",
+          "example": "completed",
+          "type": "string"
+        },
+        "url": {
+          "description": "The url of the recording",
+          "example": "http://example.com/recording/1",
+          "type": "string"
+        }
+      },
+      "title": "EmbeddedRecordingResource"
+    },
+    "EmbeddedResource": {
+      "properties": {
+        "_href": {
+          "description": "Resource URL, pointed at your API version, present if this resource is available in the API",
+          "example": "https://api.salesloft.com/v2/widgets/10",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID of the resource",
+          "example": 10,
+          "type": "integer"
+        }
+      },
+      "title": "EmbeddedResource"
+    },
+    "Import": {
+      "properties": {
+        "created_at": {
+          "description": "Datetime of when the import was created",
+          "example": "2017-11-28T21:25:05.237669-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "current_people_count": {
+          "description": "Count of People that have not been deleted",
+          "example": 5,
+          "type": "integer"
+        },
+        "id": {
+          "description": "Import ID",
+          "example": 1,
+          "type": "integer"
+        },
+        "imported_people_count": {
+          "description": "Count of People that have ever been on this Import",
+          "example": 7,
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of Import",
+          "example": "DataProvider -> SalesLoft 9/1/17",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the import was last updated, ignoring relationship changes",
+          "example": "2017-11-28T21:25:05.237714-05:00",
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "title": "Import"
+    },
+    "Note": {
+      "properties": {
+        "associated_with": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Item on which the note was made",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/people/1",
+            "id": 1
+          }
+        },
+        "call": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Call linked to the note",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/activities/calls/1",
+            "id": 1
+          }
+        },
+        "content": {
+          "description": "The content of the note",
+          "example": "Was very interested in a demo at a later time",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "Datetime of when the note was created",
+          "example": "2017-11-28T21:25:05.245768-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "id": {
+          "description": "Note ID",
+          "example": 1,
+          "type": "integer"
+        },
+        "updated_at": {
+          "description": "Datetime of when the note was last updated",
+          "example": "2017-11-28T21:25:05.245809-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that wrote this note",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        }
+      },
+      "title": "Note"
+    },
+    "Person": {
+      "properties": {
+        "account": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Account that this person is associated to",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/accounts/1",
+            "id": 1
+          }
+        },
+        "bouncing": {
+          "description": "Whether this person's current email address has bounced",
+          "example": false,
+          "type": "boolean"
+        },
+        "city": {
+          "description": "City",
+          "example": "Atlanta",
+          "type": "string"
+        },
+        "country": {
+          "description": "Country",
+          "example": "United States",
+          "type": "string"
+        },
+        "counts": {
+          "$ref": "#/definitions/PersonCounts",
+          "description": "Various counts for this person",
+          "example": {
+            "calls": 4,
+            "emails_bounced": 0,
+            "emails_clicked": 1,
+            "emails_replied_to": 0,
+            "emails_sent": 3,
+            "emails_viewed": 2
+          }
+        },
+        "created_at": {
+          "description": "Datetime of when the person was created",
+          "example": "2017-11-28T21:25:05.252458-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "crm_id": {
+          "description": "CRM ID, currently Salesforce.com only",
+          "example": "003i000001mnhpD",
+          "type": "string"
+        },
+        "crm_object_type": {
+          "description": "CRM object type, currently Salesforce.com only",
+          "example": "Lead",
+          "type": "string"
+        },
+        "crm_url": {
+          "description": "CRM url, currently Salesforce.com only",
+          "example": "https://na15.salesforce.com/003i000001mnhpD",
+          "type": "string"
+        },
+        "custom_fields": {
+          "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API.",
+          "example": {
+            "MyField": "A Value",
+            "Other": "Field"
+          },
+          "type": "object"
+        },
+        "display_name": {
+          "description": "Either the full name or the email address. Use this when showing a person's name",
+          "example": "Pat Johnson",
+          "type": "string"
+        },
+        "do_not_contact": {
+          "description": "Whether or not this person has opted out of communications. Do not contact someone when this is set to true",
+          "example": true,
+          "type": "boolean"
+        },
+        "email_address": {
+          "description": "Email address",
+          "example": "pat.johnson@example.com",
+          "type": "string"
+        },
+        "first_name": {
+          "description": "First name",
+          "example": "Pat",
+          "type": "string"
+        },
+        "home_phone": {
+          "description": "Home phone without formatting",
+          "example": "+1 444 555 6666",
+          "type": "string"
+        },
+        "id": {
+          "description": "Person ID",
+          "example": 1,
+          "type": "integer"
+        },
+        "import": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Import that this person was a part of",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/imports/1",
+            "id": 1
+          }
+        },
+        "last_contacted_at": {
+          "description": "Last datetime this person was contacted",
+          "example": "2017-11-28T21:25:05.252554-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "last_contacted_by": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that last contacted this person",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        },
+        "last_contacted_type": {
+          "description": "The type of the last touch to this person. Can be call, email, other",
+          "example": "call",
+          "type": "string"
+        },
+        "last_name": {
+          "description": "Last name",
+          "example": "Johnson",
+          "type": "string"
+        },
+        "last_replied_at": {
+          "description": "Last datetime this person replied to an email",
+          "example": "2017-11-28T21:25:05.252575-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "linkedin_url": {
+          "description": "Linkedin URL",
+          "example": "https://www.linkedin.com/in/username",
+          "type": "string"
+        },
+        "locale": {
+          "description": "Time locale of the person",
+          "example": "US/Eastern",
+          "type": "string"
+        },
+        "mobile_phone": {
+          "description": "Mobile phone without formatting",
+          "example": "+1 444 555 6666",
+          "type": "string"
+        },
+        "owner": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that is marked as the owner of this person",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        },
+        "owner_crm_id": {
+          "description": "Mapped owner field from the CRM, currently Salesforce.com only",
+          "example": "003i000001mnhpD",
+          "type": "string"
+        },
+        "person_company_industry": {
+          "description": "Company industry. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended",
+          "example": "Information Technology",
+          "type": "string"
+        },
+        "person_company_name": {
+          "description": "Company name. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended",
+          "example": "SalesLoft",
+          "type": "string"
+        },
+        "person_company_website": {
+          "description": "Company website. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended",
+          "example": "https://salesloft.com",
+          "type": "string"
+        },
+        "person_stage": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Person stage that this person has set",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/person_stages/1",
+            "id": 1
+          }
+        },
+        "personal_email_address": {
+          "description": "Personal email address",
+          "example": "pat.johnson@example.com",
+          "type": "string"
+        },
+        "personal_website": {
+          "description": "The website of this person",
+          "example": "https://salesloft.com",
+          "type": "string"
+        },
+        "phone": {
+          "description": "Phone without formatting",
+          "example": "+1 444 555 6666",
+          "type": "string"
+        },
+        "phone_extension": {
+          "description": "Phone extension without formatting",
+          "example": "x123",
+          "type": "string"
+        },
+        "secondary_email_address": {
+          "description": "Alternate email address",
+          "example": "pat.johnson@example.com",
+          "type": "string"
+        },
+        "state": {
+          "description": "State",
+          "example": "Georgia",
+          "type": "string"
+        },
+        "tags": {
+          "description": "All tags applied to this person",
+          "example": [
+            "7-23-2017",
+            "dreamforce"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "description": "Job title",
+          "example": "Sales Development Representative",
+          "type": "string"
+        },
+        "twitter_handle": {
+          "description": "The twitter handle of this person",
+          "example": "@kyleporter",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the person was last updated",
+          "example": "2017-11-28T21:25:05.252529-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "work_city": {
+          "description": "Work location - city",
+          "example": "Atlanta",
+          "type": "string"
+        },
+        "work_country": {
+          "description": "Work location - country",
+          "example": "United States",
+          "type": "string"
+        },
+        "work_state": {
+          "description": "Work location - state",
+          "example": "Georgia",
+          "type": "string"
+        }
+      },
+      "title": "Person"
+    },
+    "PersonCounts": {
+      "properties": {
+        "calls": {
+          "description": "The number of calls logged to this person",
+          "example": 4,
+          "type": "integer"
+        },
+        "emails_bounced": {
+          "description": "The number of unique emails sent to this person that bounced",
+          "example": 0,
+          "type": "integer"
+        },
+        "emails_clicked": {
+          "description": "The number of unique emails clicked by this person",
+          "example": 1,
+          "type": "integer"
+        },
+        "emails_replied_to": {
+          "description": "The number of unique emails replied to by this person",
+          "example": 0,
+          "type": "integer"
+        },
+        "emails_sent": {
+          "description": "The number of emails sent to this person",
+          "example": 3,
+          "type": "integer"
+        },
+        "emails_viewed": {
+          "description": "The number of unique emails viewed by this person",
+          "example": 2,
+          "type": "integer"
+        }
+      },
+      "title": "PersonCounts"
+    },
+    "PersonStage": {
+      "properties": {
+        "created_at": {
+          "description": "Datetime of when the Person Stage was created",
+          "example": "2017-11-28T21:25:05.262156-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID of Person Stage",
+          "example": 1,
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of Person Stage",
+          "example": "Entry Stage",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the Person Stage was last updated",
+          "example": "2017-11-28T21:25:05.262207-05:00",
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "title": "PersonStage"
+    },
+    "Success": {
+      "properties": {
+        "counts": {
+          "$ref": "#/definitions/SuccessCounts",
+          "description": "Various counts for this success",
+          "example": {
+            "total_calls": 5,
+            "total_emails": 2,
+            "total_other_touches": 3
+          }
+        },
+        "created_at": {
+          "description": "Datetime of when the success was created",
+          "example": "2017-11-28T21:25:05.273615-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID of success",
+          "example": 1,
+          "type": "integer"
+        },
+        "latest_action": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The action that was most recently completed on this person before the success",
+          "example": {
+            "id": 3
+          }
+        },
+        "latest_call": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The call that was most recently made to this person before the success",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/activities/calls/2",
+            "id": 2
+          }
+        },
+        "latest_email": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The email that was most recently sent to this person before the success",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/activities/emails/1",
+            "id": 1
+          }
+        },
+        "person": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "The person who a success occurred on",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/people/1",
+            "id": 1
+          }
+        },
+        "succeeded_at": {
+          "description": "Datetime of when the success was recorded",
+          "example": "2017-11-28T21:25:05.273699-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "success_window_started_at": {
+          "description": "Datetime of when this person was first worked, leading up to the success",
+          "example": "2017-11-28T21:25:05.273730-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the success was last updated",
+          "example": "2017-11-28T21:25:05.273665-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that created this success",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        }
+      },
+      "title": "Success"
+    },
+    "SuccessCounts": {
+      "properties": {
+        "total_calls": {
+          "description": "The total number of calls made in this success window",
+          "example": 5,
+          "type": "integer"
+        },
+        "total_emails": {
+          "description": "The total number of emails made in this success window",
+          "example": 2,
+          "type": "integer"
+        },
+        "total_other_touches": {
+          "description": "The total number of other touches made in this success window",
+          "example": 3,
+          "type": "integer"
+        }
+      },
+      "title": "SuccessCounts"
+    },
+    "Team": {
+      "properties": {
+        "allow_automated_email_steps": {
+          "description": "Whether team members are allowed to have automated email steps",
+          "example": true,
+          "type": "boolean"
+        },
+        "call_recording_disabled": {
+          "description": "Whether all call recording is disabled",
+          "example": false,
+          "type": "boolean"
+        },
+        "click_tracking_default": {
+          "description": "The team default for click tracking when composing emails",
+          "example": true,
+          "type": "boolean"
+        },
+        "created_at": {
+          "description": "Datetime of when the team was created",
+          "example": "2017-11-28T21:25:05.201896-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "custom_tracking_domain": {
+          "description": "The domain click and open tracking will be proxied through",
+          "example": "examplecompany.com",
+          "type": "string"
+        },
+        "dispositions_required": {
+          "description": "Whether team members are required to mark disposition at the end of calls",
+          "example": false,
+          "type": "boolean"
+        },
+        "email_daily_limit": {
+          "description": "Daily email limit for each member on the team",
+          "example": 1000,
+          "type": "integer"
+        },
+        "group_privacy_setting": {
+          "description": "Visibility setting for resources across the team. Possible values are: group_public, all_public.\nWhen the value is group_public, certain resources will only be visible to members of the same group.\nWhen the value is all_public, all resources are visible to all users on this team.\n",
+          "example": "all_public",
+          "type": "string"
+        },
+        "id": {
+          "description": "Team ID",
+          "example": 1,
+          "type": "integer"
+        },
+        "license_limit": {
+          "description": "Count of seats that this team has licensed",
+          "example": 100,
+          "type": "integer"
+        },
+        "local_dial_enabled": {
+          "description": "Whether this team has local dial enabled",
+          "example": true,
+          "type": "boolean"
+        },
+        "name": {
+          "description": "Team name",
+          "example": "The A-Team",
+          "type": "string"
+        },
+        "plan": {
+          "description": "Plan type of the team, Possible values are: group, professional, enterprise",
+          "example": "professional",
+          "type": "string"
+        },
+        "record_by_default": {
+          "description": "Whether calls will record by default",
+          "example": true,
+          "type": "boolean"
+        },
+        "sentiments_required": {
+          "description": "Whether team members are required to log sentiments",
+          "example": false,
+          "type": "boolean"
+        },
+        "team_visibility_default": {
+          "description": "The default visibility of resources on the team, in the UI only. The API does not utilize this default.\nPossible values are: public, private.\n",
+          "example": "public",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the team was last updated",
+          "example": "2017-11-28T21:25:05.201970-05:00",
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "title": "Team"
+    },
+    "TeamTemplate": {
+      "properties": {
+        "archived_at": {
+          "description": "Datetime of when the team template was archived, if archived",
+          "example": "2017-11-28T21:25:05.283353-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "body": {
+          "description": "Body of the team template",
+          "example": "<div>Do you know about birds?</div><div>You can find them here: <a href=\"https://www.allaboutbirds.org/guide/search/\" target=\"_blank\">https://www.allaboutbirds.org/guide/search/</a></div>",
+          "type": "string"
+        },
+        "click_tracking_enabled": {
+          "description": "Whether click tracking is enabled for this team template",
+          "example": true,
+          "type": "boolean"
+        },
+        "counts": {
+          "$ref": "#/definitions/TeamTemplateCounts",
+          "description": "Various counts for this team template. Counts will update over time but will not affect the 'updated at' field for the team template.",
+          "example": {
+            "bounces": 10,
+            "clicks": 20,
+            "replies": 1,
+            "sent_emails": 59,
+            "views": 3
+          }
+        },
+        "created_at": {
+          "description": "Datetime of when the team template was created",
+          "example": "2017-11-28T21:25:05.283255-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID of team template",
+          "example": "51226150-3108-4dea-883b-0c0d7388f456",
+          "type": "string"
+        },
+        "last_modified_at": {
+          "description": "Datetime of when the team template was last modified",
+          "example": "2017-11-28T21:25:05.283377-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "last_modified_user": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "User that last modified this team template",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/users/1",
+            "id": 1
+          }
+        },
+        "last_used_at": {
+          "description": "Datetime of when the team template was last used",
+          "example": "2017-11-28T21:25:05.283329-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "open_tracking_enabled": {
+          "description": "Whether open tracking is enabled for this team template",
+          "example": true,
+          "type": "boolean"
+        },
+        "subject": {
+          "description": "Subject of the team template",
+          "example": "It’s time to say goodbye",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title of the team template",
+          "example": "VP Breakup Email",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the team template was last updated",
+          "example": "2017-11-28T21:25:05.283298-05:00",
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "title": "TeamTemplate"
+    },
+    "TeamTemplateCounts": {
+      "properties": {
+        "bounces": {
+          "description": "The number of bounces the team template received",
+          "example": 10,
+          "type": "integer"
+        },
+        "clicks": {
+          "description": "The number of times links in the team template were clicked",
+          "example": 20,
+          "type": "integer"
+        },
+        "replies": {
+          "description": "The number of replies the team template received",
+          "example": 1,
+          "type": "integer"
+        },
+        "sent_emails": {
+          "description": "The number of times the team template was sent out",
+          "example": 59,
+          "type": "integer"
+        },
+        "views": {
+          "description": "The number of times the team template was opened",
+          "example": 3,
+          "type": "integer"
+        }
+      },
+      "title": "TeamTemplateCounts"
+    },
+    "User": {
+      "properties": {
+        "active": {
+          "description": "Whether an user is currently active in SalesLoft",
+          "example": true,
+          "type": "boolean"
+        },
+        "bcc_email_address": {
+          "description": "Address that will be BBC'd on all emails from this user",
+          "example": "fake@salesloft.com",
+          "type": "string"
+        },
+        "click_to_call_enabled": {
+          "description": "Whether this user has click to call enabled",
+          "example": true,
+          "type": "boolean"
+        },
+        "created_at": {
+          "description": "Datetime of when the user was created",
+          "example": "2017-11-28T21:25:05.196446-05:00",
+          "format": "date",
+          "type": "string"
+        },
+        "crm_connected": {
+          "description": "Whether the user has a crm connected",
+          "example": true,
+          "type": "boolean"
+        },
+        "email": {
+          "description": "Email address provided to accounts.salesloft.com",
+          "example": "fake@salesloft.com",
+          "type": "string"
+        },
+        "email_client_configured": {
+          "description": "Whether this user has a email client configured",
+          "example": true,
+          "type": "boolean"
+        },
+        "email_client_email_address": {
+          "description": "Email address associated with the email client of the user",
+          "example": "fake@salesloft.com",
+          "type": "string"
+        },
+        "email_signature": {
+          "description": "Email signature",
+          "example": "Benjamin Franklin<div></div><div></div>",
+          "type": "string"
+        },
+        "email_signature_click_tracking_disabled": {
+          "description": "Whether this user has click tracking disabled in email signature",
+          "example": false,
+          "type": "boolean"
+        },
+        "email_signature_type": {
+          "description": "Email signature type",
+          "example": "html",
+          "type": "string"
+        },
+        "first_name": {
+          "description": "First name of user",
+          "example": "Benjamin",
+          "type": "string"
+        },
+        "from_address": {
+          "description": "The from address of this user",
+          "example": "fake@salesloft.com",
+          "type": "string"
+        },
+        "full_email_address": {
+          "description": "RFC 5322 compliant email address",
+          "example": "\"Benjamin Franklin\" <Benjamin@salesloft.com>",
+          "type": "string"
+        },
+        "group": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Group of user",
+          "example": {
+            "id": 1
+          }
+        },
+        "id": {
+          "description": "User ID",
+          "example": 1,
+          "type": "integer"
+        },
+        "last_name": {
+          "description": "Last name of user",
+          "example": "Franklin",
+          "type": "string"
+        },
+        "local_dial_enabled": {
+          "description": "Whether this user has Local Dial enabled",
+          "example": true,
+          "type": "boolean"
+        },
+        "name": {
+          "description": "Display name of user",
+          "example": "Benjamin Franklin",
+          "type": "string"
+        },
+        "phone_client": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Phone Client of user",
+          "example": {
+            "id": 1
+          }
+        },
+        "phone_number_assignment": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Phone number assignment of user",
+          "example": {
+            "id": 1
+          }
+        },
+        "sending_email_address": {
+          "description": "The email address that email of the user will be sent from, resolved in the following resolution order: from_user, email_client_email_address, email",
+          "example": "fake@salesloft.com",
+          "type": "string"
+        },
+        "slack_username": {
+          "description": "Slack username",
+          "example": "benjamin-franklin",
+          "type": "string"
+        },
+        "team": {
+          "$ref": "#/definitions/EmbeddedResource",
+          "description": "Team of user",
+          "example": {
+            "_href": "https://api.salesloft.com/v2/team",
+            "id": 1
+          }
+        },
+        "team_admin": {
+          "description": "Team Admin",
+          "example": true,
+          "type": "boolean"
+        },
+        "time_zone": {
+          "description": "User Time Zone",
+          "example": "US/Eastern",
+          "type": "string"
+        },
+        "twitter_handle": {
+          "description": "Twitter handle",
+          "example": "@benjamin-franklin",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Datetime of when the user was last updated",
+          "example": "2017-11-28T21:25:05.196510-05:00",
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "title": "User"
+    }
+  },
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.accounts.json.get",
+      "title": "v2.accounts.json.get",
+      "description": "Fetches multiple account records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "IDs of accounts to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+          },
+          "updated_at": {
+            "type": "array",
+            "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"}]}\n"
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+          },
+          "page": {
+            "type": "integer",
+            "description": "The current page to fetch results from. Defaults to 1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Account"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.accounts.json.post",
+      "title": "v2.accounts.json.post",
+      "description": "Creates an account.\n\n\"domain\" must be unique on the current team.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Account Full Name"
+          },
+          "domain": {
+            "type": "string",
+            "description": "Website domain, not a fully qualified URI"
+          },
+          "conversational_name": {
+            "type": "string",
+            "description": "Conversational name of the Account"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Phone number without formatting"
+          },
+          "website": {
+            "type": "string",
+            "description": "Website"
+          },
+          "linkedin_url": {
+            "type": "string",
+            "description": "Full LinkedIn url"
+          },
+          "twitter_handle": {
+            "type": "string",
+            "description": "Twitter handle, with @"
+          },
+          "street": {
+            "type": "string",
+            "description": "Street name and number"
+          },
+          "city": {
+            "type": "string",
+            "description": "City"
+          },
+          "state": {
+            "type": "string",
+            "description": "State"
+          },
+          "postal_code": {
+            "type": "string",
+            "description": "Postal code"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country"
+          },
+          "locale": {
+            "type": "string",
+            "description": "Time locale"
+          },
+          "industry": {
+            "type": "string",
+            "description": "Industry"
+          },
+          "company_type": {
+            "type": "string",
+            "description": "Type of the Account's company"
+          },
+          "founded": {
+            "type": "string",
+            "description": "Date or year of founding"
+          },
+          "revenue_range": {
+            "type": "string",
+            "description": "Estimated revenue range"
+          },
+          "size": {
+            "type": "string",
+            "description": "Estimated number of people in employment"
+          },
+          "do_not_contact": {
+            "type": "boolean",
+            "description": "Whether this company can not be contacted. Values are either true or false. Setting this to true will remove all associated people from all active communications"
+          },
+          "custom_fields": {
+            "type": "array",
+            "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API."
+          },
+          "tags": {
+            "type": "array",
+            "description": "All tags applied to this Account"
+          },
+          "owner_id": {
+            "type": "integer",
+            "description": "ID of the User that owns this Account"
+          },
+          "company_stage_id": {
+            "type": "integer",
+            "description": "ID of the CompanyStage assigned to this Account"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "domain"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.accounts.id.json.delete",
+      "title": "v2.accounts.id.json.delete",
+      "description": "Deletes an account. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n\nDeleting an account will remove all connected people from that account.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Account ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.accounts.id.json.get",
+      "title": "v2.accounts.id.json.get",
+      "description": "Fetches an account, by ID only.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Account ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.accounts.id.json.put",
+      "title": "v2.accounts.id.json.put",
+      "description": "Updates an account.\n\n\"domain\" must be unique on the current team.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Account Full Name"
+          },
+          "domain": {
+            "type": "string",
+            "description": "Website domain, not a fully qualified URI"
+          },
+          "conversational_name": {
+            "type": "string",
+            "description": "Conversational name of the Account"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Phone number without formatting"
+          },
+          "website": {
+            "type": "string",
+            "description": "Website"
+          },
+          "linkedin_url": {
+            "type": "string",
+            "description": "Full LinkedIn url"
+          },
+          "twitter_handle": {
+            "type": "string",
+            "description": "Twitter handle, with @"
+          },
+          "street": {
+            "type": "string",
+            "description": "Street name and number"
+          },
+          "city": {
+            "type": "string",
+            "description": "City"
+          },
+          "state": {
+            "type": "string",
+            "description": "State"
+          },
+          "postal_code": {
+            "type": "string",
+            "description": "Postal code"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country"
+          },
+          "locale": {
+            "type": "string",
+            "description": "Time locale"
+          },
+          "industry": {
+            "type": "string",
+            "description": "Industry"
+          },
+          "company_type": {
+            "type": "string",
+            "description": "Type of the Account's company"
+          },
+          "founded": {
+            "type": "string",
+            "description": "Date or year of founding"
+          },
+          "revenue_range": {
+            "type": "string",
+            "description": "Estimated revenue range"
+          },
+          "size": {
+            "type": "string",
+            "description": "Estimated number of people in employment"
+          },
+          "do_not_contact": {
+            "type": "boolean",
+            "description": "Whether this company can not be contacted. Values are either true or false. Setting this to true will remove all associated people from all active communications"
+          },
+          "custom_fields": {
+            "type": "array",
+            "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API."
+          },
+          "tags": {
+            "type": "array",
+            "description": "All tags applied to this Account"
+          },
+          "owner_id": {
+            "type": "integer",
+            "description": "ID of the User that owns this Account"
+          },
+          "company_stage_id": {
+            "type": "integer",
+            "description": "ID of the CompanyStage assigned to this Account"
+          },
+          "id": {
+            "type": "string",
+            "description": "Account ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "domain",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.activities.calls.json.get",
+      "title": "v2.activities.calls.json.get",
+      "description": "Fetches multiple call records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "IDs of calls to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at"
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+          },
+          "page": {
+            "type": "integer",
+            "description": "The current page to fetch results from. Defaults to 1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Call"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.activities.calls.id.json.get",
+      "title": "v2.activities.calls.id.json.get",
+      "description": "Fetches a call, by ID only.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Call ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Call"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.activities.emails.json.get",
+      "title": "v2.activities.emails.json.get",
+      "description": "Fetches multiple email records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "IDs of emails to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+          },
+          "updated_at": {
+            "type": "array",
+            "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"}]}\n"
+          },
+          "bounced": {
+            "type": "boolean",
+            "description": "Filters emails by whether they have bounced or not"
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Key to sort on, must be one of: updated_at. Defaults to updated_at"
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+          },
+          "page": {
+            "type": "integer",
+            "description": "The current page to fetch results from. Defaults to 1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Email"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.activities.emails.id.json.get",
+      "title": "v2.activities.emails.id.json.get",
+      "description": "Fetches an email, by ID only.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Email ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Email"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.cadence_memberships.json.get",
+      "title": "v2.cadence_memberships.json.get",
+      "description": "Fetches multiple cadence membership records. The records can be filtered, paged, and sorted according to\nthe respective parameters. A cadence membership is the association between a person and their current and\nhistorical time on a cadence. Cadence membership records are mutable and change over time. If a person is\nadded to a cadence and re-added to the same cadence in the future, there is a single membership record.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "IDs of cadence memberships to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+          },
+          "person_id": {
+            "type": "integer",
+            "description": "ID of the person to find cadence memberships for"
+          },
+          "cadence_id": {
+            "type": "integer",
+            "description": "ID of the cadence to find cadence memberships for"
+          },
+          "updated_at": {
+            "type": "array",
+            "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"}]}\n"
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Key to sort on, must be one of: updated_at. Defaults to updated_at"
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+          },
+          "page": {
+            "type": "integer",
+            "description": "The current page to fetch results from. Defaults to 1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/CadenceMembership"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.cadence_memberships.json.post",
+      "title": "v2.cadence_memberships.json.post",
+      "description": "Adds a person to a cadence. person_id and cadence_id are required, and must be visible to the authenticated user. user_id will\ndefault to the authenticated user, but can be set to any visible user on the authenticated team.\n\nA person cannot be added to a cadence on behalf of a teammate unless the cadence is a team cadence, or the cadence is owned by\nthe teammate.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "person_id": {
+            "type": "integer",
+            "description": "ID of the person to create a cadence membership for"
+          },
+          "cadence_id": {
+            "type": "integer",
+            "description": "ID of the cadence to create a cadence membership for"
+          },
+          "user_id": {
+            "type": "integer",
+            "description": "ID of the user to create a cadence membership for. The associated cadence must be owned by the user, or it must be a team cadence"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "person_id",
+          "cadence_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CadenceMembership"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.cadence_memberships.id.json.delete",
+      "title": "v2.cadence_memberships.id.json.delete",
+      "description": "Delete a cadence membership",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "CadenceMembership ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.cadence_memberships.id.json.get",
+      "title": "v2.cadence_memberships.id.json.get",
+      "description": "Fetches a cadence membership, by ID only.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "CadenceMembership ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CadenceMembership"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.cadences.json.get",
+      "title": "v2.cadences.json.get",
+      "description": "Fetches multiple cadence records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "IDs of cadences to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+          },
+          "updated_at": {
+            "type": "array",
+            "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"}]}\n"
+          },
+          "team_cadence": {
+            "type": "boolean",
+            "description": "Filters cadences by whether they are a team cadence or not"
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at"
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+          },
+          "page": {
+            "type": "integer",
+            "description": "The current page to fetch results from. Defaults to 1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Cadence"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.cadences.id.json.get",
+      "title": "v2.cadences.id.json.get",
+      "description": "Fetches a cadence, by ID only.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Cadence ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Cadence"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.custom_fields.json.get",
+      "title": "v2.custom_fields.json.get",
+      "description": "Fetches multiple custom field records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "IDs of custom fields to fetch."
+          },
+          "field_type": {
+            "type": "string",
+            "description": "Type of field to fetch. Value must be one of: person, company, opportunity"
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Key to sort on, must be one of: created_at, updated_at, name. Defaults to updated_at"
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+          },
+          "page": {
+            "type": "integer",
+            "description": "The current page to fetch results from. Defaults to 1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.custom_fields.json.post",
+      "title": "v2.custom_fields.json.post",
+      "description": "Creates a custom field.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the custom field"
+          },
+          "field_type": {
+            "type": "string",
+            "description": "The field type of the custom field. Value must be one of: person, company, opportunity"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CustomField"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.custom_fields.id.json.delete",
+      "title": "v2.custom_fields.id.json.delete",
+      "description": "Deletes a custom field.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Custom Field ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.custom_fields.id.json.get",
+      "title": "v2.custom_fields.id.json.get",
+      "description": "Fetches a custom field, by ID only.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Custom Field ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CustomField"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.custom_fields.id.json.put",
+      "title": "v2.custom_fields.id.json.put",
+      "description": "Update a custom field.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Custom Field ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the custom field"
+          },
+          "field_type": {
+            "type": "string",
+            "description": "The field type of the custom field. Value must be one of: person, company, opportunity"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CustomField"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.email_templates.json.get",
+      "title": "v2.email_templates.json.get",
+      "description": "Fetches multiple email template records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "IDs of email templates to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+          },
+          "updated_at": {
+            "type": "array",
+            "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"}]}\n"
+          },
+          "linked_to_team_template": {
+            "type": "boolean",
+            "description": "Filters email templates by whether they are linked to a team template or not"
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Key to sort on, must be one of: created_at, updated_at, last_used_at. Defaults to updated_at"
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+          },
+          "page": {
+            "type": "integer",
+            "description": "The current page to fetch results from. Defaults to 1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/EmailTemplate"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.email_templates.id.json.get",
+      "title": "v2.email_templates.id.json.get",
+      "description": "Fetches an email template, by ID only.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "EmailTemplate ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EmailTemplate"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.imports.json.get",
+      "title": "v2.imports.json.get",
+      "description": "Fetches multiple imports.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "IDs of imports to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+          },
+          "user_ids": {
+            "type": "array",
+            "description": "ID of users to fetch imports for. Using this filter will return an empty array for non-admin users who request other user's imports"
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Key to sort on, must be one of: created_at, updated_at. Defaults to created_at"
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+          },
+          "page": {
+            "type": "integer",
+            "description": "The current page to fetch results from. Defaults to 1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Import"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.imports.json.post",
+      "title": "v2.imports.json.post",
+      "description": "Creates an import.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "description": "ID of the User that owns this Import"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name, recommended to be easily identifiable to a user"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Import"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.imports.id.json.delete",
+      "title": "v2.imports.id.json.delete",
+      "description": "Deletes an import, by ID only. The associated people can be deleted as part of the deletion process.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Import ID"
+          },
+          "undo": {
+            "type": "string",
+            "description": "Whether to delete people on this Import. Possible values are: [not present], all, single.\n\n'single' will delete people who are only present in this Import.\n'all' will delete people even if they are present in other Imports.\nNot specifying this parameter will not delete any people\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.imports.id.json.get",
+      "title": "v2.imports.id.json.get",
+      "description": "Fetches an import, by ID only.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Import ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Import"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.imports.id.json.put",
+      "title": "v2.imports.id.json.put",
+      "description": "Updates an import, by ID only.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Import ID"
+          },
+          "user_id": {
+            "type": "integer",
+            "description": "ID of the User that owns this Import"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name, recommended to be easily identifiable to a user"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Import"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.me.json.get",
+      "title": "v2.me.json.get",
+      "description": "Authenticated user information. This endpoint does not accept any parameters as it is\nrepresents your authenticated user. The \"Users\" resource provides user information\nfor other users on the team.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.notes.json.get",
+      "title": "v2.notes.json.get",
+      "description": "Fetches multiple note records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "associated_with_type": {
+            "type": "string",
+            "description": "Case insensitive type of item with which the note is associated.  Value must be one of: person, account"
+          },
+          "associated_with_id": {
+            "type": "integer",
+            "description": "ID of the item with which the note is associated.  The associated_with_type must also be present if this parameter is used"
+          },
+          "ids": {
+            "type": "array",
+            "description": "IDs of notes to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at"
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+          },
+          "page": {
+            "type": "integer",
+            "description": "The current page to fetch results from. Defaults to 1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Note"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.notes.json.post",
+      "title": "v2.notes.json.post",
+      "description": "Creates a note.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string",
+            "description": "The content of the note"
+          },
+          "associated_with_type": {
+            "type": "string",
+            "description": "Case insensitive type of item with which the note is associated.  Value must be one of: person, account"
+          },
+          "associated_with_id": {
+            "type": "integer",
+            "description": "ID of the item with which the note is associated"
+          },
+          "skip_crm_sync": {
+            "type": "boolean",
+            "description": "Boolean indicating if the CRM sync should be skipped.  No syncing will occur if true"
+          },
+          "call_id": {
+            "type": "integer",
+            "description": "ID of the call with which the note is associated. The call cannot already have a note"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "content",
+          "associated_with_type",
+          "associated_with_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.notes.id.json.get",
+      "title": "v2.notes.id.json.get",
+      "description": "Fetches a note, by ID only.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Note ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.notes.id.json.put",
+      "title": "v2.notes.id.json.put",
+      "description": "Updates a note. Any changes to the note or associated records will not reflect in Salesforce.com.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Note ID"
+          },
+          "content": {
+            "type": "string",
+            "description": "The content of the note"
+          },
+          "call_id": {
+            "type": "integer",
+            "description": "ID of the call with which the note is associated. The call cannot already have a note. If the note is associated to a call already, it will become associated to the requested call"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "content"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Person"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.people.json.get",
+      "title": "v2.people.json.get",
+      "description": "Fetches multiple person records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "IDs of people to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+          },
+          "updated_at": {
+            "type": "array",
+            "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"}]}\n"
+          },
+          "email_addresses": {
+            "type": "array",
+            "description": "Filters people by email address"
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Key to sort on, must be one of: created_at, updated_at, last_contacted_at. Defaults to updated_at"
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+          },
+          "page": {
+            "type": "integer",
+            "description": "The current page to fetch results from. Defaults to 1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Person"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.people.json.post",
+      "title": "v2.people.json.post",
+      "description": "Creates a person. Either email_address or phone/last_name must be provided as a unique lookup\non the team.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "email_address": {
+            "type": "string",
+            "description": "Email address"
+          },
+          "secondary_email_address": {
+            "type": "string",
+            "description": "Alternate email address"
+          },
+          "personal_email_address": {
+            "type": "string",
+            "description": "Personal email address"
+          },
+          "first_name": {
+            "type": "string",
+            "description": "First name"
+          },
+          "last_name": {
+            "type": "string",
+            "description": "Last name"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Phone without formatting"
+          },
+          "phone_extension": {
+            "type": "string",
+            "description": "Phone extension without formatting"
+          },
+          "mobile_phone": {
+            "type": "string",
+            "description": "Mobile phone without formatting"
+          },
+          "home_phone": {
+            "type": "string",
+            "description": "Home phone without formatting"
+          },
+          "linkedin_url": {
+            "type": "string",
+            "description": "Linkedin URL"
+          },
+          "title": {
+            "type": "string",
+            "description": "Job title"
+          },
+          "city": {
+            "type": "string",
+            "description": "City"
+          },
+          "state": {
+            "type": "string",
+            "description": "State"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country"
+          },
+          "work_city": {
+            "type": "string",
+            "description": "Work location - city"
+          },
+          "work_state": {
+            "type": "string",
+            "description": "Work location - state"
+          },
+          "work_country": {
+            "type": "string",
+            "description": "Work location - country"
+          },
+          "person_company_name": {
+            "type": "string",
+            "description": "Company name. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended"
+          },
+          "person_company_website": {
+            "type": "string",
+            "description": "Company website. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended"
+          },
+          "person_company_industry": {
+            "type": "string",
+            "description": "Company industry. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended"
+          },
+          "do_not_contact": {
+            "type": "boolean",
+            "description": "Whether this person can not be contacted. Values are either true or false. Setting this to true will remove the person from all active communications"
+          },
+          "locale": {
+            "type": "string",
+            "description": "Time locale of the person"
+          },
+          "personal_website": {
+            "type": "string",
+            "description": "The website of this person"
+          },
+          "twitter_handle": {
+            "type": "string",
+            "description": "The twitter handle of this person"
+          },
+          "tags": {
+            "type": "array",
+            "description": "All tags applied to this person"
+          },
+          "custom_fields": {
+            "type": "array",
+            "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API."
+          },
+          "account_id": {
+            "type": "integer",
+            "description": "ID of the Account to link this person to"
+          },
+          "owner_id": {
+            "type": "integer",
+            "description": "ID of the User that owns this person"
+          },
+          "import_id": {
+            "type": "integer",
+            "description": "ID of the Import this person is a part of. A person can be part of multiple imports, but this ID will always be the most recent Import"
+          },
+          "person_stage_id": {
+            "type": "integer",
+            "description": "ID of the PersonStage of this person"
+          },
+          "autotag_date": {
+            "type": "boolean",
+            "description": "Whether the date should be added to this person as a tag. Default is false. The tag will be Y-m-d format."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Person"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.people.id.json.delete",
+      "title": "v2.people.id.json.delete",
+      "description": "Deletes a person. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Person id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.people.id.json.get",
+      "title": "v2.people.id.json.get",
+      "description": "Fetches a person, by ID only.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Person ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Person"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.people.id.json.put",
+      "title": "v2.people.id.json.put",
+      "description": "Updates a person.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email_address": {
+            "type": "string",
+            "description": "Email address"
+          },
+          "secondary_email_address": {
+            "type": "string",
+            "description": "Alternate email address"
+          },
+          "personal_email_address": {
+            "type": "string",
+            "description": "Personal email address"
+          },
+          "first_name": {
+            "type": "string",
+            "description": "First name"
+          },
+          "last_name": {
+            "type": "string",
+            "description": "Last name"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Phone without formatting"
+          },
+          "phone_extension": {
+            "type": "string",
+            "description": "Phone extension without formatting"
+          },
+          "mobile_phone": {
+            "type": "string",
+            "description": "Mobile phone without formatting"
+          },
+          "home_phone": {
+            "type": "string",
+            "description": "Home phone without formatting"
+          },
+          "linkedin_url": {
+            "type": "string",
+            "description": "Linkedin URL"
+          },
+          "title": {
+            "type": "string",
+            "description": "Job title"
+          },
+          "city": {
+            "type": "string",
+            "description": "City"
+          },
+          "state": {
+            "type": "string",
+            "description": "State"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country"
+          },
+          "work_city": {
+            "type": "string",
+            "description": "Work location - city"
+          },
+          "work_state": {
+            "type": "string",
+            "description": "Work location - state"
+          },
+          "work_country": {
+            "type": "string",
+            "description": "Work location - country"
+          },
+          "person_company_name": {
+            "type": "string",
+            "description": "Company name. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended"
+          },
+          "person_company_website": {
+            "type": "string",
+            "description": "Company website. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended"
+          },
+          "person_company_industry": {
+            "type": "string",
+            "description": "Company industry. This property is specific to this person, unrelated to the company object. Updating the company object associated with this person is recommended"
+          },
+          "do_not_contact": {
+            "type": "boolean",
+            "description": "Whether this person can not be contacted. Values are either true or false. Setting this to true will remove the person from all active communications"
+          },
+          "locale": {
+            "type": "string",
+            "description": "Time locale of the person"
+          },
+          "personal_website": {
+            "type": "string",
+            "description": "The website of this person"
+          },
+          "twitter_handle": {
+            "type": "string",
+            "description": "The twitter handle of this person"
+          },
+          "tags": {
+            "type": "array",
+            "description": "All tags applied to this person"
+          },
+          "custom_fields": {
+            "type": "array",
+            "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API."
+          },
+          "account_id": {
+            "type": "integer",
+            "description": "ID of the Account to link this person to"
+          },
+          "owner_id": {
+            "type": "integer",
+            "description": "ID of the User that owns this person"
+          },
+          "import_id": {
+            "type": "integer",
+            "description": "ID of the Import this person is a part of. A person can be part of multiple imports, but this ID will always be the most recent Import"
+          },
+          "person_stage_id": {
+            "type": "integer",
+            "description": "ID of the PersonStage of this person"
+          },
+          "id": {
+            "type": "string",
+            "description": "Person id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Person"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.person_stages.json.get",
+      "title": "v2.person_stages.json.get",
+      "description": "Fetches multiple person stage records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "IDs of person stages to fetch."
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Key to sort on, must be one of: created_at, updated_at. Defaults to updated_at"
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+          },
+          "page": {
+            "type": "integer",
+            "description": "The current page to fetch results from. Defaults to 1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PersonStage"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.person_stages.json.post",
+      "title": "v2.person_stages.json.post",
+      "description": "Creates a person stage.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the new stage"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonStage"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.person_stages.id.json.delete",
+      "title": "v2.person_stages.id.json.delete",
+      "description": "Deletes a person stage. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Stage ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.person_stages.id.json.get",
+      "title": "v2.person_stages.id.json.get",
+      "description": "Fetches a person stage, by ID only.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Stage ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonStage"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.person_stages.id.json.put",
+      "title": "v2.person_stages.id.json.put",
+      "description": "Updates a person stage.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Stage ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the stage."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonStage"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.successes.json.get",
+      "title": "v2.successes.json.get",
+      "description": "Fetches multiple success records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "IDs of successes to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+          },
+          "updated_at": {
+            "type": "array",
+            "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"}]}\n"
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Key to sort on, must be one of: created_at, updated_at, succeeded_at. Defaults to updated_at"
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+          },
+          "page": {
+            "type": "integer",
+            "description": "The current page to fetch results from. Defaults to 1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Success"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.team.json.get",
+      "title": "v2.team.json.get",
+      "description": "Fetches the team of the authenticated user.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Team"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.team_templates.json.get",
+      "title": "v2.team_templates.json.get",
+      "description": "Fetches multiple team template records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n\nTeam templates are templates that are available team-wide. Admins may use\nteam templates to create original content for the entire team, monitor version control to ensure templates are always up to date,\nand track template performance across the entire organization. All metrics on a team template reflect usage across the team; individual metrics can be found with the email_templates API endpoint.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "IDs of team templates to fetch. If a record can't be found, that record won't be returned and your request will be successful"
+          },
+          "updated_at": {
+            "type": "array",
+            "description": "Equality filters that are applied to the updated_at field. A single filter can be used by itself or combined with other filters to create a range.\n---CUSTOM---\n{\"type\":\"object\",\"keys\":[{\"name\":\"gt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"gte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are greater than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lt\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than the provided iso8601 timestamp. The comparison is done using microsecond precision.\"},{\"name\":\"lte\",\"type\":\"iso8601 string\",\"description\":\"Returns all matching records that are less than or equal to the provided iso8601 timestamp. The comparison is done using microsecond precision.\"}]}\n"
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "Key to sort on, must be one of: created_at, updated_at, last_used_at. Defaults to updated_at"
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Direction to sort in, must be one of: ASC, DESC. Defaults to DESC"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "How many records to show per page in the range [1, 100]. Defaults to 25"
+          },
+          "page": {
+            "type": "integer",
+            "description": "The current page to fetch results from. Defaults to 1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/TeamTemplate"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.team_templates.id.json.get",
+      "title": "v2.team_templates.id.json.get",
+      "description": "Fetches a team template, by ID only.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Team Template ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TeamTemplate"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.users.json.get",
+      "title": "v2.users.json.get",
+      "description": "Non Admin: Lists only your user, or all on team depending on group visibility policy\nTeam Admin: Lists users associated with your team\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/User"
+        },
+        "type": "array"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    },
+    {
+      "id": "v2.users.id.json.get",
+      "title": "v2.users.id.json.get",
+      "description": "Fetches a user, by ID only.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "salesloft": {
+          "integration": "salesloft"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "customer relation"
+  ]
+}

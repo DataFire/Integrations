@@ -1,0 +1,491 @@
+{
+  "id": "amazonaws_mediastore",
+  "title": "AWS Elemental MediaStore",
+  "description": "An AWS Elemental MediaStore container is a namespace that holds folders and objects. You use a container endpoint to create, read, and delete objects. ",
+  "security": {
+    "amazonaws_mediastore": {
+      "integration": "amazonaws_mediastore",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mediastore.jpeg"
+  },
+  "actionCount": 7,
+  "definitions": {
+    "Container": {
+      "description": "This section describes operations that you can perform on an AWS Elemental MediaStore container.",
+      "properties": {
+        "ARN": {
+          "$ref": "#/definitions/ContainerARN",
+          "description": "<p>The Amazon Resource Name (ARN) of the container. The ARN has the following format:</p> <p>arn:aws:&lt;region&gt;:&lt;account that owns this container&gt;:container/&lt;name of container&gt; </p> <p>For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p>"
+        },
+        "CreationTime": {
+          "$ref": "#/definitions/TimeStamp",
+          "description": "Unix timestamp."
+        },
+        "Endpoint": {
+          "$ref": "#/definitions/Endpoint",
+          "description": "The DNS endpoint of the container. Use from 1 to 255 characters. Use this endpoint to identify this container when sending requests to the data plane. "
+        },
+        "Name": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name of the container."
+        },
+        "Status": {
+          "$ref": "#/definitions/ContainerStatus",
+          "description": "The status of container creation or deletion. The status is one of the following: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the service is creating the container, the status is <code>CREATING</code>. When the endpoint is available, the status changes to <code>ACTIVE</code>."
+        }
+      },
+      "type": "object",
+      "title": "Container"
+    },
+    "ContainerARN": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "arn:aws:mediastore:[a-z]+-[a-z]+-\\d:\\d{12}:container/\\w{1,255}",
+      "type": "string",
+      "title": "ContainerARN"
+    },
+    "ContainerInUseException": {
+      "description": "Resource already exists or is being updated.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ContainerInUseException"
+    },
+    "ContainerList": {
+      "items": {
+        "$ref": "#/definitions/Container"
+      },
+      "type": "array",
+      "title": "ContainerList"
+    },
+    "ContainerListLimit": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer",
+      "title": "ContainerListLimit"
+    },
+    "ContainerName": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "\\w+",
+      "type": "string",
+      "title": "ContainerName"
+    },
+    "ContainerNotFoundException": {
+      "description": "Could not perform an operation on a container that does not exist.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ContainerNotFoundException"
+    },
+    "ContainerPolicy": {
+      "maxLength": 8192,
+      "minLength": 1,
+      "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
+      "type": "string",
+      "title": "ContainerPolicy"
+    },
+    "ContainerStatus": {
+      "enum": [
+        "ACTIVE",
+        "CREATING",
+        "DELETING"
+      ],
+      "maxLength": 16,
+      "minLength": 1,
+      "type": "string",
+      "title": "ContainerStatus"
+    },
+    "CreateContainerInput": {
+      "properties": {
+        "ContainerName": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name for the container. The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named <code>movies</code> in every region, as long as you don’t have an existing container with that name."
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "type": "object",
+      "title": "CreateContainerInput"
+    },
+    "CreateContainerOutput": {
+      "properties": {
+        "Container": {
+          "$ref": "#/definitions/Container",
+          "description": "<p>ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN has the following format: arn:aws:&lt;region&gt;:&lt;account that owns this container&gt;:container/&lt;name of container&gt;. For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p> <p>ContainerName: The container name as specified in the request.</p> <p>CreationTime: Unix timestamp.</p> <p>Status: The status of container creation or deletion. The status is one of the following: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the service is creating the container, the status is <code>CREATING</code>. When an endpoint is available, the status changes to <code>ACTIVE</code>.</p> <p>The return value does not include the container's endpoint. To make downstream requests, you must obtain this value by using <a>DescribeContainer</a> or <a>ListContainers</a>.</p>"
+        }
+      },
+      "required": [
+        "Container"
+      ],
+      "type": "object",
+      "title": "CreateContainerOutput"
+    },
+    "DeleteContainerInput": {
+      "properties": {
+        "ContainerName": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name of the container to delete. "
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "type": "object",
+      "title": "DeleteContainerInput"
+    },
+    "DeleteContainerOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteContainerOutput"
+    },
+    "DeleteContainerPolicyInput": {
+      "properties": {
+        "ContainerName": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name of the container that holds the policy."
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "type": "object",
+      "title": "DeleteContainerPolicyInput"
+    },
+    "DeleteContainerPolicyOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteContainerPolicyOutput"
+    },
+    "DescribeContainerInput": {
+      "properties": {
+        "ContainerName": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name of the container to query."
+        }
+      },
+      "type": "object",
+      "title": "DescribeContainerInput"
+    },
+    "DescribeContainerOutput": {
+      "properties": {
+        "Container": {
+          "$ref": "#/definitions/Container",
+          "description": "The name of the queried container."
+        }
+      },
+      "type": "object",
+      "title": "DescribeContainerOutput"
+    },
+    "Endpoint": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string",
+      "title": "Endpoint"
+    },
+    "ErrorMessage": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[ \\w:\\.\\?-]+",
+      "type": "string",
+      "title": "ErrorMessage"
+    },
+    "GetContainerPolicyInput": {
+      "properties": {
+        "ContainerName": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name of the container. "
+        }
+      },
+      "required": [
+        "ContainerName"
+      ],
+      "type": "object",
+      "title": "GetContainerPolicyInput"
+    },
+    "GetContainerPolicyOutput": {
+      "properties": {
+        "Policy": {
+          "$ref": "#/definitions/ContainerPolicy",
+          "description": "The contents of the access policy."
+        }
+      },
+      "required": [
+        "Policy"
+      ],
+      "type": "object",
+      "title": "GetContainerPolicyOutput"
+    },
+    "InternalServerError": {
+      "description": "The service is temporarily unavailable.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InternalServerError"
+    },
+    "LimitExceededException": {
+      "description": "A service limit has been exceeded.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListContainersInput": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/ContainerListLimit",
+          "description": "Enter the maximum number of containers in the response. Use from 1 to 255 characters. "
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "Only if you used <code>MaxResults</code> in the first command, enter the token (which was included in the previous response) to obtain the next set of containers. This token is included in a response only if there actually are more containers to list."
+        }
+      },
+      "type": "object",
+      "title": "ListContainersInput"
+    },
+    "ListContainersOutput": {
+      "properties": {
+        "Containers": {
+          "$ref": "#/definitions/ContainerList",
+          "description": "The names of the containers."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": " <code>NextToken</code> is the token to use in the next call to <code>ListContainers</code>. This token is returned only if you included the <code>MaxResults</code> tag in the original command, and only if there are still containers to return. "
+        }
+      },
+      "required": [
+        "Containers"
+      ],
+      "type": "object",
+      "title": "ListContainersOutput"
+    },
+    "PaginationToken": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[0-9A-Za-z=/+]+",
+      "type": "string",
+      "title": "PaginationToken"
+    },
+    "PolicyNotFoundException": {
+      "description": "Could not perform an operation on a policy that does not exist.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "PolicyNotFoundException"
+    },
+    "PutContainerPolicyInput": {
+      "properties": {
+        "ContainerName": {
+          "$ref": "#/definitions/ContainerName",
+          "description": "The name of the container."
+        },
+        "Policy": {
+          "$ref": "#/definitions/ContainerPolicy",
+          "description": "<p>The contents of the policy, which includes the following: </p> <ul> <li> <p>One <code>Version</code> tag</p> </li> <li> <p>One <code>Statement</code> tag that contains the standard tags for the policy.</p> </li> </ul>"
+        }
+      },
+      "required": [
+        "ContainerName",
+        "Policy"
+      ],
+      "type": "object",
+      "title": "PutContainerPolicyInput"
+    },
+    "PutContainerPolicyOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "PutContainerPolicyOutput"
+    },
+    "TimeStamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "TimeStamp"
+    }
+  },
+  "actions": [
+    {
+      "id": "CreateContainer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateContainerInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateContainerOutput"
+      },
+      "security": {
+        "amazonaws_mediastore": {
+          "integration": "amazonaws_mediastore"
+        }
+      }
+    },
+    {
+      "id": "DeleteContainer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteContainerInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteContainerOutput"
+      },
+      "security": {
+        "amazonaws_mediastore": {
+          "integration": "amazonaws_mediastore"
+        }
+      }
+    },
+    {
+      "id": "DeleteContainerPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteContainerPolicyInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteContainerPolicyOutput"
+      },
+      "security": {
+        "amazonaws_mediastore": {
+          "integration": "amazonaws_mediastore"
+        }
+      }
+    },
+    {
+      "id": "DescribeContainer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeContainerInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeContainerOutput"
+      },
+      "security": {
+        "amazonaws_mediastore": {
+          "integration": "amazonaws_mediastore"
+        }
+      }
+    },
+    {
+      "id": "GetContainerPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetContainerPolicyInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetContainerPolicyOutput"
+      },
+      "security": {
+        "amazonaws_mediastore": {
+          "integration": "amazonaws_mediastore"
+        }
+      }
+    },
+    {
+      "id": "ListContainers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListContainersInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListContainersOutput"
+      },
+      "security": {
+        "amazonaws_mediastore": {
+          "integration": "amazonaws_mediastore"
+        }
+      }
+    },
+    {
+      "id": "PutContainerPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutContainerPolicyInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutContainerPolicyOutput"
+      },
+      "security": {
+        "amazonaws_mediastore": {
+          "integration": "amazonaws_mediastore"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

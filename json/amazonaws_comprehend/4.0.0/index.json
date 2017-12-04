@@ -1,0 +1,1167 @@
+{
+  "id": "amazonaws_comprehend",
+  "title": "Amazon Comprehend",
+  "description": "Amazon Comprehend is an AWS service for gaining insight into the content of documents. Use these actions to determine the topics contained in your documents, the topics they discuss, the predominant sentiment expressed in them, the predominant language used, and more.",
+  "security": {
+    "amazonaws_comprehend": {
+      "integration": "amazonaws_comprehend",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_comprehend.jpeg"
+  },
+  "actionCount": 11,
+  "definitions": {
+    "AnyLengthString": {
+      "type": "string",
+      "title": "AnyLengthString"
+    },
+    "BatchDetectDominantLanguageItemResult": {
+      "description": "The result of calling the operation. The operation returns one object for each document that is successfully processed by the operation.",
+      "properties": {
+        "Index": {
+          "$ref": "#/definitions/Integer",
+          "description": "The zero-based index of the document in the input list."
+        },
+        "Languages": {
+          "$ref": "#/definitions/ListOfDominantLanguages",
+          "description": "One or more <a>DominantLanguage</a> objects describing the dominant languages in the document."
+        }
+      },
+      "type": "object",
+      "title": "BatchDetectDominantLanguageItemResult"
+    },
+    "BatchDetectDominantLanguageRequest": {
+      "properties": {
+        "TextList": {
+          "$ref": "#/definitions/StringList",
+          "description": "A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document should contain at least 20 characters and must contain fewer than 5,000 bytes of UTF-8 encoded characters."
+        }
+      },
+      "required": [
+        "TextList"
+      ],
+      "type": "object",
+      "title": "BatchDetectDominantLanguageRequest"
+    },
+    "BatchDetectDominantLanguageResponse": {
+      "properties": {
+        "ErrorList": {
+          "$ref": "#/definitions/BatchItemErrorList",
+          "description": "A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty."
+        },
+        "ResultList": {
+          "$ref": "#/definitions/ListOfDetectDominantLanguageResult",
+          "description": "A list of objects containing the results of the operation. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If all of the documents contain an error, the <code>ResultList</code> is empty."
+        }
+      },
+      "required": [
+        "ResultList",
+        "ErrorList"
+      ],
+      "type": "object",
+      "title": "BatchDetectDominantLanguageResponse"
+    },
+    "BatchDetectEntitiesItemResult": {
+      "description": "The result of calling the operation. The operation returns one object for each document that is successfully processed by the operation.",
+      "properties": {
+        "Entities": {
+          "$ref": "#/definitions/ListOfEntities",
+          "description": "One or more <a>Entity</a> objects, one for each entity detected in the document."
+        },
+        "Index": {
+          "$ref": "#/definitions/Integer",
+          "description": "The zero-based index of the document in the input list."
+        }
+      },
+      "type": "object",
+      "title": "BatchDetectEntitiesItemResult"
+    },
+    "BatchDetectEntitiesRequest": {
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/String",
+          "description": "The language of the input documents. All documents must be in the same language."
+        },
+        "TextList": {
+          "$ref": "#/definitions/StringList",
+          "description": "A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded characters."
+        }
+      },
+      "required": [
+        "TextList",
+        "LanguageCode"
+      ],
+      "type": "object",
+      "title": "BatchDetectEntitiesRequest"
+    },
+    "BatchDetectEntitiesResponse": {
+      "properties": {
+        "ErrorList": {
+          "$ref": "#/definitions/BatchItemErrorList",
+          "description": "A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty."
+        },
+        "ResultList": {
+          "$ref": "#/definitions/ListOfDetectEntitiesResult",
+          "description": "A list of objects containing the results of the operation. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If all of the documents contain an error, the <code>ResultList</code> is empty."
+        }
+      },
+      "required": [
+        "ResultList",
+        "ErrorList"
+      ],
+      "type": "object",
+      "title": "BatchDetectEntitiesResponse"
+    },
+    "BatchDetectKeyPhrasesItemResult": {
+      "description": "The result of calling the operation. The operation returns one object for each document that is successfully processed by the operation.",
+      "properties": {
+        "Index": {
+          "$ref": "#/definitions/Integer",
+          "description": "The zero-based index of the document in the input list."
+        },
+        "KeyPhrases": {
+          "$ref": "#/definitions/ListOfKeyPhrases",
+          "description": "One or more <a>KeyPhrase</a> objects, one for each key phrase detected in the document."
+        }
+      },
+      "type": "object",
+      "title": "BatchDetectKeyPhrasesItemResult"
+    },
+    "BatchDetectKeyPhrasesRequest": {
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/String",
+          "description": "The language of the input documents. All documents must be in the same language."
+        },
+        "TextList": {
+          "$ref": "#/definitions/StringList",
+          "description": "A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters."
+        }
+      },
+      "required": [
+        "TextList",
+        "LanguageCode"
+      ],
+      "type": "object",
+      "title": "BatchDetectKeyPhrasesRequest"
+    },
+    "BatchDetectKeyPhrasesResponse": {
+      "properties": {
+        "ErrorList": {
+          "$ref": "#/definitions/BatchItemErrorList",
+          "description": "A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty."
+        },
+        "ResultList": {
+          "$ref": "#/definitions/ListOfDetectKeyPhrasesResult",
+          "description": "A list of objects containing the results of the operation. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If all of the documents contain an error, the <code>ResultList</code> is empty."
+        }
+      },
+      "required": [
+        "ResultList",
+        "ErrorList"
+      ],
+      "type": "object",
+      "title": "BatchDetectKeyPhrasesResponse"
+    },
+    "BatchDetectSentimentItemResult": {
+      "description": "The result of calling the operation. The operation returns one object for each document that is successfully processed by the operation.",
+      "properties": {
+        "Index": {
+          "$ref": "#/definitions/Integer",
+          "description": "The zero-based index of the document in the input list."
+        },
+        "Sentiment": {
+          "$ref": "#/definitions/SentimentType",
+          "description": "The sentiment detected in the document."
+        },
+        "SentimentScore": {
+          "$ref": "#/definitions/SentimentScore",
+          "description": "The level of confidence that Amazon Comprehend has in the accuracy of its sentiment detection."
+        }
+      },
+      "type": "object",
+      "title": "BatchDetectSentimentItemResult"
+    },
+    "BatchDetectSentimentRequest": {
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/String",
+          "description": "The language of the input documents. All documents must be in the same language."
+        },
+        "TextList": {
+          "$ref": "#/definitions/StringList",
+          "description": "A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters."
+        }
+      },
+      "required": [
+        "TextList",
+        "LanguageCode"
+      ],
+      "type": "object",
+      "title": "BatchDetectSentimentRequest"
+    },
+    "BatchDetectSentimentResponse": {
+      "properties": {
+        "ErrorList": {
+          "$ref": "#/definitions/BatchItemErrorList",
+          "description": "A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty."
+        },
+        "ResultList": {
+          "$ref": "#/definitions/ListOfDetectSentimentResult",
+          "description": "A list of objects containing the results of the operation. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If all of the documents contain an error, the <code>ResultList</code> is empty."
+        }
+      },
+      "required": [
+        "ResultList",
+        "ErrorList"
+      ],
+      "type": "object",
+      "title": "BatchDetectSentimentResponse"
+    },
+    "BatchItemError": {
+      "description": "Describes an error that occurred while processing a document in a batch. The operation returns on <code>BatchItemError</code> object for each document that contained an error.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/String",
+          "description": "The numeric error code of the error."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/String",
+          "description": "A text description of the error."
+        },
+        "Index": {
+          "$ref": "#/definitions/Integer",
+          "description": "The zero-based index of the document in the input list."
+        }
+      },
+      "type": "object",
+      "title": "BatchItemError"
+    },
+    "BatchItemErrorList": {
+      "items": {
+        "$ref": "#/definitions/BatchItemError"
+      },
+      "type": "array",
+      "title": "BatchItemErrorList"
+    },
+    "BatchSizeLimitExceededException": {
+      "description": "The number of documents in the request exceeds the limit of 25. Try your request again with fewer documents.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "BatchSizeLimitExceededException"
+    },
+    "ClientRequestTokenString": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9-]+$",
+      "type": "string",
+      "title": "ClientRequestTokenString"
+    },
+    "DescribeTopicsDetectionJobRequest": {
+      "properties": {
+        "JobId": {
+          "$ref": "#/definitions/JobId",
+          "description": "The identifier assigned by the user to the detection job."
+        }
+      },
+      "required": [
+        "JobId"
+      ],
+      "type": "object",
+      "title": "DescribeTopicsDetectionJobRequest"
+    },
+    "DescribeTopicsDetectionJobResponse": {
+      "properties": {
+        "TopicsDetectionJobProperties": {
+          "$ref": "#/definitions/TopicsDetectionJobProperties",
+          "description": "The list of properties for the requested job."
+        }
+      },
+      "type": "object",
+      "title": "DescribeTopicsDetectionJobResponse"
+    },
+    "DetectDominantLanguageRequest": {
+      "properties": {
+        "Text": {
+          "$ref": "#/definitions/String",
+          "description": "A UTF-8 text string. Each string should contain at least 20 characters and must contain fewer that 5,000 bytes of UTF-8 encoded characters."
+        }
+      },
+      "required": [
+        "Text"
+      ],
+      "type": "object",
+      "title": "DetectDominantLanguageRequest"
+    },
+    "DetectDominantLanguageResponse": {
+      "properties": {
+        "Languages": {
+          "$ref": "#/definitions/ListOfDominantLanguages",
+          "description": "The languages that Amazon Comprehend detected in the input text. For each language, the response returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy of its inference. For more information about RFC 5646, see <a href=\"https://tools.ietf.org/html/rfc5646\">Tags for Identifying Languages</a> on the <i>IETF Tools</i> web site."
+        }
+      },
+      "type": "object",
+      "title": "DetectDominantLanguageResponse"
+    },
+    "DetectEntitiesRequest": {
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "The RFC 5646 language code of the input text. If the request does not specify the language code, the service detects the dominant language. If you specify a language code that the service does not support, it returns <code>UnsupportedLanguageException</code> exception. For more information about RFC 5646, see <a href=\"https://tools.ietf.org/html/rfc5646\">Tags for Identifying Languages</a> on the <i>IETF Tools</i> web site. "
+        },
+        "Text": {
+          "$ref": "#/definitions/String",
+          "description": "A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters."
+        }
+      },
+      "required": [
+        "Text",
+        "LanguageCode"
+      ],
+      "type": "object",
+      "title": "DetectEntitiesRequest"
+    },
+    "DetectEntitiesResponse": {
+      "properties": {
+        "Entities": {
+          "$ref": "#/definitions/ListOfEntities",
+          "description": "A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. For a list of entity types, see <a>how-entities</a>. "
+        }
+      },
+      "type": "object",
+      "title": "DetectEntitiesResponse"
+    },
+    "DetectKeyPhrasesRequest": {
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "The RFC 5646 language code for the input text. If you don't specify a language code, Amazon Comprehend detects the dominant language. If you specify the code for a language that Amazon Comprehend does not support, it returns and <code>UnsupportedLanguageException</code>. For more information about RFC 5646, see <a href=\"https://tools.ietf.org/html/rfc5646\">Tags for Identifying Languages</a> on the <i>IETF Tools</i> web site."
+        },
+        "Text": {
+          "$ref": "#/definitions/String",
+          "description": "A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters."
+        }
+      },
+      "required": [
+        "Text",
+        "LanguageCode"
+      ],
+      "type": "object",
+      "title": "DetectKeyPhrasesRequest"
+    },
+    "DetectKeyPhrasesResponse": {
+      "properties": {
+        "KeyPhrases": {
+          "$ref": "#/definitions/ListOfKeyPhrases",
+          "description": "A collection of key phrases that Amazon Comprehend identified in the input text. For each key phrase, the response provides the text of the key phrase, where the key phrase begins and ends, and the level of confidence that Amazon Comprehend has in the accuracy of the detection. "
+        }
+      },
+      "type": "object",
+      "title": "DetectKeyPhrasesResponse"
+    },
+    "DetectSentimentRequest": {
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "The RFC 5646 language code for the input text. If you don't specify a language code, Amazon Comprehend detects the dominant language. If you specify the code for a language that Amazon Comprehend does not support, it returns and <code>UnsupportedLanguageException</code>. For more information about RFC 5646, see <a href=\"https://tools.ietf.org/html/rfc5646\">Tags for Identifying Languages</a> on the <i>IETF Tools</i> web site."
+        },
+        "Text": {
+          "$ref": "#/definitions/String",
+          "description": "A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters."
+        }
+      },
+      "required": [
+        "Text",
+        "LanguageCode"
+      ],
+      "type": "object",
+      "title": "DetectSentimentRequest"
+    },
+    "DetectSentimentResponse": {
+      "properties": {
+        "Sentiment": {
+          "$ref": "#/definitions/SentimentType",
+          "description": "The inferred sentiment that Amazon Comprehend has the highest level of confidence in."
+        },
+        "SentimentScore": {
+          "$ref": "#/definitions/SentimentScore",
+          "description": "An object that lists the sentiments, and their corresponding confidence levels."
+        }
+      },
+      "type": "object",
+      "title": "DetectSentimentResponse"
+    },
+    "DominantLanguage": {
+      "description": "Returns the code for the dominant language in the input text and the level of confidence that Amazon Comprehend has in the accuracy of the detection.",
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/String",
+          "description": "The RFC 5646 language code for the dominant language. "
+        },
+        "Score": {
+          "$ref": "#/definitions/Float",
+          "description": "The level of confidence that Amazon Comprehend has in the accuracy of the detection."
+        }
+      },
+      "type": "object",
+      "title": "DominantLanguage"
+    },
+    "Entity": {
+      "description": "<p>Provides information about an entity. </p> <p> </p>",
+      "properties": {
+        "BeginOffset": {
+          "$ref": "#/definitions/Integer",
+          "description": "A character offset in the input text that shows where the entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point."
+        },
+        "EndOffset": {
+          "$ref": "#/definitions/Integer",
+          "description": "A character offset in the input text that shows where the entity ends. The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point. "
+        },
+        "Score": {
+          "$ref": "#/definitions/Float",
+          "description": "The level of confidence that Amazon Comprehend has in the accuracy of the detection."
+        },
+        "Text": {
+          "$ref": "#/definitions/String",
+          "description": "The text of the entity."
+        },
+        "Type": {
+          "$ref": "#/definitions/EntityType",
+          "description": "The entity's type."
+        }
+      },
+      "type": "object",
+      "title": "Entity"
+    },
+    "EntityType": {
+      "enum": [
+        "PERSON",
+        "LOCATION",
+        "ORGANIZATION",
+        "COMMERCIAL_ITEM",
+        "EVENT",
+        "DATE",
+        "QUANTITY",
+        "TITLE",
+        "OTHER"
+      ],
+      "type": "string",
+      "title": "EntityType"
+    },
+    "Float": {
+      "format": "float",
+      "type": "number",
+      "title": "Float"
+    },
+    "IamRoleArn": {
+      "pattern": "arn:aws(-[^:]+)?:iam::[0-9]{12}:role/.+",
+      "type": "string",
+      "title": "IamRoleArn"
+    },
+    "InputDataConfig": {
+      "description": "The input properties for a topic detection job.",
+      "properties": {
+        "InputFormat": {
+          "$ref": "#/definitions/InputFormat",
+          "description": "<p>Specifies how the text in an input file should be processed:</p> <ul> <li> <p> <code>ONE_DOC_PER_FILE</code> - Each file is considered a separate document. Use this option when you are processing large documents, such as newspaper articles or scientific papers.</p> </li> <li> <p> <code>ONE_DOC_PER_LINE</code> - Each line in a file is considered a separate document. Use this option when you are processing many short documents, such as text messages.</p> </li> </ul>"
+        },
+        "S3Uri": {
+          "$ref": "#/definitions/S3Uri",
+          "description": "<p>The Amazon S3 URI for the input data. The URI must be in same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of data files. </p> <p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.</p>"
+        }
+      },
+      "required": [
+        "S3Uri"
+      ],
+      "type": "object",
+      "title": "InputDataConfig"
+    },
+    "InputFormat": {
+      "enum": [
+        "ONE_DOC_PER_FILE",
+        "ONE_DOC_PER_LINE"
+      ],
+      "type": "string",
+      "title": "InputFormat"
+    },
+    "Integer": {
+      "type": "integer",
+      "title": "Integer"
+    },
+    "InternalServerException": {
+      "description": "An internal server error occurred. Retry your request.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "InternalServerException"
+    },
+    "InvalidFilterException": {
+      "description": "The filter specified for the <code>ListTopicDetectionJobs</code> operation is invalid. Specify a different filter.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "InvalidFilterException"
+    },
+    "InvalidRequestException": {
+      "description": "The request is invalid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "InvalidRequestException"
+    },
+    "JobId": {
+      "maxLength": 32,
+      "minLength": 1,
+      "type": "string",
+      "title": "JobId"
+    },
+    "JobName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
+      "type": "string",
+      "title": "JobName"
+    },
+    "JobNotFoundException": {
+      "description": "The specified job was not found. Check the job ID and try again.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "JobNotFoundException"
+    },
+    "JobStatus": {
+      "enum": [
+        "SUBMITTED",
+        "IN_PROGRESS",
+        "COMPLETED",
+        "FAILED"
+      ],
+      "type": "string",
+      "title": "JobStatus"
+    },
+    "KeyPhrase": {
+      "description": "Describes a key noun phrase.",
+      "properties": {
+        "BeginOffset": {
+          "$ref": "#/definitions/Integer",
+          "description": "A character offset in the input text that shows where the key phrase begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point."
+        },
+        "EndOffset": {
+          "$ref": "#/definitions/Integer",
+          "description": "A character offset in the input text where the key phrase ends. The offset returns the position of each UTF-8 code point in the string. A <code>code point</code> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point."
+        },
+        "Score": {
+          "$ref": "#/definitions/Float",
+          "description": "The level of confidence that Amazon Comprehend has in the accuracy of the detection."
+        },
+        "Text": {
+          "$ref": "#/definitions/String",
+          "description": "The text of a key noun phrase."
+        }
+      },
+      "type": "object",
+      "title": "KeyPhrase"
+    },
+    "LanguageCode": {
+      "enum": [
+        "en",
+        "es"
+      ],
+      "type": "string",
+      "title": "LanguageCode"
+    },
+    "ListOfDetectDominantLanguageResult": {
+      "items": {
+        "$ref": "#/definitions/BatchDetectDominantLanguageItemResult"
+      },
+      "type": "array",
+      "title": "ListOfDetectDominantLanguageResult"
+    },
+    "ListOfDetectEntitiesResult": {
+      "items": {
+        "$ref": "#/definitions/BatchDetectEntitiesItemResult"
+      },
+      "type": "array",
+      "title": "ListOfDetectEntitiesResult"
+    },
+    "ListOfDetectKeyPhrasesResult": {
+      "items": {
+        "$ref": "#/definitions/BatchDetectKeyPhrasesItemResult"
+      },
+      "type": "array",
+      "title": "ListOfDetectKeyPhrasesResult"
+    },
+    "ListOfDetectSentimentResult": {
+      "items": {
+        "$ref": "#/definitions/BatchDetectSentimentItemResult"
+      },
+      "type": "array",
+      "title": "ListOfDetectSentimentResult"
+    },
+    "ListOfDominantLanguages": {
+      "items": {
+        "$ref": "#/definitions/DominantLanguage"
+      },
+      "type": "array",
+      "title": "ListOfDominantLanguages"
+    },
+    "ListOfEntities": {
+      "items": {
+        "$ref": "#/definitions/Entity"
+      },
+      "type": "array",
+      "title": "ListOfEntities"
+    },
+    "ListOfKeyPhrases": {
+      "items": {
+        "$ref": "#/definitions/KeyPhrase"
+      },
+      "type": "array",
+      "title": "ListOfKeyPhrases"
+    },
+    "ListTopicsDetectionJobsRequest": {
+      "properties": {
+        "Filter": {
+          "$ref": "#/definitions/TopicsDetectionJobFilter",
+          "description": "Filters the jobs that are returned. Jobs can be filtered on their name, status, or the date and time that they were submitted. You can set only one filter at a time."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResultsInteger",
+          "description": "The maximum number of results to return in each page."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "Identifies the next page of results to return."
+        }
+      },
+      "type": "object",
+      "title": "ListTopicsDetectionJobsRequest"
+    },
+    "ListTopicsDetectionJobsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "Identifies the next page of results to return."
+        },
+        "TopicsDetectionJobPropertiesList": {
+          "$ref": "#/definitions/TopicsDetectionJobPropertiesList",
+          "description": "A list containing the properties of each job that is returned."
+        }
+      },
+      "type": "object",
+      "title": "ListTopicsDetectionJobsResponse"
+    },
+    "MaxResultsInteger": {
+      "maximum": 500,
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxResultsInteger"
+    },
+    "NumberOfTopicsInteger": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer",
+      "title": "NumberOfTopicsInteger"
+    },
+    "OutputDataConfig": {
+      "description": "<p>Provides configuration parameters for the output of topic detection jobs.</p> <p/>",
+      "properties": {
+        "S3Uri": {
+          "$ref": "#/definitions/S3Uri",
+          "description": "<p>The Amazon S3 URI where you want to write the output data. The URI must be in the same region as the API endpoint that you are calling. </p> <p>The service creates an output file called <code>output.tar.gz</code>. It is a compressed archive that contains two files, <code>topic-terms.csv</code> that lists the terms associated with each topic, and <code>doc-topics.csv</code> that lists the documents associated with each topic. For more information, see <a>topic-modeling</a>.</p>"
+        }
+      },
+      "required": [
+        "S3Uri"
+      ],
+      "type": "object",
+      "title": "OutputDataConfig"
+    },
+    "S3Uri": {
+      "maxLength": 1024,
+      "pattern": "s3://([^/]+)(/.*)?",
+      "type": "string",
+      "title": "S3Uri"
+    },
+    "SentimentScore": {
+      "description": "Describes the level of confidence that Amazon Comprehend has in the accuracy of its detection of sentiments.",
+      "properties": {
+        "Mixed": {
+          "$ref": "#/definitions/Float",
+          "description": "The level of confidence that Amazon Comprehend has in the accuracy of its detection of the <code>MIXED</code> sentiment."
+        },
+        "Negative": {
+          "$ref": "#/definitions/Float",
+          "description": "The level of confidence that Amazon Comprehend has in the accuracy of its detection of the <code>NEGATIVE</code> sentiment."
+        },
+        "Neutral": {
+          "$ref": "#/definitions/Float",
+          "description": "The level of confidence that Amazon Comprehend has in the accuracy of its detection of the <code>NEUTRAL</code> sentiment."
+        },
+        "Positive": {
+          "$ref": "#/definitions/Float",
+          "description": "The level of confidence that Amazon Comprehend has in the accuracy of its detection of the <code>POSITIVE</code> sentiment."
+        }
+      },
+      "type": "object",
+      "title": "SentimentScore"
+    },
+    "SentimentType": {
+      "enum": [
+        "POSITIVE",
+        "NEGATIVE",
+        "NEUTRAL",
+        "MIXED"
+      ],
+      "type": "string",
+      "title": "SentimentType"
+    },
+    "StartTopicsDetectionJobRequest": {
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestTokenString",
+          "description": "A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one."
+        },
+        "DataAccessRoleArn": {
+          "$ref": "#/definitions/IamRoleArn",
+          "description": "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. "
+        },
+        "InputDataConfig": {
+          "$ref": "#/definitions/InputDataConfig",
+          "description": "Specifies the format and location of the input data for the job."
+        },
+        "JobName": {
+          "$ref": "#/definitions/JobName",
+          "description": "The identifier of the job."
+        },
+        "NumberOfTopics": {
+          "$ref": "#/definitions/NumberOfTopicsInteger",
+          "description": "The number of topics to detect."
+        },
+        "OutputDataConfig": {
+          "$ref": "#/definitions/OutputDataConfig",
+          "description": "Specifies where to send the output files."
+        }
+      },
+      "required": [
+        "InputDataConfig",
+        "OutputDataConfig",
+        "DataAccessRoleArn"
+      ],
+      "type": "object",
+      "title": "StartTopicsDetectionJobRequest"
+    },
+    "StartTopicsDetectionJobResponse": {
+      "properties": {
+        "JobId": {
+          "$ref": "#/definitions/JobId",
+          "description": "The identifier generated for the job. To get the status of the job, use this identifier with the <code>DescribeTopicDetectionJob</code> operation."
+        },
+        "JobStatus": {
+          "$ref": "#/definitions/JobStatus",
+          "description": "<p>The status of the job: </p> <ul> <li> <p>SUBMITTED - The job has been received and is queued for processing.</p> </li> <li> <p>IN_PROGRESS - Amazon Comprehend is processing the job.</p> </li> <li> <p>COMPLETED - The job was successfully completed and the output is available.</p> </li> <li> <p>FAILED - The job did not complete. To get details, use the <code>DescribeTopicDetectionJob</code> operation.</p> </li> </ul>"
+        }
+      },
+      "type": "object",
+      "title": "StartTopicsDetectionJobResponse"
+    },
+    "String": {
+      "minLength": 1,
+      "type": "string",
+      "title": "String"
+    },
+    "StringList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array",
+      "title": "StringList"
+    },
+    "TextSizeLimitExceededException": {
+      "description": "The size of the input text exceeds the limit. Use a smaller document.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "TextSizeLimitExceededException"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "TooManyRequestsException": {
+      "description": "The number of requests exceeds the limit. Resubmit your request later.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "TooManyRequestsException"
+    },
+    "TopicsDetectionJobFilter": {
+      "description": "Provides information for filtering topic detection jobs. For more information, see .",
+      "properties": {
+        "JobName": {
+          "$ref": "#/definitions/JobName",
+          "description": "<p/>"
+        },
+        "JobStatus": {
+          "$ref": "#/definitions/JobStatus",
+          "description": "Filters the list of topic detection jobs based on job status. Returns only jobs with the specified status."
+        },
+        "SubmitTimeAfter": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest."
+        },
+        "SubmitTimeBefore": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest."
+        }
+      },
+      "type": "object",
+      "title": "TopicsDetectionJobFilter"
+    },
+    "TopicsDetectionJobProperties": {
+      "description": "Provides information about a topic detection job.",
+      "properties": {
+        "EndTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time that the topic detection job was completed."
+        },
+        "InputDataConfig": {
+          "$ref": "#/definitions/InputDataConfig",
+          "description": "The input data configuration supplied when you created the topic detection job."
+        },
+        "JobId": {
+          "$ref": "#/definitions/JobId",
+          "description": "The identifier assigned to the topic detection job."
+        },
+        "JobName": {
+          "$ref": "#/definitions/JobName",
+          "description": "The name of the topic detection job."
+        },
+        "JobStatus": {
+          "$ref": "#/definitions/JobStatus",
+          "description": "The current status of the topic detection job. If the status is <code>Failed</code>, the reason for the failure is shown in the <code>Message</code> field."
+        },
+        "Message": {
+          "$ref": "#/definitions/AnyLengthString",
+          "description": "A description for the status of a job."
+        },
+        "NumberOfTopics": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of topics to detect supplied when you created the topic detection job. The default is 10. "
+        },
+        "OutputDataConfig": {
+          "$ref": "#/definitions/OutputDataConfig",
+          "description": "The output data configuration supplied when you created the topic detection job."
+        },
+        "SubmitTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time that the topic detection job was submitted for processing."
+        }
+      },
+      "type": "object",
+      "title": "TopicsDetectionJobProperties"
+    },
+    "TopicsDetectionJobPropertiesList": {
+      "items": {
+        "$ref": "#/definitions/TopicsDetectionJobProperties"
+      },
+      "type": "array",
+      "title": "TopicsDetectionJobPropertiesList"
+    },
+    "UnsupportedLanguageException": {
+      "description": "Amazon Comprehend can't process the language of the input text. For all APIs except <code>DetectDominantLanguage</code>, Amazon Comprehend accepts only English or Spanish text. For the <code>DetectDominantLanguage</code> API, Amazon Comprehend detects 100 languages. For a list of languages, see <a>how-languages</a> ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "UnsupportedLanguageException"
+    }
+  },
+  "actions": [
+    {
+      "id": "BatchDetectDominantLanguage",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/BatchDetectDominantLanguageRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchDetectDominantLanguageResponse"
+      },
+      "security": {
+        "amazonaws_comprehend": {
+          "integration": "amazonaws_comprehend"
+        }
+      }
+    },
+    {
+      "id": "BatchDetectEntities",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/BatchDetectEntitiesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchDetectEntitiesResponse"
+      },
+      "security": {
+        "amazonaws_comprehend": {
+          "integration": "amazonaws_comprehend"
+        }
+      }
+    },
+    {
+      "id": "BatchDetectKeyPhrases",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/BatchDetectKeyPhrasesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchDetectKeyPhrasesResponse"
+      },
+      "security": {
+        "amazonaws_comprehend": {
+          "integration": "amazonaws_comprehend"
+        }
+      }
+    },
+    {
+      "id": "BatchDetectSentiment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/BatchDetectSentimentRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchDetectSentimentResponse"
+      },
+      "security": {
+        "amazonaws_comprehend": {
+          "integration": "amazonaws_comprehend"
+        }
+      }
+    },
+    {
+      "id": "DescribeTopicsDetectionJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeTopicsDetectionJobRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeTopicsDetectionJobResponse"
+      },
+      "security": {
+        "amazonaws_comprehend": {
+          "integration": "amazonaws_comprehend"
+        }
+      }
+    },
+    {
+      "id": "DetectDominantLanguage",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DetectDominantLanguageRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetectDominantLanguageResponse"
+      },
+      "security": {
+        "amazonaws_comprehend": {
+          "integration": "amazonaws_comprehend"
+        }
+      }
+    },
+    {
+      "id": "DetectEntities",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DetectEntitiesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetectEntitiesResponse"
+      },
+      "security": {
+        "amazonaws_comprehend": {
+          "integration": "amazonaws_comprehend"
+        }
+      }
+    },
+    {
+      "id": "DetectKeyPhrases",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DetectKeyPhrasesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetectKeyPhrasesResponse"
+      },
+      "security": {
+        "amazonaws_comprehend": {
+          "integration": "amazonaws_comprehend"
+        }
+      }
+    },
+    {
+      "id": "DetectSentiment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DetectSentimentRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetectSentimentResponse"
+      },
+      "security": {
+        "amazonaws_comprehend": {
+          "integration": "amazonaws_comprehend"
+        }
+      }
+    },
+    {
+      "id": "ListTopicsDetectionJobs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTopicsDetectionJobsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTopicsDetectionJobsResponse"
+      },
+      "security": {
+        "amazonaws_comprehend": {
+          "integration": "amazonaws_comprehend"
+        }
+      }
+    },
+    {
+      "id": "StartTopicsDetectionJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartTopicsDetectionJobRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartTopicsDetectionJobResponse"
+      },
+      "security": {
+        "amazonaws_comprehend": {
+          "integration": "amazonaws_comprehend"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

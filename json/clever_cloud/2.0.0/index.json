@@ -1,0 +1,7372 @@
+{
+  "id": "clever_cloud",
+  "title": "Clever-Cloud",
+  "description": "Public API for managing Clever-Cloud data and products",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/clever_cloud.png"
+  },
+  "actionCount": 263,
+  "definitions": {
+    "Addon": {
+      "description": "An addon",
+      "properties": {
+        "configKeys": {
+          "description": "Environments variables link to the addon.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "creationDate": {
+          "description": "The creation timestamp of the addon",
+          "format": "date",
+          "type": "string"
+        },
+        "id": {
+          "description": "`addon_${uuid}`",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "plan": {
+          "$ref": "#/definitions/Plan"
+        },
+        "provider": {
+          "$ref": "#/definitions/Provider"
+        },
+        "realId": {
+          "description": "`${provider}_${uuid2}`",
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "configKeys",
+        "creationDate",
+        "id",
+        "name",
+        "plan",
+        "provider",
+        "realId",
+        "region"
+      ],
+      "type": "object",
+      "title": "Addon"
+    },
+    "AddonProviderSso": {
+      "properties": {
+        "macaroon": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "macaroon",
+        "url"
+      ],
+      "type": "object",
+      "title": "AddonProviderSso"
+    },
+    "AppInstance": {
+      "properties": {
+        "appId": {
+          "type": "string"
+        },
+        "appPort": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "commit": {
+          "type": "string"
+        },
+        "deployNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "flavor": {
+          "$ref": "#/definitions/Flavor"
+        },
+        "id": {
+          "type": "string"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "AppInstance"
+    },
+    "Application": {
+      "properties": {
+        "archived": {
+          "default": false,
+          "type": "boolean"
+        },
+        "branch": {
+          "type": "string"
+        },
+        "buildFlavor": {
+          "$ref": "#/definitions/Flavor"
+        },
+        "cancelOnPush": {
+          "default": false,
+          "type": "boolean"
+        },
+        "commitId": {
+          "type": "string"
+        },
+        "creationDate": {
+          "format": "date",
+          "type": "string"
+        },
+        "deployUrl": {
+          "type": "string"
+        },
+        "deployment": {
+          "$ref": "#/definitions/Deployment"
+        },
+        "description": {
+          "type": "string"
+        },
+        "favourite": {
+          "default": false,
+          "type": "boolean"
+        },
+        "homogeneous": {
+          "default": false,
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "instance": {
+          "$ref": "#/definitions/Instance"
+        },
+        "last_deploy": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "ownerId": {
+          "type": "string"
+        },
+        "separateBuild": {
+          "default": false,
+          "type": "boolean"
+        },
+        "state": {
+          "type": "string"
+        },
+        "stickySessions": {
+          "default": false,
+          "type": "boolean"
+        },
+        "vhosts": {
+          "items": {
+            "$ref": "#/definitions/Vhost"
+          },
+          "type": "array"
+        },
+        "webhookSecret": {
+          "type": "string"
+        },
+        "webhookUrl": {
+          "type": "string"
+        },
+        "zone": {
+          "description": "`par` ou `mtl`",
+          "type": "string"
+        }
+      },
+      "required": [
+        "archived",
+        "branch",
+        "buildFlavor",
+        "cancelOnPush",
+        "commitId",
+        "creationDate",
+        "deployUrl",
+        "deployment",
+        "description",
+        "favourite",
+        "homogeneous",
+        "id",
+        "instance",
+        "last_deploy",
+        "name",
+        "ownerId",
+        "separateBuild",
+        "state",
+        "stickySessions",
+        "vhosts",
+        "webhookSecret",
+        "webhookUrl",
+        "zone"
+      ],
+      "type": "object",
+      "title": "Application"
+    },
+    "Avatar": {
+      "description": "If you want to upload an image from your computer, send the image in the body of the request without anything else.",
+      "properties": {
+        "source": {
+          "description": "",
+          "properties": {
+            "source": {
+              "description": "github or gravatar",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/definitions/URL"
+            }
+          },
+          "required": [
+            "source",
+            "value"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "source"
+      ],
+      "type": "object",
+      "title": "Avatar"
+    },
+    "Body": {
+      "properties": {
+        "body": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "body"
+      ],
+      "type": "object",
+      "title": "Body"
+    },
+    "Change_Password": {
+      "properties": {
+        "newPassword": {
+          "type": "string"
+        },
+        "oldPassword": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "newPassword",
+        "oldPassword"
+      ],
+      "type": "object",
+      "title": "Change_Password"
+    },
+    "Conso": {
+      "properties": {
+        "appId": {
+          "type": "string"
+        },
+        "conso": {
+          "properties": {
+            "conso": {
+              "description": "One day consumption",
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "conso",
+            "date"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "appId",
+        "conso"
+      ],
+      "type": "object",
+      "title": "Conso"
+    },
+    "Consumer": {
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "picture": {
+          "type": "string"
+        },
+        "rights": {
+          "$ref": "#/definitions/ConsumerRights"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "baseUrl",
+        "description",
+        "name",
+        "rights",
+        "url"
+      ],
+      "type": "object",
+      "title": "Consumer"
+    },
+    "ConsumerRights": {
+      "properties": {
+        "access_bills": {
+          "default": false,
+          "type": "boolean"
+        },
+        "access_consumption_statistics": {
+          "default": false,
+          "type": "boolean"
+        },
+        "access_credit_count": {
+          "default": false,
+          "type": "boolean"
+        },
+        "access_organisations": {
+          "default": false,
+          "type": "boolean"
+        },
+        "access_organisations_bills": {
+          "default": false,
+          "type": "boolean"
+        },
+        "access_organisations_consumption_statistics": {
+          "default": false,
+          "type": "boolean"
+        },
+        "access_organisations_credit_count": {
+          "default": false,
+          "type": "boolean"
+        },
+        "access_personal_information": {
+          "default": false,
+          "type": "boolean"
+        },
+        "almighty": {
+          "default": false,
+          "type": "boolean"
+        },
+        "manage_applications": {
+          "default": false,
+          "type": "boolean"
+        },
+        "manage_organisations": {
+          "default": false,
+          "type": "boolean"
+        },
+        "manage_organisations_applications": {
+          "default": false,
+          "type": "boolean"
+        },
+        "manage_organisations_members": {
+          "default": false,
+          "type": "boolean"
+        },
+        "manage_organisations_services": {
+          "default": false,
+          "type": "boolean"
+        },
+        "manage_personal_information": {
+          "default": false,
+          "type": "boolean"
+        },
+        "manage_services": {
+          "default": false,
+          "type": "boolean"
+        },
+        "manage_ssh_keys": {
+          "default": false,
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "ConsumerRights"
+    },
+    "Country": {
+      "properties": {
+        "code": {
+          "description": "Code ISO 3166",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "name"
+      ],
+      "type": "object",
+      "title": "Country"
+    },
+    "Credits": {
+      "properties": {
+        "count": {
+          "format": "float",
+          "type": "number"
+        },
+        "dropPrice": {
+          "properties": {
+            "currency": {
+              "type": "string"
+            },
+            "value": {
+              "format": "float",
+              "type": "number"
+            }
+          },
+          "required": [
+            "currency",
+            "value"
+          ],
+          "type": "object"
+        },
+        "ownerId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "dropPrice",
+        "ownerId"
+      ],
+      "type": "object",
+      "title": "Credits"
+    },
+    "Deployment": {
+      "properties": {
+        "httpUrl": {
+          "type": "string"
+        },
+        "repoState": {
+          "type": "string"
+        },
+        "shutdownable": {
+          "default": false,
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "repoState",
+        "shutdownable",
+        "type",
+        "url"
+      ],
+      "type": "object",
+      "title": "Deployment"
+    },
+    "Env": {
+      "properties": {
+        "addon_id": {
+          "type": "string"
+        },
+        "addon_name": {
+          "type": "string"
+        },
+        "env": {
+          "items": {
+            "$ref": "#/definitions/WannabeEnv"
+          },
+          "type": "array"
+        },
+        "provider_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "addon_id",
+        "addon_name",
+        "env",
+        "provider_id"
+      ],
+      "type": "object",
+      "title": "Env"
+    },
+    "Feature": {
+      "properties": {
+        "name": {
+          "description": "The name of the properties",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the feature",
+          "type": "string"
+        },
+        "value": {
+          "description": "The value of the feature",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "value"
+      ],
+      "type": "object",
+      "title": "Feature"
+    },
+    "Flavor": {
+      "properties": {
+        "available": {
+          "default": false,
+          "type": "boolean"
+        },
+        "cpus": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "disk": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "mem": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "microservice": {
+          "default": false,
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nice": {
+          "format": "double",
+          "type": "number"
+        },
+        "price": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "cpus",
+        "mem",
+        "name",
+        "price"
+      ],
+      "type": "object",
+      "title": "Flavor"
+    },
+    "Instance": {
+      "properties": {
+        "buildFlavor": {
+          "$ref": "#/definitions/Flavor"
+        },
+        "comingSoon": {
+          "default": false,
+          "type": "boolean"
+        },
+        "defaultEnv": {
+          "$ref": "#/definitions/Map"
+        },
+        "defaultFlavor": {
+          "$ref": "#/definitions/Flavor"
+        },
+        "deployments": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "default": false,
+          "type": "boolean"
+        },
+        "flavors": {
+          "items": {
+            "$ref": "#/definitions/Flavor"
+          },
+          "type": "array"
+        },
+        "instanceAndVersion": {
+          "type": "string"
+        },
+        "maxAllowedInstances": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxFlavor": {
+          "$ref": "#/definitions/Flavor"
+        },
+        "maxInstances": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "minFlavor": {
+          "$ref": "#/definitions/Flavor"
+        },
+        "minInstances": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        },
+        "variant": {
+          "$ref": "#/definitions/Variant"
+        },
+        "version": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "defaultEnv",
+        "flavors",
+        "instanceAndVersion",
+        "maxAllowedInstances",
+        "maxFlavor",
+        "maxInstances",
+        "minFlavor",
+        "minInstances",
+        "type",
+        "variant",
+        "version"
+      ],
+      "type": "object",
+      "title": "Instance"
+    },
+    "Key": {
+      "properties": {
+        "fingerprint": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fingerprint",
+        "key",
+        "name"
+      ],
+      "type": "object",
+      "title": "Key"
+    },
+    "ListEnv": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ListEnv"
+    },
+    "Map": {
+      "type": "object",
+      "title": "Map"
+    },
+    "Member": {
+      "properties": {
+        "job": {
+          "type": "string"
+        },
+        "member": {
+          "properties": {
+            "avatar": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "email",
+            "id"
+          ],
+          "type": "object"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "job",
+        "member",
+        "role"
+      ],
+      "type": "object",
+      "title": "Member"
+    },
+    "Organisation": {
+      "properties": {
+        "VAT": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "vatState": {
+          "type": "string"
+        },
+        "zipcode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "VAT",
+        "address",
+        "avatar",
+        "city",
+        "company",
+        "country",
+        "description",
+        "id",
+        "name",
+        "vatState",
+        "zipcode"
+      ],
+      "type": "object",
+      "title": "Organisation"
+    },
+    "PaymentData": {
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "token",
+        "type"
+      ],
+      "type": "object",
+      "title": "PaymentData"
+    },
+    "Payment_Provider": {
+      "properties": {
+        "comingSoon": {
+          "default": false,
+          "type": "boolean"
+        },
+        "imgUrl": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "comingSoon",
+        "imgUrl",
+        "name",
+        "title"
+      ],
+      "type": "object",
+      "title": "Payment_Provider"
+    },
+    "Plan": {
+      "properties": {
+        "features": {
+          "description": "The list of the feature in the addon",
+          "items": {
+            "$ref": "#/definitions/Feature"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "`plan_${uuid}`",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the pan",
+          "type": "string"
+        },
+        "price": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "features",
+        "id",
+        "name",
+        "price",
+        "slug"
+      ],
+      "type": "object",
+      "title": "Plan"
+    },
+    "Provider": {
+      "description": "A provider",
+      "properties": {
+        "analyticsId": {
+          "description": "The id of the analytics page link to this addon",
+          "type": "string"
+        },
+        "canUpgrade": {
+          "default": false,
+          "description": "Can the addon be upgraded",
+          "type": "boolean"
+        },
+        "features": {
+          "items": {
+            "$ref": "#/definitions/Feature"
+          },
+          "type": "array"
+        },
+        "googlePlusName": {
+          "description": "The name of the google + page link to this addon (could be empty)",
+          "type": "string"
+        },
+        "id": {
+          "description": "The id of the provider",
+          "type": "string"
+        },
+        "logoUrl": {
+          "description": "The url of the addon's logo",
+          "type": "string"
+        },
+        "longDesc": {
+          "description": "A less concise description of the addon",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "openInNewTab": {
+          "default": false,
+          "description": "Does the addon panel need to be open in a new tab",
+          "type": "boolean"
+        },
+        "plans": {
+          "items": {
+            "$ref": "#/definitions/Plan"
+          },
+          "type": "array"
+        },
+        "regions": {
+          "description": "The differents regions where the addon is available",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "shortDesc": {
+          "description": "A short description of the addon",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of this addon (RELEASE, BETA, ...)",
+          "type": "string"
+        },
+        "supportEmail": {
+          "description": "The mail to contact in case of issue with this addon",
+          "type": "string"
+        },
+        "twitterName": {
+          "description": "The name of the user to contact on twitter for this addon (could be empty)",
+          "type": "string"
+        },
+        "website": {
+          "description": "The website of the provider. If the addon is developped by clever-cloud, the site is \"http://www.clever-cloud.com/\"",
+          "type": "string"
+        }
+      },
+      "required": [
+        "analyticsId",
+        "canUpgrade",
+        "googlePlusName",
+        "id",
+        "logoUrl",
+        "longDesc",
+        "name",
+        "openInNewTab",
+        "regions",
+        "shortDesc",
+        "status",
+        "supportEmail",
+        "twitterName",
+        "website"
+      ],
+      "type": "object",
+      "title": "Provider"
+    },
+    "Rights": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "description",
+        "name"
+      ],
+      "type": "object",
+      "title": "Rights"
+    },
+    "Secret": {
+      "properties": {
+        "secret": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "secret",
+        "value"
+      ],
+      "type": "object",
+      "title": "Secret"
+    },
+    "Sso": {
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "nav-data": {
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date",
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "id",
+        "nav-data",
+        "timestamp",
+        "token",
+        "url"
+      ],
+      "type": "object",
+      "title": "Sso"
+    },
+    "Summary": {
+      "properties": {
+        "organisations": {
+          "items": {
+            "properties": {
+              "addons": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "logoUrl": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "providerId": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "applications": {
+                "items": {
+                  "properties": {
+                    "archived": {
+                      "default": false,
+                      "type": "boolean"
+                    },
+                    "commit": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "instanceType": {
+                      "type": "string"
+                    },
+                    "instanceVariant": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "variantSlug": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "avatar": {
+                "type": "string"
+              },
+              "consumers": {
+                "items": {
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "picture": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "providers": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "role": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "user": {
+          "properties": {
+            "addons": {
+              "items": {
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "logoUrl": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "providerId": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "admin": {
+              "default": false,
+              "type": "boolean"
+            },
+            "applications": {
+              "items": {
+                "properties": {
+                  "archived": {
+                    "default": false,
+                    "type": "boolean"
+                  },
+                  "commit": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "instanceType": {
+                    "type": "string"
+                  },
+                  "instanceVariant": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "variantSlug": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "avatar": {
+              "type": "string"
+            },
+            "consumers": {
+              "items": {
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "picture": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "id": {
+              "type": "string"
+            },
+            "lang": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "addons",
+            "admin",
+            "applications",
+            "avatar",
+            "id",
+            "lang",
+            "name"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "organisations",
+        "user"
+      ],
+      "type": "object",
+      "title": "Summary"
+    },
+    "Token": {
+      "properties": {
+        "consumer": {
+          "$ref": "#/definitions/Consumer"
+        },
+        "creationDate": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "lastUtilisation": {
+          "type": "string"
+        },
+        "rights": {
+          "$ref": "#/definitions/Rights"
+        },
+        "token": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "consumer",
+        "creationDate",
+        "lastUtilisation",
+        "rights",
+        "token"
+      ],
+      "type": "object",
+      "title": "Token"
+    },
+    "Transaction_Id": {
+      "description": "A simple transaction id",
+      "properties": {
+        "transactionId": {
+          "description": "The transaction Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "transactionId"
+      ],
+      "type": "object",
+      "title": "Transaction_Id"
+    },
+    "URL": {
+      "description": "Must be a valid HTTP URL",
+      "properties": {
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "type": "object",
+      "title": "URL"
+    },
+    "User": {
+      "description": "A user representation",
+      "properties": {
+        "address": {
+          "description": "The address of the user",
+          "type": "string"
+        },
+        "admin": {
+          "default": false,
+          "description": "Is the user an administrator ?",
+          "type": "boolean"
+        },
+        "avatar": {
+          "description": "The location of the user's avatar",
+          "type": "string"
+        },
+        "canPay": {
+          "default": false,
+          "description": "Does the user can pay ?",
+          "type": "boolean"
+        },
+        "city": {
+          "description": "The city of the user",
+          "type": "string"
+        },
+        "country": {
+          "description": "The country of the user",
+          "type": "string"
+        },
+        "creationDate": {
+          "description": "The creation timestamp of the user",
+          "format": "int64",
+          "type": "integer"
+        },
+        "email": {
+          "description": "The email of the user",
+          "type": "string"
+        },
+        "emailValidated": {
+          "default": false,
+          "description": "Does the user email is validate",
+          "type": "boolean"
+        },
+        "hasPassword": {
+          "default": false,
+          "type": "boolean"
+        },
+        "id": {
+          "description": "The id of the user : `user_${uuid}`",
+          "type": "string"
+        },
+        "lang": {
+          "description": "The lang of the user",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the user",
+          "type": "string"
+        },
+        "oauthApps": {
+          "description": "The list of token oauth",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "phone": {
+          "description": "The phone of the user",
+          "type": "string"
+        },
+        "preferredMFA": {
+          "type": "string"
+        },
+        "zipcode": {
+          "description": "The zipcode of the user",
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "admin",
+        "avatar",
+        "canPay",
+        "city",
+        "country",
+        "creationDate",
+        "email",
+        "emailValidated",
+        "id",
+        "lang",
+        "name",
+        "oauthApps",
+        "phone",
+        "zipcode"
+      ],
+      "type": "object",
+      "title": "User"
+    },
+    "Variant": {
+      "properties": {
+        "deployType": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "deployType",
+        "id",
+        "logo",
+        "name",
+        "slug"
+      ],
+      "type": "object",
+      "title": "Variant"
+    },
+    "Vhost": {
+      "properties": {
+        "fqdn": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fqdn"
+      ],
+      "type": "object",
+      "title": "Vhost"
+    },
+    "WannabeAddon": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "payment": {
+          "$ref": "#/definitions/PaymentData"
+        },
+        "plan": {
+          "type": "string"
+        },
+        "providerId": {
+          "description": "",
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "payment",
+        "plan",
+        "providerId",
+        "region"
+      ],
+      "type": "object",
+      "title": "WannabeAddon"
+    },
+    "WannabeAddonBilling": {
+      "properties": {
+        "cost": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "cost"
+      ],
+      "type": "object",
+      "title": "WannabeAddonBilling"
+    },
+    "WannabeAddonProvider": {
+      "properties": {
+        "api": {
+          "$ref": "#/definitions/WannabeAddonProviderAPI"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "api",
+        "id",
+        "name"
+      ],
+      "type": "object",
+      "title": "WannabeAddonProvider"
+    },
+    "WannabeAddonProviderAPI": {
+      "properties": {
+        "config_vars": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "password": {
+          "type": "string"
+        },
+        "production": {
+          "$ref": "#/definitions/WannabeAddonProviderAPIUrl"
+        },
+        "regions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sso_salt": {
+          "type": "string"
+        },
+        "test": {
+          "$ref": "#/definitions/WannabeAddonProviderAPIUrl"
+        }
+      },
+      "required": [
+        "config_vars",
+        "password",
+        "sso_salt"
+      ],
+      "type": "object",
+      "title": "WannabeAddonProviderAPI"
+    },
+    "WannabeAddonProviderAPIUrl": {
+      "properties": {
+        "base_url": {
+          "type": "string"
+        },
+        "sso_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "base_url",
+        "sso_url"
+      ],
+      "type": "object",
+      "title": "WannabeAddonProviderAPIUrl"
+    },
+    "WannabeApplication": {
+      "properties": {
+        "archived": {
+          "default": false,
+          "type": "boolean"
+        },
+        "cancelOnPush": {
+          "default": false,
+          "type": "boolean"
+        },
+        "deploy": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "default": false,
+          "type": "boolean"
+        },
+        "favourite": {
+          "default": false,
+          "type": "boolean"
+        },
+        "homogeneous": {
+          "default": false,
+          "type": "boolean"
+        },
+        "instance": {
+          "$ref": "#/definitions/Instance"
+        },
+        "maxFlavor": {
+          "$ref": "#/definitions/Flavor"
+        },
+        "maxInstances": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "minFlavor": {
+          "$ref": "#/definitions/Flavor"
+        },
+        "minInstances": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "oauthApp": {
+          "$ref": "#/definitions/WannabeOauthApp"
+        },
+        "oauthAppId": {
+          "type": "string"
+        },
+        "oauthService": {
+          "type": "string"
+        },
+        "separateBuild": {
+          "default": false,
+          "type": "boolean"
+        },
+        "shutdownable": {
+          "default": false,
+          "type": "boolean"
+        },
+        "stickySessions": {
+          "default": false,
+          "type": "boolean"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "zone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "deploy",
+        "enabled",
+        "instance",
+        "maxInstances",
+        "minInstances",
+        "name",
+        "zone"
+      ],
+      "type": "object",
+      "title": "WannabeApplication"
+    },
+    "WannabeConsumer": {
+      "properties": {
+        "baseUrl": {
+          "$ref": "#/definitions/URL"
+        },
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "picture": {
+          "description": "",
+          "type": "string"
+        },
+        "rights": {
+          "properties": {
+            "activated": {
+              "default": false,
+              "type": "boolean"
+            },
+            "right": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "activated",
+            "right"
+          ],
+          "type": "object"
+        },
+        "url": {
+          "$ref": "#/definitions/URL"
+        }
+      },
+      "required": [
+        "baseUrl",
+        "name",
+        "rights",
+        "url"
+      ],
+      "type": "object",
+      "title": "WannabeConsumer"
+    },
+    "WannabeEnv": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object",
+      "title": "WannabeEnv"
+    },
+    "WannabeFeature": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "description": "BOOLEAN, INTERVAL, FILESIZE, NUMBER, PERCENTAGE",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "type": "object",
+      "title": "WannabeFeature"
+    },
+    "WannabeMember": {
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "job": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "role"
+      ],
+      "type": "object",
+      "title": "WannabeMember"
+    },
+    "WannabeOauthApp": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "WannabeOauthApp"
+    },
+    "WannabeOrganisation": {
+      "properties": {
+        "VAT": {
+          "type": "string"
+        },
+        "address": {
+          "description": "The address of the organisation.",
+          "type": "string"
+        },
+        "city": {
+          "description": "The city of the organisation.",
+          "type": "string"
+        },
+        "company": {
+          "description": "The company's name of the organisation.",
+          "type": "string"
+        },
+        "country": {
+          "description": "The country of the organisation.",
+          "type": "string"
+        },
+        "description": {
+          "description": "The description of the organisation.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the organisation.",
+          "type": "string"
+        },
+        "zipcode": {
+          "description": "The zipcode of the city's organisation.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "description",
+        "name"
+      ],
+      "type": "object",
+      "title": "WannabeOrganisation"
+    },
+    "WannabePlan": {
+      "properties": {
+        "features": {
+          "items": {
+            "$ref": "#/definitions/WannabePlanFeature"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "features",
+        "name",
+        "price",
+        "slug"
+      ],
+      "type": "object",
+      "title": "WannabePlan"
+    },
+    "WannabePlanFeature": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "value"
+      ],
+      "type": "object",
+      "title": "WannabePlanFeature"
+    },
+    "WannabeUser": {
+      "description": "",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "email": {
+          "description": "",
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "terms": {
+          "default": false,
+          "type": "boolean"
+        },
+        "zipcode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "password",
+        "terms"
+      ],
+      "type": "object",
+      "title": "WannabeUser"
+    },
+    "Zone": {
+      "properties": {
+        "correspondingRegion": {
+          "type": "string"
+        },
+        "internal": {
+          "default": false,
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "correspondingRegion",
+        "internal",
+        "name"
+      ],
+      "type": "object",
+      "title": "Zone"
+    }
+  },
+  "actions": [
+    {
+      "id": "application.appId.environment.get",
+      "title": "application.appId.environment.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "application.appId.environment.put",
+      "title": "application.appId.environment.put",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postAuthorize",
+      "title": "postAuthorize",
+      "description": "Handled by our API.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "events.event_socket.get",
+      "title": "events.event_socket.get",
+      "description": "Retrieve events as they come through a websocket connection. To have authorization, you have to send a `{ \"message_type\": \"oauth\", \"authorization\": \"oauth authorization string\" }` message",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getGithub",
+      "title": "getGithub",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Transaction_Id"
+      }
+    },
+    {
+      "id": "getGithubApplications",
+      "title": "getGithubApplications",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Application"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getGithubCallback",
+      "title": "getGithubCallback",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "error": {
+            "type": "string"
+          },
+          "error_description": {
+            "type": "string"
+          },
+          "error_uri": {
+            "type": "string"
+          },
+          "Cookie": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getGithubEmails",
+      "title": "getGithubEmails",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getGithubKeys",
+      "title": "getGithubKeys",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Key"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteGithubLink",
+      "title": "deleteGithubLink",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getGithubLink",
+      "title": "getGithubLink",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "transactionId": {
+            "type": "string",
+            "description": "From GET /github"
+          },
+          "redirectUrl": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getGithubLogin",
+      "title": "getGithubLogin",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "redirectUrl": {
+            "type": "string"
+          },
+          "fromAuthorize": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postGithubRedeploy",
+      "title": "postGithubRedeploy",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "User-Agent": {
+            "type": "string"
+          },
+          "X-Github-Event": {
+            "type": "string"
+          },
+          "X-Hub-Signature": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getGithubSignup",
+      "title": "getGithubSignup",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "redirectUrl": {
+            "type": "string"
+          },
+          "fromAuthorize": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postGithubSignup",
+      "title": "postGithubSignup",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "transactionId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "otherId": {
+            "type": "string"
+          },
+          "otherEmail": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "autoLink": {
+            "type": "string"
+          },
+          "terms": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getGithubUsername",
+      "title": "getGithubUsername",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "logs.logs_chunked.appId.get",
+      "title": "logs.logs_chunked.appId.get",
+      "description": "Retrieve logs as they come through a chunked, never-ending response",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "description": "Application Id"
+          },
+          "download": {
+            "type": "boolean",
+            "description": "Tell the user-agent to download the body as a file"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "logs.logs_socket.appId.get",
+      "title": "logs.logs_socket.appId.get",
+      "description": "Retrieve logs as they come through a websocket connection. To have authorization, you have to send a `{ \"message_type\": \"oauth\", \"authorization\": \"oauth authorization string\" }` message",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "description": "Application Id"
+          },
+          "since": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Only fetch logs newer than this (ISO-8601 formatted) date"
+          },
+          "filter": {
+            "type": "string",
+            "description": "A pattern to filter with"
+          },
+          "deployment_id": {
+            "type": "string",
+            "description": "Only fetch logs emitted by this deployment"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "logs.appId.get",
+      "title": "logs.appId.get",
+      "description": "Fetch the logs for a given application",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "description": "Application Id"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of lines to return"
+          },
+          "order": {
+            "type": "string",
+            "description": "Logs order",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "default": "desc"
+          },
+          "after": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Lowest bound for logs date, ISO 8601"
+          },
+          "before": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Highest bounds for logs date, ISO 8601"
+          },
+          "filter": {
+            "type": "string",
+            "description": "A pattern to filter with"
+          },
+          "deployment_id": {
+            "type": "string",
+            "description": "Only fetch logs emitted by this deployment"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getNewsfeedsBlog",
+      "title": "getNewsfeedsBlog",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getNewsfeedEngineering",
+      "title": "getNewsfeedEngineering",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "notifications.emailhooks.ownerId.get",
+      "title": "notifications.emailhooks.ownerId.get",
+      "description": "list created e-mail hooks",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ownerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "notifications.emailhooks.ownerId.post",
+      "title": "notifications.emailhooks.ownerId.post",
+      "description": "create a hook for e-mail notifications",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ownerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "notifications.emailhooks.ownerId._id.delete",
+      "title": "notifications.emailhooks.ownerId._id.delete",
+      "description": "delete an e-mail hook",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ownerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "notifications.emailhooks.ownerId._id.put",
+      "title": "notifications.emailhooks.ownerId._id.put",
+      "description": "edit an e-mail hook",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ownerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "notifications.info.events.get",
+      "title": "notifications.info.events.get",
+      "description": "list available events",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "notifications.info.webhookformats.get",
+      "title": "notifications.info.webhookformats.get",
+      "description": "list available webhook formats",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "notifications.webhooks.ownerId.get",
+      "title": "notifications.webhooks.ownerId.get",
+      "description": "list created hooks",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ownerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "notifications.webhooks.ownerId.post",
+      "title": "notifications.webhooks.ownerId.post",
+      "description": "create a hook for notifications",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ownerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "notifications.webhooks.ownerId._id.delete",
+      "title": "notifications.webhooks.ownerId._id.delete",
+      "description": "delete a hook",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ownerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "notifications.webhooks.ownerId._id.put",
+      "title": "notifications.webhooks.ownerId._id.put",
+      "description": "edit a hook",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ownerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ownerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postOauthAccessToken",
+      "title": "postOauthAccessToken",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "oauth_consumer_key": {
+            "type": "string"
+          },
+          "oauth_token": {
+            "type": "string"
+          },
+          "oauth_signature_method": {
+            "type": "string"
+          },
+          "oauth_signature": {
+            "type": "string"
+          },
+          "oauth_timestamp": {
+            "type": "string"
+          },
+          "oauth_nonce": {
+            "type": "string"
+          },
+          "oauth_version": {
+            "type": "string"
+          },
+          "oauth_verifier": {
+            "type": "string"
+          },
+          "oauth_callback": {
+            "type": "string"
+          },
+          "oauth_token_secret": {
+            "type": "string"
+          },
+          "oauth_callback_confirmed": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "oauth.access_token_query.post",
+      "title": "oauth.access_token_query.post",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "oauth_consumer_key": {
+            "type": "string"
+          },
+          "oauth_token": {
+            "type": "string"
+          },
+          "oauth_signature_method": {
+            "type": "string"
+          },
+          "oauth_signature": {
+            "type": "string"
+          },
+          "oauth_timestamp": {
+            "type": "string"
+          },
+          "oauth_nonce": {
+            "type": "string"
+          },
+          "oauth_version": {
+            "type": "string"
+          },
+          "oauth_verifier": {
+            "type": "string"
+          },
+          "oauth_callback": {
+            "type": "string"
+          },
+          "oauth_token_secret": {
+            "type": "string"
+          },
+          "oauth_callback_confirmed": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOauthAuthorize",
+      "title": "getOauthAuthorize",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "oauth_token": {
+            "type": "string"
+          },
+          "Cookie": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postOauthAuthorize",
+      "title": "postOauthAuthorize",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "almighty": {
+            "type": "string"
+          },
+          "access_organisations": {
+            "type": "string"
+          },
+          "manage_organisations": {
+            "type": "string"
+          },
+          "manage_organisations_services": {
+            "type": "string"
+          },
+          "manage_organisations_applications": {
+            "type": "string"
+          },
+          "manage_organisations_members": {
+            "type": "string"
+          },
+          "access_organisations_bills": {
+            "type": "string"
+          },
+          "access_organisations_credit_count": {
+            "type": "string"
+          },
+          "access_organisations_consumption_statistics": {
+            "type": "string"
+          },
+          "access_personal_information": {
+            "type": "string"
+          },
+          "manage_personal_information": {
+            "type": "string"
+          },
+          "manage_ssh_keys": {
+            "type": "string"
+          },
+          "manage_services": {
+            "type": "string"
+          },
+          "manage_applications": {
+            "type": "string"
+          },
+          "access_bills": {
+            "type": "string"
+          },
+          "access_credit_count": {
+            "type": "string"
+          },
+          "access_consumption_statistics": {
+            "type": "string"
+          },
+          "Cookie": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postOauthRequestToken",
+      "title": "postOauthRequestToken",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "oauth_consumer_key": {
+            "type": "string"
+          },
+          "oauth_token": {
+            "type": "string"
+          },
+          "oauth_signature_method": {
+            "type": "string"
+          },
+          "oauth_signature": {
+            "type": "string"
+          },
+          "oauth_timestamp": {
+            "type": "string"
+          },
+          "oauth_nonce": {
+            "type": "string"
+          },
+          "oauth_version": {
+            "type": "string"
+          },
+          "oauth_verifier": {
+            "type": "string"
+          },
+          "oauth_callback": {
+            "type": "string"
+          },
+          "oauth_token_secret": {
+            "type": "string"
+          },
+          "oauth_callback_confirmed": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "oauth.request_token_query.post",
+      "title": "oauth.request_token_query.post",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "oauth_consumer_key": {
+            "type": "string"
+          },
+          "oauth_token": {
+            "type": "string"
+          },
+          "oauth_signature_method": {
+            "type": "string"
+          },
+          "oauth_signature": {
+            "type": "string"
+          },
+          "oauth_timestamp": {
+            "type": "string"
+          },
+          "oauth_nonce": {
+            "type": "string"
+          },
+          "oauth_version": {
+            "type": "string"
+          },
+          "oauth_verifier": {
+            "type": "string"
+          },
+          "oauth_callback": {
+            "type": "string"
+          },
+          "oauth_token_secret": {
+            "type": "string"
+          },
+          "oauth_callback_confirmed": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOauthRights",
+      "title": "getOauthRights",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Rights"
+      }
+    },
+    {
+      "id": "getOrganisations",
+      "title": "getOrganisations",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "user": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Organisation"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postOrganisations",
+      "title": "postOrganisations",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/WannabeOrganisation"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteOrganisationsId",
+      "title": "deleteOrganisationsId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsId",
+      "title": "getOrganisationsId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Organisation"
+      }
+    },
+    {
+      "id": "putOrganisationsId",
+      "title": "putOrganisationsId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeOrganisation"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdAddonproviders",
+      "title": "getOrganisationsIdAddonproviders",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Provider"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postOrganisationsIdAddonproviders",
+      "title": "postOrganisationsIdAddonproviders",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeAddonProvider"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdAddonprovidersProviderId",
+      "title": "getOrganisationsIdAddonprovidersProviderId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "providerId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Provider"
+      }
+    },
+    {
+      "id": "putOrganisationsIdAddonprovidersProviderId",
+      "title": "putOrganisationsIdAddonprovidersProviderId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeAddonProvider"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "providerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdAddonprovidersProviderIdFeatures",
+      "title": "getOrganisationsIdAddonprovidersProviderIdFeatures",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "providerId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Feature"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postOrganisationsIdAddonprovidersProviderIdFeatures",
+      "title": "postOrganisationsIdAddonprovidersProviderIdFeatures",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeFeature"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "providerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteOrganisationsIdAddonprovidersProviderIdFeaturesFeatureId",
+      "title": "deleteOrganisationsIdAddonprovidersProviderIdFeaturesFeatureId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "featureId": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "featureId",
+          "providerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdAddonprovidersProviderIdPlans",
+      "title": "getOrganisationsIdAddonprovidersProviderIdPlans",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "providerId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Plan"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postOrganisationsIdAddonprovidersProviderIdPlans",
+      "title": "postOrganisationsIdAddonprovidersProviderIdPlans",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabePlan"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "providerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteOrganisationsIdAddonprovidersProviderIdPlansPlanId",
+      "title": "deleteOrganisationsIdAddonprovidersProviderIdPlansPlanId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "planId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "providerId",
+          "planId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdAddonprovidersProviderIdPlansPlanId",
+      "title": "getOrganisationsIdAddonprovidersProviderIdPlansPlanId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "planId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "providerId",
+          "planId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Plan"
+      }
+    },
+    {
+      "id": "putOrganisationsIdAddonprovidersProviderIdPlansPlanId",
+      "title": "putOrganisationsIdAddonprovidersProviderIdPlansPlanId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "planId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabePlan"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "providerId",
+          "planId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteOrganisationsIdAddonprovidersProviderIdPlansPlanIdFeaturesFeatureName",
+      "title": "deleteOrganisationsIdAddonprovidersProviderIdPlansPlanIdFeaturesFeatureName",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "featureName": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "planId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "featureName",
+          "providerId",
+          "planId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putOrganisationsIdAddonprovidersProviderIdPlansPlanIdFeaturesFeatureName",
+      "title": "putOrganisationsIdAddonprovidersProviderIdPlansPlanIdFeaturesFeatureName",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "featureName": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "planId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabePlanFeature"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "featureName",
+          "providerId",
+          "planId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.addonproviders.providerId.sso.get",
+      "title": "organisations.id.addonproviders.providerId.sso.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "providerId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "providerId",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddonProviderSso"
+      }
+    },
+    {
+      "id": "getOrganisationsIdAddonprovidersProviderIdTags",
+      "title": "getOrganisationsIdAddonprovidersProviderIdTags",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "providerId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postOrganisationsIdAddonprovidersProviderIdTesters",
+      "title": "postOrganisationsIdAddonprovidersProviderIdTesters",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "providerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdAddons",
+      "title": "getOrganisationsIdAddons",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Addon"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postOrganisationsIdAddons",
+      "title": "postOrganisationsIdAddons",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeAddon"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.addons.preorders.post",
+      "title": "organisations.id.addons.preorders.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeAddon"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteOrganisationsIdAddonsAddonId",
+      "title": "deleteOrganisationsIdAddonsAddonId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdAddonsAddonId",
+      "title": "getOrganisationsIdAddonsAddonId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "addonId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Addon"
+      }
+    },
+    {
+      "id": "putOrganisationsIdAddonsAddonId",
+      "title": "putOrganisationsIdAddonsAddonId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeAddon"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdAddonsAddonIdApplications",
+      "title": "getOrganisationsIdAddonsAddonIdApplications",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "addonId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Application"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getOrganisationsIdAddonsAddonIdEnv",
+      "title": "getOrganisationsIdAddonsAddonIdEnv",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "addonId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ListEnv"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "putOrganisationsIdAddonsAddonIdPlan",
+      "title": "putOrganisationsIdAddonsAddonIdPlan",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabePlan"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.addons.addonId.sso.get",
+      "title": "organisations.id.addons.addonId.sso.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "addonId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Sso"
+      }
+    },
+    {
+      "id": "getOrganisationsIdAddonsAddonIdTags",
+      "title": "getOrganisationsIdAddonsAddonIdTags",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "addonId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteOrganisationsIdAddonsAddonIdTagsTag",
+      "title": "deleteOrganisationsIdAddonsAddonIdTagsTag",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "tag",
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putOrganisationsIdAddonsAddonIdTagsTag",
+      "title": "putOrganisationsIdAddonsAddonIdTagsTag",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/Body"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "tag",
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdApplications",
+      "title": "getOrganisationsIdApplications",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Application"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postOrganisationsIdApplications",
+      "title": "postOrganisationsIdApplications",
+      "description": "Creates an application. If you want to create a Github app, you need to replace the oauthApp field with what you will find here: https://github.com/CleverCloud/doc.clever-cloud.com/issues/179",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeApplication"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteOrganisationsIdApplicationsAppId",
+      "title": "deleteOrganisationsIdApplicationsAppId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdApplicationsAppId",
+      "title": "getOrganisationsIdApplicationsAppId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Application"
+      }
+    },
+    {
+      "id": "putOrganisationsIdApplicationsAppId",
+      "title": "putOrganisationsIdApplicationsAppId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeApplication"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdApplicationsAppIdAddons",
+      "title": "getOrganisationsIdApplicationsAppIdAddons",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Addon"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postOrganisationsIdApplicationsAppIdAddons",
+      "title": "postOrganisationsIdApplicationsAppIdAddons",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/Body"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdApplicationsAppIdAddonsEnv",
+      "title": "getOrganisationsIdApplicationsAppIdAddonsEnv",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Env"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteOrganisationsIdApplicationsAppIdAddonsAddonId",
+      "title": "deleteOrganisationsIdApplicationsAppIdAddonsAddonId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId",
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.applications.appId.branch.put",
+      "title": "organisations.id.applications.appId.branch.put",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.applications.appId.branches.get",
+      "title": "organisations.id.applications.appId.branches.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdApplicationsAppIdDependencies",
+      "title": "getOrganisationsIdApplicationsAppIdDependencies",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Application"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteOrganisationsIdApplicationsAppIdDependenciesDependencyId",
+      "title": "deleteOrganisationsIdApplicationsAppIdDependenciesDependencyId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "dependencyId": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "dependencyId",
+          "appId",
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putOrganisationsIdApplicationsAppIdDependenciesDependencyId",
+      "title": "putOrganisationsIdApplicationsAppIdDependenciesDependencyId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "dependencyId": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/Body"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "dependencyId",
+          "appId",
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdApplicationsAppIdDependents",
+      "title": "getOrganisationsIdApplicationsAppIdDependents",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Application"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getOrganisationsIdApplicationsAppIdDeployments",
+      "title": "getOrganisationsIdApplicationsAppIdDeployments",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Deployment"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteOrganisationsIdApplicationsAppIdDeploymentsDeploymentIdInstances",
+      "title": "deleteOrganisationsIdApplicationsAppIdDeploymentsDeploymentIdInstances",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "deploymentId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId",
+          "deploymentId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdApplicationsAppIdEnv",
+      "title": "getOrganisationsIdApplicationsAppIdEnv",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ListEnv"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "putOrganisationsIdApplicationsAppIdEnv",
+      "title": "putOrganisationsIdApplicationsAppIdEnv",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeEnv"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteOrganisationsIdApplicationsAppIdEnvEnvName",
+      "title": "deleteOrganisationsIdApplicationsAppIdEnvEnvName",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "envName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId",
+          "envName"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putOrganisationsIdApplicationsAppIdEnvEnvName",
+      "title": "putOrganisationsIdApplicationsAppIdEnvEnvName",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "envName": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeEnv"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId",
+          "envName"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.applications.appId.exposed_env.get",
+      "title": "organisations.id.applications.appId.exposed_env.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.applications.appId.exposed_env.put",
+      "title": "organisations.id.applications.appId.exposed_env.put",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteOrganisationsIdApplicationsAppIdInstances",
+      "title": "deleteOrganisationsIdApplicationsAppIdInstances",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdApplicationsAppIdInstances",
+      "title": "getOrganisationsIdApplicationsAppIdInstances",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AppInstance"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postOrganisationsIdApplicationsAppIdInstances",
+      "title": "postOrganisationsIdApplicationsAppIdInstances",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "commit": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.applications.appId.instances.instanceId.get",
+      "title": "organisations.id.applications.appId.instances.instanceId.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "instanceId": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "instanceId",
+          "appId",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AppInstance"
+      }
+    },
+    {
+      "id": "getOrganisationsIdApplicationsAppIdTags",
+      "title": "getOrganisationsIdApplicationsAppIdTags",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteOrganisationsIdApplicationsAppIdTagsTag",
+      "title": "deleteOrganisationsIdApplicationsAppIdTagsTag",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId",
+          "tag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putOrganisationsIdApplicationsAppIdTagsTag",
+      "title": "putOrganisationsIdApplicationsAppIdTagsTag",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/Body"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId",
+          "tag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdApplicationsAppIdVhosts",
+      "title": "getOrganisationsIdApplicationsAppIdVhosts",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Vhost"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteOrganisationsIdApplicationsAppIdVhostsFavourite",
+      "title": "deleteOrganisationsIdApplicationsAppIdVhostsFavourite",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdApplicationsAppIdVhostsFavourite",
+      "title": "getOrganisationsIdApplicationsAppIdVhostsFavourite",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Vhost"
+      }
+    },
+    {
+      "id": "putOrganisationsIdApplicationsAppIdVhostsFavourite",
+      "title": "putOrganisationsIdApplicationsAppIdVhostsFavourite",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/Vhost"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteOrganisationsIdApplicationsAppIdVhostsDomain",
+      "title": "deleteOrganisationsIdApplicationsAppIdVhostsDomain",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId",
+          "domain"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putOrganisationsIdApplicationsAppIdVhostsDomain",
+      "title": "putOrganisationsIdApplicationsAppIdVhostsDomain",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/Vhost"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appId",
+          "domain"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putOrganisationsIdAvatar",
+      "title": "putOrganisationsIdAvatar",
+      "description": "If you want to upload an image from your computer, send the image in the body of the request without anything else.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdConsumers",
+      "title": "getOrganisationsIdConsumers",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Consumer"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postOrganisationsIdConsumers",
+      "title": "postOrganisationsIdConsumers",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeConsumer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteOrganisationsIdConsumersKey",
+      "title": "deleteOrganisationsIdConsumersKey",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdConsumersKey",
+      "title": "getOrganisationsIdConsumersKey",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Consumer"
+      }
+    },
+    {
+      "id": "putOrganisationsIdConsumersKey",
+      "title": "putOrganisationsIdConsumersKey",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeConsumer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdConsumersKeySecret",
+      "title": "getOrganisationsIdConsumersKeySecret",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Secret"
+      }
+    },
+    {
+      "id": "getOrganisationsIdConsumptions",
+      "title": "getOrganisationsIdConsumptions",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Conso"
+      }
+    },
+    {
+      "id": "getOrganisationsIdCredits",
+      "title": "getOrganisationsIdCredits",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Credits"
+      }
+    },
+    {
+      "id": "getOrganisationsIdInstances",
+      "title": "getOrganisationsIdInstances",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "items": {
+            "$ref": "#/definitions/AppInstance"
+          },
+          "type": "array"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "getOrganisationsIdMembers",
+      "title": "getOrganisationsIdMembers",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Member"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postOrganisationsIdMembers",
+      "title": "postOrganisationsIdMembers",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "invitationKey": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeMember"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteOrganisationsIdMembersUserId",
+      "title": "deleteOrganisationsIdMembersUserId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putOrganisationsIdMembersUserId",
+      "title": "putOrganisationsIdMembersUserId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeMember"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdPaymentInfo",
+      "title": "getOrganisationsIdPaymentInfo",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdPaymentsBillings",
+      "title": "getOrganisationsIdPaymentsBillings",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postOrganisationsIdPaymentsBillings",
+      "title": "postOrganisationsIdPaymentsBillings",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteOrganisationsIdPaymentsBillingsBid",
+      "title": "deleteOrganisationsIdPaymentsBillingsBid",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "bid"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdPaymentsBillingsBid",
+      "title": "getOrganisationsIdPaymentsBillingsBid",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "bid"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putOrganisationsIdPaymentsBillingsBid",
+      "title": "putOrganisationsIdPaymentsBillingsBid",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "bid"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdPaymentsBillingsBidPdf",
+      "title": "getOrganisationsIdPaymentsBillingsBidPdf",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "bid": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "bid"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsIdPaymentsFullPricePrice",
+      "title": "getOrganisationsIdPaymentsFullPricePrice",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "price"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.payments.methods.get",
+      "title": "organisations.id.payments.methods.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.payments.methods.post",
+      "title": "organisations.id.payments.methods.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.payments.methods.default.get",
+      "title": "organisations.id.payments.methods.default.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.payments.methods.default.put",
+      "title": "organisations.id.payments.methods.default.put",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/PaymentData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.payments.methods.mId.delete",
+      "title": "organisations.id.payments.methods.mId.delete",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mId",
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteOrganisationsIdPaymentsRecurring",
+      "title": "deleteOrganisationsIdPaymentsRecurring",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.payments.recurring.get",
+      "title": "organisations.id.payments.recurring.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "organisations.id.payments.tokens.bt.get",
+      "title": "organisations.id.payments.tokens.bt.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getPasswordForgotten",
+      "title": "getPasswordForgotten",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "postPasswordForgotten",
+      "title": "postPasswordForgotten",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "login": {
+            "type": "string"
+          },
+          "drop_tokens": {
+            "type": "string"
+          },
+          "TesterPass": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getPasswordForgottenKey",
+      "title": "getPasswordForgottenKey",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postPasswordForgottenKey",
+      "title": "postPasswordForgottenKey",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "pass": {
+            "type": "string"
+          },
+          "pass2": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getPaymentsCouponsName",
+      "title": "getPaymentsCouponsName",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getPaymentsProviders",
+      "title": "getPaymentsProviders",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Payment_Provider"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getPaymentsTokensBt",
+      "title": "getPaymentsTokensBt",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getPaymentsWebhooksBt",
+      "title": "getPaymentsWebhooksBt",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "bt_challenge": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postPaymentsBidEndBt",
+      "title": "postPaymentsBidEndBt",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bid"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProductsAddonProviders",
+      "title": "getProductsAddonProviders",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Provider"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getProductsAddonProvidersProviderId",
+      "title": "getProductsAddonProvidersProviderId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "provider_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Provider"
+      }
+    },
+    {
+      "id": "getProductsCountries",
+      "title": "getProductsCountries",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Country"
+      }
+    },
+    {
+      "id": "getProductsCountrycodes",
+      "title": "getProductsCountrycodes",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Country"
+      }
+    },
+    {
+      "id": "getProductsInstances",
+      "title": "getProductsInstances",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "for": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Instance"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getProductsInstancesTypeVersion",
+      "title": "getProductsInstancesTypeVersion",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string"
+          },
+          "for": {
+            "type": "string"
+          },
+          "app": {
+            "type": "string"
+          },
+          "type: [^-]+": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "type: [^-]+"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Instance"
+      }
+    },
+    {
+      "id": "products.mfa_kinds.get",
+      "title": "products.mfa_kinds.get",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getProductsPackages",
+      "title": "getProductsPackages",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "coupon": {
+            "type": "string"
+          },
+          "orgaId": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProductsPrices",
+      "title": "getProductsPrices",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getProductsZones",
+      "title": "getProductsZones",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Zone"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteSelf",
+      "title": "deleteSelf",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelf",
+      "title": "getSelf",
+      "description": "Get information about yourself",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    {
+      "id": "putSelf",
+      "title": "putSelf",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/WannabeUser"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfAddons",
+      "title": "getSelfAddons",
+      "description": "Get all the addons",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Addon"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postSelfAddons",
+      "title": "postSelfAddons",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/WannabeAddon"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "self.addons.preorders.post",
+      "title": "self.addons.preorders.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/WannabeAddon"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteSelfAddonsAddonId",
+      "title": "deleteSelfAddonsAddonId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfAddonsAddonId",
+      "title": "getSelfAddonsAddonId",
+      "description": "Get a specific addon",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "addonId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Addon"
+      }
+    },
+    {
+      "id": "putSelfAddonsAddonId",
+      "title": "putSelfAddonsAddonId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "addonId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeAddon"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfAddonsAddonIdApplications",
+      "title": "getSelfAddonsAddonIdApplications",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "addonId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Application"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getSelfAddonsAddonIdEnv",
+      "title": "getSelfAddonsAddonIdEnv",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "addonId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ListEnv"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "putSelfAddonsAddonIdPlan",
+      "title": "putSelfAddonsAddonIdPlan",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "addonId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabePlan"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfAddonsAddonIdSso",
+      "title": "getSelfAddonsAddonIdSso",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "addonId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Sso"
+      }
+    },
+    {
+      "id": "getSelfAddonsAddonIdTags",
+      "title": "getSelfAddonsAddonIdTags",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "addonId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteSelfAddonsAddonIdTagsTag",
+      "title": "deleteSelfAddonsAddonIdTagsTag",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tag",
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putSelfAddonsAddonIdTagsTag",
+      "title": "putSelfAddonsAddonIdTagsTag",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/Body"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tag",
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfApplications",
+      "title": "getSelfApplications",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Application"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postSelfApplications",
+      "title": "postSelfApplications",
+      "description": "Creates an application. If you want to create a Github app, you need to replace the oauthApp field with what you will find here: https://github.com/CleverCloud/doc.clever-cloud.com/issues/179",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/WannabeApplication"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteSelfApplicationsAppId",
+      "title": "deleteSelfApplicationsAppId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfApplicationsAppId",
+      "title": "getSelfApplicationsAppId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Application"
+      }
+    },
+    {
+      "id": "putSelfApplicationsAppId",
+      "title": "putSelfApplicationsAppId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeApplication"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfApplicationsAppIdAddons",
+      "title": "getSelfApplicationsAppIdAddons",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Addon"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postSelfApplicationsAppIdAddons",
+      "title": "postSelfApplicationsAppIdAddons",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/Body"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfApplicationsAppIdAddonsEnv",
+      "title": "getSelfApplicationsAppIdAddonsEnv",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Env"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteSelfApplicationsAppIdAddonsAddonId",
+      "title": "deleteSelfApplicationsAppIdAddonsAddonId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "self.applications.appId.branch.put",
+      "title": "self.applications.appId.branch.put",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "self.applications.appId.branches.get",
+      "title": "self.applications.appId.branches.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfApplicationsAppIdDependencies",
+      "title": "getSelfApplicationsAppIdDependencies",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Application"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteSelfApplicationsAppIdDependenciesDependencyId",
+      "title": "deleteSelfApplicationsAppIdDependenciesDependencyId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "dependencyId": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "dependencyId",
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfApplicationsAppIdDependenciesDependencyId",
+      "title": "getSelfApplicationsAppIdDependenciesDependencyId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "dependencyId": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeApplication"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "dependencyId",
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfApplicationsAppIdDependents",
+      "title": "getSelfApplicationsAppIdDependents",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Application"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getSelfApplicationsAppIdDeployments",
+      "title": "getSelfApplicationsAppIdDeployments",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Deployment"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteSelfApplicationsAppIdDeploymentsDeploymentIdInstances",
+      "title": "deleteSelfApplicationsAppIdDeploymentsDeploymentIdInstances",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "deploymentId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "deploymentId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfApplicationsAppIdEnv",
+      "title": "getSelfApplicationsAppIdEnv",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ListEnv"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "putSelfApplicationsAppIdEnv",
+      "title": "putSelfApplicationsAppIdEnv",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeEnv"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteSelfApplicationsAppIdEnvEnvName",
+      "title": "deleteSelfApplicationsAppIdEnvEnvName",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "envName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "envName"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putSelfApplicationsAppIdEnvEnvName",
+      "title": "putSelfApplicationsAppIdEnvEnvName",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "envName": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeEnv"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "envName"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "self.applications.appId.exposed_env.get",
+      "title": "self.applications.appId.exposed_env.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "self.applications.appId.exposed_env.put",
+      "title": "self.applications.appId.exposed_env.put",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteSelfApplicationsAppIdInstances",
+      "title": "deleteSelfApplicationsAppIdInstances",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfApplicationsAppIdInstances",
+      "title": "getSelfApplicationsAppIdInstances",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Instance"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postSelfApplicationsAppIdInstances",
+      "title": "postSelfApplicationsAppIdInstances",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "commit": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "self.applications.appId.instances.instanceId.get",
+      "title": "self.applications.appId.instances.instanceId.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "instanceId": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "instanceId",
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AppInstance"
+      }
+    },
+    {
+      "id": "getSelfApplicationsAppIdTags",
+      "title": "getSelfApplicationsAppIdTags",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteSelfApplicationsAppIdTagsTag",
+      "title": "deleteSelfApplicationsAppIdTagsTag",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "tag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putSelfApplicationsAppIdTagsTag",
+      "title": "putSelfApplicationsAppIdTagsTag",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/Body"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "tag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfApplicationsAppIdVhosts",
+      "title": "getSelfApplicationsAppIdVhosts",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Vhost"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteSelfApplicationsAppIdVhostsFavourite",
+      "title": "deleteSelfApplicationsAppIdVhostsFavourite",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfApplicationsAppIdVhostsFavourite",
+      "title": "getSelfApplicationsAppIdVhostsFavourite",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Vhost"
+      }
+    },
+    {
+      "id": "putSelfApplicationsAppIdVhostsFavourite",
+      "title": "putSelfApplicationsAppIdVhostsFavourite",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/Vhost"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteSelfApplicationsAppIdVhostsDomain",
+      "title": "deleteSelfApplicationsAppIdVhostsDomain",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "domain"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putSelfApplicationsAppIdVhostsDomain",
+      "title": "putSelfApplicationsAppIdVhostsDomain",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/Vhost"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "appId",
+          "domain"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putSelfAvatar",
+      "title": "putSelfAvatar",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Avatar"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putSelfChangePassword",
+      "title": "putSelfChangePassword",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Change_Password"
+      }
+    },
+    {
+      "id": "getSelfConfirmationEmail",
+      "title": "getSelfConfirmationEmail",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfConsumers",
+      "title": "getSelfConsumers",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Consumer"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "postSelfConsumers",
+      "title": "postSelfConsumers",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/WannabeConsumer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteSelfConsumersKey",
+      "title": "deleteSelfConsumersKey",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfConsumersKey",
+      "title": "getSelfConsumersKey",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Consumer"
+      }
+    },
+    {
+      "id": "putSelfConsumersKey",
+      "title": "putSelfConsumersKey",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeConsumer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfConsumersKeySecret",
+      "title": "getSelfConsumersKeySecret",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Secret"
+      }
+    },
+    {
+      "id": "getSelfConsumptions",
+      "title": "getSelfConsumptions",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Conso"
+      }
+    },
+    {
+      "id": "getSelfCredits",
+      "title": "getSelfCredits",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Credits"
+      }
+    },
+    {
+      "id": "getSelfEmails",
+      "title": "getSelfEmails",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteSelfEmailsEmail",
+      "title": "deleteSelfEmailsEmail",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putSelfEmailsEmail",
+      "title": "putSelfEmailsEmail",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/Body"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfId",
+      "title": "getSelfId",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "getSelfInstances",
+      "title": "getSelfInstances",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Instance"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getSelfKeys",
+      "title": "getSelfKeys",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Key"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteSelfKeysKey",
+      "title": "deleteSelfKeysKey",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putSelfKeysKey",
+      "title": "putSelfKeysKey",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/Body"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "self.mfa.kind.delete",
+      "title": "self.mfa.kind.delete",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "self.mfa.kind.post",
+      "title": "self.mfa.kind.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "self.mfa.kind.put",
+      "title": "self.mfa.kind.put",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "self.mfa.kind.backupcodes.get",
+      "title": "self.mfa.kind.backupcodes.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "self.mfa.kind.confirmation.post",
+      "title": "self.mfa.kind.confirmation.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfPaymentInfo",
+      "title": "getSelfPaymentInfo",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfPaymentsBillings",
+      "title": "getSelfPaymentsBillings",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "postSelfPaymentsBillings",
+      "title": "postSelfPaymentsBillings",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteSelfPaymentsBillingsBid",
+      "title": "deleteSelfPaymentsBillingsBid",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bid"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfPaymentsBillingsBid",
+      "title": "getSelfPaymentsBillingsBid",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bid"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putSelfPaymentsBillingsBid",
+      "title": "putSelfPaymentsBillingsBid",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bid"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfPaymentsBillingsBidPdf",
+      "title": "getSelfPaymentsBillingsBidPdf",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bid": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bid"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfPaymentsFullpricePrice",
+      "title": "getSelfPaymentsFullpricePrice",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "price": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "price"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfPaymentsMethods",
+      "title": "getSelfPaymentsMethods",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "postSelfPaymentsMethods",
+      "title": "postSelfPaymentsMethods",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "self.payments.methods.default.get",
+      "title": "self.payments.methods.default.get",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "self.payments.methods.default.put",
+      "title": "self.payments.methods.default.put",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteSelfPaymentsMethodsMId",
+      "title": "deleteSelfPaymentsMethodsMId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteSelfPaymentsRecurring",
+      "title": "deleteSelfPaymentsRecurring",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "self.payments.recurring.get",
+      "title": "self.payments.recurring.get",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "self.payments.tokens.bt.get",
+      "title": "self.payments.tokens.bt.get",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteSelfTokens",
+      "title": "deleteSelfTokens",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfTokens",
+      "title": "getSelfTokens",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Token"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "deleteSelfTokensToken",
+      "title": "deleteSelfTokensToken",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSelfValidateEmail",
+      "title": "getSelfValidateEmail",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "validationKey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSummary",
+      "title": "getSummary",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Summary"
+      }
+    },
+    {
+      "id": "postUsers",
+      "title": "postUsers",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "invitationKey": {
+            "type": "string"
+          },
+          "addonBetaInvitationKey": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "pass": {
+            "type": "string"
+          },
+          "url_next": {
+            "type": "string"
+          },
+          "terms": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeUser"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUsersId",
+      "title": "getUsersId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    {
+      "id": "getUsersIdApplications",
+      "title": "getUsersIdApplications",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Application"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getUsersUserIdGitInfo",
+      "title": "getUsersUserIdGitInfo",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getVendorApps",
+      "title": "getVendorApps",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Application"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getVendorAppsAddonId",
+      "title": "getVendorAppsAddonId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putVendorAppsAddonId",
+      "title": "putVendorAppsAddonId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "addonId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "addonId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postVendorBillingOwnerId",
+      "title": "postVendorBillingOwnerId",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "addonId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/WannabeAddonBilling"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "addonId",
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ],
+  "tags": [
+    "cloud"
+  ]
+}

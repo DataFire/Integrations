@@ -1,0 +1,738 @@
+{
+  "id": "amazonaws_resource_groups",
+  "title": "AWS Resource Groups",
+  "description": "AWS Resource Groups\n\nAWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances, Amazon Relational Database Service databases, and Amazon S3 buckets into groups using criteria that you define as tags. A resource group is a collection of resources that match the resource types specified in a query, and share one or more tags or portions of tags. You can create a group of resources based on their roles in your cloud infrastructure, lifecycle stages, regions, application layers, or virtually any criteria. Resource groups enable you to automate management tasks, such as those in AWS Systems Manager Automation documents, on tag-related resources in AWS Systems Manager. Groups of tagged resources also let you quickly view a custom console in AWS Systems Manager that shows AWS Config compliance and other monitoring data about member resources.\n\nTo create a resource group, build a resource query, and specify tags that identify the criteria that members of the group have in common. Tags are key-value pairs.\n\nFor more information about Resource Groups, see the [AWS Resource Groups User Guide](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html).\n\nAWS Resource Groups uses a REST-compliant API that you can use to perform the following types of operations.\n\n*   Create, Read, Update, and Delete (CRUD) operations on resource groups and resource query entities\n\n*   Applying, editing, and removing tags from resource groups\n\n*   Resolving resource group member ARNs so they can be returned as search results\n\n*   Getting data about resources that are members of a group\n\n*   Searching AWS resources based on a resource query",
+  "security": {
+    "amazonaws_resource_groups": {
+      "integration": "amazonaws_resource_groups",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_resource_groups.jpeg"
+  },
+  "actionCount": 6,
+  "definitions": {
+    "BadRequestException": {
+      "description": "The request does not comply with validation rules that are defined for the request parameters.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "BadRequestException"
+    },
+    "CreateGroupInput": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/GroupDescription",
+          "description": "The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores, punctuation, and spaces."
+        },
+        "Name": {
+          "$ref": "#/definitions/GroupName",
+          "description": "The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with <code>AWS</code> or <code>aws</code>; these are reserved. A resource group name must be unique within your account."
+        },
+        "ResourceQuery": {
+          "$ref": "#/definitions/ResourceQuery",
+          "description": "The resource query that determines which AWS resources are members of this group."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters."
+        }
+      },
+      "required": [
+        "Name",
+        "ResourceQuery"
+      ],
+      "type": "object",
+      "title": "CreateGroupInput"
+    },
+    "CreateGroupOutput": {
+      "properties": {
+        "Group": {
+          "$ref": "#/definitions/Group",
+          "description": "A full description of the resource group after it is created."
+        },
+        "ResourceQuery": {
+          "$ref": "#/definitions/ResourceQuery",
+          "description": "The resource query associated with the group."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags associated with the group."
+        }
+      },
+      "type": "object",
+      "title": "CreateGroupOutput"
+    },
+    "DeleteGroupInput": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteGroupInput"
+    },
+    "DeleteGroupOutput": {
+      "properties": {
+        "Group": {
+          "$ref": "#/definitions/Group",
+          "description": "A full description of the deleted resource group."
+        }
+      },
+      "type": "object",
+      "title": "DeleteGroupOutput"
+    },
+    "ErrorMessage": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string",
+      "title": "ErrorMessage"
+    },
+    "ForbiddenException": {
+      "description": "The caller is not authorized to make the request.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ForbiddenException"
+    },
+    "GetGroupInput": {
+      "properties": {},
+      "type": "object",
+      "title": "GetGroupInput"
+    },
+    "GetGroupOutput": {
+      "properties": {
+        "Group": {
+          "$ref": "#/definitions/Group",
+          "description": "A full description of the resource group."
+        }
+      },
+      "type": "object",
+      "title": "GetGroupOutput"
+    },
+    "GetGroupQueryInput": {
+      "properties": {},
+      "type": "object",
+      "title": "GetGroupQueryInput"
+    },
+    "GetGroupQueryOutput": {
+      "properties": {
+        "GroupQuery": {
+          "$ref": "#/definitions/GroupQuery",
+          "description": "The resource query associated with the specified group."
+        }
+      },
+      "type": "object",
+      "title": "GetGroupQueryOutput"
+    },
+    "GetTagsInput": {
+      "properties": {},
+      "type": "object",
+      "title": "GetTagsInput"
+    },
+    "GetTagsOutput": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/GroupArn",
+          "description": "The ARN of the tagged resource."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags associated with the specified resource."
+        }
+      },
+      "type": "object",
+      "title": "GetTagsOutput"
+    },
+    "Group": {
+      "description": "A resource group.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/GroupDescription",
+          "description": "The description of the resource group."
+        },
+        "GroupArn": {
+          "$ref": "#/definitions/GroupArn",
+          "description": "The ARN of a resource group."
+        },
+        "Name": {
+          "$ref": "#/definitions/GroupName",
+          "description": "The name of a resource group."
+        }
+      },
+      "required": [
+        "GroupArn",
+        "Name"
+      ],
+      "type": "object",
+      "title": "Group"
+    },
+    "GroupArn": {
+      "pattern": "arn:aws:resource-groups:[a-z]{2}-[a-z]+-\\d{1}:[0-9]{12}:group/[a-zA-Z0-9_\\.-]{1,128}",
+      "type": "string",
+      "title": "GroupArn"
+    },
+    "GroupDescription": {
+      "maxLength": 512,
+      "pattern": "[\\sa-zA-Z0-9_\\.-]+",
+      "type": "string",
+      "title": "GroupDescription"
+    },
+    "GroupList": {
+      "items": {
+        "$ref": "#/definitions/Group"
+      },
+      "type": "array",
+      "title": "GroupList"
+    },
+    "GroupName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_\\.-]+",
+      "type": "string",
+      "title": "GroupName"
+    },
+    "GroupQuery": {
+      "description": "The underlying resource query of a resource group. Resources that match query results are part of the group.",
+      "properties": {
+        "GroupName": {
+          "$ref": "#/definitions/GroupName",
+          "description": "The name of a resource group that is associated with a specific resource query."
+        },
+        "ResourceQuery": {
+          "$ref": "#/definitions/ResourceQuery",
+          "description": "The resource query which determines which AWS resources are members of the associated resource group."
+        }
+      },
+      "required": [
+        "GroupName",
+        "ResourceQuery"
+      ],
+      "type": "object",
+      "title": "GroupQuery"
+    },
+    "InternalServerErrorException": {
+      "description": "An internal error occurred while processing the request.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InternalServerErrorException"
+    },
+    "ListGroupResourcesInput": {
+      "properties": {},
+      "type": "object",
+      "title": "ListGroupResourcesInput"
+    },
+    "ListGroupResourcesOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The NextToken value to include in a subsequent <code>ListGroupResources</code> request, to get more results."
+        },
+        "ResourceIdentifiers": {
+          "$ref": "#/definitions/ResourceIdentifierList",
+          "description": "The ARNs and resource types of resources that are members of the group that you specified."
+        }
+      },
+      "type": "object",
+      "title": "ListGroupResourcesOutput"
+    },
+    "ListGroupsInput": {
+      "properties": {},
+      "type": "object",
+      "title": "ListGroupsInput"
+    },
+    "ListGroupsOutput": {
+      "properties": {
+        "Groups": {
+          "$ref": "#/definitions/GroupList",
+          "description": "A list of resource groups."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The NextToken value to include in a subsequent <code>ListGroups</code> request, to get more results."
+        }
+      },
+      "type": "object",
+      "title": "ListGroupsOutput"
+    },
+    "MaxResults": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxResults"
+    },
+    "MethodNotAllowedException": {
+      "description": "The request uses an HTTP method which is not allowed for the specified resource.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "MethodNotAllowedException"
+    },
+    "NextToken": {
+      "type": "string",
+      "title": "NextToken"
+    },
+    "NotFoundException": {
+      "description": "One or more resources specified in the request do not exist.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "NotFoundException"
+    },
+    "Query": {
+      "maxLength": 2048,
+      "type": "string",
+      "title": "Query"
+    },
+    "QueryType": {
+      "enum": [
+        "TAG_FILTERS_1_0"
+      ],
+      "type": "string",
+      "title": "QueryType"
+    },
+    "ResourceArn": {
+      "pattern": "arn:aws:[a-z0-9]*:([a-z]{2}-[a-z]+-\\d{1})?:([0-9]{12})?:.+",
+      "type": "string",
+      "title": "ResourceArn"
+    },
+    "ResourceIdentifier": {
+      "description": "The ARN of a resource, and its resource type.",
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The ARN of a resource."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The resource type of a resource, such as <code>AWS::EC2::Instance</code>."
+        }
+      },
+      "type": "object",
+      "title": "ResourceIdentifier"
+    },
+    "ResourceIdentifierList": {
+      "items": {
+        "$ref": "#/definitions/ResourceIdentifier"
+      },
+      "type": "array",
+      "title": "ResourceIdentifierList"
+    },
+    "ResourceQuery": {
+      "description": "The query that is used to define a resource group or a search for resources.",
+      "properties": {
+        "Query": {
+          "$ref": "#/definitions/Query",
+          "description": "The query that defines a group or a search."
+        },
+        "Type": {
+          "$ref": "#/definitions/QueryType",
+          "description": "<p>The type of the query. The valid value in this release is <code>TAG_FILTERS_1_0</code>.</p> <p> <i> <code>TAG_FILTERS_1_0:</code> </i> A JSON syntax that lets you specify a collection of simple tag filters for resource types and tags, as supported by the AWS Tagging API GetResources operation. When more than one element is present, only resources that match all filters are part of the result. If a filter specifies more than one value for a key, a resource matches the filter if its tag value matches any of the specified values.</p>"
+        }
+      },
+      "required": [
+        "Type",
+        "Query"
+      ],
+      "type": "object",
+      "title": "ResourceQuery"
+    },
+    "ResourceType": {
+      "pattern": "AWS::[a-zA-Z0-9]+::\\w+",
+      "type": "string",
+      "title": "ResourceType"
+    },
+    "SearchResourcesInput": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of group member ARNs returned by <code>SearchResources</code> in paginated output. By default, this number is 50."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The NextToken value that is returned in a paginated <code>SearchResources</code> request. To get the next page of results, run the call again, add the NextToken parameter, and specify the NextToken value."
+        },
+        "ResourceQuery": {
+          "$ref": "#/definitions/ResourceQuery",
+          "description": "The search query, using the same formats that are supported for resource group definition."
+        }
+      },
+      "required": [
+        "ResourceQuery"
+      ],
+      "type": "object",
+      "title": "SearchResourcesInput"
+    },
+    "SearchResourcesOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The NextToken value to include in a subsequent <code>SearchResources</code> request, to get more results."
+        },
+        "ResourceIdentifiers": {
+          "$ref": "#/definitions/ResourceIdentifierList",
+          "description": "The ARNs and resource types of resources that are members of the group that you specified."
+        }
+      },
+      "type": "object",
+      "title": "SearchResourcesOutput"
+    },
+    "TagInput": {
+      "properties": {
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags to add to the specified resource. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters."
+        }
+      },
+      "required": [
+        "Tags"
+      ],
+      "type": "object",
+      "title": "TagInput"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array",
+      "title": "TagKeyList"
+    },
+    "TagOutput": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/GroupArn",
+          "description": "The ARN of the tagged resource."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags that have been added to the specified resource."
+        }
+      },
+      "type": "object",
+      "title": "TagOutput"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string",
+      "title": "TagValue"
+    },
+    "Tags": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/TagKey"
+          },
+          "value": {
+            "$ref": "#/definitions/TagValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Tags"
+    },
+    "TooManyRequestsException": {
+      "description": "The caller has exceeded throttling limits.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "TooManyRequestsException"
+    },
+    "UnauthorizedException": {
+      "description": "The request has not been applied because it lacks valid authentication credentials for the target resource.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "UnauthorizedException"
+    },
+    "UntagInput": {
+      "properties": {
+        "Keys": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "The keys of the tags to be removed."
+        }
+      },
+      "required": [
+        "Keys"
+      ],
+      "type": "object",
+      "title": "UntagInput"
+    },
+    "UntagOutput": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/GroupArn",
+          "description": "The ARN of the resource from which tags have been removed."
+        },
+        "Keys": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "The keys of tags that have been removed."
+        }
+      },
+      "type": "object",
+      "title": "UntagOutput"
+    },
+    "UpdateGroupInput": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/GroupDescription",
+          "description": "The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores, punctuation, and spaces."
+        }
+      },
+      "type": "object",
+      "title": "UpdateGroupInput"
+    },
+    "UpdateGroupOutput": {
+      "properties": {
+        "Group": {
+          "$ref": "#/definitions/Group",
+          "description": "The full description of the resource group after it has been updated."
+        }
+      },
+      "type": "object",
+      "title": "UpdateGroupOutput"
+    },
+    "UpdateGroupQueryInput": {
+      "properties": {
+        "ResourceQuery": {
+          "$ref": "#/definitions/ResourceQuery",
+          "description": "The resource query that determines which AWS resources are members of the resource group."
+        }
+      },
+      "required": [
+        "ResourceQuery"
+      ],
+      "type": "object",
+      "title": "UpdateGroupQueryInput"
+    },
+    "UpdateGroupQueryOutput": {
+      "properties": {
+        "GroupQuery": {
+          "$ref": "#/definitions/GroupQuery",
+          "description": "The resource query associated with the resource group after the update."
+        }
+      },
+      "type": "object",
+      "title": "UpdateGroupQueryOutput"
+    }
+  },
+  "actions": [
+    {
+      "id": "ListGroups",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListGroupsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListGroupsOutput"
+      },
+      "security": {
+        "amazonaws_resource_groups": {
+          "integration": "amazonaws_resource_groups"
+        }
+      }
+    },
+    {
+      "id": "UpdateGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "GroupName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateGroupInput"
+          }
+        ],
+        "required": [
+          "GroupName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateGroupOutput"
+      },
+      "security": {
+        "amazonaws_resource_groups": {
+          "integration": "amazonaws_resource_groups"
+        }
+      }
+    },
+    {
+      "id": "UpdateGroupQuery",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "GroupName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateGroupQueryInput"
+          }
+        ],
+        "required": [
+          "GroupName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateGroupQueryOutput"
+      },
+      "security": {
+        "amazonaws_resource_groups": {
+          "integration": "amazonaws_resource_groups"
+        }
+      }
+    },
+    {
+      "id": "ListGroupResources",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          },
+          "GroupName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListGroupResourcesInput"
+          }
+        ],
+        "required": [
+          "GroupName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListGroupResourcesOutput"
+      },
+      "security": {
+        "amazonaws_resource_groups": {
+          "integration": "amazonaws_resource_groups"
+        }
+      }
+    },
+    {
+      "id": "SearchResources",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/SearchResourcesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SearchResourcesOutput"
+      },
+      "security": {
+        "amazonaws_resource_groups": {
+          "integration": "amazonaws_resource_groups"
+        }
+      }
+    },
+    {
+      "id": "Untag",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Arn": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UntagInput"
+          }
+        ],
+        "required": [
+          "Arn"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UntagOutput"
+      },
+      "security": {
+        "amazonaws_resource_groups": {
+          "integration": "amazonaws_resource_groups"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

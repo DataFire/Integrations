@@ -1,0 +1,173 @@
+{
+  "id": "amazonaws_translate",
+  "title": "Amazon Translate",
+  "description": "Provides translation between English and one of six languages, or between one of the six languages and English.",
+  "security": {
+    "amazonaws_translate": {
+      "integration": "amazonaws_translate",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_translate.jpeg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "BoundedLengthString": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string",
+      "title": "BoundedLengthString"
+    },
+    "InternalServerException": {
+      "description": "An internal server error occurred. Retry your request.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "InternalServerException"
+    },
+    "InvalidRequestException": {
+      "description": "The request is invalid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "InvalidRequestException"
+    },
+    "LanguageCodeString": {
+      "maxLength": 5,
+      "minLength": 2,
+      "type": "string",
+      "title": "LanguageCodeString"
+    },
+    "ServiceUnavailableException": {
+      "description": "Amazon Translate is unavailable. Retry your request later.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "ServiceUnavailableException"
+    },
+    "String": {
+      "minLength": 1,
+      "type": "string",
+      "title": "String"
+    },
+    "TextSizeLimitExceededException": {
+      "description": "The size of the input text exceeds the length constraint for the <code>Text</code> field. Try again with a shorter text. ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "TextSizeLimitExceededException"
+    },
+    "TooManyRequestsException": {
+      "description": "The number of requests exceeds the limit. Resubmit your request later.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "TooManyRequestsException"
+    },
+    "TranslateTextRequest": {
+      "properties": {
+        "SourceLanguageCode": {
+          "$ref": "#/definitions/LanguageCodeString",
+          "description": "One of the supported language codes for the source text. If the <code>TargetLanguageCode</code> is not \"en\", the <code>SourceLanguageCode</code> must be \"en\"."
+        },
+        "TargetLanguageCode": {
+          "$ref": "#/definitions/LanguageCodeString",
+          "description": "One of the supported language codes for the target text. If the <code>SourceLanguageCode</code> is not \"en\", the <code>TargetLanguageCode</code> must be \"en\"."
+        },
+        "Text": {
+          "$ref": "#/definitions/BoundedLengthString",
+          "description": "The text to translate."
+        }
+      },
+      "required": [
+        "Text",
+        "SourceLanguageCode",
+        "TargetLanguageCode"
+      ],
+      "type": "object",
+      "title": "TranslateTextRequest"
+    },
+    "TranslateTextResponse": {
+      "properties": {
+        "SourceLanguageCode": {
+          "$ref": "#/definitions/LanguageCodeString",
+          "description": "The language code for the language of the input text. "
+        },
+        "TargetLanguageCode": {
+          "$ref": "#/definitions/LanguageCodeString",
+          "description": "The language code for the language of the translated text. "
+        },
+        "TranslatedText": {
+          "$ref": "#/definitions/String",
+          "description": "The text translated into the target language."
+        }
+      },
+      "required": [
+        "TranslatedText",
+        "SourceLanguageCode",
+        "TargetLanguageCode"
+      ],
+      "type": "object",
+      "title": "TranslateTextResponse"
+    },
+    "UnsupportedLanguagePairException": {
+      "description": "Amazon Translate cannot translate input text in the source language into this target language. For more information, see <a>how-to-error-msg</a>. ",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "UnsupportedLanguagePairException"
+    }
+  },
+  "actions": [
+    {
+      "id": "TranslateText",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TranslateTextRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TranslateTextResponse"
+      },
+      "security": {
+        "amazonaws_translate": {
+          "integration": "amazonaws_translate"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}
