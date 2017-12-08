@@ -1,6 +1,6 @@
 {
   "id": "azure_arm_recoveryservices",
-  "title": "RecoveryServicesBackupClient",
+  "title": "RecoveryServicesClient",
   "security": {
     "azure_arm_recoveryservices": {
       "integration": "azure_arm_recoveryservices",

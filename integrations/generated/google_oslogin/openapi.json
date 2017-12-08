@@ -10,7 +10,7 @@
       "name": "Google",
       "url": "https://google.com"
     },
-    "description": "Manages OS login configuration for Directory API users.",
+    "description": "Manages OS login configuration for Google account users.",
     "license": {
       "name": "Creative Commons Attribution 3.0",
       "url": "http://creativecommons.org/licenses/by/3.0/"

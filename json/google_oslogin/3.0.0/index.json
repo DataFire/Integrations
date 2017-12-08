@@ -1,7 +1,7 @@
 {
   "id": "google_oslogin",
   "title": "Google Cloud OS Login",
-  "description": "Manages OS login configuration for Directory API users.",
+  "description": "Manages OS login configuration for Google account users.",
   "security": {
     "google_oslogin": {
       "integration": "google_oslogin",

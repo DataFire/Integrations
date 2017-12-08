@@ -5,7 +5,7 @@
   ],
   "host": "management.azure.com",
   "info": {
-    "title": "RecoveryServicesBackupClient",
+    "title": "RecoveryServicesClient",
     "version": "2016-12-01",
     "x-apisguru-categories": [
       "cloud"

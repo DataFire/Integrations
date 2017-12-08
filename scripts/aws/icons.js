@@ -9,6 +9,7 @@ let INTEG_DIR = __dirname + '/../../integrations/generated';
 const RENAME = {
   es: "elasticsearch",
   elasticache: "elasticcache",
+  acm: 'certificatemanager',
 }
 
 let icons = {};

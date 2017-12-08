@@ -152,8 +152,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_acm.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_acm.svg"
     },
     "actionCount": 10,
     "tags": [
@@ -177,8 +176,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_api_pricing.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_api_pricing.png"
     },
     "actionCount": 3,
     "tags": [
@@ -226,8 +224,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_appstream2.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_appstream2.png"
     },
     "actionCount": 29,
     "tags": [
@@ -287,8 +284,8 @@
   },
   "amazonaws_autoscaling": {
     "id": "amazonaws_autoscaling",
-    "title": "Application Auto Scaling",
-    "description": "With Application Auto Scaling, you can automatically scale your AWS resources. The experience is similar to that of [Aut...",
+    "title": "Auto Scaling",
+    "description": "Auto Scaling",
     "security": {
       "amazonaws_autoscaling": {
         "integration": "amazonaws_autoscaling",
@@ -349,7 +346,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_budgets.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_budgets.jpeg"
     },
     "actionCount": 13,
     "tags": [
@@ -373,8 +370,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ce.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ce.svg"
     },
     "actionCount": 4,
     "tags": [
@@ -424,7 +420,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_clouddirectory.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_clouddirectory.jpeg"
     },
     "actionCount": 57,
     "tags": [
@@ -521,7 +517,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudhsmv2.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudhsmv2.jpeg"
     },
     "actionCount": 10,
     "tags": [
@@ -570,7 +566,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudsearchdomain.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudsearchdomain.jpeg"
     },
     "actionCount": 3,
     "tags": [
@@ -715,7 +711,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codestar.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codestar.jpeg"
     },
     "actionCount": 18,
     "tags": [
@@ -740,7 +736,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_identity.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_identity.jpeg"
     },
     "actionCount": 18,
     "tags": [
@@ -765,7 +761,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_idp.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_idp.jpeg"
     },
     "actionCount": 83,
     "tags": [
@@ -790,7 +786,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_sync.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_sync.jpeg"
     },
     "actionCount": 12,
     "tags": [
@@ -864,7 +860,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cur.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cur.jpeg"
     },
     "actionCount": 3,
     "tags": [
@@ -888,8 +884,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_data_iot.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_data_iot.png"
     },
     "actionCount": 2,
     "tags": [
@@ -988,7 +983,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dax.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dax.jpeg"
     },
     "actionCount": 21,
     "tags": [
@@ -1061,7 +1056,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_discovery.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_discovery.jpeg"
     },
     "actionCount": 19,
     "tags": [
@@ -1193,7 +1188,7 @@
   "amazonaws_ecs": {
     "id": "amazonaws_ecs",
     "title": "Amazon EC2 Container Service",
-    "description": "Amazon EC2 Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes it easy to...",
+    "description": "Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes it eas...",
     "security": {
       "amazonaws_ecs": {
         "integration": "amazonaws_ecs",
@@ -1278,7 +1273,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticfilesystem.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticfilesystem.jpeg"
     },
     "actionCount": 8,
     "tags": [
@@ -1327,7 +1322,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticmapreduce.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticmapreduce.jpeg"
     },
     "actionCount": 27,
     "tags": [
@@ -1375,7 +1370,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_email.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_email.svg"
     },
     "actionCount": 60,
     "tags": [
@@ -1400,7 +1395,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_entitlement_marketplace.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_entitlement_marketplace.jpeg"
     },
     "actionCount": 1,
     "tags": [
@@ -1425,7 +1420,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_es.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_es.jpeg"
     },
     "actionCount": 12,
     "tags": [
@@ -1450,7 +1445,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_events.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_events.jpeg"
     },
     "actionCount": 15,
     "tags": [
@@ -1547,7 +1542,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_glue.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_glue.jpeg"
     },
     "actionCount": 75,
     "tags": [
@@ -1621,7 +1616,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_health.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_health.jpeg"
     },
     "actionCount": 6,
     "tags": [
@@ -1885,8 +1880,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_logs.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_logs.svg"
     },
     "actionCount": 33,
     "tags": [
@@ -1935,7 +1929,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_marketplacecommerceanalytics.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_marketplacecommerceanalytics.jpeg"
     },
     "actionCount": 2,
     "tags": [
@@ -2059,8 +2053,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_metering_marketplace.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_metering_marketplace.png"
     },
     "actionCount": 3,
     "tags": [
@@ -2084,8 +2077,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mgh.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mgh.png"
     },
     "actionCount": 16,
     "tags": [
@@ -2110,7 +2102,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mobile.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mobile.jpeg"
     },
     "actionCount": 7,
     "tags": [
@@ -2158,8 +2150,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_models_lex.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_models_lex.png"
     },
     "actionCount": 30,
     "tags": [
@@ -2233,7 +2224,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mturk_requester.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mturk_requester.jpeg"
     },
     "actionCount": 39,
     "tags": [
@@ -2281,8 +2272,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_opsworks_cm.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_opsworks_cm.png"
     },
     "actionCount": 15,
     "tags": [
@@ -2498,7 +2488,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_route53domains.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_route53domains.jpeg"
     },
     "actionCount": 24,
     "tags": [
@@ -2523,7 +2513,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_runtime_lex.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_runtime_lex.jpeg"
     },
     "actionCount": 2,
     "tags": [
@@ -2621,7 +2611,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sdb.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sdb.jpeg"
     },
     "actionCount": 10,
     "tags": [
@@ -2802,7 +2792,7 @@
   "amazonaws_ssm": {
     "id": "amazonaws_ssm",
     "title": "Amazon Simple Systems Manager (SSM)",
-    "description": "Amazon EC2 Systems Manager",
+    "description": "AWS Systems Manager",
     "security": {
       "amazonaws_ssm": {
         "integration": "amazonaws_ssm",
@@ -2815,7 +2805,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ssm.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ssm.jpeg"
     },
     "actionCount": 96,
     "tags": [
@@ -2840,7 +2830,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_states.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_states.jpeg"
     },
     "actionCount": 17,
     "tags": [
@@ -2889,7 +2879,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_streams_dynamodb.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_streams_dynamodb.jpeg"
     },
     "actionCount": 4,
     "tags": [
@@ -2938,7 +2928,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_support.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_support.jpeg"
     },
     "actionCount": 14,
     "tags": [
@@ -2986,8 +2976,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_tagging.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_tagging.png"
     },
     "actionCount": 5,
     "tags": [
@@ -3061,7 +3050,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_waf_regional.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_waf_regional.jpeg"
     },
     "actionCount": 63,
     "tags": [
@@ -3134,7 +3123,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_xray.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_xray.jpeg"
     },
     "actionCount": 6,
     "tags": [
@@ -5041,7 +5030,7 @@
   },
   "azure_arm_recoveryservices": {
     "id": "azure_arm_recoveryservices",
-    "title": "RecoveryServicesBackupClient",
+    "title": "RecoveryServicesClient",
     "security": {
       "azure_arm_recoveryservices": {
         "integration": "azure_arm_recoveryservices",
@@ -5638,8 +5627,7 @@
   },
   "azure_arm_web": {
     "id": "azure_arm_web",
-    "title": "WebSite Management Client",
-    "description": "Use these APIs to manage Azure Websites resources through the Azure Resource Manager. All task operations conform to the...",
+    "title": "AppServiceCertificateOrders API Client",
     "security": {
       "azure_arm_web": {
         "integration": "azure_arm_web",
@@ -6994,7 +6982,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_browse.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_browse.jpeg"
     },
     "actionCount": 6,
     "tags": [
@@ -7064,7 +7052,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_marketing.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_marketing.jpeg"
     },
     "actionCount": 5,
     "tags": [
@@ -7074,8 +7062,8 @@
   },
   "ebay_commerce_taxonomy": {
     "id": "ebay_commerce_taxonomy",
-    "title": "Commerce Taxonomy",
-    "description": "The Commerce Taxonomy API helps sellers determine the best eBay category when listing their inventory and buyers to dete...",
+    "title": "Taxonomy",
+    "description": "Use the Taxonomy API to discover the most appropriate eBay categories under which sellers can offer inventory items for ...",
     "security": {
       "ebay_commerce_taxonomy": {
         "integration": "ebay_commerce_taxonomy",
@@ -7099,7 +7087,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_commerce_taxonomy.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_commerce_taxonomy.jpeg"
     },
     "actionCount": 6,
     "tags": [
@@ -7295,7 +7283,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/etmdb.webp"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/etmdb.png"
     },
     "actionCount": 29,
     "tags": [
@@ -9049,7 +9037,7 @@
   "google_cloudtrace": {
     "id": "google_cloudtrace",
     "title": "Stackdriver Trace",
-    "description": "Send and retrieve trace data from Stackdriver Trace. Data is generated and available by default for all App Engine appli...",
+    "description": "Sends application trace data to Stackdriver Trace for viewing. Trace data is collected for all App Engine applications b...",
     "security": {
       "google_cloudtrace": {
         "integration": "google_cloudtrace",
@@ -10545,7 +10533,7 @@
   "google_oslogin": {
     "id": "google_oslogin",
     "title": "Google Cloud OS Login",
-    "description": "Manages OS login configuration for Directory API users.",
+    "description": "Manages OS login configuration for Google account users.",
     "security": {
       "google_oslogin": {
         "integration": "google_oslogin",
@@ -11147,7 +11135,7 @@
   },
   "google_script": {
     "id": "google_script",
-    "title": "Google Apps Script Execution",
+    "title": "Google Apps Script",
     "description": "An API for managing and executing Google Apps Script projects.",
     "security": {
       "google_script": {
@@ -12511,8 +12499,8 @@
   },
   "gov_bc_ca_geocoder": {
     "id": "gov_bc_ca_geocoder",
-    "title": "Gated Geocoder",
-    "description": "This gated API computes the physical locations (i.e., latitude and longitude) and correct, standardized forms of civic a...",
+    "title": "Geocoder",
+    "description": "This API represents address cleaning, correction, completion, geocoding, reverse geocoding, and proximity resources for ...",
     "security": {
       "gov_bc_ca_geocoder": {
         "integration": "gov_bc_ca_geocoder",
@@ -13220,7 +13208,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/launchdarkly.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/launchdarkly.jpeg"
     },
     "actionCount": 31,
     "tags": [
@@ -16202,7 +16190,7 @@
     "description": "This API allows you to interact with the VictorOps platform in various ways. Your account may be limited",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/victorops.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/victorops.jpeg"
     },
     "actionCount": 43,
     "tags": [
@@ -16856,7 +16844,7 @@
     "description": "# Introduction Welcome to the reference for the Zuora REST API! [REST](http://en.wikipedia.org/wiki/REST_API) is a web-s...",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zuora.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zuora.jpeg"
     },
     "actionCount": 297,
     "tags": [

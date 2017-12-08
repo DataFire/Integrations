@@ -1,7 +1,7 @@
 {
   "id": "amazonaws_ssm",
   "title": "Amazon Simple Systems Manager (SSM)",
-  "description": "Amazon EC2 Systems Manager\n\nAmazon EC2 Systems Manager is a collection of capabilities that helps you automate management tasks such as collecting system inventory, applying operating system (OS) patches, automating the creation of Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale. Systems Manager lets you remotely and securely manage the configuration of your managed instances. A _managed instance_ is any Amazon EC2 instance or on-premises machine in your hybrid environment that has been configured for Systems Manager.\n\nThis reference is intended to be used with the [Amazon EC2 Systems Manager User Guide](http://docs.aws.amazon.com/systems-manager/latest/userguide/).\n\nTo get started, verify prerequisites and configure managed instances. For more information, see [Systems Manager Prerequisites](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html).\n\nFor information about other API actions you can perform on Amazon EC2 instances, see the [Amazon EC2 API Reference](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/). For information about how to use a Query API, see [Making API Requests](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html).",
+  "description": "AWS Systems Manager\n\nAWS Systems Manager is a collection of capabilities that helps you automate management tasks such as collecting system inventory, applying operating system (OS) patches, automating the creation of Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale. Systems Manager lets you remotely and securely manage the configuration of your managed instances. A _managed instance_ is any Amazon EC2 instance or on-premises machine in your hybrid environment that has been configured for Systems Manager.\n\nThis reference is intended to be used with the [AWS Systems Manager User Guide](http://docs.aws.amazon.com/systems-manager/latest/userguide/).\n\nTo get started, verify prerequisites and configure managed instances. For more information, see [Systems Manager Prerequisites](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html).\n\nFor information about other API actions you can perform on Amazon EC2 instances, see the [Amazon EC2 API Reference](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/). For information about how to use a Query API, see [Making API Requests](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html).",
   "security": {
     "amazonaws_ssm": {
       "integration": "amazonaws_ssm",
@@ -14,7 +14,7 @@
   },
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ssm.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ssm.jpeg"
   },
   "actionCount": 96,
   "definitions": {

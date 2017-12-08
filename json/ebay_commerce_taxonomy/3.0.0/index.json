@@ -1,7 +1,7 @@
 {
   "id": "ebay_commerce_taxonomy",
-  "title": "Commerce Taxonomy",
-  "description": "The Commerce Taxonomy API helps sellers determine the best eBay category when listing their inventory and buyers to determine the appropriate categories in which to browse or search.",
+  "title": "Taxonomy",
+  "description": "Use the Taxonomy API to discover the most appropriate eBay categories under which sellers can offer inventory items for sale, and the most likely categories under which buyers can browse or search for items to purchase. In addition, the Taxonomy API provides information about the required and recommended category aspects to include in listings.",
   "security": {
     "ebay_commerce_taxonomy": {
       "integration": "ebay_commerce_taxonomy",
@@ -25,7 +25,7 @@
   },
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_commerce_taxonomy.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_commerce_taxonomy.jpeg"
   },
   "actionCount": 6,
   "definitions": {

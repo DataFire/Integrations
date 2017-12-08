@@ -1,7 +1,7 @@
 {
   "id": "amazonaws_servicecatalog",
   "title": "AWS Service Catalog",
-  "description": "AWS Service Catalog\n\n**Overview**\n\n[AWS Service Catalog](https://aws.amazon.com/servicecatalog/) allows organizations to create and manage catalogs of IT services that are approved for use on AWS. This documentation provides reference material for the AWS Service Catalog end user API. To get the most out of this documentation, be familiar with the terminology discussed in [AWS Service Catalog Concepts](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html).\n\n_Additional Resources_\n\n*   [AWS Service Catalog Administrator Guide](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html)\n\n*   [AWS Service Catalog User Guide](http://docs.aws.amazon.com/servicecatalog/latest/userguide/introduction.html)",
+  "description": "AWS Service Catalog\n\n[AWS Service Catalog](https://aws.amazon.com/servicecatalog/) enables organizations to create and manage catalogs of IT services that are approved for use on AWS. To get the most out of this documentation, you should be familiar with the terminology discussed in [AWS Service Catalog Concepts](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html).",
   "security": {
     "amazonaws_servicecatalog": {
       "integration": "amazonaws_servicecatalog",

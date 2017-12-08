@@ -13,8 +13,7 @@
     }
   },
   "logo": {
-    "backgroundColor": "#FFFFFF",
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ce.jpeg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ce.svg"
   },
   "actionCount": 4,
   "definitions": {
