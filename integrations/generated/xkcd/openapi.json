@@ -50,7 +50,7 @@
             }
           }
         },
-        "operationId": "info.0.json.get"
+        "operationId": "getLatestComic"
       }
     },
     "/{comicId}/info.0.json": {
@@ -72,7 +72,7 @@
             }
           }
         },
-        "operationId": "comicId.info.0.json.get"
+        "operationId": "getComic"
       }
     }
   },
