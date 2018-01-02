@@ -16,6 +16,8 @@ let mongodb = module.exports = new datafire.Integration({
     }
   }
 });
+mongodb.ObjectID = mongo.ObjectID;
+mongodb.ObjectId = mongo.ObjectId;
 
 const FIND_INPUTS =  [{
   title: 'collection',
