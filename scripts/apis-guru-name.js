@@ -2,31 +2,50 @@ const SUFFIXES = [
   '.com', '.org', '.net', '.co.uk', '.io',
 ]
 
-const NAME_CHANGES = {
-  "m2010.vg": "magento",
-  "googleapis.com": "google",
+const PROVIDER_CHANGES = {
   "citrixonline.com": "citrix",
+  "googleapis.com": "google",
   "hetrascertification.net": "hetras",
+  "m2010.vg": "magento",
+  "microsoft.com": "microsoft",
   "nrel.gov": "nrel",
+}
+
+const NAME_CHANGES = {
   "posty-api.herokuapp.com": "posty",
-  "microsoft.com": "microsoft_security_updates",
+  "amazonaws": {
+    "alexaforbusiness": "a4b",
+    "AWSMigrationHub": "mgh",
+    "application-autoscaling": "autoscaling",
+    "appstream": "appstream2",
+    "elasticloadbalancingv2": "elasticloadbalancing",
+    "iot-data": "data_iot",
+    "iot-jobs-data": "data_jobs_iot",
+    "lex-models": "models_lex",
+    "mediastore-data": "data_mediastore",
+    "meteringmarketplace": "metering_marketplace",
+    "opsworkscm": "opsworks_cm",
+    "pricing": "api_pricing",
+  }
+}
+
+function cleanName(str) {
+  SUFFIXES.forEach(suffix => {
+    let regex = new RegExp(suffix.replace(/\./g, '\\.') + '$');
+    str = str.replace(regex, '');
+  });
+  return str.toLowerCase().replace(/\W+/g, '_');
 }
 
 const getName = module.exports = (apisGuruName) => {
-  let provider = '';
-  let name = NAME_CHANGES[apisGuruName];
-  if (!name) {
-    name = apisGuruName.substring(apisGuruName.indexOf(':') + 1);
-    provider = apisGuruName.substring(0, apisGuruName.indexOf(':'));
-    provider = NAME_CHANGES[provider] || provider;
-    SUFFIXES.forEach(suffix => {
-      let regex = new RegExp(suffix.replace(/\./g, '\\.') + '$');
-      name = name.replace(regex, '');
-      provider = provider.replace(regex, '');
-    });
-    if (provider) name = provider + '_' + name;
-  }
-  name = name.toLowerCase().replace(/\W+/g, '_');
+  let provider = apisGuruName.substring(0, apisGuruName.indexOf(':'));
+  provider = PROVIDER_CHANGES[provider] || provider;
+  provider = cleanName(provider);
+  let name = apisGuruName.substring(apisGuruName.indexOf(':') + 1);
+  nameChange = NAME_CHANGES[provider] || NAME_CHANGES;
+  name = nameChange[name] || name;
+  name = cleanName(name);
+  if (provider) name = provider + '_' + name;
   return {provider, name};
 }
 
