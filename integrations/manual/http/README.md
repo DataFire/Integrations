@@ -1,235 +1,174 @@
-# @datafire/
+# @datafire/http
+
+Client library for HTTP
+
+## Installation and Usage
+```bash
+npm install --save @datafire/http
+```
+```js
+let http = require('@datafire/http').create();
+
+http.request({}).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
 Make HTTP calls
 
-## Operation: request
+## Actions
+
+### request
 Make an HTTP request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "url": {
-      "type": "string"
-    },
-    "query": {
-      "type": "object"
-    },
-    "body": {
-      "type": "string"
-    },
-    "headers": {
-      "type": "object"
-    },
-    "method": {
-      "type": "string",
-      "default": "get",
-      "enum": [
-        "get",
-        "put",
-        "post",
-        "patch",
-        "delete",
-        "options",
-        "head"
-      ]
-    }
-  },
-  "required": [
-    "url"
-  ]
-}
+
+```js
+http.request(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: get
+
+#### Input
+* input [MethodRequest](#methodrequest)
+
+#### Output
+* output [Response](#response)
+
+### get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "url": {
-      "type": "string"
-    },
-    "query": {
-      "type": "object"
-    },
-    "body": {
-      "type": "string"
-    },
-    "headers": {
-      "type": "object"
-    }
-  }
-}
+
+```js
+http.get({
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: put
+
+#### Input
+* input [Request](#request)
+
+#### Output
+* output [Response](#response)
+
+### put
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "url": {
-      "type": "string"
-    },
-    "query": {
-      "type": "object"
-    },
-    "body": {
-      "type": "string"
-    },
-    "headers": {
-      "type": "object"
-    }
-  }
-}
+
+```js
+http.put(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: post
+
+#### Input
+* input [BodyRequest](#bodyrequest)
+
+#### Output
+* output [Response](#response)
+
+### post
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "url": {
-      "type": "string"
-    },
-    "query": {
-      "type": "object"
-    },
-    "body": {
-      "type": "string"
-    },
-    "headers": {
-      "type": "object"
-    }
-  }
-}
+
+```js
+http.post(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: patch
+
+#### Input
+* input [BodyRequest](#bodyrequest)
+
+#### Output
+* output [Response](#response)
+
+### patch
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "url": {
-      "type": "string"
-    },
-    "query": {
-      "type": "object"
-    },
-    "body": {
-      "type": "string"
-    },
-    "headers": {
-      "type": "object"
-    }
-  }
-}
+
+```js
+http.patch(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: delete
+
+#### Input
+* input [BodyRequest](#bodyrequest)
+
+#### Output
+* output [Response](#response)
+
+### delete
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "url": {
-      "type": "string"
-    },
-    "query": {
-      "type": "object"
-    },
-    "body": {
-      "type": "string"
-    },
-    "headers": {
-      "type": "object"
-    }
-  }
-}
+
+```js
+http.delete({
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: options
+
+#### Input
+* input [Request](#request)
+
+#### Output
+* output [Response](#response)
+
+### options
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "url": {
-      "type": "string"
-    },
-    "query": {
-      "type": "object"
-    },
-    "body": {
-      "type": "string"
-    },
-    "headers": {
-      "type": "object"
-    }
-  }
-}
+
+```js
+http.options({
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: head
+
+#### Input
+* input [Request](#request)
+
+#### Output
+* output [Response](#response)
+
+### head
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "url": {
-      "type": "string"
-    },
-    "query": {
-      "type": "object"
-    },
-    "body": {
-      "type": "string"
-    },
-    "headers": {
-      "type": "object"
-    }
-  }
-}
+
+```js
+http.head({
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Input
+* input [Request](#request)
+
+#### Output
+* output [Response](#response)
+
+
+
+## Definitions
+
+### Response
+* Response `object`
+  * statusCode `integer`
+  * headers `object`
+  * body `string`
+
+### Request
+* Request `object`
+  * url **required** `string`
+  * query `object`
+  * headers `object`
+
+### BodyRequest
+* BodyRequest `object`
+  * body `string`
+  * url **required** `string`
+  * query `object`
+  * headers `object`
+
+### MethodRequest
+* MethodRequest `object`
+  * method **required** `string`
+  * body `string`
+  * url **required** `string`
+  * query `object`
+  * headers `object`
+
+

@@ -43,6 +43,7 @@ let definitions = {
 }
 
 let http = module.exports = new datafire.Integration({
+  id: 'http',
   title: "HTTP",
   description: "Make HTTP calls",
 });

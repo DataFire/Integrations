@@ -4,6 +4,8 @@ let marked = require('marked');
 let iterateIntegs = require('../iterate-integrations');
 let args = require('yargs').argv;
 
+const NO_GENERATE = ['lucybot_docs', 'swaggerui', 'fileserver'];
+
 function render(template, args) {
   let tmpl = fs.readFileSync(__dirname + '/' + template + '.md', 'utf8');
   let md = eval('`' + tmpl.replace(/`/g,'\\`') + '`');
@@ -123,7 +125,7 @@ function schemaToMarkdown(schema, base, property='', required=false, depth=0) {
 }
 
 iterateIntegs((dir, name, integ) => {
-  if (dir.match(/\/manual\//)) return
+  if (NO_GENERATE.indexOf(name) !== -1) return;
   console.log('Generating README for ' + name);
 
   let sampleAction = integ.allActions.filter(action => {

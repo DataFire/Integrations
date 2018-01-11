@@ -15,7 +15,7 @@ readme += TITLE_LINE + '\n';
 Object.keys(list).sort((k1, k2) => {
   let d1 = list[k1];
   let d2 = list[k2];
-  return d1.title < d2.title ? -1 : 1;
+  return d1.title.toLowerCase() < d2.title.toLowerCase() ? -1 : 1;
 }).forEach(key => {
   let details = list[key];
   readme += `\n* [${details.title}](integrations/${details.directory}/${key})`;

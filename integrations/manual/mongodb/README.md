@@ -1,203 +1,151 @@
 # @datafire/mongodb
+
+Client library for MongoDB
+
+## Installation and Usage
+```bash
+npm install --save @datafire/mongodb
+```
+```js
+let mongodb = require('@datafire/mongodb').create({
+  database: "",
+  url: ""
+});
+
+mongodb.findOne({}).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
 Interact with MongoDB
 
-## Operation: findOne
+## Actions
+
+### findOne
 Find a single document in the database
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "collection": {
-      "title": "collection",
-      "type": "string"
-    },
-    "query": {
-      "title": "query",
-      "type": "object"
-    },
-    "projection": {
-      "title": "projection",
-      "type": "object",
-      "default": {}
-    }
-  },
-  "required": [
-    "collection",
-    "query"
-  ]
-}
+
+```js
+mongodb.findOne({
+  "collection": "",
+  "query": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "object"
-}
-```
-## Operation: find
+
+#### Input
+* input `object`
+  * collection **required** `string`
+  * query **required** `object`
+  * projection `object`
+
+#### Output
+* output `object`
+
+### find
 Find multiple documents in the database
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "collection": {
-      "title": "collection",
-      "type": "string"
-    },
-    "query": {
-      "title": "query",
-      "type": "object"
-    },
-    "projection": {
-      "title": "projection",
-      "type": "object",
-      "default": {}
-    }
-  },
-  "required": [
-    "collection",
-    "query"
-  ]
-}
+
+```js
+mongodb.find({
+  "collection": "",
+  "query": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "array",
-  "items": {
-    "type": "object"
-  }
-}
-```
-## Operation: insertOne
+
+#### Input
+* input `object`
+  * collection **required** `string`
+  * query **required** `object`
+  * projection `object`
+
+#### Output
+* output `array`
+  * items `object`
+
+### insertOne
 Insert a document into the database
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "collection": {
-      "title": "collection",
-      "type": "string"
-    },
-    "document": {
-      "title": "document",
-      "type": "object"
-    }
-  },
-  "required": [
-    "collection",
-    "document"
-  ]
-}
+
+```js
+mongodb.insertOne({
+  "collection": "",
+  "document": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "object"
-}
-```
-## Operation: insertMany
+
+#### Input
+* input `object`
+  * collection **required** `string`
+  * document **required** `object`
+
+#### Output
+* output `object`
+
+### insertMany
 Insert multiple documents into the database
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "collection": {
-      "title": "collection",
-      "type": "string"
-    },
-    "documents": {
-      "title": "documents",
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
-    }
-  },
-  "required": [
-    "collection",
-    "documents"
-  ]
-}
+
+```js
+mongodb.insertMany({
+  "collection": "",
+  "documents": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "object"
-}
-```
-## Operation: update
+
+#### Input
+* input `object`
+  * collection **required** `string`
+  * documents **required** `array`
+    * items `object`
+
+#### Output
+* output `object`
+
+### update
 Update all matching documents in the database
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "collection": {
-      "title": "collection",
-      "type": "string"
-    },
-    "query": {
-      "title": "query",
-      "type": "object"
-    },
-    "update": {
-      "title": "update",
-      "type": "object"
-    }
-  },
-  "required": [
-    "collection",
-    "query",
-    "update"
-  ]
-}
+
+```js
+mongodb.update({
+  "collection": "",
+  "query": {},
+  "update": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "object"
-}
-```
-## Operation: remove
+
+#### Input
+* input `object`
+  * collection **required** `string`
+  * query **required** `object`
+  * update **required** `object`
+
+#### Output
+* output `object`
+
+### remove
 Remove all matching documents in the database
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "collection": {
-      "title": "collection",
-      "type": "string"
-    },
-    "query": {
-      "title": "query",
-      "type": "object"
-    },
-    "justOne": {
-      "title": "justOne",
-      "type": "boolean",
-      "default": false
-    }
-  },
-  "required": [
-    "collection",
-    "query"
-  ]
-}
+
+```js
+mongodb.remove({
+  "collection": "",
+  "query": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "object"
-}
-```
+
+#### Input
+* input `object`
+  * collection **required** `string`
+  * query **required** `object`
+  * justOne `boolean`
+
+#### Output
+* output `object`
+
+
+
+## Definitions
+
+*This integration has no definitions*
