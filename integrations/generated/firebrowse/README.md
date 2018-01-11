@@ -605,4 +605,4 @@ firebrowse.miRSeq({}, context)
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

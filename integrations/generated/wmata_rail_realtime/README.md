@@ -305,4 +305,4 @@ wmata_rail_realtime.json.GetPrediction.StationCodes.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

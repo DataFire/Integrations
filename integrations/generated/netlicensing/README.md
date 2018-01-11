@@ -816,4 +816,88 @@ netlicensing.licensingModels(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+### License
+* License `object`
+  * active `boolean`: If set to 'false', the license is disabled. License can be re-enabled, but as long as it is disabled, the license is excluded from the validation process.
+  * currency `string`: specifies currency for the license price. Check data types to discover which currencies are supported. Read-only, set from license template on creation.
+  * hidden `boolean`: If set to 'true', this license is not shown in NetLicensing Shop as purchased license. Set from license template on creation, if not specified explicitly.
+  * name `string`: Name for the licensed item. Set from license template on creation, if not specified explicitly.
+  * number `string`: Unique number (across all products/licensees of a vendor) that identifies the license. Vendor can assign this number when creating a license or let NetLicensing generate one. Read-only after corresponding creation transaction status is set to closed.
+  * price `number`: price for the license. If >0, it must always be accompanied by the currency specification. Read-only, set from license template on creation.
+
+### LicenseTemplate
+* LicenseTemplate `object`
+  * active `boolean`: If set to 'false', the license template is disabled. Licensee can not obtain any new licenses off this license template.
+  * automatic `boolean`: If set to 'true', every new licensee automatically gets one license out of this license template on creation. Automatic licenses must have their price set to 0.
+  * currency `string`: specifies currency for the license price. Check data types to discover which currencies are supported.
+  * hidden `boolean`: If set to 'true', this license template is not shown in NetLicensing Shop as offered for purchase.
+  * hiddenLicenses `boolean`: If set to 'true', licenses from this license template are not visible to the end customer, but participate in validation.
+  * licenseType `string` (values: FEATURE, TIMEVOLUME): type of licenses created from this license template
+  * name `string`: Name for the licensed item.
+  * number `string`: Unique number (across all products of a vendor) that identifies the license template. Vendor can assign this number when creating a license template or let NetLicensing generate one. Read-only after creation of the first license from this license template.
+  * price `number`: price for the license. If >0, it must always be accompanied by the currency specification.
+
+### Licensee
+* Licensee `object`
+  * active `boolean`: If set to 'false', the licensee is disabled. Licensee can not obtain new licenses, and validation is disabled.
+  * number `string`: Unique number (across all products of a vendor) that identifies the licensee. Vendor can assign this number when creating a licensee or let NetLicensing generate one. Read-only after creation of the first license for the licensee.
+
+### PaymentMethod
+* PaymentMethod `object`
+  * active `boolean`
+  * number `string`
+
+### Product
+* Product `object`
+  * active `boolean`: If set to 'false', the product is disabled. No new licensees can be registered for the product, existing licensees can not obtain new licenses
+  * licenseeAutoCreate `boolean`: If set to 'true', non-existing licensees will be created at first validation attempt.
+  * name `string`: Product name. Together with the version identifies the product for the end customer
+  * number `string`: Unique number that identifies the product. Vendor can assign this number when creating a product or let NetLicensing generate one. Read-only after creation of the first licensee for the product.
+  * version `string`: Product version. Convenience parameter, additional to the product name.
+
+### ProductModule
+* ProductModule `object`
+  * active `boolean`: If set to 'false', the product module is disabled. Licensees can not obtain any new licenses for this product module.
+  * licensingInfo `string`: Licensing model applied to this product module. Defines what license templates can be configured for the product module and how licenses for this product module are processed during validation.
+  * name `string`: Product module name that is visible to the end customers in NetLicensing Shop.
+  * number `string`: Unique number (across all products of a vendor) that identifies the product module. Vendor can assign this number when creating a product module or let NetLicensing generate one. Read-only after creation of the first licensee for the product.
+
+### Token
+* Token `object`
+  * active `boolean`
+  * expirationTime `string`
+  * licenseNumber `string`
+  * number `string`
+  * shopURL `string`
+  * tokenType `string`
+  * vensorNumber `string`
+
+### Transaction
+* Transaction `object`
+  * active `string`: Always true for the transactions
+  * number `string`: Unique number (across all products of a vendor) that identifies the transaction. This number is always generated by NetLicensing.
+  * source `string` (values: SHOP)
+  * status `string` (values: CANCELLED, CLOSED, PENDING)
+
+### discount
+* discount `object`
+  * amountPercent `string`
+  * currency `string`
+  * totalPrice `number`
+
+### infos
+* infos `object`
+
+### items
+* items `object`
+
+### licensingModel
+* licensingModel `object`
+  * name `string`
+
+### netlicensing
+* netlicensing `object`
+  * infos [infos](#infos)
+  * items [items](#items)
+
+

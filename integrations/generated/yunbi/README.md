@@ -494,4 +494,4 @@ yunbi.v2.trades.my.json.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

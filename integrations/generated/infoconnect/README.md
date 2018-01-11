@@ -262,4 +262,4 @@ infoconnect.v1.sics.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

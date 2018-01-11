@@ -446,4 +446,4 @@ picasa.feed.api.all.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

@@ -231,4 +231,4 @@ wmata_bus_realtime.json.jPredictions.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

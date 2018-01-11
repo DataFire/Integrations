@@ -438,4 +438,4 @@ gov_bc_ca_geocoder.sites.siteID.subsites.outputFormat.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

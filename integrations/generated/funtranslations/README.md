@@ -667,4 +667,4 @@ funtranslations.translate.yoda.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

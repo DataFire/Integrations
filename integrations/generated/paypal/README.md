@@ -475,4 +475,4 @@ paypal.AdaptivePayments.Pay.post(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

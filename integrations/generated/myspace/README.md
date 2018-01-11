@@ -1212,4 +1212,4 @@ myspace.1.0.activities.personId.selector.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

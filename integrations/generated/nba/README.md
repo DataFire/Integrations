@@ -3380,4 +3380,4 @@ nba.videoStatus.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

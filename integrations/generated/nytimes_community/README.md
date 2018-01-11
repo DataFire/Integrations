@@ -305,4 +305,4 @@ nytimes_community.user_content.user.json.get({}, context)
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

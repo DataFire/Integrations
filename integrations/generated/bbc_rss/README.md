@@ -80,4 +80,20 @@ bbc_rss.technology(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+### Feed
+* Feed `object`
+  * feed `object`
+    * link `string`
+    * title `string`
+    * feedUrl `string`
+    * entries `array`
+      * items `object`
+        * id `string`
+        * link `string`
+        * title `string`
+        * pubDate `string`
+        * author `string`
+        * content `string`
+        * contentSnippet `string`
+
+

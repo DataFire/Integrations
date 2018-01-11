@@ -317,4 +317,4 @@ postmark.server.post({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

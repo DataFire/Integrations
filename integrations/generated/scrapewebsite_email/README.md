@@ -74,4 +74,4 @@ scrapewebsite_email.v1.scrape_store_links.json.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

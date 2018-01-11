@@ -116,4 +116,4 @@ refugerestrooms.v1.restrooms.search.json.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

@@ -509,4 +509,4 @@ lufthansa_partner.references.seatdetails.aircraftCode.cabinCode.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

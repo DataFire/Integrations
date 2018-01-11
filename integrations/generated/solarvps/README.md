@@ -379,4 +379,4 @@ solarvps.tickets.ticketid.update.post({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

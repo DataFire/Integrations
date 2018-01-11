@@ -102,4 +102,4 @@ producthunt.categories.category.posts.get({}, context)
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

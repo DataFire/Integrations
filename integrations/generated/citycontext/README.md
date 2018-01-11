@@ -80,4 +80,55 @@ citycontext.usage(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+### Latlon
+
+
+### Location
+* Location `object`: Latitude, Longitude and other info related to the given point
+  * lat **required** `number`
+  * lon **required** `number`
+  * withinLondonCCZ `boolean`: Boolean flag indicating whether this point is located within London's Congestion Charge zone
+
+### PointInfo
+* PointInfo `object`: Contextual information around a given point
+  * location **required** [Location](#location)
+  * lsoa `object`: Statistics for lower layer super output areas (LSOA)
+    * crimes `object`
+    * name **required** `string`
+    * population `object`
+      * allUsualResidents **required** `integer`
+      * communalEstablishmentResidents **required** `integer`
+      * householdResidents **required** `integer`
+      * households **required** `integer`
+      * personsPerHectare **required** `integer`
+      * personsPerHousehold **required** `integer`
+  * parks **required** `array`: Parks within 1km of the point of interest, sorted by descending area
+    * items `object`
+      * areaSqm **required** `integer`
+      * centroid **required** [Latlon](#latlon)
+      * distanceMeters **required** `integer`
+      * name `string`
+  * schools **required** `array`: Schools within 1km of the point of interest, sorted by ascending distance from the POI
+    * items `object`
+      * distanceMeters **required** `integer`
+      * lastInpectionUrl **required** `string`: URL to the last inspection report
+      * lastInspectionDate **required** `string`: Date of the last Ofsted inspection
+      * leadershipAndManagement **required** `integer`: Leadership and management grade in the last Ofsted report, from 1 (outstanding) to 4 (inadequate)
+      * location **required** [Latlon](#latlon)
+      * overallEffectiveness **required** `integer`: Overall effectiveness grade in the last Ofsted report, from 1 (outstanding) to 4 (inadequate)
+      * phase **required** `string`
+      * qualityOfTeaching **required** `integer`: Quality of teaching grade in the last Ofsted report, from 1 (outstanding) to 4 (inadequate)
+      * schoolName **required** `string`
+      * typeOfEstablishment **required** `string`
+      * urn **required** `integer`: Unique school identifier
+
+### Usage
+* Usage `object`: User plan monthly API quota and usage
+  * allowance `integer`
+  * period **required** `string`
+  * periodEnd **required** `string`
+  * periodStart **required** `string`
+  * plan **required** `string`
+  * usage **required** `integer`
+
+

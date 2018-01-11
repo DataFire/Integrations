@@ -53,4 +53,4 @@ forge.symbols.get(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

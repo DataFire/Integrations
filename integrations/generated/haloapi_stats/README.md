@@ -901,4 +901,4 @@ haloapi_stats.hw2.xp.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

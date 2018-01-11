@@ -102,4 +102,4 @@ spinbot.postSpintax({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

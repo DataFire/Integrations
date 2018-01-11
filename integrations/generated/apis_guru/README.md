@@ -65,4 +65,27 @@ apis_guru.getMetrics(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+### API
+* API `object`: Meta information about API
+  * added **required** `string`: Timestamp when the API was first added to the directory
+  * preferred **required** `string`: Recommended version
+  * versions **required** `object`: List of supported versions of the API
+
+### APIs
+* APIs `object`: List of API details.
+
+### ApiVersion
+* ApiVersion `object`
+  * added **required** `string`: Timestamp when the version was added
+  * info **required** `object`: Copy of `info` section from Swagger spec
+  * swaggerUrl **required** `string`: URL to Swagger spec in JSON format
+  * swaggerYamlUrl **required** `string`: URL to Swagger spec in YAML format
+  * updated **required** `string`: Timestamp when the version was updated
+
+### Metrics
+* Metrics `object`: List of basic metrics
+  * numAPIs **required** `integer`: Number of APIs
+  * numEndpoints **required** `integer`: Total number of endpoints inside all specifications
+  * numSpecs **required** `integer`: Number of API specifications including different versions of the same API
+
+

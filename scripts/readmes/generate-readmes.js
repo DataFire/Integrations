@@ -146,9 +146,10 @@ iterateIntegs((dir, name, integ) => {
 
   let integVarName = integ.id.replace(/^[^a-z]+/, '');
   let actionsMarkdown = '';
-  let definitions = {};
+  let definitions = integ.definitions;
   integ.allActions.forEach(action => {
-    definitions = action.inputSchema.definitions = action.inputSchema.definitions || integ.definitions
+    action.inputSchema.definitions = action.inputSchema.definitions || integ.definitions;
+    definitions = definitions || action.inputSchema.definitions || action.outputSchema.definitions;
     actionsMarkdown += actionToMarkdown(action, integVarName);
   });
 
@@ -158,7 +159,7 @@ iterateIntegs((dir, name, integ) => {
     def.title = def.title || key;
     definitionsMarkdown += '### ' + key + '\n' + schemaToMarkdown(def, {definitions}) + '\n\n';
   }
-  if (!definitionsMarkdown) definitionsMarkdown = '**This integration has no definitions**';
+  if (!definitionsMarkdown) definitionsMarkdown = '*This integration has no definitions*';
 
   let md = render('template', {
     integration: integ,

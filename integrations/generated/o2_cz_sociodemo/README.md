@@ -84,4 +84,22 @@ o2_cz_sociodemo.getInfo(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+### CountResult
+* CountResult `object`: Response with the result
+  * count `string`: Final count as the result of the request
+
+### ErrorResult
+* ErrorResult `object`: Response with error message
+  * message `string`: Error response message content
+
+### InfoResult
+* InfoResult `object`: Response to the info request
+  * appName `string`: Application name
+  * appVendor `string`: Application vendor
+  * appVersion `string`: Application version
+  * backendAppName `string`: Backend application name
+  * backendAppVendor `string`: Backend application vendor
+  * backendAppVersion `string`: Backend application version
+  * backendDataFrom `string`: For which day are data valid
+
+

@@ -87,4 +87,4 @@ hackathonwatch.swagger_doc.name.json.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

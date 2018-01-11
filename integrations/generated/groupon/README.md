@@ -164,4 +164,4 @@ groupon.deals.deal_id.posts.format.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

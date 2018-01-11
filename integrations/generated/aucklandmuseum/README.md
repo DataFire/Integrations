@@ -166,4 +166,4 @@ aucklandmuseum.sparql.post({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

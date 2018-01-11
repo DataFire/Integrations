@@ -939,4 +939,4 @@ haloapi_metadata.hw2.techs.get({}, context)
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

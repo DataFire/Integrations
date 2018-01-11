@@ -7330,4 +7330,857 @@ gitlab.getV3Version(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+### AccessRequester
+* AccessRequester `object`: This feature was introduced in GitLab 8.11.
+  * avatar_url `string`
+  * id `string`
+  * name `string`
+  * requested_at `string`
+  * state `string`
+  * username `string`
+  * web_url `string`
+
+### ApplicationSetting
+* ApplicationSetting `object`: Modify application settings
+  * after_sign_out_path `string`
+  * after_sign_up_text `string`
+  * container_registry_token_expire_delay `string`
+  * created_at `string`
+  * default_branch_protection `string`
+  * default_group_visibility `string`
+  * default_project_visibility `string`
+  * default_projects_limit `string`
+  * default_snippet_visibility `string`
+  * domain_blacklist `string`
+  * domain_blacklist_enabled `string`
+  * domain_whitelist `string`
+  * gravatar_enabled `string`
+  * home_page_url `string`
+  * id `string`
+  * koding_enabled `string`
+  * koding_url `string`
+  * max_attachment_size `string`
+  * plantuml_enabled `string`
+  * plantuml_url `string`
+  * repository_storage `string`
+  * repository_storages `string`
+  * restricted_visibility_levels `string`
+  * session_expire_delay `string`
+  * sign_in_text `string`
+  * signin_enabled `string`
+  * signup_enabled `string`
+  * updated_at `string`
+  * user_oauth_applications `string`
+
+### AwardEmoji
+* AwardEmoji `object`: This feature was introduced in 8.9
+  * awardable_id `string`
+  * awardable_type `string`
+  * created_at `string`
+  * id `string`
+  * name `string`
+  * updated_at `string`
+  * user [UserBasic](#userbasic)
+
+### BasicProjectDetails
+* BasicProjectDetails `object`: Get all projects for admin user
+  * http_url_to_repo `string`
+  * id `string`
+  * name `string`
+  * name_with_namespace `string`
+  * path `string`
+  * path_with_namespace `string`
+  * web_url `string`
+
+### Board
+* Board `object`: This feature was introduced in 8.13
+  * id `string`
+  * lists [List](#list)
+
+### Build
+* Build `object`: This feature was added in GitLab 8.11
+  * artifacts_file [BuildArtifactFile](#buildartifactfile)
+  * commit [RepoCommit](#repocommit)
+  * coverage `string`
+  * created_at `string`
+  * finished_at `string`
+  * id `string`
+  * name `string`
+  * pipeline [PipelineBasic](#pipelinebasic)
+  * ref `string`
+  * runner [Runner](#runner)
+  * stage `string`
+  * started_at `string`
+  * status `string`
+  * tag `string`
+  * user [User](#user)
+
+### BuildArtifactFile
+* BuildArtifactFile `object`
+  * filename `string`
+  * size `string`
+
+### CommitNote
+* CommitNote `object`: Post comment to commit
+  * author [UserBasic](#userbasic)
+  * created_at `string`
+  * line `string`
+  * line_type `string`
+  * note `string`
+  * path `string`
+
+### CommitStatus
+* CommitStatus `object`: Post status to a commit
+  * allow_failure `string`
+  * author [UserBasic](#userbasic)
+  * created_at `string`
+  * description `string`
+  * finished_at `string`
+  * id `string`
+  * name `string`
+  * ref `string`
+  * sha `string`
+  * started_at `string`
+  * status `string`
+  * target_url `string`
+
+### Compare
+* Compare `object`: Compare two branches, tags, or commits
+  * commit [RepoCommit](#repocommit)
+  * commits [RepoCommit](#repocommit)
+  * compare_same_ref `string`
+  * compare_timeout `string`
+  * diffs [RepoDiff](#repodiff)
+
+### Contributor
+* Contributor `object`: Get repository contributors
+  * additions `string`
+  * commits `string`
+  * deletions `string`
+  * email `string`
+  * name `string`
+
+### Deployment
+* Deployment `object`: This feature was introduced in GitLab 8.11.
+  * created_at `string`
+  * deployable [Build](#build)
+  * environment [EnvironmentBasic](#environmentbasic)
+  * id `string`
+  * iid `string`
+  * ref `string`
+  * sha `string`
+  * user [UserBasic](#userbasic)
+
+### Email
+* Email `object`: Add new email address to the currently authenticated user
+  * email `string`
+  * id `string`
+
+### Environment
+* Environment `object`: This feature was introduced in GitLab 8.11.
+  * external_url `string`
+  * id `string`
+  * name `string`
+  * project [Project](#project)
+  * slug `string`
+
+### EnvironmentBasic
+* EnvironmentBasic `object`
+  * external_url `string`
+  * id `string`
+  * name `string`
+  * slug `string`
+
+### Event
+* Event `object`: This feature was introduced in GitLab 8.13.
+  * action_name `string`
+  * author [UserBasic](#userbasic)
+  * author_id `string`
+  * author_username `string`
+  * created_at `string`
+  * data `string`
+  * note [Note](#note)
+  * project_id `string`
+  * target_id `string`
+  * target_title `string`
+  * target_type `string`
+  * title `string`
+
+### GlobalNotificationSetting
+* GlobalNotificationSetting `object`: This feature was introduced in GitLab 8.12
+  * events `string`
+  * level `string`
+  * notification_email `string`
+
+### Group
+* Group `object`: Update a group. Available only for users who can administrate groups.
+  * avatar_url `string`
+  * description `string`
+  * id `string`
+  * lfs_enabled `string`
+  * name `string`
+  * path `string`
+  * request_access_enabled `string`
+  * statistics `string`
+  * visibility_level `string`
+  * web_url `string`
+
+### GroupDetail
+* GroupDetail `object`: Transfer a project to the group namespace. Available only for admin.
+  * avatar_url `string`
+  * description `string`
+  * id `string`
+  * lfs_enabled `string`
+  * name `string`
+  * path `string`
+  * projects [Project](#project)
+  * request_access_enabled `string`
+  * shared_projects [Project](#project)
+  * statistics `string`
+  * visibility_level `string`
+  * web_url `string`
+
+### Hook
+* Hook `object`: Delete a hook
+  * created_at `string`
+  * enable_ssl_verification `string`
+  * id `string`
+  * push_events `string`
+  * tag_push_events `string`
+  * url `string`
+
+### Identity
+* Identity `object`
+  * extern_uid `string`
+  * provider `string`
+
+### Issue
+* Issue `object`: Get currently authenticated user's issues
+  * assignee [UserBasic](#userbasic)
+  * author [UserBasic](#userbasic)
+  * confidential `string`
+  * created_at `string`
+  * description `string`
+  * downvotes `string`
+  * due_date `string`
+  * id `string`
+  * iid `string`
+  * labels `string`
+  * milestone [Milestone](#milestone)
+  * project_id `string`
+  * state `string`
+  * subscribed `string`
+  * title `string`
+  * updated_at `string`
+  * upvotes `string`
+  * user_notes_count `string`
+  * web_url `string`
+
+### Label
+* Label `object`: Unsubscribe from a resource
+  * closed_issues_count `string`
+  * color `string`
+  * description `string`
+  * id `string`
+  * name `string`
+  * open_issues_count `string`
+  * open_merge_requests_count `string`
+  * priority `string`
+  * subscribed `string`
+
+### LabelBasic
+* LabelBasic `object`
+  * color `string`
+  * description `string`
+  * id `string`
+  * name `string`
+
+### List
+* List `object`: This feature was introduced in 8.13
+  * id `string`
+  * label [LabelBasic](#labelbasic)
+  * position `string`
+
+### MRNote
+* MRNote `object`: List issues that will be closed on merge
+  * author [UserBasic](#userbasic)
+  * note `string`
+
+### Member
+* Member `object`: Updates a member of a group or project.
+  * access_level `string`
+  * avatar_url `string`
+  * expires_at `string`
+  * id `string`
+  * name `string`
+  * state `string`
+  * username `string`
+  * web_url `string`
+
+### MergeRequest
+* MergeRequest `object`: Unsubscribe from a resource
+  * assignee [UserBasic](#userbasic)
+  * author [UserBasic](#userbasic)
+  * created_at `string`
+  * description `string`
+  * downvotes `string`
+  * force_remove_source_branch `string`
+  * id `string`
+  * iid `string`
+  * labels `string`
+  * merge_commit_sha `string`
+  * merge_status `string`
+  * merge_when_build_succeeds `string`
+  * milestone [Milestone](#milestone)
+  * project_id `string`
+  * sha `string`
+  * should_remove_source_branch `string`
+  * source_branch `string`
+  * source_project_id `string`
+  * state `string`
+  * subscribed `string`
+  * target_branch `string`
+  * target_project_id `string`
+  * title `string`
+  * updated_at `string`
+  * upvotes `string`
+  * user_notes_count `string`
+  * web_url `string`
+  * work_in_progress `string`
+
+### MergeRequestChanges
+* MergeRequestChanges `object`: Show the merge request changes
+  * assignee [UserBasic](#userbasic)
+  * author [UserBasic](#userbasic)
+  * changes [RepoDiff](#repodiff)
+  * created_at `string`
+  * description `string`
+  * downvotes `string`
+  * force_remove_source_branch `string`
+  * id `string`
+  * iid `string`
+  * labels `string`
+  * merge_commit_sha `string`
+  * merge_status `string`
+  * merge_when_build_succeeds `string`
+  * milestone [Milestone](#milestone)
+  * project_id `string`
+  * sha `string`
+  * should_remove_source_branch `string`
+  * source_branch `string`
+  * source_project_id `string`
+  * state `string`
+  * subscribed `string`
+  * target_branch `string`
+  * target_project_id `string`
+  * title `string`
+  * updated_at `string`
+  * upvotes `string`
+  * user_notes_count `string`
+  * web_url `string`
+  * work_in_progress `string`
+
+### MergeRequestDiff
+* MergeRequestDiff `object`: This feature was introduced in GitLab 8.12.
+  * base_commit_sha `string`
+  * created_at `string`
+  * head_commit_sha `string`
+  * id `string`
+  * merge_request_id `string`
+  * real_size `string`
+  * start_commit_sha `string`
+  * state `string`
+
+### MergeRequestDiffFull
+* MergeRequestDiffFull `object`: This feature was introduced in GitLab 8.12.
+  * base_commit_sha `string`
+  * commits [RepoCommit](#repocommit)
+  * created_at `string`
+  * diffs [RepoDiff](#repodiff)
+  * head_commit_sha `string`
+  * id `string`
+  * merge_request_id `string`
+  * real_size `string`
+  * start_commit_sha `string`
+  * state `string`
+
+### Milestone
+* Milestone `object`: Update an existing project milestone
+  * created_at `string`
+  * description `string`
+  * due_date `string`
+  * id `string`
+  * iid `string`
+  * project_id `string`
+  * start_date `string`
+  * state `string`
+  * title `string`
+  * updated_at `string`
+
+### Namespace
+* Namespace `object`: Get a namespaces list
+  * id `string`
+  * kind `string`
+  * name `string`
+  * path `string`
+
+### Note
+* Note `object`: Delete a +noteable+ note
+  * attachment `string`
+  * author [UserBasic](#userbasic)
+  * body `string`
+  * created_at `string`
+  * downvote? `string`
+  * id `string`
+  * noteable_id `string`
+  * noteable_type `string`
+  * system `string`
+  * updated_at `string`
+  * upvote? `string`
+
+### NotificationSetting
+* NotificationSetting `object`: This feature was introduced in GitLab 8.12
+  * events `string`
+  * level `string`
+
+### PersonalSnippet
+* PersonalSnippet `object`: This feature was introduced in GitLab 8.15.
+  * author [UserBasic](#userbasic)
+  * created_at `string`
+  * file_name `string`
+  * id `string`
+  * raw_url `string`
+  * title `string`
+  * updated_at `string`
+  * web_url `string`
+
+### Pipeline
+* Pipeline `object`: This feature was introduced in GitLab 8.11.
+  * before_sha `string`
+  * committed_at `string`
+  * coverage `string`
+  * created_at `string`
+  * duration `string`
+  * finished_at `string`
+  * id `string`
+  * ref `string`
+  * sha `string`
+  * started_at `string`
+  * status `string`
+  * tag `string`
+  * updated_at `string`
+  * user [UserBasic](#userbasic)
+  * yaml_errors `string`
+
+### PipelineBasic
+* PipelineBasic `object`
+  * id `string`
+  * ref `string`
+  * sha `string`
+  * status `string`
+
+### Project
+* Project `object`: Unstar a project
+  * archived `string`
+  * avatar_url `string`
+  * builds_enabled `string`
+  * container_registry_enabled `string`
+  * created_at `string`
+  * creator_id `string`
+  * default_branch `string`
+  * description `string`
+  * forked_from_project [BasicProjectDetails](#basicprojectdetails)
+  * forks_count `string`
+  * http_url_to_repo `string`
+  * id `string`
+  * issues_enabled `string`
+  * last_activity_at `string`
+  * lfs_enabled `string`
+  * merge_requests_enabled `string`
+  * name `string`
+  * name_with_namespace `string`
+  * namespace [Namespace](#namespace)
+  * only_allow_merge_if_all_discussions_are_resolved `string`
+  * only_allow_merge_if_build_succeeds `string`
+  * open_issues_count `string`
+  * owner [UserBasic](#userbasic)
+  * path `string`
+  * path_with_namespace `string`
+  * public `string`
+  * public_builds `string`
+  * request_access_enabled `string`
+  * runners_token `string`
+  * shared_runners_enabled `string`
+  * shared_with_groups `string`
+  * snippets_enabled `string`
+  * ssh_url_to_repo `string`
+  * star_count `string`
+  * statistics [ProjectStatistics](#projectstatistics)
+  * tag_list `string`
+  * visibility_level `string`
+  * web_url `string`
+  * wiki_enabled `string`
+
+### ProjectGroupLink
+* ProjectGroupLink `object`: Share the project with a group
+  * expires_at `string`
+  * group_access `string`
+  * group_id `string`
+  * id `string`
+  * project_id `string`
+
+### ProjectHook
+* ProjectHook `object`: Deletes project hook
+  * build_events `string`
+  * created_at `string`
+  * enable_ssl_verification `string`
+  * id `string`
+  * issues_events `string`
+  * merge_requests_events `string`
+  * note_events `string`
+  * pipeline_events `string`
+  * project_id `string`
+  * push_events `string`
+  * tag_push_events `string`
+  * url `string`
+  * wiki_page_events `string`
+
+### ProjectService
+* ProjectService `object`: Get the service settings for project
+  * active `string`
+  * build_events `string`
+  * created_at `string`
+  * id `string`
+  * issues_events `string`
+  * merge_requests_events `string`
+  * note_events `string`
+  * pipeline_events `string`
+  * properties `string`
+  * push_events `string`
+  * tag_push_events `string`
+  * title `string`
+  * updated_at `string`
+
+### ProjectSnippet
+* ProjectSnippet `object`: Update an existing project snippet
+  * author [UserBasic](#userbasic)
+  * created_at `string`
+  * expires_at `string`
+  * file_name `string`
+  * id `string`
+  * title `string`
+  * updated_at `string`
+  * web_url `string`
+
+### ProjectStatistics
+* ProjectStatistics `object`
+  * build_artifacts_size `string`
+  * commit_count `string`
+  * lfs_objects_size `string`
+  * repository_size `string`
+  * storage_size `string`
+
+### ProjectWithAccess
+* ProjectWithAccess `object`: Get a single project
+  * archived `string`
+  * avatar_url `string`
+  * builds_enabled `string`
+  * container_registry_enabled `string`
+  * created_at `string`
+  * creator_id `string`
+  * default_branch `string`
+  * description `string`
+  * forked_from_project [BasicProjectDetails](#basicprojectdetails)
+  * forks_count `string`
+  * http_url_to_repo `string`
+  * id `string`
+  * issues_enabled `string`
+  * last_activity_at `string`
+  * lfs_enabled `string`
+  * merge_requests_enabled `string`
+  * name `string`
+  * name_with_namespace `string`
+  * namespace [Namespace](#namespace)
+  * only_allow_merge_if_all_discussions_are_resolved `string`
+  * only_allow_merge_if_build_succeeds `string`
+  * open_issues_count `string`
+  * owner [UserBasic](#userbasic)
+  * path `string`
+  * path_with_namespace `string`
+  * permissions `string`
+  * public `string`
+  * public_builds `string`
+  * request_access_enabled `string`
+  * runners_token `string`
+  * shared_runners_enabled `string`
+  * shared_with_groups `string`
+  * snippets_enabled `string`
+  * ssh_url_to_repo `string`
+  * star_count `string`
+  * statistics [ProjectStatistics](#projectstatistics)
+  * tag_list `string`
+  * visibility_level `string`
+  * web_url `string`
+  * wiki_enabled `string`
+
+### Release
+* Release `object`: Update a tag's release note
+  * description `string`
+  * tag_name `string`
+
+### RepoBranch
+* RepoBranch `object`: Create branch
+  * commit `string`
+  * developers_can_merge `string`
+  * developers_can_push `string`
+  * merged `string`
+  * name `string`
+  * protected `string`
+
+### RepoCommit
+* RepoCommit `object`: Get the commits of a merge request
+  * author_email `string`
+  * author_name `string`
+  * committer_email `string`
+  * committer_name `string`
+  * created_at `string`
+  * id `string`
+  * message `string`
+  * short_id `string`
+  * title `string`
+
+### RepoCommitDetail
+* RepoCommitDetail `object`: Get a specific commit of a project
+  * author_email `string`
+  * author_name `string`
+  * authored_date `string`
+  * committed_date `string`
+  * committer_email `string`
+  * committer_name `string`
+  * created_at `string`
+  * id `string`
+  * message `string`
+  * parent_ids `string`
+  * short_id `string`
+  * stats [RepoCommitStats](#repocommitstats)
+  * status `string`
+  * title `string`
+
+### RepoCommitStats
+* RepoCommitStats `object`
+  * additions `string`
+  * deletions `string`
+  * total `string`
+
+### RepoDiff
+* RepoDiff `object`
+  * a_mode `string`
+  * b_mode `string`
+  * deleted_file `string`
+  * diff `string`
+  * new_file `string`
+  * new_path `string`
+  * old_path `string`
+  * renamed_file `string`
+
+### RepoLicense
+* RepoLicense `object`: This feature was introduced in GitLab 8.7.
+  * conditions `string`
+  * content `string`
+  * description `string`
+  * html_url `string`
+  * key `string`
+  * limitations `string`
+  * name `string`
+  * nickname `string`
+  * permissions `string`
+  * popular `string`
+  * source_url `string`
+
+### RepoTag
+* RepoTag `object`: Create a new repository tag
+  * commit `string`
+  * message `string`
+  * name `string`
+  * release [Release](#release)
+
+### RepoTreeObject
+* RepoTreeObject `object`: Get a project repository tree
+  * id `string`
+  * mode `string`
+  * name `string`
+  * path `string`
+  * type `string`
+
+### Runner
+* Runner `object`: Remove a runner
+  * active `string`
+  * description `string`
+  * id `string`
+  * is_shared `string`
+  * name `string`
+
+### RunnerDetails
+* RunnerDetails `object`: Update runner's details
+  * active `string`
+  * architecture `string`
+  * contacted_at `string`
+  * description `string`
+  * id `string`
+  * is_shared `string`
+  * locked `string`
+  * name `string`
+  * platform `string`
+  * projects [BasicProjectDetails](#basicprojectdetails)
+  * revision `string`
+  * run_untagged `string`
+  * tag_list `string`
+  * token `string`
+  * version `string`
+
+### SSHKey
+* SSHKey `object`: Delete an SSH key from the currently authenticated user
+  * can_push `string`
+  * created_at `string`
+  * id `string`
+  * key `string`
+  * title `string`
+
+### SSHKeyWithUser
+* SSHKeyWithUser `object`: Get single ssh key by id. Only available to admin users
+  * can_push `string`
+  * created_at `string`
+  * id `string`
+  * key `string`
+  * title `string`
+  * user [UserPublic](#userpublic)
+
+### Template
+* Template `object`: This feature was introduced in GitLab 8.15. This endpoint is deprecated and will be removed in GitLab 9.0.
+  * content `string`
+  * name `string`
+
+### TemplatesList
+* TemplatesList `object`: This feature was introduced in GitLab 8.15. This endpoint is deprecated and will be removed in GitLab 9.0.
+  * name `string`
+
+### Todo
+* Todo `object`: Mark a todo as done
+  * action_name `string`
+  * author [UserBasic](#userbasic)
+  * body `string`
+  * created_at `string`
+  * id `string`
+  * project [BasicProjectDetails](#basicprojectdetails)
+  * state `string`
+  * target `string`
+  * target_type `string`
+  * target_url `string`
+
+### Trigger
+* Trigger `object`: Delete a trigger
+  * created_at `string`
+  * deleted_at `string`
+  * last_used `string`
+  * token `string`
+  * updated_at `string`
+
+### TriggerRequest
+* TriggerRequest `object`: Trigger a GitLab project build
+  * id `string`
+  * variables `string`
+
+### User
+* User `object`
+  * avatar_url `string`
+  * bio `string`
+  * created_at `string`
+  * id `string`
+  * is_admin `string`
+  * linkedin `string`
+  * location `string`
+  * name `string`
+  * organization `string`
+  * skype `string`
+  * state `string`
+  * twitter `string`
+  * username `string`
+  * web_url `string`
+  * website_url `string`
+
+### UserBasic
+* UserBasic `object`: Get a single user
+  * avatar_url `string`
+  * id `string`
+  * name `string`
+  * state `string`
+  * username `string`
+  * web_url `string`
+
+### UserPublic
+* UserPublic `object`: Get the currently authenticated user
+  * avatar_url `string`
+  * bio `string`
+  * can_create_group `string`
+  * can_create_project `string`
+  * color_scheme_id `string`
+  * confirmed_at `string`
+  * created_at `string`
+  * current_sign_in_at `string`
+  * email `string`
+  * external `string`
+  * id `string`
+  * identities [Identity](#identity)
+  * is_admin `string`
+  * last_sign_in_at `string`
+  * linkedin `string`
+  * location `string`
+  * name `string`
+  * organization `string`
+  * projects_limit `string`
+  * skype `string`
+  * state `string`
+  * theme_id `string`
+  * twitter `string`
+  * two_factor_enabled `string`
+  * username `string`
+  * web_url `string`
+  * website_url `string`
+
+### UserWithPrivateToken
+* UserWithPrivateToken `object`: Login to get token
+  * avatar_url `string`
+  * bio `string`
+  * can_create_group `string`
+  * can_create_project `string`
+  * color_scheme_id `string`
+  * confirmed_at `string`
+  * created_at `string`
+  * current_sign_in_at `string`
+  * email `string`
+  * external `string`
+  * id `string`
+  * identities [Identity](#identity)
+  * is_admin `string`
+  * last_sign_in_at `string`
+  * linkedin `string`
+  * location `string`
+  * name `string`
+  * organization `string`
+  * private_token `string`
+  * projects_limit `string`
+  * skype `string`
+  * state `string`
+  * theme_id `string`
+  * twitter `string`
+  * two_factor_enabled `string`
+  * username `string`
+  * web_url `string`
+  * website_url `string`
+
+### Variable
+* Variable `object`: Delete an existing variable from a project
+  * key `string`
+  * value `string`
+
+

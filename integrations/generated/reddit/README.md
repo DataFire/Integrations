@@ -4308,4 +4308,4 @@ reddit.about.log.get({}, context)
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

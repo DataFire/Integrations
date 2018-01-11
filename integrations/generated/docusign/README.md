@@ -7547,4 +7547,4782 @@ docusign.OAuth2_PostToken(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+### AccountBrands
+* AccountBrands `object`: Brand management for accounts
+  * brands `array`: The list of brands.
+    * items [brand](#brand)
+  * recipientBrandIdDefault `string`: The brand seen by envelope recipients when a brand is not explicitly set.
+  * senderBrandIdDefault `string`: The brand seen by envelope senders when a brand is not explicitly set.
+
+### AccountConsumerDisclosures
+* AccountConsumerDisclosures `object`: Account consumer disclosures
+  * accountEsignId `string`: A GUID identifying the account associated with the consumer disclosure
+  * allowCDWithdraw `string`: Indicates whether the customer can withdraw their acceptance of the consumer disclosure.
+  * allowCDWithdrawMetadata [settingsMetadata](#settingsmetadata)
+  * changeEmail `string`
+  * changeEmailOther `string`
+  * companyName `string`: The name of the company associated with the consumer disclosure.
+  * companyPhone `string`: The phone number of the company associated with the consumer disclosure.
+  * copyCostPerPage `string`
+  * copyFeeCollectionMethod `string`: Specifies the fee collection method for cases in which the customer requires paper copies of the document.
+  * copyRequestEmail `string`
+  * custom `string`
+  * enableEsign `string`
+  * esignAgreement `string`: The Electronic Record and Signature Disclosure text. The disclosure text includes the html formatting.
+  * esignText `string`
+  * languageCode `string`
+  * mustAgreeToEsign `string`
+  * pdfId `string`
+  * useBrand `string`
+  * useConsumerDisclosureWithinAccount `string`
+  * useConsumerDisclosureWithinAccountMetadata [settingsMetadata](#settingsmetadata)
+  * withdrawAddressLine1 `string`: Contains the first address line of the postal address to which a customer can send a consent withdrawal notification.
+  * withdrawAddressLine2 `string`: Contains the second address line of the postal address to which a customer can send a consent withdrawal notification.
+  * withdrawByEmail `string`: Indicates whether the customer can withdraw consent by email.
+  * withdrawByMail `string`: Indicates whether the customer can withdraw consent by postal mail.
+  * withdrawByPhone `string`: Indicates whether the customer can withdraw consent by phone.
+  * withdrawCity `string`: Contains the city of the postal address to which a customer can send a consent withdrawal notification.
+  * withdrawConsequences `string`: Indicates the consequences of withdrawing consent.
+  * withdrawEmail `string`: Contains the email address to which a customer can send a consent withdrawal notification.
+  * withdrawOther `string`: Indicates other information need to withdraw consent.
+  * withdrawPhone `string`: Contains the phone number which a customer can call to register consent withdrawal notification.
+  * withdrawPostalCode `string`: Contains the postal code of the postal address to which a customer can send a consent withdrawal notification.
+  * withdrawState `string`: Contains the state of the postal address to which a customer can send a consent withdrawal notification.
+
+### AccountCustomFields
+* AccountCustomFields `object`: Custom Fields
+  * listCustomFields `array`: An array of list custom fields.
+    * items [listCustomField](#listcustomfield)
+  * textCustomFields `array`: An array of text custom fields.
+    * items [textCustomField](#textcustomfield)
+
+### AccountPasswordRules
+* AccountPasswordRules `object`
+  * expirePassword `string`
+  * expirePasswordDays `string`
+  * expirePasswordDaysMetadata [accountPasswordExpirePasswordDays](#accountpasswordexpirepassworddays)
+  * lockoutDurationMinutes `string`
+  * lockoutDurationMinutesMetadata [accountPasswordLockoutDurationMinutes](#accountpasswordlockoutdurationminutes)
+  * lockoutDurationType `string`
+  * lockoutDurationTypeMetadata [accountPasswordLockoutDurationType](#accountpasswordlockoutdurationtype)
+  * minimumPasswordAgeDays `string`
+  * minimumPasswordAgeDaysMetadata [accountPasswordMinimumPasswordAgeDays](#accountpasswordminimumpasswordagedays)
+  * minimumPasswordLength `string`
+  * minimumPasswordLengthMetadata [accountMinimumPasswordLength](#accountminimumpasswordlength)
+  * passwordIncludeDigit `string`
+  * passwordIncludeDigitOrSpecialCharacter `string`
+  * passwordIncludeLowerCase `string`
+  * passwordIncludeSpecialCharacter `string`
+  * passwordIncludeUpperCase `string`
+  * passwordStrengthType `string`
+  * passwordStrengthTypeMetadata [accountPasswordStrengthType](#accountpasswordstrengthtype)
+  * questionsRequired `string`
+  * questionsRequiredMetadata [accountPasswordQuestionsRequired](#accountpasswordquestionsrequired)
+
+### AccountPermissionProfiles
+* AccountPermissionProfiles `object`
+  * modifiedByUsername `string`
+  * modifiedDateTime `string`
+  * permissionProfileId `string`
+  * permissionProfileName `string`
+  * settings [accountRoleSettings](#accountrolesettings)
+  * userCount `string`
+  * users `array`
+    * items [Users](#users)
+
+### AccountSignatureProviders
+* AccountSignatureProviders `object`: Account SBS Signature Providers
+  * signatureProviders `array`
+    * items [accountSignatureProvider](#accountsignatureprovider)
+
+### AccountTabSettings
+* AccountTabSettings `object`
+  * allowTabOrder `string`
+  * allowTabOrderMetadata [settingsMetadata](#settingsmetadata)
+  * approveDeclineTabsEnabled `string`
+  * approveDeclineTabsMetadata [settingsMetadata](#settingsmetadata)
+  * calculatedFieldsEnabled `string`
+  * calculatedFieldsMetadata [settingsMetadata](#settingsmetadata)
+  * checkboxTabsEnabled `string`
+  * checkboxTabsMetadata [settingsMetadata](#settingsmetadata)
+  * dataFieldRegexEnabled `string`
+  * dataFieldRegexMetadata [settingsMetadata](#settingsmetadata)
+  * dataFieldSizeEnabled `string`
+  * dataFieldSizeMetadata [settingsMetadata](#settingsmetadata)
+  * firstLastEmailTabsEnabled `string`
+  * firstLastEmailTabsMetadata [settingsMetadata](#settingsmetadata)
+  * listTabsEnabled `string`
+  * listTabsMetadata [settingsMetadata](#settingsmetadata)
+  * noteTabsEnabled `string`
+  * noteTabsMetadata [settingsMetadata](#settingsmetadata)
+  * radioTabsEnabled `string`
+  * radioTabsMetadata [settingsMetadata](#settingsmetadata)
+  * savingCustomTabsEnabled `string`
+  * savingCustomTabsMetadata [settingsMetadata](#settingsmetadata)
+  * senderToChangeTabAssignmentsEnabled `string`
+  * senderToChangeTabAssignmentsMetadata [settingsMetadata](#settingsmetadata)
+  * sharedCustomTabsEnabled `string`
+  * sharedCustomTabsMetadata [settingsMetadata](#settingsmetadata)
+  * tabDataLabelEnabled `string`
+  * tabDataLabelMetadata [settingsMetadata](#settingsmetadata)
+  * tabLocationEnabled `string`
+  * tabLocationMetadata [settingsMetadata](#settingsmetadata)
+  * tabLockingEnabled `string`
+  * tabLockingMetadata [settingsMetadata](#settingsmetadata)
+  * tabScaleEnabled `string`
+  * tabScaleMetadata [settingsMetadata](#settingsmetadata)
+  * tabTextFormattingEnabled `string`
+  * tabTextFormattingMetadata [settingsMetadata](#settingsmetadata)
+  * textTabsEnabled `string`
+  * textTabsMetadata [settingsMetadata](#settingsmetadata)
+
+### AccountWatermarks
+* AccountWatermarks `object`
+  * displayAngle `string`
+  * enabled `string`
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * id `string`
+  * imageBase64 `string`
+  * transparency `string`
+  * watermarkText `string`
+
+### Accounts
+* Accounts `object`: Account management
+  * accountIdGuid `string`: The GUID associated with the account ID.
+  * accountName `string`: The name of the current account.
+  * allowTransactionRooms `string`: When set to **true**, the transaction rooms feature exposed through the Workspaces API is enabled.
+  * billingPeriodDaysRemaining `string`: Reserved: TBD
+  * billingPeriodEndDate `string`: Reserved: TBD
+  * billingPeriodEnvelopesAllowed `string`: Reserved: TBD
+  * billingPeriodEnvelopesSent `string`: Reserved: TBD
+  * billingPeriodStartDate `string`: Reserved: TBD
+  * billingProfile `string`: Reserved: TBD
+  * canCancelRenewal `string`: Reserved: TBD
+  * canUpgrade `string`: When set to **true**, specifies that you can upgrade the account through the API.
+  * connectPermission `string`
+  * createdDate `string`
+  * currencyCode `string`: Specifies the ISO currency code for the account.
+  * currentPlanId `string`: Identifies the plan that was used create this account.
+  * distributorCode `string`: The code that identifies the billing plan groups and plans for the new account.
+  * docuSignLandingUrl `string`
+  * envelopeSendingBlocked `string`
+  * envelopeUnitPrice `string`
+  * forgottenPasswordQuestionsCount `string`:  A complex element that contains up to four Question/Answer pairs for forgotten password information for a user.
+  * isDowngrade `string`
+  * paymentMethod `string`
+  * planClassification `string`: Identifies the type of plan. Examples include Business, Corporate, Enterprise, Free.
+  * planEndDate `string`: The date that the current plan will end.
+  * planName `string`: The name of the Billing Plan.
+  * planStartDate `string`: The date that the Account started using the current plan.
+  * seatsAllowed `string`
+  * seatsInUse `string`
+  * status21CFRPart11 `string`
+  * suspensionDate `string`
+  * suspensionStatus `string`
+
+### Authentication
+* Authentication `object`: Authentication and login
+  * apiPassword `string`: Contains a token that can be used for authentication in API calls instead of using the user name and password. Only returned if the `api_password=true` query string is added to the URL.
+  * loginAccounts `array`: The list of accounts that authenticating user is a member of.
+    * items [loginAccount](#loginaccount)
+
+### BillingPlans
+* BillingPlans `object`: Billing plans
+  * billingAddress [accountAddress](#accountaddress)
+  * billingAddressIsCreditCardAddress `string`: When set to **true**, the credit card address information is the same as that returned as the billing address. If false, then the billing address is considered a billing contact address, and the credit card address can be different.
+  * billingPlan [accountBillingPlan](#accountbillingplan)
+  * creditCardInformation [creditCardInformation](#creditcardinformation)
+  * paymentProcessorInformation [paymentProcessorInformation](#paymentprocessorinformation)
+  * referralInformation [referralInformation](#referralinformation)
+  * successorPlans `array`
+    * items [billingPlan](#billingplan)
+
+### BulkEnvelopes
+* BulkEnvelopes `object`: Bulk envelopes
+  * bulkEnvelopeStatuses `array`: Reserved: TBD
+    * items [bulkEnvelopeStatus](#bulkenvelopestatus)
+  * endPosition `string`: The last position in the result set. 
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### ChunkedUploads
+* ChunkedUploads `object`
+  * checksum `string`
+  * chunkedUploadId `string`
+  * chunkedUploadParts `array`
+    * items [chunkedUploadPart](#chunkeduploadpart)
+  * chunkedUploadUri `string`
+  * committed `string`
+  * expirationDateTime `string`
+  * maxChunkedUploadParts `string`
+  * maxTotalSize `string`
+  * totalSize `string`
+
+### CloudStorage
+* CloudStorage `object`: Cloud storage
+  * endPosition `string`: The last position in the result set. 
+  * errorDetails [externalDocServiceErrorDetails](#externaldocserviceerrordetails)
+  * id `string`
+  * items `array`
+    * items [externalFile](#externalfile)
+  * name `string`
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### CloudStorageProviders
+* CloudStorageProviders `object`: Cloud storage providers
+  * storageProviders `array`: An Array containing the storage providers associated with the user.
+    * items [cloudStorageProvider](#cloudstorageprovider)
+
+### ConnectConfigurations
+* ConnectConfigurations `object`: Connect configurations
+  * allUsers `string`: When set to **true**, the tracked envelope and recipient events for all users, including users that are added a later time, are sent through Connect.
+  * allowEnvelopePublish `string`: When set to **true**, data is sent to the urlToPublishTo web address. This option can be set to false to stop sending data while maintaining the Connect configuration information.
+  * configurationType `string`: If merge field's are being used, specifies the type of the merge field. The only  supported value is **salesforce**.
+  * connectId `string`:  Specifies the DocuSign generated ID for the Connect configuration.  
+  * enableLog `string`: This turns Connect logging on or off. When set to **true**, logging is turned on.
+  * envelopeEvents `string`: A comma separated list of Envelope related events that are tracked through Connect. The possible event values are: Sent, Delivered, Completed, Declined, and Voided.
+  * includeCertSoapHeader `string`
+  * includeCertificateOfCompletion `string`: When set to **true**, the Connect Service includes the Certificate of Completion with completed envelopes. 
+  * includeDocumentFields `string`: When set to **true**, the Document Fields associated with the envelope's documents are included in the notification messages. Document Fields are optional custom name-value pairs added to documents using the API. 
+  * includeDocuments `string`: When set to **true**, Connect will send the PDF document along with the update XML.
+  * includeEnvelopeVoidReason `string`: When set to **true**, Connect will include the voidedReason for voided envelopes.
+  * includeSenderAccountasCustomField `string`: When set to **true**, Connect will include the sender account as Custom Field in the data.
+  * includeTimeZoneInformation `string`: When set to **true**, Connect will include the envelope time zone information.
+  * name `string`: The name of the Connect configuration. The name helps identify the configuration in the list.
+  * recipientEvents `string`: A comma separated list of *Recipient* related events that will trigger a notification to your webhook Connect listener. The possible event values are: Sent, Delivered, Completed, Declined, AuthenticationFailed, and AutoResponded.
+  * requiresAcknowledgement `string`: When set to **true**, and a publication message fails to be acknowledged, the message goes back into the queue and the system will retry delivery after a successful acknowledgement is received. If the delivery fails a second time, the message is not returned to the queue for sending until Connect receives a successful acknowledgement and it has been at least 24 hours since the previous retry. There is a maximum of ten retries Alternately, you can use Republish Connect Information to manually republish the envelope information.
+  * signMessageWithX509Certificate `string`: When set to **true**, Mutual TLS will be enabled for notifications. Mutual TLS must be initiated by the listener (the customer's web server) during the TLS handshake protocol. 
+  * soapNamespace `string`: The namespace of the SOAP interface.
+  * urlToPublishTo `string`: This is the web address and name of your listener or Retrieving Service endpoint. You need to include HTTPS:// in the web address.
+  * useSoapInterface `string`: When set to **true**, indicates that the `urlToPublishTo` property contains a SOAP endpoint.
+  * userIds `string`: A comma separated list of userIds. This sets the users associated with the tracked envelope and recipient events. When a tracked event occurs for a set user, the a notification message is sent to your Connect listener. 
+
+### ConnectEvents
+* ConnectEvents `object`: Connect event logging
+  * failures `array`: An array of containing failure information from the Connect failure log.
+    * items [connectLog](#connectlog)
+  * logs `array`: A complex type containing Connect log information. It is divided into two sections, one for regular logs and one for Connect failures. 
+    * items [connectLog](#connectlog)
+  * totalRecords `string`: Record count.
+  * type `string`: Type of the user. Valid values: type_owner, type_participant.
+
+### Contacts
+* Contacts `object`
+  * contactId `string`: The unique identifier of a person in the contacts address book.
+  * contactPhoneNumbers `array`
+    * items [contactPhoneNumber](#contactphonenumber)
+  * contactUri `string`
+  * emails `array`
+    * items `string`
+  * errorDetails [errorDetails](#errordetails)
+  * name `string`
+  * organization `string`
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * signingGroup `string`
+  * signingGroupName `string`: The display name for the signing group. 
+
+### CustomTabs
+* CustomTabs `object`: Custom tabs
+  * anchor `string`: An optional string that is used to auto-match tabs to strings located in the documents of an envelope.
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * concealValueOnDocument `string`: When set to **true**, the field appears normally while the recipient is adding or modifying the information in the field, but the data is not visible (the characters are hidden by asterisks) to any other signer or the sender.
+  * createdByDisplayName `string`: The user name of the DocuSign user who created this object.
+  * createdByUserId `string`: The userId of the DocuSign user who created this object.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * disableAutoSize `string`: When set to **true**, disables the auto sizing of single line text boxes in the signing screen when the signer enters data. If disabled users will only be able enter as much data as the text box can hold. By default this is false. This property only affects single line text boxes.
+  * editable `string`: When set to **true**, the custom tab is editable. Otherwise the custom tab cannot be modified.
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * height `string`: Height of the tab in pixels.
+  * includedInEmail `string`: When set to **true**, the tab is included in e-mails related to the envelope on which it exists. This applies to only specific tabs.
+  * initialValue `string`: The original value of the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * items `array`: If the tab is a list, this represents the values that are possible for the tab.
+    * items `string`
+  * lastModified `string`: The UTC DateTime this object was last modified. This is in ISO8601 format.
+  * lastModifiedByDisplayName `string`: The User Name of the DocuSign user who last modified this object.
+  * lastModifiedByUserId `string`: The userId of the DocuSign user who last modified this object.
+  * locked `string`: When set to **true**, the signer cannot change the data of the custom tab.
+  * maximumLength `string`: The maximum number of entry characters supported by the custom tab.
+  * mergeField [mergeField](#mergefield)
+  * name `string`
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * scaleValue `string`
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * stampType `string`
+  * stampTypeMetadata [propertyMetadata](#propertymetadata)
+  * tabLabel `string`: The label string associated with the tab.
+  * type `string`: The type of this tab. Values are: Approve, CheckBox, Company, Date, DateSigned,	Decline, Email,	EmailAddress, EnvelopeId, FirstName, Formula, FullName,	InitialHere, InitialHereOptional, LastName, List, Note, Number,	Radio, SignerAttachment, SignHere, SignHereOptional, Ssn, Text, Title, Zip5, or Zip5Dash4.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * validationMessage `string`: The message displayed if the custom tab fails input validation (either custom of embedded).
+  * validationPattern `string`: A regular expressionn used to validate input for the tab.
+  * width `string`: Width of the tab in pixels.
+
+### EMortgageTransactions
+* EMortgageTransactions `object`
+  * documentData `string`
+  * dptName `string`
+  * transactionName `string`
+  * transactionTypeName `string`
+
+### ENoteConfigurations
+* ENoteConfigurations `object`
+  * connectConfigured `string`
+  * eNoteConfigured `string`
+  * organization `string`
+  * password `string`
+  * userName `string`
+
+### EnvelopeAttachments
+* EnvelopeAttachments `object`
+  * accessControl `string`
+  * attachmentId `string`
+  * attachmentType `string`
+  * errorDetails [errorDetails](#errordetails)
+  * label `string`
+  * name `string`
+
+### EnvelopeBulkRecipients
+* EnvelopeBulkRecipients `object`: Envelope bulk recipients
+  * bulkRecipients `array`: A complex type containing information about the bulk recipients in the response.
+    * items [bulkRecipient](#bulkrecipient)
+  * endPosition `string`: The last position in the result set. 
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### EnvelopeConsumerDisclosures
+* EnvelopeConsumerDisclosures `object`: Envelope consumer disclosures
+  * accountEsignId `string`: A GUID identifying the account associated with the consumer disclosure
+  * allowCDWithdraw `string`: Indicates whether the customer can withdraw their acceptance of the consumer disclosure.
+  * allowCDWithdrawMetadata [settingsMetadata](#settingsmetadata)
+  * changeEmail `string`
+  * changeEmailOther `string`
+  * companyName `string`: The name of the company associated with the consumer disclosure.
+  * companyPhone `string`: The phone number of the company associated with the consumer disclosure.
+  * copyCostPerPage `string`
+  * copyFeeCollectionMethod `string`: Specifies the fee collection method for cases in which the customer requires paper copies of the document.
+  * copyRequestEmail `string`
+  * custom `string`
+  * enableEsign `string`
+  * esignAgreement `string`: The Electronic Record and Signature Disclosure text. The disclosure text includes the html formatting.
+  * esignText `string`
+  * languageCode `string`
+  * mustAgreeToEsign `string`
+  * pdfId `string`
+  * useBrand `string`
+  * useConsumerDisclosureWithinAccount `string`
+  * useConsumerDisclosureWithinAccountMetadata [settingsMetadata](#settingsmetadata)
+  * withdrawAddressLine1 `string`: Contains the first address line of the postal address to which a customer can send a consent withdrawal notification.
+  * withdrawAddressLine2 `string`: Contains the second address line of the postal address to which a customer can send a consent withdrawal notification.
+  * withdrawByEmail `string`: Indicates whether the customer can withdraw consent by email.
+  * withdrawByMail `string`: Indicates whether the customer can withdraw consent by postal mail.
+  * withdrawByPhone `string`: Indicates whether the customer can withdraw consent by phone.
+  * withdrawCity `string`: Contains the city of the postal address to which a customer can send a consent withdrawal notification.
+  * withdrawConsequences `string`: Indicates the consequences of withdrawing consent.
+  * withdrawEmail `string`: Contains the email address to which a customer can send a consent withdrawal notification.
+  * withdrawOther `string`: Indicates other information need to withdraw consent.
+  * withdrawPhone `string`: Contains the phone number which a customer can call to register consent withdrawal notification.
+  * withdrawPostalCode `string`: Contains the postal code of the postal address to which a customer can send a consent withdrawal notification.
+  * withdrawState `string`: Contains the state of the postal address to which a customer can send a consent withdrawal notification.
+
+### EnvelopeCustomFields
+* EnvelopeCustomFields `object`: Envelope custom fields
+  * listCustomFields `array`: An array of list custom fields.
+    * items [listCustomField](#listcustomfield)
+  * textCustomFields `array`: An array of text custom fields.
+    * items [textCustomField](#textcustomfield)
+
+### EnvelopeDocumentFields
+* EnvelopeDocumentFields `object`: Envelope document fields
+  * documentFields `array`: The array of name/value custom data strings to be added to a document. Custom document field information is returned in the status, but otherwise is not used by DocuSign. The array contains the elements: 
+    * items [nameValue](#namevalue)
+
+### EnvelopeDocumentTabs
+* EnvelopeDocumentTabs `object`
+  * approveTabs `array`: A tab that allows the recipient to approve documents
+    * items [approve](#approve)
+  * checkboxTabs `array`: Specifies a tag on the document in a location where the recipient can select an option.
+    * items [checkbox](#checkbox)
+  * companyTabs `array`: Specifies a tag on the document where you want the recipient's company name to appear.
+    * items [company](#company)
+  * dateSignedTabs `array`: Specifies a tab on the document where the date the document was signed will automatically appear.
+    * items [dateSigned](#datesigned)
+  * dateTabs `array`: Specifies a tab on the document where you want the recipient to enter a date. Date tabs are single-line fields that allow date information to be entered in any format. The tooltip for this tab recommends entering the date as MM/DD/YYYY, but this is not enforced. The format entered by the signer is retained. 
+    * items [date](#date)
+  * declineTabs `array`: Specifies a tag on the document where you want to give the recipient the option of declining an envelope. If the recipient clicks the Decline tag during the signing process, the envelope is voided.
+    * items [decline](#decline)
+  * emailAddressTabs `array`: Specifies a location on the document where you want where you want the recipient's email, as entered in the recipient information, to display.
+    * items [emailAddress](#emailaddress)
+  * emailTabs `array`: Specifies a tag on the document where you want the recipient to enter an email. Email tags are single-line fields that accept any characters. The system checks that a valid email format (i.e. xxx@yyy.zzz) is entered in the tag. It uses the same parameters as a Text tab, with the validation message and pattern set for email information.
+    * items [email](#email)
+  * envelopeIdTabs `array`: Specifies a tag on the document where you want the envelope ID for to appear. Recipients cannot enter or change the information in this tab, it is for informational purposes only.
+    * items [envelopeId](#envelopeid)
+  * firstNameTabs `array`: Specifies tag on a document where you want the recipient's first name to appear. This tag takes the recipient's name, as entered in the recipient information, splits it into sections based on spaces and uses the first section as the first name.
+    * items [firstName](#firstname)
+  * formulaTabs `array`: A list of formula tabs.
+    * items [formulaTab](#formulatab)
+  * fullNameTabs `array`: Specifies a tag on the document where you want the recipient's name to appear.
+    * items [fullName](#fullname)
+  * initialHereTabs `array`: Specifies a tag location in the document at which a recipient will place their initials. The `optional` parameter specifies whether the initials are required or optional.
+    * items [initialHere](#initialhere)
+  * lastNameTabs `array`: Specifies a tag on a document where you want the recipient's last name to appear. This tag takes the recipient's name, as entered in the recipient information, splits it into sections based on spaces and uses the last section as the last name.
+    * items [lastName](#lastname)
+  * listTabs `array`: Specify this tag to give your recipient a list of options, presented as a drop-down list, from which they can select.
+    * items [list](#list)
+  * noteTabs `array`: Specifies a location on the document where you want to place additional information, in the form of a note, for a recipient.
+    * items [note](#note)
+  * numberTabs `array`: Specifies a tag on the document where you want the recipient to enter a number. It uses the same parameters as a Text tab, with the validation message and pattern set for number information.
+    * items [number](#number)
+  * radioGroupTabs `array`: Specifies a tag on the document in a location where the recipient can select one option from a group of options using a radio button. The radio buttons do not have to be on the same page in a document.
+    * items [radioGroup](#radiogroup)
+  * signHereTabs `array`: A complex type the contains information about the tag that specifies where the recipient places their signature in the document. The "optional" parameter sets if the signature is required or optional.
+    * items [signHere](#signhere)
+  * signerAttachmentTabs `array`: Specifies a tag on the document when you want the recipient to add supporting documents to an envelope.
+    * items [signerAttachment](#signerattachment)
+  * ssnTabs `array`: Specifies a tag on the document where you want the recipient to enter a Social Security Number (SSN). A SSN can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for SSN information.
+    * items [ssn](#ssn)
+  * textTabs `array`: Specifies a that that is an adaptable field that allows the recipient to enter different text information.
+    * items [text](#text)
+  * titleTabs `array`: Specifies a tag on the document where you want the recipient's title to appear.
+    * items [title](#title)
+  * viewTabs `array`
+    * items [view](#view)
+  * zipTabs `array`: Specifies a tag on the document where you want the recipient to enter a ZIP code. The ZIP code can be a five numbers or the ZIP+4 format with nine numbers. The zip code can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for ZIP code information.
+    * items [zip](#zip)
+
+### EnvelopeDocumentVisibility
+* EnvelopeDocumentVisibility `object`
+  * documentVisibility `array`
+    * items [documentVisibility](#documentvisibility)
+
+### EnvelopeDocuments
+* EnvelopeDocuments `object`: Envelope documents
+  * envelopeDocuments `array`
+    * items [envelopeDocument](#envelopedocument)
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+
+### EnvelopeEmailSettings
+* EnvelopeEmailSettings `object`: Envelope email settings
+  * bccEmailAddresses `array`: A list of email addresses that receive a copy of all email communications for an envelope. You can use this for archiving purposes.
+    * items [bccEmailAddress](#bccemailaddress)
+  * replyEmailAddressOverride `string`
+  * replyEmailNameOverride `string`
+
+### EnvelopeFormData
+* EnvelopeFormData `object`
+  * emailSubject `string`: Specifies the subject of the email that is sent to all recipients.
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * formData `array`
+    * items [nameValue](#namevalue)
+  * recipientFormData `array`
+    * items [recipientFormData](#recipientformdata)
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * status `string`: Indicates the envelope status. Valid values are:
+
+### EnvelopeLocks
+* EnvelopeLocks `object`: Envelope locks
+  * errorDetails [errorDetails](#errordetails)
+  * lockDurationInSeconds `string`: Sets the time, in seconds, until the lock expires when there is no activity on the envelope.
+  * lockToken `string`: A unique identifier provided to the owner of the envelope lock.   Used to prove ownership of the lock.
+  * lockType `string`: The type of envelope lock.  Currently "edit" is the only supported type.
+  * lockedByApp `string`: Specifies the friendly name of  the application that is locking the envelope.
+  * lockedByUser [userInfo](#userinfo)
+  * lockedUntilDateTime `string`: The datetime until the envelope lock expires.
+  * useScratchPad `string`: Reserved for future use.
+
+### EnvelopeRecipientTabs
+* EnvelopeRecipientTabs `object`: Envelope tabs
+  * approveTabs `array`: A tab that allows the recipient to approve documents
+    * items [approve](#approve)
+  * checkboxTabs `array`: Specifies a tag on the document in a location where the recipient can select an option.
+    * items [checkbox](#checkbox)
+  * companyTabs `array`: Specifies a tag on the document where you want the recipient's company name to appear.
+    * items [company](#company)
+  * dateSignedTabs `array`: Specifies a tab on the document where the date the document was signed will automatically appear.
+    * items [dateSigned](#datesigned)
+  * dateTabs `array`: Specifies a tab on the document where you want the recipient to enter a date. Date tabs are single-line fields that allow date information to be entered in any format. The tooltip for this tab recommends entering the date as MM/DD/YYYY, but this is not enforced. The format entered by the signer is retained. 
+    * items [date](#date)
+  * declineTabs `array`: Specifies a tag on the document where you want to give the recipient the option of declining an envelope. If the recipient clicks the Decline tag during the signing process, the envelope is voided.
+    * items [decline](#decline)
+  * emailAddressTabs `array`: Specifies a location on the document where you want where you want the recipient's email, as entered in the recipient information, to display.
+    * items [emailAddress](#emailaddress)
+  * emailTabs `array`: Specifies a tag on the document where you want the recipient to enter an email. Email tags are single-line fields that accept any characters. The system checks that a valid email format (i.e. xxx@yyy.zzz) is entered in the tag. It uses the same parameters as a Text tab, with the validation message and pattern set for email information.
+    * items [email](#email)
+  * envelopeIdTabs `array`: Specifies a tag on the document where you want the envelope ID for to appear. Recipients cannot enter or change the information in this tab, it is for informational purposes only.
+    * items [envelopeId](#envelopeid)
+  * firstNameTabs `array`: Specifies tag on a document where you want the recipient's first name to appear. This tag takes the recipient's name, as entered in the recipient information, splits it into sections based on spaces and uses the first section as the first name.
+    * items [firstName](#firstname)
+  * formulaTabs `array`: A list of formula tabs.
+    * items [formulaTab](#formulatab)
+  * fullNameTabs `array`: Specifies a tag on the document where you want the recipient's name to appear.
+    * items [fullName](#fullname)
+  * initialHereTabs `array`: Specifies a tag location in the document at which a recipient will place their initials. The `optional` parameter specifies whether the initials are required or optional.
+    * items [initialHere](#initialhere)
+  * lastNameTabs `array`: Specifies a tag on a document where you want the recipient's last name to appear. This tag takes the recipient's name, as entered in the recipient information, splits it into sections based on spaces and uses the last section as the last name.
+    * items [lastName](#lastname)
+  * listTabs `array`: Specify this tag to give your recipient a list of options, presented as a drop-down list, from which they can select.
+    * items [list](#list)
+  * noteTabs `array`: Specifies a location on the document where you want to place additional information, in the form of a note, for a recipient.
+    * items [note](#note)
+  * numberTabs `array`: Specifies a tag on the document where you want the recipient to enter a number. It uses the same parameters as a Text tab, with the validation message and pattern set for number information.
+    * items [number](#number)
+  * radioGroupTabs `array`: Specifies a tag on the document in a location where the recipient can select one option from a group of options using a radio button. The radio buttons do not have to be on the same page in a document.
+    * items [radioGroup](#radiogroup)
+  * signHereTabs `array`: A complex type the contains information about the tag that specifies where the recipient places their signature in the document. The "optional" parameter sets if the signature is required or optional.
+    * items [signHere](#signhere)
+  * signerAttachmentTabs `array`: Specifies a tag on the document when you want the recipient to add supporting documents to an envelope.
+    * items [signerAttachment](#signerattachment)
+  * ssnTabs `array`: Specifies a tag on the document where you want the recipient to enter a Social Security Number (SSN). A SSN can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for SSN information.
+    * items [ssn](#ssn)
+  * textTabs `array`: Specifies a that that is an adaptable field that allows the recipient to enter different text information.
+    * items [text](#text)
+  * titleTabs `array`: Specifies a tag on the document where you want the recipient's title to appear.
+    * items [title](#title)
+  * viewTabs `array`
+    * items [view](#view)
+  * zipTabs `array`: Specifies a tag on the document where you want the recipient to enter a ZIP code. The ZIP code can be a five numbers or the ZIP+4 format with nine numbers. The zip code can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for ZIP code information.
+    * items [zip](#zip)
+
+### EnvelopeRecipients
+* EnvelopeRecipients `object`: Envelope recipients
+  * agents `array`: A complex type defining the management and access rights of a recipient assigned assigned as an agent on the document.
+    * items [agent](#agent)
+  * carbonCopies `array`: A complex type containing information about recipients who should receive a copy of the envelope, but does not need to sign it.
+    * items [carbonCopy](#carboncopy)
+  * certifiedDeliveries `array`: A complex type containing information on a recipient the must receive the completed documents for the envelope to be completed, but the recipient does not need to sign, initial, date, or add information to any of the documents.
+    * items [certifiedDelivery](#certifieddelivery)
+  * currentRoutingOrder `string`
+  * editors `array`: A complex type defining the management and access rights of a recipient assigned assigned as an editor on the document.
+    * items [editor](#editor)
+  * errorDetails [errorDetails](#errordetails)
+  * inPersonSigners `array`: Specifies a signer that is in the same physical location as a DocuSign user who will act as a Signing Host for the transaction. The recipient added is the Signing Host and new separate Signer Name field appears after Sign in person is selected.
+    * items [inPersonSigner](#inpersonsigner)
+  * intermediaries `array`: Identifies a recipient that can, but is not required to, add name and email information for recipients at the same or subsequent level in the routing order (until subsequent Agents, Editors or Intermediaries recipient types are added).
+    * items [intermediary](#intermediary)
+  * recipientCount `string`: The list of recipient event statuses that will trigger Connect to send updates to the url. It can be a two-part list with:
+  * signers `array`: A complex type containing information about the Signer recipient.
+    * items [signer](#signer)
+
+### EnvelopeTemplates
+* EnvelopeTemplates `object`: Envelope templates
+  * templates `array`
+    * items [templateSummary](#templatesummary)
+
+### EnvelopeViews
+* EnvelopeViews `object`: Embedding Envelope views
+  * url `string`: The view URL to be navigated to.
+
+### Envelopes
+* Envelopes `object`: Envelope creation, management
+  * allowMarkup `string`: When set to **true**, Document Markup is enabled for envelope. Account must have Document Markup enabled to use this
+  * allowReassign `string`: When set to **true**, the recipient can redirect an envelope to a more appropriate recipient.
+  * asynchronous `string`: When set to **true**, the envelope is queued for processing and the value of the `status` property is set to 'Processing'. Additionally, get status calls return 'Processing' until completed.
+  * attachmentsUri `string`
+  * authoritativeCopy `string`: Specifies the Authoritative copy feature. If set to true the Authoritative copy feature is enabled.
+  * autoNavigation `string`: Specifies whether auto navigation is set for the recipient.
+  * brandId `string`: The unique identifier of a brand.
+  * brandLock `string`
+  * certificateUri `string`: Retrieves a URI for an endpoint that allows you to easily retrieve certificate information.
+  * completedDateTime `string`: Specifies the date and time this item was completed.
+  * createdDateTime `string`: Indicates the date and time the item was created.
+  * customFields [AccountCustomFields](#accountcustomfields)
+  * customFieldsUri `string`: Contains a URI for an endpoint that you can use to retrieve the custom fields.
+  * declinedDateTime `string`: The date and time the recipient declined the document.
+  * deletedDateTime `string`: Specifies the data and time the item was deleted.
+  * deliveredDateTime `string`: Reserved: For DocuSign use only.
+  * documentsCombinedUri `string`
+  * documentsUri `string`: Contains a URI for an endpoint that you can use to retrieve the documents.
+  * emailBlurb `string`: This is the same as the email body. If specified it is included in email body for all envelope recipients.
+  * emailSettings [EnvelopeEmailSettings](#envelopeemailsettings)
+  * emailSubject `string`: Specifies the subject of the email that is sent to all recipients.
+  * enableWetSign `string`: When set to **true**, the signer is allowed to print the document and sign it on paper.
+  * enforceSignerVisibility `string`: When set to **true**, documents with tabs can only be viewed by signers that have a tab on that document. Recipients that have an administrative role (Agent, Editor, or Intermediaries) or informational role (Certified Deliveries or Carbon Copies) can always see all the documents in an envelope, unless they are specifically excluded using this setting when an envelope is sent. Documents that do not have tabs are always visible to all recipients, unless they are specifically excluded using this setting when an envelope is sent.
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * envelopeIdStamping `string`: When set to **true**, Envelope ID Stamping is enabled.
+  * envelopeUri `string`: Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+  * initialSentDateTime `string`
+  * is21CFRPart11 `string`: When set to **true**, indicates that this module is enabled on the account.
+  * isSignatureProviderEnvelope `string`
+  * lastModifiedDateTime `string`: The date and time the item was last modified.
+  * lockInformation [EnvelopeLocks](#envelopelocks)
+  * messageLock `string`: When set to **true**, prevents senders from changing the contents of `emailBlurb` and `emailSubject` properties for the envelope. 
+  * notification [notification](#notification)
+  * notificationUri `string`: Contains a URI for an endpoint that you can use to retrieve the notifications.
+  * purgeState `string`
+  * recipients [EnvelopeRecipients](#enveloperecipients)
+  * recipientsLock `string`: When set to **true**, prevents senders from changing, correcting, or deleting the recipient information for the envelope.
+  * recipientsUri `string`: Contains a URI for an endpoint that you can use to retrieve the recipients.
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * signingLocation `string`: Specifies the physical location where the signing takes place. It can have two enumeration values; InPerson and Online. The default value is Online.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * statusChangedDateTime `string`: The data and time the status changed.
+  * templatesUri `string`: Contains a URI for an endpoint which you can use to retrieve the templates.
+  * transactionId `string`:  Used to identify an envelope. The id is a sender-generated value and is valid in the DocuSign system for 7 days. It is recommended that a transaction ID is used for offline signing to ensure that an envelope is not sent multiple times. The `transactionId` property can be used determine an envelope's status (i.e. was it created or not) in cases where the internet connection was lost before the envelope status was returned.
+  * useDisclosure `string`: When set to **true**, the disclosure is shown to recipients in accordance with the account's Electronic Record and Signature Disclosure frequency setting. When set to **false**, the Electronic Record and Signature Disclosure is not shown to any envelope recipients. 
+  * voidedDateTime `string`: The date and time the envelope or template was voided.
+  * voidedReason `string`: The reason the envelope or template was voided.
+
+### Folders
+* Folders `object`: Folder management
+  * folders `array`: A collection of folder objects returned in a response.
+    * items [folder](#folder)
+
+### GroupBrands
+* GroupBrands `object`: Brand management for groups
+  * brands `array`: The list of brands.
+    * items [brand](#brand)
+  * recipientBrandIdDefault `string`: The brand seen by envelope recipients when a brand is not explicitly set.
+  * senderBrandIdDefault `string`: The brand seen by envelope senders when a brand is not explicitly set.
+
+### GroupUsers
+* GroupUsers `object`: Groups' users
+  * endPosition `string`: The last position in the result set. 
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+  * users `array`
+    * items [userInfo](#userinfo)
+
+### Groups
+* Groups `object`: Group information
+  * endPosition `string`: The last position in the result set. 
+  * groups `array`: A collection group objects containing information about the groups returned.
+    * items [group](#group)
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### Invoices
+* Invoices `object`: Invoices
+  * amount `string`: Reserved: TBD
+  * balance `string`: Reserved: TBD
+  * dueDate `string`: Reserved: TBD
+  * invoiceId `string`: Reserved: TBD
+  * invoiceItems `array`: Reserved: TBD
+    * items [billingInvoiceItem](#billinginvoiceitem)
+  * invoiceNumber `string`: Reserved: TBD
+  * invoiceUri `string`: Contains a URI for an endpoint that you can use to retrieve invoice information.
+  * nonTaxableAmount `string`
+  * pdfAvailable `string`
+  * taxableAmount `string`
+
+### PaymentGatewayAccounts
+* PaymentGatewayAccounts `object`
+  * displayName `string`
+  * paymentGateway `string`
+  * paymentGatewayAccountId `string`
+
+### Payments
+* Payments `object`: Payments
+  * amount `string`: Reserved: TBD
+  * description `string`: A sender-defined description of the line item.
+  * paymentDate `string`
+  * paymentId `string`
+  * paymentNumber `string`: When set to **true**, a PDF version of the invoice is available. 
+
+### PowerFormData
+* PowerFormData `object`
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * recipients `array`: An array of powerform recipients.
+    * items [powerFormFormDataRecipient](#powerformformdatarecipient)
+
+### PowerForms
+* PowerForms `object`
+  * createdDateTime `string`: Indicates the date and time the item was created.
+  * emailBody `string`: Specifies the email body of the message sent to the recipient. 
+  * emailSubject `string`: Specifies the subject of the email that is sent to all recipients.
+  * envelopes `array`
+    * items [Envelopes](#envelopes)
+  * errorDetails [errorDetails](#errordetails)
+  * instructions `string`
+  * isActive `string`
+  * lastUsed `string`
+  * limitUseInterval `string`
+  * limitUseIntervalEnabled `string`
+  * limitUseIntervalUnits `string`
+  * maxUseEnabled `string`
+  * name `string`
+  * powerFormId `string`
+  * powerFormUrl `string`
+  * recipients `array`: An array of powerform recipients.
+    * items [powerFormRecipient](#powerformrecipient)
+  * senderName `string`
+  * senderUserId `string`
+  * signingMode `string`
+  * templateId `string`: The unique identifier of the template. If this is not provided, DocuSign will generate a value. 
+  * templateName `string`
+  * timesUsed `string`
+  * uri `string`
+  * usesRemaining `string`
+
+### RequestLogs
+* RequestLogs `object`: Request logs
+  * apiRequestLogMaxEntries `string`: Specifies the maximum number of API requests to log.
+  * apiRequestLogRemainingEntries `string`: Indicates the remaining number of API requests that can be logged.
+  * apiRequestLogging `string`:  When set to **true**, enables API request logging for the user. 
+
+### Resources
+* Resources `object`: API resource information
+  * resources `array`
+    * items [nameValue](#namevalue)
+
+### Services
+* Services `object`: API service information
+  * buildBranch `string`: Reserved: TBD
+  * buildBranchDeployedDateTime `string`: Reserved: TBD
+  * buildSHA `string`: Reserved: TBD
+  * buildVersion `string`: Reserved: TBD
+  * linkedSites `array`
+    * items `string`
+  * serviceVersions `array`
+    * items [serviceVersion](#serviceversion)
+
+### SigningGroupUsers
+* SigningGroupUsers `object`: Signing groups' users
+  * users `array`
+    * items [signingGroupUser](#signinggroupuser)
+
+### SigningGroups
+* SigningGroups `object`: Signing groups
+  * created `string`: The UTC DateTime when the workspace user authorization was created.
+  * createdBy `string`
+  * errorDetails [errorDetails](#errordetails)
+  * groupEmail `string`
+  * groupName `string`: The name of the group.
+  * groupType `string`: The group type.
+  * modified `string`
+  * modifiedBy `string`
+  * signingGroupId `string`: When set to **true** and the feature is enabled in the sender's account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).
+  * users `array`
+    * items [signingGroupUser](#signinggroupuser)
+
+### TemplateBulkRecipients
+* TemplateBulkRecipients `object`: Template bulk recipients
+  * bulkRecipients `array`: A complex type containing information about the bulk recipients in the response.
+    * items [bulkRecipient](#bulkrecipient)
+  * endPosition `string`: The last position in the result set. 
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### TemplateCustomFields
+* TemplateCustomFields `object`: Template custom fields
+  * listCustomFields `array`: An array of list custom fields.
+    * items [listCustomField](#listcustomfield)
+  * textCustomFields `array`: An array of text custom fields.
+    * items [textCustomField](#textcustomfield)
+
+### TemplateDocumentFields
+* TemplateDocumentFields `object`: Template document fields
+  * documentFields `array`: The array of name/value custom data strings to be added to a document. Custom document field information is returned in the status, but otherwise is not used by DocuSign. The array contains the elements: 
+    * items [nameValue](#namevalue)
+
+### TemplateDocumentTabs
+* TemplateDocumentTabs `object`
+  * approveTabs `array`: A tab that allows the recipient to approve documents
+    * items [approve](#approve)
+  * checkboxTabs `array`: Specifies a tag on the document in a location where the recipient can select an option.
+    * items [checkbox](#checkbox)
+  * companyTabs `array`: Specifies a tag on the document where you want the recipient's company name to appear.
+    * items [company](#company)
+  * dateSignedTabs `array`: Specifies a tab on the document where the date the document was signed will automatically appear.
+    * items [dateSigned](#datesigned)
+  * dateTabs `array`: Specifies a tab on the document where you want the recipient to enter a date. Date tabs are single-line fields that allow date information to be entered in any format. The tooltip for this tab recommends entering the date as MM/DD/YYYY, but this is not enforced. The format entered by the signer is retained. 
+    * items [date](#date)
+  * declineTabs `array`: Specifies a tag on the document where you want to give the recipient the option of declining an envelope. If the recipient clicks the Decline tag during the signing process, the envelope is voided.
+    * items [decline](#decline)
+  * emailAddressTabs `array`: Specifies a location on the document where you want where you want the recipient's email, as entered in the recipient information, to display.
+    * items [emailAddress](#emailaddress)
+  * emailTabs `array`: Specifies a tag on the document where you want the recipient to enter an email. Email tags are single-line fields that accept any characters. The system checks that a valid email format (i.e. xxx@yyy.zzz) is entered in the tag. It uses the same parameters as a Text tab, with the validation message and pattern set for email information.
+    * items [email](#email)
+  * envelopeIdTabs `array`: Specifies a tag on the document where you want the envelope ID for to appear. Recipients cannot enter or change the information in this tab, it is for informational purposes only.
+    * items [envelopeId](#envelopeid)
+  * firstNameTabs `array`: Specifies tag on a document where you want the recipient's first name to appear. This tag takes the recipient's name, as entered in the recipient information, splits it into sections based on spaces and uses the first section as the first name.
+    * items [firstName](#firstname)
+  * formulaTabs `array`: A list of formula tabs.
+    * items [formulaTab](#formulatab)
+  * fullNameTabs `array`: Specifies a tag on the document where you want the recipient's name to appear.
+    * items [fullName](#fullname)
+  * initialHereTabs `array`: Specifies a tag location in the document at which a recipient will place their initials. The `optional` parameter specifies whether the initials are required or optional.
+    * items [initialHere](#initialhere)
+  * lastNameTabs `array`: Specifies a tag on a document where you want the recipient's last name to appear. This tag takes the recipient's name, as entered in the recipient information, splits it into sections based on spaces and uses the last section as the last name.
+    * items [lastName](#lastname)
+  * listTabs `array`: Specify this tag to give your recipient a list of options, presented as a drop-down list, from which they can select.
+    * items [list](#list)
+  * noteTabs `array`: Specifies a location on the document where you want to place additional information, in the form of a note, for a recipient.
+    * items [note](#note)
+  * numberTabs `array`: Specifies a tag on the document where you want the recipient to enter a number. It uses the same parameters as a Text tab, with the validation message and pattern set for number information.
+    * items [number](#number)
+  * radioGroupTabs `array`: Specifies a tag on the document in a location where the recipient can select one option from a group of options using a radio button. The radio buttons do not have to be on the same page in a document.
+    * items [radioGroup](#radiogroup)
+  * signHereTabs `array`: A complex type the contains information about the tag that specifies where the recipient places their signature in the document. The "optional" parameter sets if the signature is required or optional.
+    * items [signHere](#signhere)
+  * signerAttachmentTabs `array`: Specifies a tag on the document when you want the recipient to add supporting documents to an envelope.
+    * items [signerAttachment](#signerattachment)
+  * ssnTabs `array`: Specifies a tag on the document where you want the recipient to enter a Social Security Number (SSN). A SSN can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for SSN information.
+    * items [ssn](#ssn)
+  * textTabs `array`: Specifies a that that is an adaptable field that allows the recipient to enter different text information.
+    * items [text](#text)
+  * titleTabs `array`: Specifies a tag on the document where you want the recipient's title to appear.
+    * items [title](#title)
+  * viewTabs `array`
+    * items [view](#view)
+  * zipTabs `array`: Specifies a tag on the document where you want the recipient to enter a ZIP code. The ZIP code can be a five numbers or the ZIP+4 format with nine numbers. The zip code can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for ZIP code information.
+    * items [zip](#zip)
+
+### TemplateDocumentVisibility
+* TemplateDocumentVisibility `object`
+  * documentVisibility `array`
+    * items [documentVisibility](#documentvisibility)
+
+### TemplateDocuments
+* TemplateDocuments `object`: Template documents
+  * templateDocuments `array`
+    * items [envelopeDocument](#envelopedocument)
+  * templateId `string`: The unique identifier of the template. If this is not provided, DocuSign will generate a value. 
+
+### TemplateLocks
+* TemplateLocks `object`: Template locks
+  * errorDetails [errorDetails](#errordetails)
+  * lockDurationInSeconds `string`: Sets the time, in seconds, until the lock expires when there is no activity on the envelope.
+  * lockToken `string`: A unique identifier provided to the owner of the envelope lock.   Used to prove ownership of the lock.
+  * lockType `string`: The type of envelope lock.  Currently "edit" is the only supported type.
+  * lockedByApp `string`: Specifies the friendly name of  the application that is locking the envelope.
+  * lockedByUser [userInfo](#userinfo)
+  * lockedUntilDateTime `string`: The datetime until the envelope lock expires.
+  * useScratchPad `string`: Reserved for future use.
+
+### TemplateRecipientTabs
+* TemplateRecipientTabs `object`: Template tabs
+  * approveTabs `array`: A tab that allows the recipient to approve documents
+    * items [approve](#approve)
+  * checkboxTabs `array`: Specifies a tag on the document in a location where the recipient can select an option.
+    * items [checkbox](#checkbox)
+  * companyTabs `array`: Specifies a tag on the document where you want the recipient's company name to appear.
+    * items [company](#company)
+  * dateSignedTabs `array`: Specifies a tab on the document where the date the document was signed will automatically appear.
+    * items [dateSigned](#datesigned)
+  * dateTabs `array`: Specifies a tab on the document where you want the recipient to enter a date. Date tabs are single-line fields that allow date information to be entered in any format. The tooltip for this tab recommends entering the date as MM/DD/YYYY, but this is not enforced. The format entered by the signer is retained. 
+    * items [date](#date)
+  * declineTabs `array`: Specifies a tag on the document where you want to give the recipient the option of declining an envelope. If the recipient clicks the Decline tag during the signing process, the envelope is voided.
+    * items [decline](#decline)
+  * emailAddressTabs `array`: Specifies a location on the document where you want where you want the recipient's email, as entered in the recipient information, to display.
+    * items [emailAddress](#emailaddress)
+  * emailTabs `array`: Specifies a tag on the document where you want the recipient to enter an email. Email tags are single-line fields that accept any characters. The system checks that a valid email format (i.e. xxx@yyy.zzz) is entered in the tag. It uses the same parameters as a Text tab, with the validation message and pattern set for email information.
+    * items [email](#email)
+  * envelopeIdTabs `array`: Specifies a tag on the document where you want the envelope ID for to appear. Recipients cannot enter or change the information in this tab, it is for informational purposes only.
+    * items [envelopeId](#envelopeid)
+  * firstNameTabs `array`: Specifies tag on a document where you want the recipient's first name to appear. This tag takes the recipient's name, as entered in the recipient information, splits it into sections based on spaces and uses the first section as the first name.
+    * items [firstName](#firstname)
+  * formulaTabs `array`: A list of formula tabs.
+    * items [formulaTab](#formulatab)
+  * fullNameTabs `array`: Specifies a tag on the document where you want the recipient's name to appear.
+    * items [fullName](#fullname)
+  * initialHereTabs `array`: Specifies a tag location in the document at which a recipient will place their initials. The `optional` parameter specifies whether the initials are required or optional.
+    * items [initialHere](#initialhere)
+  * lastNameTabs `array`: Specifies a tag on a document where you want the recipient's last name to appear. This tag takes the recipient's name, as entered in the recipient information, splits it into sections based on spaces and uses the last section as the last name.
+    * items [lastName](#lastname)
+  * listTabs `array`: Specify this tag to give your recipient a list of options, presented as a drop-down list, from which they can select.
+    * items [list](#list)
+  * noteTabs `array`: Specifies a location on the document where you want to place additional information, in the form of a note, for a recipient.
+    * items [note](#note)
+  * numberTabs `array`: Specifies a tag on the document where you want the recipient to enter a number. It uses the same parameters as a Text tab, with the validation message and pattern set for number information.
+    * items [number](#number)
+  * radioGroupTabs `array`: Specifies a tag on the document in a location where the recipient can select one option from a group of options using a radio button. The radio buttons do not have to be on the same page in a document.
+    * items [radioGroup](#radiogroup)
+  * signHereTabs `array`: A complex type the contains information about the tag that specifies where the recipient places their signature in the document. The "optional" parameter sets if the signature is required or optional.
+    * items [signHere](#signhere)
+  * signerAttachmentTabs `array`: Specifies a tag on the document when you want the recipient to add supporting documents to an envelope.
+    * items [signerAttachment](#signerattachment)
+  * ssnTabs `array`: Specifies a tag on the document where you want the recipient to enter a Social Security Number (SSN). A SSN can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for SSN information.
+    * items [ssn](#ssn)
+  * textTabs `array`: Specifies a that that is an adaptable field that allows the recipient to enter different text information.
+    * items [text](#text)
+  * titleTabs `array`: Specifies a tag on the document where you want the recipient's title to appear.
+    * items [title](#title)
+  * viewTabs `array`
+    * items [view](#view)
+  * zipTabs `array`: Specifies a tag on the document where you want the recipient to enter a ZIP code. The ZIP code can be a five numbers or the ZIP+4 format with nine numbers. The zip code can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for ZIP code information.
+    * items [zip](#zip)
+
+### TemplateRecipients
+* TemplateRecipients `object`: Template recipients
+  * agents `array`: A complex type defining the management and access rights of a recipient assigned assigned as an agent on the document.
+    * items [agent](#agent)
+  * carbonCopies `array`: A complex type containing information about recipients who should receive a copy of the envelope, but does not need to sign it.
+    * items [carbonCopy](#carboncopy)
+  * certifiedDeliveries `array`: A complex type containing information on a recipient the must receive the completed documents for the envelope to be completed, but the recipient does not need to sign, initial, date, or add information to any of the documents.
+    * items [certifiedDelivery](#certifieddelivery)
+  * currentRoutingOrder `string`
+  * editors `array`: A complex type defining the management and access rights of a recipient assigned assigned as an editor on the document.
+    * items [editor](#editor)
+  * errorDetails [errorDetails](#errordetails)
+  * inPersonSigners `array`: Specifies a signer that is in the same physical location as a DocuSign user who will act as a Signing Host for the transaction. The recipient added is the Signing Host and new separate Signer Name field appears after Sign in person is selected.
+    * items [inPersonSigner](#inpersonsigner)
+  * intermediaries `array`: Identifies a recipient that can, but is not required to, add name and email information for recipients at the same or subsequent level in the routing order (until subsequent Agents, Editors or Intermediaries recipient types are added).
+    * items [intermediary](#intermediary)
+  * recipientCount `string`: The list of recipient event statuses that will trigger Connect to send updates to the url. It can be a two-part list with:
+  * signers `array`: A complex type containing information about the Signer recipient.
+    * items [signer](#signer)
+
+### TemplateViews
+* TemplateViews `object`: Embedding template views
+  * url `string`: The view URL to be navigated to.
+
+### Templates
+* Templates `object`: Template management
+  * allowMarkup `string`: When set to **true**, Document Markup is enabled for envelope. Account must have Document Markup enabled to use this
+  * allowReassign `string`: When set to **true**, the recipient can redirect an envelope to a more appropriate recipient.
+  * asynchronous `string`: When set to **true**, the envelope is queued for processing and the value of the `status` property is set to 'Processing'. Additionally, get status calls return 'Processing' until completed.
+  * attachmentsUri `string`
+  * authoritativeCopy `string`: Specifies the Authoritative copy feature. If set to true the Authoritative copy feature is enabled.
+  * autoNavigation `string`: Specifies whether auto navigation is set for the recipient.
+  * brandId `string`: The unique identifier of a brand.
+  * brandLock `string`
+  * certificateUri `string`: Retrieves a URI for an endpoint that allows you to easily retrieve certificate information.
+  * completedDateTime `string`: Specifies the date and time this item was completed.
+  * createdDateTime `string`: Indicates the date and time the item was created.
+  * customFields [AccountCustomFields](#accountcustomfields)
+  * customFieldsUri `string`: Contains a URI for an endpoint that you can use to retrieve the custom fields.
+  * declinedDateTime `string`: The date and time the recipient declined the document.
+  * deletedDateTime `string`: Specifies the data and time the item was deleted.
+  * deliveredDateTime `string`: Reserved: For DocuSign use only.
+  * documents `array`: Complex element contains the details on the documents in the envelope.
+    * items [document](#document)
+  * documentsCombinedUri `string`
+  * documentsUri `string`: Contains a URI for an endpoint that you can use to retrieve the documents.
+  * emailBlurb `string`
+  * emailSettings [EnvelopeEmailSettings](#envelopeemailsettings)
+  * emailSubject `string`: Specifies the subject of the email that is sent to all recipients.
+  * enableWetSign `string`: When set to **true**, the signer is allowed to print the document and sign it on paper.
+  * enforceSignerVisibility `string`: When set to **true**, documents with tabs can only be viewed by signers that have a tab on that document. Recipients that have an administrative role (Agent, Editor, or Intermediaries) or informational role (Certified Deliveries or Carbon Copies) can always see all the documents in an envelope, unless they are specifically excluded using this setting when an envelope is sent. Documents that do not have tabs are always visible to all recipients, unless they are specifically excluded using this setting when an envelope is sent.
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * envelopeIdStamping `string`: When set to **true**, Envelope ID Stamping is enabled.
+  * envelopeTemplateDefinition [envelopeTemplateDefinition](#envelopetemplatedefinition)
+  * envelopeUri `string`: Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+  * initialSentDateTime `string`
+  * is21CFRPart11 `string`: When set to **true**, indicates that this module is enabled on the account.
+  * isSignatureProviderEnvelope `string`
+  * lastModifiedDateTime `string`: The date and time the item was last modified.
+  * lockInformation [EnvelopeLocks](#envelopelocks)
+  * messageLock `string`: When set to **true**, prevents senders from changing the contents of `emailBlurb` and `emailSubject` properties for the envelope. 
+  * notification [notification](#notification)
+  * notificationUri `string`: Contains a URI for an endpoint that you can use to retrieve the notifications.
+  * purgeState `string`
+  * recipients [EnvelopeRecipients](#enveloperecipients)
+  * recipientsLock `string`: When set to **true**, prevents senders from changing, correcting, or deleting the recipient information for the envelope.
+  * recipientsUri `string`: Contains a URI for an endpoint that you can use to retrieve the recipients.
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * signingLocation `string`: Specifies the physical location where the signing takes place. It can have two enumeration values; InPerson and Online. The default value is Online.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * statusChangedDateTime `string`: The data and time the status changed.
+  * templatesUri `string`: Contains a URI for an endpoint which you can use to retrieve the templates.
+  * transactionId `string`:  Used to identify an envelope. The id is a sender-generated value and is valid in the DocuSign system for 7 days. It is recommended that a transaction ID is used for offline signing to ensure that an envelope is not sent multiple times. The `transactionId` property can be used determine an envelope's status (i.e. was it created or not) in cases where the internet connection was lost before the envelope status was returned.
+  * useDisclosure `string`: When set to **true**, the disclosure is shown to recipients in accordance with the account's Electronic Record and Signature Disclosure frequency setting. When set to **false**, the Electronic Record and Signature Disclosure is not shown to any envelope recipients. 
+  * voidedDateTime `string`: The date and time the envelope or template was voided.
+  * voidedReason `string`: The reason the envelope or template was voided.
+
+### UserCustomSettings
+* UserCustomSettings `object`: Users' custom settings
+  * customSettings `array`: The name/value pair information for the user custom setting.
+    * items [nameValue](#namevalue)
+
+### UserProfiles
+* UserProfiles `object`: Users' profiles
+  * address [addressInformation_v2](#addressinformation_v2)
+  * authenticationMethods `array`: These properties cannot be modified in the PUT. 
+    * items [authenticationMethod](#authenticationmethod)
+  * companyName `string`: The name of the user's Company.
+  * displayOrganizationInfo `string`:  When set to **true**, the user's company and title information are shown on the ID card. 
+  * displayPersonalInfo `string`: When set to **true**, the user's Address and Phone number are shown on the ID card.
+  * displayProfile `string`: When set to **true**, the user's ID card can be viewed from signed documents and envelope history.
+  * displayUsageHistory `string`: When set to **true**, the user's usage information is shown on the ID card.
+  * profileImageUri `string`
+  * title `string`: The title of the user.
+  * usageHistory [usageHistory](#usagehistory)
+  * userDetails [Users](#users)
+  * userProfileLastModifiedDate `string`
+
+### UserSignatures
+* UserSignatures `object`: Users' signatures
+  * adoptedDateTime `string`: The date and time the user adopted their signature.
+  * createdDateTime `string`: Indicates the date and time the item was created.
+  * dateStampProperties [dateStampProperties](#datestampproperties)
+  * errorDetails [errorDetails](#errordetails)
+  * externalID `string`
+  * imageType `string`: One of **signature_image** or **initials_image**.
+  * initials150ImageId `string`
+  * initialsImageUri `string`: Contains the URI for an endpoint that you can use to retrieve the initials image.
+  * isDefault `string`
+  * phoneticName `string`
+  * signature150ImageId `string`
+  * signatureFont `string`: The font type for the signature, if the signature is not drawn. The supported font types are:
+  * signatureId `string`: Specifies the signature ID associated with the signature name. You can use the signature ID in the URI in place of the signature name, and the value stored in the `signatureName` property in the body is used. This allows the use of special characters (such as "&", "<", ">") in a the signature name. Note that with each update to signatures, the returned signature ID might change, so the caller will need to trigger off the signature name to get the new signature ID.
+  * signatureImageUri `string`: Contains the URI for an endpoint that you can use to retrieve the signature image.
+  * signatureInitials `string`:  The initials associated with the signature.
+  * signatureName `string`: Specifies the user signature name.
+  * signatureType `string`
+  * stampFormat `string`
+  * stampImageUri `string`
+  * stampSizeMM `string`
+  * stampType `string`
+
+### UserSocialAccountLogins
+* UserSocialAccountLogins `object`: Users' social account logins
+  * email `string`: The users email address.
+  * errorDetails [errorDetails](#errordetails)
+  * provider `string`: The social account provider (Facebook, Yahoo, etc.)
+  * socialId `string`: The ID provided by the Socal Account.
+  * userName `string`: The full user name for the account.
+
+### Users
+* Users `object`: User management
+  * accountManagementGranular [userAccountManagementGranularInformation](#useraccountmanagementgranularinformation)
+  * activationAccessCode `string`: The activation code the new user must enter when activating their account.
+  * createdDateTime `string`: Indicates the date and time the item was created.
+  * customSettings `array`: The name/value pair information for the user custom setting.
+    * items [nameValue](#namevalue)
+  * email `string`
+  * enableConnectForUser `string`: Specifies whether the user is enabled for updates from DocuSign Connect. Valid values: true or false.
+  * errorDetails [errorDetails](#errordetails)
+  * firstName `string`: The user's first name. 
+  * forgottenPasswordInfo [forgottenPasswordInformation](#forgottenpasswordinformation)
+  * groupList `array`: A list of the group information for groups to add the user to. Group information can be found by calling [ML:GET group information]. The only required parameter is groupId. 
+    * items [group](#group)
+  * homeAddress [addressInformation_v2](#addressinformation_v2)
+  * initialsImageUri `string`: Contains the URI for an endpoint that you can use to retrieve the initials image.
+  * isAdmin `string`: Determines if the feature set is actively set as part of the plan.
+  * lastLogin `string`: Shows the date-time when the user last logged on to the system.
+  * lastName `string`: The user's last name. 
+  * loginStatus `string`: Shows the current status of the user's password. Possible values are: 
+  * middleName `string`: The user's middle name. 
+  * password `string`
+  * passwordExpiration `string`
+  * permissionProfileId `string`
+  * permissionProfileName `string`
+  * profileImageUri `string`
+  * sendActivationOnInvalidLogin `string`: When set to **true**, specifies that an additional activation email is sent to the user if they fail a log on before activating their account. 
+  * signatureImageUri `string`: Contains the URI for an endpoint that you can use to retrieve the signature image.
+  * suffixName `string`: The suffix for the user's name. 
+  * title `string`: The title of the user.
+  * uri `string`
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * userName `string`
+  * userProfileLastModifiedDate `string`
+  * userSettings `array`:  The name/value pair information for user settings. These determine the actions that a user can take in the account. The `[ML:userSettings]` are listed and described below.
+    * items [nameValue](#namevalue)
+  * userStatus `string`
+  * userType `string`
+  * workAddress [addressInformation_v2](#addressinformation_v2)
+
+### WorkspaceItems
+* WorkspaceItems `object`
+  * callerAuthorization [workspaceUserAuthorization](#workspaceuserauthorization)
+  * contentType `string`
+  * created `string`: The UTC DateTime when the workspace item was created.
+  * createdById `string`
+  * createdByInformation [workspaceUser](#workspaceuser)
+  * extension `string`
+  * fileSize `string`
+  * fileUri `string`
+  * id `string`
+  * isPublic `string`:  If true, this supersedes need for bit mask permission with workspaceUserAuthorization
+  * lastModified `string`: Utc date and time the comment was last updated (can only be done by creator.)
+  * lastModifiedById `string`: Utc date and time the comment was last updated (can only be done by creator)
+  * lastModifiedByInformation [workspaceUser](#workspaceuser)
+  * name `string`: A simple string description of the item, such as a file name or a folder name.
+  * pageCount `string`
+  * parentFolderId `string`: The ID of the parent folder. This is the GUID of the parent folder, or the special value 'root' for the root folder.
+  * parentFolderUri `string`
+  * type `string`: The type of the workspace item. Valid values are file, folder.
+  * uri `string`
+
+### Workspaces
+* Workspaces `object`
+  * billableAccountId `string`
+  * created `string`: The UTC DateTime when the workspace user authorization was created.
+  * createdByInformation [workspaceUser](#workspaceuser)
+  * lastModified `string`: Utc date and time the comment was last updated (can only be done by creator.)
+  * lastModifiedByInformation [workspaceUser](#workspaceuser)
+  * status `string`: Indicates the envelope status. Valid values are:
+  * workspaceBaseUrl `string`: The relative URL that may be used to access the workspace.
+  * workspaceDescription `string`: Text describing the purpose of the workspace.
+  * workspaceId `string`: The id of the workspace, always populated.
+  * workspaceName `string`: The name of the workspace.
+  * workspaceUri `string`: The relative URI that may be used to access the workspace.
+
+### accountAddress
+* accountAddress `object`: Contains information about an account address.
+  * address1 `string`: First Line of the address.
+  * address2 `string`: Second Line of the address.
+  * city `string`: The city value of the address.
+  * country `string`: Specifies the country associated with the address.
+  * email `string`
+  * fax `string`
+  * firstName `string`: The user's first name. 
+  * lastName `string`
+  * phone `string`
+  * postalCode `string`
+  * state `string`: The state or province associated with the address.
+  * supportedCountries `array`: Contains an array of countries supported by the billing plan.
+    * items [country](#country)
+
+### accountBillingPlan
+* accountBillingPlan `object`: Contains information about an account billing plan.
+  * addOns `array`: Reserved:
+    * items [addOn](#addon)
+  * canCancelRenewal `string`: Reserved: TBD
+  * canUpgrade `string`: When set to **true**, specifies that you can upgrade the account through the API.
+  * currencyCode `string`: Specifies the ISO currency code for the account.
+  * enableSupport `string`: When set to **true**, then customer support is provided as part of the account plan.
+  * includedSeats `string`: The number of seats (users) included.
+  * incrementalSeats `string`: Reserved: TBD
+  * isDowngrade `string`
+  * otherDiscountPercent `string`:  Any other percentage discount for the plan. 
+  * paymentCycle `string`
+  * paymentMethod `string`:  The payment method used with the plan. The possible values are: CreditCard, PurchaseOrder, Premium, or Freemium. 
+  * perSeatPrice `string`
+  * planClassification `string`: Identifies the type of plan. Examples include Business, Corporate, Enterprise, Free.
+  * planFeatureSets `array`: A complex type that sets the feature sets for the account. It contains the following information (all string content):
+    * items [featureSet](#featureset)
+  * planId `string`: The DocuSign Plan ID for the account.
+  * planName `string`: The name of the Billing Plan.
+  * renewalStatus `string`: The renewal status for the account. The acceptable values are:
+  * seatDiscounts `array`:  A complex type that contains any seat discount information.
+    * items [seatDiscount](#seatdiscount)
+  * supportIncidentFee `string`: The support incident fee charged for each support incident.
+  * supportPlanFee `string`: The support plan fee charged for this plan.
+
+### accountMinimumPasswordLength
+* accountMinimumPasswordLength `object`
+  * maximumLength `string`
+  * minimumLength `string`
+
+### accountPasswordExpirePasswordDays
+* accountPasswordExpirePasswordDays `object`
+  * maximumDays `string`
+  * minimumDays `string`
+
+### accountPasswordLockoutDurationMinutes
+* accountPasswordLockoutDurationMinutes `object`
+  * maximumMinutes `string`
+  * minimumMinutes `string`
+
+### accountPasswordLockoutDurationType
+* accountPasswordLockoutDurationType `object`
+  * options `array`
+    * items `string`
+
+### accountPasswordMinimumPasswordAgeDays
+* accountPasswordMinimumPasswordAgeDays `object`
+  * maximumAge `string`
+  * minimumAge `string`
+
+### accountPasswordQuestionsRequired
+* accountPasswordQuestionsRequired `object`
+  * maximumQuestions `string`
+  * minimumQuestions `string`
+
+### accountPasswordStrengthType
+* accountPasswordStrengthType `object`
+  * options `array`
+    * items [accountPasswordStrengthTypeOption](#accountpasswordstrengthtypeoption)
+
+### accountPasswordStrengthTypeOption
+* accountPasswordStrengthTypeOption `object`
+  * minimumLength `string`
+  * name `string`
+  * passwordIncludeDigit `string`
+  * passwordIncludeDigitOrSpecialCharacter `string`
+  * passwordIncludeLowerCase `string`
+  * passwordIncludeSpecialCharacter `string`
+  * passwordIncludeUpperCase `string`
+
+### accountRoleSettings
+* accountRoleSettings `object`
+  * allowAccountManagement `string`
+  * allowAccountManagementMetadata [settingsMetadata](#settingsmetadata)
+  * allowApiAccess `string`
+  * allowApiAccessMetadata [settingsMetadata](#settingsmetadata)
+  * allowApiAccessToAccount `string`
+  * allowApiAccessToAccountMetadata [settingsMetadata](#settingsmetadata)
+  * allowApiSendingOnBehalfOfOthers `string`
+  * allowApiSendingOnBehalfOfOthersMetadata [settingsMetadata](#settingsmetadata)
+  * allowApiSequentialSigning `string`
+  * allowApiSequentialSigningMetadata [settingsMetadata](#settingsmetadata)
+  * allowBulkSending `string`
+  * allowBulkSendingMetadata [settingsMetadata](#settingsmetadata)
+  * allowDocuSignDesktopClient `string`
+  * allowDocuSignDesktopClientMetadata [settingsMetadata](#settingsmetadata)
+  * allowEnvelopeSending `string`
+  * allowEnvelopeSendingMetadata [settingsMetadata](#settingsmetadata)
+  * allowSendersToSetRecipientEmailLanguage `string`
+  * allowSendersToSetRecipientEmailLanguageMetadata [settingsMetadata](#settingsmetadata)
+  * allowSignerAttachments `string`
+  * allowSignerAttachmentsMetadata [settingsMetadata](#settingsmetadata)
+  * allowSupplementalDocuments `string`
+  * allowSupplementalDocumentsMetadata [settingsMetadata](#settingsmetadata)
+  * allowTaggingInSendAndCorrect `string`
+  * allowTaggingInSendAndCorrectMetadata [settingsMetadata](#settingsmetadata)
+  * allowVaulting `string`
+  * allowVaultingMetadata [settingsMetadata](#settingsmetadata)
+  * allowWetSigningOverride `string`
+  * allowWetSigningOverrideMetadata [settingsMetadata](#settingsmetadata)
+  * allowedAddressBookAccess `string`
+  * allowedAddressBookAccessMetadata [settingsMetadata](#settingsmetadata)
+  * allowedTemplateAccess `string`
+  * allowedTemplateAccessMetadata [settingsMetadata](#settingsmetadata)
+  * allowedToBeEnvelopeTransferRecipient `string`
+  * allowedToBeEnvelopeTransferRecipientMetadata [settingsMetadata](#settingsmetadata)
+  * canCreateWorkspaces `string`
+  * canCreateWorkspacesMetadata [settingsMetadata](#settingsmetadata)
+  * disableDocumentUpload `string`
+  * disableDocumentUploadMetadata [settingsMetadata](#settingsmetadata)
+  * disableOtherActions `string`
+  * disableOtherActionsMetadata [settingsMetadata](#settingsmetadata)
+  * enableApiRequestLogging `string`
+  * enableApiRequestLoggingMetadata [settingsMetadata](#settingsmetadata)
+  * enableRecipientViewingNotifications `string`
+  * enableRecipientViewingNotificationsMetadata [settingsMetadata](#settingsmetadata)
+  * enableSequentialSigningInterface `string`
+  * enableSequentialSigningInterfaceMetadata [settingsMetadata](#settingsmetadata)
+  * enableTransactionPointIntegration `string`
+  * enableTransactionPointIntegrationMetadata [settingsMetadata](#settingsmetadata)
+  * powerFormRole `string`
+  * powerFormRoleMetadata [settingsMetadata](#settingsmetadata)
+  * receiveCompletedSelfSignedDocumentsAsEmailLinks `string`
+  * receiveCompletedSelfSignedDocumentsAsEmailLinksMetadata [settingsMetadata](#settingsmetadata)
+  * supplementalDocumentsMustAccept `string`
+  * supplementalDocumentsMustAcceptMetadata [settingsMetadata](#settingsmetadata)
+  * supplementalDocumentsMustRead `string`
+  * supplementalDocumentsMustReadMetadata [settingsMetadata](#settingsmetadata)
+  * supplementalDocumentsMustView `string`
+  * supplementalDocumentsMustViewMetadata [settingsMetadata](#settingsmetadata)
+  * useNewDocuSignExperienceInterface `string`
+  * useNewDocuSignExperienceInterfaceMetadata [settingsMetadata](#settingsmetadata)
+  * useNewSendingInterface `string`
+  * useNewSendingInterfaceMetadata [settingsMetadata](#settingsmetadata)
+  * vaultingMode `string`
+  * vaultingModeMetadata [settingsMetadata](#settingsmetadata)
+
+### accountSettingsInformation
+* accountSettingsInformation `object`: Contains account settings information.
+  * accountSettings `array`: The list of
+    * items [nameValue](#namevalue)
+
+### accountSharedAccess
+* accountSharedAccess `object`: Contains shared access information.
+  * accountId `string`: The account ID associated with the envelope.
+  * endPosition `string`: The last position in the result set. 
+  * errorDetails [errorDetails](#errordetails)
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * sharedAccess `array`: A complex type containing the shared access information to an envelope for the users specified in the request.
+    * items [memberSharedItems](#membershareditems)
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### accountSignatureProvider
+* accountSignatureProvider `object`
+  * isRequired `string`
+  * priority `string`
+  * signatureProviderDisplayName `string`
+  * signatureProviderId `string`
+  * signatureProviderName `string`: The name of an Electronic or Standards Based Signature (digital signature) provider for the signer to use. [The current provider list.](../../../../guide/appendix/standards_based_signatures.html#signature-provider-options)
+  * signatureProviderOptionsMetadata `array`
+    * items [accountSignatureProviderOption](#accountsignatureprovideroption)
+  * signatureProviderRequiredOptions `array`
+    * items [signatureProviderRequiredOption](#signatureproviderrequiredoption)
+
+### accountSignatureProviderOption
+* accountSignatureProviderOption `object`
+  * signatureProviderOptionDisplayName `string`
+  * signatureProviderOptionId `string`
+  * signatureProviderOptionName `string`
+
+### addOn
+* addOn `object`: Contains information about add ons.
+  * active `string`: Reserved:
+  * addOnId `string`: Reserved:
+  * id `string`
+  * name `string`: Reserved:
+
+### addressInformation
+* addressInformation `object`: Contains address information.
+  * city `string`: The city associated with the address.
+  * country `string`: Specifies the country associated with the address.
+  * fax `string`: A Fax number associated with the address if one is available.
+  * phone `string`: A phone number associated with the address.
+  * state `string`: The state or province associated with the address.
+  * street1 `string`: The first line of the address.
+  * street2 `string`: The second line of the address (optional).
+  * zip `string`: The zip or postal code associated with the address.
+
+### addressInformationInput
+* addressInformationInput `object`: Contains address input information.
+  * addressInformation [addressInformation](#addressinformation)
+  * displayLevelCode `string`: Specifies the display level for the recipient. 
+  * receiveInResponse `string`: When set to **true**, the information needs to be returned in the response.
+
+### addressInformation_v2
+* addressInformation_v2 `object`
+  * address1 `string`: First Line of the address.
+  * address2 `string`: Second Line of the address.
+  * city `string`
+  * country `string`: Specifies the country associated with the address.
+  * fax `string`
+  * phone `string`
+  * postalCode `string`
+  * stateOrProvince `string`: The state or province associated with the address.
+
+### agent
+* agent `object`: Contains information about agent recipients.
+  * accessCode `string`: If a value is provided, the recipient must enter the value as the access code to view and sign the envelope. 
+  * addAccessCodeToEmail `string`: This Optional attribute indicates that the access code will be added to the email sent to the recipient; this nullifies the Security measure of Access Code on the recipient.
+  * clientUserId `string`: Specifies whether the recipient is embedded or remote. 
+  * customFields `array`: An optional array of strings that allows the sender to provide custom data about the recipient. This information is returned in the envelope status but otherwise not used by DocuSign. Each customField string can be a maximum of 100 characters.
+    * items `string`
+  * declinedDateTime `string`: The date and time the recipient declined the document.
+  * declinedReason `string`: The reason the recipient declined the document.
+  * deliveredDateTime `string`: Reserved: For DocuSign use only.
+  * deliveryMethod `string`: Reserved: For DocuSign use only.
+  * documentVisibility `array`
+    * items [documentVisibility](#documentvisibility)
+  * email `string`: Email id of the recipient. Notification of the document to sign is sent to this email id. 
+  * emailNotification [recipientEmailNotification](#recipientemailnotification)
+  * emailRecipientPostSigningURL `string`
+  * embeddedRecipientStartURL `string`: Specifies a sender provided valid URL string for redirecting an embedded recipient. When using this option, the embedded recipient still receives an email from DocuSign, just as a remote recipient would. When the document link in the email is clicked the recipient is redirected, through DocuSign, to the supplied URL to complete their actions. When routing to the URL, the sender's system (the server responding to the URL) must request a recipient token to launch a signing session. 
+  * errorDetails [errorDetails](#errordetails)
+  * excludedDocuments `array`: Specifies the documents that are not visible to this recipient. Document Visibility must be enabled for the account and the `enforceSignerVisibility` property must be set to **true** for the envelope to use this.
+    * items `string`
+  * faxNumber `string`: Reserved:
+  * idCheckConfigurationName `string`: Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.
+  * idCheckInformationInput [idCheckInformationInput](#idcheckinformationinput)
+  * inheritEmailNotificationConfiguration `string`: When set to **true** and the envelope recipient creates a DocuSign account after signing, the Manage Account Email Notification settings are used as the default settings for the recipient's account. 
+  * name `string`
+  * note `string`: A note sent to the recipient in the signing email.
+  * phoneAuthentication [recipientPhoneAuthentication](#recipientphoneauthentication)
+  * recipientAttachments `array`: Reserved:
+    * items [recipientAttachment](#recipientattachment)
+  * recipientAuthenticationStatus [authenticationStatus](#authenticationstatus)
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * recipientIdGuid `string`
+  * requireIdLookup `string`: When set to **true**, the recipient is required to use the specified ID check method (including Phone and SMS authentication) to validate their identity. 
+  * roleName `string`: Optional element. Specifies the role name associated with the recipient.<br/><br/>This is required when working with template recipients.
+  * routingOrder `string`: Specifies the routing order of the recipient in the envelope. 
+  * samlAuthentication [recipientSAMLAuthentication](#recipientsamlauthentication)
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * signedDateTime `string`: Reserved: For DocuSign use only. 
+  * signingGroupId `string`: When set to **true** and the feature is enabled in the sender's account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).
+  * signingGroupName `string`: The display name for the signing group. 
+  * signingGroupUsers `array`: A complex type that contains information about users in the signing group.
+    * items [userInfo](#userinfo)
+  * smsAuthentication [recipientSMSAuthentication](#recipientsmsauthentication)
+  * socialAuthentications `array`:  Lists the social ID type that can be used for recipient authentication.
+    * items [socialAuthentication](#socialauthentication)
+  * status `string`: Indicates the envelope status. Valid values are:
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * totalTabCount `string`
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+### apiRequestLog
+* apiRequestLog `object`: Contains API request log information.
+  * createdDateTime `string`: Indicates the date and time the item was created.
+  * description `string`: A sender-defined description of the line item.
+  * requestLogId `string`
+  * status `string`: Indicates the envelope status. Valid values are:
+
+### apiRequestLogsResult
+* apiRequestLogsResult `object`: Contains information about mutiple API request logs.
+  * apiRequestLogs `array`: Reserved: TBD
+    * items [apiRequestLog](#apirequestlog)
+
+### appStoreProduct
+* appStoreProduct `object`: Contains information about an APP store product.
+  * marketPlace `string`
+  * productId `string`: The Product ID from the AppStore.
+
+### appStoreReceipt
+* appStoreReceipt `object`: Contains information about an APP store receipt.
+  * productId `string`: The Product ID from the AppStore.
+  * receiptData `string`: Reserved: TBD
+
+### approve
+* approve `object`: A tab that allows the recipient to approve documents
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * buttonText `string`:  Specifies the approval text displayed in the tab. 
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * height `integer`: Height of the tab in pixels.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * mergeField [mergeField](#mergefield)
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page.
+
+### attachment
+* attachment `object`: Contains information about an attachment.
+  * accessControl `string`
+  * attachmentId `string`
+  * attachmentType `string`: Specifies the type of the attachment for the recipient.
+  * data `string`
+  * label `string`
+  * name `string`
+  * remoteUrl `string`
+
+### authenticationMethod
+* authenticationMethod `object`: Contains information about the method used for authentication.
+  * authenticationType `string`: Indicates the type of authentication. Valid values are: PhoneAuth, STAN, ISCheck, OFAC, AccessCode, AgeVerify, or SSOAuth. 
+  * lastProvider `string`: The last provider that authenticated the user. 
+  * lastTimestamp `string`:  The data and time the user last used the authentication method. 
+  * totalCount `integer`: The number of times the authentication method was used. 
+
+### authenticationStatus
+* authenticationStatus `object`: Contains information about the authentication status.
+  * accessCodeResult [eventResult](#eventresult)
+  * ageVerifyResult [eventResult](#eventresult)
+  * anySocialIDResult [eventResult](#eventresult)
+  * facebookResult [eventResult](#eventresult)
+  * googleResult [eventResult](#eventresult)
+  * idLookupResult [eventResult](#eventresult)
+  * idQuestionsResult [eventResult](#eventresult)
+  * linkedinResult [eventResult](#eventresult)
+  * liveIDResult [eventResult](#eventresult)
+  * ofacResult [eventResult](#eventresult)
+  * openIDResult [eventResult](#eventresult)
+  * phoneAuthResult [eventResult](#eventresult)
+  * sTANPinResult [eventResult](#eventresult)
+  * salesforceResult [eventResult](#eventresult)
+  * signatureProviderResult [eventResult](#eventresult)
+  * smsAuthResult [eventResult](#eventresult)
+  * twitterResult [eventResult](#eventresult)
+  * yahooResult [eventResult](#eventresult)
+
+### bccEmailAddress
+* bccEmailAddress `object`: Contains information about the BCC email address.
+  * bccEmailAddressId `string`: Only users with canManageAccount setting can use this option. An array of up to 5 email addresses the envelope is sent to as a BCC email. 
+  * email `string`: Specifies the BCC email address. DocuSign verifies that the email format is correct, but does not verify that the email is active.Using this overrides the BCC for Email Archive information setting for this envelope.
+
+### billingCharge
+* billingCharge `object`: Contains information about a billing charge.
+  * allowedQuantity `string`: Reserved: TBD
+  * blocked `string`: Reserved: TBD
+  * chargeName `string`: Provides information on what services the charge item is for.
+  * chargeType `string`: Reserved: TBD
+  * chargeUnitOfMeasure `string`: Reserved: TBD
+  * discounts `array`
+    * items [billingDiscount](#billingdiscount)
+  * firstEffectiveDate `string`
+  * includedQuantity `string`
+  * incrementalQuantity `string`: Reserved: TBD
+  * lastEffectiveDate `string`
+  * prices `array`
+    * items [billingPrice](#billingprice)
+  * unitPrice `string`: Reserved: TBD
+  * usedQuantity `string`
+
+### billingChargeResponse
+* billingChargeResponse `object`: Defines a billing charge response object.
+  * billingChargeItems `array`: Reserved: TBD
+    * items [billingCharge](#billingcharge)
+
+### billingDiscount
+* billingDiscount `object`
+  * beginQuantity `string`: Reserved: TBD
+  * discount `string`
+  * endQuantity `string`
+
+### billingInvoiceItem
+* billingInvoiceItem `object`: Contains information about an item on a billing invoice.
+  * chargeAmount `string`: Reserved: TBD
+  * chargeName `string`: Reserved: TBD
+  * invoiceItemId `string`: Reserved: TBD
+  * quantity `string`: The quantity of envelopes to add to the account.
+  * unitPrice `string`: Reserved: TBD
+
+### billingInvoicesResponse
+* billingInvoicesResponse `object`: Defines a billing invoice response object.
+  * billingInvoices `array`: Reserved: TBD
+    * items [Invoices](#invoices)
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+
+### billingInvoicesSummary
+* billingInvoicesSummary `object`
+  * billingInvoices `array`: Reserved: TBD
+    * items [Invoices](#invoices)
+  * pastDueBalance `string`
+  * paymentAllowed `string`
+
+### billingPayment
+* billingPayment `object`: Contains information on a billing plan.
+  * amount `string`: Reserved: TBD
+  * invoiceId `string`: Reserved: TBD
+  * paymentId `string`
+
+### billingPaymentRequest
+* billingPaymentRequest `object`
+  * paymentAmount `string`: The payment amount for the past due invoices. This value must match the pastDueBalance value retrieved using Get Past Due Invoices.
+
+### billingPaymentResponse
+* billingPaymentResponse `object`: Defines an billing payment response object.
+  * billingPayments `array`: Reserved: TBD
+    * items [billingPayment](#billingpayment)
+
+### billingPaymentsResponse
+* billingPaymentsResponse `object`: Defines a billing payments response object.
+  * billingPayments `array`: Reserved: TBD
+    * items [Payments](#payments)
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+
+### billingPlan
+* billingPlan `object`: Contains information about a billing plan.
+  * appStoreProducts `array`: Reserved: TBD
+    * items [appStoreProduct](#appstoreproduct)
+  * currencyPlanPrices `array`: Contains the currencyCode and currencySymbol for the alternate currency values for envelopeFee, fixedFee, and seatFee that are configured for this plan feature set.
+    * items [currencyPlanPrice](#currencyplanprice)
+  * enableSupport `string`: When set to **true**, then customer support is provided as part of the account plan.
+  * includedSeats `string`: The number of seats (users) included.
+  * otherDiscountPercent `string`
+  * paymentCycle `string`:  The payment cycle associated with the plan. The possible values are: Monthly or Annually. 
+  * paymentMethod `string`
+  * perSeatPrice `string`: The per seat price for the plan.
+  * planClassification `string`: Identifies the type of plan. Examples include Business, Corporate, Enterprise, Free.
+  * planFeatureSets `array`: A complex type that sets the feature sets for the account.
+    * items [featureSet](#featureset)
+  * planId `string`: The DocuSign Plan ID for the account.
+  * planName `string`: The name of the Billing Plan.
+  * seatDiscounts `array`
+    * items [seatDiscount](#seatdiscount)
+  * supportIncidentFee `string`: The support incident fee charged for each support incident.
+  * supportPlanFee `string`: The support plan fee charged for this plan.
+
+### billingPlanInformation
+* billingPlanInformation `object`
+  * appStoreReceipt [appStoreReceipt](#appstorereceipt)
+  * billingAddress [accountAddress](#accountaddress)
+  * creditCardInformation [creditCardInformation](#creditcardinformation)
+  * downgradeReason `string`
+  * enableSupport `string`: When set to **true**, then customer support is provided as part of the account plan.
+  * includedSeats `string`: The number of seats (users) included.
+  * incrementalSeats `string`: Reserved: TBD
+  * paymentProcessorInformation [paymentProcessorInformation](#paymentprocessorinformation)
+  * planInformation [planInformation](#planinformation)
+  * referralInformation [referralInformation](#referralinformation)
+  * renewalStatus `string`
+  * saleDiscountAmount `string`: Reserved for DocuSign use only.
+  * saleDiscountFixedAmount `string`: Reserved for DocuSign use only.
+  * saleDiscountPercent `string`: Reserved for DocuSign use only.
+  * saleDiscountPeriods `string`: Reserved for DocuSign use only.
+  * saleDiscountSeatPriceOverride `string`: Reserved for DocuSign use only.
+
+### billingPlanPreview
+* billingPlanPreview `object`: Contains information about a preview billing plan.
+  * currencyCode `string`: Specifies the ISO currency code for the account.
+  * invoice [Invoices](#invoices)
+  * isProrated `string`
+  * subtotalAmount `string`
+  * taxAmount `string`
+  * totalAmount `string`
+
+### billingPlanResponse
+* billingPlanResponse `object`: Defines a billing plan response object.
+  * billingPlan [billingPlan](#billingplan)
+  * successorPlans `array`
+    * items [billingPlan](#billingplan)
+
+### billingPlanUpdateResponse
+* billingPlanUpdateResponse `object`: Defines a billing plan update response object.
+  * accountPaymentMethod `string`
+  * billingPlanPreview [billingPlanPreview](#billingplanpreview)
+  * currencyCode `string`: Specifies the ISO currency code for the account.
+  * includedSeats `string`: The number of seats (users) included.
+  * paymentCycle `string`
+  * paymentMethod `string`
+  * planId `string`: The DocuSign Plan ID for the account.
+  * planName `string`
+
+### billingPlansResponse
+* billingPlansResponse `object`: Defines a billing plans response object.
+  * billingPlans `array`: Reserved: TBD
+    * items [billingPlan](#billingplan)
+
+### billingPrice
+* billingPrice `object`
+  * beginQuantity `string`: Reserved: TBD
+  * endQuantity `string`
+  * unitPrice `string`: Reserved: TBD
+
+### brand
+* brand `object`
+  * brandCompany `string`: The name of the company associated with this brand.
+  * brandId `string`: The ID used to identify a specific brand in API calls.
+  * brandName `string`: The name of the brand.
+  * colors `array`
+    * items [nameValue](#namevalue)
+  * emailContent `array`
+    * items [brandEmailContent](#brandemailcontent)
+  * errorDetails [errorDetails](#errordetails)
+  * isOverridingCompanyName `string`
+  * isSendingDefault `string`
+  * isSigningDefault `string`
+  * landingPages `array`
+    * items [nameValue](#namevalue)
+  * links `array`
+    * items [brandLink](#brandlink)
+  * logos [brandLogos](#brandlogos)
+  * resources [brandResourceUrls](#brandresourceurls)
+
+### brandEmailContent
+* brandEmailContent `object`
+  * content `string`
+  * emailContentType `string`
+  * emailToLink `string`
+  * linkText `string`
+
+### brandLink
+* brandLink `object`
+  * linkText `string`
+  * linkType `string`
+  * showLink `string`
+  * urlOrMailTo `string`
+
+### brandLogos
+* brandLogos `object`
+  * email `string`
+  * primary `string`
+  * secondary `string`
+
+### brandRequest
+* brandRequest `object`
+  * brandId `string`: The ID of the brand used in API calls
+
+### brandResourceUrls
+* brandResourceUrls `object`
+  * email `string`
+  * sending `string`
+  * signing `string`
+  * signingCaptive `string`
+
+### brandResources
+* brandResources `object`
+  * createdByUserInfo [userInfo](#userinfo)
+  * createdDate `string`
+  * modifiedByUserInfo [userInfo](#userinfo)
+  * modifiedDate `string`
+  * modifiedTemplates `array`
+    * items `string`
+  * resourcesContentType `string`
+  * resourcesContentUri `string`
+
+### brandResourcesList
+* brandResourcesList `object`
+  * resourcesContentTypes `array`
+    * items [brandResources](#brandresources)
+
+### brandsRequest
+* brandsRequest `object`
+  * brands `array`: The list of brands.
+    * items [brandRequest](#brandrequest)
+
+### bulkEnvelope
+* bulkEnvelope `object`
+  * bulkRecipientRow `string`: Reserved: TBD
+  * bulkStatus `string`: Indicates the status of the bulk send operation. Returned values can be:
+  * email `string`
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * envelopeUri `string`: Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+  * errorDetails [errorDetails](#errordetails)
+  * name `string`
+  * submittedDateTime `string`
+  * transactionId `string`:  Used to identify an envelope. The id is a sender-generated value and is valid in the DocuSign system for 7 days. It is recommended that a transaction ID is used for offline signing to ensure that an envelope is not sent multiple times. The `transactionId` property can be used determine an envelope's status (i.e. was it created or not) in cases where the internet connection was lost before the envelope status was returned.
+
+### bulkEnvelopeStatus
+* bulkEnvelopeStatus `object`
+  * batchId `string`: Specifies an identifier which can be used to retrieve a more detailed status of individual bulk recipient batches.
+  * batchSize `string`: The number of items returned in this response.
+  * bulkEnvelopes `array`: Reserved: TBD
+    * items [bulkEnvelope](#bulkenvelope)
+  * bulkEnvelopesBatchUri `string`: Reserved: TBD
+  * endPosition `string`: The last position in the result set. 
+  * failed `string`: The number of entries with a status of failed. 
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * queued `string`: The number of entries with a status of queued. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * sent `string`: The number of entries with a status of sent.
+  * startPosition `string`: Starting position of the current result set.
+  * submittedDate `string`
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### bulkRecipient
+* bulkRecipient `object`
+  * accessCode `string`: If a value is provided, the recipient must enter the value as the access code to view and sign the envelope. 
+  * email `string`: Specifies the recipient's email address. 
+  * errorDetails `array`: Array or errors.
+    * items [errorDetails](#errordetails)
+  * identification `string`: Specifies the authentication check used for the signer. If blank then no authentication check is required for the signer. Only one value can be used in this field.
+  * name `string`: Specifies the recipient's name. 
+  * note `string`: A note sent to the recipient in the signing email.
+  * phoneNumber `string`: This is only used if the Identification field value is Phone or SMS. The value for this field can be a valid telephone number or, if Phone, usersupplied (SMS authentication cannot use a user supplied number). Parenthesis and dashes can be used in the telephone number.
+  * recipientSignatureProviderInfo `array`
+    * items [bulkRecipientSignatureProvider](#bulkrecipientsignatureprovider)
+  * rowNumber `string`
+  * tabLabels `array`: Specifies values used to populate recipient tabs with information. This allows each bulk recipient signer to have different values for their associated tabs. Any number of `tabLabel` columns can be added to the bulk recipient file.
+    * items [bulkRecipientTabLabel](#bulkrecipienttablabel)
+
+### bulkRecipientSignatureProvider
+* bulkRecipientSignatureProvider `object`
+  * name `string`
+  * value `string`: Specifies the value of the tab. 
+
+### bulkRecipientTabLabel
+* bulkRecipientTabLabel `object`
+  * name `string`
+  * value `string`: Specifies the value of the tab. 
+
+### bulkRecipientsRequest
+* bulkRecipientsRequest `object`
+  * bulkRecipients `array`: A complex type containing information about the bulk recipients in the request.
+    * items [bulkRecipient](#bulkrecipient)
+
+### bulkRecipientsSummaryResponse
+* bulkRecipientsSummaryResponse `object`
+  * bulkRecipients `array`: A complex type containing information about the bulk recipients in the response.
+    * items [bulkRecipient](#bulkrecipient)
+  * bulkRecipientsCount `string`: The number of items returned in this response.
+  * bulkRecipientsUri `string`: Contains a URI for an endpoint that allows you to easily retrieve bulk recipient information.
+  * errorDetails `array`: Array or errors.
+    * items [errorDetails](#errordetails)
+
+### bulkRecipientsUpdateResponse
+* bulkRecipientsUpdateResponse `object`
+  * signer [signer](#signer)
+
+### captiveRecipient
+* captiveRecipient `object`
+  * clientUserId `string`: Specifies whether the recipient is embedded or remote. 
+  * email `string`: Specifies the email address associated with the captive recipient.
+  * errorDetails [errorDetails](#errordetails)
+  * userName `string`: Specifies the user name associated with the captive recipient.
+
+### captiveRecipientInformation
+* captiveRecipientInformation `object`
+  * captiveRecipients `array`: A complex type containing information about one or more captive recipients.
+    * items [captiveRecipient](#captiverecipient)
+
+### carbonCopy
+* carbonCopy `object`
+  * accessCode `string`: If a value is provided, the recipient must enter the value as the access code to view and sign the envelope. 
+  * addAccessCodeToEmail `string`: This Optional attribute indicates that the access code will be added to the email sent to the recipient; this nullifies the Security measure of Access Code on the recipient.
+  * clientUserId `string`: Specifies whether the recipient is embedded or remote. 
+  * customFields `array`: An optional array of strings that allows the sender to provide custom data about the recipient. This information is returned in the envelope status but otherwise not used by DocuSign. Each customField string can be a maximum of 100 characters.
+    * items `string`
+  * declinedDateTime `string`: The date and time the recipient declined the document.
+  * declinedReason `string`: The reason the recipient declined the document.
+  * deliveredDateTime `string`: Reserved: For DocuSign use only.
+  * deliveryMethod `string`: Reserved: For DocuSign use only.
+  * documentVisibility `array`
+    * items [documentVisibility](#documentvisibility)
+  * email `string`: Email id of the recipient. Notification of the document to sign is sent to this email id. 
+  * emailNotification [recipientEmailNotification](#recipientemailnotification)
+  * emailRecipientPostSigningURL `string`
+  * embeddedRecipientStartURL `string`: Specifies a sender provided valid URL string for redirecting an embedded recipient. When using this option, the embedded recipient still receives an email from DocuSign, just as a remote recipient would. When the document link in the email is clicked the recipient is redirected, through DocuSign, to the supplied URL to complete their actions. When routing to the URL, the sender's system (the server responding to the URL) must request a recipient token to launch a signing session. 
+  * errorDetails [errorDetails](#errordetails)
+  * excludedDocuments `array`: Specifies the documents that are not visible to this recipient. Document Visibility must be enabled for the account and the `enforceSignerVisibility` property must be set to **true** for the envelope to use this.
+    * items `string`
+  * faxNumber `string`: Reserved:
+  * idCheckConfigurationName `string`: Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.
+  * idCheckInformationInput [idCheckInformationInput](#idcheckinformationinput)
+  * inheritEmailNotificationConfiguration `string`: When set to **true** and the envelope recipient creates a DocuSign account after signing, the Manage Account Email Notification settings are used as the default settings for the recipient's account. 
+  * name `string`: legal name of the recipient.
+  * note `string`: A note sent to the recipient in the signing email.
+  * phoneAuthentication [recipientPhoneAuthentication](#recipientphoneauthentication)
+  * recipientAttachments `array`: Reserved:
+    * items [recipientAttachment](#recipientattachment)
+  * recipientAuthenticationStatus [authenticationStatus](#authenticationstatus)
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * recipientIdGuid `string`
+  * requireIdLookup `string`: When set to **true**, the recipient is required to use the specified ID check method (including Phone and SMS authentication) to validate their identity. 
+  * roleName `string`: Optional element. Specifies the role name associated with the recipient.<br/><br/>This is required when working with template recipients.
+  * routingOrder `string`: Specifies the routing order of the recipient in the envelope. 
+  * samlAuthentication [recipientSAMLAuthentication](#recipientsamlauthentication)
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * signedDateTime `string`: Reserved: For DocuSign use only. 
+  * signingGroupId `string`: When set to **true** and the feature is enabled in the sender's account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).
+  * signingGroupName `string`: The display name for the signing group. 
+  * signingGroupUsers `array`: A complex type that contains information about users in the signing group.
+    * items [userInfo](#userinfo)
+  * smsAuthentication [recipientSMSAuthentication](#recipientsmsauthentication)
+  * socialAuthentications `array`:  Lists the social ID type that can be used for recipient authentication.
+    * items [socialAuthentication](#socialauthentication)
+  * status `string`: Indicates the envelope status. Valid values are:
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * totalTabCount `string`
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+### certifiedDelivery
+* certifiedDelivery `object`
+  * accessCode `string`: If a value is provided, the recipient must enter the value as the access code to view and sign the envelope. 
+  * addAccessCodeToEmail `string`: This Optional attribute indicates that the access code will be added to the email sent to the recipient; this nullifies the Security measure of Access Code on the recipient.
+  * clientUserId `string`: Specifies whether the recipient is embedded or remote. 
+  * customFields `array`: An optional array of strings that allows the sender to provide custom data about the recipient. This information is returned in the envelope status but otherwise not used by DocuSign. Each customField string can be a maximum of 100 characters.
+    * items `string`
+  * declinedDateTime `string`: The date and time the recipient declined the document.
+  * declinedReason `string`: The reason the recipient declined the document.
+  * deliveredDateTime `string`: Reserved: For DocuSign use only.
+  * deliveryMethod `string`: Reserved: For DocuSign use only.
+  * documentVisibility `array`
+    * items [documentVisibility](#documentvisibility)
+  * email `string`
+  * emailNotification [recipientEmailNotification](#recipientemailnotification)
+  * emailRecipientPostSigningURL `string`
+  * embeddedRecipientStartURL `string`: Specifies a sender provided valid URL string for redirecting an embedded recipient. When using this option, the embedded recipient still receives an email from DocuSign, just as a remote recipient would. When the document link in the email is clicked the recipient is redirected, through DocuSign, to the supplied URL to complete their actions. When routing to the URL, the sender's system (the server responding to the URL) must request a recipient token to launch a signing session. 
+  * errorDetails [errorDetails](#errordetails)
+  * excludedDocuments `array`: Specifies the documents that are not visible to this recipient. Document Visibility must be enabled for the account and the `enforceSignerVisibility` property must be set to **true** for the envelope to use this.
+    * items `string`
+  * faxNumber `string`: Reserved:
+  * idCheckConfigurationName `string`: Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.
+  * idCheckInformationInput [idCheckInformationInput](#idcheckinformationinput)
+  * inheritEmailNotificationConfiguration `string`: When set to **true** and the envelope recipient creates a DocuSign account after signing, the Manage Account Email Notification settings are used as the default settings for the recipient's account. 
+  * name `string`
+  * note `string`: A note sent to the recipient in the signing email.
+  * phoneAuthentication [recipientPhoneAuthentication](#recipientphoneauthentication)
+  * recipientAttachments `array`: Reserved:
+    * items [recipientAttachment](#recipientattachment)
+  * recipientAuthenticationStatus [authenticationStatus](#authenticationstatus)
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * recipientIdGuid `string`
+  * requireIdLookup `string`: When set to **true**, the recipient is required to use the specified ID check method (including Phone and SMS authentication) to validate their identity. 
+  * roleName `string`: Optional element. Specifies the role name associated with the recipient.<br/><br/>This is required when working with template recipients.
+  * routingOrder `string`: Specifies the routing order of the recipient in the envelope. 
+  * samlAuthentication [recipientSAMLAuthentication](#recipientsamlauthentication)
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * signedDateTime `string`: Reserved: For DocuSign use only. 
+  * signingGroupId `string`: When set to **true** and the feature is enabled in the sender's account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).
+  * signingGroupName `string`: The display name for the signing group. 
+  * signingGroupUsers `array`: A complex type that contains information about users in the signing group.
+    * items [userInfo](#userinfo)
+  * smsAuthentication [recipientSMSAuthentication](#recipientsmsauthentication)
+  * socialAuthentications `array`:  Lists the social ID type that can be used for recipient authentication.
+    * items [socialAuthentication](#socialauthentication)
+  * status `string`: Indicates the envelope status. Valid values are:
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * totalTabCount `string`
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+### checkbox
+* checkbox `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * locked `string`: When set to **true**, the signer cannot change the data of the custom tab.
+  * mergeField [mergeField](#mergefield)
+  * name `string`: Specifies the tool tip text for the tab.
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * requireInitialOnSharedChange `string`: Optional element for field markup. When set to **true**, the signer is required to initial when they modify a shared field.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * selected `string`: When set to **true**, the checkbox is selected.
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### chunkedUploadPart
+* chunkedUploadPart `object`
+  * sequence `string`
+  * size `string`: Reserved: TBD
+
+### chunkedUploadRequest
+* chunkedUploadRequest `object`
+  * chunkedUploadId `string`
+  * data `string`
+
+### cloudStorageProvider
+* cloudStorageProvider `object`
+  * authenticationUrl `string`: The authentication URL used for the cloud storage provider. This information is only included in the response if the user has not passed authentication for the cloud storage provider. If the redirectUrl query string is provided, the returnUrl is appended to the authenticationUrl. 
+  * errorDetails [errorDetails](#errordetails)
+  * redirectUrl `string`: The URL the user is redirected to after the cloud storage provider authenticates the user. Using this will append the redirectUrl to the authenticationUrl.
+  * service `string`: The service name for the cloud storage provider.
+  * serviceId `string`: The DocuSign generated ID for the cloud storage provider
+
+### company
+* company `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * concealValueOnDocument `string`: When set to **true**, the field appears normally while the recipient is adding or modifying the information in the field, but the data is not visible (the characters are hidden by asterisks) to any other signer or the sender.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * disableAutoSize `string`: When set to **true**, disables the auto sizing of single line text boxes in the signing screen when the signer enters data. If disabled users will only be able enter as much data as the text box can hold. By default this is false. This property only affects single line text boxes.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * locked `string`: When set to **true**, the signer cannot change the data of the custom tab.
+  * maxLength `integer`: An optional value that describes the maximum length of the property when the property is a string.
+  * mergeField [mergeField](#mergefield)
+  * name `string`: Specifies the tool tip text for the tab.
+  * originalValue `string`: The initial value of the tab when it was sent to the recipient. 
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * value `string`: Specifies the value of the tab. 
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### compositeTemplate
+* compositeTemplate `object`
+  * compositeTemplateId `string`: The identify of this composite template. It is used as a reference when adding document object information. If used, the document's `content-disposition` must include the composite template ID to which the document should be added. If a composite template ID is not specified in the content-disposition, the document is applied based on the value of the `documentId` property only. If no document object is specified, the composite template inherits the first document.
+  * document [document](#document)
+  * inlineTemplates `array`:  Zero or more inline templates and their position in the overlay. If supplied, they are overlaid into the envelope in the order of their Sequence value.
+    * items [inlineTemplate](#inlinetemplate)
+  * pdfMetaDataTemplateSequence `string`
+  * serverTemplates `array`: 0 or more server-side templates and their position in the overlay. If supplied, they are overlaid into the envelope in the order of their Sequence value
+    * items [serverTemplate](#servertemplate)
+
+### connectConfigResults
+* connectConfigResults `object`
+  * configurations `array`: Array of Connect Configurations
+    * items [ConnectConfigurations](#connectconfigurations)
+  * totalRecords `string`: Record count.
+
+### connectDebugLog
+* connectDebugLog `object`
+  * connectConfig `string`
+  * errorDetails [errorDetails](#errordetails)
+  * eventDateTime `string`
+  * eventDescription `string`
+  * payload `string`
+
+### connectFailureFilter
+* connectFailureFilter `object`
+  * envelopeIds `array`
+    * items `string`
+  * synchronous `string`
+
+### connectFailureResult
+* connectFailureResult `object`
+  * configId `string`: Reserved: TBD
+  * configUrl `string`: Reserved: TBD
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * statusMessage `string`
+
+### connectFailureResults
+* connectFailureResults `object`
+  * retryQueue `array`
+    * items [connectFailureResult](#connectfailureresult)
+
+### connectLog
+* connectLog `object`
+  * accountId `string`: The account ID associated with the envelope.
+  * configUrl `string`: The web address of the listener or Retrieving Service end point for Connect.
+  * connectDebugLog `array`: A complex element containing information about the Connect configuration, error details, date/time, description and payload.
+    * items [connectDebugLog](#connectdebuglog)
+  * connectId `string`: The identifier for the Connect configuration that failed. If an account has multiple Connect configurations, this value is used to look up the Connect configuration for the failed post.
+  * created `string`: The date and time the entry was created.
+  * email `string`: The email that sent the envelope.
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * error `string`: The error that caused the Connect post to fail.
+  * failureId `string`: The failure log ID for the failure.
+  * failureUri `string`: The URI for the failure.
+  * lastTry `string`: The date and time the last attempt to post.
+  * logId `string`: The Connect log ID for the entry.
+  * logUri `string`: The URI for the log item.
+  * retryCount `string`: The number of times the Connect post has been retried.
+  * retryUri `string`: The UEI to retry to publish the Connect failure.
+  * status `string`: The new envelope status for the failed Connect post. The possible values are: Any, Voided, Created, Deleted, Sent, Delivered, Signed, Completed, Declined, TimedOut, Template, or Processing.
+  * subject `string`: The envelope subject.
+  * userName `string`: The name of the envelope sender.
+
+### consoleViewRequest
+* consoleViewRequest `object`
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * returnUrl `string`: The URL to be redirected to after the console view session has ended.
+
+### contactGetResponse
+* contactGetResponse `object`
+  * contacts `array`
+    * items [Contacts](#contacts)
+  * endPosition `string`: The last position in the result set. 
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### contactModRequest
+* contactModRequest `object`
+  * contacts `array`
+    * items [Contacts](#contacts)
+
+### contactPhoneNumber
+* contactPhoneNumber `object`
+  * phoneNumber `string`
+  * phoneType `string`
+
+### contactUpdateResponse
+* contactUpdateResponse `object`
+  * contacts `array`
+    * items [Contacts](#contacts)
+
+### correctViewRequest
+* correctViewRequest `object`
+  * returnUrl `string`: The url used after correct/send view session has ended. DocuSign redirects to the url and includes an event parameter that can be used by your app. The event parameters returned are: 
+  * suppressNavigation `string`: Specifies whether the window is displayed with or without dressing.
+
+### country
+* country `object`
+  * isoCode `string`
+  * name `string`
+  * provinceValidated `string`
+  * provinces `array`
+    * items [province](#province)
+
+### creditCardInformation
+* creditCardInformation `object`
+  * address [addressInformation](#addressinformation)
+  * cardNumber `string`: The number on the credit card.
+  * cardType `string`: The credit card type. Valid values are: visa, mastercard, or amex.
+  * expirationMonth `string`: The month that the credit card expires (1-12).
+  * expirationYear `string`: The year 4 digit year in which the credit card expires.
+  * nameOnCard `string`: The exact name printed on the credit card.
+
+### creditCardTypes
+* creditCardTypes `object`
+  * cardTypes `array`: An array containing supported credit card types.
+    * items `string`
+
+### currencyFeatureSetPrice
+* currencyFeatureSetPrice `object`
+  * currencyCode `string`: Specifies the alternate ISO currency code for the account. 
+  * currencySymbol `string`: Specifies the alternate currency symbol for the account.
+  * envelopeFee `string`: An incremental envelope cost for plans with envelope overages (when `isEnabled` is set to **true**.)
+  * fixedFee `string`: Specifies a one-time fee associated with the plan (when `isEnabled` is set to **true**.)
+  * seatFee `string`: Specifies an incremental seat cost for seat-based plans (when `isEnabled` is set to **true**.)
+
+### currencyPlanPrice
+* currencyPlanPrice `object`
+  * currencyCode `string`: Specifies the ISO currency code for the account.
+  * currencySymbol `string`: Specifies the currency symbol for the account.
+  * perSeatPrice `string`
+  * supportIncidentFee `string`: The support incident fee charged for each support incident.
+  * supportPlanFee `string`: The support plan fee charged for this plan.
+  * supportedCardTypes [creditCardTypes](#creditcardtypes)
+
+### customField
+* customField `object`
+  * customFieldType `string`
+  * errorDetails [errorDetails](#errordetails)
+  * fieldId `string`: An ID used to specify a custom field.
+  * listItems `array`
+    * items `string`
+  * name `string`
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * show `string`: A boolean indicating if the value should be displayed.
+  * value `string`: Specifies the value of the tab. 
+
+### customField_v2
+* customField_v2 `object`
+  * configurationType `string`: If merge field's are being used, specifies the type of the merge field. The only  supported value is **salesforce**.
+  * errorDetails [errorDetails](#errordetails)
+  * fieldId `string`: An ID used to specify a custom field.
+  * name `string`
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * show `string`: A boolean indicating if the value should be displayed.
+  * value `string`: The value of the custom field.
+
+### customFieldsEnvelope
+* customFieldsEnvelope `object`
+  * listCustomFields `array`: An array of list custom fields.
+    * items [listCustomField](#listcustomfield)
+  * textCustomFields `array`: An array of text custom fields.
+    * items [textCustomField](#textcustomfield)
+
+### date
+* date `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * concealValueOnDocument `string`: When set to **true**, the field appears normally while the recipient is adding or modifying the information in the field, but the data is not visible (the characters are hidden by asterisks) to any other signer or the sender.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * disableAutoSize `string`: When set to **true**, disables the auto sizing of single line text boxes in the signing screen when the signer enters data. If disabled users will only be able enter as much data as the text box can hold. By default this is false. This property only affects single line text boxes.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * locked `string`: When set to **true**, the signer cannot change the data of the custom tab.
+  * maxLength `integer`: An optional value that describes the maximum length of the property when the property is a string.
+  * mergeField [mergeField](#mergefield)
+  * name `string`
+  * originalValue `string`: The initial value of the tab when it was sent to the recipient. 
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * requireAll `string`: When set to **true** and shared is true, information must be entered in this field to complete the envelope. 
+  * requireInitialOnSharedChange `string`: Optional element for field markup. When set to **true**, the signer is required to initial when they modify a shared field.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * senderRequired `string`: When set to **true**, the sender must populate the tab before an envelope can be sent using the template. 
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * validationMessage `string`: The message displayed if the custom tab fails input validation (either custom of embedded).
+  * validationPattern `string`: A regular expressionn used to validate input for the tab.
+  * value `string`: Specifies the value of the tab. 
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### dateSigned
+* dateSigned `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * mergeField [mergeField](#mergefield)
+  * name `string`
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * value `string`: Specifies the value of the tab. 
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### dateStampProperties
+* dateStampProperties `object`
+  * dateAreaHeight `string`
+  * dateAreaWidth `string`
+  * dateAreaX `string`
+  * dateAreaY `string`
+
+### decline
+* decline `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * buttonText `string`:  Specifies the decline text displayed in the tab.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * declineReason `string`: The reason the recipient declined the document.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * height `integer`: Height of the tab in pixels.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * mergeField [mergeField](#mergefield)
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### dobInformationInput
+* dobInformationInput `object`: Complex type containing:
+  * dateOfBirth `string`: Specifies the recipient's date, month, and year of birth.
+  * displayLevelCode `string`: Specifies the display level for the recipient. 
+  * receiveInResponse `string`: When set to **true**, the information needs to be returned in the response.
+
+### document
+* document `object`
+  * applyAnchorTabs `string`: Reserved: TBD
+  * display `string`: This string sets the display and behavior properties of
+  * documentBase64 `string`: The document's bytes. This field can be used to include a base64 version of the document bytes within an envelope definition instead of sending the document using a multi-part HTTP request. The maximum document size is smaller if this field is used due to the overhead of the base64 encoding.
+  * documentFields `array`
+    * items [nameValue](#namevalue)
+  * documentGroup `string`
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * encryptedWithKeyManager `string`: When set to **true**, the document is been already encrypted by the sender for use with the DocuSign Key Manager Security Appliance.
+  * fileExtension `string`: The file extension type of the document. If the document is not a PDF it is converted to a PDF.
+  * fileFormatHint `string`
+  * includeInDownload `string`: When set to **true**,
+  * matchBoxes `array`: Matchboxes define areas in a document for document matching when you are creating envelopes. They are only used when you upload and edit a template. 
+    * items [matchBox](#matchbox)
+  * name `string`
+  * order `string`: An optional value that sets the direction order used to sort the item list. 
+  * pages `string`
+  * password `string`
+  * remoteUrl `string`: The file id from the cloud storage service where the document is located. This information is returned using [ML:GET /folders] or [ML:/folders/{folderid}]. 
+  * signerMustAcknowledge `string`: Sets how the signer interacts with the supplemental document.
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * transformPdfFields `string`: When set to **true**, PDF form field data is transformed into document tab values when the PDF form field name matches the DocuSign custom tab tabLabel. The resulting PDF form data is also returned in the PDF meta data when requesting the document PDF. See the [ML:Transform PDF Fields] section for more information about how fields are transformed into DocuSign tabs. 
+  * uri `string`
+
+### documentTemplate
+* documentTemplate `object`
+  * documentEndPage `string`
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * documentStartPage `string`
+  * errorDetails [errorDetails](#errordetails)
+  * templateId `string`: The unique identifier of the template. If this is not provided, DocuSign will generate a value. 
+
+### documentTemplateList
+* documentTemplateList `object`
+  * documentTemplates `array`
+    * items [documentTemplate](#documenttemplate)
+
+### documentVisibility
+* documentVisibility `object`
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * rights `string`
+  * visible `string`
+
+### editor
+* editor `object`
+  * accessCode `string`: If a value is provided, the recipient must enter the value as the access code to view and sign the envelope. 
+  * addAccessCodeToEmail `string`: This Optional attribute indicates that the access code will be added to the email sent to the recipient; this nullifies the Security measure of Access Code on the recipient.
+  * clientUserId `string`: Specifies whether the recipient is embedded or remote. 
+  * customFields `array`: An optional array of strings that allows the sender to provide custom data about the recipient. This information is returned in the envelope status but otherwise not used by DocuSign. Each customField string can be a maximum of 100 characters.
+    * items `string`
+  * declinedDateTime `string`: The date and time the recipient declined the document.
+  * declinedReason `string`: The reason the recipient declined the document.
+  * deliveredDateTime `string`: Reserved: For DocuSign use only.
+  * deliveryMethod `string`: Reserved: For DocuSign use only.
+  * documentVisibility `array`
+    * items [documentVisibility](#documentvisibility)
+  * email `string`: Email id of the recipient. Notification of the document to sign is sent to this email id. 
+  * emailNotification [recipientEmailNotification](#recipientemailnotification)
+  * emailRecipientPostSigningURL `string`
+  * embeddedRecipientStartURL `string`: Specifies a sender provided valid URL string for redirecting an embedded recipient. When using this option, the embedded recipient still receives an email from DocuSign, just as a remote recipient would. When the document link in the email is clicked the recipient is redirected, through DocuSign, to the supplied URL to complete their actions. When routing to the URL, the sender's system (the server responding to the URL) must request a recipient token to launch a signing session. 
+  * errorDetails [errorDetails](#errordetails)
+  * faxNumber `string`: Reserved:
+  * idCheckConfigurationName `string`: Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.
+  * idCheckInformationInput [idCheckInformationInput](#idcheckinformationinput)
+  * inheritEmailNotificationConfiguration `string`: When set to **true** and the envelope recipient creates a DocuSign account after signing, the Manage Account Email Notification settings are used as the default settings for the recipient's account. 
+  * name `string`: legal name of the recipient.
+  * note `string`: A note sent to the recipient in the signing email.
+  * phoneAuthentication [recipientPhoneAuthentication](#recipientphoneauthentication)
+  * recipientAttachments `array`: Reserved:
+    * items [recipientAttachment](#recipientattachment)
+  * recipientAuthenticationStatus [authenticationStatus](#authenticationstatus)
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * recipientIdGuid `string`
+  * requireIdLookup `string`: When set to **true**, the recipient is required to use the specified ID check method (including Phone and SMS authentication) to validate their identity. 
+  * roleName `string`: Optional element. Specifies the role name associated with the recipient.<br/><br/>This is required when working with template recipients.
+  * routingOrder `string`: Specifies the routing order of the recipient in the envelope. 
+  * samlAuthentication [recipientSAMLAuthentication](#recipientsamlauthentication)
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * signedDateTime `string`: Reserved: For DocuSign use only. 
+  * signingGroupId `string`: When set to **true** and the feature is enabled in the sender's account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).
+  * signingGroupName `string`: The display name for the signing group. 
+  * signingGroupUsers `array`: A complex type that contains information about users in the signing group.
+    * items [userInfo](#userinfo)
+  * smsAuthentication [recipientSMSAuthentication](#recipientsmsauthentication)
+  * socialAuthentications `array`:  Lists the social ID type that can be used for recipient authentication.
+    * items [socialAuthentication](#socialauthentication)
+  * status `string`: Indicates the envelope status. Valid values are:
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * totalTabCount `string`
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+### email
+* email `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * concealValueOnDocument `string`: When set to **true**, the field appears normally while the recipient is adding or modifying the information in the field, but the data is not visible (the characters are hidden by asterisks) to any other signer or the sender.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * disableAutoSize `string`: When set to **true**, disables the auto sizing of single line text boxes in the signing screen when the signer enters data. If disabled users will only be able enter as much data as the text box can hold. By default this is false. This property only affects single line text boxes.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * locked `string`: When set to **true**, the signer cannot change the data of the custom tab.
+  * maxLength `integer`: An optional value that describes the maximum length of the property when the property is a string.
+  * mergeField [mergeField](#mergefield)
+  * name `string`
+  * originalValue `string`: The initial value of the tab when it was sent to the recipient. 
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * requireAll `string`: When set to **true** and shared is true, information must be entered in this field to complete the envelope. 
+  * requireInitialOnSharedChange `string`: Optional element for field markup. When set to **true**, the signer is required to initial when they modify a shared field.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * senderRequired `string`: When set to **true**, the sender must populate the tab before an envelope can be sent using the template. 
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * validationMessage `string`: The message displayed if the custom tab fails input validation (either custom of embedded).
+  * validationPattern `string`: A regular expressionn used to validate input for the tab.
+  * value `string`: Specifies the value of the tab. 
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### emailAddress
+* emailAddress `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * mergeField [mergeField](#mergefield)
+  * name `string`
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * value `string`: Specifies the value of the tab. 
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### envelopeAttachmentsRequest
+* envelopeAttachmentsRequest `object`
+  * attachments `array`
+    * items [attachment](#attachment)
+
+### envelopeAttachmentsResult
+* envelopeAttachmentsResult `object`
+  * attachments `array`
+    * items [EnvelopeAttachments](#envelopeattachments)
+
+### envelopeAuditEvent
+* envelopeAuditEvent `object`
+  * eventFields `array`
+    * items [nameValue](#namevalue)
+
+### envelopeAuditEventResponse
+* envelopeAuditEventResponse `object`
+  * auditEvents `array`: Reserved: TBD
+    * items [envelopeAuditEvent](#envelopeauditevent)
+
+### envelopeDefinition
+* envelopeDefinition `object`
+  * accessibility `string`: Sets the document reading zones for screen reader applications.  This element can only be used if Document Accessibility is enabled for the account. 
+  * allowMarkup `string`: When set to **true**, Document Markup is enabled for envelope. Account must have Document Markup enabled to use this
+  * allowReassign `string`: When set to **true**, the recipient can redirect an envelope to a more appropriate recipient.
+  * allowRecipientRecursion `string`: When set to **true**, this enables the Recursive Recipients feature and allows a recipient to appear more than once in the routing order.
+  * asynchronous `string`: When set to **true**, the envelope is queued for processing and the value of the `status` property is set to 'Processing'. Additionally, get status calls return 'Processing' until completed.
+  * attachments `array`
+    * items [attachment](#attachment)
+  * attachmentsUri `string`
+  * authoritativeCopy `string`: Specifies the Authoritative copy feature. If set to true the Authoritative copy feature is enabled.
+  * autoNavigation `string`: Specifies whether auto navigation is set for the recipient.
+  * brandId `string`: This sets the brand profile format used for the envelope. The value in the string is the brandId associated with the profile. Account branding must be enabled for the account to use this option.
+  * brandLock `string`
+  * certificateUri `string`: Retrieves a URI for an endpoint that allows you to easily retrieve certificate information.
+  * completedDateTime `string`: Specifies the date and time this item was completed.
+  * compositeTemplates `array`: A complex type that can be added to create envelopes from a combination of DocuSign templates and PDF forms. The basic envelope remains the same, while the Composite Template adds new document and template overlays into the envelope. There can be any number of Composite Template structures in the envelope.
+    * items [compositeTemplate](#compositetemplate)
+  * createdDateTime `string`: Indicates the date and time the item was created.
+  * customFields [AccountCustomFields](#accountcustomfields)
+  * customFieldsUri `string`: Contains a URI for an endpoint that you can use to retrieve the custom fields.
+  * declinedDateTime `string`: The date and time the recipient declined the document.
+  * deletedDateTime `string`: Specifies the data and time the item was deleted.
+  * deliveredDateTime `string`: Reserved: For DocuSign use only.
+  * documents `array`: Complex element contains the details on the documents in the envelope.
+    * items [document](#document)
+  * documentsCombinedUri `string`
+  * documentsUri `string`: Contains a URI for an endpoint that you can use to retrieve the documents.
+  * emailBlurb `string`: Optional element. This is the same as the email body. If specified it is included in email body for all envelope recipients. This can be a maximum of 10000 characters
+  * emailSettings [EnvelopeEmailSettings](#envelopeemailsettings)
+  * emailSubject `string`: Specifies the subject of the email that is sent to all recipients.
+  * enableWetSign `string`: When set to **true**, the signer is allowed to print the document and sign it on paper.
+  * enforceSignerVisibility `string`: When set to **true**, documents with tabs can only be viewed by signers that have a tab on that document. Recipients that have an administrative role (Agent, Editor, or Intermediaries) or informational role (Certified Deliveries or Carbon Copies) can always see all the documents in an envelope, unless they are specifically excluded using this setting when an envelope is sent. Documents that do not have tabs are always visible to all recipients, unless they are specifically excluded using this setting when an envelope is sent.
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * envelopeIdStamping `string`: When set to **true**, Envelope ID Stamping is enabled.
+  * envelopeUri `string`: Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+  * eventNotification [eventNotification](#eventnotification)
+  * initialSentDateTime `string`
+  * is21CFRPart11 `string`: When set to **true**, indicates that this module is enabled on the account.
+  * isSignatureProviderEnvelope `string`
+  * lastModifiedDateTime `string`: The date and time the item was last modified.
+  * lockInformation [EnvelopeLocks](#envelopelocks)
+  * messageLock `string`: When set to **true**, prevents senders from changing the contents of `emailBlurb` and `emailSubject` properties for the envelope. 
+  * notification [notification](#notification)
+  * notificationUri `string`: Contains a URI for an endpoint that you can use to retrieve the notifications.
+  * password `string`
+  * purgeState `string`: Initiates a purge request. Valid values are:
+  * recipients [EnvelopeRecipients](#enveloperecipients)
+  * recipientsLock `string`: When set to **true**, prevents senders from changing, correcting, or deleting the recipient information for the envelope.
+  * recipientsUri `string`: Contains a URI for an endpoint that you can use to retrieve the recipients.
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * signingLocation `string`: Specifies the physical location where the signing takes place. It can have two enumeration values; InPerson and Online. The default value is Online.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * statusChangedDateTime `string`: The data and time the status changed.
+  * templateId `string`: The unique identifier of the template. If this is not provided, DocuSign will generate a value. 
+  * templateRoles `array`: Specifies the template recipients. Each roleName in the template must have a recipient assigned to it. This is made up elements:
+    * items [templateRole](#templaterole)
+  * templatesUri `string`: Contains a URI for an endpoint which you can use to retrieve the templates.
+  * transactionId `string`:  Used to identify an envelope. The id is a sender-generated value and is valid in the DocuSign system for 7 days. It is recommended that a transaction ID is used for offline signing to ensure that an envelope is not sent multiple times. The `transactionId` property can be used determine an envelope's status (i.e. was it created or not) in cases where the internet connection was lost before the envelope status was returned.
+  * useDisclosure `string`: When set to **true**, the disclosure is shown to recipients in accordance with the account's Electronic Record and Signature Disclosure frequency setting. When set to **false**, the Electronic Record and Signature Disclosure is not shown to any envelope recipients. 
+  * voidedDateTime `string`: The date and time the envelope or template was voided.
+  * voidedReason `string`: The reason the envelope or template was voided.
+
+### envelopeDocument
+* envelopeDocument `object`
+  * attachmentTabId `string`
+  * availableDocumentTypes `array`
+    * items [signatureType](#signaturetype)
+  * containsPdfFormFields `string`
+  * display `string`: This string sets the display and behavior properties of
+  * documentFields `array`
+    * items [nameValue](#namevalue)
+  * documentGroup `string`
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * includeInDownload `string`: When set to **true**,
+  * name `string`
+  * order `string`: An optional value that sets the direction order used to sort the item list. 
+  * pages `string`
+  * signerMustAcknowledge `string`: Sets how the signer interacts with the supplemental document.
+  * type `string`: Type of the user. Valid values: type_owner, type_participant.
+  * uri `string`
+
+### envelopeEvent
+* envelopeEvent `object`: For which envelope events should your webhook be called?
+  * envelopeEventStatusCode `string`: An envelope status for which your webhook should be called. Values: Draft, Sent, Delivered, Completed, Declined, or Voided.
+  * includeDocuments `string`: reserved
+
+### envelopeId
+* envelopeId `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * mergeField [mergeField](#mergefield)
+  * name `string`
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### envelopeIdsRequest
+* envelopeIdsRequest `object`
+  * envelopeIds `array`
+    * items `string`
+  * transactionIds `array`:  A list of transaction Id's used to determining the status of envelopes sent asynchronously. See **transactionId** property on envelopes.
+    * items `string`
+
+### envelopeNotificationRequest
+* envelopeNotificationRequest `object`
+  * expirations [expirations](#expirations)
+  * reminders [reminders](#reminders)
+  * useAccountDefaults `string`: When set to **true**, the account default notification settings are used for the envelope.
+
+### envelopeSummary
+* envelopeSummary `object`
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * statusDateTime `string`: The DateTime that the envelope changed status (i.e. was created or sent.)
+  * uri `string`
+
+### envelopeTemplateDefinition
+* envelopeTemplateDefinition `object`: A complex element containing the following information:
+  * description `string`: A sender-defined description of the line item.
+  * folderId `string`: The ID for the folder.
+  * folderName `string`:  The name of the folder in which the template is located.
+  * folderUri `string`: The URI of the folder.
+  * lastModified `string`: Utc date and time the comment was last updated (can only be done by creator.)
+  * lastModifiedBy [userInfo](#userinfo)
+  * name `string`
+  * newPassword `string`: The user's new password.
+  * owner [userInfo](#userinfo)
+  * pageCount `integer`: An integer value specifying the number of document pages in the template. Omit this property if not submitting a page count.
+  * parentFolderUri `string`
+  * password `string`
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * templateId `string`: The unique identifier of the template. If this is not provided, DocuSign will generate a value. 
+  * uri `string`
+
+### envelopeTemplateResult
+* envelopeTemplateResult `object`
+  * allowMarkup `string`: When set to **true**, Document Markup is enabled for envelope. Account must have Document Markup enabled to use this
+  * allowReassign `string`: When set to **true**, the recipient can redirect an envelope to a more appropriate recipient.
+  * asynchronous `string`: When set to **true**, the envelope is queued for processing and the value of the `status` property is set to 'Processing'. Additionally, get status calls return 'Processing' until completed.
+  * attachmentsUri `string`
+  * authoritativeCopy `string`: Specifies the Authoritative copy feature. If set to true the Authoritative copy feature is enabled.
+  * autoNavigation `string`: Specifies whether auto navigation is set for the recipient.
+  * brandId `string`: The unique identifier of a brand.
+  * brandLock `string`
+  * certificateUri `string`: Retrieves a URI for an endpoint that allows you to easily retrieve certificate information.
+  * completedDateTime `string`: Specifies the date and time this item was completed.
+  * createdDateTime `string`: Indicates the date and time the item was created.
+  * customFields [AccountCustomFields](#accountcustomfields)
+  * customFieldsUri `string`: Contains a URI for an endpoint that you can use to retrieve the custom fields.
+  * declinedDateTime `string`: The date and time the recipient declined the document.
+  * deletedDateTime `string`: Specifies the data and time the item was deleted.
+  * deliveredDateTime `string`: Reserved: For DocuSign use only.
+  * description `string`: A sender-defined description of the line item.
+  * documents `array`: Complex element contains the details on the documents in the envelope.
+    * items [document](#document)
+  * documentsCombinedUri `string`
+  * documentsUri `string`: Contains a URI for an endpoint that you can use to retrieve the documents.
+  * emailBlurb `string`
+  * emailSettings [EnvelopeEmailSettings](#envelopeemailsettings)
+  * emailSubject `string`: Specifies the subject of the email that is sent to all recipients.
+  * enableWetSign `string`: When set to **true**, the signer is allowed to print the document and sign it on paper.
+  * enforceSignerVisibility `string`: When set to **true**, documents with tabs can only be viewed by signers that have a tab on that document. Recipients that have an administrative role (Agent, Editor, or Intermediaries) or informational role (Certified Deliveries or Carbon Copies) can always see all the documents in an envelope, unless they are specifically excluded using this setting when an envelope is sent. Documents that do not have tabs are always visible to all recipients, unless they are specifically excluded using this setting when an envelope is sent.
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * envelopeIdStamping `string`: When set to **true**, Envelope ID Stamping is enabled.
+  * envelopeUri `string`: Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+  * folderId `string`: The ID of the folder being accessed.
+  * folderName `string`
+  * folderUri `string`
+  * initialSentDateTime `string`
+  * is21CFRPart11 `string`: When set to **true**, indicates that this module is enabled on the account.
+  * isSignatureProviderEnvelope `string`
+  * lastModified `string`: Utc date and time the comment was last updated (can only be done by creator.)
+  * lastModifiedDateTime `string`: The date and time the item was last modified.
+  * lockInformation [EnvelopeLocks](#envelopelocks)
+  * messageLock `string`: When set to **true**, prevents senders from changing the contents of `emailBlurb` and `emailSubject` properties for the envelope. 
+  * name `string`
+  * notification [notification](#notification)
+  * notificationUri `string`: Contains a URI for an endpoint that you can use to retrieve the notifications.
+  * owner [userInfo](#userinfo)
+  * pageCount `integer`
+  * parentFolderUri `string`
+  * password `string`
+  * purgeState `string`
+  * recipients [EnvelopeRecipients](#enveloperecipients)
+  * recipientsLock `string`: When set to **true**, prevents senders from changing, correcting, or deleting the recipient information for the envelope.
+  * recipientsUri `string`: Contains a URI for an endpoint that you can use to retrieve the recipients.
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * signingLocation `string`: Specifies the physical location where the signing takes place. It can have two enumeration values; InPerson and Online. The default value is Online.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * statusChangedDateTime `string`: The data and time the status changed.
+  * templateId `string`: The unique identifier of the template. If this is not provided, DocuSign will generate a value. 
+  * templatesUri `string`: Contains a URI for an endpoint which you can use to retrieve the templates.
+  * transactionId `string`:  Used to identify an envelope. The id is a sender-generated value and is valid in the DocuSign system for 7 days. It is recommended that a transaction ID is used for offline signing to ensure that an envelope is not sent multiple times. The `transactionId` property can be used determine an envelope's status (i.e. was it created or not) in cases where the internet connection was lost before the envelope status was returned.
+  * uri `string`
+  * useDisclosure `string`: When set to **true**, the disclosure is shown to recipients in accordance with the account's Electronic Record and Signature Disclosure frequency setting. When set to **false**, the Electronic Record and Signature Disclosure is not shown to any envelope recipients. 
+  * voidedDateTime `string`: The date and time the envelope or template was voided.
+  * voidedReason `string`: The reason the envelope or template was voided.
+
+### envelopeTemplateResults
+* envelopeTemplateResults `object`
+  * endPosition `string`: The last position in the result set. 
+  * envelopeTemplates `array`: The list of requested templates.
+    * items [envelopeTemplateResult](#envelopetemplateresult)
+  * folders `array`: A collection of folder objects returned in a response.
+    * items [folder](#folder)
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### envelopeTransactionStatus
+* envelopeTransactionStatus `object`
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * errorDetails [errorDetails](#errordetails)
+  * status `string`: Indicates the envelope status. Valid values are:
+  * transactionId `string`:  Used to identify an envelope. The id is a sender-generated value and is valid in the DocuSign system for 7 days. It is recommended that a transaction ID is used for offline signing to ensure that an envelope is not sent multiple times. The `transactionId` property can be used determine an envelope's status (i.e. was it created or not) in cases where the internet connection was lost before the envelope status was returned.
+
+### envelopeUpdateSummary
+* envelopeUpdateSummary `object`
+  * bulkEnvelopeStatus [bulkEnvelopeStatus](#bulkenvelopestatus)
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * errorDetails [errorDetails](#errordetails)
+  * listCustomFieldUpdateResults `array`
+    * items [listCustomField](#listcustomfield)
+  * lockInformation [EnvelopeLocks](#envelopelocks)
+  * recipientUpdateResults `array`
+    * items [recipientUpdateResponse](#recipientupdateresponse)
+  * tabUpdateResults [EnvelopeRecipientTabs](#enveloperecipienttabs)
+  * textCustomFieldUpdateResults `array`
+    * items [textCustomField](#textcustomfield)
+
+### envelopesInformation
+* envelopesInformation `object`: Result set for the Envelopes: listStatusChanges method
+  * endPosition `string`: The last position in the result set. 
+  * envelopeTransactionStatuses `array`: Array of envelope statuses and transaction Ids in the result set.
+    * items [envelopeTransactionStatus](#envelopetransactionstatus)
+  * envelopes `array`: Set of envelope information
+    * items [Envelopes](#envelopes)
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### errorDetails
+* errorDetails `object`: This object describes errors that occur. It is only valid for responses, and ignored in requests.
+  * errorCode `string`: An error code associated with the error.
+  * message `string`: A short error message.
+
+### eventNotification
+* eventNotification `object`: Register a webhook for the envelope
+  * envelopeEvents `array`: A list of envelope-level event statuses that will trigger Connect to send updates to the endpoint specified in the `url` property. 
+    * items [envelopeEvent](#envelopeevent)
+  * includeCertificateOfCompletion `string`: When set to **true**, the Connect Service includes the Certificate of Completion with completed envelopes. 
+  * includeCertificateWithSoap `string`: When set to **true**, the Connect service will send the DocuSign signedby certificate as part of the SOAP xml. The certificate is included in the XML message as `wsse:BinarySecurityToken`.
+  * includeDocumentFields `string`: When set to **true**, the Document Fields associated with the envelope's documents are included in the notification messages. Document Fields are optional custom name-value pairs added to documents using the API. 
+  * includeDocuments `string`: When set to **true**, the XML webhook messages will include the envelope's PDF documents. Including the PDF documents will greatly increase the size of the notification messages. Ensure that your listener can handle incoming messages that are 25MB or larger. 
+  * includeEnvelopeVoidReason `string`: When set to **true**, if the envelope is voided, the Connect Service notification will include the void reason, as entered by the person that voided the envelope. 
+  * includeSenderAccountAsCustomField `string`: When set to **true**, Connect will include the sender account as Custom Field in the data.
+  * includeTimeZone `string`: When set to **true**, the envelope's time zone information is included in the webhook messages. 
+  * loggingEnabled `string`: When set to **true**, the webhook messages are logged. They can be viewed on the DocuSign Administration Web Tool in the Connect section. Logged messages can also be downloaded via the [ConnectEvents resource](../../../Connect/ConnectEvents/)
+  * recipientEvents `array`: An array of recipient event statuses that will trigger Connect to send notifications to your webhook listener at the url endpoint specified in the `url` property. 
+    * items [recipientEvent](#recipientevent)
+  * requireAcknowledgment `string`: When set to **true**, the DocuSign Connect service checks that the message was received and retries on failures. 
+  * signMessageWithX509Cert `string`: When set to **true**, notification messages are digitally signed with an [X509 certificate](https://trust.docusign.com/en-us/trust-certifications/docusign-public-certificates/). 
+  * soapNameSpace `string`: The namespace of the SOAP interface.
+  * url `string`: The endpoint to which webhook notification messages are sent via an HTTP/S POST request. For the DocuSign production platform, the url must start with https. For the demo platform, either http or https is ok.
+  * useSoapInterface `string`: When set to **true**, the notifications are sent to your endpoint as SOAP requests. 
+
+### eventResult
+* eventResult `object`
+  * eventTimestamp `string`
+  * failureDescription `string`
+  * status `string`: Indicates the envelope status. Valid values are:
+  * vendorFailureStatusCode `string`
+
+### expirations
+* expirations `object`: A complex element that specifies the expiration settings for the envelope.
+  * expireAfter `string`: An integer that sets the number of days the envelope is active.
+  * expireEnabled `string`: When set to **true**, the envelope expires (is no longer available for signing) in the set number of days. If false, the account default setting is used. If the account does not have an expiration setting, the DocuSign default value of 120 days is used.
+  * expireWarn `string`: An integer that sets the number of days before envelope expiration that an expiration warning email is sent to the recipient. If set to 0 (zero), no warning email is sent.
+
+### externalDocServiceErrorDetails
+* externalDocServiceErrorDetails `object`
+  * authenticationUrl `string`: Reserved: TBD
+  * errorCode `string`
+  * message `string`
+
+### externalFile
+* externalFile `object`
+  * date `string`
+  * id `string`
+  * img `string`
+  * name `string`
+  * size `string`: Reserved: TBD
+  * supported `string`
+  * type `string`: Type of the user. Valid values: type_owner, type_participant.
+  * uri `string`
+
+### featureSet
+* featureSet `object`
+  * currencyFeatureSetPrices `array`: A complex type that contains alternate currency values that are configured for this plan feature set.
+    * items [currencyFeatureSetPrice](#currencyfeaturesetprice)
+  * envelopeFee `string`
+  * featureSetId `string`: A unique ID for the feature set.
+  * fixedFee `string`
+  * is21CFRPart11 `string`: When set to **true**, indicates that this module is enabled on the account.
+  * isActive `string`
+  * isEnabled `string`: Specifies whether the feature set is actively enabled as part of the plan.
+  * name `string`
+  * seatFee `string`: An incremental seat cost for seat-based plans. Only valid when isEnabled for the feature set is set to true.
+
+### fileType
+* fileType `object`
+  * fileExtension `string`
+  * mimeType `string`: The mime-type of a file type listed in a fileTypes collection.
+
+### fileTypeList
+* fileTypeList `object`
+  * fileTypes `array`: A collection of file types.
+    * items [fileType](#filetype)
+
+### filter
+* filter `object`
+  * actionRequired `string`: Access token information.
+  * expires `string`
+  * folderIds `string`
+  * fromDateTime `string`
+  * isTemplate `string`
+  * order `string`: An optional value that sets the direction order used to sort the item list. 
+  * orderBy `string`
+  * searchTarget `string`
+  * searchText `string`
+  * status `string`: Indicates the envelope status. Valid values are:
+  * toDateTime `string`: Must be set to "bearer".
+
+### firstName
+* firstName `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * mergeField [mergeField](#mergefield)
+  * name `string`
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * value `string`: Specifies the value of the tab. 
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### folder
+* folder `object`
+  * errorDetails [errorDetails](#errordetails)
+  * filter [filter](#filter)
+  * folderId `string`: The ID of the folder being accessed.
+  * folders `array`: A collection of folder objects returned in a response.
+    * items [folder](#folder)
+  * name `string`
+  * ownerEmail `string`
+  * ownerUserId `string`
+  * ownerUserName `string`
+  * parentFolderId `string`
+  * parentFolderUri `string`
+  * type `string`: Type of the user. Valid values: type_owner, type_participant.
+  * uri `string`
+
+### folderItem
+* folderItem `object`
+  * completedDateTime `string`: Specifies the date and time this item was completed.
+  * createdDateTime `string`: Indicates the date and time the item was created.
+  * customFields `array`: An optional array of strings that allows the sender to provide custom data about the recipient. This information is returned in the envelope status but otherwise not used by DocuSign. Each customField string can be a maximum of 100 characters.
+    * items [customField_v2](#customfield_v2)
+  * description `string`: A sender-defined description of the line item.
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * envelopeUri `string`: Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+  * is21CFRPart11 `string`: When set to **true**, indicates that this module is enabled on the account.
+  * isSignatureProviderEnvelope `string`
+  * lastModified `string`: Utc date and time the comment was last updated (can only be done by creator.)
+  * name `string`
+  * ownerName `string`: Name of the envelope owner.
+  * pageCount `integer`
+  * password `string`
+  * senderEmail `string`
+  * senderName `string`: Name of the envelope sender.
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * subject `string`
+  * templateId `string`: The unique identifier of the template. If this is not provided, DocuSign will generate a value. 
+  * uri `string`
+
+### folderItemResponse
+* folderItemResponse `object`
+  * endPosition `string`: The last position in the result set. 
+  * folderItems `array`: A list of the envelopes in the specified folder or folders. 
+    * items [folderItem_v2](#folderitem_v2)
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalRows `string`
+
+### folderItem_v2
+* folderItem_v2 `object`
+  * completedDateTime `string`: Specifies the date and time this item was completed.
+  * createdDateTime `string`: Indicates the date and time the item was created.
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * envelopeUri `string`: Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+  * expireDateTime `string`: The date and time the envelope is set to expire.
+  * folderId `string`: The ID of the folder being accessed.
+  * folderUri `string`
+  * is21CFRPart11 `string`: When set to **true**, indicates that this module is enabled on the account.
+  * isSignatureProviderEnvelope `string`
+  * lastModifiedDateTime `string`: The date and time the item was last modified.
+  * ownerName `string`
+  * recipients [EnvelopeRecipients](#enveloperecipients)
+  * recipientsUri `string`: Contains a URI for an endpoint that you can use to retrieve the recipients.
+  * senderCompany `string`
+  * senderEmail `string`
+  * senderName `string`
+  * senderUserId `string`
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * subject `string`
+
+### folderItemsResponse
+* folderItemsResponse `object`
+  * endPosition `string`: The last position in the result set. 
+  * folderItems `array`: A list of the envelopes in the specified folder or folders. 
+    * items [folderItem](#folderitem)
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### foldersRequest
+* foldersRequest `object`
+  * envelopeIds `array`
+    * items `string`
+  * fromFolderId `string`:  The folder ID the envelope is being moved from.
+
+### forgottenPasswordInformation
+* forgottenPasswordInformation `object`: A complex element that has up to four Question/Answer pairs for forgotten password information.
+  * forgottenPasswordAnswer1 `string`: The answer to the first forgotten password challenge question.
+  * forgottenPasswordAnswer2 `string`: The answer to the second forgotten password challenge question.
+  * forgottenPasswordAnswer3 `string`: The answer to the third forgotten password challenge question.
+  * forgottenPasswordAnswer4 `string`: The answer to the fourth forgotten password challenge question.
+  * forgottenPasswordQuestion1 `string`: The first challenge question presented to a user who has forgotten their password.
+  * forgottenPasswordQuestion2 `string`: The second challenge question presented to a user who has forgotten their password.
+  * forgottenPasswordQuestion3 `string`: The third challenge question presented to a user who has forgotten their password.
+  * forgottenPasswordQuestion4 `string`: The fourth challenge question presented to a user who has forgotten their password.
+
+### formulaTab
+* formulaTab `object`: The value of a formula tab is calculated
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * concealValueOnDocument `string`: When set to **true**, the field appears normally while the recipient is adding or modifying the information in the field, but the data is not visible (the characters are hidden by asterisks) to any other signer or the sender.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * disableAutoSize `string`: When set to **true**, disables the auto sizing of single line text boxes in the signing screen when the signer enters data. If disabled users will only be able enter as much data as the text box can hold. By default this is false. This property only affects single line text boxes.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * formula `string`: Contains the formula
+  * hidden `string`
+  * isPaymentAmount `string`: When set to **true**, sets this as a payment tab. Can only be used with Text, Number, Formula, or List tabs. The value of the tab must be a number. 
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * locked `string`: When set to **true**, the signer cannot change the data of the custom tab.
+  * maxLength `integer`: An optional value that describes the maximum length of the property when the property is a string.
+  * mergeField [mergeField](#mergefield)
+  * name `string`
+  * originalValue `string`: The initial value of the tab when it was sent to the recipient. 
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * paymentDetails [paymentDetails](#paymentdetails)
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * requireAll `string`: When set to **true** and shared is true, information must be entered in this field to complete the envelope. 
+  * requireInitialOnSharedChange `string`: Optional element for field markup. When set to **true**, the signer is required to initial when they modify a shared field.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * roundDecimalPlaces `string`
+  * senderRequired `string`: When set to **true**, the sender must populate the tab before an envelope can be sent using the template. 
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * validationMessage `string`: The message displayed if the custom tab fails input validation (either custom of embedded).
+  * validationPattern `string`: A regular expressionn used to validate input for the tab.
+  * value `string`: Specifies the value of the tab. 
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### fullName
+* fullName `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * mergeField [mergeField](#mergefield)
+  * name `string`
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * value `string`: Specifies the value of the tab. 
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### group
+* group `object`
+  * errorDetails [errorDetails](#errordetails)
+  * groupId `string`: The DocuSign group ID for the group.
+  * groupName `string`: The name of the group.
+  * groupType `string`: The group type.
+  * permissionProfileId `string`: The ID of the permission profile associated with the group.
+  * users `array`
+    * items [userInfo](#userinfo)
+
+### idCheckInformationInput
+* idCheckInformationInput `object`: A complex element that contains input information related to a recipient ID check. It can include the following information.
+  * addressInformationInput [addressInformationInput](#addressinformationinput)
+  * dobInformationInput [dobInformationInput](#dobinformationinput)
+  * ssn4InformationInput [ssn4InformationInput](#ssn4informationinput)
+  * ssn9InformationInput [ssn9InformationInput](#ssn9informationinput)
+
+### inPersonSigner
+* inPersonSigner `object`: An in-person recipient is a DocuSign user,
+  * accessCode `string`: If a value is provided, the recipient must enter the value as the access code to view and sign the envelope. 
+  * addAccessCodeToEmail `string`: This Optional attribute indicates that the access code will be added to the email sent to the recipient; this nullifies the Security measure of Access Code on the recipient.
+  * autoNavigation `string`: Specifies whether auto navigation is set for the recipient.
+  * canSignOffline `string`: When set to **true**, specifies that the signer can perform the signing ceremony offline.
+  * clientUserId `string`: Specifies whether the recipient is embedded or remote. 
+  * creationReason `string`
+  * customFields `array`: An optional array of strings that allows the sender to provide custom data about the recipient. This information is returned in the envelope status but otherwise not used by DocuSign. Each customField string can be a maximum of 100 characters.
+    * items `string`
+  * declinedDateTime `string`: The date and time the recipient declined the document.
+  * declinedReason `string`: The reason the recipient declined the document.
+  * defaultRecipient `string`: When set to **true**,
+  * deliveredDateTime `string`: Reserved: For DocuSign use only.
+  * deliveryMethod `string`: Reserved: For DocuSign use only.
+  * documentVisibility `array`
+    * items [documentVisibility](#documentvisibility)
+  * email `string`: The signer's email address in an eNotary flow.
+  * emailNotification [recipientEmailNotification](#recipientemailnotification)
+  * embeddedRecipientStartURL `string`: Specifies a sender provided valid URL string for redirecting an embedded recipient. When using this option, the embedded recipient still receives an email from DocuSign, just as a remote recipient would. When the document link in the email is clicked the recipient is redirected, through DocuSign, to the supplied URL to complete their actions. When routing to the URL, the sender's system (the server responding to the URL) must request a recipient token to launch a signing session. 
+  * errorDetails [errorDetails](#errordetails)
+  * faxNumber `string`: Reserved:
+  * hostEmail `string`: The email address of the signing host.
+  * hostName `string`: The name of the signing host.
+  * idCheckConfigurationName `string`: Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.
+  * idCheckInformationInput [idCheckInformationInput](#idcheckinformationinput)
+  * inPersonSigningType `string`: Specifies whether the envelope uses the eNotary feature.
+  * inheritEmailNotificationConfiguration `string`: When set to **true** and the envelope recipient creates a DocuSign account after signing, the Manage Account Email Notification settings are used as the default settings for the recipient's account. 
+  * name `string`: The signer's full legal name in an eNotary flow.
+  * notaryHost [notaryHost](#notaryhost)
+  * note `string`: A note sent to the in-person signer in the signing email.
+  * phoneAuthentication [recipientPhoneAuthentication](#recipientphoneauthentication)
+  * recipientAttachments `array`: Reserved:
+    * items [recipientAttachment](#recipientattachment)
+  * recipientAuthenticationStatus [authenticationStatus](#authenticationstatus)
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * recipientIdGuid `string`
+  * recipientSignatureProviders `array`: The default signature provider is the DocuSign Electronic signature system. This parameter is used to specify one or more Standards Based Signature (digital signature) providers for the signer to use. [More information](../../../../guide/appendix/standards_based_signatures.html)
+    * items [recipientSignatureProvider](#recipientsignatureprovider)
+  * recipientSuppliesTabs `string`
+  * requireIdLookup `string`: When set to **true**, the recipient is required to use the specified ID check method (including Phone and SMS authentication) to validate their identity. 
+  * requireSignOnPaper `string`: When set to **true**, the signer must print, sign, and upload or fax the signed documents to DocuSign.
+  * requireSignerCertificate `string`: By default, DocuSign signers create electronic signatures. This field can be used to require the signer to use a SAFE-BioPharma digital certificate for signing.
+  * roleName `string`: Optional element. Specifies the role name associated with the recipient.<br/><br/>This is required when working with template recipients.
+  * routingOrder `string`: Specifies the routing order of the recipient in the envelope. 
+  * samlAuthentication [recipientSAMLAuthentication](#recipientsamlauthentication)
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * signInEachLocation `string`: When set to **true**, specifies that the signer must sign in all locations.
+  * signatureInfo [recipientSignatureInformation](#recipientsignatureinformation)
+  * signedDateTime `string`: Reserved: For DocuSign use only. 
+  * signerEmail `string`: The in-person signer's email address.
+  * signerName `string`: The in-person signer's full legal name.
+  * signingGroupId `string`: When set to **true** and the feature is enabled in the sender's account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).
+  * signingGroupName `string`: The display name for the signing group. 
+  * signingGroupUsers `array`: A complex type that contains information about users in the signing group.
+    * items [userInfo](#userinfo)
+  * smsAuthentication [recipientSMSAuthentication](#recipientsmsauthentication)
+  * socialAuthentications `array`:  Lists the social ID type that can be used for recipient authentication.
+    * items [socialAuthentication](#socialauthentication)
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabs [EnvelopeRecipientTabs](#enveloperecipienttabs)
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * totalTabCount `string`
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+### initialHere
+* initialHere `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * mergeField [mergeField](#mergefield)
+  * name `string`: Specifies the tool tip text for the tab.
+  * optional `string`
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * scaleValue `number`:  Sets the size for the InitialHere tab. It can be value from 0.5 to 1.0, where 1.0 represents full size and 0.5 is 50% size.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### inlineTemplate
+* inlineTemplate `object`
+  * customFields [AccountCustomFields](#accountcustomfields)
+  * documents `array`: Complex element contains the details on the documents in the envelope.
+    * items [document](#document)
+  * envelope [Envelopes](#envelopes)
+  * recipients [EnvelopeRecipients](#enveloperecipients)
+  * sequence `string`: Specifies the order in which templates are overlaid.
+
+### integratedUserInfoList
+* integratedUserInfoList `object`
+  * allUsersSelected `string`
+  * endPosition `string`: The last position in the result set. 
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+  * users `array`
+    * items [userInfo](#userinfo)
+
+### intermediary
+* intermediary `object`
+  * accessCode `string`: If a value is provided, the recipient must enter the value as the access code to view and sign the envelope. 
+  * addAccessCodeToEmail `string`: This Optional attribute indicates that the access code will be added to the email sent to the recipient; this nullifies the Security measure of Access Code on the recipient.
+  * clientUserId `string`: Specifies whether the recipient is embedded or remote. 
+  * customFields `array`: An optional array of strings that allows the sender to provide custom data about the recipient. This information is returned in the envelope status but otherwise not used by DocuSign. Each customField string can be a maximum of 100 characters.
+    * items `string`
+  * declinedDateTime `string`: The date and time the recipient declined the document.
+  * declinedReason `string`: The reason the recipient declined the document.
+  * deliveredDateTime `string`: Reserved: For DocuSign use only.
+  * deliveryMethod `string`: Reserved: For DocuSign use only.
+  * documentVisibility `array`
+    * items [documentVisibility](#documentvisibility)
+  * email `string`: Email id of the recipient. Notification of the document to sign is sent to this email id. 
+  * emailNotification [recipientEmailNotification](#recipientemailnotification)
+  * emailRecipientPostSigningURL `string`
+  * embeddedRecipientStartURL `string`: Specifies a sender provided valid URL string for redirecting an embedded recipient. When using this option, the embedded recipient still receives an email from DocuSign, just as a remote recipient would. When the document link in the email is clicked the recipient is redirected, through DocuSign, to the supplied URL to complete their actions. When routing to the URL, the sender's system (the server responding to the URL) must request a recipient token to launch a signing session. 
+  * errorDetails [errorDetails](#errordetails)
+  * excludedDocuments `array`: Specifies the documents that are not visible to this recipient. Document Visibility must be enabled for the account and the `enforceSignerVisibility` property must be set to **true** for the envelope to use this.
+    * items `string`
+  * faxNumber `string`: Reserved:
+  * idCheckConfigurationName `string`: Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.
+  * idCheckInformationInput [idCheckInformationInput](#idcheckinformationinput)
+  * inheritEmailNotificationConfiguration `string`: When set to **true** and the envelope recipient creates a DocuSign account after signing, the Manage Account Email Notification settings are used as the default settings for the recipient's account. 
+  * name `string`
+  * note `string`: A note sent to the recipient in the signing email.
+  * phoneAuthentication [recipientPhoneAuthentication](#recipientphoneauthentication)
+  * recipientAttachments `array`: Reserved:
+    * items [recipientAttachment](#recipientattachment)
+  * recipientAuthenticationStatus [authenticationStatus](#authenticationstatus)
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * recipientIdGuid `string`
+  * requireIdLookup `string`: When set to **true**, the recipient is required to use the specified ID check method (including Phone and SMS authentication) to validate their identity. 
+  * roleName `string`: Optional element. Specifies the role name associated with the recipient.<br/><br/>This is required when working with template recipients.
+  * routingOrder `string`: Specifies the routing order of the recipient in the envelope. 
+  * samlAuthentication [recipientSAMLAuthentication](#recipientsamlauthentication)
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * signedDateTime `string`: Reserved: For DocuSign use only. 
+  * signingGroupId `string`: When set to **true** and the feature is enabled in the sender's account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).
+  * signingGroupName `string`: The display name for the signing group. 
+  * signingGroupUsers `array`: A complex type that contains information about users in the signing group.
+    * items [userInfo](#userinfo)
+  * smsAuthentication [recipientSMSAuthentication](#recipientsmsauthentication)
+  * socialAuthentications `array`:  Lists the social ID type that can be used for recipient authentication.
+    * items [socialAuthentication](#socialauthentication)
+  * status `string`: Indicates the envelope status. Valid values are:
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * totalTabCount `string`
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+### lastName
+* lastName `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * mergeField [mergeField](#mergefield)
+  * name `string`
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * value `string`: Specifies the value of the tab. 
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### list
+* list `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * listItems `array`: The list of values that can be selected by senders. The list values are separated by semi-colons. Example: [one;two;three;four]
+    * items [listItem](#listitem)
+  * locked `string`: When set to **true**, the signer cannot change the data of the custom tab.
+  * mergeField [mergeField](#mergefield)
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * requireAll `string`: When set to **true** and shared is true, information must be entered in this field to complete the envelope. 
+  * requireInitialOnSharedChange `string`: Optional element for field markup. When set to **true**, the signer is required to initial when they modify a shared field.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * senderRequired `string`: When set to **true**, the sender must populate the tab before an envelope can be sent using the template. 
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * value `string`: The value to use when the item is selected.
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### listCustomField
+* listCustomField `object`
+  * configurationType `string`: If merge field's are being used, specifies the type of the merge field. The only  supported value is **salesforce**.
+  * errorDetails [errorDetails](#errordetails)
+  * fieldId `string`: An ID used to specify a custom field.
+  * listItems `array`
+    * items `string`
+  * name `string`: The name of the custom field.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * show `string`: A boolean indicating if the value should be displayed.
+  * value `string`: The value of the custom field.
+
+### listItem
+* listItem `object`
+  * selected `string`: When set to **true**, indicates that this item is the default selection shown to a signer. 
+  * text `string`: Specifies the text that is shown in the dropdown list. 
+  * value `string`: Specifies the value that is used when the list item is selected.
+
+### lockRequest
+* lockRequest `object`
+  * lockDurationInSeconds `string`: The number of seconds to lock the envelope for editing.  Must be greater than 0 seconds.
+  * lockType `string`: The type of envelope lock.  Currently "edit" is the only supported type.
+  * lockedByApp `string`: A friendly name of the application used to lock the envelope.  Will be used in error messages to the user when lock conflicts occur.
+  * templatePassword `string`
+  * useScratchPad `string`: Reserved for future use.
+
+### loginAccount
+* loginAccount `object`
+  * accountId `string`: The account ID associated with the envelope.
+  * accountIdGuid `string`: The GUID associated with the account ID.
+  * baseUrl `string`: The URL that should be used for successive calls to this account. It includes the protocal (https), the DocuSign server where the account is located, and the account number. Use this Url to make API calls against this account. Many of the API calls provide Uri's that are relative to this baseUrl.
+  * email `string`: The email address for the user.
+  * isDefault `string`: This value is true if this is the default account for the user, otherwise false is returned.
+  * loginAccountSettings `array`: A list of settings on the acccount that indicate what features are available.
+    * items [nameValue](#namevalue)
+  * loginUserSettings `array`: A list of user-level settings that indicate what user-specific features are available.
+    * items [nameValue](#namevalue)
+  * name `string`: The name associated with the account.
+  * siteDescription `string`: An optional descirption of the site that hosts the account.
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * userName `string`: The name of this user as defined by the account.
+
+### matchBox
+* matchBox `object`
+  * height `integer`: Height of the tab in pixels.
+  * pageNumber `integer`: Specifies the page number on which the tab is located.
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `integer`: This indicates the horizontal offset of the object on the page.
+  * yPosition `integer`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### memberGroupSharedItem
+* memberGroupSharedItem `object`
+  * errorDetails [errorDetails](#errordetails)
+  * group [group](#group)
+  * shared `string`: When set to **true**, this custom tab is shared.
+
+### memberSharedItems
+* memberSharedItems `object`
+  * envelopes `array`
+    * items [sharedItem](#shareditem)
+  * errorDetails [errorDetails](#errordetails)
+  * templates `array`
+    * items [templateSharedItem](#templateshareditem)
+  * user [userInfo](#userinfo)
+
+### mergeField
+* mergeField `object`: Contains information for transfering values between Salesforce data fields and DocuSign Tabs.
+  * allowSenderToEdit `string`: When set to **true**, the sender can modify the value of the custom tab during the sending process.
+  * configurationType `string`: If merge field's are being used, specifies the type of the merge field. The only  supported value is **salesforce**.
+  * path `string`: Sets the object associated with the custom tab. Currently this is the Salesforce Object.
+  * row `string`: Specifies the row number in a Salesforce table that the merge field value corresponds to.
+  * writeBack `string`: When wet to true, the information entered in the tab automatically updates the related Salesforce data when an envelope is completed.
+
+### mobileNotifierConfiguration
+* mobileNotifierConfiguration `object`
+  * deviceId `string`
+  * errorDetails [errorDetails](#errordetails)
+  * platform `string`: The Platform of the client application
+
+### money
+* money `object`: Describes information
+  * amountInBaseUnit `string`: The total payment amount
+  * currency `string`: The three-letter
+  * displayAmount `string`: The payment amount as displayed
+
+### nameValue
+* nameValue `object`
+  * errorDetails [errorDetails](#errordetails)
+  * name `string`: The name or key of a name/value pair.
+  * originalValue `string`: The initial value of the tab when it was sent to the recipient. 
+  * value `string`: The value field of a name/value pair.
+
+### newAccountDefinition
+* newAccountDefinition `object`
+  * PaymentProcessorInformation [paymentProcessorInformation](#paymentprocessorinformation)
+  * accountName `string`: The account name for the new account.
+  * accountSettings `array`: The list of
+    * items [nameValue](#namevalue)
+  * addressInformation [accountAddress](#accountaddress)
+  * creditCardInformation [creditCardInformation](#creditcardinformation)
+  * distributorCode `string`: The code that identifies the billing plan groups and plans for the new account.
+  * distributorPassword `string`: The password for the distributorCode.
+  * initialUser [Users](#users)
+  * planInformation [planInformation](#planinformation)
+  * referralInformation [referralInformation](#referralinformation)
+  * socialAccountInformation [UserSocialAccountLogins](#usersocialaccountlogins)
+
+### newAccountSummary
+* newAccountSummary `object`
+  * accountId `string`: The account ID associated with the envelope.
+  * accountIdGuid `string`: The GUID associated with the account ID.
+  * accountName `string`: The account name for the new account.
+  * apiPassword `string`: Contains a token that can be used for authentication in API calls instead of using the user name and password.
+  * baseUrl `string`: The URL that should be used for successive calls to this account. It includes the protocal (https), the DocuSign server where the account is located, and the account number. Use this Url to make API calls against this account. Many of the API calls provide Uri's that are relative to this baseUrl.
+  * billingPlanPreview [billingPlanPreview](#billingplanpreview)
+  * userId `string`: Specifies the user ID of the new user.
+
+### newUser
+* newUser `object`
+  * apiPassword `string`: Contains a token that can be used for authentication in API calls instead of using the user name and password.
+  * createdDateTime `string`: Indicates the date and time the item was created.
+  * email `string`
+  * errorDetails [errorDetails](#errordetails)
+  * permissionProfileId `string`
+  * permissionProfileName `string`
+  * uri `string`
+  * userId `string`: Specifies the user ID for the new user.
+  * userName `string`
+  * userStatus `string`
+
+### newUsersDefinition
+* newUsersDefinition `object`
+  * newUsers `array`
+    * items [Users](#users)
+
+### newUsersSummary
+* newUsersSummary `object`
+  * newUsers `array`
+    * items [newUser](#newuser)
+
+### notaryHost
+* notaryHost `object`: This object is used only when `inPersonSigningType` in the `inPersonSigner` object is `notary`.
+  * accessCode `string`: If a value is provided, the recipient must enter the value as the access code to view and sign the envelope. 
+  * addAccessCodeToEmail `string`: This Optional attribute indicates that the access code will be added to the email sent to the recipient; this nullifies the Security measure of Access Code on the recipient.
+  * clientUserId `string`: Specifies whether the recipient is embedded or remote. 
+  * customFields `array`: An optional array of strings that allows the sender to provide custom data about the recipient. This information is returned in the envelope status but otherwise not used by DocuSign. Each customField string can be a maximum of 100 characters.
+    * items `string`
+  * declinedDateTime `string`: The date and time the recipient declined the document.
+  * declinedReason `string`: The reason the recipient declined the document.
+  * deliveredDateTime `string`: Reserved: For DocuSign use only.
+  * deliveryMethod `string`: Reserved: For DocuSign use only.
+  * documentVisibility `array`
+    * items [documentVisibility](#documentvisibility)
+  * email `string`: The notary's email address.
+  * emailNotification [recipientEmailNotification](#recipientemailnotification)
+  * embeddedRecipientStartURL `string`: Specifies a sender provided valid URL string for redirecting an embedded recipient. When using this option, the embedded recipient still receives an email from DocuSign, just as a remote recipient would. When the document link in the email is clicked the recipient is redirected, through DocuSign, to the supplied URL to complete their actions. When routing to the URL, the sender's system (the server responding to the URL) must request a recipient token to launch a signing session. 
+  * errorDetails [errorDetails](#errordetails)
+  * faxNumber `string`: Reserved:
+  * hostRecipientId `string`
+  * idCheckConfigurationName `string`: Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.
+  * idCheckInformationInput [idCheckInformationInput](#idcheckinformationinput)
+  * inheritEmailNotificationConfiguration `string`: When set to **true** and the envelope recipient creates a DocuSign account after signing, the Manage Account Email Notification settings are used as the default settings for the recipient's account. 
+  * name `string`: The notary's full legal name.
+  * notaryEmailMetadata [propertyMetadata](#propertymetadata)
+  * notaryNameMetadata [propertyMetadata](#propertymetadata)
+  * note `string`: A note sent to the notary in the signing email.
+  * phoneAuthentication [recipientPhoneAuthentication](#recipientphoneauthentication)
+  * recipientAttachments `array`: Reserved:
+    * items [recipientAttachment](#recipientattachment)
+  * recipientAuthenticationStatus [authenticationStatus](#authenticationstatus)
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * recipientIdGuid `string`
+  * requireIdLookup `string`: When set to **true**, the recipient is required to use the specified ID check method (including Phone and SMS authentication) to validate their identity. 
+  * roleName `string`: Optional element. Specifies the role name associated with the recipient.<br/><br/>This is required when working with template recipients.
+  * routingOrder `string`: Specifies the routing order of the recipient in the envelope. 
+  * samlAuthentication [recipientSAMLAuthentication](#recipientsamlauthentication)
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * signedDateTime `string`: Reserved: For DocuSign use only. 
+  * smsAuthentication [recipientSMSAuthentication](#recipientsmsauthentication)
+  * socialAuthentications `array`:  Lists the social ID type that can be used for recipient authentication.
+    * items [socialAuthentication](#socialauthentication)
+  * status `string`: Indicates the envelope status. Valid values are:
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * totalTabCount `string`
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+### note
+* note `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * height `integer`: Height of the tab in pixels.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * mergeField [mergeField](#mergefield)
+  * name `string`: Specifies the tool tip text for the tab.
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * value `string`: Specifies the value of the tab. 
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### notification
+* notification `object`: A complex element that specifies the notification options for the envelope. It consists of:
+  * expirations [expirations](#expirations)
+  * reminders [reminders](#reminders)
+  * useAccountDefaults `string`: When set to **true**, the account default notification settings are used for the envelope.
+
+### number
+* number `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * concealValueOnDocument `string`: When set to **true**, the field appears normally while the recipient is adding or modifying the information in the field, but the data is not visible (the characters are hidden by asterisks) to any other signer or the sender.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * disableAutoSize `string`: When set to **true**, disables the auto sizing of single line text boxes in the signing screen when the signer enters data. If disabled users will only be able enter as much data as the text box can hold. By default this is false. This property only affects single line text boxes.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * formula `string`: Contains the formula
+  * isPaymentAmount `string`: When set to **true**, sets this as a payment tab. Can only be used with Text, Number, Formula, or List tabs. The value of the tab must be a number. 
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * locked `string`: When set to **true**, the signer cannot change the data of the custom tab.
+  * maxLength `integer`: An optional value that describes the maximum length of the property when the property is a string.
+  * mergeField [mergeField](#mergefield)
+  * name `string`: Specifies the tool tip text for the tab.
+  * originalValue `string`: The initial value of the tab when it was sent to the recipient. 
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * requireAll `string`: When set to **true** and shared is true, information must be entered in this field to complete the envelope. 
+  * requireInitialOnSharedChange `string`: Optional element for field markup. When set to **true**, the signer is required to initial when they modify a shared field.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * senderRequired `string`: When set to **true**, the sender must populate the tab before an envelope can be sent using the template. 
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * validationMessage `string`: The message displayed if the custom tab fails input validation (either custom of embedded).
+  * validationPattern `string`: A regular expressionn used to validate input for the tab.
+  * value `string`: Specifies the value of the tab. 
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### oauthAccess
+* oauthAccess `object`
+  * access_token `string`: Access token information.
+  * data `array`
+    * items [nameValue](#namevalue)
+  * expires_in `string`
+  * refresh_token `string`
+  * scope `string`: Must be set to "api".
+  * token_type `string`
+
+### page
+* page `object`: Description of a page of a document.
+  * dpi `string`: The number of dots per inch used for the page image.
+  * errorDetails [errorDetails](#errordetails)
+  * height `string`: Height of the tab in pixels.
+  * imageBytes `string`
+  * mimeType `string`
+  * pageId `string`
+  * sequence `string`
+  * width `string`: Width of the tab in pixels.
+
+### pageImages
+* pageImages `object`
+  * endPosition `string`: The last position in the result set. 
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * pages `array`
+    * items [page](#page)
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### pageRequest
+* pageRequest `object`
+  * password `string`
+  * rotate `string`: Sets the direction the page image is rotated. The possible settings are: left or right
+
+### paymentDetails
+* paymentDetails `object`: When a formula tab
+  * chargeId `string`
+  * currencyCode `string`: Specifies the three-letter
+  * gatewayAccountId `string`: A GUID that identifies the payment gateway
+  * gatewayName `string`
+  * lineItems `array`: A payment formula can have
+    * items [paymentLineItem](#paymentlineitem)
+  * status `string`: This read-only property describes the status of a payment.
+  * total [money](#money)
+
+### paymentGatewayAccountsInfo
+* paymentGatewayAccountsInfo `object`
+  * paymentGatewayAccounts `array`
+    * items [PaymentGatewayAccounts](#paymentgatewayaccounts)
+
+### paymentLineItem
+* paymentLineItem `object`: A line item describes details
+  * amountReference `string`: This is a the `tabLabel`
+  * description `string`: A sender-defined description of the line item.
+  * itemCode `string`: This is the sender-defined
+  * name `string`: This is a sender-defined
+
+### paymentProcessorInformation
+* paymentProcessorInformation `object`
+  * address [addressInformation](#addressinformation)
+  * billingAgreementId `string`
+  * email `string`
+
+### permissionProfileInformation
+* permissionProfileInformation `object`
+  * permissionProfiles `array`: A complex type containing a collection of permission profiles.
+    * items [AccountPermissionProfiles](#accountpermissionprofiles)
+
+### planInformation
+* planInformation `object`: An object used to identify the features and attributes of the account being created.
+  * addOns `array`: Reserved:
+    * items [addOn](#addon)
+  * currencyCode `string`: Specifies the ISO currency code for the account.
+  * freeTrialDaysOverride `string`: Reserved for DocuSign use only.
+  * planFeatureSets `array`: A complex type that sets the feature sets for the account.
+    * items [featureSet](#featureset)
+  * planId `string`: The DocuSign Plan ID for the account.
+  * recipientDomains `array`
+    * items [recipientDomain](#recipientdomain)
+
+### postTransactionsResponse
+* postTransactionsResponse `object`
+  * documentData `string`
+  * transactionSid `string`
+
+### powerFormFormDataRecipient
+* powerFormFormDataRecipient `object`
+  * email `string`
+  * formData `array`
+    * items [nameValue](#namevalue)
+  * name `string`
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+
+### powerFormRecipient
+* powerFormRecipient `object`
+  * accessCode `string`: If a value is provided, the recipient must enter the value as the access code to view and sign the envelope. 
+  * accessCodeLocked `string`
+  * accessCodeRequired `string`
+  * email `string`
+  * emailLocked `string`
+  * idCheckConfigurationName `string`: Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.
+  * idCheckRequired `string`
+  * name `string`
+  * recipientType `string`
+  * roleName `string`: Optional element. Specifies the role name associated with the recipient.<br/><br/>This is required when working with template recipients.
+  * routingOrder `string`: Specifies the routing order of the recipient in the envelope. 
+  * templateRequiresIdLookup `string`
+  * userNameLocked `string`
+
+### powerFormSendersResponse
+* powerFormSendersResponse `object`
+  * endPosition `string`: The last position in the result set. 
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * powerFormSenders `array`
+    * items [userInfo](#userinfo)
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### powerFormsFormDataResponse
+* powerFormsFormDataResponse `object`
+  * envelopes `array`
+    * items [PowerFormData](#powerformdata)
+
+### powerFormsRequest
+* powerFormsRequest `object`
+  * powerForms `array`
+    * items [PowerForms](#powerforms)
+
+### powerFormsResponse
+* powerFormsResponse `object`
+  * endPosition `string`: The last position in the result set. 
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * powerForms `array`
+    * items [PowerForms](#powerforms)
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+
+### propertyMetadata
+* propertyMetadata `object`
+  * options `array`
+    * items `string`
+  * rights `string`
+
+### province
+* province `object`
+  * isoCode `string`
+  * name `string`
+
+### provisioningInformation
+* provisioningInformation `object`
+  * defaultConnectionId `string`
+  * defaultPlanId `string`
+  * distributorCode `string`: The code that identifies the billing plan groups and plans for the new account.
+  * distributorPassword `string`: The password for the distributorCode.
+  * passwordRuleText `string`
+  * planPromotionText `string`
+  * purchaseOrderOrPromAllowed `string`
+
+### purchasedEnvelopesInformation
+* purchasedEnvelopesInformation `object`
+  * amount `string`: The total amount of the purchase.
+  * appName `string`: The AppName of the client application.
+  * currencyCode `string`: Specifies the ISO currency code of the purchase. This is based on the ISO 4217 currency code information.
+  * platform `string`: The Platform of the client application
+  * productId `string`: The Product ID from the AppStore.
+  * quantity `string`: The quantity of envelopes to add to the account.
+  * receiptData `string`: The encrypted Base64 encoded receipt data.
+  * storeName `string`: The name of the AppStore.
+  * transactionId `string`: Specifies the Transaction ID from the AppStore.
+
+### radio
+* radio `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * errorDetails [errorDetails](#errordetails)
+  * locked `string`: When set to **true**, the signer cannot change the data of the custom tab.
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * selected `string`: When set to **true**, the radio button is selected.
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabOrder `string`
+  * value `string`: Specifies the value of the tab. 
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### radioGroup
+* radioGroup `object`
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * groupName `string`: The name of the group.
+  * radios `array`: Specifies the locations and status for radio buttons that are grouped together.
+    * items [radio](#radio)
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * requireAll `string`: When set to **true** and shared is true, information must be entered in this field to complete the envelope. 
+  * requireInitialOnSharedChange `string`: Optional element for field markup. When set to **true**, the signer is required to initial when they modify a shared field.
+  * shared `string`: When set to **true**, this custom tab is shared.
+
+### recipientAttachment
+* recipientAttachment `object`
+  * attachmentId `string`
+  * attachmentType `string`
+  * data `string`
+  * label `string`
+  * name `string`
+  * remoteUrl `string`
+
+### recipientDomain
+* recipientDomain `object`
+  * active `string`
+  * domainCode `string`
+  * domainName `string`
+  * recipientDomainId `string`
+
+### recipientEmailNotification
+* recipientEmailNotification `object`
+  * emailBody `string`: Specifies the email body of the message sent to the recipient. 
+  * emailSubject `string`: Specifies the subject of the email that is sent to all recipients.
+  * supportedLanguage `string`: The language to be used with your custom notification email. The supported languages, with the language value shown in parenthesis, are: Arabic (ar), Bahasa Indonesia (id), Bahasa Melayu (ms) Bulgarian (bg), Czech (cs), Chinese Simplified (zh_CN), Chinese Traditional (zh_TW), Croatian (hr), Danish (da), Dutch (nl), English US (en), English UK (en_GB), Estonian (et), Farsi (fa), Finnish (fi), French (fr), French Canada (fr_CA), German (de), Greek (el), Hebrew (he), Hindi (hi), Hungarian (hu), Italian (it), Japanese (ja), Korean (ko), Latvian (lv), Lithuanian (lt), Norwegian (no), Polish (pl), Portuguese (pt), Portuguese Brazil (pt_BR), Romanian (ro),Russian (ru), Serbian (sr), Slovak (sk), Slovenian (sl), Spanish (es),Spanish Latin America (es_MX), Swedish (sv), Thai (th), Turkish (tr), Ukrainian (uk), and Vietnamese (vi).
+
+### recipientEvent
+* recipientEvent `object`
+  * includeDocuments `string`: reserved
+  * recipientEventStatusCode `string`: Send a webhook notification for the following recipient statuses: Sent, Delivered, Completed, Declined, AuthenticationFailed, and AutoResponded.
+
+### recipientFormData
+* recipientFormData `object`
+  * declinedTime `string`
+  * deliveredTime `string`
+  * email `string`
+  * formData `array`
+    * items [nameValue](#namevalue)
+  * name `string`
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * sentTime `string`
+  * signedTime `string`
+
+### recipientNamesResponse
+* recipientNamesResponse `object`
+  * multipleUsers `string`: Indicates whether email address is used by more than one user.
+  * recipientNames `array`
+    * items `string`
+  * reservedRecipientEmail `string`
+
+### recipientPhoneAuthentication
+* recipientPhoneAuthentication `object`: A complex type that Contains the elements:
+  * recipMayProvideNumber `string`: Boolean. When set to **true**, the recipient can supply a phone number their choice.
+  * recordVoicePrint `string`: Reserved.
+  * senderProvidedNumbers `array`: An Array containing a list of phone numbers the recipient may use for SMS text authentication. 
+    * items `string`
+  * validateRecipProvidedNumber `string`:  Reserved.
+
+### recipientSAMLAuthentication
+* recipientSAMLAuthentication `object`: Contains the name/value pair information for the SAML assertion attributes:
+  * samlAssertionAttributes `array`
+    * items [samlAssertionAttribute](#samlassertionattribute)
+
+### recipientSMSAuthentication
+* recipientSMSAuthentication `object`: Contains the element senderProvidedNumbers which is an Array  of phone numbers the recipient can use for SMS text authentication.
+  * senderProvidedNumbers `array`: An Array containing a list of phone numbers the recipient may use for SMS text authentication. 
+    * items `string`
+
+### recipientSignatureInformation
+* recipientSignatureInformation `object`: Allows the sender to pre-specify the signature name, signature initials and signature font used in the signature stamp for the recipient.
+  * fontStyle `string`
+  * signatureInitials `string`
+  * signatureName `string`: Specifies the user signature name.
+
+### recipientSignatureProvider
+* recipientSignatureProvider `object`: An Electronic or Standards Based Signature (digital signature) provider for the signer to use. [More information.](../../../../guide/appendix/standards_based_signatures.html)
+  * signatureProviderName `string`: The name of an Electronic or Standards Based Signature (digital signature) provider for the signer to use. [The current provider list.](../../../../guide/appendix/standards_based_signatures.html#signature-provider-options)
+  * signatureProviderOptions [recipientSignatureProviderOptions](#recipientsignatureprovideroptions)
+
+### recipientSignatureProviderOptions
+* recipientSignatureProviderOptions `object`: Option settings for the signature provider. Different providers require or use different options. [The current provider list and the options they require.](../../../../guide/appendix/standards_based_signatures.html#signature-provider-options)
+  * cpfNumber `string`: Reserved for DocuSign
+  * oneTimePassword `string`: A pre-shared secret that the signer must enter to complete the signing process. Eg last six digits of the signer's government ID or Social Security number. Or a newly created pre-shared secret for the transaction. Note: some signature providers may require an exact (case-sensitive) match if alphabetic characters are included in the field.
+  * signerRole `string`: The role or capacity of the signing recipient. Examples: Manager, Approver, etc.
+  * sms `string`: The mobile phone number used to send the recipient an access code for the signing ceremony. Format: a string starting with +, then the country code followed by the full mobile phone number without any spaces or special characters. Omit leading zeroes before a city code. Examples: +14155551234, +97235551234, +33505551234.
+
+### recipientUpdateResponse
+* recipientUpdateResponse `object`
+  * errorDetails [errorDetails](#errordetails)
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * tabs [EnvelopeRecipientTabs](#enveloperecipienttabs)
+
+### recipientViewRequest
+* recipientViewRequest `object`
+  * assertionId `string`: A unique identifier of the authentication event executed by the client application.
+  * authenticationInstant `string`: A sender generated value that indicates the date/time that the signer was authenticated.
+  * authenticationMethod `string`: Required. Choose a value that most closely matches the technique your application used to authenticate the recipient / signer. 
+  * clientUserId `string`: A sender created value. If provided, the recipient is treated as an embedded (captive) recipient or signer.
+  * email `string`: Specifies the email of the recipient. You can use either email and userName or userId to identify the recipient.
+  * pingFrequency `string`: Only used if pingUrl is specified. This is the interval, in seconds, between pings on the pingUrl.  The default is 300 seconds. Valid values are 60-1200 seconds.
+  * pingUrl `string`: A client Url to be pinged by the DocuSign Signing experience to indicate to the client that Signing is active. An HTTP Get is executed against the client. The response from the client is ignored. The intent is for the client to reset it's session timer when the request is received.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * returnUrl `string`: The URL that the recipient is redirected to
+  * securityDomain `string`: The domain in which the user authenticated.
+  * userId `string`: Specifies the user ID of the recipient. You can use with user ID or email and user name to identify the recipient. 
+  * userName `string`: Specifies the username of the recipient. You can use either email and userName or userId to identify the recipient.
+  * xFrameOptions `string`
+  * xFrameOptionsAllowFromUrl `string`
+
+### recipientsUpdateSummary
+* recipientsUpdateSummary `object`
+  * recipientUpdateResults `array`
+    * items [recipientUpdateResponse](#recipientupdateresponse)
+
+### referralInformation
+* referralInformation `object`: A complex type that contains the following information for entering referral and discount information. The following items are included in the referral information (all string content): enableSupport, includedSeats, saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, saleDiscountSeatPriceOverride, planStartMonth, referralCode, referrerName, advertisementId, publisherId, shopperId, promoCode, groupMemberId, idType, and industry 
+  * advertisementId `string`: A complex type that contains the following information for entering referral and discount information. The following items are included in the referral information (all string content): enableSupport, includedSeats, saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, saleDiscountSeatPriceOverride, planStartMonth, referralCode, referrerName, advertisementId, publisherId, shopperId, promoCode, groupMemberId, idType, and industry.
+  * enableSupport `string`: When set to **true**, then customer support is provided as part of the account plan.
+  * externalOrgId `string`
+  * groupMemberId `string`
+  * idType `string`
+  * includedSeats `string`: The number of seats (users) included.
+  * industry `string`
+  * planStartMonth `string`
+  * promoCode `string`
+  * publisherId `string`
+  * referralCode `string`
+  * referrerName `string`
+  * saleDiscountAmount `string`: Reserved for DocuSign use only.
+  * saleDiscountFixedAmount `string`: Reserved for DocuSign use only.
+  * saleDiscountPercent `string`: Reserved for DocuSign use only.
+  * saleDiscountPeriods `string`: Reserved for DocuSign use only.
+  * saleDiscountSeatPriceOverride `string`: Reserved for DocuSign use only.
+  * shopperId `string`
+
+### reminders
+* reminders `object`: A complex element that specifies reminder settings for the envelope
+  * reminderDelay `string`: An interger that sets the number of days after the recipient receives the envelope that reminder emails are sent to the recipient.
+  * reminderEnabled `string`: When set to **true**, the envelope expires (is no longer available for signing) in the set number of days. If false, the account default setting is used. If the account does not have an expiration setting, the DocuSign default value of 120 days is used.
+  * reminderFrequency `string`: An interger that sets the interval, in days, between reminder emails.
+
+### returnUrlRequest
+* returnUrlRequest `object`: The request body for the EnvelopeViews: createSender method.
+  * returnUrl `string`: Your app's return url that the user will be redirected to after sending the envelope or completing the sending/tagging view. Query parameters `envelopeId` and `event` will be added to the URL. The event parameter values: 
+
+### samlAssertionAttribute
+* samlAssertionAttribute `object`
+  * errorDetails [errorDetails](#errordetails)
+  * name `string`
+  * originalValue `string`: The initial value of the tab when it was sent to the recipient. 
+  * value `string`: The value associated with the named SAML assertion attribute
+
+### seatDiscount
+* seatDiscount `object`
+  * beginSeatCount `string`: Reserved: TBD
+  * discountPercent `string`
+  * endSeatCount `string`: Reserved: TBD
+
+### senderEmailNotifications
+* senderEmailNotifications `object`
+  * changedSigner `string`: When set to **true**, the sender receives notification if the signer changes.
+  * deliveryFailed `string`: When set to **true**, the sender receives notification if the delivery of the envelope fails.
+  * envelopeComplete `string`: When set to **true**, the user receives notification that the envelope has been completed.
+  * offlineSigningFailed `string`: When set to **true**, the user receives notification if the offline signing failed.
+  * recipientViewed `string`: When set to **true**, the sender receives notification that the recipient viewed the enveloper.
+  * senderEnvelopeDeclined `string`
+  * withdrawnConsent `string`: When set to **true**, the user receives notification if consent is withdrawn.
+
+### serverTemplate
+* serverTemplate `object`
+  * sequence `string`
+  * templateId `string`: The unique identifier of the template. If this is not provided, DocuSign will generate a value. 
+
+### serviceVersion
+* serviceVersion `object`
+  * version `string`: The version of the rest API.
+  * versionUrl `string`
+
+### settingsMetadata
+* settingsMetadata `object`
+  * is21CFRPart11 `string`: When set to **true**, indicates that this module is enabled on the account.
+  * options `array`
+    * items `string`
+  * rights `string`
+  * uiHint `string`
+  * uiOrder `string`
+  * uiType `string`
+
+### sharedItem
+* sharedItem `object`
+  * errorDetails [errorDetails](#errordetails)
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * user [userInfo](#userinfo)
+
+### signHere
+* signHere `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * mergeField [mergeField](#mergefield)
+  * name `string`: Specifies the tool tip text for the tab.
+  * optional `string`
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * scaleValue `number`
+  * stampType `string`
+  * stampTypeMetadata [propertyMetadata](#propertymetadata)
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### signatureProviderRequiredOption
+* signatureProviderRequiredOption `object`
+  * requiredSignatureProviderOptionIds `array`
+    * items `string`
+  * signerType `string`
+
+### signatureType
+* signatureType `object`
+  * isDefault `string`
+  * type `string`: Type of the user. Valid values: type_owner, type_participant.
+
+### signer
+* signer `object`
+  * accessCode `string`: If a value is provided, the recipient must enter the value as the access code to view and sign the envelope. 
+  * addAccessCodeToEmail `string`: This Optional attribute indicates that the access code will be added to the email sent to the recipient; this nullifies the Security measure of Access Code on the recipient.
+  * autoNavigation `string`: Specifies whether auto navigation is set for the recipient.
+  * bulkRecipientsUri `string`: Contains a URI for an endpoint that allows you to easily retrieve bulk recipient information.
+  * canSignOffline `string`: When set to **true**, specifies that the signer can perform the signing ceremony offline.
+  * clientUserId `string`: Specifies whether the recipient is embedded or remote. 
+  * creationReason `string`
+  * customFields `array`: An optional array of strings that allows the sender to provide custom data about the recipient. This information is returned in the envelope status but otherwise not used by DocuSign. Each customField string can be a maximum of 100 characters.
+    * items `string`
+  * declinedDateTime `string`: The date and time the recipient declined the document.
+  * declinedReason `string`: The reason the recipient declined the document.
+  * defaultRecipient `string`: When set to **true**, this recipient is the default recipient and any tabs generated by the transformPdfFields option are mapped to this recipient.
+  * deliveredDateTime `string`: Reserved: For DocuSign use only.
+  * deliveryMethod `string`: Reserved: For DocuSign use only.
+  * documentVisibility `array`
+    * items [documentVisibility](#documentvisibility)
+  * email `string`: Email id of the recipient. Notification of the document to sign is sent to this email id. 
+  * emailNotification [recipientEmailNotification](#recipientemailnotification)
+  * emailRecipientPostSigningURL `string`
+  * embeddedRecipientStartURL `string`: Specifies a sender provided valid URL string for redirecting an embedded recipient. When using this option, the embedded recipient still receives an email from DocuSign, just as a remote recipient would. When the document link in the email is clicked the recipient is redirected, through DocuSign, to the supplied URL to complete their actions. When routing to the URL, the sender's system (the server responding to the URL) must request a recipient token to launch a signing session. 
+  * errorDetails [errorDetails](#errordetails)
+  * excludedDocuments `array`: Specifies the documents that are not visible to this recipient. Document Visibility must be enabled for the account and the `enforceSignerVisibility` property must be set to **true** for the envelope to use this.
+    * items `string`
+  * faxNumber `string`: Reserved:
+  * idCheckConfigurationName `string`: Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.
+  * idCheckInformationInput [idCheckInformationInput](#idcheckinformationinput)
+  * inheritEmailNotificationConfiguration `string`: When set to **true** and the envelope recipient creates a DocuSign account after signing, the Manage Account Email Notification settings are used as the default settings for the recipient's account. 
+  * isBulkRecipient `string`: When set to **true**, this signer is a bulk recipient and the recipient information is contained in a bulk recipient file. 
+  * name `string`
+  * note `string`: A note sent to the recipient in the signing email.
+  * phoneAuthentication [recipientPhoneAuthentication](#recipientphoneauthentication)
+  * recipientAttachments `array`: Reserved:
+    * items [recipientAttachment](#recipientattachment)
+  * recipientAuthenticationStatus [authenticationStatus](#authenticationstatus)
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * recipientIdGuid `string`
+  * recipientSignatureProviders `array`: The default signature provider is the DocuSign Electronic signature system. This parameter is used to specify one or more Standards Based Signature (digital signature) providers for the signer to use. [More information](../../../../guide/appendix/standards_based_signatures.html)
+    * items [recipientSignatureProvider](#recipientsignatureprovider)
+  * recipientSuppliesTabs `string`
+  * requireIdLookup `string`: When set to **true**, the recipient is required to use the specified ID check method (including Phone and SMS authentication) to validate their identity. 
+  * requireSignOnPaper `string`: When set to **true**, the signer must print, sign, and upload or fax the signed documents to DocuSign.
+  * requireSignerCertificate `string`: By default, DocuSign signers create electronic signatures. This field can be used to require the signer to use a SAFE-BioPharma digital certificate for signing.
+  * roleName `string`: Optional element. Specifies the role name associated with the recipient.<br/><br/>This is required when working with template recipients.
+  * routingOrder `string`: Specifies the routing order of the recipient in the envelope. 
+  * samlAuthentication [recipientSAMLAuthentication](#recipientsamlauthentication)
+  * sentDateTime `string`: The date and time the envelope was sent.
+  * signInEachLocation `string`: When set to **true**, specifies that the signer must sign in all locations.
+  * signatureInfo [recipientSignatureInformation](#recipientsignatureinformation)
+  * signedDateTime `string`: Reserved: For DocuSign use only. 
+  * signingGroupId `string`: When set to **true** and the feature is enabled in the sender's account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).
+  * signingGroupName `string`: The display name for the signing group. 
+  * signingGroupUsers `array`: A complex type that contains information about users in the signing group.
+    * items [userInfo](#userinfo)
+  * smsAuthentication [recipientSMSAuthentication](#recipientsmsauthentication)
+  * socialAuthentications `array`:  Lists the social ID type that can be used for recipient authentication.
+    * items [socialAuthentication](#socialauthentication)
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabs [EnvelopeRecipientTabs](#enveloperecipienttabs)
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * totalTabCount `string`
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+### signerAttachment
+* signerAttachment `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * mergeField [mergeField](#mergefield)
+  * name `string`
+  * optional `string`
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * scaleValue `number`
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### signerEmailNotifications
+* signerEmailNotifications `object`: An array of email notifications that specifies the email the user receives when they are a sender. When the specific email notification is set to true, the user receives those types of email notifications from DocuSign. The user inherits the default account sender email notification settings when the user is created.
+  * agentNotification `string`: When set to **true**, the user receives agent notification emails.
+  * carbonCopyNotification `string`: When set to **true**, the user receives notifications of carbon copy deliveries.
+  * certifiedDeliveryNotification `string`: When set to **true**, the user receives notifications of certified deliveries.
+  * documentMarkupActivation `string`: When set to **true**, the user receives notification that document markup has been activated.
+  * envelopeActivation `string`: When set to **true**, the user receives notification that the envelope has been activated.
+  * envelopeComplete `string`: When set to **true**, the user receives notification that the envelope has been completed.
+  * envelopeCorrected `string`: When set to **true**, the user receives notification that the envelope has been corrected.
+  * envelopeDeclined `string`: When set to **true**, the user receives notification that the envelope has been declined.
+  * envelopeVoided `string`: When set to **true**, the user receives notification that the envelope has been voided.
+  * faxReceived `string`: Reserved:
+  * offlineSigningFailed `string`: When set to **true**, the user receives notification if the offline signing failed.
+  * purgeDocuments `string`: When set to **true**, the user receives notification of document purges.
+  * reassignedSigner `string`: When set to **true**, the user receives notification that the envelope has been reassigned.
+  * whenSigningGroupMember `string`
+
+### signingGroupInformation
+* signingGroupInformation `object`
+  * groups `array`: A collection group objects containing information about the groups returned.
+    * items [SigningGroups](#signinggroups)
+
+### signingGroupUser
+* signingGroupUser `object`
+  * email `string`
+  * errorDetails [errorDetails](#errordetails)
+  * userName `string`: The name of the group member. 
+
+### socialAuthentication
+* socialAuthentication `object`
+  * authentication `string`: Reserved: TBD
+
+### ssn
+* ssn `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * concealValueOnDocument `string`: When set to **true**, the field appears normally while the recipient is adding or modifying the information in the field, but the data is not visible (the characters are hidden by asterisks) to any other signer or the sender.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * disableAutoSize `string`: When set to **true**, disables the auto sizing of single line text boxes in the signing screen when the signer enters data. If disabled users will only be able enter as much data as the text box can hold. By default this is false. This property only affects single line text boxes.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * locked `string`: When set to **true**, the signer cannot change the data of the custom tab.
+  * maxLength `integer`: An optional value that describes the maximum length of the property when the property is a string.
+  * mergeField [mergeField](#mergefield)
+  * name `string`: Specifies the tool tip text for the tab.
+  * originalValue `string`: The initial value of the tab when it was sent to the recipient. 
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * requireAll `string`: When set to **true** and shared is true, information must be entered in this field to complete the envelope. 
+  * requireInitialOnSharedChange `string`: Optional element for field markup. When set to **true**, the signer is required to initial when they modify a shared field.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * senderRequired `string`: When set to **true**, the sender must populate the tab before an envelope can be sent using the template. 
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * validationMessage `string`: The message displayed if the custom tab fails input validation (either custom of embedded).
+  * validationPattern `string`: A regular expressionn used to validate input for the tab.
+  * value `string`: Specifies the value of the tab. 
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### ssn4InformationInput
+* ssn4InformationInput `object`
+  * displayLevelCode `string`: Specifies the display level for the recipient. 
+  * receiveInResponse `string`: When set to **true**, the information needs to be returned in the response.
+  * ssn4 `string`: The last four digits of the recipient's Social Security Number (SSN).
+
+### ssn9InformationInput
+* ssn9InformationInput `object`
+  * displayLevelCode `string`: Specifies the display level for the recipient. 
+  * ssn9 `string`:  The recipient's Social Security Number(SSN).
+
+### supportedLanguages
+* supportedLanguages `object`
+  * languages `array`
+    * items [nameValue](#namevalue)
+
+### tabMetadataList
+* tabMetadataList `object`
+  * tabs `array`
+    * items [CustomTabs](#customtabs)
+
+### templateCustomFields
+* templateCustomFields `object`
+  * listCustomFields `array`: An array of list custom fields.
+    * items [listCustomField](#listcustomfield)
+  * textCustomFields `array`: An array of text custom fields.
+    * items [textCustomField](#textcustomfield)
+
+### templateMatch
+* templateMatch `object`
+  * documentEndPage `string`
+  * documentStartPage `string`
+  * matchPercentage `string`
+
+### templateNotificationRequest
+* templateNotificationRequest `object`
+  * expirations [expirations](#expirations)
+  * password `string`
+  * reminders [reminders](#reminders)
+  * useAccountDefaults `string`: When set to **true**, the account default notification settings are used for the envelope.
+
+### templateRecipients
+* templateRecipients `object`
+  * agents `array`: A complex type defining the management and access rights of a recipient assigned assigned as an agent on the document.
+    * items [agent](#agent)
+  * carbonCopies `array`: A complex type containing information about recipients who should receive a copy of the envelope, but does not need to sign it.
+    * items [carbonCopy](#carboncopy)
+  * certifiedDeliveries `array`: A complex type containing information on a recipient the must receive the completed documents for the envelope to be completed, but the recipient does not need to sign, initial, date, or add information to any of the documents.
+    * items [certifiedDelivery](#certifieddelivery)
+  * currentRoutingOrder `string`
+  * editors `array`
+    * items [editor](#editor)
+  * errorDetails [errorDetails](#errordetails)
+  * inPersonSigners `array`: Specifies a signer that is in the same physical location as a DocuSign user who will act as a Signing Host for the transaction. The recipient added is the Signing Host and new separate Signer Name field appears after Sign in person is selected.
+    * items [inPersonSigner](#inpersonsigner)
+  * intermediaries `array`: Identifies a recipient that can, but is not required to, add name and email information for recipients at the same or subsequent level in the routing order (until subsequent Agents, Editors or Intermediaries recipient types are added).
+    * items [intermediary](#intermediary)
+  * recipientCount `string`: The list of recipient event statuses that will trigger Connect to send updates to the url. It can be a two-part list with:
+  * signers `array`: A complex type containing information about the Signer recipient.
+    * items [signer](#signer)
+
+### templateRole
+* templateRole `object`
+  * accessCode `string`: If a value is provided, the recipient must enter the value as the access code to view and sign the envelope. 
+  * clientUserId `string`: Specifies whether the recipient is embedded or remote. 
+  * defaultRecipient `string`: When set to **true**, this recipient is the default recipient and any tabs generated by the transformPdfFields option are mapped to this recipient.
+  * email `string`: Specifies the email associated with a role name.
+  * emailNotification [recipientEmailNotification](#recipientemailnotification)
+  * embeddedRecipientStartURL `string`: Specifies a sender provided valid URL string for redirecting an embedded recipient. When using this option, the embedded recipient still receives an email from DocuSign, just as a remote recipient would. When the document link in the email is clicked the recipient is redirected, through DocuSign, to the supplied URL to complete their actions. When routing to the URL, the sender's system (the server responding to the URL) must request a recipient token to launch a signing session. 
+  * inPersonSignerName `string`: Specifies the full legal name of the signer in person signer template roles.
+  * name `string`: Specifies the recipient's name.
+  * recipientSignatureProviders `array`: The default signature provider is the DocuSign Electronic signature system. This parameter is used to specify one or more Standards Based Signature (digital signature) providers for the signer to use. [More information](../../../../guide/appendix/standards_based_signatures.html)
+    * items [recipientSignatureProvider](#recipientsignatureprovider)
+  * roleName `string`: Optional element. Specifies the role name associated with the recipient.<br/><br/>This is required when working with template recipients.
+  * routingOrder `string`: Specifies the routing order of the recipient in the envelope. 
+  * signingGroupId `string`: When set to **true** and the feature is enabled in the sender's account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).
+  * tabs [EnvelopeRecipientTabs](#enveloperecipienttabs)
+
+### templateSharedItem
+* templateSharedItem `object`
+  * errorDetails [errorDetails](#errordetails)
+  * owner [userInfo](#userinfo)
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * sharedGroups `array`
+    * items [memberGroupSharedItem](#membergroupshareditem)
+  * sharedUsers `array`
+    * items [userSharedItem](#usershareditem)
+  * templateId `string`: The unique identifier of the template. If this is not provided, DocuSign will generate a value. 
+  * templateName `string`
+
+### templateSummary
+* templateSummary `object`
+  * applied `string`: Reserved: TBD
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * documentName `string`
+  * name `string`
+  * templateId `string`: The unique identifier of the template. If this is not provided, DocuSign will generate a value. 
+  * templateMatch [templateMatch](#templatematch)
+  * uri `string`
+
+### templateTabs
+* templateTabs `object`
+  * approveTabs `array`: A tab that allows the recipient to approve documents
+    * items [approve](#approve)
+  * checkboxTabs `array`: Specifies a tag on the document in a location where the recipient can select an option.
+    * items [checkbox](#checkbox)
+  * companyTabs `array`: Specifies a tag on the document where you want the recipient's company name to appear.
+    * items [company](#company)
+  * dateSignedTabs `array`: Specifies a tab on the document where the date the document was signed will automatically appear.
+    * items [dateSigned](#datesigned)
+  * dateTabs `array`: Specifies a tab on the document where you want the recipient to enter a date. Date tabs are single-line fields that allow date information to be entered in any format. The tooltip for this tab recommends entering the date as MM/DD/YYYY, but this is not enforced. The format entered by the signer is retained. 
+    * items [date](#date)
+  * declineTabs `array`: Specifies a tag on the document where you want to give the recipient the option of declining an envelope. If the recipient clicks the Decline tag during the signing process, the envelope is voided.
+    * items [decline](#decline)
+  * emailAddressTabs `array`: Specifies a location on the document where you want where you want the recipient's email, as entered in the recipient information, to display.
+    * items [emailAddress](#emailaddress)
+  * emailTabs `array`: Specifies a tag on the document where you want the recipient to enter an email. Email tags are single-line fields that accept any characters. The system checks that a valid email format (i.e. xxx@yyy.zzz) is entered in the tag. It uses the same parameters as a Text tab, with the validation message and pattern set for email information.
+    * items [email](#email)
+  * envelopeIdTabs `array`: Specifies a tag on the document where you want the envelope ID for to appear. Recipients cannot enter or change the information in this tab, it is for informational purposes only.
+    * items [envelopeId](#envelopeid)
+  * firstNameTabs `array`: Specifies tag on a document where you want the recipient's first name to appear. This tag takes the recipient's name, as entered in the recipient information, splits it into sections based on spaces and uses the first section as the first name.
+    * items [firstName](#firstname)
+  * formulaTabs `array`: A list of formula tabs.
+    * items [formulaTab](#formulatab)
+  * fullNameTabs `array`: Specifies a tag on the document where you want the recipient's name to appear.
+    * items [fullName](#fullname)
+  * initialHereTabs `array`: Specifies a tag location in the document at which a recipient will place their initials. The `optional` parameter specifies whether the initials are required or optional.
+    * items [initialHere](#initialhere)
+  * lastNameTabs `array`: Specifies a tag on a document where you want the recipient's last name to appear. This tag takes the recipient's name, as entered in the recipient information, splits it into sections based on spaces and uses the last section as the last name.
+    * items [lastName](#lastname)
+  * listTabs `array`: Specify this tag to give your recipient a list of options, presented as a drop-down list, from which they can select.
+    * items [list](#list)
+  * noteTabs `array`: Specifies a location on the document where you want to place additional information, in the form of a note, for a recipient.
+    * items [note](#note)
+  * numberTabs `array`: Specifies a tag on the document where you want the recipient to enter a number. It uses the same parameters as a Text tab, with the validation message and pattern set for number information.
+    * items [number](#number)
+  * radioGroupTabs `array`: Specifies a tag on the document in a location where the recipient can select one option from a group of options using a radio button. The radio buttons do not have to be on the same page in a document.
+    * items [radioGroup](#radiogroup)
+  * signHereTabs `array`: A complex type the contains information about the tag that specifies where the recipient places their signature in the document. The "optional" parameter sets if the signature is required or optional.
+    * items [signHere](#signhere)
+  * signerAttachmentTabs `array`: Specifies a tag on the document when you want the recipient to add supporting documents to an envelope.
+    * items [signerAttachment](#signerattachment)
+  * ssnTabs `array`: Specifies a tag on the document where you want the recipient to enter a Social Security Number (SSN). A SSN can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for SSN information.
+    * items [ssn](#ssn)
+  * textTabs `array`: Specifies a that that is an adaptable field that allows the recipient to enter different text information.
+    * items [text](#text)
+  * titleTabs `array`: Specifies a tag on the document where you want the recipient's title to appear.
+    * items [title](#title)
+  * viewTabs `array`
+    * items [view](#view)
+  * zipTabs `array`: Specifies a tag on the document where you want the recipient to enter a ZIP code. The ZIP code can be a five numbers or the ZIP+4 format with nine numbers. The zip code can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for ZIP code information.
+    * items [zip](#zip)
+
+### templateUpdateSummary
+* templateUpdateSummary `object`
+  * bulkEnvelopeStatus [bulkEnvelopeStatus](#bulkenvelopestatus)
+  * envelopeId `string`: The envelope ID of the envelope status that failed to post.
+  * errorDetails [errorDetails](#errordetails)
+  * listCustomFieldUpdateResults `array`
+    * items [listCustomField](#listcustomfield)
+  * lockInformation [EnvelopeLocks](#envelopelocks)
+  * recipientUpdateResults `array`
+    * items [recipientUpdateResponse](#recipientupdateresponse)
+  * tabUpdateResults [EnvelopeRecipientTabs](#enveloperecipienttabs)
+  * textCustomFieldUpdateResults `array`
+    * items [textCustomField](#textcustomfield)
+
+### text
+* text `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * concealValueOnDocument `string`: When set to **true**, the field appears normally while the recipient is adding or modifying the information in the field, but the data is not visible (the characters are hidden by asterisks) to any other signer or the sender.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * disableAutoSize `string`: When set to **true**, disables the auto sizing of single line text boxes in the signing screen when the signer enters data. If disabled users will only be able enter as much data as the text box can hold. By default this is false. This property only affects single line text boxes.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * formula `string`: Contains the formula
+  * height `integer`: Height of the tab in pixels.
+  * isPaymentAmount `string`: When set to **true**, sets this as a payment tab. Can only be used with Text, Number, Formula, or List tabs. The value of the tab must be a number. 
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * locked `string`: When set to **true**, the signer cannot change the data of the custom tab.
+  * maxLength `integer`: An optional value that describes the maximum length of the property when the property is a string.
+  * mergeField [mergeField](#mergefield)
+  * name `string`: Specifies the tool tip text for the tab.
+  * originalValue `string`: The initial value of the tab when it was sent to the recipient. 
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * requireAll `string`: When set to **true** and shared is true, information must be entered in this field to complete the envelope. 
+  * requireInitialOnSharedChange `string`: Optional element for field markup. When set to **true**, the signer is required to initial when they modify a shared field.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * senderRequired `string`: When set to **true**, the sender must populate the tab before an envelope can be sent using the template. 
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * validationMessage `string`: The message displayed if the custom tab fails input validation (either custom of embedded).
+  * validationPattern `string`: A regular expressionn used to validate input for the tab.
+  * value `string`: Specifies the value of the tab. 
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### textCustomField
+* textCustomField `object`
+  * configurationType `string`: If merge field's are being used, specifies the type of the merge field. The only  supported value is **salesforce**.
+  * errorDetails [errorDetails](#errordetails)
+  * fieldId `string`: An ID used to specify a custom field.
+  * name `string`: The name of the custom field.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * show `string`: A boolean indicating if the value should be displayed.
+  * value `string`: The value of the custom field.
+
+### title
+* title `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * concealValueOnDocument `string`: When set to **true**, the field appears normally while the recipient is adding or modifying the information in the field, but the data is not visible (the characters are hidden by asterisks) to any other signer or the sender.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * disableAutoSize `string`: When set to **true**, disables the auto sizing of single line text boxes in the signing screen when the signer enters data. If disabled users will only be able enter as much data as the text box can hold. By default this is false. This property only affects single line text boxes.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * locked `string`: When set to **true**, the signer cannot change the data of the custom tab.
+  * maxLength `integer`: An optional value that describes the maximum length of the property when the property is a string.
+  * mergeField [mergeField](#mergefield)
+  * name `string`
+  * originalValue `string`: The initial value of the tab when it was sent to the recipient. 
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * value `string`: Specifies the value of the tab. 
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### usageHistory
+* usageHistory `object`: A complex element consisting of: 
+  * lastSentDateTime `string`: The date and time the user last sent an envelope. 
+  * lastSignedDateTime `string`: The date and time the user last signed an envelope.
+  * sentCount `integer`: The number of envelopes the user has sent. 
+  * signedCount `integer`: The number of envelopes the user has signed. 
+
+### userAccountManagementGranularInformation
+* userAccountManagementGranularInformation `object`
+  * canManageAdmins `string`
+  * canManageAdminsMetadata [settingsMetadata](#settingsmetadata)
+  * canManageGroups `string`
+  * canManageGroupsMetadata [settingsMetadata](#settingsmetadata)
+  * canManageSharing `string`
+  * canManageSharingMetadata [settingsMetadata](#settingsmetadata)
+  * canManageUsers `string`
+  * canManageUsersMetadata [settingsMetadata](#settingsmetadata)
+
+### userInfo
+* userInfo `object`
+  * activationAccessCode `string`
+  * email `string`
+  * errorDetails [errorDetails](#errordetails)
+  * loginStatus `string`
+  * sendActivationEmail `string`
+  * uri `string`
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * userName `string`
+  * userStatus `string`
+  * userType `string`
+
+### userInfoList
+* userInfoList `object`
+  * users `array`
+    * items [userInfo](#userinfo)
+
+### userInformationList
+* userInformationList `object`
+  * endPosition `string`: The last position in the result set. 
+  * nextUri `string`: The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search. 
+  * previousUri `string`: The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+  * users `array`
+    * items [Users](#users)
+
+### userPasswordInformation
+* userPasswordInformation `object`
+  * currentPassword `string`: The user's current password to be changed.
+  * email `string`: The user's email address for the associated account.
+  * forgottenPasswordInfo [forgottenPasswordInformation](#forgottenpasswordinformation)
+  * newPassword `string`: The user's new password.
+
+### userPasswordRules
+* userPasswordRules `object`
+  * passwordRules [AccountPasswordRules](#accountpasswordrules)
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+### userSettingsInformation
+* userSettingsInformation `object`
+  * accountManagementGranular [userAccountManagementGranularInformation](#useraccountmanagementgranularinformation)
+  * senderEmailNotifications [senderEmailNotifications](#senderemailnotifications)
+  * signerEmailNotifications [signerEmailNotifications](#signeremailnotifications)
+  * userSettings `array`
+    * items [nameValue](#namevalue)
+
+### userSharedItem
+* userSharedItem `object`
+  * errorDetails [errorDetails](#errordetails)
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * user [userInfo](#userinfo)
+
+### userSignatureDefinition
+* userSignatureDefinition `object`
+  * signatureFont `string`
+  * signatureId `string`: Specifies the signature ID associated with the signature name. You can use the signature ID in the URI in place of the signature name, and the value stored in the `signatureName` property in the body is used. This allows the use of special characters (such as "&", "<", ">") in a the signature name. Note that with each update to signatures, the returned signature ID might change, so the caller will need to trigger off the signature name to get the new signature ID.
+  * signatureInitials `string`
+  * signatureName `string`: Specifies the user signature name.
+
+### userSignaturesInformation
+* userSignaturesInformation `object`
+  * userSignatures `array`
+    * items [UserSignatures](#usersignatures)
+
+### userSocialIdResult
+* userSocialIdResult `object`
+  * socialAccountInformation `array`: Contains properties that map a DocuSign user to a social account (Facebook, Yahoo, etc.)
+    * items [UserSocialAccountLogins](#usersocialaccountlogins)
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+### view
+* view `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * buttonText `string`
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * height `integer`: Height of the tab in pixels.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * mergeField [mergeField](#mergefield)
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * requiredRead `string`
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+### viewLinkRequest
+* viewLinkRequest `object`
+  * email `string`
+  * returnUrl `string`
+
+### workspaceFolderContents
+* workspaceFolderContents `object`: Provides properties that describe the contents of a workspace folder.
+  * endPosition `string`: The last position in the result set. 
+  * folder [WorkspaceItems](#workspaceitems)
+  * items `array`
+    * items [WorkspaceItems](#workspaceitems)
+  * parentFolders `array`
+    * items [WorkspaceItems](#workspaceitems)
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+  * workspaceId `string`: The id of the workspace, always populated.
+
+### workspaceItemList
+* workspaceItemList `object`: Provides properties that describe the items contained in a workspace.
+  * items `array`
+    * items [WorkspaceItems](#workspaceitems)
+
+### workspaceList
+* workspaceList `object`: Provides properties that describe the workspaces avaialble.
+  * endPosition `string`: The last position in the result set. 
+  * resultSetSize `string`: The number of results returned in this response. 
+  * startPosition `string`: Starting position of the current result set.
+  * totalSetSize `string`: The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+  * workspaces `array`: A list of workspaces.
+    * items [Workspaces](#workspaces)
+
+### workspaceUser
+* workspaceUser `object`: A workspaceUser representing the user. This property is only returned in response to user specific GET call. 
+  * accountId `string`: The account ID associated with the envelope.
+  * accountName `string`: The name of the account that the workspace user belongs to.
+  * activeSince `string`
+  * created `string`: The UTC DateTime when the workspace user was created.
+  * createdById `string`
+  * email `string`
+  * errorDetails [errorDetails](#errordetails)
+  * lastModified `string`: Utc date and time the comment was last updated (can only be done by creator.)
+  * lastModifiedById `string`
+  * status `string`: Indicates the envelope status. Valid values are:
+  * type `string`: Type of the user. Valid values: type_owner, type_participant.
+  * userId `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * userName `string`
+  * workspaceId `string`: Specifies the workspace ID GUID.
+  * workspaceUserBaseUrl `string`: The relative URI that may be used to access a workspace user.
+  * workspaceUserId `string`
+
+### workspaceUserAuthorization
+* workspaceUserAuthorization `object`: Provides properties that describe user authorization to a workspace.
+  * canDelete `string`
+  * canMove `string`
+  * canTransact `string`
+  * canView `string`
+  * created `string`: The UTC DateTime when the workspace user authorization was created.
+  * createdById `string`
+  * errorDetails [errorDetails](#errordetails)
+  * modified `string`
+  * modifiedById `string`
+  * workspaceUserId `string`
+  * workspaceUserInformation [workspaceUser](#workspaceuser)
+
+### zip
+* zip `object`
+  * anchorCaseSensitive `string`: Reserved for DocuSign.
+  * anchorHorizontalAlignment `string`: Reserved for DocuSign.
+  * anchorIgnoreIfNotPresent `string`: When set to **true**, this tab is ignored if anchorString is not found in the document.
+  * anchorMatchWholeWord `string`: Reserved for DocuSign.
+  * anchorString `string`: Anchor text information for a radio button.
+  * anchorUnits `string`: Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+  * anchorXOffset `string`: Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+  * anchorYOffset `string`: Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+  * bold `string`: When set to **true**, the information in the tab is bold.
+  * concealValueOnDocument `string`: When set to **true**, the field appears normally while the recipient is adding or modifying the information in the field, but the data is not visible (the characters are hidden by asterisks) to any other signer or the sender.
+  * conditionalParentLabel `string`: For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+  * conditionalParentValue `string`: For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+  * customTabId `string`: The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+  * disableAutoSize `string`: When set to **true**, disables the auto sizing of single line text boxes in the signing screen when the signer enters data. If disabled users will only be able enter as much data as the text box can hold. By default this is false. This property only affects single line text boxes.
+  * documentId `string`: Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+  * errorDetails [errorDetails](#errordetails)
+  * font `string`: The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+  * fontColor `string`: The font color used for the information in the tab.
+  * fontSize `string`: The font size used for the information in the tab.
+  * italic `string`: When set to **true**, the information in the tab is italic.
+  * locked `string`: When set to **true**, the signer cannot change the data of the custom tab.
+  * maxLength `integer`: An optional value that describes the maximum length of the property when the property is a string.
+  * mergeField [mergeField](#mergefield)
+  * name `string`
+  * originalValue `string`: The initial value of the tab when it was sent to the recipient. 
+  * pageNumber `string`: Specifies the page number on which the tab is located.
+  * recipientId `string`: Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+  * requireAll `string`: When set to **true** and shared is true, information must be entered in this field to complete the envelope. 
+  * requireInitialOnSharedChange `string`: Optional element for field markup. When set to **true**, the signer is required to initial when they modify a shared field.
+  * required `string`: When set to **true**, the signer is required to fill out this tab
+  * senderRequired `string`: When set to **true**, the sender must populate the tab before an envelope can be sent using the template. 
+  * shared `string`: When set to **true**, this custom tab is shared.
+  * status `string`: Indicates the envelope status. Valid values are:
+  * tabId `string`: The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call]. 
+  * tabLabel `string`: The label string associated with the tab.
+  * tabOrder `string`
+  * templateLocked `string`: When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+  * templateRequired `string`: When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+  * underline `string`: When set to **true**, the information in the tab is underlined.
+  * useDash4 `string`
+  * validationMessage `string`: The message displayed if the custom tab fails input validation (either custom of embedded).
+  * validationPattern `string`: A regular expressionn used to validate input for the tab.
+  * value `string`: Specifies the value of the tab. 
+  * width `integer`: Width of the tab in pixels.
+  * xPosition `string`: This indicates the horizontal offset of the object on the page.
+  * yPosition `string`: This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+
+

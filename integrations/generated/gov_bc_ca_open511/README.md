@@ -93,4 +93,4 @@ gov_bc_ca_open511.jurisdictiongeography.get({}, context)
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

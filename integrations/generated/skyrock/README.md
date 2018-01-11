@@ -1297,4 +1297,4 @@ skyrock.check_rate_limit.format.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

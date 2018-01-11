@@ -501,4 +501,245 @@ circleci.user.heroku_key.post(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+### Artifact
+* Artifact `object`
+  * node_index `integer`
+  * path `string`
+  * pretty_path `string`
+  * url `string`
+
+### Artifacts
+* Artifacts `array`
+  * items [Artifact](#artifact)
+
+### Aws
+* Aws `object`
+  * keypair `string`
+
+### Build
+* Build `object`
+  * body `string`: commit message body
+  * branch `string`
+  * build_time_millis `integer`
+  * build_url `string`
+  * committer_email `string`
+  * committer_name `string`
+  * dont_build `string`: reason why we didn't build, if we didn't build
+  * lifecycle [Lifecycle](#lifecycle)
+  * previous [PreviousBuild](#previousbuild)
+  * queued_at `string`: time build was queued
+  * reponame `string`
+  * retry_of `integer`: build_num of the build this is a retry of
+  * start_time `string`: time build started
+  * stop_time `string`: time build finished
+  * subject `string`
+  * username `string`
+  * vcs_url `string`
+  * why `string`: short string explaining the reason we built
+
+### BuildDetail
+* BuildDetail `object`: previous build
+  * all_commit_details [CommitDetails](#commitdetails)
+  * compare `string`
+  * job_name `string`
+  * node `null`
+  * previous_successful_build [PreviousBuild](#previousbuild)
+  * retries `boolean`
+  * ssh_enabled `boolean`
+  * timedout `boolean`
+  * usage_queued_at `string`
+  * user [User](#user)
+
+### BuildParameters
+* BuildParameters `object`: Additional environment variables to inject into the build environment. A map of names to values.
+
+### BuildSummary
+* BuildSummary `object`
+  * added_at `string`
+  * build_num `integer`
+  * outcome [Outcome](#outcome)
+  * pushed_at `string`
+  * status [Status](#status)
+  * vcs_revision [Sha1](#sha1)
+
+### Builds
+* Builds `array`
+  * items [Build](#build)
+
+### CommitDetail
+* CommitDetail `object`
+  * author_date `string`
+  * author_email `string`
+  * author_login `string`
+  * author_name `string`
+  * body `string`
+  * commit [Sha1](#sha1)
+  * commit_url `string`
+  * committer_date `string`
+  * committer_email `string`
+  * committer_login `string`
+  * committer_name `string`
+  * subject `string`
+
+### CommitDetails
+* CommitDetails `array`
+  * items [CommitDetail](#commitdetail)
+
+### Envvar
+* Envvar `object`
+  * name `string`
+  * value `string`
+
+### Envvars
+* Envvars `array`
+  * items [Envvar](#envvar)
+
+### Key
+* Key `object`
+  * fingerprint `string`
+  * preferred `boolean`
+  * public_key `string`
+  * time `string`: when the key was issued
+  * type `string` (values: deploy-key, github-user-key): can be "deploy-key" or "github-user-key"
+
+### Keys
+* Keys `array`
+  * items [Key](#key)
+
+### Lifecycle
+* Lifecycle `string` (values: queued, scheduled, not_run, not_running, running, finished)
+
+### Outcome
+* Outcome `string` (values: canceled, infrastructure_fail, timedout, failed, no_tests, success)
+
+### Parallel
+* Parallel `string`: The number of containers to use to run the build. Default is null and the project default is used.
+
+### PreviousBuild
+* PreviousBuild `object`: previous build
+  * build_num `integer`
+  * build_time_millis `integer`
+  * status [Status](#status)
+
+### Project
+* Project `object`
+  * aws [Aws](#aws)
+  * branches `object`
+  * campfire_notify_prefs [StringOrNull](#stringornull)
+  * campfire_room [StringOrNull](#stringornull)
+  * campfire_subdomain [StringOrNull](#stringornull)
+  * campfire_token [StringOrNull](#stringornull)
+  * compile `string`
+  * default_branch `string`
+  * dependencies `string`
+  * extra `string`
+  * feature_flags `object`
+    * build-fork-prs `boolean`
+    * fleet `boolean`
+    * junit `boolean`
+    * oss `boolean`
+    * osx `boolean`
+    * set-github-status `boolean`
+    * trusty-beta `boolean`
+  * flowdock_api_token [StringOrNull](#stringornull)
+  * followed `boolean`
+  * has_usable_key `boolean`
+  * heroku_deploy_user [StringOrNull](#stringornull)
+  * hipchat_api_token [StringOrNull](#stringornull)
+  * hipchat_notify [StringOrNull](#stringornull)
+  * hipchat_notify_prefs `string`
+  * hipchat_room [StringOrNull](#stringornull)
+  * irc_channel [StringOrNull](#stringornull)
+  * irc_keyword [StringOrNull](#stringornull)
+  * irc_notify_prefs [StringOrNull](#stringornull)
+  * irc_password [StringOrNull](#stringornull)
+  * irc_server [StringOrNull](#stringornull)
+  * irc_username [StringOrNull](#stringornull)
+  * language `string`
+  * oss `boolean`
+  * parallel `integer`
+  * reponame `string`
+  * scopes `array`
+    * items [Scope](#scope)
+  * setup `string`
+  * slack_api_token [StringOrNull](#stringornull)
+  * slack_channel [StringOrNull](#stringornull)
+  * slack_channel_override [StringOrNull](#stringornull)
+  * slack_notify_prefs [StringOrNull](#stringornull)
+  * slack_subdomain [StringOrNull](#stringornull)
+  * slack_webhook_url `string`
+  * ssh_keys `array`
+    * items `string`
+  * test `string`
+  * username `string`
+  * vcs_type `string`
+  * vcs_url `string`
+
+### Projects
+* Projects `array`
+  * items [Project](#project)
+
+### Revision
+* Revision `string`: The specific revision to build.
+
+### Scope
+* Scope `string` (values: write-settings, view-builds, read-settings, trigger-builds, all, status, none)
+
+### Sha1
+* Sha1 `string`
+
+### Status
+* Status `string` (values: retried, canceled, infrastructure_fail, timedout, not_run, running, failed, queued, scheduled, not_running, no_tests, fixed, success)
+
+### StringOrNull
+* StringOrNull `string`
+
+### Tag
+* Tag `string`: The tag to build. Default is null. Cannot be used with revision parameter.
+
+### Tests
+* Tests `object`
+  * tests `array`
+    * items `object`
+      * classname `string`
+      * file `string`
+      * message `string`
+      * name `string`
+      * result [Status](#status)
+      * run_time `number`
+      * source `string`
+
+### User
+* User `object`
+  * admin `boolean`
+  * all_emails `array`
+    * items `string`
+  * analytics_id `string`
+  * avatar_url `string`
+  * basic_email_prefs `string`
+  * bitbucket `integer`
+  * bitbucket_authorized `boolean`
+  * containers `integer`
+  * created_at `string`
+  * days_left_in_trial `integer`
+  * dev_admin `boolean`
+  * enrolled_betas `array`
+    * items `string`
+  * github_id `integer`
+  * github_oauth_scopes `array`
+    * items `string`
+  * gravatar_id `integer`
+  * heroku_api_key `string`
+  * in_beta_program `boolean`
+  * login `string`
+  * name `string`
+  * organization_prefs `object`
+  * parallelism `integer`
+  * plan `string`
+  * projects `object`
+  * pusher_id `string`
+  * selected_email `string`
+  * sign_in_count `integer`
+  * trial_end `string`
+
+

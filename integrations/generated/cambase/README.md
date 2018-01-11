@@ -511,4 +511,4 @@ cambase.api.v1.vendors.id.json.put({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

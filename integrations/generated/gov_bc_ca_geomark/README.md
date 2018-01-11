@@ -179,4 +179,4 @@ gov_bc_ca_geomark.geomarks.geomarkId.point.fileFormatExtension.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

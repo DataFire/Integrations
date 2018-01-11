@@ -47,4 +47,4 @@ nytimes_times_tags.timestags.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

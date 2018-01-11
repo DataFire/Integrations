@@ -385,4 +385,385 @@ bufferapp.user.json.get(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+### configuration
+* configuration `object`
+  * media `object`
+    * picture_filetypes `array`
+      * items `string`
+    * picture_size_max `number`
+    * picture_size_min `number`
+  * services `object`
+    * appdotnet `object`
+      * types `object`
+        * profile `object`
+          * character_limit `number`
+          * icons `object`
+            * 16 `string`
+            * 32 `string`
+            * 64 `string`
+          * link_attachments `boolean`
+          * name `string`
+          * schedule_limit `number`
+          * supported_interactions `array`
+
+      * urls `object`
+        * hashtag `string`
+        * user `string`
+    * facebook `object`
+      * types `object`
+        * group `object`
+          * character_limit `number`
+          * icons `object`
+            * 16 `string`
+            * 32 `string`
+            * 64 `string`
+          * link_attachments `boolean`
+          * name `string`
+          * schedule_limit `number`
+          * supported_interactions `array`
+            * items `string`
+        * page `object`
+          * character_limit `number`
+          * icons `object`
+            * 16 `string`
+            * 32 `string`
+            * 64 `string`
+          * link_attachments `boolean`
+          * name `string`
+          * schedule_limit `number`
+          * supported_interactions `array`
+            * items `string`
+        * profile `object`
+          * character_limit `number`
+          * icons `object`
+            * 16 `string`
+            * 32 `string`
+            * 64 `string`
+          * link_attachments `boolean`
+          * name `string`
+          * schedule_limit `number`
+          * supported_interactions `array`
+            * items `string`
+      * urls `object`
+        * user `string`
+    * google `object`
+      * types `object`
+        * page `object`
+          * character_limit `number`
+          * icons `object`
+            * 16 `string`
+            * 32 `string`
+            * 64 `string`
+          * link_attachments `boolean`
+          * name `string`
+          * schedule_limit `number`
+          * supported_interactions `array`
+            * items `string`
+        * profile `object`
+          * character_limit `number`
+          * icons `object`
+            * 16 `string`
+            * 32 `string`
+            * 64 `string`
+          * link_attachments `boolean`
+          * name `string`
+          * schedule_limit `number`
+          * supported_interactions `array`
+            * items `string`
+      * urls `object`
+        * user `string`
+    * linkedin `object`
+      * types `object`
+        * group `object`
+          * character_limit `number`
+          * icons `object`
+            * 16 `string`
+            * 32 `string`
+            * 64 `string`
+          * link_attachments `boolean`
+          * name `string`
+          * schedule_limit `number`
+          * supported_interactions `array`
+            * items `string`
+        * page `object`
+          * character_limit `number`
+          * icons `object`
+            * 16 `string`
+            * 32 `string`
+            * 64 `string`
+          * link_attachments `boolean`
+          * name `string`
+          * schedule_limit `number`
+          * supported_interactions `array`
+            * items `string`
+        * profile `object`
+          * character_limit `number`
+          * icons `object`
+            * 16 `string`
+            * 32 `string`
+            * 64 `string`
+          * link_attachments `boolean`
+          * name `string`
+          * schedule_limit `number`
+          * supported_interactions `array`
+            * items `string`
+      * urls `object`
+        * user `string`
+    * twitter `object`
+      * types `object`
+        * profile `object`
+          * character_limit `number`
+          * icons `object`
+            * 16 `string`
+            * 32 `string`
+            * 64 `string`
+          * link_attachments `boolean`
+          * name `string`
+          * schedule_limit `number`
+          * supported_interactions `array`
+            * items `string`
+      * urls `object`
+        * cashtag `string`
+        * hashtag `string`
+        * user `string`
+
+### individual-update
+* individual-update `object`
+  * buffer_count `number`
+  * buffer_percentage `number`
+  * success `boolean`
+  * update `object`
+    * client_id `string`
+    * created_at `number`
+    * day `string`
+    * due_at `number`
+    * due_time `string`
+    * id `string`
+    * media `object`
+      * description `string`
+      * link `string`
+      * title `string`
+    * profile_id `string`
+    * profile_service `string`
+    * status `string`
+    * text `string`
+    * text_formatted `string`
+    * user_id `string`
+    * via `string`
+
+### interactions
+* interactions `object`
+  * interactions `array`
+    * items `object`
+      * _id `string`
+      * created_at `number`
+      * event `string`
+      * id `string`
+      * interaction_id `string`
+      * user `object`
+        * avatar `string`
+        * avatar_https `string`
+        * followers `number`
+        * twitter_id `string`
+        * username `string`
+  * total `number`
+
+### newUpdate
+* newUpdate `object`
+  * buffer_count `number`
+  * buffer_percentage `number`
+  * success `boolean`
+  * updates `array`
+    * items `object`
+      * created_at `number`
+      * day `string`
+      * due_at `number`
+      * due_time `string`
+      * id `string`
+      * media `object`
+        * description `string`
+        * link `string`
+        * title `string`
+      * profile_id `string`
+      * profile_service `string`
+      * status `string`
+      * text `string`
+      * text_formatted `string`
+      * user_id `string`
+      * via `string`
+
+### profile
+* profile `object`
+  * avatar `string`
+  * created_at `number`
+  * default `boolean`
+  * formatted_username `string`
+  * id `string`
+  * schedules `array`
+    * items `object`
+      * days `array`
+        * items `string`
+      * times `array`
+        * items `string`
+  * service `string`
+  * service_id `string`
+  * service_username `string`
+  * statistics `object`
+    * followers `number`
+  * team_members `array`
+    * items `string`
+  * timezone `string`
+  * user_id `string`
+
+### profiles
+* profiles `array`
+  * items `object`
+    * _id `string`
+    * avatar `string`
+    * avatar_https `string`
+    * counts `object`
+      * daily_suggestions `number`
+      * drafts `number`
+      * pending `number`
+      * sent `number`
+    * cover_photo `string`
+    * default `boolean`
+    * disabled_features `array`
+
+    * disconnected `string`
+    * formatted_service `string`
+    * formatted_username `string`
+    * has_used_suggestions `boolean`
+    * id `string`
+    * schedules `array`
+      * items `object`
+        * days `array`
+          * items `string`
+        * times `array`
+
+    * service `string`
+    * service_id `string`
+    * service_type `string`
+    * service_username `string`
+    * shortener `object`
+      * domain `string`
+    * statistics `object`
+      * connections `number`
+    * timezone `string`
+    * user_id `string`
+    * utm_tracking `string`
+    * verb `string`
+
+### reorder
+* reorder `object`
+  * success `boolean`
+  * updates `array`
+    * items `object`
+      * created_at `number`
+      * day `string`
+      * due_at `number`
+      * due_time `string`
+      * id `string`
+      * profile_id `string`
+      * profile_service `string`
+      * status `string`
+      * text `string`
+      * text_formatted `string`
+      * user_id `string`
+      * via `string`
+
+### schedules
+* schedules `object`
+  * days `array`
+    * items `string`
+  * times `array`
+    * items `string`
+
+### schedules-update
+* schedules-update `object`
+  * success `boolean`
+
+### share
+* share `object`
+  * success `boolean`
+
+### shares
+* shares `object`
+  * shares `number`
+
+### shuffle
+* shuffle `object`
+  * success `boolean`
+  * updates `array`
+    * items `object`
+      * created_at `number`
+      * day `string`
+      * due_at `number`
+      * due_time `string`
+      * id `string`
+      * profile_id `string`
+      * profile_service `string`
+      * status `string`
+      * text `string`
+      * text_formatted `string`
+      * user_id `string`
+      * via `string`
+
+### success
+* success `object`
+  * success `boolean`
+
+### update
+* update `object`
+  * created_at `number`
+  * day `string`
+  * due_at `number`
+  * due_time `string`
+  * id `string`
+  * profile_id `string`
+  * profile_service `string`
+  * sent_at `number`
+  * service_update_id `string`
+  * statistics `object`
+    * clicks `number`
+    * favorites `number`
+    * mentions `number`
+    * reach `number`
+    * retweets `number`
+  * status `string`
+  * text `string`
+  * text_formatted `string`
+  * user_id `string`
+  * via `string`
+
+### updates-array
+* updates-array `object`
+  * total `number`
+  * updates `array`
+    * items `object`
+      * created_at `number`
+      * day `string`
+      * due_at `number`
+      * due_time `string`
+      * id `string`
+      * profile_id `string`
+      * profile_service `string`
+      * status `string`
+      * text `string`
+      * text_formatted `string`
+      * user_id `string`
+      * via `string`
+
+### user
+* user `object`
+  * _id `string`
+  * activity_at `number`
+  * created_at `number`
+  * id `string`
+  * plan `string`
+  * referral_link `string`
+  * referral_token `string`
+  * secret_email `string`
+  * timezone `string`
+
+

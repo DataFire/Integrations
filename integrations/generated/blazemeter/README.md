@@ -264,4 +264,37 @@ blazemeter.top(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+### ApiResponse
+* ApiResponse `object`: ApiResponse Model
+  * api_version **required** `string`
+  * error **required** `string`
+  * result **required** `string`
+
+### UserModel1
+* UserModel1 `object`: UserModel1 Model
+  * currentPassword **required** `string`
+  * newPassword **required** `string`
+
+### UserModel2
+* UserModel2 `object`: UserModel2 Model
+  * currentPassword **required** `string`
+  * newPassword **required** `string`
+
+### UserModel3
+* UserModel3 `object`: UserModel3 Model
+  * currentPassword **required** `string`
+  * newPassword **required** `string`
+
+### UserModel4
+* UserModel4 `object`: UserModel4 Model
+  * email **required** `string`: Email address
+  * firstName **required** `string`: First name
+  * lastName **required** `string`: Last name
+  * password **required** `string`: Password
+
+### UserModel5
+* UserModel5 `object`: UserModel5 Model
+  * session_ids `array`
+    * items `string`
+
+

@@ -140,4 +140,4 @@ bikewise.v2.locations.markers.get({}, context)
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

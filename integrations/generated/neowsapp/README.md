@@ -113,4 +113,108 @@ neowsapp.retrieveCurrentNeoStatistics(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+### CloseApproachData
+* CloseApproachData `object`
+  * close_approach_date `string`
+  * epoch_date_close_approach `integer`
+  * miss_distance [MissDistance](#missdistance)
+  * orbiting_body `string`
+  * relative_velocity [relativeVelocity](#relativevelocity)
+
+### EstimatedDiameter
+* EstimatedDiameter `object`
+  * estimated_diameter_max `number`: An estimate of the maximum size of the Asteroid - bases on the abosolute magnitude
+  * estimated_diameter_min `number`: An estimate of the minimum size of the Asteroid - bases on the abosolute magnitude
+
+### EstimatedDiameterContainer
+* EstimatedDiameterContainer `object`
+  * feet [EstimatedDiameter](#estimateddiameter)
+  * kilometers [EstimatedDiameter](#estimateddiameter)
+  * meters [EstimatedDiameter](#estimateddiameter)
+  * miles [EstimatedDiameter](#estimateddiameter)
+
+### HashMap«string,List«NearEarthObject»»
+
+
+### Link
+* Link `object`
+  * href `string`
+  * rel `string`
+  * templated `boolean`
+
+### MissDistance
+* MissDistance `object`
+  * astronomical `string`
+  * kilometers `string`
+  * lunar `string`
+  * miles `string`
+
+### NearEarthObject
+* NearEarthObject `object`
+  * absolute_magnitude_h `number`: Is a measure of an asteroids brightness
+  * close_approach_data `array`: Close approach information of the Asteroid
+    * items [CloseApproachData](#closeapproachdata)
+  * estimated_diameter [EstimatedDiameterContainer](#estimateddiametercontainer)
+  * is_potentially_hazardous_asteroid `boolean`
+  * name `string`
+  * nasa_jpl_url `string`: A Link to the NASA JPL Small-Body Database website
+  * neo_reference_id `string`: The reference ID of the Asteroid - This correlates to the SPK ID for the JPL NEO data
+  * orbital_data [OrbitalData](#orbitaldata)
+
+### NearEarthObjectList
+* NearEarthObjectList `object`
+  * element_count `integer`: Number of NEOs in list
+  * links `object`: Hypermedia links to collection
+  * near_earth_objects [HashMap«string,List«NearEarthObject»»](#hashmap«string,list«nearearthobject»»)
+
+### OrbitalData
+* OrbitalData `object`
+  * aphelion_distance `string`
+  * ascending_node_longitude `string`
+  * eccentricity `string`
+  * epoch_osculation `string`
+  * equinox `string`
+  * inclination `string`
+  * jupiter_tisserand_invariant `string`
+  * mean_anomaly `string`
+  * mean_motion `string`
+  * minimum_orbit_intersection `string`
+  * orbit_determination_date `string`
+  * orbit_id `string`
+  * orbit_uncertainty `string`
+  * orbital_period `string`
+  * perihelion_argument `string`
+  * perihelion_distance `string`
+  * perihelion_time `string`
+  * semi_major_axis `string`
+
+### Statistics
+* Statistics `object`
+  * close_approach_count `integer`: Number of Close Approach listings across all NEOs listed in NeoWs
+  * last_updated `string`: TimeStamp the last time the DB was updated
+  * links `array`
+    * items [Link](#link)
+  * nasa_jpl_url [URL](#url)
+  * near_earth_object_count `integer`: Number of NearEarthObjects listed in NeoWs
+  * source `string`
+
+### URL
+* URL `object`
+  * authority `string`
+  * content `object`
+  * defaultPort `integer`
+  * file `string`
+  * host `string`
+  * path `string`
+  * port `integer`
+  * protocol `string`
+  * query `string`
+  * ref `string`
+  * userInfo `string`
+
+### relativeVelocity
+* relativeVelocity `object`
+  * kilometers_per_hour `string`
+  * miles_per_hour `string`
+
+

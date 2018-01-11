@@ -82,4 +82,88 @@ winning_email.status(null, context)
 
 ## Definitions
 
-**This integration has no definitions**
+### ErrorModel
+* ErrorModel `object`
+  * message **required** `string`
+  * status **required** `integer`
+
+### Report
+* Report `object`
+  * baseScore `integer`
+  * report `object`
+    * bodyReport `object`
+      * address `object`
+      * hasForm `integer`
+      * hasJS `integer`
+      * htmlLength `integer`
+      * score `number`
+      * textLength `integer`
+    * imageReport `object`
+      * imagesNeedOptimization `integer`
+      * imagesNoAlt `array`
+
+      * optimization `array`
+
+      * score `number`
+    * linkReport `object`
+      * errors `array`
+
+      * score `number`
+    * markupReport `object`
+      * response `object`
+        * errors `array`
+
+        * groupedErrors `array`
+
+        * tripleTree `array`
+
+        * warnings `array`
+
+      * score `number`
+    * spamassassinReport `object`
+      * baseSpamScore `number`
+      * isSpam `boolean`
+      * responseCode `integer`
+      * responseMessage `string`
+      * score `number`
+      * spamScore `number`
+      * tests `array`
+        * items `object`
+          * desc `string`
+          * name `string`
+          * score `number`
+    * spellReport `object`
+      * html `array`
+
+      * score `number`
+      * subject `array`
+
+      * text `array`
+
+    * subjectReport `object`
+      * openrates `array`
+
+      * overallOpenRate `string`
+      * score `number`
+      * subject `string`
+      * subjectLength `integer`
+    * validateHTML `object`
+      * errors `array`
+        * items `object`
+          * lastColumn `integer`
+          * lastLine `integer`
+          * message `string`
+          * type `string`
+      * score `number`
+  * score `number`
+  * time `string`
+
+### Service
+* Service `object`
+  * limit `integer`
+  * name `string`
+  * remaining `integer`
+  * reset `integer`
+  * used `integer`
+
+

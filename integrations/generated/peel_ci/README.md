@@ -106,4 +106,4 @@ peel_ci.getStatuses({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

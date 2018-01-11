@@ -1244,4 +1244,4 @@ fitbit.user.user_id.profile.json.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

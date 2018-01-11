@@ -69,4 +69,4 @@ apimatic.ConvertAPI({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

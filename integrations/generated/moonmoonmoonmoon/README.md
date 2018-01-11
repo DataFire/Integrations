@@ -69,4 +69,4 @@ moonmoonmoonmoon.api.marks.get({}, context)
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

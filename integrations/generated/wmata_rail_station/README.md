@@ -2024,4 +2024,4 @@ wmata_rail_station.json.jStations.get({}, context)
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

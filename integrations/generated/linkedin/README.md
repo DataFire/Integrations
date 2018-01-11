@@ -425,4 +425,4 @@ linkedin.companies.id.company_statistics.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

@@ -380,4 +380,4 @@ rhapsody.genres.g.id.get({
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*

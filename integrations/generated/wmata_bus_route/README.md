@@ -1588,4 +1588,4 @@ wmata_bus_route.json.jStops.get({}, context)
 
 ## Definitions
 
-**This integration has no definitions**
+*This integration has no definitions*
