@@ -38,16 +38,16 @@ github.oauthCallback({
 ```
 
 #### Parameters
-* input (object)
-  * code **required** (string)
+* input `object`
+  * code **required** `string`
 
 #### Output
-* output (object)
-  * access_token (string)
-  * refresh_token (string)
-  * token_type (string)
-  * scope (string)
-  * expiration (string)
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### oauthRefresh
 Exchange a refresh_token for an access_token
@@ -61,12 +61,12 @@ github.oauthRefresh(null, context)
 *This action has no parameters*
 
 #### Output
-* output (object)
-  * access_token (string)
-  * refresh_token (string)
-  * token_type (string)
-  * scope (string)
-  * expiration (string)
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### emojis.get
 Lists all the emojis available to use on GitHub.
@@ -77,8 +77,8 @@ github.emojis.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * page (integer)
+* input `object`
+  * page `integer`
 
 #### Output
 * output [emojis](#emojis)
@@ -92,8 +92,8 @@ github.events.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * page (integer)
+* input `object`
+  * page `integer`
 
 #### Output
 * output [events](#events)
@@ -110,8 +110,8 @@ github.feeds.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * page (integer)
+* input `object`
+  * page `integer`
 
 #### Output
 * output [feeds](#feeds)
@@ -127,9 +127,9 @@ github.gists.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * since (string): Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
-  * page (integer)
+* input `object`
+  * since `string`: Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+  * page `integer`
 
 #### Output
 * output [gists](#gists)
@@ -145,7 +145,7 @@ github.gists.post({
 ```
 
 #### Parameters
-* input (object)
+* input `object`
   * body **required** [postGist](#postGist)
 
 #### Output
@@ -160,8 +160,8 @@ github.gists.public.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * since (string): Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+* input `object`
+  * since `string`: Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
 
 #### Output
 * output [gists](#gists)
@@ -175,8 +175,8 @@ github.gists.starred.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * since (string): Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+* input `object`
+  * since `string`: Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
 
 #### Output
 * output [gists](#gists)
@@ -192,8 +192,8 @@ github.gists.id.delete({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of gist.
+* input `object`
+  * id **required** `integer`: Id of gist.
 
 #### Output
 *Output schema unknown*
@@ -209,8 +209,8 @@ github.gists.id.get({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of gist.
+* input `object`
+  * id **required** `integer`: Id of gist.
 
 #### Output
 * output [gist](#gist)
@@ -227,8 +227,8 @@ github.gists.id.patch({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of gist.
+* input `object`
+  * id **required** `integer`: Id of gist.
   * body **required** [patchGist](#patchGist)
 
 #### Output
@@ -245,9 +245,9 @@ github.gists.id.comments.get({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of gist.
-  * page (integer)
+* input `object`
+  * id **required** `integer`: Id of gist.
+  * page `integer`
 
 #### Output
 * output [comments](#comments)
@@ -266,8 +266,8 @@ github.gists.id.comments.post({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of gist.
+* input `object`
+  * id **required** `integer`: Id of gist.
   * body **required** [commentBody](#commentBody)
 
 #### Output
@@ -285,9 +285,9 @@ github.gists.id.comments.commentId.delete({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of gist.
-  * commentId **required** (integer): Id of comment.
+* input `object`
+  * id **required** `integer`: Id of gist.
+  * commentId **required** `integer`: Id of comment.
 
 #### Output
 *Output schema unknown*
@@ -304,9 +304,9 @@ github.gists.id.comments.commentId.get({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of gist.
-  * commentId **required** (integer): Id of comment.
+* input `object`
+  * id **required** `integer`: Id of gist.
+  * commentId **required** `integer`: Id of comment.
 
 #### Output
 * output [comment](#comment)
@@ -324,9 +324,9 @@ github.gists.id.comments.commentId.patch({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of gist.
-  * commentId **required** (integer): Id of comment.
+* input `object`
+  * id **required** `integer`: Id of gist.
+  * commentId **required** `integer`: Id of comment.
   * body **required** [comment](#comment)
 
 #### Output
@@ -343,8 +343,8 @@ github.gists.id.forks.post({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of gist.
+* input `object`
+  * id **required** `integer`: Id of gist.
 
 #### Output
 *Output schema unknown*
@@ -360,8 +360,8 @@ github.gists.id.star.delete({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of gist.
+* input `object`
+  * id **required** `integer`: Id of gist.
 
 #### Output
 *Output schema unknown*
@@ -377,8 +377,8 @@ github.gists.id.star.get({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of gist.
+* input `object`
+  * id **required** `integer`: Id of gist.
 
 #### Output
 *Output schema unknown*
@@ -394,8 +394,8 @@ github.gists.id.star.put({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of gist.
+* input `object`
+  * id **required** `integer`: Id of gist.
 
 #### Output
 *Output schema unknown*
@@ -411,8 +411,8 @@ github.gitignore.templates.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * page (integer)
+* input `object`
+  * page `integer`
 
 #### Output
 * output [gitignore](#gitignore)
@@ -428,8 +428,8 @@ github.gitignore.templates.language.get({
 ```
 
 #### Parameters
-* input (object)
-  * language **required** (string)
+* input `object`
+  * language **required** `string`
 
 #### Output
 * output [gitignore-lang](#gitignore-lang)
@@ -451,14 +451,14 @@ github.issues.get({
 ```
 
 #### Parameters
-* input (object)
-  * filter **required** (string): Issues assigned to you / created by you / mentioning you / you're
-  * state **required** (string)
-  * labels **required** (string): String list of comma separated Label names. Example - bug,ui,@high.
-  * sort **required** (string)
-  * direction **required** (string)
-  * since (string): Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-  * page (integer)
+* input `object`
+  * filter **required** `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
+  * state **required** `string` (values: open, closed)
+  * labels **required** `string`: String list of comma separated Label names. Example - bug,ui,@high.
+  * sort **required** `string` (values: created, updated, comments)
+  * direction **required** `string` (values: asc, desc)
+  * since `string`: Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page `integer`
 
 #### Output
 * output [issues](#issues)
@@ -477,11 +477,11 @@ github.legacy.issues.search.owner.repository.state.keyword.get({
 ```
 
 #### Parameters
-* input (object)
-  * keyword **required** (string): The search term.
-  * state **required** (string): Indicates the state of the issues to return. Can be either open or closed.
-  * owner **required** (string)
-  * repository **required** (string)
+* input `object`
+  * keyword **required** `string`: The search term.
+  * state **required** `string` (values: open, closed): Indicates the state of the issues to return. Can be either open or closed.
+  * owner **required** `string`
+  * repository **required** `string`
 
 #### Output
 * output [search-issues-by-keyword](#search-issues-by-keyword)
@@ -497,12 +497,12 @@ github.legacy.repos.search.keyword.get({
 ```
 
 #### Parameters
-* input (object)
-  * keyword **required** (string): The search term
-  * order (string): The sort field. if sort param is provided. Can be either asc or desc.
-  * language (string): Filter results by language
-  * start_page (string): The page number to fetch
-  * sort (string): The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
+* input `object`
+  * keyword **required** `string`: The search term
+  * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
+  * language `string`: Filter results by language
+  * start_page `string`: The page number to fetch
+  * sort `string` (values: updated, stars, forks): The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
 
 #### Output
 * output [search-repositories-by-keyword](#search-repositories-by-keyword)
@@ -518,8 +518,8 @@ github.legacy.user.email.email.get({
 ```
 
 #### Parameters
-* input (object)
-  * email **required** (string): The email address
+* input `object`
+  * email **required** `string`: The email address
 
 #### Output
 * output [search-user-by-email](#search-user-by-email)
@@ -535,11 +535,11 @@ github.legacy.user.search.keyword.get({
 ```
 
 #### Parameters
-* input (object)
-  * keyword **required** (string): The search term
-  * order (string): The sort field. if sort param is provided. Can be either asc or desc.
-  * start_page (string): The page number to fetch
-  * sort (string): The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
+* input `object`
+  * keyword **required** `string`: The search term
+  * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
+  * start_page `string`: The page number to fetch
+  * sort `string` (values: updated, stars, forks): The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
 
 #### Output
 * output [search-users-by-keyword](#search-users-by-keyword)
@@ -555,7 +555,7 @@ github.markdown.post({
 ```
 
 #### Parameters
-* input (object)
+* input `object`
   * body **required** [markdown](#markdown)
 
 #### Output
@@ -601,10 +601,10 @@ github.networks.owner.repo.events.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of the owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of the owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [events](#events)
@@ -620,11 +620,11 @@ github.notifications.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * all (boolean): True to show notifications marked as read.
-  * participating (boolean): True to show only notifications in which the user is directly participating
-  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-  * page (integer)
+* input `object`
+  * all `boolean`: True to show notifications marked as read.
+  * participating `boolean`: True to show only notifications in which the user is directly participating
+  * since `string`: The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page `integer`
 
 #### Output
 * output [notifications](#notifications)
@@ -642,7 +642,7 @@ github.notifications.put({
 ```
 
 #### Parameters
-* input (object)
+* input `object`
   * body **required** [notificationMarkRead](#notificationMarkRead)
 
 #### Output
@@ -659,8 +659,8 @@ github.notifications.threads.id.get({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of thread.
+* input `object`
+  * id **required** `integer`: Id of thread.
 
 #### Output
 * output [notifications](#notifications)
@@ -676,8 +676,8 @@ github.notifications.threads.id.patch({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of thread.
+* input `object`
+  * id **required** `integer`: Id of thread.
 
 #### Output
 *Output schema unknown*
@@ -693,8 +693,8 @@ github.notifications.threads.id.subscription.delete({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of thread.
+* input `object`
+  * id **required** `integer`: Id of thread.
 
 #### Output
 *Output schema unknown*
@@ -710,8 +710,8 @@ github.notifications.threads.id.subscription.get({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of thread.
+* input `object`
+  * id **required** `integer`: Id of thread.
 
 #### Output
 * output [subscription](#subscription)
@@ -732,8 +732,8 @@ github.notifications.threads.id.subscription.put({
 ```
 
 #### Parameters
-* input (object)
-  * id **required** (integer): Id of thread.
+* input `object`
+  * id **required** `integer`: Id of thread.
   * body **required** [putSubscription](#putSubscription)
 
 #### Output
@@ -750,8 +750,8 @@ github.orgs.org.get({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
+* input `object`
+  * org **required** `string`: Name of organisation.
 
 #### Output
 * output [organization](#organization)
@@ -768,8 +768,8 @@ github.orgs.org.patch({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
+* input `object`
+  * org **required** `string`: Name of organisation.
   * body **required** [patchOrg](#patchOrg)
 
 #### Output
@@ -786,9 +786,9 @@ github.orgs.org.events.get({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
-  * page (integer)
+* input `object`
+  * org **required** `string`: Name of organisation.
+  * page `integer`
 
 #### Output
 * output [events](#events)
@@ -811,15 +811,15 @@ github.orgs.org.issues.get({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
-  * filter **required** (string): Issues assigned to you / created by you / mentioning you / you're
-  * state **required** (string)
-  * labels **required** (string): String list of comma separated Label names. Example - bug,ui,@high.
-  * sort **required** (string)
-  * direction **required** (string)
-  * since (string): Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-  * page (integer)
+* input `object`
+  * org **required** `string`: Name of organisation.
+  * filter **required** `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
+  * state **required** `string` (values: open, closed)
+  * labels **required** `string`: String list of comma separated Label names. Example - bug,ui,@high.
+  * sort **required** `string` (values: created, updated, comments)
+  * direction **required** `string` (values: asc, desc)
+  * since `string`: Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page `integer`
 
 #### Output
 * output [issues](#issues)
@@ -841,9 +841,9 @@ github.orgs.org.members.get({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
-  * page (integer)
+* input `object`
+  * org **required** `string`: Name of organisation.
+  * page `integer`
 
 #### Output
 * output [users](#users)
@@ -863,9 +863,9 @@ github.orgs.org.members.username.delete({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
-  * username **required** (string): Name of the user.
+* input `object`
+  * org **required** `string`: Name of organisation.
+  * username **required** `string`: Name of the user.
 
 #### Output
 *Output schema unknown*
@@ -882,9 +882,9 @@ github.orgs.org.members.username.get({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
-  * username **required** (string): Name of the user.
+* input `object`
+  * org **required** `string`: Name of organisation.
+  * username **required** `string`: Name of the user.
 
 #### Output
 *Output schema unknown*
@@ -903,9 +903,9 @@ github.orgs.org.public_members.get({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
-  * page (integer)
+* input `object`
+  * org **required** `string`: Name of organisation.
+  * page `integer`
 
 #### Output
 * output [users](#users)
@@ -922,9 +922,9 @@ github.orgs.org.public_members.username.delete({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
-  * username **required** (string): Name of the user.
+* input `object`
+  * org **required** `string`: Name of organisation.
+  * username **required** `string`: Name of the user.
 
 #### Output
 *Output schema unknown*
@@ -941,9 +941,9 @@ github.orgs.org.public_members.username.get({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
-  * username **required** (string): Name of the user.
+* input `object`
+  * org **required** `string`: Name of organisation.
+  * username **required** `string`: Name of the user.
 
 #### Output
 *Output schema unknown*
@@ -960,9 +960,9 @@ github.orgs.org.public_members.username.put({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
-  * username **required** (string): Name of the user.
+* input `object`
+  * org **required** `string`: Name of organisation.
+  * username **required** `string`: Name of the user.
 
 #### Output
 *Output schema unknown*
@@ -978,10 +978,10 @@ github.orgs.org.repos.get({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
-  * type (string)
-  * page (integer)
+* input `object`
+  * org **required** `string`: Name of organisation.
+  * type `string` (values: all, public, private, forks, sources, member)
+  * page `integer`
 
 #### Output
 * output [repos](#repos)
@@ -1002,8 +1002,8 @@ github.orgs.org.repos.post({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
+* input `object`
+  * org **required** `string`: Name of organisation.
   * body **required** [postRepo](#postRepo)
 
 #### Output
@@ -1020,9 +1020,9 @@ github.orgs.org.teams.get({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
-  * page (integer)
+* input `object`
+  * org **required** `string`: Name of organisation.
+  * page `integer`
 
 #### Output
 * output [teams](#teams)
@@ -1043,8 +1043,8 @@ github.orgs.org.teams.post({
 ```
 
 #### Parameters
-* input (object)
-  * org **required** (string): Name of organisation.
+* input `object`
+  * org **required** `string`: Name of organisation.
   * body **required** [orgTeamsPost](#orgTeamsPost)
 
 #### Output
@@ -1081,9 +1081,9 @@ github.repos.owner.repo.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
 
 #### Output
 *Output schema unknown*
@@ -1100,9 +1100,9 @@ github.repos.owner.repo.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
 
 #### Output
 * output [repo](#repo)
@@ -1120,9 +1120,9 @@ github.repos.owner.repo.patch({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [repoEdit](#repoEdit)
 
 #### Output
@@ -1143,10 +1143,10 @@ github.repos.owner.repo.assignees.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [assignees](#assignees)
@@ -1166,10 +1166,10 @@ github.repos.owner.repo.assignees.assignee.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * assignee **required** (string): Login of the assignee.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * assignee **required** `string`: Login of the assignee.
 
 #### Output
 *Output schema unknown*
@@ -1186,10 +1186,10 @@ github.repos.owner.repo.branches.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [branches](#branches)
@@ -1207,10 +1207,10 @@ github.repos.owner.repo.branches.branch.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * branch **required** (string): Name of the branch.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * branch **required** `string`: Name of the branch.
 
 #### Output
 * output [branch](#branch)
@@ -1232,10 +1232,10 @@ github.repos.owner.repo.collaborators.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [users](#users)
@@ -1253,10 +1253,10 @@ github.repos.owner.repo.collaborators.user.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * user **required** (string): Login of the user.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * user **required** `string`: Login of the user.
 
 #### Output
 *Output schema unknown*
@@ -1274,10 +1274,10 @@ github.repos.owner.repo.collaborators.user.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * user **required** (string): Login of the user.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * user **required** `string`: Login of the user.
 
 #### Output
 *Output schema unknown*
@@ -1295,10 +1295,10 @@ github.repos.owner.repo.collaborators.user.put({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * user **required** (string): Login of the user.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * user **required** `string`: Login of the user.
 
 #### Output
 *Output schema unknown*
@@ -1317,10 +1317,10 @@ github.repos.owner.repo.comments.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [repoComments](#repoComments)
@@ -1338,10 +1338,10 @@ github.repos.owner.repo.comments.commentId.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * commentId **required** (integer): Id of comment.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * commentId **required** `integer`: Id of comment.
 
 #### Output
 *Output schema unknown*
@@ -1359,10 +1359,10 @@ github.repos.owner.repo.comments.commentId.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * commentId **required** (integer): Id of comment.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * commentId **required** `integer`: Id of comment.
 
 #### Output
 * output [commitComments](#commitComments)
@@ -1383,10 +1383,10 @@ github.repos.owner.repo.comments.commentId.patch({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * commentId **required** (integer): Id of comment.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * commentId **required** `integer`: Id of comment.
   * body **required** [commentBody](#commentBody)
 
 #### Output
@@ -1404,15 +1404,15 @@ github.repos.owner.repo.commits.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-  * sha (string): Sha or branch to start listing commits from.
-  * path (string): Only commits containing this file path will be returned.
-  * author (string): GitHub login, name, or email by which to filter by commit author.
-  * until (string): ISO 8601 Date - Only commits before this date will be returned.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * since `string`: The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * sha `string`: Sha or branch to start listing commits from.
+  * path `string`: Only commits containing this file path will be returned.
+  * author `string`: GitHub login, name, or email by which to filter by commit author.
+  * until `string`: ISO 8601 Date - Only commits before this date will be returned.
+  * page `integer`
 
 #### Output
 * output [commits](#commits)
@@ -1434,11 +1434,11 @@ github.repos.owner.repo.commits.ref.status.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * ref **required** (string)
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * ref **required** `string`
+  * page `integer`
 
 #### Output
 * output [refStatus](#refStatus)
@@ -1456,10 +1456,10 @@ github.repos.owner.repo.commits.shaCode.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * shaCode **required** (string): SHA-1 code of the commit.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * shaCode **required** `string`: SHA-1 code of the commit.
 
 #### Output
 * output [commit](#commit)
@@ -1477,11 +1477,11 @@ github.repos.owner.repo.commits.shaCode.comments.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * shaCode **required** (string): SHA-1 code of the commit.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * shaCode **required** `string`: SHA-1 code of the commit.
+  * page `integer`
 
 #### Output
 * output [repoComments](#repoComments)
@@ -1503,10 +1503,10 @@ github.repos.owner.repo.commits.shaCode.comments.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * shaCode **required** (string): SHA-1 code of the commit.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * shaCode **required** `string`: SHA-1 code of the commit.
   * body **required** [commitBody](#commitBody)
 
 #### Output
@@ -1526,11 +1526,11 @@ github.repos.owner.repo.compare.baseId...headId.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * baseId **required** (string)
-  * headId **required** (string)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * baseId **required** `string`
+  * headId **required** `string`
 
 #### Output
 * output [compare-commits](#compare-commits)
@@ -1551,10 +1551,10 @@ github.repos.owner.repo.contents.path.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * path **required** (string)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * path **required** `string`
   * body **required** [deleteFileBody](#deleteFileBody)
 
 #### Output
@@ -1579,12 +1579,12 @@ github.repos.owner.repo.contents.path.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * path **required** (string)
-  * path_query (string): The content path.
-  * ref (string): The String name of the Commit/Branch/Tag. Defaults to 'master'.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * path **required** `string`
+  * path_query `string`: The content path.
+  * ref `string`: The String name of the Commit/Branch/Tag. Defaults to 'master'.
 
 #### Output
 * output [contents-path](#contents-path)
@@ -1603,10 +1603,10 @@ github.repos.owner.repo.contents.path.put({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * path **required** (string)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * path **required** `string`
   * body **required** [createFileBody](#createFileBody)
 
 #### Output
@@ -1625,11 +1625,11 @@ github.repos.owner.repo.contributors.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * anon **required** (string): Set to 1 or true to include anonymous contributors in results.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * anon **required** `string`: Set to 1 or true to include anonymous contributors in results.
+  * page `integer`
 
 #### Output
 * output [contributors](#contributors)
@@ -1646,10 +1646,10 @@ github.repos.owner.repo.deployments.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [repo-deployments](#repo-deployments)
@@ -1667,9 +1667,9 @@ github.repos.owner.repo.deployments.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [deployment](#deployment)
 
 #### Output
@@ -1688,11 +1688,11 @@ github.repos.owner.repo.deployments.id.statuses.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * id **required** (integer): The Deployment ID to list the statuses from.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * id **required** `integer`: The Deployment ID to list the statuses from.
+  * page `integer`
 
 #### Output
 * output [deployment-statuses](#deployment-statuses)
@@ -1713,10 +1713,10 @@ github.repos.owner.repo.deployments.id.statuses.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * id **required** (integer): The Deployment ID to list the statuses from.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * id **required** `integer`: The Deployment ID to list the statuses from.
   * body **required** [deployment-statuses-create](#deployment-statuses-create)
 
 #### Output
@@ -1734,10 +1734,10 @@ github.repos.owner.repo.downloads.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [downloads](#downloads)
@@ -1755,10 +1755,10 @@ github.repos.owner.repo.downloads.downloadId.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * downloadId **required** (integer): Id of download.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * downloadId **required** `integer`: Id of download.
 
 #### Output
 *Output schema unknown*
@@ -1776,10 +1776,10 @@ github.repos.owner.repo.downloads.downloadId.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * downloadId **required** (integer): Id of download.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * downloadId **required** `integer`: Id of download.
 
 #### Output
 * output [downloads](#downloads)
@@ -1796,10 +1796,10 @@ github.repos.owner.repo.events.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [events](#events)
@@ -1816,11 +1816,11 @@ github.repos.owner.repo.forks.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * sort (string)
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * sort `string` (values: newes, oldes, watchers)
+  * page `integer`
 
 #### Output
 * output [forks](#forks)
@@ -1842,9 +1842,9 @@ github.repos.owner.repo.forks.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [forkBody](#forkBody)
 
 #### Output
@@ -1863,9 +1863,9 @@ github.repos.owner.repo.git.blobs.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [blob](#blob)
 
 #### Output
@@ -1889,10 +1889,10 @@ github.repos.owner.repo.git.blobs.shaCode.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * shaCode **required** (string): SHA-1 code.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * shaCode **required** `string`: SHA-1 code.
 
 #### Output
 * output [blob](#blob)
@@ -1914,9 +1914,9 @@ github.repos.owner.repo.git.commits.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [repoCommitBody](#repoCommitBody)
 
 #### Output
@@ -1935,10 +1935,10 @@ github.repos.owner.repo.git.commits.shaCode.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * shaCode **required** (string): SHA-1 code.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * shaCode **required** `string`: SHA-1 code.
 
 #### Output
 * output [repoCommit](#repoCommit)
@@ -1955,10 +1955,10 @@ github.repos.owner.repo.git.refs.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [refs](#refs)
@@ -1976,9 +1976,9 @@ github.repos.owner.repo.git.refs.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [refsBody](#refsBody)
 
 #### Output
@@ -2000,10 +2000,10 @@ github.repos.owner.repo.git.refs.ref.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * ref **required** (string)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * ref **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -2021,10 +2021,10 @@ github.repos.owner.repo.git.refs.ref.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * ref **required** (string)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * ref **required** `string`
 
 #### Output
 * output [headBranch](#headBranch)
@@ -2043,10 +2043,10 @@ github.repos.owner.repo.git.refs.ref.patch({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * ref **required** (string)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * ref **required** `string`
   * body **required** [gitRefPatch](#gitRefPatch)
 
 #### Output
@@ -2071,9 +2071,9 @@ github.repos.owner.repo.git.tags.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [tag](#tag)
 
 #### Output
@@ -2092,10 +2092,10 @@ github.repos.owner.repo.git.tags.shaCode.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * shaCode **required** (string)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * shaCode **required** `string`
 
 #### Output
 * output [tag](#tag)
@@ -2117,9 +2117,9 @@ github.repos.owner.repo.git.trees.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [tree](#tree)
 
 #### Output
@@ -2138,11 +2138,11 @@ github.repos.owner.repo.git.trees.shaCode.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * shaCode **required** (string): Tree SHA.
-  * recursive (integer): Get a Tree Recursively. (0 or 1)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * shaCode **required** `string`: Tree SHA.
+  * recursive `integer`: Get a Tree Recursively. (0 or 1)
 
 #### Output
 * output [tree](#tree)
@@ -2159,10 +2159,10 @@ github.repos.owner.repo.hooks.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [hook](#hook)
@@ -2180,9 +2180,9 @@ github.repos.owner.repo.hooks.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [hookBody](#hookBody)
 
 #### Output
@@ -2201,10 +2201,10 @@ github.repos.owner.repo.hooks.hookId.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * hookId **required** (integer): Id of hook.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * hookId **required** `integer`: Id of hook.
 
 #### Output
 *Output schema unknown*
@@ -2222,10 +2222,10 @@ github.repos.owner.repo.hooks.hookId.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * hookId **required** (integer): Id of hook.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * hookId **required** `integer`: Id of hook.
 
 #### Output
 * output [hook](#hook)
@@ -2244,10 +2244,10 @@ github.repos.owner.repo.hooks.hookId.patch({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * hookId **required** (integer): Id of hook.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * hookId **required** `integer`: Id of hook.
   * body **required** [hookBody](#hookBody)
 
 #### Output
@@ -2272,10 +2272,10 @@ github.repos.owner.repo.hooks.hookId.tests.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * hookId **required** (integer): Id of hook.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * hookId **required** `integer`: Id of hook.
 
 #### Output
 *Output schema unknown*
@@ -2297,16 +2297,16 @@ github.repos.owner.repo.issues.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * filter **required** (string): Issues assigned to you / created by you / mentioning you / you're
-  * state **required** (string)
-  * labels **required** (string): String list of comma separated Label names. Example - bug,ui,@high.
-  * sort **required** (string)
-  * direction **required** (string)
-  * since (string): Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * filter **required** `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
+  * state **required** `string` (values: open, closed)
+  * labels **required** `string`: String list of comma separated Label names. Example - bug,ui,@high.
+  * sort **required** `string` (values: created, updated, comments)
+  * direction **required** `string` (values: asc, desc)
+  * since `string`: Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page `integer`
 
 #### Output
 * output [issues](#issues)
@@ -2326,9 +2326,9 @@ github.repos.owner.repo.issues.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [issue](#issue)
 
 #### Output
@@ -2346,13 +2346,13 @@ github.repos.owner.repo.issues.comments.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * direction (string): Ignored without 'sort' parameter.
-  * sort (string)
-  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * direction `string`: Ignored without 'sort' parameter.
+  * sort `string` (values: created, updated)
+  * since `string`: The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page `integer`
 
 #### Output
 * output [issuesComments](#issuesComments)
@@ -2370,10 +2370,10 @@ github.repos.owner.repo.issues.comments.commentId.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * commentId **required** (integer): ID of comment.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * commentId **required** `integer`: ID of comment.
 
 #### Output
 *Output schema unknown*
@@ -2391,10 +2391,10 @@ github.repos.owner.repo.issues.comments.commentId.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * commentId **required** (integer): ID of comment.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * commentId **required** `integer`: ID of comment.
 
 #### Output
 * output [issuesComment](#issuesComment)
@@ -2415,10 +2415,10 @@ github.repos.owner.repo.issues.comments.commentId.patch({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * commentId **required** (integer): ID of comment.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * commentId **required** `integer`: ID of comment.
   * body **required** [commentBody](#commentBody)
 
 #### Output
@@ -2436,10 +2436,10 @@ github.repos.owner.repo.issues.events.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [events](#events)
@@ -2457,10 +2457,10 @@ github.repos.owner.repo.issues.events.eventId.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * eventId **required** (integer): Id of the event.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * eventId **required** `integer`: Id of the event.
 
 #### Output
 * output [event](#event)
@@ -2478,10 +2478,10 @@ github.repos.owner.repo.issues.number.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of issue.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of issue.
 
 #### Output
 * output [issue](#issue)
@@ -2502,10 +2502,10 @@ github.repos.owner.repo.issues.number.patch({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of issue.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of issue.
   * body **required** [issue](#issue)
 
 #### Output
@@ -2524,11 +2524,11 @@ github.repos.owner.repo.issues.number.comments.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of issue.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of issue.
+  * page `integer`
 
 #### Output
 * output [issuesComments](#issuesComments)
@@ -2549,10 +2549,10 @@ github.repos.owner.repo.issues.number.comments.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of issue.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of issue.
   * body **required** [commentBody](#commentBody)
 
 #### Output
@@ -2571,11 +2571,11 @@ github.repos.owner.repo.issues.number.events.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of issue.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of issue.
+  * page `integer`
 
 #### Output
 * output [events](#events)
@@ -2593,10 +2593,10 @@ github.repos.owner.repo.issues.number.labels.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of issue.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of issue.
 
 #### Output
 *Output schema unknown*
@@ -2614,11 +2614,11 @@ github.repos.owner.repo.issues.number.labels.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of issue.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of issue.
+  * page `integer`
 
 #### Output
 * output [labels](#labels)
@@ -2637,10 +2637,10 @@ github.repos.owner.repo.issues.number.labels.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of issue.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of issue.
   * body **required** [emailsPost](#emailsPost)
 
 #### Output
@@ -2662,10 +2662,10 @@ github.repos.owner.repo.issues.number.labels.put({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of issue.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of issue.
   * body **required** [emailsPost](#emailsPost)
 
 #### Output
@@ -2685,11 +2685,11 @@ github.repos.owner.repo.issues.number.labels.name.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of issue.
-  * name **required** (string): Name of the label.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of issue.
+  * name **required** `string`: Name of the label.
 
 #### Output
 *Output schema unknown*
@@ -2706,10 +2706,10 @@ github.repos.owner.repo.keys.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [keys](#keys)
@@ -2727,9 +2727,9 @@ github.repos.owner.repo.keys.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [user-keys-post](#user-keys-post)
 
 #### Output
@@ -2748,10 +2748,10 @@ github.repos.owner.repo.keys.keyId.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * keyId **required** (integer): Id of key.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * keyId **required** `integer`: Id of key.
 
 #### Output
 *Output schema unknown*
@@ -2769,10 +2769,10 @@ github.repos.owner.repo.keys.keyId.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * keyId **required** (integer): Id of key.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * keyId **required** `integer`: Id of key.
 
 #### Output
 * output [user-keys-keyId](#user-keys-keyId)
@@ -2789,10 +2789,10 @@ github.repos.owner.repo.labels.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [labels](#labels)
@@ -2810,9 +2810,9 @@ github.repos.owner.repo.labels.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [emailsPost](#emailsPost)
 
 #### Output
@@ -2831,10 +2831,10 @@ github.repos.owner.repo.labels.name.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * name **required** (string): Name of the label.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * name **required** `string`: Name of the label.
 
 #### Output
 *Output schema unknown*
@@ -2852,10 +2852,10 @@ github.repos.owner.repo.labels.name.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * name **required** (string): Name of the label.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * name **required** `string`: Name of the label.
 
 #### Output
 * output [label](#label)
@@ -2874,10 +2874,10 @@ github.repos.owner.repo.labels.name.patch({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * name **required** (string): Name of the label.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * name **required** `string`: Name of the label.
   * body **required** [emailsPost](#emailsPost)
 
 #### Output
@@ -2898,10 +2898,10 @@ github.repos.owner.repo.languages.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [languages](#languages)
@@ -2919,9 +2919,9 @@ github.repos.owner.repo.merges.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [mergesBody](#mergesBody)
 
 #### Output
@@ -2939,13 +2939,13 @@ github.repos.owner.repo.milestones.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * state (string): String to filter by state.
-  * direction (string): Ignored without 'sort' parameter.
-  * sort (string)
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * state `string` (values: open, closed): String to filter by state.
+  * direction `string`: Ignored without 'sort' parameter.
+  * sort `string` (values: due_date, completeness)
+  * page `integer`
 
 #### Output
 * output [milestone](#milestone)
@@ -2963,9 +2963,9 @@ github.repos.owner.repo.milestones.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [milestoneUpdate](#milestoneUpdate)
 
 #### Output
@@ -2984,10 +2984,10 @@ github.repos.owner.repo.milestones.number.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of milestone.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of milestone.
 
 #### Output
 *Output schema unknown*
@@ -3005,10 +3005,10 @@ github.repos.owner.repo.milestones.number.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of milestone.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of milestone.
 
 #### Output
 * output [milestone](#milestone)
@@ -3027,10 +3027,10 @@ github.repos.owner.repo.milestones.number.patch({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of milestone.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of milestone.
   * body **required** [milestoneUpdate](#milestoneUpdate)
 
 #### Output
@@ -3049,11 +3049,11 @@ github.repos.owner.repo.milestones.number.labels.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Number of milestone.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Number of milestone.
+  * page `integer`
 
 #### Output
 * output [labels](#labels)
@@ -3072,13 +3072,13 @@ github.repos.owner.repo.notifications.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * all (boolean): True to show notifications marked as read.
-  * participating (boolean): True to show only notifications in which the user is directly participating
-  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * all `boolean`: True to show notifications marked as read.
+  * participating `boolean`: True to show only notifications in which the user is directly participating
+  * since `string`: The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page `integer`
 
 #### Output
 * output [notifications](#notifications)
@@ -3099,9 +3099,9 @@ github.repos.owner.repo.notifications.put({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [notificationMarkRead](#notificationMarkRead)
 
 #### Output
@@ -3119,13 +3119,13 @@ github.repos.owner.repo.pulls.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * state (string): String to filter by state.
-  * head (string): Filter pulls by head user and branch name in the format of 'user:ref-name'.
-  * base (string): Filter pulls by base branch name. Example - gh-pages.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * state `string` (values: open, closed): String to filter by state.
+  * head `string`: Filter pulls by head user and branch name in the format of 'user:ref-name'.
+  * base `string`: Filter pulls by base branch name. Example - gh-pages.
+  * page `integer`
 
 #### Output
 * output [pulls](#pulls)
@@ -3143,9 +3143,9 @@ github.repos.owner.repo.pulls.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [pullsPost](#pullsPost)
 
 #### Output
@@ -3165,13 +3165,13 @@ github.repos.owner.repo.pulls.comments.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * direction (string): Ignored without 'sort' parameter.
-  * sort (string)
-  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * direction `string`: Ignored without 'sort' parameter.
+  * sort `string` (values: created, updated)
+  * since `string`: The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page `integer`
 
 #### Output
 * output [issuesComments](#issuesComments)
@@ -3189,10 +3189,10 @@ github.repos.owner.repo.pulls.comments.commentId.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * commentId **required** (integer): Id of comment.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * commentId **required** `integer`: Id of comment.
 
 #### Output
 *Output schema unknown*
@@ -3210,10 +3210,10 @@ github.repos.owner.repo.pulls.comments.commentId.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * commentId **required** (integer): Id of comment.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * commentId **required** `integer`: Id of comment.
 
 #### Output
 * output [pullsComment](#pullsComment)
@@ -3234,10 +3234,10 @@ github.repos.owner.repo.pulls.comments.commentId.patch({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * commentId **required** (integer): Id of comment.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * commentId **required** `integer`: Id of comment.
   * body **required** [commentBody](#commentBody)
 
 #### Output
@@ -3256,10 +3256,10 @@ github.repos.owner.repo.pulls.number.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Id of pull.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Id of pull.
 
 #### Output
 * output [pullRequest](#pullRequest)
@@ -3278,10 +3278,10 @@ github.repos.owner.repo.pulls.number.patch({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Id of pull.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Id of pull.
   * body **required** [pullUpdate](#pullUpdate)
 
 #### Output
@@ -3300,11 +3300,11 @@ github.repos.owner.repo.pulls.number.comments.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Id of pull.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Id of pull.
+  * page `integer`
 
 #### Output
 * output [pullsComment](#pullsComment)
@@ -3334,10 +3334,10 @@ github.repos.owner.repo.pulls.number.comments.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Id of pull.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Id of pull.
   * body **required** [pullsCommentPost](#pullsCommentPost)
 
 #### Output
@@ -3356,11 +3356,11 @@ github.repos.owner.repo.pulls.number.commits.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Id of pull.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Id of pull.
+  * page `integer`
 
 #### Output
 * output [commits](#commits)
@@ -3378,11 +3378,11 @@ github.repos.owner.repo.pulls.number.files.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Id of pull.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Id of pull.
+  * page `integer`
 
 #### Output
 * output [pulls](#pulls)
@@ -3400,10 +3400,10 @@ github.repos.owner.repo.pulls.number.merge.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Id of pull.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Id of pull.
 
 #### Output
 *Output schema unknown*
@@ -3422,10 +3422,10 @@ github.repos.owner.repo.pulls.number.merge.put({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * number **required** (integer): Id of pull.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * number **required** `integer`: Id of pull.
   * body **required** [mergePullBody](#mergePullBody)
 
 #### Output
@@ -3445,10 +3445,10 @@ github.repos.owner.repo.readme.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * ref (string): The String name of the Commit/Branch/Tag. Defaults to master.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * ref `string`: The String name of the Commit/Branch/Tag. Defaults to master.
 
 #### Output
 * output [contents-path](#contents-path)
@@ -3465,10 +3465,10 @@ github.repos.owner.repo.releases.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [releases](#releases)
@@ -3488,9 +3488,9 @@ github.repos.owner.repo.releases.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [release-create](#release-create)
 
 #### Output
@@ -3509,10 +3509,10 @@ github.repos.owner.repo.releases.assets.id.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * id **required** (string)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * id **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -3530,10 +3530,10 @@ github.repos.owner.repo.releases.assets.id.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * id **required** (string)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * id **required** `string`
 
 #### Output
 * output [asset](#asset)
@@ -3556,10 +3556,10 @@ github.repos.owner.repo.releases.assets.id.patch({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * id **required** (string)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * id **required** `string`
   * body **required** [assetPatch](#assetPatch)
 
 #### Output
@@ -3578,10 +3578,10 @@ github.repos.owner.repo.releases.id.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * id **required** (string)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * id **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -3599,10 +3599,10 @@ github.repos.owner.repo.releases.id.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * id **required** (string)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * id **required** `string`
 
 #### Output
 * output [release](#release)
@@ -3621,10 +3621,10 @@ github.repos.owner.repo.releases.id.patch({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * id **required** (string)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * id **required** `string`
   * body **required** [release-create](#release-create)
 
 #### Output
@@ -3643,11 +3643,11 @@ github.repos.owner.repo.releases.id.assets.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * id **required** (string)
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * id **required** `string`
+  * page `integer`
 
 #### Output
 * output [assets](#assets)
@@ -3664,10 +3664,10 @@ github.repos.owner.repo.stargazers.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [users](#users)
@@ -3687,9 +3687,9 @@ github.repos.owner.repo.stats.code_frequency.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
 
 #### Output
 * output [codeFrequencyStats](#codeFrequencyStats)
@@ -3709,9 +3709,9 @@ github.repos.owner.repo.stats.commit_activity.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
 
 #### Output
 * output [commitActivityStats](#commitActivityStats)
@@ -3728,10 +3728,10 @@ github.repos.owner.repo.stats.contributors.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [contributorsStats](#contributorsStats)
@@ -3748,9 +3748,9 @@ github.repos.owner.repo.stats.participation.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
 
 #### Output
 * output [participationStats](#participationStats)
@@ -3776,9 +3776,9 @@ github.repos.owner.repo.stats.punch_card.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
 
 #### Output
 * output [codeFrequencyStats](#codeFrequencyStats)
@@ -3796,10 +3796,10 @@ github.repos.owner.repo.statuses.ref.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * ref **required** (string): Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * ref **required** `string`: Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
 
 #### Output
 * output [ref](#ref)
@@ -3818,10 +3818,10 @@ github.repos.owner.repo.statuses.ref.post({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * ref **required** (string): Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * ref **required** `string`: Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
   * body **required** [headBranch](#headBranch)
 
 #### Output
@@ -3839,10 +3839,10 @@ github.repos.owner.repo.subscribers.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [users](#users)
@@ -3859,9 +3859,9 @@ github.repos.owner.repo.subscription.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
 
 #### Output
 *Output schema unknown*
@@ -3878,9 +3878,9 @@ github.repos.owner.repo.subscription.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
 
 #### Output
 * output [subscribition](#subscribition)
@@ -3898,9 +3898,9 @@ github.repos.owner.repo.subscription.put({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
   * body **required** [subscribitionBody](#subscribitionBody)
 
 #### Output
@@ -3918,10 +3918,10 @@ github.repos.owner.repo.tags.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [tags](#tags)
@@ -3938,10 +3938,10 @@ github.repos.owner.repo.teams.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [teams](#teams)
@@ -3958,10 +3958,10 @@ github.repos.owner.repo.watchers.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * page (integer)
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * page `integer`
 
 #### Output
 * output [users](#users)
@@ -3986,11 +3986,11 @@ github.repos.owner.repo.archive_format.path.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of repository owner.
-  * repo **required** (string): Name of repository.
-  * archive_format **required** (string)
-  * path **required** (string): Valid Git reference, defaults to 'master'.
+* input `object`
+  * owner **required** `string`: Name of repository owner.
+  * repo **required** `string`: Name of repository.
+  * archive_format **required** `string` (values: tarball, zipball)
+  * path **required** `string`: Valid Git reference, defaults to 'master'.
 
 #### Output
 *Output schema unknown*
@@ -4009,9 +4009,9 @@ github.repositories.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-  * page (integer)
+* input `object`
+  * since `string`: The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page `integer`
 
 #### Output
 * output [repositories](#repositories)
@@ -4027,10 +4027,10 @@ github.search.code.get({
 ```
 
 #### Parameters
-* input (object)
-  * order (string): The sort field. if sort param is provided. Can be either asc or desc.
-  * q **required** (string): The search terms. This can be any combination of the supported code
-  * sort (string): Can only be 'indexed', which indicates how recently a file has been indexed
+* input `object`
+  * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
+  * q **required** `string`: The search terms. This can be any combination of the supported code
+  * sort `string` (values: indexed): Can only be 'indexed', which indicates how recently a file has been indexed
 
 #### Output
 * output [search-code](#search-code)
@@ -4046,11 +4046,11 @@ github.search.issues.get({
 ```
 
 #### Parameters
-* input (object)
-  * order (string): The sort field. if sort param is provided. Can be either asc or desc.
-  * q **required** (string): The q search term can also contain any combination of the supported issue search qualifiers:
-  * sort (string): The sort field. Can be comments, created, or updated. Default: results are sorted by best match.
-  * page (integer)
+* input `object`
+  * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
+  * q **required** `string`: The q search term can also contain any combination of the supported issue search qualifiers:
+  * sort `string` (values: updated, created, comments): The sort field. Can be comments, created, or updated. Default: results are sorted by best match.
+  * page `integer`
 
 #### Output
 * output [search-issues](#search-issues)
@@ -4066,11 +4066,11 @@ github.search.repositories.get({
 ```
 
 #### Parameters
-* input (object)
-  * order (string): The sort field. if sort param is provided. Can be either asc or desc.
-  * q **required** (string): The search terms. This can be any combination of the supported repository
-  * sort (string): If not provided, results are sorted by best match.
-  * page (integer)
+* input `object`
+  * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
+  * q **required** `string`: The search terms. This can be any combination of the supported repository
+  * sort `string` (values: stars, forks, updated): If not provided, results are sorted by best match.
+  * page `integer`
 
 #### Output
 * output [search-repositories](#search-repositories)
@@ -4086,11 +4086,11 @@ github.search.users.get({
 ```
 
 #### Parameters
-* input (object)
-  * order (string): The sort field. if sort param is provided. Can be either asc or desc.
-  * q **required** (string): The search terms. This can be any combination of the supported user
-  * sort (string): If not provided, results are sorted by best match.
-  * page (integer)
+* input `object`
+  * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
+  * q **required** `string`: The search terms. This can be any combination of the supported user
+  * sort `string` (values: followers, repositories, joined): If not provided, results are sorted by best match.
+  * page `integer`
 
 #### Output
 * output [search-users](#search-users)
@@ -4109,8 +4109,8 @@ github.teams.teamId.delete({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
+* input `object`
+  * teamId **required** `integer`: Id of team.
 
 #### Output
 *Output schema unknown*
@@ -4126,8 +4126,8 @@ github.teams.teamId.get({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
+* input `object`
+  * teamId **required** `integer`: Id of team.
 
 #### Output
 * output [team](#team)
@@ -4149,8 +4149,8 @@ github.teams.teamId.patch({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
+* input `object`
+  * teamId **required** `integer`: Id of team.
   * body **required** [editTeam](#editTeam)
 
 #### Output
@@ -4170,9 +4170,9 @@ github.teams.teamId.members.get({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
-  * page (integer)
+* input `object`
+  * teamId **required** `integer`: Id of team.
+  * page `integer`
 
 #### Output
 * output [users](#users)
@@ -4196,9 +4196,9 @@ github.teams.teamId.members.username.delete({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
-  * username **required** (string): Name of a member.
+* input `object`
+  * teamId **required** `integer`: Id of team.
+  * username **required** `string`: Name of a member.
 
 #### Output
 *Output schema unknown*
@@ -4220,9 +4220,9 @@ github.teams.teamId.members.username.get({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
-  * username **required** (string): Name of a member.
+* input `object`
+  * teamId **required** `integer`: Id of team.
+  * username **required** `string`: Name of a member.
 
 #### Output
 *Output schema unknown*
@@ -4245,9 +4245,9 @@ github.teams.teamId.members.username.put({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
-  * username **required** (string): Name of a member.
+* input `object`
+  * teamId **required** `integer`: Id of team.
+  * username **required** `string`: Name of a member.
 
 #### Output
 *Output schema unknown*
@@ -4266,9 +4266,9 @@ github.teams.teamId.memberships.username.delete({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
-  * username **required** (string): Name of a member.
+* input `object`
+  * teamId **required** `integer`: Id of team.
+  * username **required** `string`: Name of a member.
 
 #### Output
 *Output schema unknown*
@@ -4287,9 +4287,9 @@ github.teams.teamId.memberships.username.get({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
-  * username **required** (string): Name of a member.
+* input `object`
+  * teamId **required** `integer`: Id of team.
+  * username **required** `string`: Name of a member.
 
 #### Output
 * output [teamMembership](#teamMembership)
@@ -4312,9 +4312,9 @@ github.teams.teamId.memberships.username.put({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
-  * username **required** (string): Name of a member.
+* input `object`
+  * teamId **required** `integer`: Id of team.
+  * username **required** `string`: Name of a member.
 
 #### Output
 * output [teamMembership](#teamMembership)
@@ -4330,9 +4330,9 @@ github.teams.teamId.repos.get({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
-  * page (integer)
+* input `object`
+  * teamId **required** `integer`: Id of team.
+  * page `integer`
 
 #### Output
 * output [teamRepos](#teamRepos)
@@ -4350,10 +4350,10 @@ github.teams.teamId.repos.org.repo.put({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
-  * org **required** (string): Name of a organization.
-  * repo **required** (string): Name of a repository.
+* input `object`
+  * teamId **required** `integer`: Id of team.
+  * org **required** `string`: Name of a organization.
+  * repo **required** `string`: Name of a repository.
 
 #### Output
 *Output schema unknown*
@@ -4371,10 +4371,10 @@ github.teams.teamId.repos.owner.repo.delete({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
-  * owner **required** (string): Name of a repository owner.
-  * repo **required** (string): Name of a repository.
+* input `object`
+  * teamId **required** `integer`: Id of team.
+  * owner **required** `string`: Name of a repository owner.
+  * repo **required** `string`: Name of a repository.
 
 #### Output
 *Output schema unknown*
@@ -4392,10 +4392,10 @@ github.teams.teamId.repos.owner.repo.get({
 ```
 
 #### Parameters
-* input (object)
-  * teamId **required** (integer): Id of team.
-  * owner **required** (string): Name of a repository owner.
-  * repo **required** (string): Name of a repository.
+* input `object`
+  * teamId **required** `integer`: Id of team.
+  * owner **required** `string`: Name of a repository owner.
+  * repo **required** `string`: Name of a repository.
 
 #### Output
 *Output schema unknown*
@@ -4425,7 +4425,7 @@ github.user.patch({
 ```
 
 #### Parameters
-* input (object)
+* input `object`
   * body **required** [user-update](#user-update)
 
 #### Output
@@ -4444,7 +4444,7 @@ github.user.emails.delete({
 ```
 
 #### Parameters
-* input (object)
+* input `object`
   * body **required** [user-emails](#user-emails)
 
 #### Output
@@ -4465,8 +4465,8 @@ github.user.emails.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * page (integer)
+* input `object`
+  * page `integer`
 
 #### Output
 * output [user-emails](#user-emails)
@@ -4484,7 +4484,7 @@ github.user.emails.post({
 ```
 
 #### Parameters
-* input (object)
+* input `object`
   * body **required** [emailsPost](#emailsPost)
 
 #### Output
@@ -4499,8 +4499,8 @@ github.user.followers.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * page (integer)
+* input `object`
+  * page `integer`
 
 #### Output
 * output [users](#users)
@@ -4533,8 +4533,8 @@ github.user.following.username.delete({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
+* input `object`
+  * username **required** `string`: Name of user.
 
 #### Output
 *Output schema unknown*
@@ -4550,8 +4550,8 @@ github.user.following.username.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
+* input `object`
+  * username **required** `string`: Name of user.
 
 #### Output
 *Output schema unknown*
@@ -4570,8 +4570,8 @@ github.user.following.username.put({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
+* input `object`
+  * username **required** `string`: Name of user.
 
 #### Output
 *Output schema unknown*
@@ -4594,14 +4594,14 @@ github.user.issues.get({
 ```
 
 #### Parameters
-* input (object)
-  * filter **required** (string): Issues assigned to you / created by you / mentioning you / you're
-  * state **required** (string)
-  * labels **required** (string): String list of comma separated Label names. Example - bug,ui,@high.
-  * sort **required** (string)
-  * direction **required** (string)
-  * since (string): Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-  * page (integer)
+* input `object`
+  * filter **required** `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
+  * state **required** `string` (values: open, closed)
+  * labels **required** `string`: String list of comma separated Label names. Example - bug,ui,@high.
+  * sort **required** `string` (values: created, updated, comments)
+  * direction **required** `string` (values: asc, desc)
+  * since `string`: Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page `integer`
 
 #### Output
 * output [issues](#issues)
@@ -4618,8 +4618,8 @@ github.user.keys.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * page (integer)
+* input `object`
+  * page `integer`
 
 #### Output
 * output [gitignore](#gitignore)
@@ -4635,7 +4635,7 @@ github.user.keys.post({
 ```
 
 #### Parameters
-* input (object)
+* input `object`
   * body **required** [user-keys-post](#user-keys-post)
 
 #### Output
@@ -4652,8 +4652,8 @@ github.user.keys.keyId.delete({
 ```
 
 #### Parameters
-* input (object)
-  * keyId **required** (integer): ID of key.
+* input `object`
+  * keyId **required** `integer`: ID of key.
 
 #### Output
 *Output schema unknown*
@@ -4669,8 +4669,8 @@ github.user.keys.keyId.get({
 ```
 
 #### Parameters
-* input (object)
-  * keyId **required** (integer): ID of key.
+* input `object`
+  * keyId **required** `integer`: ID of key.
 
 #### Output
 * output [user-keys-keyId](#user-keys-keyId)
@@ -4684,8 +4684,8 @@ github.user.orgs.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * page (integer)
+* input `object`
+  * page `integer`
 
 #### Output
 * output [gitignore](#gitignore)
@@ -4702,9 +4702,9 @@ github.user.repos.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * type (string)
-  * page (integer)
+* input `object`
+  * type `string` (values: all, public, private, forks, sources, member)
+  * page `integer`
 
 #### Output
 * output [repos](#repos)
@@ -4724,7 +4724,7 @@ github.user.repos.post({
 ```
 
 #### Parameters
-* input (object)
+* input `object`
   * body **required** [postRepo](#postRepo)
 
 #### Output
@@ -4739,9 +4739,9 @@ github.user.starred.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * direction (string): Ignored without 'sort' parameter.
-  * sort (string)
+* input `object`
+  * direction `string`: Ignored without 'sort' parameter.
+  * sort `string` (values: created, updated)
 
 #### Output
 * output [gitignore](#gitignore)
@@ -4758,9 +4758,9 @@ github.user.starred.owner.repo.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of a repository owner.
-  * repo **required** (string): Name of a repository.
+* input `object`
+  * owner **required** `string`: Name of a repository owner.
+  * repo **required** `string`: Name of a repository.
 
 #### Output
 *Output schema unknown*
@@ -4777,9 +4777,9 @@ github.user.starred.owner.repo.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of a repository owner.
-  * repo **required** (string): Name of a repository.
+* input `object`
+  * owner **required** `string`: Name of a repository owner.
+  * repo **required** `string`: Name of a repository.
 
 #### Output
 *Output schema unknown*
@@ -4796,9 +4796,9 @@ github.user.starred.owner.repo.put({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of a repository owner.
-  * repo **required** (string): Name of a repository.
+* input `object`
+  * owner **required** `string`: Name of a repository owner.
+  * repo **required** `string`: Name of a repository.
 
 #### Output
 *Output schema unknown*
@@ -4812,8 +4812,8 @@ github.user.subscriptions.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * page (integer)
+* input `object`
+  * page `integer`
 
 #### Output
 * output [user-userId-subscribitions](#user-userId-subscribitions)
@@ -4830,9 +4830,9 @@ github.user.subscriptions.owner.repo.delete({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of the owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of the owner.
+  * repo **required** `string`: Name of repository.
 
 #### Output
 *Output schema unknown*
@@ -4849,9 +4849,9 @@ github.user.subscriptions.owner.repo.get({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of the owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of the owner.
+  * repo **required** `string`: Name of repository.
 
 #### Output
 *Output schema unknown*
@@ -4868,9 +4868,9 @@ github.user.subscriptions.owner.repo.put({
 ```
 
 #### Parameters
-* input (object)
-  * owner **required** (string): Name of the owner.
-  * repo **required** (string): Name of repository.
+* input `object`
+  * owner **required** `string`: Name of the owner.
+  * repo **required** `string`: Name of repository.
 
 #### Output
 *Output schema unknown*
@@ -4884,8 +4884,8 @@ github.user.teams.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * page (integer)
+* input `object`
+  * page `integer`
 
 #### Output
 * output [teams-list](#teams-list)
@@ -4903,9 +4903,9 @@ github.users.get({}, context)
 ```
 
 #### Parameters
-* input (object)
-  * since (integer): The integer ID of the last User that you've seen.
-  * page (integer)
+* input `object`
+  * since `integer`: The integer ID of the last User that you've seen.
+  * page `integer`
 
 #### Output
 * output [users](#users)
@@ -4921,8 +4921,8 @@ github.users.username.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
+* input `object`
+  * username **required** `string`: Name of user.
 
 #### Output
 * output [users](#users)
@@ -4938,9 +4938,9 @@ github.users.username.events.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
-  * page (integer)
+* input `object`
+  * username **required** `string`: Name of user.
+  * page `integer`
 
 #### Output
 *Output schema unknown*
@@ -4957,9 +4957,9 @@ github.users.username.events.orgs.org.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
-  * org **required** (string)
+* input `object`
+  * username **required** `string`: Name of user.
+  * org **required** `string`
 
 #### Output
 *Output schema unknown*
@@ -4975,9 +4975,9 @@ github.users.username.followers.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
-  * page (integer)
+* input `object`
+  * username **required** `string`: Name of user.
+  * page `integer`
 
 #### Output
 * output [users](#users)
@@ -4994,9 +4994,9 @@ github.users.username.following.targetUser.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
-  * targetUser **required** (string): Name of user.
+* input `object`
+  * username **required** `string`: Name of user.
+  * targetUser **required** `string`: Name of user.
 
 #### Output
 *Output schema unknown*
@@ -5012,10 +5012,10 @@ github.users.username.gists.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
-  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-  * page (integer)
+* input `object`
+  * username **required** `string`: Name of user.
+  * since `string`: The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page `integer`
 
 #### Output
 * output [gists](#gists)
@@ -5033,9 +5033,9 @@ github.users.username.keys.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
-  * page (integer)
+* input `object`
+  * username **required** `string`: Name of user.
+  * page `integer`
 
 #### Output
 * output [gitignore](#gitignore)
@@ -5051,9 +5051,9 @@ github.users.username.orgs.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
-  * page (integer)
+* input `object`
+  * username **required** `string`: Name of user.
+  * page `integer`
 
 #### Output
 * output [gitignore](#gitignore)
@@ -5069,9 +5069,9 @@ github.users.username.received_events.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
-  * page (integer)
+* input `object`
+  * username **required** `string`: Name of user.
+  * page `integer`
 
 #### Output
 *Output schema unknown*
@@ -5087,8 +5087,8 @@ github.users.username.received_events.public.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
+* input `object`
+  * username **required** `string`: Name of user.
 
 #### Output
 *Output schema unknown*
@@ -5104,10 +5104,10 @@ github.users.username.repos.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
-  * type (string)
-  * page (integer)
+* input `object`
+  * username **required** `string`: Name of user.
+  * type `string` (values: all, public, private, forks, sources, member)
+  * page `integer`
 
 #### Output
 * output [repos](#repos)
@@ -5123,8 +5123,8 @@ github.users.username.starred.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
+* input `object`
+  * username **required** `string`: Name of user.
 
 #### Output
 *Output schema unknown*
@@ -5140,9 +5140,9 @@ github.users.username.subscriptions.get({
 ```
 
 #### Parameters
-* input (object)
-  * username **required** (string): Name of user.
-  * page (integer)
+* input `object`
+  * username **required** `string`: Name of user.
+  * page `integer`
 
 #### Output
 *Output schema unknown*
@@ -5152,2725 +5152,2829 @@ github.users.username.subscriptions.get({
 ## Definitions
 
 ### asset
-* asset (object)
-  * content_type (string)
-  * created_at (string)
-  * download_count (number)
-  * id (number)
-  * label (string)
-  * name (string)
-  * size (number)
-  * state (string)
-  * updated_at (string)
-  * uploader (object)
-    * avatar_url (string)
-    * events_url (string)
-    * followers_url (string)
-    * following_url (string)
-    * gists_url (string)
-    * gravatar_id (string)
-    * html_url (string)
-    * id (number)
-    * login (string)
-    * organizations_url (string)
-    * received_events_url (string)
-    * repos_url (string)
-    * site_admin (boolean)
-    * starred_url (string)
-    * subscriptions_url (string)
-    * type (string)
-    * url (string)
-  * url (string)
+* asset `object`
+  * content_type `string`
+  * created_at `string`
+  * download_count `number`
+  * id `number`
+  * label `string`
+  * name `string`
+  * size `number`
+  * state `string`
+  * updated_at `string`
+  * uploader `object`
+    * avatar_url `string`
+    * events_url `string`
+    * followers_url `string`
+    * following_url `string`
+    * gists_url `string`
+    * gravatar_id `string`
+    * html_url `string`
+    * id `number`
+    * login `string`
+    * organizations_url `string`
+    * received_events_url `string`
+    * repos_url `string`
+    * site_admin `boolean`
+    * starred_url `string`
+    * subscriptions_url `string`
+    * type `string`
+    * url `string`
+  * url `string`
 
 ### assetPatch
-* assetPatch (object)
-  * label (string)
-  * name **required** (string)
+* assetPatch `object`
+  * label `string`
+  * name **required** `string`
 
 ### assets
-* assets (array)
-  * items (object)
-    * content_type (string)
-    * created_at (string)
-    * download_count (number)
-    * id (number)
-    * label (string)
-    * name (string)
-    * size (number)
-    * state (string)
-    * updated_at (string)
-    * uploader (object)
-      * avatar_url (string)
-      * events_url (string)
-      * followers_url (string)
-      * following_url (string)
-      * gists_url (string)
-      * gravatar_id (string)
-      * html_url (string)
-      * id (number)
-      * login (string)
-      * organizations_url (string)
-      * received_events_url (string)
-      * repos_url (string)
-      * site_admin (boolean)
-      * starred_url (string)
-      * subscriptions_url (string)
-      * type (string)
-      * url (string)
-    * url (string)
+* assets `array`
+  * items `object`
+    * content_type `string`
+    * created_at `string`
+    * download_count `number`
+    * id `number`
+    * label `string`
+    * name `string`
+    * size `number`
+    * state `string`
+    * updated_at `string`
+    * uploader `object`
+      * avatar_url `string`
+      * events_url `string`
+      * followers_url `string`
+      * following_url `string`
+      * gists_url `string`
+      * gravatar_id `string`
+      * html_url `string`
+      * id `number`
+      * login `string`
+      * organizations_url `string`
+      * received_events_url `string`
+      * repos_url `string`
+      * site_admin `boolean`
+      * starred_url `string`
+      * subscriptions_url `string`
+      * type `string`
+      * url `string`
+    * url `string`
 
 ### assignees
-* assignees (array)
-  * items (object)
-    * avatar_url (integer)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
+* assignees `array`
+  * items `object`
+    * avatar_url `integer`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
 
 ### blob
-* blob (object)
-  * content (string)
-
-  * sha (string)
-  * size (integer)
+* blob `object`
+  * content `string`
+  * encoding `string` (values: utf-8, base64)
+  * sha `string`
+  * size `integer`
 
 ### blobs
-* blobs (object)
-  * sha (string)
+* blobs `object`
+  * sha `string`
 
 ### branch
-* branch (object)
-  * _links (object)
-    * html (string)
-    * self (string)
-  * commit (object)
-    * author (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * commit (object)
-
-      * committer (object)
-        * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-        * email (string)
-        * name (string)
-      * message (string)
-      * tree (object)
-        * sha (string)
-        * url (string)
-      * url (string)
-    * committer (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * parents (array)
-      * items (object)
-        * sha (string)
-        * url (string)
-    * sha (string)
-    * url (string)
-  * name (string)
+* branch `object`
+  * _links `object`
+    * html `string`
+    * self `string`
+  * commit `object`
+    * author `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * commit `object`
+      * author `object`
+        * date `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * email `string`
+        * name `string`
+      * committer `object`
+        * date `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * email `string`
+        * name `string`
+      * message `string`
+      * tree `object`
+        * sha `string`
+        * url `string`
+      * url `string`
+    * committer `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * parents `array`
+      * items `object`
+        * sha `string`
+        * url `string`
+    * sha `string`
+    * url `string`
+  * name `string`
 
 ### branches
-* branches (array)
-  * items (object)
-    * commit (object)
-      * sha (string)
-      * url (string)
-    * name (string)
+* branches `array`
+  * items `object`
+    * commit `object`
+      * sha `string`
+      * url `string`
+    * name `string`
 
 ### codeFrequencyStats
-* codeFrequencyStats (array)
-  * items (integer)
+* codeFrequencyStats `array`
+  * items `integer`
 
 ### collaborators
-* collaborators (array)
-  * items (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
+* collaborators `array`
+  * items `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
 
 ### comment
-* comment (object)
-  * body (string)
+* comment `object`
+  * body `string`
 
 ### commentBody
-* commentBody (object)
-  * body **required** (string)
+* commentBody `object`
+  * body **required** `string`
 
 ### comments
-* comments (array)
-  * items (object)
-    * body (string)
-    * created_at (string): ISO 8601.
-    * id (integer)
-    * url (string)
-    * user (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
+* comments `array`
+  * items `object`
+    * body `string`
+    * created_at `string`: ISO 8601.
+    * id `integer`
+    * url `string`
+    * user `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
 
 ### commit
-* commit (object)
-  * author (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
-  * commit (object)
-    * author (object)
-      * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-      * email (string)
-      * name (string)
-    * committer (object)
-      * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-      * email (string)
-      * name (string)
-    * message (string)
-    * tree (object)
-      * sha (string)
-      * url (string)
-    * url (string)
-  * committer (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
-  * files (array)
-    * items (object)
-      * additions (integer)
-      * blob_url (string)
-      * changes (integer)
-      * deletions (integer)
-      * filename (string)
-      * patch (string)
-      * raw_url (string)
-      * status (string)
-  * parents (array)
-    * items (object)
-      * sha (string)
-      * url (string)
-  * sha (string)
-  * stats (object)
-    * additions (integer)
-    * deletions (integer)
-    * total (integer)
-  * url (string)
+* commit `object`
+  * author `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
+  * commit `object`
+    * author `object`
+      * date `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * email `string`
+      * name `string`
+    * committer `object`
+      * date `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * email `string`
+      * name `string`
+    * message `string`
+    * tree `object`
+      * sha `string`
+      * url `string`
+    * url `string`
+  * committer `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
+  * files `array`
+    * items `object`
+      * additions `integer`
+      * blob_url `string`
+      * changes `integer`
+      * deletions `integer`
+      * filename `string`
+      * patch `string`
+      * raw_url `string`
+      * status `string`
+  * parents `array`
+    * items `object`
+      * sha `string`
+      * url `string`
+  * sha `string`
+  * stats `object`
+    * additions `integer`
+    * deletions `integer`
+    * total `integer`
+  * url `string`
 
 ### commitActivityStats
-* commitActivityStats (array)
-  * items (object)
-    * days (array)
-      * items (integer)
-    * total (integer)
-    * week (integer)
+* commitActivityStats `array`
+  * items `object`
+    * days `array`
+      * items `integer`
+    * total `integer`
+    * week `integer`
 
 ### commitBody
-* commitBody (object)
-  * body **required** (string)
-  * line (string): Deprecated - Use position parameter instead.
-  * number (string): Line number in the file to comment on. Defaults to null.
-  * path (string): Relative path of the file to comment on.
-  * position (integer): Line index in the diff to comment on.
-  * sha **required** (string): SHA of the commit to comment on.
+* commitBody `object`
+  * body **required** `string`
+  * line `string`: Deprecated - Use position parameter instead.
+  * number `string`: Line number in the file to comment on. Defaults to null.
+  * path `string`: Relative path of the file to comment on.
+  * position `integer`: Line index in the diff to comment on.
+  * sha **required** `string`: SHA of the commit to comment on.
 
 ### commitComments
-* commitComments (object)
-  * body (string)
-  * commit_id (string)
-  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * html_url (string)
-  * id (integer)
-  * line (integer)
-  * path (string)
-  * position (integer)
-  * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * url (string)
-  * user (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
+* commitComments `object`
+  * body `string`
+  * commit_id `string`
+  * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * html_url `string`
+  * id `integer`
+  * line `integer`
+  * path `string`
+  * position `integer`
+  * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * url `string`
+  * user `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
 
 ### commits
-* commits (array)
-  * items (object)
-    * author (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * commit (object)
-      * author (object)
-        * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-        * email (string)
-        * name (string)
-      * committer (object)
-        * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-        * email (string)
-        * name (string)
-      * message (string)
-      * tree (object)
-        * sha (string)
-        * url (string)
-      * url (string)
-    * committer (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * parents (array)
-      * items (object)
-        * sha (string)
-        * url (string)
-    * sha (string)
-    * url (string)
+* commits `array`
+  * items `object`
+    * author `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * commit `object`
+      * author `object`
+        * date `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * email `string`
+        * name `string`
+      * committer `object`
+        * date `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * email `string`
+        * name `string`
+      * message `string`
+      * tree `object`
+        * sha `string`
+        * url `string`
+      * url `string`
+    * committer `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * parents `array`
+      * items `object`
+        * sha `string`
+        * url `string`
+    * sha `string`
+    * url `string`
 
 ### compare-commits
-* compare-commits (object)
-  * ahead_by (integer)
-  * base_commit (object)
-    * author (object)
-      * avatar_url (string)
-      * events_url (string)
-      * followers_url (string)
-      * following_url (string)
-      * gists_url (string)
-      * gravatar_id (string)
-      * html_url (string)
-      * id (integer)
-      * login (string)
-      * organizations_url (string)
-      * received_events_url (string)
-      * repos_url (string)
-      * site_admin (boolean)
-      * starred_url (string)
-      * subscriptions_url (string)
-      * type (string)
-      * url (string)
-    * commit (object)
-      * author (object)
-        * date (string)
-        * email (string)
-        * name (string)
-      * committer (object)
-        * date (string)
-        * email (string)
-        * name (string)
-      * message (string)
-      * tree (object)
-        * sha (string)
-        * url (string)
-      * url (string)
-    * committer (object)
-      * avatar_url (string)
-      * events_url (string)
-      * followers_url (string)
-      * following_url (string)
-      * gists_url (string)
-      * gravatar_id (string)
-      * html_url (string)
-      * id (integer)
-      * login (string)
-      * organizations_url (string)
-      * received_events_url (string)
-      * repos_url (string)
-      * site_admin (boolean)
-      * starred_url (string)
-      * subscriptions_url (string)
-      * type (string)
-      * url (string)
-    * parents (array)
-      * items (object)
-        * sha (string)
-        * url (string)
-    * sha (string)
-    * url (string)
-  * behind_by (integer)
-  * commits (array)
-    * items (object)
-      * author (object)
-        * avatar_url (string)
-        * events_url (string)
-        * followers_url (string)
-        * following_url (string)
-        * gists_url (string)
-        * gravatar_id (string)
-        * html_url (string)
-        * id (integer)
-        * login (string)
-        * organizations_url (string)
-        * received_events_url (string)
-        * repos_url (string)
-        * site_admin (boolean)
-        * starred_url (string)
-        * subscriptions_url (string)
-        * type (string)
-        * url (string)
-      * commit (object)
-        * author (object)
-          * date (string)
-          * email (string)
-          * name (string)
-        * committer (object)
-          * date (string)
-          * email (string)
-          * name (string)
-        * message (string)
-        * tree (object)
-          * sha (string)
-          * url (string)
-        * url (string)
-      * committer (object)
-        * avatar_url (string)
-        * events_url (string)
-        * followers_url (string)
-        * following_url (string)
-        * gists_url (string)
-        * gravatar_id (string)
-        * html_url (string)
-        * id (integer)
-        * login (string)
-        * organizations_url (string)
-        * received_events_url (string)
-        * repos_url (string)
-        * site_admin (boolean)
-        * starred_url (string)
-        * subscriptions_url (string)
-        * type (string)
-        * url (string)
-      * parents (array)
-        * items (object)
-          * sha (string)
-          * url (string)
-      * sha (string)
-      * url (string)
-  * diff_url (string)
-  * files (array)
-    * items (object)
-      * additions (integer)
-      * blob_url (string)
-      * changes (integer)
-      * contents_url (string)
-      * deletions (integer)
-      * filename (string)
-      * patch (string)
-      * raw_url (string)
-      * sha (string)
-      * status (string)
-  * html_url (string)
-  * patch_url (string)
-  * permalink_url (string)
-  * status (string)
-  * total_commits (integer)
-  * url (string)
+* compare-commits `object`
+  * ahead_by `integer`
+  * base_commit `object`
+    * author `object`
+      * avatar_url `string`
+      * events_url `string`
+      * followers_url `string`
+      * following_url `string`
+      * gists_url `string`
+      * gravatar_id `string`
+      * html_url `string`
+      * id `integer`
+      * login `string`
+      * organizations_url `string`
+      * received_events_url `string`
+      * repos_url `string`
+      * site_admin `boolean`
+      * starred_url `string`
+      * subscriptions_url `string`
+      * type `string`
+      * url `string`
+    * commit `object`
+      * author `object`
+        * date `string`
+        * email `string`
+        * name `string`
+      * committer `object`
+        * date `string`
+        * email `string`
+        * name `string`
+      * message `string`
+      * tree `object`
+        * sha `string`
+        * url `string`
+      * url `string`
+    * committer `object`
+      * avatar_url `string`
+      * events_url `string`
+      * followers_url `string`
+      * following_url `string`
+      * gists_url `string`
+      * gravatar_id `string`
+      * html_url `string`
+      * id `integer`
+      * login `string`
+      * organizations_url `string`
+      * received_events_url `string`
+      * repos_url `string`
+      * site_admin `boolean`
+      * starred_url `string`
+      * subscriptions_url `string`
+      * type `string`
+      * url `string`
+    * parents `array`
+      * items `object`
+        * sha `string`
+        * url `string`
+    * sha `string`
+    * url `string`
+  * behind_by `integer`
+  * commits `array`
+    * items `object`
+      * author `object`
+        * avatar_url `string`
+        * events_url `string`
+        * followers_url `string`
+        * following_url `string`
+        * gists_url `string`
+        * gravatar_id `string`
+        * html_url `string`
+        * id `integer`
+        * login `string`
+        * organizations_url `string`
+        * received_events_url `string`
+        * repos_url `string`
+        * site_admin `boolean`
+        * starred_url `string`
+        * subscriptions_url `string`
+        * type `string`
+        * url `string`
+      * commit `object`
+        * author `object`
+          * date `string`
+          * email `string`
+          * name `string`
+        * committer `object`
+          * date `string`
+          * email `string`
+          * name `string`
+        * message `string`
+        * tree `object`
+          * sha `string`
+          * url `string`
+        * url `string`
+      * committer `object`
+        * avatar_url `string`
+        * events_url `string`
+        * followers_url `string`
+        * following_url `string`
+        * gists_url `string`
+        * gravatar_id `string`
+        * html_url `string`
+        * id `integer`
+        * login `string`
+        * organizations_url `string`
+        * received_events_url `string`
+        * repos_url `string`
+        * site_admin `boolean`
+        * starred_url `string`
+        * subscriptions_url `string`
+        * type `string`
+        * url `string`
+      * parents `array`
+        * items `object`
+          * sha `string`
+          * url `string`
+      * sha `string`
+      * url `string`
+  * diff_url `string`
+  * files `array`
+    * items `object`
+      * additions `integer`
+      * blob_url `string`
+      * changes `integer`
+      * contents_url `string`
+      * deletions `integer`
+      * filename `string`
+      * patch `string`
+      * raw_url `string`
+      * sha `string`
+      * status `string`
+  * html_url `string`
+  * patch_url `string`
+  * permalink_url `string`
+  * status `string`
+  * total_commits `integer`
+  * url `string`
 
 ### contents-path
-* contents-path (object)
-  * _links (object)
-    * git (string)
-    * html (string)
-    * self (string)
-  * content (string)
-  * encoding (string)
-  * git_url (string)
-  * html_url (string)
-  * name (string)
-  * path (string)
-  * sha (string)
-  * size (integer)
-  * type (string)
-  * url (string)
+* contents-path `object`
+  * _links `object`
+    * git `string`
+    * html `string`
+    * self `string`
+  * content `string`
+  * encoding `string`
+  * git_url `string`
+  * html_url `string`
+  * name `string`
+  * path `string`
+  * sha `string`
+  * size `integer`
+  * type `string`
+  * url `string`
 
 ### contributors
-* contributors (array)
-  * items (object)
-    * avatar_url (string)
-    * contributions (integer)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
+* contributors `array`
+  * items `object`
+    * avatar_url `string`
+    * contributions `integer`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
 
 ### contributorsStats
-* contributorsStats (array)
-  * items (object)
-    * author (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * total (integer): The Total number of commits authored by the contributor.
-    * weeks (array)
-      * items (object)
-        * a (integer): Number of additions.
-        * c (integer): Number of commits.
-        * d (integer): Number of deletions.
-        * w (string): Start of the week.
+* contributorsStats `array`
+  * items `object`
+    * author `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * total `integer`: The Total number of commits authored by the contributor.
+    * weeks `array`
+      * items `object`
+        * a `integer`: Number of additions.
+        * c `integer`: Number of commits.
+        * d `integer`: Number of deletions.
+        * w `string`: Start of the week.
 
 ### createDownload
-* createDownload (object)
-  * accesskeyid (string)
-  * acl (string)
-  * bucket (string)
-  * content_type (string)
-  * description (string)
-  * download_count (integer)
-  * expirationdate (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * html_url (string)
-  * id (integer)
-  * mime_type (string)
-  * name (string)
-  * path (string)
-  * policy (string)
-  * prefix (string)
-  * redirect (boolean)
-  * s3_url (string)
-  * signature (string)
-  * size (integer)
-  * url (string)
+* createDownload `object`
+  * accesskeyid `string`
+  * acl `string`
+  * bucket `string`
+  * content_type `string`
+  * description `string`
+  * download_count `integer`
+  * expirationdate `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * html_url `string`
+  * id `integer`
+  * mime_type `string`
+  * name `string`
+  * path `string`
+  * policy `string`
+  * prefix `string`
+  * redirect `boolean`
+  * s3_url `string`
+  * signature `string`
+  * size `integer`
+  * url `string`
 
 ### createFile
-* createFile (object)
-  * commit (object)
-    * author (object)
-      * date (string)
-      * email (string)
-      * name (string)
-    * committer (object)
-      * date (string)
-      * email (string)
-      * name (string)
-    * html_url (string)
-    * message (string)
-    * parents (array)
-      * items (object)
-        * html_url (string)
-        * sha (string)
-        * url (string)
-    * sha (string)
-    * tree (object)
-      * sha (string)
-      * url (string)
-    * url (string)
-  * content (object)
-    * _links (object)
-      * git (string)
-      * html (string)
-      * self (string)
-    * git_url (string)
-    * html_url (string)
-    * name (string)
-    * path (string)
-    * sha (string)
-    * size (integer)
-    * type (string)
-    * url (string)
+* createFile `object`
+  * commit `object`
+    * author `object`
+      * date `string`
+      * email `string`
+      * name `string`
+    * committer `object`
+      * date `string`
+      * email `string`
+      * name `string`
+    * html_url `string`
+    * message `string`
+    * parents `array`
+      * items `object`
+        * html_url `string`
+        * sha `string`
+        * url `string`
+    * sha `string`
+    * tree `object`
+      * sha `string`
+      * url `string`
+    * url `string`
+  * content `object`
+    * _links `object`
+      * git `string`
+      * html `string`
+      * self `string`
+    * git_url `string`
+    * html_url `string`
+    * name `string`
+    * path `string`
+    * sha `string`
+    * size `integer`
+    * type `string`
+    * url `string`
 
 ### createFileBody
-* createFileBody (object)
-  * committer (object)
-    * email (string)
-    * name (string)
-  * content (string)
-  * message (string)
+* createFileBody `object`
+  * committer `object`
+    * email `string`
+    * name `string`
+  * content `string`
+  * message `string`
 
 ### deleteFile
-* deleteFile (object)
-  * commit (object)
-    * author (object)
-      * date (string)
-      * email (string)
-      * name (string)
-
-    * html_url (string)
-    * message (string)
-    * parents (object)
-      * html_url (string)
-      * sha (string)
-      * url (string)
-    * sha (string)
-    * tree (object)
-      * sha (string)
-      * url (string)
-    * url (string)
-  * content (string)
+* deleteFile `object`
+  * commit `object`
+    * author `object`
+      * date `string`
+      * email `string`
+      * name `string`
+    * committer `object`
+      * date `string`
+      * email `string`
+      * name `string`
+    * html_url `string`
+    * message `string`
+    * parents `object`
+      * html_url `string`
+      * sha `string`
+      * url `string`
+    * sha `string`
+    * tree `object`
+      * sha `string`
+      * url `string`
+    * url `string`
+  * content `string`
 
 ### deleteFileBody
-* deleteFileBody (object)
-  * committer (object)
-    * email (string)
-    * name (string)
-  * message (string)
-  * sha (string)
+* deleteFileBody `object`
+  * committer `object`
+    * email `string`
+    * name `string`
+  * message `string`
+  * sha `string`
 
 ### deployment
-* deployment (object)
-  * description (string)
-  * payload (object)
-    * deploy_user (string)
-    * environment (string)
-    * room_id (number)
-  * ref (string)
+* deployment `object`
+  * description `string`
+  * payload `object`
+    * deploy_user `string`
+    * environment `string`
+    * room_id `number`
+  * ref `string`
 
 ### deployment-resp
-* deployment-resp (object)
-  * created_at (string)
-  * creator (object)
-    * avatar_url (string)
-    * events_url (string)
-    * followers_url (string)
-    * following_url (string)
-    * gists_url (string)
-    * gravatar_id (string)
-    * html_url (string)
-    * id (integer)
-    * login (string)
-    * organizations_url (string)
-    * received_events_url (string)
-    * repos_url (string)
-    * site_admin (boolean)
-    * starred_url (string)
-    * subscriptions_url (string)
-    * type (string)
-    * url (string)
-  * description (string)
-  * id (integer)
-  * payload (string)
-  * sha (string)
-  * statuses_url (string)
-  * updated_at (string)
-  * url (string)
+* deployment-resp `object`
+  * created_at `string`
+  * creator `object`
+    * avatar_url `string`
+    * events_url `string`
+    * followers_url `string`
+    * following_url `string`
+    * gists_url `string`
+    * gravatar_id `string`
+    * html_url `string`
+    * id `integer`
+    * login `string`
+    * organizations_url `string`
+    * received_events_url `string`
+    * repos_url `string`
+    * site_admin `boolean`
+    * starred_url `string`
+    * subscriptions_url `string`
+    * type `string`
+    * url `string`
+  * description `string`
+  * id `integer`
+  * payload `string`
+  * sha `string`
+  * statuses_url `string`
+  * updated_at `string`
+  * url `string`
 
 ### deployment-statuses
-* deployment-statuses (array)
-  * items (object)
-    * created_at (string)
-    * creator (object)
-      * avatar_url (string)
-      * events_url (string)
-      * followers_url (string)
-      * following_url (string)
-      * gists_url (string)
-      * gravatar_id (string)
-      * html_url (string)
-      * id (integer)
-      * login (string)
-      * organizations_url (string)
-      * received_events_url (string)
-      * repos_url (string)
-      * site_admin (boolean)
-      * starred_url (string)
-      * subscriptions_url (string)
-      * type (string)
-      * url (string)
-    * description (string)
-    * id (integer)
-    * payload (string)
-    * state (string)
-    * target_url (string)
-    * updated_at (string)
-    * url (string)
+* deployment-statuses `array`
+  * items `object`
+    * created_at `string`
+    * creator `object`
+      * avatar_url `string`
+      * events_url `string`
+      * followers_url `string`
+      * following_url `string`
+      * gists_url `string`
+      * gravatar_id `string`
+      * html_url `string`
+      * id `integer`
+      * login `string`
+      * organizations_url `string`
+      * received_events_url `string`
+      * repos_url `string`
+      * site_admin `boolean`
+      * starred_url `string`
+      * subscriptions_url `string`
+      * type `string`
+      * url `string`
+    * description `string`
+    * id `integer`
+    * payload `string`
+    * state `string`
+    * target_url `string`
+    * updated_at `string`
+    * url `string`
 
 ### deployment-statuses-create
-* deployment-statuses-create (object)
-  * description (string)
-  * state (string)
-  * target_url (string)
+* deployment-statuses-create `object`
+  * description `string`
+  * state `string`
+  * target_url `string`
 
 ### downloadBody
-* downloadBody (object)
-  * content_type (string)
-  * description (string)
-  * name **required** (string)
-  * size **required** (integer): Size of file in bytes.
+* downloadBody `object`
+  * content_type `string`
+  * description `string`
+  * name **required** `string`
+  * size **required** `integer`: Size of file in bytes.
 
 ### downloads
-* downloads (object)
-  * content_type (string)
-  * description (string)
-  * download_count (integer)
-  * html_url (string)
-  * id (integer)
-  * name (string)
-  * size (integer)
-  * url (string)
+* downloads `object`
+  * content_type `string`
+  * description `string`
+  * download_count `integer`
+  * html_url `string`
+  * id `integer`
+  * name `string`
+  * size `integer`
+  * url `string`
 
 ### editTeam
-* editTeam (object)
-  * name **required** (string)
-
+* editTeam `object`
+  * name **required** `string`
+  * permission `string` (values: pull, push, admin)
 
 ### emailsPost
-* emailsPost (array)
-  * items (string)
+* emailsPost `array`
+  * items `string`
 
 ### emojis
-* emojis (object)
-  * 100 (string)
-  * 1234 (string)
-  * +1 (string)
-  * -1 (string)
-  * 8ball (string)
-  * a (string)
-  * ab (string)
+* emojis `object`
+  * 100 `string`
+  * 1234 `string`
+  * +1 `string`
+  * -1 `string`
+  * 8ball `string`
+  * a `string`
+  * ab `string`
 
 ### event
-* event (object)
-  * actor (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
-  * commit_id (string)
-  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * event (string)
-  * issue (object)
-
-    * body (string)
-    * closed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * comments (integer)
-    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * html_url (string)
-    * labels (array)
-      * items (object)
-        * color (string)
-        * name (string)
-        * url (string)
-    * milestone (object)
-      * closed_issues (integer)
-      * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-      * creator (object)
-        * avatar_url (string)
-        * gravatar_id (string)
-        * id (integer)
-        * login (string)
-        * url (string)
-      * description (string)
-      * due_on (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-      * number (integer)
-      * open_issues (integer)
-
-      * title (string)
-      * url (string)
-    * number (integer)
-    * pull_request (object)
-      * diff_url (string)
-      * html_url (string)
-      * patch_url (string)
-
-    * title (string)
-    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * url (string)
-    * user (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-  * url (string)
+* event `object`
+  * actor `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
+  * commit_id `string`
+  * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * event `string`
+  * issue `object`
+    * assignee `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * body `string`
+    * closed_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * comments `integer`
+    * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * html_url `string`
+    * labels `array`
+      * items `object`
+        * color `string`
+        * name `string`
+        * url `string`
+    * milestone `object`
+      * closed_issues `integer`
+      * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * creator `object`
+        * avatar_url `string`
+        * gravatar_id `string`
+        * id `integer`
+        * login `string`
+        * url `string`
+      * description `string`
+      * due_on `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * number `integer`
+      * open_issues `integer`
+      * state `string` (values: open, closed)
+      * title `string`
+      * url `string`
+    * number `integer`
+    * pull_request `object`
+      * diff_url `string`
+      * html_url `string`
+      * patch_url `string`
+    * state `string` (values: open, closed)
+    * title `string`
+    * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url `string`
+    * user `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+  * url `string`
 
 ### events
-* events (object)
-  * actor (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
-  * created_at (object)
-  * id (integer)
-  * org (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
-  * payload (object)
-  * public (boolean)
-  * repo (object)
-    * id (integer)
-    * name (string)
-    * url (string)
-  * type (string)
+* events `object`
+  * actor `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
+  * created_at `object`
+  * id `integer`
+  * org `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
+  * payload `object`
+  * public `boolean`
+  * repo `object`
+    * id `integer`
+    * name `string`
+    * url `string`
+  * type `string`
 
 ### feeds
-* feeds (object)
-
-  * current_user_actor_url (string)
-  * current_user_organization_url (string)
-  * current_user_public (string)
-  * current_user_url (string)
-  * timeline_url (string)
-  * user_url (string)
+* feeds `object`
+  * _links `object`
+    * current_user `object`
+      * href `string`
+      * type `string`
+    * current_user_actor `object`
+      * href `string`
+      * type `string`
+    * current_user_organization `object`
+      * href `string`
+      * type `string`
+    * current_user_public `object`
+      * href `string`
+      * type `string`
+    * timeline `object`
+      * href `string`
+      * type `string`
+    * user `object`
+      * href `string`
+      * type `string`
+  * current_user_actor_url `string`
+  * current_user_organization_url `string`
+  * current_user_public `string`
+  * current_user_url `string`
+  * timeline_url `string`
+  * user_url `string`
 
 ### fork
-* fork (object)
-  * clone_url (string)
-  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * description (string)
-  * fork (boolean)
-  * forks (integer)
-  * forks_count (integer)
-  * full_name (string)
-  * git_url (string)
-  * homepage (string)
-  * html_url (string)
-  * id (integer)
-  * language (string)
-  * master_branch (string)
-  * mirror_url (string)
-  * name (string)
-  * open_issues (integer)
-  * open_issues_count (integer)
-  * owner (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
-  * private (boolean)
-  * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * size (integer)
-  * ssh_url (string)
-  * svn_url (string)
-  * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * url (string)
-  * watchers (integer)
-  * watchers_count (integer)
+* fork `object`
+  * clone_url `string`
+  * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * description `string`
+  * fork `boolean`
+  * forks `integer`
+  * forks_count `integer`
+  * full_name `string`
+  * git_url `string`
+  * homepage `string`
+  * html_url `string`
+  * id `integer`
+  * language `string`
+  * master_branch `string`
+  * mirror_url `string`
+  * name `string`
+  * open_issues `integer`
+  * open_issues_count `integer`
+  * owner `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
+  * private `boolean`
+  * pushed_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * size `integer`
+  * ssh_url `string`
+  * svn_url `string`
+  * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * url `string`
+  * watchers `integer`
+  * watchers_count `integer`
 
 ### forkBody
-* forkBody (object)
-  * organization (string)
+* forkBody `object`
+  * organization `string`
 
 ### forks
-* forks (array)
-  * items (object)
-    * clone_url (string)
-    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * description (string)
-    * fork (boolean)
-    * forks (integer)
-    * forks_count (integer)
-    * full_name (string)
-    * git_url (string)
-    * homepage (string)
-    * html_url (string)
-    * id (integer)
-    * language (string)
-    * master_branch (string)
-    * mirror_url (string)
-    * name (string)
-    * open_issues (integer)
-    * open_issues_count (integer)
-    * owner (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * private (boolean)
-    * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * size (integer)
-    * ssh_url (string)
-    * svn_url (string)
-    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * url (string)
-    * watchers (integer)
-    * watchers_count (integer)
+* forks `array`
+  * items `object`
+    * clone_url `string`
+    * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * description `string`
+    * fork `boolean`
+    * forks `integer`
+    * forks_count `integer`
+    * full_name `string`
+    * git_url `string`
+    * homepage `string`
+    * html_url `string`
+    * id `integer`
+    * language `string`
+    * master_branch `string`
+    * mirror_url `string`
+    * name `string`
+    * open_issues `integer`
+    * open_issues_count `integer`
+    * owner `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * private `boolean`
+    * pushed_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * size `integer`
+    * ssh_url `string`
+    * svn_url `string`
+    * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url `string`
+    * watchers `integer`
+    * watchers_count `integer`
 
 ### gist
-* gist (object)
-  * comments (integer)
-  * comments_url (string)
-  * created_at (string): Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-  * description (string)
-  * files (object)
-    * ring.erl (object)
-      * filename (string)
-      * raw_url (string)
-      * size (integer)
-  * forks (array)
-    * items (object)
-      * created_at (string): Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-      * url (string)
-      * user (object)
-        * avatar_url (string)
-        * gravatar_id (string)
-        * id (integer)
-        * login (string)
-        * url (string)
-  * git_pull_url (string)
-  * git_push_url (string)
-  * history (array)
-    * items (object)
-      * change_status (object)
-        * additions (integer)
-        * deletions (integer)
-        * total (integer)
-      * committed_at (string): Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-      * url (string)
-      * user (object)
-        * avatar_url (string)
-        * gravatar_id (string)
-        * id (integer)
-        * login (string)
-        * url (string)
-      * version (string)
-  * html_url (string)
-  * id (string)
-  * public (boolean)
-  * url (string)
-  * user (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
+* gist `object`
+  * comments `integer`
+  * comments_url `string`
+  * created_at `string`: Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * description `string`
+  * files `object`
+    * ring.erl `object`
+      * filename `string`
+      * raw_url `string`
+      * size `integer`
+  * forks `array`
+    * items `object`
+      * created_at `string`: Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+      * url `string`
+      * user `object`
+        * avatar_url `string`
+        * gravatar_id `string`
+        * id `integer`
+        * login `string`
+        * url `string`
+  * git_pull_url `string`
+  * git_push_url `string`
+  * history `array`
+    * items `object`
+      * change_status `object`
+        * additions `integer`
+        * deletions `integer`
+        * total `integer`
+      * committed_at `string`: Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+      * url `string`
+      * user `object`
+        * avatar_url `string`
+        * gravatar_id `string`
+        * id `integer`
+        * login `string`
+        * url `string`
+      * version `string`
+  * html_url `string`
+  * id `string`
+  * public `boolean`
+  * url `string`
+  * user `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
 
 ### gists
-* gists (array)
-  * items (object)
-    * comments (integer)
-    * comments_url (string)
-    * created_at (string)
-    * description (string)
-    * files (object)
-      * ring.erl (object)
-        * filename (string)
-        * raw_url (string)
-        * size (integer)
-    * git_pull_url (string)
-    * git_push_url (string)
-    * html_url (string)
-    * id (string)
-    * public (boolean)
-    * url (string)
-    * user (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
+* gists `array`
+  * items `object`
+    * comments `integer`
+    * comments_url `string`
+    * created_at `string`
+    * description `string`
+    * files `object`
+      * ring.erl `object`
+        * filename `string`
+        * raw_url `string`
+        * size `integer`
+    * git_pull_url `string`
+    * git_push_url `string`
+    * html_url `string`
+    * id `string`
+    * public `boolean`
+    * url `string`
+    * user `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
 
 ### gitCommit
-* gitCommit (object)
-  * author (object)
-    * date (string)
-    * email (string)
-    * name (string)
-  * message (string)
-  * parents (string)
-  * tree (string)
+* gitCommit `object`
+  * author `object`
+    * date `string`
+    * email `string`
+    * name `string`
+  * message `string`
+  * parents `string`
+  * tree `string`
 
 ### gitRefPatch
-* gitRefPatch (object)
-  * force (boolean)
-  * sha (string)
+* gitRefPatch `object`
+  * force `boolean`
+  * sha `string`
 
 ### gitignore
-* gitignore (array)
+* gitignore `array`
 
 
 ### gitignore-lang
-* gitignore-lang (object)
-  * name (string)
-  * source (string)
+* gitignore-lang `object`
+  * name `string`
+  * source `string`
 
 ### headBranch
-* headBranch (object)
-  * object (object)
-    * sha (string)
-    * type (string)
-    * url (string)
-  * ref (string)
-  * url (string)
+* headBranch `object`
+  * object `object`
+    * sha `string`
+    * type `string`
+    * url `string`
+  * ref `string`
+  * url `string`
 
 ### headBranchBody
-* headBranchBody (object)
-  * force **required** (boolean): Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
-  * sha **required** (string): String of the SHA1 value to set this reference to.
+* headBranchBody `object`
+  * force **required** `boolean`: Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
+  * sha **required** `string`: String of the SHA1 value to set this reference to.
 
 ### heads
-* heads (array)
-  * items (object)
-    * commit (object)
-      * sha (string)
-      * url (string)
-    * name (string)
-    * tarball_url (string)
-    * zipball_url (string)
+* heads `array`
+  * items `object`
+    * commit `object`
+      * sha `string`
+      * url `string`
+    * name `string`
+    * tarball_url `string`
+    * zipball_url `string`
 
 ### hook
-* hook (array)
-  * items (object)
-    * active (boolean)
-    * config (object)
-      * content_type (string)
-      * url (string)
-    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * events (array)
-
-    * id (integer)
-    * name (string)
-    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * url (string)
+* hook `array`
+  * items `object`
+    * active `boolean`
+    * config `object`
+      * content_type `string`
+      * url `string`
+    * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * events `array`
+      * items `string` (values: push, issues, issue_comment, commit_comment, pull_request, pull_request_review_comment, gollum, watch, download, fork, fork_apply, member, public, team_add, status)
+    * id `integer`
+    * name `string`
+    * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url `string`
 
 ### hookBody
-* hookBody (object)
-  * active (boolean)
-  * add_events (array)
-    * items (string)
+* hookBody `object`
+  * active `boolean`
+  * add_events `array`
+    * items `string`
 
 ### issue
-* issue (object)
-  * assignee (string)
-  * body (string)
-  * labels (array)
-    * items (string)
-  * milestone (number)
-  * title (string)
+* issue `object`
+  * assignee `string`
+  * body `string`
+  * labels `array`
+    * items `string`
+  * milestone `number`
+  * title `string`
 
 ### issueBody
-* issueBody (object)
-  * assignee (string)
-  * body (string)
-  * labels (array)
-    * items (string)
-  * milestone (number)
-  * title (string)
+* issueBody `object`
+  * assignee `string`
+  * body `string`
+  * labels `array`
+    * items `string`
+  * milestone `number`
+  * title `string`
 
 ### issues
-* issues (array)
-  * items (object)
-    * assignee (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * body (string)
-    * closed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * comments (integer)
-    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * html_url (string)
-    * labels (array)
-      * items (object)
-        * color (string)
-        * name (string)
-        * url (string)
-    * milestone (object)
-      * closed_issues (integer)
-      * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-      * creator (object)
-        * avatar_url (string)
-        * gravatar_id (string)
-        * id (integer)
-        * login (string)
-        * url (string)
-      * description (string)
-      * due_on (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-      * number (integer)
-      * open_issues (integer)
-
-      * title (string)
-      * url (string)
-    * number (integer)
-    * pull_request (object)
-      * diff_url (string)
-      * html_url (string)
-      * patch_url (string)
-
-    * title (string)
-    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * url (string)
-    * user (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
+* issues `array`
+  * items `object`
+    * assignee `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * body `string`
+    * closed_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * comments `integer`
+    * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * html_url `string`
+    * labels `array`
+      * items `object`
+        * color `string`
+        * name `string`
+        * url `string`
+    * milestone `object`
+      * closed_issues `integer`
+      * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * creator `object`
+        * avatar_url `string`
+        * gravatar_id `string`
+        * id `integer`
+        * login `string`
+        * url `string`
+      * description `string`
+      * due_on `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * number `integer`
+      * open_issues `integer`
+      * state `string` (values: open, closed)
+      * title `string`
+      * url `string`
+    * number `integer`
+    * pull_request `object`
+      * diff_url `string`
+      * html_url `string`
+      * patch_url `string`
+    * state `string` (values: open, closed)
+    * title `string`
+    * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url `string`
+    * user `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
 
 ### issuesComment
-* issuesComment (object)
-  * body (string)
-  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * html_url (string)
-  * id (integer)
-  * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * url (string)
-  * user (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
+* issuesComment `object`
+  * body `string`
+  * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * html_url `string`
+  * id `integer`
+  * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * url `string`
+  * user `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
 
 ### issuesComments
-* issuesComments (array)
-  * items (object)
-    * _links (object)
-      * html (object)
-        * href (string)
-      * pull_request (object)
-        * href (string)
-      * self (object)
-        * href (string)
-    * body (string)
-    * commit_id (string)
-    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * id (integer)
-    * path (string)
-    * position (integer)
-    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * url (string)
-    * user (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
+* issuesComments `array`
+  * items `object`
+    * _links `object`
+      * html `object`
+        * href `string`
+      * pull_request `object`
+        * href `string`
+      * self `object`
+        * href `string`
+    * body `string`
+    * commit_id `string`
+    * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * id `integer`
+    * path `string`
+    * position `integer`
+    * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url `string`
+    * user `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
 
 ### key
-* key (object)
-  * id (integer)
-  * key (string)
-  * title (string)
-  * url (string)
+* key `object`
+  * id `integer`
+  * key `string`
+  * title `string`
+  * url `string`
 
 ### keyBody
-* keyBody (object)
-  * key (string)
-  * title (string)
+* keyBody `object`
+  * key `string`
+  * title `string`
 
 ### keys
-* keys (array)
-  * items (object)
-    * id (integer)
-    * key (string)
-    * title (string)
-    * url (string)
+* keys `array`
+  * items `object`
+    * id `integer`
+    * key `string`
+    * title `string`
+    * url `string`
 
 ### label
-* label (object)
-  * color (string)
-  * name (string)
-  * url (string)
+* label `object`
+  * color `string`
+  * name `string`
+  * url `string`
 
 ### labels
-* labels (array)
-  * items (object)
-    * color (string)
-    * name (string)
-    * url (string)
+* labels `array`
+  * items `object`
+    * color `string`
+    * name `string`
+    * url `string`
 
 ### labelsBody
-* labelsBody (array)
-  * items (string)
+* labelsBody `array`
+  * items `string`
 
 ### languages
-* languages (object)
+* languages `object`
 
 ### markdown
-* markdown (object)
-  * context (string)
-  * mode (string)
-  * text (string)
+* markdown `object`
+  * context `string`
+  * mode `string`
+  * text `string`
 
 ### members
-* members (array)
-  * items (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
+* members `array`
+  * items `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
 
 ### merge
-* merge (object)
-  * merged (boolean)
-  * message (string)
-  * sha (string)
+* merge `object`
+  * merged `boolean`
+  * message `string`
+  * sha `string`
 
 ### mergePullBody
-* mergePullBody (object)
-  * commit_message (string)
+* mergePullBody `object`
+  * commit_message `string`
 
 ### mergesBody
-* mergesBody (object)
-  * base (string)
-  * commit_message (string)
-  * head (string)
+* mergesBody `object`
+  * base `string`
+  * commit_message `string`
+  * head `string`
 
 ### mergesConflict
-* mergesConflict (object)
-  * message (string): Error message
+* mergesConflict `object`
+  * message `string`: Error message
 
 ### mergesSuccessful
-* mergesSuccessful (object)
-  * author (object)
-    * avatar_url (string)
-    * events_url (string)
-    * followers_url (string)
-    * following_url (string)
-    * gists_url (string)
-    * gravatar_id (string)
-    * html_url (string)
-    * id (integer)
-    * login (string)
-    * organizations_url (string)
-    * received_events_url (string)
-    * repos_url (string)
-    * starred_url (string)
-    * subscriptions_url (string)
-    * type (string)
-    * url (string)
-  * comments_url (string)
-  * commit (object)
-    * author (object)
-      * date (string)
-      * email (string)
-      * name (string)
-    * comment_count (integer)
-    * committer (object)
-      * date (string)
-      * email (string)
-      * name (string)
-    * message (string)
-    * tree (object)
-      * sha (string)
-      * url (string)
-    * url (string)
-  * committer (object)
-    * avatar_url (string)
-    * events_url (string)
-    * followers_url (string)
-    * following_url (string)
-    * gists_url (string)
-    * gravatar_id (string)
-    * html_url (string)
-    * id (integer)
-    * login (string)
-    * organizations_url (string)
-    * received_events_url (string)
-    * repos_url (string)
-    * starred_url (string)
-    * subscriptions_url (string)
-    * type (string)
-    * url (string)
-  * merged (boolean)
-  * message (string)
-  * parents (array)
-    * items (object)
-      * sha (string)
-      * url (string)
-  * sha (string)
-  * url (string)
+* mergesSuccessful `object`
+  * author `object`
+    * avatar_url `string`
+    * events_url `string`
+    * followers_url `string`
+    * following_url `string`
+    * gists_url `string`
+    * gravatar_id `string`
+    * html_url `string`
+    * id `integer`
+    * login `string`
+    * organizations_url `string`
+    * received_events_url `string`
+    * repos_url `string`
+    * starred_url `string`
+    * subscriptions_url `string`
+    * type `string`
+    * url `string`
+  * comments_url `string`
+  * commit `object`
+    * author `object`
+      * date `string`
+      * email `string`
+      * name `string`
+    * comment_count `integer`
+    * committer `object`
+      * date `string`
+      * email `string`
+      * name `string`
+    * message `string`
+    * tree `object`
+      * sha `string`
+      * url `string`
+    * url `string`
+  * committer `object`
+    * avatar_url `string`
+    * events_url `string`
+    * followers_url `string`
+    * following_url `string`
+    * gists_url `string`
+    * gravatar_id `string`
+    * html_url `string`
+    * id `integer`
+    * login `string`
+    * organizations_url `string`
+    * received_events_url `string`
+    * repos_url `string`
+    * starred_url `string`
+    * subscriptions_url `string`
+    * type `string`
+    * url `string`
+  * merged `boolean`
+  * message `string`
+  * parents `array`
+    * items `object`
+      * sha `string`
+      * url `string`
+  * sha `string`
+  * url `string`
 
 ### meta
-* meta (object)
-  * git (array)
-    * items (string): An Array of IP addresses in CIDR format specifying the Git servers at GitHub.
-  * hooks (array)
-    * items (string): An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
+* meta `object`
+  * git `array`
+    * items `string`: An Array of IP addresses in CIDR format specifying the Git servers at GitHub.
+  * hooks `array`
+    * items `string`: An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
 
 ### milestone
-* milestone (object)
-  * closed_issues (integer)
-  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * creator (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
-  * description (string)
-  * due_on (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * number (integer)
-  * open_issues (integer)
-
-  * title (string)
-  * url (string)
+* milestone `object`
+  * closed_issues `integer`
+  * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * creator `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
+  * description `string`
+  * due_on `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * number `integer`
+  * open_issues `integer`
+  * state `string` (values: open, closed)
+  * title `string`
+  * url `string`
 
 ### milestoneBody
-* milestoneBody (object)
-  * description (string)
-  * due_on (string)
-  * state (string)
-  * title (string)
+* milestoneBody `object`
+  * description `string`
+  * due_on `string`
+  * state `string`
+  * title `string`
 
 ### milestoneUpdate
-* milestoneUpdate (object)
-  * description (string)
-  * due_on (string)
-  * state (string)
-  * title (string)
+* milestoneUpdate `object`
+  * description `string`
+  * due_on `string`
+  * state `string`
+  * title `string`
 
 ### notificationMarkRead
-* notificationMarkRead (object)
-  * last_read_at (string)
+* notificationMarkRead `object`
+  * last_read_at `string`
 
 ### notifications
-* notifications (object)
-  * id (integer)
-  * last_read_at (string)
-  * reason (string)
-  * repository (object)
-    * description (string)
-    * fork (boolean)
-    * full_name (string)
-    * html_url (string)
-    * id (integer)
-    * name (string)
-    * owner (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * private (boolean)
-    * url (string)
-  * subject (object)
-    * latest_comment_url (string)
-    * title (string)
-    * type (string)
-    * url (string)
-  * unread (boolean)
-  * updated_at (string)
-  * url (string)
+* notifications `object`
+  * id `integer`
+  * last_read_at `string`
+  * reason `string`
+  * repository `object`
+    * description `string`
+    * fork `boolean`
+    * full_name `string`
+    * html_url `string`
+    * id `integer`
+    * name `string`
+    * owner `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * private `boolean`
+    * url `string`
+  * subject `object`
+    * latest_comment_url `string`
+    * title `string`
+    * type `string`
+    * url `string`
+  * unread `boolean`
+  * updated_at `string`
+  * url `string`
 
 ### orgMembers
-* orgMembers (array)
-  * items (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
+* orgMembers `array`
+  * items `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
 
 ### orgPublicMembers
-* orgPublicMembers (array)
-  * items (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
+* orgPublicMembers `array`
+  * items `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
 
 ### orgTeams
-* orgTeams (array)
-  * items (object)
-    * id (integer)
-    * name (string)
-    * url (string)
+* orgTeams `array`
+  * items `object`
+    * id `integer`
+    * name `string`
+    * url `string`
 
 ### orgTeamsPost
-* orgTeamsPost (object)
-  * name **required** (string)
-
-  * repo_names (array)
-    * items (string)
+* orgTeamsPost `object`
+  * name **required** `string`
+  * permission `string` (values: pull, push, admin)
+  * repo_names `array`
+    * items `string`
 
 ### organization
-* organization (object)
-  * avatar_url (string)
-  * blog (string)
-  * company (string)
-  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * email (string)
-  * followers (integer)
-  * following (integer)
-  * html_url (string)
-  * id (integer)
-  * location (string)
-  * login (string)
-  * name (string)
-  * public_gists (integer)
-  * public_repos (integer)
-  * type (string)
-  * url (string)
+* organization `object`
+  * avatar_url `string`
+  * blog `string`
+  * company `string`
+  * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * email `string`
+  * followers `integer`
+  * following `integer`
+  * html_url `string`
+  * id `integer`
+  * location `string`
+  * login `string`
+  * name `string`
+  * public_gists `integer`
+  * public_repos `integer`
+  * type `string`
+  * url `string`
 
 ### organizationAsTeamMember
-* organizationAsTeamMember (object)
-  * errors (array)
-    * items (object)
-      * code (string)
-      * field (string)
-      * resource (string)
-  * message (string)
+* organizationAsTeamMember `object`
+  * errors `array`
+    * items `object`
+      * code `string`
+      * field `string`
+      * resource `string`
+  * message `string`
 
 ### participationStats
-* participationStats (object)
-  * all (array)
-    * items (integer)
-  * owner (array)
-    * items (integer)
+* participationStats `object`
+  * all `array`
+    * items `integer`
+  * owner `array`
+    * items `integer`
 
 ### patchGist
-* patchGist (object)
-  * description (string)
-
+* patchGist `object`
+  * description `string`
+  * files `object`
+    * delete_this_file.txt `string`
+    * file1.txt `object`
+      * content `string`
+    * new_file.txt `object`
+      * content `string`
+    * old_name.txt `object`
+      * content `string`
+      * filename `string`
 
 ### patchOrg
-* patchOrg (object)
-  * billing_email (string): Billing email address. This address is not publicized.
-  * company (string)
-  * email (string): Publicly visible email address.
-  * location (string)
-  * name (string)
+* patchOrg `object`
+  * billing_email `string`: Billing email address. This address is not publicized.
+  * company `string`
+  * email `string`: Publicly visible email address.
+  * location `string`
+  * name `string`
 
 ### postComment
-* postComment (object)
-  * body **required** (string)
+* postComment `object`
+  * body **required** `string`
 
 ### postGist
-* postGist (object)
-  * description (string)
-  * files (object)
-    * file1.txt (object)
-      * content (string)
-  * public (boolean)
+* postGist `object`
+  * description `string`
+  * files `object`
+    * file1.txt `object`
+      * content `string`
+  * public `boolean`
 
 ### postRepo
-* postRepo (object)
-  * auto_init (boolean): True to create an initial commit with empty README. Default is false.
-  * description (string)
-  * gitignore_template (string): Desired language or platform .gitignore template to apply. Use the name of the template without the extension. For example, "Haskell" Ignored if auto_init parameter is not provided. 
-  * has_downloads (boolean): True to enable downloads for this repository, false to disable them. Default is true.
-  * has_issues (boolean): True to enable issues for this repository, false to disable them. Default is true.
-  * has_wiki (boolean): True to enable the wiki for this repository, false to disable it. Default is true.
-  * homepage (string)
-  * name **required** (string)
-  * private (boolean): True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account.
-  * team_id (integer): The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization.
+* postRepo `object`
+  * auto_init `boolean`: True to create an initial commit with empty README. Default is false.
+  * description `string`
+  * gitignore_template `string`: Desired language or platform .gitignore template to apply. Use the name of the template without the extension. For example, "Haskell" Ignored if auto_init parameter is not provided. 
+  * has_downloads `boolean`: True to enable downloads for this repository, false to disable them. Default is true.
+  * has_issues `boolean`: True to enable issues for this repository, false to disable them. Default is true.
+  * has_wiki `boolean`: True to enable the wiki for this repository, false to disable it. Default is true.
+  * homepage `string`
+  * name **required** `string`
+  * private `boolean`: True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account.
+  * team_id `integer`: The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization.
 
 ### pullRequest
-* pullRequest (object)
-  * _links (object)
-    * comments (object)
-      * href (string)
-    * html (object)
-      * href (string)
-    * review_comments (object)
-      * href (string)
-    * self (object)
-      * href (string)
-  * additions (integer)
-  * base (object)
-    * label (string)
-    * ref (string)
-    * repo (object)
-      * clone_url (string)
-      * created_at (string)
-      * description (string)
-      * fork (boolean)
-      * forks (integer)
-      * forks_count (integer)
-      * full_name (string)
-      * git_url (string)
-      * homepage (string)
-      * html_url (string)
-      * id (integer)
-      * language (null)
-      * master_branch (string)
-      * mirror_url (string)
-      * name (string)
-      * open_issues (integer)
-      * open_issues_count (integer)
-      * owner (object)
-        * avatar_url (string)
-        * gravatar_id (string)
-        * id (integer)
-        * login (string)
-        * url (string)
-      * private (boolean)
-      * pushed_at (string)
-      * size (integer)
-      * ssh_url (string)
-      * svn_url (string)
-      * updated_at (string)
-      * url (string)
-      * watchers (integer)
-      * watchers_count (integer)
-    * sha (string)
-    * user (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-  * body (string)
-  * changed_files (integer)
-  * closed_at (string)
-  * comments (integer)
-  * commits (integer)
-  * created_at (string)
-  * deletions (integer)
-  * diff_url (string)
-  * head (object)
-    * label (string)
-    * ref (string)
-    * repo (object)
-      * clone_url (string)
-      * created_at (string)
-      * description (string)
-      * fork (boolean)
-      * forks (integer)
-      * forks_count (integer)
-      * full_name (string)
-      * git_url (string)
-      * homepage (string)
-      * html_url (string)
-      * id (integer)
-      * language (null)
-      * master_branch (string)
-      * mirror_url (string)
-      * name (string)
-      * open_issues (integer)
-      * open_issues_count (integer)
-      * owner (object)
-        * avatar_url (string)
-        * gravatar_id (string)
-        * id (integer)
-        * login (string)
-        * url (string)
-      * private (boolean)
-      * pushed_at (string)
-      * size (integer)
-      * ssh_url (string)
-      * svn_url (string)
-      * updated_at (string)
-      * url (string)
-      * watchers (integer)
-      * watchers_count (integer)
-    * sha (string)
-    * user (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-  * html_url (string)
-  * issue_url (string)
-  * merge_commit_sha (string)
-  * mergeable (boolean)
-  * merged (boolean)
-  * merged_at (string)
-  * merged_by (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
-  * number (integer)
-  * patch_url (string)
-  * state (string)
-  * title (string)
-  * updated_at (string)
-  * url (string)
-  * user (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
+* pullRequest `object`
+  * _links `object`
+    * comments `object`
+      * href `string`
+    * html `object`
+      * href `string`
+    * review_comments `object`
+      * href `string`
+    * self `object`
+      * href `string`
+  * additions `integer`
+  * base `object`
+    * label `string`
+    * ref `string`
+    * repo `object`
+      * clone_url `string`
+      * created_at `string`
+      * description `string`
+      * fork `boolean`
+      * forks `integer`
+      * forks_count `integer`
+      * full_name `string`
+      * git_url `string`
+      * homepage `string`
+      * html_url `string`
+      * id `integer`
+      * language `null`
+      * master_branch `string`
+      * mirror_url `string`
+      * name `string`
+      * open_issues `integer`
+      * open_issues_count `integer`
+      * owner `object`
+        * avatar_url `string`
+        * gravatar_id `string`
+        * id `integer`
+        * login `string`
+        * url `string`
+      * private `boolean`
+      * pushed_at `string`
+      * size `integer`
+      * ssh_url `string`
+      * svn_url `string`
+      * updated_at `string`
+      * url `string`
+      * watchers `integer`
+      * watchers_count `integer`
+    * sha `string`
+    * user `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+  * body `string`
+  * changed_files `integer`
+  * closed_at `string`
+  * comments `integer`
+  * commits `integer`
+  * created_at `string`
+  * deletions `integer`
+  * diff_url `string`
+  * head `object`
+    * label `string`
+    * ref `string`
+    * repo `object`
+      * clone_url `string`
+      * created_at `string`
+      * description `string`
+      * fork `boolean`
+      * forks `integer`
+      * forks_count `integer`
+      * full_name `string`
+      * git_url `string`
+      * homepage `string`
+      * html_url `string`
+      * id `integer`
+      * language `null`
+      * master_branch `string`
+      * mirror_url `string`
+      * name `string`
+      * open_issues `integer`
+      * open_issues_count `integer`
+      * owner `object`
+        * avatar_url `string`
+        * gravatar_id `string`
+        * id `integer`
+        * login `string`
+        * url `string`
+      * private `boolean`
+      * pushed_at `string`
+      * size `integer`
+      * ssh_url `string`
+      * svn_url `string`
+      * updated_at `string`
+      * url `string`
+      * watchers `integer`
+      * watchers_count `integer`
+    * sha `string`
+    * user `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+  * html_url `string`
+  * issue_url `string`
+  * merge_commit_sha `string`
+  * mergeable `boolean`
+  * merged `boolean`
+  * merged_at `string`
+  * merged_by `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
+  * number `integer`
+  * patch_url `string`
+  * state `string`
+  * title `string`
+  * updated_at `string`
+  * url `string`
+  * user `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
 
 ### pullUpdate
-* pullUpdate (object)
-  * body (string)
-  * state (string)
-  * title (string)
+* pullUpdate `object`
+  * body `string`
+  * state `string`
+  * title `string`
 
 ### pulls
-* pulls (array)
-  * items (object)
-    * _links (object)
-      * comments (object)
-        * href (string)
-      * html (object)
-        * href (string)
-      * review_comments (object)
-        * href (string)
-      * self (object)
-        * href (string)
-    * base (object)
-      * label (string)
-      * ref (string)
-      * repo (object)
-        * clone_url (string)
-        * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-        * description (string)
-        * fork (boolean)
-        * forks (integer)
-        * forks_count (integer)
-        * full_name (string)
-        * git_url (string)
-        * homepage (string)
-        * html_url (string)
-        * id (integer)
-        * language (string)
-        * master_branch (string)
-        * mirror_url (string)
-        * name (string)
-        * open_issues (integer)
-        * open_issues_count (integer)
-        * owner (object)
-          * avatar_url (string)
-          * gravatar_id (string)
-          * id (integer)
-          * login (string)
-          * url (string)
-        * private (boolean)
-        * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-        * size (integer)
-        * ssh_url (string)
-        * svn_url (string)
-        * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-        * url (string)
-        * watchers (integer)
-        * watchers_count (integer)
-      * sha (string)
-      * user (object)
-        * avatar_url (string)
-        * gravatar_id (string)
-        * id (integer)
-        * login (string)
-        * url (string)
-    * body (string)
-    * closed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * diff_url (string)
-    * head (object)
-      * label (string)
-      * ref (string)
-      * repo (object)
-        * clone_url (string)
-        * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-        * description (string)
-        * fork (boolean)
-        * forks (integer)
-        * forks_count (integer)
-        * full_name (string)
-        * git_url (string)
-        * homepage (string)
-        * html_url (string)
-        * id (integer)
-        * language (string)
-        * master_branch (string)
-        * mirror_url (string)
-        * name (string)
-        * open_issues (integer)
-        * open_issues_count (integer)
-        * owner (object)
-          * avatar_url (string)
-          * gravatar_id (string)
-          * id (integer)
-          * login (string)
-          * url (string)
-        * private (boolean)
-        * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-        * size (integer)
-        * ssh_url (string)
-        * svn_url (string)
-        * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-        * url (string)
-        * watchers (integer)
-        * watchers_count (integer)
-      * sha (string)
-      * user (object)
-        * avatar_url (string)
-        * gravatar_id (string)
-        * id (integer)
-        * login (string)
-        * url (string)
-    * html_url (string)
-    * issue_url (string)
-    * merged_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * number (integer)
-    * patch_url (string)
-
-    * title (string)
-    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * url (string)
-    * user (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
+* pulls `array`
+  * items `object`
+    * _links `object`
+      * comments `object`
+        * href `string`
+      * html `object`
+        * href `string`
+      * review_comments `object`
+        * href `string`
+      * self `object`
+        * href `string`
+    * base `object`
+      * label `string`
+      * ref `string`
+      * repo `object`
+        * clone_url `string`
+        * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * description `string`
+        * fork `boolean`
+        * forks `integer`
+        * forks_count `integer`
+        * full_name `string`
+        * git_url `string`
+        * homepage `string`
+        * html_url `string`
+        * id `integer`
+        * language `string`
+        * master_branch `string`
+        * mirror_url `string`
+        * name `string`
+        * open_issues `integer`
+        * open_issues_count `integer`
+        * owner `object`
+          * avatar_url `string`
+          * gravatar_id `string`
+          * id `integer`
+          * login `string`
+          * url `string`
+        * private `boolean`
+        * pushed_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * size `integer`
+        * ssh_url `string`
+        * svn_url `string`
+        * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * url `string`
+        * watchers `integer`
+        * watchers_count `integer`
+      * sha `string`
+      * user `object`
+        * avatar_url `string`
+        * gravatar_id `string`
+        * id `integer`
+        * login `string`
+        * url `string`
+    * body `string`
+    * closed_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * diff_url `string`
+    * head `object`
+      * label `string`
+      * ref `string`
+      * repo `object`
+        * clone_url `string`
+        * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * description `string`
+        * fork `boolean`
+        * forks `integer`
+        * forks_count `integer`
+        * full_name `string`
+        * git_url `string`
+        * homepage `string`
+        * html_url `string`
+        * id `integer`
+        * language `string`
+        * master_branch `string`
+        * mirror_url `string`
+        * name `string`
+        * open_issues `integer`
+        * open_issues_count `integer`
+        * owner `object`
+          * avatar_url `string`
+          * gravatar_id `string`
+          * id `integer`
+          * login `string`
+          * url `string`
+        * private `boolean`
+        * pushed_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * size `integer`
+        * ssh_url `string`
+        * svn_url `string`
+        * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * url `string`
+        * watchers `integer`
+        * watchers_count `integer`
+      * sha `string`
+      * user `object`
+        * avatar_url `string`
+        * gravatar_id `string`
+        * id `integer`
+        * login `string`
+        * url `string`
+    * html_url `string`
+    * issue_url `string`
+    * merged_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * number `integer`
+    * patch_url `string`
+    * state `string` (values: open, closed)
+    * title `string`
+    * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url `string`
+    * user `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
 
 ### pullsComment
-* pullsComment (object)
-  * _links (object)
-    * html (object)
-      * href (string)
-    * pull_request (object)
-      * href (string)
-    * self (object)
-      * href (string)
-  * body (string)
-  * commit_id (string)
-  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * id (integer)
-  * path (string)
-  * position (integer)
-  * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * url (string)
-  * user (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
+* pullsComment `object`
+  * _links `object`
+    * html `object`
+      * href `string`
+    * pull_request `object`
+      * href `string`
+    * self `object`
+      * href `string`
+  * body `string`
+  * commit_id `string`
+  * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * id `integer`
+  * path `string`
+  * position `integer`
+  * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * url `string`
+  * user `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
 
 ### pullsCommentPost
-* pullsCommentPost (object)
-  * body (string)
-  * commit_id (string)
-  * path (string)
-  * position (number)
+* pullsCommentPost `object`
+  * body `string`
+  * commit_id `string`
+  * path `string`
+  * position `number`
 
 ### pullsComments
-* pullsComments (array)
-  * items (object)
-    * _links (object)
-      * html (object)
-        * href (string)
-      * pull_request (object)
-        * href (string)
-      * self (object)
-        * href (string)
-    * body (string)
-    * commit_id (string)
-    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * id (integer)
-    * path (string)
-    * position (integer)
-    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * url (string)
-    * user (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
+* pullsComments `array`
+  * items `object`
+    * _links `object`
+      * html `object`
+        * href `string`
+      * pull_request `object`
+        * href `string`
+      * self `object`
+        * href `string`
+    * body `string`
+    * commit_id `string`
+    * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * id `integer`
+    * path `string`
+    * position `integer`
+    * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url `string`
+    * user `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
 
 ### pullsPost
-* pullsPost (object)
-  * base (string)
-  * body (string)
-  * head (string)
-  * title (string)
+* pullsPost `object`
+  * base `string`
+  * body `string`
+  * head `string`
+  * title `string`
 
 ### punchCardStats
-* punchCardStats (array)
-  * items (integer)
+* punchCardStats `array`
+  * items `integer`
 
 ### putSubscription
-* putSubscription (object)
-  * created_at (string)
-  * ignored (boolean)
-  * reason (object)
-  * subscribed (boolean)
-  * thread_url (string)
-  * url (string)
+* putSubscription `object`
+  * created_at `string`
+  * ignored `boolean`
+  * reason `object`
+  * subscribed `boolean`
+  * thread_url `string`
+  * url `string`
 
 ### rate_limit
-* rate_limit (object)
-
+* rate_limit `object`
+  * rate `object`
+    * limit `integer`
+    * remaining `integer`
+    * reset `integer`
 
 ### readme
-* readme (object)
-  * _links (object)
-    * git (string)
-    * html (string)
-    * self (string)
-  * content (string)
-  * encoding (string)
-  * git_url (string)
-  * html_url (string)
-  * name (string)
-  * path (string)
-  * sha (string)
-  * size (integer)
-  * type (string)
-  * url (string)
+* readme `object`
+  * _links `object`
+    * git `string`
+    * html `string`
+    * self `string`
+  * content `string`
+  * encoding `string`
+  * git_url `string`
+  * html_url `string`
+  * name `string`
+  * path `string`
+  * sha `string`
+  * size `integer`
+  * type `string`
+  * url `string`
 
 ### ref
-* ref (array)
-  * items (object)
-    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * creator (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * description (string)
-    * id (integer)
-    * state (string)
-    * target_url (string)
-    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * url (string)
+* ref `array`
+  * items `object`
+    * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * creator `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * description `string`
+    * id `integer`
+    * state `string`
+    * target_url `string`
+    * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url `string`
 
 ### refBody
-* refBody (object)
-  * object (object)
-    * sha (string)
-    * type (string)
-    * url (string)
-  * ref (string)
-  * url (string)
+* refBody `object`
+  * object `object`
+    * sha `string`
+    * type `string`
+    * url `string`
+  * ref `string`
+  * url `string`
 
 ### refStatus
-* refStatus (array)
-  * items (object)
-    * commit_url (string)
-    * name (string)
-    * repository_url (string)
-    * sha (string)
-    * state (string)
-    * statuses (array)
-      * items (object)
-        * context (string)
-        * created_at (string)
-        * description (string)
-        * id (number)
-        * state (string)
-        * target_url (string)
-        * updated_at (string)
-        * url (string)
+* refStatus `array`
+  * items `object`
+    * commit_url `string`
+    * name `string`
+    * repository_url `string`
+    * sha `string`
+    * state `string`
+    * statuses `array`
+      * items `object`
+        * context `string`
+        * created_at `string`
+        * description `string`
+        * id `number`
+        * state `string`
+        * target_url `string`
+        * updated_at `string`
+        * url `string`
 
 ### refs
-* refs (array)
-  * items (object)
-    * object (object)
-      * sha (string)
-      * type (string)
-      * url (string)
-    * ref (string)
-    * url (string)
+* refs `array`
+  * items `object`
+    * object `object`
+      * sha `string`
+      * type `string`
+      * url `string`
+    * ref `string`
+    * url `string`
 
 ### refsBody
-* refsBody (object)
-  * ref (string)
-  * sha (string)
+* refsBody `object`
+  * ref `string`
+  * sha `string`
 
 ### release
-* release (object)
-  * assets (array)
-    * items (object)
-      * content_type (string)
-      * created_at (string)
-      * download_count (integer)
-      * id (integer)
-      * label (string)
-      * name (string)
-      * size (integer)
-      * state (string)
-      * updated_at (string)
-      * uploader (object)
-        * avatar_url (string)
-        * events_url (string)
-        * followers_url (string)
-        * following_url (string)
-        * gists_url (string)
-        * gravatar_id (string)
-        * html_url (string)
-        * id (integer)
-        * login (string)
-        * organizations_url (string)
-        * received_events_url (string)
-        * repos_url (string)
-        * site_admin (boolean)
-        * starred_url (string)
-        * subscriptions_url (string)
-        * type (string)
-        * url (string)
-      * url (string)
-  * assets_url (string)
-  * author (object)
-    * avatar_url (string)
-    * events_url (string)
-    * followers_url (string)
-    * following_url (string)
-    * gists_url (string)
-    * gravatar_id (string)
-    * html_url (string)
-    * id (integer)
-    * login (string)
-    * organizations_url (string)
-    * received_events_url (string)
-    * repos_url (string)
-    * site_admin (boolean)
-    * starred_url (string)
-    * subscriptions_url (string)
-    * type (string)
-    * url (string)
-  * body (string)
-  * created_at (string)
-  * draft (boolean)
-  * html_url (string)
-  * id (integer)
-  * name (string)
-  * prerelease (boolean)
-  * published_at (string)
-  * tag_name (string)
-  * tarball_url (string)
-  * target_commitish (string)
-  * upload_url (string)
-  * url (string)
-  * zipball_url (string)
+* release `object`
+  * assets `array`
+    * items `object`
+      * content_type `string`
+      * created_at `string`
+      * download_count `integer`
+      * id `integer`
+      * label `string`
+      * name `string`
+      * size `integer`
+      * state `string`
+      * updated_at `string`
+      * uploader `object`
+        * avatar_url `string`
+        * events_url `string`
+        * followers_url `string`
+        * following_url `string`
+        * gists_url `string`
+        * gravatar_id `string`
+        * html_url `string`
+        * id `integer`
+        * login `string`
+        * organizations_url `string`
+        * received_events_url `string`
+        * repos_url `string`
+        * site_admin `boolean`
+        * starred_url `string`
+        * subscriptions_url `string`
+        * type `string`
+        * url `string`
+      * url `string`
+  * assets_url `string`
+  * author `object`
+    * avatar_url `string`
+    * events_url `string`
+    * followers_url `string`
+    * following_url `string`
+    * gists_url `string`
+    * gravatar_id `string`
+    * html_url `string`
+    * id `integer`
+    * login `string`
+    * organizations_url `string`
+    * received_events_url `string`
+    * repos_url `string`
+    * site_admin `boolean`
+    * starred_url `string`
+    * subscriptions_url `string`
+    * type `string`
+    * url `string`
+  * body `string`
+  * created_at `string`
+  * draft `boolean`
+  * html_url `string`
+  * id `integer`
+  * name `string`
+  * prerelease `boolean`
+  * published_at `string`
+  * tag_name `string`
+  * tarball_url `string`
+  * target_commitish `string`
+  * upload_url `string`
+  * url `string`
+  * zipball_url `string`
 
 ### release-create
-* release-create (object)
-  * body (string)
-  * draft (boolean)
-  * name (string)
-  * prerelease (boolean)
-  * tag_name (string)
-  * target_commitish (string)
+* release-create `object`
+  * body `string`
+  * draft `boolean`
+  * name `string`
+  * prerelease `boolean`
+  * tag_name `string`
+  * target_commitish `string`
 
 ### releases
-* releases (array)
-  * items (object)
-    * assets (array)
-      * items (object)
-        * content_type (string)
-        * created_at (string)
-        * download_count (integer)
-        * id (integer)
-        * label (string)
-        * name (string)
-        * size (integer)
-        * state (string)
-        * updated_at (string)
-        * uploader (object)
-          * avatar_url (string)
-          * events_url (string)
-          * followers_url (string)
-          * following_url (string)
-          * gists_url (string)
-          * gravatar_id (string)
-          * html_url (string)
-          * id (integer)
-          * login (string)
-          * organizations_url (string)
-          * received_events_url (string)
-          * repos_url (string)
-          * site_admin (boolean)
-          * starred_url (string)
-          * subscriptions_url (string)
-          * type (string)
-          * url (string)
-        * url (string)
-    * assets_url (string)
-    * author (object)
-      * avatar_url (string)
-      * events_url (string)
-      * followers_url (string)
-      * following_url (string)
-      * gists_url (string)
-      * gravatar_id (string)
-      * html_url (string)
-      * id (integer)
-      * login (string)
-      * organizations_url (string)
-      * received_events_url (string)
-      * repos_url (string)
-      * site_admin (boolean)
-      * starred_url (string)
-      * subscriptions_url (string)
-      * type (string)
-      * url (string)
-    * body (string)
-    * created_at (string)
-    * draft (boolean)
-    * html_url (string)
-    * id (integer)
-    * name (string)
-    * prerelease (boolean)
-    * published_at (string)
-    * tag_name (string)
-    * tarball_url (string)
-    * target_commitish (string)
-    * upload_url (string)
-    * url (string)
-    * zipball_url (string)
+* releases `array`
+  * items `object`
+    * assets `array`
+      * items `object`
+        * content_type `string`
+        * created_at `string`
+        * download_count `integer`
+        * id `integer`
+        * label `string`
+        * name `string`
+        * size `integer`
+        * state `string`
+        * updated_at `string`
+        * uploader `object`
+          * avatar_url `string`
+          * events_url `string`
+          * followers_url `string`
+          * following_url `string`
+          * gists_url `string`
+          * gravatar_id `string`
+          * html_url `string`
+          * id `integer`
+          * login `string`
+          * organizations_url `string`
+          * received_events_url `string`
+          * repos_url `string`
+          * site_admin `boolean`
+          * starred_url `string`
+          * subscriptions_url `string`
+          * type `string`
+          * url `string`
+        * url `string`
+    * assets_url `string`
+    * author `object`
+      * avatar_url `string`
+      * events_url `string`
+      * followers_url `string`
+      * following_url `string`
+      * gists_url `string`
+      * gravatar_id `string`
+      * html_url `string`
+      * id `integer`
+      * login `string`
+      * organizations_url `string`
+      * received_events_url `string`
+      * repos_url `string`
+      * site_admin `boolean`
+      * starred_url `string`
+      * subscriptions_url `string`
+      * type `string`
+      * url `string`
+    * body `string`
+    * created_at `string`
+    * draft `boolean`
+    * html_url `string`
+    * id `integer`
+    * name `string`
+    * prerelease `boolean`
+    * published_at `string`
+    * tag_name `string`
+    * tarball_url `string`
+    * target_commitish `string`
+    * upload_url `string`
+    * url `string`
+    * zipball_url `string`
 
 ### repo
-* repo (object)
-  * clone_url (string)
-  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * description (string)
-  * fork (boolean)
-  * forks (integer)
-  * forks_count (integer)
-  * full_name (string)
-  * git_url (string)
-  * has_downloads (boolean)
-  * has_issues (boolean)
-  * has_wiki (boolean)
-  * homepage (string)
-  * html_url (string)
-  * id (integer)
-  * language (string)
-  * master_branch (string)
-  * mirror_url (string)
-  * name (string)
-  * open_issues (integer)
-  * open_issues_count (integer)
-  * organization (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * type (string)
-    * url (string)
-  * owner (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
-  * parent (object): Is present when the repo is a fork. Parent is the repo this repo was forked from.
-    * clone_url (string)
-    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * description (string)
-    * fork (boolean)
-    * forks (integer)
-    * forks_count (integer)
-    * full_name (string)
-    * git_url (string)
-    * homepage (string)
-    * html_url (string)
-    * id (integer)
-    * language (string)
-    * master_branch (string)
-    * mirror_url (string)
-    * name (string)
-    * open_issues (integer)
-    * open_issues_count (integer)
-    * owner (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * private (boolean)
-    * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * size (integer)
-    * ssh_url (string)
-    * svn_url (string)
-    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * url (string)
-    * watchers (integer)
-    * watchers_count (integer)
-  * private (boolean)
-  * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * size (integer)
-  * source (object): Is present when the repo is a fork. Source is the ultimate source for the network.
-    * clone_url (string)
-    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * description (string)
-    * fork (boolean)
-    * forks (integer)
-    * forks_count (integer)
-    * full_name (string)
-    * git_url (string)
-    * homepage (string)
-    * html_url (string)
-    * id (integer)
-    * language (string)
-    * master_branch (string)
-    * mirror_url (string)
-    * name (string)
-    * open_issues (integer)
-    * open_issues_count (integer)
-    * owner (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * private (boolean)
-    * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * size (integer)
-    * ssh_url (string)
-    * svn_url (string)
-    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * url (string)
-    * watchers (integer)
-    * watchers_count (integer)
-  * ssh_url (string)
-  * svn_url (string)
-  * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * url (string)
-  * watchers (integer)
-  * watchers_count (integer)
+* repo `object`
+  * clone_url `string`
+  * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * description `string`
+  * fork `boolean`
+  * forks `integer`
+  * forks_count `integer`
+  * full_name `string`
+  * git_url `string`
+  * has_downloads `boolean`
+  * has_issues `boolean`
+  * has_wiki `boolean`
+  * homepage `string`
+  * html_url `string`
+  * id `integer`
+  * language `string`
+  * master_branch `string`
+  * mirror_url `string`
+  * name `string`
+  * open_issues `integer`
+  * open_issues_count `integer`
+  * organization `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * type `string`
+    * url `string`
+  * owner `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
+  * parent `object`: Is present when the repo is a fork. Parent is the repo this repo was forked from.
+    * clone_url `string`
+    * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * description `string`
+    * fork `boolean`
+    * forks `integer`
+    * forks_count `integer`
+    * full_name `string`
+    * git_url `string`
+    * homepage `string`
+    * html_url `string`
+    * id `integer`
+    * language `string`
+    * master_branch `string`
+    * mirror_url `string`
+    * name `string`
+    * open_issues `integer`
+    * open_issues_count `integer`
+    * owner `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * private `boolean`
+    * pushed_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * size `integer`
+    * ssh_url `string`
+    * svn_url `string`
+    * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url `string`
+    * watchers `integer`
+    * watchers_count `integer`
+  * private `boolean`
+  * pushed_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * size `integer`
+  * source `object`: Is present when the repo is a fork. Source is the ultimate source for the network.
+    * clone_url `string`
+    * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * description `string`
+    * fork `boolean`
+    * forks `integer`
+    * forks_count `integer`
+    * full_name `string`
+    * git_url `string`
+    * homepage `string`
+    * html_url `string`
+    * id `integer`
+    * language `string`
+    * master_branch `string`
+    * mirror_url `string`
+    * name `string`
+    * open_issues `integer`
+    * open_issues_count `integer`
+    * owner `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * private `boolean`
+    * pushed_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * size `integer`
+    * ssh_url `string`
+    * svn_url `string`
+    * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url `string`
+    * watchers `integer`
+    * watchers_count `integer`
+  * ssh_url `string`
+  * svn_url `string`
+  * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * url `string`
+  * watchers `integer`
+  * watchers_count `integer`
 
 ### repo-deployments
-* repo-deployments (array)
-  * items (object)
-    * created_at (string)
-    * creator (object)
-      * avatar_url (string)
-      * events_url (string)
-      * followers_url (string)
-      * following_url (string)
-      * gists_url (string)
-      * gravatar_id (string)
-      * html_url (string)
-      * id (integer)
-      * login (string)
-      * organizations_url (string)
-      * received_events_url (string)
-      * repos_url (string)
-      * site_admin (boolean)
-      * starred_url (string)
-      * subscriptions_url (string)
-      * type (string)
-      * url (string)
-    * description (string)
-    * id (integer)
-    * payload (string)
-    * sha (string)
-    * statuses_url (string)
-    * updated_at (string)
-    * url (string)
+* repo-deployments `array`
+  * items `object`
+    * created_at `string`
+    * creator `object`
+      * avatar_url `string`
+      * events_url `string`
+      * followers_url `string`
+      * following_url `string`
+      * gists_url `string`
+      * gravatar_id `string`
+      * html_url `string`
+      * id `integer`
+      * login `string`
+      * organizations_url `string`
+      * received_events_url `string`
+      * repos_url `string`
+      * site_admin `boolean`
+      * starred_url `string`
+      * subscriptions_url `string`
+      * type `string`
+      * url `string`
+    * description `string`
+    * id `integer`
+    * payload `string`
+    * sha `string`
+    * statuses_url `string`
+    * updated_at `string`
+    * url `string`
 
 ### repoComments
-* repoComments (array)
-  * items (object)
-    * body (string)
-    * commit_id (string)
-    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * html_url (string)
-    * id (integer)
-    * line (integer)
-    * path (string)
-    * position (integer)
-    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * url (string)
-    * user (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
+* repoComments `array`
+  * items `object`
+    * body `string`
+    * commit_id `string`
+    * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * html_url `string`
+    * id `integer`
+    * line `integer`
+    * path `string`
+    * position `integer`
+    * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url `string`
+    * user `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
 
 ### repoCommit
-* repoCommit (object)
-  * author (object)
-    * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * email (string)
-    * name (string)
-  * committer (object)
-    * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * email (string)
-    * name (string)
-  * message (string)
-  * parents (array)
-    * items (object)
-      * sha (string)
-      * url (string)
-  * sha (string)
-  * tree (object)
-    * sha (string)
-    * url (string)
-  * url (string)
+* repoCommit `object`
+  * author `object`
+    * date `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * email `string`
+    * name `string`
+  * committer `object`
+    * date `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * email `string`
+    * name `string`
+  * message `string`
+  * parents `array`
+    * items `object`
+      * sha `string`
+      * url `string`
+  * sha `string`
+  * tree `object`
+    * sha `string`
+    * url `string`
+  * url `string`
 
 ### repoCommitBody
-* repoCommitBody (object)
-  * author (object)
-    * date (string)
-    * email (string)
-    * name (string)
-  * message **required** (string)
-  * parents **required** (array)
-    * items (string)
-  * tree **required** (string)
+* repoCommitBody `object`
+  * author `object`
+    * date `string`
+    * email `string`
+    * name `string`
+  * message **required** `string`
+  * parents **required** `array`
+    * items `string`
+  * tree **required** `string`
 
 ### repoEdit
-* repoEdit (object)
-  * description (string)
-  * has_downloads (boolean)
-  * has_issues (boolean)
-  * has_wiki (boolean)
-  * homepage (string)
-  * name (string)
-  * private (boolean)
+* repoEdit `object`
+  * description `string`
+  * has_downloads `boolean`
+  * has_issues `boolean`
+  * has_wiki `boolean`
+  * homepage `string`
+  * name `string`
+  * private `boolean`
 
 ### repos
-* repos (array)
-
+* repos `array`
+  * items `object`
+    * clone_url `string`
+    * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * description `string`
+    * fork `boolean`
+    * forks `integer`
+    * forks_count `integer`
+    * full_name `string`
+    * git_url `string`
+    * homepage `string`
+    * html_url `string`
+    * id `integer`
+    * language `string`
+    * master_branch `string`
+    * mirror_url `string`
+    * name `string`
+    * open_issues `integer`
+    * open_issues_count `integer`
+    * owner `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * private `boolean`
+    * pushed_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * size `integer`
+    * ssh_url `string`
+    * svn_url `string`
+    * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url `string`
+    * watchers `integer`
+    * watchers_count `integer`
 
 ### repositories
-* repositories (array)
-  * items (object)
-    * description (string)
-    * fork (boolean)
-    * full_name (string)
-    * html_url (string)
-    * id (integer)
-    * name (string)
-    * owner (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * private (boolean)
-    * url (string)
+* repositories `array`
+  * items `object`
+    * description `string`
+    * fork `boolean`
+    * full_name `string`
+    * html_url `string`
+    * id `integer`
+    * name `string`
+    * owner `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * private `boolean`
+    * url `string`
 
 ### search-code
-* search-code (object)
-  * items (array)
-    * items (object)
-      * git_url (string)
-      * html_url (string)
-      * name (string)
-      * path (string)
-      * repository (object)
-        * archive_url (string)
-        * assignees_url (string)
-        * blobs_url (string)
-        * branches_url (string)
-        * collaborators_url (string)
-        * comments_url (string)
-        * commits_url (string)
-        * compare_url (string)
-        * contents_url (string)
-        * contributors_url (string)
-        * description (string)
-        * downloads_url (string)
-        * events_url (string)
-        * fork (boolean)
-        * forks_url (string)
-        * full_name (string)
-        * git_commits_url (string)
-        * git_refs_url (string)
-        * git_tags_url (string)
-        * hooks_url (string)
-        * html_url (string)
-        * id (integer)
-        * issue_comment_url (string)
-        * issue_events_url (string)
-        * issues_url (string)
-        * keys_url (string)
-        * labels_url (string)
-        * languages_url (string)
-        * merges_url (string)
-        * milestones_url (string)
-        * name (string)
-        * notifications_url (string)
-        * owner (object)
-          * avatar_url (string)
-          * events_url (string)
-          * followers_url (string)
-          * following_url (string)
-          * gists_url (string)
-          * gravatar_id (string)
-          * html_url (string)
-          * id (integer)
-          * login (string)
-          * organizations_url (string)
-          * received_events_url (string)
-          * repos_url (string)
-          * starred_url (string)
-          * subscriptions_url (string)
-          * type (string)
-          * url (string)
-        * private (boolean)
-        * pulls_url (string)
-        * stargazers_url (string)
-        * statuses_url (string)
-        * subscribers_url (string)
-        * subscription_url (string)
-        * tags_url (string)
-        * teams_url (string)
-        * trees_url (string)
-        * url (string)
-      * score (number)
-      * sha (string)
-      * url (string)
-  * total_count (integer)
+* search-code `object`
+  * items `array`
+    * items `object`
+      * git_url `string`
+      * html_url `string`
+      * name `string`
+      * path `string`
+      * repository `object`
+        * archive_url `string`
+        * assignees_url `string`
+        * blobs_url `string`
+        * branches_url `string`
+        * collaborators_url `string`
+        * comments_url `string`
+        * commits_url `string`
+        * compare_url `string`
+        * contents_url `string`
+        * contributors_url `string`
+        * description `string`
+        * downloads_url `string`
+        * events_url `string`
+        * fork `boolean`
+        * forks_url `string`
+        * full_name `string`
+        * git_commits_url `string`
+        * git_refs_url `string`
+        * git_tags_url `string`
+        * hooks_url `string`
+        * html_url `string`
+        * id `integer`
+        * issue_comment_url `string`
+        * issue_events_url `string`
+        * issues_url `string`
+        * keys_url `string`
+        * labels_url `string`
+        * languages_url `string`
+        * merges_url `string`
+        * milestones_url `string`
+        * name `string`
+        * notifications_url `string`
+        * owner `object`
+          * avatar_url `string`
+          * events_url `string`
+          * followers_url `string`
+          * following_url `string`
+          * gists_url `string`
+          * gravatar_id `string`
+          * html_url `string`
+          * id `integer`
+          * login `string`
+          * organizations_url `string`
+          * received_events_url `string`
+          * repos_url `string`
+          * starred_url `string`
+          * subscriptions_url `string`
+          * type `string`
+          * url `string`
+        * private `boolean`
+        * pulls_url `string`
+        * stargazers_url `string`
+        * statuses_url `string`
+        * subscribers_url `string`
+        * subscription_url `string`
+        * tags_url `string`
+        * teams_url `string`
+        * trees_url `string`
+        * url `string`
+      * score `number`
+      * sha `string`
+      * url `string`
+  * total_count `integer`
 
 ### search-issues
-* search-issues (object)
-  * items (array)
-    * items (object)
-      * assignee (null)
-      * body (string)
-      * closed_at (null)
-      * comments (integer)
-      * comments_url (string)
-      * created_at (string)
-      * events_url (string)
-      * html_url (string)
-      * id (integer)
-      * labels (array)
-        * items (object)
-          * color (string)
-          * name (string)
-          * url (string)
-      * labels_url (string)
-      * milestone (null)
-      * number (integer)
-      * pull_request (object)
-        * diff_url (null)
-        * html_url (null)
-        * patch_url (null)
-      * score (number)
-      * state (string)
-      * title (string)
-      * updated_at (string)
-      * url (string)
-      * user (object)
-        * avatar_url (string)
-        * events_url (string)
-        * followers_url (string)
-        * following_url (string)
-        * gists_url (string)
-        * gravatar_id (string)
-        * html_url (string)
-        * id (integer)
-        * login (string)
-        * organizations_url (string)
-        * received_events_url (string)
-        * repos_url (string)
-        * starred_url (string)
-        * subscriptions_url (string)
-        * type (string)
-        * url (string)
-  * total_count (integer)
+* search-issues `object`
+  * items `array`
+    * items `object`
+      * assignee `null`
+      * body `string`
+      * closed_at `null`
+      * comments `integer`
+      * comments_url `string`
+      * created_at `string`
+      * events_url `string`
+      * html_url `string`
+      * id `integer`
+      * labels `array`
+        * items `object`
+          * color `string`
+          * name `string`
+          * url `string`
+      * labels_url `string`
+      * milestone `null`
+      * number `integer`
+      * pull_request `object`
+        * diff_url `null`
+        * html_url `null`
+        * patch_url `null`
+      * score `number`
+      * state `string`
+      * title `string`
+      * updated_at `string`
+      * url `string`
+      * user `object`
+        * avatar_url `string`
+        * events_url `string`
+        * followers_url `string`
+        * following_url `string`
+        * gists_url `string`
+        * gravatar_id `string`
+        * html_url `string`
+        * id `integer`
+        * login `string`
+        * organizations_url `string`
+        * received_events_url `string`
+        * repos_url `string`
+        * starred_url `string`
+        * subscriptions_url `string`
+        * type `string`
+        * url `string`
+  * total_count `integer`
 
 ### search-issues-by-keyword
-* search-issues-by-keyword (object)
-  * issues (array)
-    * items (object)
-      * body (string)
-      * comments (integer)
-      * created_at (string)
-      * gravatar_id (string)
-      * html_url (string)
-      * labels (array)
-        * items (string)
-      * number (integer)
-      * position (integer)
-      * state (string)
-      * title (string)
-      * updated_at (string)
-      * user (string)
-      * votes (integer)
+* search-issues-by-keyword `object`
+  * issues `array`
+    * items `object`
+      * body `string`
+      * comments `integer`
+      * created_at `string`
+      * gravatar_id `string`
+      * html_url `string`
+      * labels `array`
+        * items `string`
+      * number `integer`
+      * position `integer`
+      * state `string`
+      * title `string`
+      * updated_at `string`
+      * user `string`
+      * votes `integer`
 
 ### search-repositories
-* search-repositories (object)
-  * items (array)
-    * items (object)
-      * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-      * default_branch (string)
-      * description (string)
-      * fork (boolean)
-      * forks (integer)
-      * forks_count (integer)
-      * full_name (string)
-      * homepage (string)
-      * html_url (string)
-      * id (integer)
-      * language (string)
-      * master_branch (string)
-      * name (string)
-      * open_issues (integer)
-      * open_issues_count (integer)
-      * owner (object)
-        * avatar_url (string)
-        * gravatar_id (string)
-        * id (integer)
-        * login (string)
-        * received_events_url (string)
-        * type (string)
-        * url (string)
-      * private (boolean)
-      * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-      * score (number)
-      * size (integer)
-      * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-      * url (string)
-      * watchers (integer)
-      * watchers_count (integer)
-  * total_count (integer)
+* search-repositories `object`
+  * items `array`
+    * items `object`
+      * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * default_branch `string`
+      * description `string`
+      * fork `boolean`
+      * forks `integer`
+      * forks_count `integer`
+      * full_name `string`
+      * homepage `string`
+      * html_url `string`
+      * id `integer`
+      * language `string`
+      * master_branch `string`
+      * name `string`
+      * open_issues `integer`
+      * open_issues_count `integer`
+      * owner `object`
+        * avatar_url `string`
+        * gravatar_id `string`
+        * id `integer`
+        * login `string`
+        * received_events_url `string`
+        * type `string`
+        * url `string`
+      * private `boolean`
+      * pushed_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * score `number`
+      * size `integer`
+      * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * url `string`
+      * watchers `integer`
+      * watchers_count `integer`
+  * total_count `integer`
 
 ### search-repositories-by-keyword
-* search-repositories-by-keyword (object)
-  * repositories (array)
-    * items (object)
-      * created (string)
-      * created_at (string)
-      * description (string)
-      * followers (integer)
-      * fork (boolean)
-      * forks (integer)
-      * has_downloads (boolean)
-      * has_issues (boolean)
-      * has_wiki (boolean)
-      * homepage (string)
-      * language (string)
-      * name (string)
-      * open_issues (integer)
-      * owner (string)
-      * private (boolean)
-      * pushed (string)
-      * pushed_at (string)
-      * score (number)
-      * size (integer)
-      * type (string)
-      * url (string)
-      * username (string)
-      * watchers (integer)
+* search-repositories-by-keyword `object`
+  * repositories `array`
+    * items `object`
+      * created `string`
+      * created_at `string`
+      * description `string`
+      * followers `integer`
+      * fork `boolean`
+      * forks `integer`
+      * has_downloads `boolean`
+      * has_issues `boolean`
+      * has_wiki `boolean`
+      * homepage `string`
+      * language `string`
+      * name `string`
+      * open_issues `integer`
+      * owner `string`
+      * private `boolean`
+      * pushed `string`
+      * pushed_at `string`
+      * score `number`
+      * size `integer`
+      * type `string`
+      * url `string`
+      * username `string`
+      * watchers `integer`
 
 ### search-user-by-email
-* search-user-by-email (object)
-  * user (object)
-    * blog (string)
-    * company (string)
-    * created (string)
-    * created_at (string)
-    * email (string)
-    * followers_count (integer)
-    * following_count (integer)
-    * gravatar_id (string)
-    * id (integer)
-    * location (string)
-    * login (string)
-    * name (string)
-    * public_gist_count (integer)
-    * public_repo_count (integer)
-    * type (string)
+* search-user-by-email `object`
+  * user `object`
+    * blog `string`
+    * company `string`
+    * created `string`
+    * created_at `string`
+    * email `string`
+    * followers_count `integer`
+    * following_count `integer`
+    * gravatar_id `string`
+    * id `integer`
+    * location `string`
+    * login `string`
+    * name `string`
+    * public_gist_count `integer`
+    * public_repo_count `integer`
+    * type `string`
 
 ### search-users
-* search-users (object)
-  * items (array)
-    * items (object)
-      * avatar_url (string)
-      * followers_url (string)
-      * gravatar_id (string)
-      * html_url (string)
-      * id (integer)
-      * login (string)
-      * organizations_url (string)
-      * received_events_url (string)
-      * repos_url (string)
-      * score (number)
-      * subscriptions_url (string)
-      * type (string)
-      * url (string)
-  * total_count (integer)
+* search-users `object`
+  * items `array`
+    * items `object`
+      * avatar_url `string`
+      * followers_url `string`
+      * gravatar_id `string`
+      * html_url `string`
+      * id `integer`
+      * login `string`
+      * organizations_url `string`
+      * received_events_url `string`
+      * repos_url `string`
+      * score `number`
+      * subscriptions_url `string`
+      * type `string`
+      * url `string`
+  * total_count `integer`
 
 ### search-users-by-keyword
-* search-users-by-keyword (object)
-  * users (array)
-    * items (object)
-      * created (string)
-      * created_at (string)
-      * followers (integer)
-      * followers_count (integer)
-      * fullname (string)
-      * gravatar_id (string)
-      * id (string)
-      * language (string)
-      * location (string)
-      * login (string)
-      * name (string)
-      * public_repo_count (integer)
-      * repos (integer)
-      * score (number)
-      * type (string)
-      * username (string)
+* search-users-by-keyword `object`
+  * users `array`
+    * items `object`
+      * created `string`
+      * created_at `string`
+      * followers `integer`
+      * followers_count `integer`
+      * fullname `string`
+      * gravatar_id `string`
+      * id `string`
+      * language `string`
+      * location `string`
+      * login `string`
+      * name `string`
+      * public_repo_count `integer`
+      * repos `integer`
+      * score `number`
+      * type `string`
+      * username `string`
 
 ### stargazers
-* stargazers (array)
-  * items (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
+* stargazers `array`
+  * items `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
 
 ### subscribition
-* subscribition (object)
-  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * ignored (boolean)
-  * reason (string)
-  * repository_url (string)
-  * subscribed (boolean)
-  * url (string)
+* subscribition `object`
+  * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * ignored `boolean`
+  * reason `string`
+  * repository_url `string`
+  * subscribed `boolean`
+  * url `string`
 
 ### subscribitionBody
-* subscribitionBody (object)
-  * ignored (boolean)
-  * subscribed (boolean)
+* subscribitionBody `object`
+  * ignored `boolean`
+  * subscribed `boolean`
 
 ### subscription
-* subscription (object)
-  * created_at (string)
-  * ignored (boolean)
-  * reason (boolean)
-  * subscribed (boolean)
-  * thread_url (string)
-  * url (string)
+* subscription `object`
+  * created_at `string`
+  * ignored `boolean`
+  * reason `boolean`
+  * subscribed `boolean`
+  * thread_url `string`
+  * url `string`
 
 ### tag
-* tag (object)
-  * message (string)
-  * object (object)
-    * sha (string)
-    * type (string)
-    * url (string)
-  * sha (string)
-  * tag (string)
-  * tagger (object)
-    * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-    * email (string)
-    * name (string)
-  * url (string)
+* tag `object`
+  * message `string`
+  * object `object`
+    * sha `string`
+    * type `string`
+    * url `string`
+  * sha `string`
+  * tag `string`
+  * tagger `object`
+    * date `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * email `string`
+    * name `string`
+  * url `string`
 
 ### tags
-* tags (object)
-  * message **required** (string): String of the tag message.
-  * object **required** (string): String of the SHA of the git object this is tagging.
-  * tag **required** (string)
-  * tagger **required** (object)
-    * date (string): Timestamp of when this object was tagged.
-    * email (string): String of the email of the author of the tag.
-    * name (string): String of the name of the author of the tag.
-  * type **required** (string): String of the type of the object we’re tagging. Normally this is a commit but it can also be a tree or a blob.
+* tags `object`
+  * message **required** `string`: String of the tag message.
+  * object **required** `string`: String of the SHA of the git object this is tagging.
+  * tag **required** `string`
+  * tagger **required** `object`
+    * date `string`: Timestamp of when this object was tagged.
+    * email `string`: String of the email of the author of the tag.
+    * name `string`: String of the name of the author of the tag.
+  * type **required** `string`: String of the type of the object we’re tagging. Normally this is a commit but it can also be a tree or a blob.
 
 ### team
-* team (object)
-  * id (integer)
-  * members_count (integer)
-  * name (string)
-  * permission (string)
-  * repos_count (integer)
-  * url (string)
+* team `object`
+  * id `integer`
+  * members_count `integer`
+  * name `string`
+  * permission `string`
+  * repos_count `integer`
+  * url `string`
 
 ### teamMembership
-* teamMembership (object)
-  * state (string)
-  * url (string)
+* teamMembership `object`
+  * state `string`
+  * url `string`
 
 ### teamRepos
-* teamRepos (array)
-  * items (object)
-    * clone_url (string)
-    * created_at (string)
-    * description (string)
-    * fork (boolean)
-    * forks (integer)
-    * forks_count (integer)
-    * full_name (string)
-    * git_url (string)
-    * homepage (string)
-    * html_url (string)
-    * id (integer)
-    * language (null)
-    * master_branch (string)
-    * mirror_url (string)
-    * name (string)
-    * open_issues (integer)
-    * open_issues_count (integer)
-    * owner (object)
-      * avatar_url (string)
-      * gravatar_id (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * private (boolean)
-    * pushed_at (string)
-    * size (integer)
-    * ssh_url (string)
-    * svn_url (string)
-    * updated_at (string)
-    * url (string)
-    * watchers (integer)
-    * watchers_count (integer)
+* teamRepos `array`
+  * items `object`
+    * clone_url `string`
+    * created_at `string`
+    * description `string`
+    * fork `boolean`
+    * forks `integer`
+    * forks_count `integer`
+    * full_name `string`
+    * git_url `string`
+    * homepage `string`
+    * html_url `string`
+    * id `integer`
+    * language `null`
+    * master_branch `string`
+    * mirror_url `string`
+    * name `string`
+    * open_issues `integer`
+    * open_issues_count `integer`
+    * owner `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * private `boolean`
+    * pushed_at `string`
+    * size `integer`
+    * ssh_url `string`
+    * svn_url `string`
+    * updated_at `string`
+    * url `string`
+    * watchers `integer`
+    * watchers_count `integer`
 
 ### teams
-* teams (array)
-  * items (object)
-    * id (integer)
-    * name (string)
-    * url (string)
+* teams `array`
+  * items `object`
+    * id `integer`
+    * name `string`
+    * url `string`
 
 ### teams-list
-* teams-list (array)
-  * items (object)
-    * id (integer)
-    * members_count (integer)
-    * name (string)
-    * organization (object)
-      * avatar_url (string)
-      * id (integer)
-      * login (string)
-      * url (string)
-    * permission (string)
-    * repos_count (integer)
-    * url (string)
+* teams-list `array`
+  * items `object`
+    * id `integer`
+    * members_count `integer`
+    * name `string`
+    * organization `object`
+      * avatar_url `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * permission `string`
+    * repos_count `integer`
+    * url `string`
 
 ### tree
-* tree (object)
-  * sha (string)
-  * tree (array)
-    * items (object)
-      * mode (string)
-      * path (string)
-      * sha (string)
-      * size (integer)
-      * type (string)
-      * url (string)
-  * url (string)
+* tree `object`
+  * sha `string`
+  * tree `array`
+    * items `object`
+      * mode `string`
+      * path `string`
+      * sha `string`
+      * size `integer`
+      * type `string`
+      * url `string`
+  * url `string`
 
 ### trees
-* trees (object)
-  * base_tree (string)
-  * sha (string): SHA1 checksum ID of the object in the tree.
-  * tree (array)
-    * items (object)
-      * mode (string): One of 100644 for file (blob), 100755 for executable (blob), 040000 for subdirectory (tree), 160000 for submodule (commit) or 120000 for a blob that specifies the path of a symlink.
-      * path (string)
-      * sha (string): SHA1 checksum ID of the object in the tree.
-      * type (string)
-      * url (string)
-  * url (string)
+* trees `object`
+  * base_tree `string`
+  * sha `string`: SHA1 checksum ID of the object in the tree.
+  * tree `array`
+    * items `object`
+      * mode `string` (values: 100644, 100755, 040000, 160000, 120000): One of 100644 for file (blob), 100755 for executable (blob), 040000 for subdirectory (tree), 160000 for submodule (commit) or 120000 for a blob that specifies the path of a symlink.
+      * path `string`
+      * sha `string`: SHA1 checksum ID of the object in the tree.
+      * type `string` (values: blob, tree, commit)
+      * url `string`
+  * url `string`
 
 ### user
-* user (object)
-  * avatar_url (string)
-  * bio (string)
-  * blog (string)
-  * collaborators (integer)
-  * company (string)
-  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * disk_usage (integer)
-  * email (string)
-  * followers (integer)
-  * following (integer)
-  * gravatar_id (string)
-  * hireable (boolean)
-  * html_url (string)
-  * id (integer)
-  * location (string)
-  * login (string)
-  * name (string)
-  * owned_private_repos (integer)
-  * plan (object)
-    * collaborators (integer)
-    * name (string)
-    * private_repos (integer)
-    * space (integer)
-  * private_gists (integer)
-  * public_gists (integer)
-  * public_repos (integer)
-  * total_private_repos (integer)
-  * type (string)
-  * url (string)
+* user `object`
+  * avatar_url `string`
+  * bio `string`
+  * blog `string`
+  * collaborators `integer`
+  * company `string`
+  * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * disk_usage `integer`
+  * email `string`
+  * followers `integer`
+  * following `integer`
+  * gravatar_id `string`
+  * hireable `boolean`
+  * html_url `string`
+  * id `integer`
+  * location `string`
+  * login `string`
+  * name `string`
+  * owned_private_repos `integer`
+  * plan `object`
+    * collaborators `integer`
+    * name `string`
+    * private_repos `integer`
+    * space `integer`
+  * private_gists `integer`
+  * public_gists `integer`
+  * public_repos `integer`
+  * total_private_repos `integer`
+  * type `string`
+  * url `string`
 
 ### user-emails
-* user-emails (array)
-  * items (string)
+* user-emails `array`
+  * items `string`
 
 ### user-emails_final
-* user-emails_final (array)
+* user-emails_final `array`
 
 
 ### user-keys
-* user-keys (array)
+* user-keys `array`
 
 
 ### user-keys-keyId
-* user-keys-keyId (object)
-  * id (integer)
-  * key (string)
-  * title (string)
-  * url (string)
+* user-keys-keyId `object`
+  * id `integer`
+  * key `string`
+  * title `string`
+  * url `string`
 
 ### user-keys-post
-* user-keys-post (object)
-  * key (string)
-  * title (string)
+* user-keys-post `object`
+  * key `string`
+  * title `string`
 
 ### user-update
-* user-update (object)
-  * bio (string)
-  * blog (string)
-  * company (string)
-  * email (string)
-  * hireable (boolean)
-  * location (string)
-  * name (string)
+* user-update `object`
+  * bio `string`
+  * blog `string`
+  * company `string`
+  * email `string`
+  * hireable `boolean`
+  * location `string`
+  * name `string`
 
 ### user-userId
-* user-userId (object)
-  * avatar_url (string)
-  * bio (string)
-  * blog (string)
-  * company (string)
-  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-  * email (string): Note: The returned email is the user’s publicly visible email address (or null if the user has not specified a public email address in their profile).
-  * followers (integer)
-  * following (integer)
-  * gravatar_id (string)
-  * hireable (boolean)
-  * html_url (string)
-  * id (integer)
-  * location (string)
-  * login (string)
-  * name (string)
-  * public_gists (integer)
-  * public_repos (integer)
-  * type (string)
-  * url (string)
+* user-userId `object`
+  * avatar_url `string`
+  * bio `string`
+  * blog `string`
+  * company `string`
+  * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * email `string`: Note: The returned email is the user’s publicly visible email address (or null if the user has not specified a public email address in their profile).
+  * followers `integer`
+  * following `integer`
+  * gravatar_id `string`
+  * hireable `boolean`
+  * html_url `string`
+  * id `integer`
+  * location `string`
+  * login `string`
+  * name `string`
+  * public_gists `integer`
+  * public_repos `integer`
+  * type `string`
+  * url `string`
 
 ### user-userId-starred
-* user-userId-starred (array)
+* user-userId-starred `array`
 
 
 ### user-userId-subscribitions
-* user-userId-subscribitions (array)
-
+* user-userId-subscribitions `array`
+  * items `object`
+    * clone_url `string`
+    * created_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * description `string`
+    * fork `boolean`
+    * forks `integer`
+    * forks_count `integer`
+    * full_name `string`
+    * git_url `string`
+    * homepage `string`
+    * html_url `string`
+    * id `integer`
+    * language `string`
+    * master_branch `integer`
+    * mirror_url `string`
+    * name `string`
+    * open_issues `integer`
+    * open_issues_count `integer`
+    * owner `object`
+      * avatar_url `string`
+      * gravatar_id `string`
+      * id `integer`
+      * login `string`
+      * url `string`
+    * private `boolean`
+    * pushed_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * size `integer`
+    * ssh_url `string`
+    * svn_url `string`
+    * updated_at `string`: ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url `string`
+    * watchers `integer`
+    * watchers_count `integer`
 
 ### users
-* users (array)
-  * items (object)
-    * avatar_url (string)
-    * gravatar_id (string)
-    * id (integer)
-    * login (string)
-    * url (string)
+* users `array`
+  * items `object`
+    * avatar_url `string`
+    * gravatar_id `string`
+    * id `integer`
+    * login `string`
+    * url `string`
 
 ### users-userId-keys
-* users-userId-keys (array)
+* users-userId-keys `array`
 
 
 ### users-userId-orgs
-* users-userId-orgs (array)
+* users-userId-orgs `array`
 
 
 
