@@ -6,15 +6,13 @@ Client library for GitHub
 ```bash
 npm install --save datafire @datafire/github
 ```
-
 ```js
-let datafire = require('datafire');
 let github = require('@datafire/github').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 github.users.get({}).then(data => {
@@ -23,10 +21,12 @@ github.users.get({}).then(data => {
 ```
 
 ## Description
+
 Powerful collaboration, code review, and code management for open source and private projects.
 
 
 ## Actions
+
 ### oauthCallback
 Exchange the code passed to your redirect URI for an access_token
 
@@ -38,7 +38,16 @@ github.oauthCallback({
 ```
 
 #### Parameters
-* code (string) **required**
+* input (object)
+  * code **required** (string)
+
+#### Output
+* output (object)
+  * access_token (string)
+  * refresh_token (string)
+  * token_type (string)
+  * scope (string)
+  * expiration (string)
 
 ### oauthRefresh
 Exchange a refresh_token for an access_token
@@ -51,6 +60,14 @@ github.oauthRefresh(null, context)
 #### Parameters
 *This action has no parameters*
 
+#### Output
+* output (object)
+  * access_token (string)
+  * refresh_token (string)
+  * token_type (string)
+  * scope (string)
+  * expiration (string)
+
 ### emojis.get
 Lists all the emojis available to use on GitHub.
 
@@ -60,7 +77,11 @@ github.emojis.get({}, context)
 ```
 
 #### Parameters
-* page (integer)
+* input (object)
+  * page (integer)
+
+#### Output
+* output [emojis](#emojis)
 
 ### events.get
 List public events.
@@ -71,7 +92,11 @@ github.events.get({}, context)
 ```
 
 #### Parameters
-* page (integer)
+* input (object)
+  * page (integer)
+
+#### Output
+* output [events](#events)
 
 ### feeds.get
 List Feeds.
@@ -85,7 +110,11 @@ github.feeds.get({}, context)
 ```
 
 #### Parameters
-* page (integer)
+* input (object)
+  * page (integer)
+
+#### Output
+* output [feeds](#feeds)
 
 ### gists.get
 List the authenticated user's gists or if called anonymously, this will
@@ -98,8 +127,12 @@ github.gists.get({}, context)
 ```
 
 #### Parameters
-* since (string) - Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
-* page (integer)
+* input (object)
+  * since (string): Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+  * page (integer)
+
+#### Output
+* output [gists](#gists)
 
 ### gists.post
 Create a gist.
@@ -112,7 +145,11 @@ github.gists.post({
 ```
 
 #### Parameters
-* body (object) **required**
+* input (object)
+  * body **required** [postGist](#postGist)
+
+#### Output
+* output [gist](#gist)
 
 ### gists.public.get
 List all public gists.
@@ -123,7 +160,11 @@ github.gists.public.get({}, context)
 ```
 
 #### Parameters
-* since (string) - Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+* input (object)
+  * since (string): Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+
+#### Output
+* output [gists](#gists)
 
 ### gists.starred.get
 List the authenticated user's starred gists.
@@ -134,7 +175,11 @@ github.gists.starred.get({}, context)
 ```
 
 #### Parameters
-* since (string) - Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+* input (object)
+  * since (string): Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+
+#### Output
+* output [gists](#gists)
 
 ### gists.id.delete
 Delete a gist.
@@ -147,7 +192,11 @@ github.gists.id.delete({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of gist.
+* input (object)
+  * id **required** (integer): Id of gist.
+
+#### Output
+*Output schema unknown*
 
 ### gists.id.get
 Get a single gist.
@@ -160,7 +209,11 @@ github.gists.id.get({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of gist.
+* input (object)
+  * id **required** (integer): Id of gist.
+
+#### Output
+* output [gist](#gist)
 
 ### gists.id.patch
 Edit a gist.
@@ -174,8 +227,12 @@ github.gists.id.patch({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of gist.
-* body (object) **required**
+* input (object)
+  * id **required** (integer): Id of gist.
+  * body **required** [patchGist](#patchGist)
+
+#### Output
+* output [gist](#gist)
 
 ### gists.id.comments.get
 List comments on a gist.
@@ -188,8 +245,12 @@ github.gists.id.comments.get({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of gist.
-* page (integer)
+* input (object)
+  * id **required** (integer): Id of gist.
+  * page (integer)
+
+#### Output
+* output [comments](#comments)
 
 ### gists.id.comments.post
 Create a commen
@@ -205,8 +266,12 @@ github.gists.id.comments.post({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of gist.
-* body (object) **required**
+* input (object)
+  * id **required** (integer): Id of gist.
+  * body **required** [commentBody](#commentBody)
+
+#### Output
+* output [comment](#comment)
 
 ### gists.id.comments.commentId.delete
 Delete a comment.
@@ -220,8 +285,12 @@ github.gists.id.comments.commentId.delete({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of gist.
-* commentId (integer) **required** - Id of comment.
+* input (object)
+  * id **required** (integer): Id of gist.
+  * commentId **required** (integer): Id of comment.
+
+#### Output
+*Output schema unknown*
 
 ### gists.id.comments.commentId.get
 Get a single comment.
@@ -235,8 +304,12 @@ github.gists.id.comments.commentId.get({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of gist.
-* commentId (integer) **required** - Id of comment.
+* input (object)
+  * id **required** (integer): Id of gist.
+  * commentId **required** (integer): Id of comment.
+
+#### Output
+* output [comment](#comment)
 
 ### gists.id.comments.commentId.patch
 Edit a comment.
@@ -251,9 +324,13 @@ github.gists.id.comments.commentId.patch({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of gist.
-* commentId (integer) **required** - Id of comment.
-* body (object) **required**
+* input (object)
+  * id **required** (integer): Id of gist.
+  * commentId **required** (integer): Id of comment.
+  * body **required** [comment](#comment)
+
+#### Output
+* output [comment](#comment)
 
 ### gists.id.forks.post
 Fork a gist.
@@ -266,7 +343,11 @@ github.gists.id.forks.post({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of gist.
+* input (object)
+  * id **required** (integer): Id of gist.
+
+#### Output
+*Output schema unknown*
 
 ### gists.id.star.delete
 Unstar a gist.
@@ -279,7 +360,11 @@ github.gists.id.star.delete({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of gist.
+* input (object)
+  * id **required** (integer): Id of gist.
+
+#### Output
+*Output schema unknown*
 
 ### gists.id.star.get
 Check if a gist is starred.
@@ -292,7 +377,11 @@ github.gists.id.star.get({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of gist.
+* input (object)
+  * id **required** (integer): Id of gist.
+
+#### Output
+*Output schema unknown*
 
 ### gists.id.star.put
 Star a gist.
@@ -305,7 +394,11 @@ github.gists.id.star.put({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of gist.
+* input (object)
+  * id **required** (integer): Id of gist.
+
+#### Output
+*Output schema unknown*
 
 ### gitignore.templates.get
 Listing available templates.
@@ -318,7 +411,11 @@ github.gitignore.templates.get({}, context)
 ```
 
 #### Parameters
-* page (integer)
+* input (object)
+  * page (integer)
+
+#### Output
+* output [gitignore](#gitignore)
 
 ### gitignore.templates.language.get
 Get a single template.
@@ -331,7 +428,11 @@ github.gitignore.templates.language.get({
 ```
 
 #### Parameters
-* language (string) **required**
+* input (object)
+  * language **required** (string)
+
+#### Output
+* output [gitignore-lang](#gitignore-lang)
 
 ### issues.get
 List issues.
@@ -350,13 +451,17 @@ github.issues.get({
 ```
 
 #### Parameters
-* filter (string) **required** - Issues assigned to you / created by you / mentioning you / you're
-* state (string) **required**
-* labels (string) **required** - String list of comma separated Label names. Example - bug,ui,@high.
-* sort (string) **required**
-* direction (string) **required**
-* since (string) - Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* page (integer)
+* input (object)
+  * filter **required** (string): Issues assigned to you / created by you / mentioning you / you're
+  * state **required** (string)
+  * labels **required** (string): String list of comma separated Label names. Example - bug,ui,@high.
+  * sort **required** (string)
+  * direction **required** (string)
+  * since (string): Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page (integer)
+
+#### Output
+* output [issues](#issues)
 
 ### legacy.issues.search.owner.repository.state.keyword.get
 Find issues by state and keyword.
@@ -372,10 +477,14 @@ github.legacy.issues.search.owner.repository.state.keyword.get({
 ```
 
 #### Parameters
-* keyword (string) **required** - The search term.
-* state (string) **required** - Indicates the state of the issues to return. Can be either open or closed.
-* owner (string) **required**
-* repository (string) **required**
+* input (object)
+  * keyword **required** (string): The search term.
+  * state **required** (string): Indicates the state of the issues to return. Can be either open or closed.
+  * owner **required** (string)
+  * repository **required** (string)
+
+#### Output
+* output [search-issues-by-keyword](#search-issues-by-keyword)
 
 ### legacy.repos.search.keyword.get
 Find repositories by keyword. Note, this legacy method does not follow the v3 pagination pattern. This method returns up to 100 results per page and pages can be fetched using the start_page parameter.
@@ -388,11 +497,15 @@ github.legacy.repos.search.keyword.get({
 ```
 
 #### Parameters
-* keyword (string) **required** - The search term
-* order (string) - The sort field. if sort param is provided. Can be either asc or desc.
-* language (string) - Filter results by language
-* start_page (string) - The page number to fetch
-* sort (string) - The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
+* input (object)
+  * keyword **required** (string): The search term
+  * order (string): The sort field. if sort param is provided. Can be either asc or desc.
+  * language (string): Filter results by language
+  * start_page (string): The page number to fetch
+  * sort (string): The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
+
+#### Output
+* output [search-repositories-by-keyword](#search-repositories-by-keyword)
 
 ### legacy.user.email.email.get
 This API call is added for compatibility reasons only.
@@ -405,7 +518,11 @@ github.legacy.user.email.email.get({
 ```
 
 #### Parameters
-* email (string) **required** - The email address
+* input (object)
+  * email **required** (string): The email address
+
+#### Output
+* output [search-user-by-email](#search-user-by-email)
 
 ### legacy.user.search.keyword.get
 Find users by keyword.
@@ -418,10 +535,14 @@ github.legacy.user.search.keyword.get({
 ```
 
 #### Parameters
-* keyword (string) **required** - The search term
-* order (string) - The sort field. if sort param is provided. Can be either asc or desc.
-* start_page (string) - The page number to fetch
-* sort (string) - The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
+* input (object)
+  * keyword **required** (string): The search term
+  * order (string): The sort field. if sort param is provided. Can be either asc or desc.
+  * start_page (string): The page number to fetch
+  * sort (string): The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
+
+#### Output
+* output [search-users-by-keyword](#search-users-by-keyword)
 
 ### markdown.post
 Render an arbitrary Markdown document
@@ -434,7 +555,11 @@ github.markdown.post({
 ```
 
 #### Parameters
-* body (object) **required**
+* input (object)
+  * body **required** [markdown](#markdown)
+
+#### Output
+*Output schema unknown*
 
 ### markdown.raw.post
 Render a Markdown document in raw mode
@@ -447,6 +572,9 @@ github.markdown.raw.post(null, context)
 #### Parameters
 *This action has no parameters*
 
+#### Output
+*Output schema unknown*
+
 ### meta.get
 This gives some information about GitHub.com, the service.
 
@@ -457,6 +585,9 @@ github.meta.get(null, context)
 
 #### Parameters
 *This action has no parameters*
+
+#### Output
+* output [meta](#meta)
 
 ### networks.owner.repo.events.get
 List public events for a network of repositories.
@@ -470,9 +601,13 @@ github.networks.owner.repo.events.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of the owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of the owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [events](#events)
 
 ### notifications.get
 List your notifications.
@@ -485,10 +620,14 @@ github.notifications.get({}, context)
 ```
 
 #### Parameters
-* all (boolean) - True to show notifications marked as read.
-* participating (boolean) - True to show only notifications in which the user is directly participating
-* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* page (integer)
+* input (object)
+  * all (boolean): True to show notifications marked as read.
+  * participating (boolean): True to show only notifications in which the user is directly participating
+  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page (integer)
+
+#### Output
+* output [notifications](#notifications)
 
 ### notifications.put
 Mark as read.
@@ -503,7 +642,11 @@ github.notifications.put({
 ```
 
 #### Parameters
-* body (object) **required**
+* input (object)
+  * body **required** [notificationMarkRead](#notificationMarkRead)
+
+#### Output
+*Output schema unknown*
 
 ### notifications.threads.id.get
 View a single thread.
@@ -516,7 +659,11 @@ github.notifications.threads.id.get({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of thread.
+* input (object)
+  * id **required** (integer): Id of thread.
+
+#### Output
+* output [notifications](#notifications)
 
 ### notifications.threads.id.patch
 Mark a thread as read
@@ -529,7 +676,11 @@ github.notifications.threads.id.patch({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of thread.
+* input (object)
+  * id **required** (integer): Id of thread.
+
+#### Output
+*Output schema unknown*
 
 ### notifications.threads.id.subscription.delete
 Delete a Thread Subscription.
@@ -542,7 +693,11 @@ github.notifications.threads.id.subscription.delete({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of thread.
+* input (object)
+  * id **required** (integer): Id of thread.
+
+#### Output
+*Output schema unknown*
 
 ### notifications.threads.id.subscription.get
 Get a Thread Subscription.
@@ -555,7 +710,11 @@ github.notifications.threads.id.subscription.get({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of thread.
+* input (object)
+  * id **required** (integer): Id of thread.
+
+#### Output
+* output [subscription](#subscription)
 
 ### notifications.threads.id.subscription.put
 Set a Thread Subscription.
@@ -573,8 +732,12 @@ github.notifications.threads.id.subscription.put({
 ```
 
 #### Parameters
-* id (integer) **required** - Id of thread.
-* body (object) **required**
+* input (object)
+  * id **required** (integer): Id of thread.
+  * body **required** [putSubscription](#putSubscription)
+
+#### Output
+* output [subscription](#subscription)
 
 ### orgs.org.get
 Get an Organization.
@@ -587,7 +750,11 @@ github.orgs.org.get({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
+* input (object)
+  * org **required** (string): Name of organisation.
+
+#### Output
+* output [organization](#organization)
 
 ### orgs.org.patch
 Edit an Organization.
@@ -601,8 +768,12 @@ github.orgs.org.patch({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* body (object) **required**
+* input (object)
+  * org **required** (string): Name of organisation.
+  * body **required** [patchOrg](#patchOrg)
+
+#### Output
+* output [organization](#organization)
 
 ### orgs.org.events.get
 List public events for an organization.
@@ -615,8 +786,12 @@ github.orgs.org.events.get({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* page (integer)
+* input (object)
+  * org **required** (string): Name of organisation.
+  * page (integer)
+
+#### Output
+* output [events](#events)
 
 ### orgs.org.issues.get
 List issues.
@@ -636,14 +811,18 @@ github.orgs.org.issues.get({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* filter (string) **required** - Issues assigned to you / created by you / mentioning you / you're
-* state (string) **required**
-* labels (string) **required** - String list of comma separated Label names. Example - bug,ui,@high.
-* sort (string) **required**
-* direction (string) **required**
-* since (string) - Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* page (integer)
+* input (object)
+  * org **required** (string): Name of organisation.
+  * filter **required** (string): Issues assigned to you / created by you / mentioning you / you're
+  * state **required** (string)
+  * labels **required** (string): String list of comma separated Label names. Example - bug,ui,@high.
+  * sort **required** (string)
+  * direction **required** (string)
+  * since (string): Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page (integer)
+
+#### Output
+* output [issues](#issues)
 
 ### orgs.org.members.get
 Members list.
@@ -662,8 +841,12 @@ github.orgs.org.members.get({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* page (integer)
+* input (object)
+  * org **required** (string): Name of organisation.
+  * page (integer)
+
+#### Output
+* output [users](#users)
 
 ### orgs.org.members.username.delete
 Remove a member.
@@ -680,8 +863,12 @@ github.orgs.org.members.username.delete({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* username (string) **required** - Name of the user.
+* input (object)
+  * org **required** (string): Name of organisation.
+  * username **required** (string): Name of the user.
+
+#### Output
+*Output schema unknown*
 
 ### orgs.org.members.username.get
 Check if a user is, publicly or privately, a member of the organization.
@@ -695,8 +882,12 @@ github.orgs.org.members.username.get({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* username (string) **required** - Name of the user.
+* input (object)
+  * org **required** (string): Name of organisation.
+  * username **required** (string): Name of the user.
+
+#### Output
+*Output schema unknown*
 
 ### orgs.org.public_members.get
 Public members list.
@@ -712,8 +903,12 @@ github.orgs.org.public_members.get({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* page (integer)
+* input (object)
+  * org **required** (string): Name of organisation.
+  * page (integer)
+
+#### Output
+* output [users](#users)
 
 ### orgs.org.public_members.username.delete
 Conceal a user's membership.
@@ -727,8 +922,12 @@ github.orgs.org.public_members.username.delete({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* username (string) **required** - Name of the user.
+* input (object)
+  * org **required** (string): Name of organisation.
+  * username **required** (string): Name of the user.
+
+#### Output
+*Output schema unknown*
 
 ### orgs.org.public_members.username.get
 Check public membership.
@@ -742,8 +941,12 @@ github.orgs.org.public_members.username.get({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* username (string) **required** - Name of the user.
+* input (object)
+  * org **required** (string): Name of organisation.
+  * username **required** (string): Name of the user.
+
+#### Output
+*Output schema unknown*
 
 ### orgs.org.public_members.username.put
 Publicize a user's membership.
@@ -757,8 +960,12 @@ github.orgs.org.public_members.username.put({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* username (string) **required** - Name of the user.
+* input (object)
+  * org **required** (string): Name of organisation.
+  * username **required** (string): Name of the user.
+
+#### Output
+*Output schema unknown*
 
 ### orgs.org.repos.get
 List repositories for the specified org.
@@ -771,9 +978,13 @@ github.orgs.org.repos.get({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* type (string)
-* page (integer)
+* input (object)
+  * org **required** (string): Name of organisation.
+  * type (string)
+  * page (integer)
+
+#### Output
+* output [repos](#repos)
 
 ### orgs.org.repos.post
 Create a new repository for the authenticated user. OAuth users must supply
@@ -791,8 +1002,12 @@ github.orgs.org.repos.post({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* body (object) **required**
+* input (object)
+  * org **required** (string): Name of organisation.
+  * body **required** [postRepo](#postRepo)
+
+#### Output
+* output [repos](#repos)
 
 ### orgs.org.teams.get
 List teams.
@@ -805,8 +1020,12 @@ github.orgs.org.teams.get({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* page (integer)
+* input (object)
+  * org **required** (string): Name of organisation.
+  * page (integer)
+
+#### Output
+* output [teams](#teams)
 
 ### orgs.org.teams.post
 Create team.
@@ -824,8 +1043,12 @@ github.orgs.org.teams.post({
 ```
 
 #### Parameters
-* org (string) **required** - Name of organisation.
-* body (object) **required**
+* input (object)
+  * org **required** (string): Name of organisation.
+  * body **required** [orgTeamsPost](#orgTeamsPost)
+
+#### Output
+* output [team](#team)
 
 ### rate_limit.get
 Get your current rate limit status
@@ -839,6 +1062,9 @@ github.rate_limit.get(null, context)
 
 #### Parameters
 *This action has no parameters*
+
+#### Output
+* output [rate_limit](#rate_limit)
 
 ### repos.owner.repo.delete
 Delete a Repository.
@@ -855,8 +1081,12 @@ github.repos.owner.repo.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.get
 Get repository.
@@ -870,8 +1100,12 @@ github.repos.owner.repo.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+
+#### Output
+* output [repo](#repo)
 
 ### repos.owner.repo.patch
 Edit repository.
@@ -886,9 +1120,13 @@ github.repos.owner.repo.patch({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [repoEdit](#repoEdit)
+
+#### Output
+* output [repo](#repo)
 
 ### repos.owner.repo.assignees.get
 List assignees.
@@ -905,9 +1143,13 @@ github.repos.owner.repo.assignees.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [assignees](#assignees)
 
 ### repos.owner.repo.assignees.assignee.get
 Check assignee.
@@ -924,9 +1166,13 @@ github.repos.owner.repo.assignees.assignee.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* assignee (string) **required** - Login of the assignee.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * assignee **required** (string): Login of the assignee.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.branches.get
 Get list of branches
@@ -940,9 +1186,13 @@ github.repos.owner.repo.branches.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [branches](#branches)
 
 ### repos.owner.repo.branches.branch.get
 Get Branch
@@ -957,9 +1207,13 @@ github.repos.owner.repo.branches.branch.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* branch (string) **required** - Name of the branch.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * branch **required** (string): Name of the branch.
+
+#### Output
+* output [branch](#branch)
 
 ### repos.owner.repo.collaborators.get
 List.
@@ -978,9 +1232,13 @@ github.repos.owner.repo.collaborators.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [users](#users)
 
 ### repos.owner.repo.collaborators.user.delete
 Remove collaborator.
@@ -995,9 +1253,13 @@ github.repos.owner.repo.collaborators.user.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* user (string) **required** - Login of the user.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * user **required** (string): Login of the user.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.collaborators.user.get
 Check if user is a collaborator
@@ -1012,9 +1274,13 @@ github.repos.owner.repo.collaborators.user.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* user (string) **required** - Login of the user.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * user **required** (string): Login of the user.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.collaborators.user.put
 Add collaborator.
@@ -1029,9 +1295,13 @@ github.repos.owner.repo.collaborators.user.put({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* user (string) **required** - Login of the user.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * user **required** (string): Login of the user.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.comments.get
 List commit comments for a repository.
@@ -1047,9 +1317,13 @@ github.repos.owner.repo.comments.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [repoComments](#repoComments)
 
 ### repos.owner.repo.comments.commentId.delete
 Delete a commit comment
@@ -1064,9 +1338,13 @@ github.repos.owner.repo.comments.commentId.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* commentId (integer) **required** - Id of comment.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * commentId **required** (integer): Id of comment.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.comments.commentId.get
 Get a single commit comment.
@@ -1081,9 +1359,13 @@ github.repos.owner.repo.comments.commentId.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* commentId (integer) **required** - Id of comment.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * commentId **required** (integer): Id of comment.
+
+#### Output
+* output [commitComments](#commitComments)
 
 ### repos.owner.repo.comments.commentId.patch
 Update a commit comment.
@@ -1101,10 +1383,14 @@ github.repos.owner.repo.comments.commentId.patch({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* commentId (integer) **required** - Id of comment.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * commentId **required** (integer): Id of comment.
+  * body **required** [commentBody](#commentBody)
+
+#### Output
+* output [commitComments](#commitComments)
 
 ### repos.owner.repo.commits.get
 List commits on a repository.
@@ -1118,14 +1404,18 @@ github.repos.owner.repo.commits.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* sha (string) - Sha or branch to start listing commits from.
-* path (string) - Only commits containing this file path will be returned.
-* author (string) - GitHub login, name, or email by which to filter by commit author.
-* until (string) - ISO 8601 Date - Only commits before this date will be returned.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * sha (string): Sha or branch to start listing commits from.
+  * path (string): Only commits containing this file path will be returned.
+  * author (string): GitHub login, name, or email by which to filter by commit author.
+  * until (string): ISO 8601 Date - Only commits before this date will be returned.
+  * page (integer)
+
+#### Output
+* output [commits](#commits)
 
 ### repos.owner.repo.commits.ref.status.get
 Get the combined Status for a specific Ref
@@ -1144,10 +1434,14 @@ github.repos.owner.repo.commits.ref.status.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* ref (string) **required**
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * ref **required** (string)
+  * page (integer)
+
+#### Output
+* output [refStatus](#refStatus)
 
 ### repos.owner.repo.commits.shaCode.get
 Get a single commit.
@@ -1162,9 +1456,13 @@ github.repos.owner.repo.commits.shaCode.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* shaCode (string) **required** - SHA-1 code of the commit.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * shaCode **required** (string): SHA-1 code of the commit.
+
+#### Output
+* output [commit](#commit)
 
 ### repos.owner.repo.commits.shaCode.comments.get
 List comments for a single commitList comments for a single commit.
@@ -1179,10 +1477,14 @@ github.repos.owner.repo.commits.shaCode.comments.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* shaCode (string) **required** - SHA-1 code of the commit.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * shaCode **required** (string): SHA-1 code of the commit.
+  * page (integer)
+
+#### Output
+* output [repoComments](#repoComments)
 
 ### repos.owner.repo.commits.shaCode.comments.post
 Create a commit comment.
@@ -1201,10 +1503,14 @@ github.repos.owner.repo.commits.shaCode.comments.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* shaCode (string) **required** - SHA-1 code of the commit.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * shaCode **required** (string): SHA-1 code of the commit.
+  * body **required** [commitBody](#commitBody)
+
+#### Output
+* output [commitComments](#commitComments)
 
 ### repos.owner.repo.compare.baseId...headId.get
 Compare two commits
@@ -1220,10 +1526,14 @@ github.repos.owner.repo.compare.baseId...headId.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* baseId (string) **required**
-* headId (string) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * baseId **required** (string)
+  * headId **required** (string)
+
+#### Output
+* output [compare-commits](#compare-commits)
 
 ### repos.owner.repo.contents.path.delete
 Delete a file.
@@ -1241,10 +1551,14 @@ github.repos.owner.repo.contents.path.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* path (string) **required**
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * path **required** (string)
+  * body **required** [deleteFileBody](#deleteFileBody)
+
+#### Output
+* output [deleteFile](#deleteFile)
 
 ### repos.owner.repo.contents.path.get
 Get contents.
@@ -1265,11 +1579,15 @@ github.repos.owner.repo.contents.path.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* path (string) **required**
-* path_query (string) - The content path.
-* ref (string) - The String name of the Commit/Branch/Tag. Defaults to 'master'.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * path **required** (string)
+  * path_query (string): The content path.
+  * ref (string): The String name of the Commit/Branch/Tag. Defaults to 'master'.
+
+#### Output
+* output [contents-path](#contents-path)
 
 ### repos.owner.repo.contents.path.put
 Create a file.
@@ -1285,10 +1603,14 @@ github.repos.owner.repo.contents.path.put({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* path (string) **required**
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * path **required** (string)
+  * body **required** [createFileBody](#createFileBody)
+
+#### Output
+* output [createFile](#createFile)
 
 ### repos.owner.repo.contributors.get
 Get list of contributors.
@@ -1303,10 +1625,14 @@ github.repos.owner.repo.contributors.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* anon (string) **required** - Set to 1 or true to include anonymous contributors in results.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * anon **required** (string): Set to 1 or true to include anonymous contributors in results.
+  * page (integer)
+
+#### Output
+* output [contributors](#contributors)
 
 ### repos.owner.repo.deployments.get
 Users with pull access can view deployments for a repository
@@ -1320,9 +1646,13 @@ github.repos.owner.repo.deployments.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [repo-deployments](#repo-deployments)
 
 ### repos.owner.repo.deployments.post
 Users with push access can create a deployment for a given ref
@@ -1337,9 +1667,13 @@ github.repos.owner.repo.deployments.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [deployment](#deployment)
+
+#### Output
+* output [deployment-resp](#deployment-resp)
 
 ### repos.owner.repo.deployments.id.statuses.get
 Users with pull access can view deployment statuses for a deployment
@@ -1354,10 +1688,14 @@ github.repos.owner.repo.deployments.id.statuses.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* id (integer) **required** - The Deployment ID to list the statuses from.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * id **required** (integer): The Deployment ID to list the statuses from.
+  * page (integer)
+
+#### Output
+* output [deployment-statuses](#deployment-statuses)
 
 ### repos.owner.repo.deployments.id.statuses.post
 Create a Deployment Status
@@ -1375,10 +1713,14 @@ github.repos.owner.repo.deployments.id.statuses.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* id (integer) **required** - The Deployment ID to list the statuses from.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * id **required** (integer): The Deployment ID to list the statuses from.
+  * body **required** [deployment-statuses-create](#deployment-statuses-create)
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.downloads.get
 Deprecated. List downloads for a repository.
@@ -1392,9 +1734,13 @@ github.repos.owner.repo.downloads.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [downloads](#downloads)
 
 ### repos.owner.repo.downloads.downloadId.delete
 Deprecated. Delete a download.
@@ -1409,9 +1755,13 @@ github.repos.owner.repo.downloads.downloadId.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* downloadId (integer) **required** - Id of download.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * downloadId **required** (integer): Id of download.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.downloads.downloadId.get
 Deprecated. Get a single download.
@@ -1426,9 +1776,13 @@ github.repos.owner.repo.downloads.downloadId.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* downloadId (integer) **required** - Id of download.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * downloadId **required** (integer): Id of download.
+
+#### Output
+* output [downloads](#downloads)
 
 ### repos.owner.repo.events.get
 Get list of repository events.
@@ -1442,9 +1796,13 @@ github.repos.owner.repo.events.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [events](#events)
 
 ### repos.owner.repo.forks.get
 List forks.
@@ -1458,10 +1816,14 @@ github.repos.owner.repo.forks.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* sort (string)
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * sort (string)
+  * page (integer)
+
+#### Output
+* output [forks](#forks)
 
 ### repos.owner.repo.forks.post
 Create a fork.
@@ -1480,9 +1842,13 @@ github.repos.owner.repo.forks.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [forkBody](#forkBody)
+
+#### Output
+* output [fork](#fork)
 
 ### repos.owner.repo.git.blobs.post
 Create a Blob.
@@ -1497,9 +1863,13 @@ github.repos.owner.repo.git.blobs.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [blob](#blob)
+
+#### Output
+* output [blobs](#blobs)
 
 ### repos.owner.repo.git.blobs.shaCode.get
 Get a Blob.
@@ -1519,9 +1889,13 @@ github.repos.owner.repo.git.blobs.shaCode.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* shaCode (string) **required** - SHA-1 code.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * shaCode **required** (string): SHA-1 code.
+
+#### Output
+* output [blob](#blob)
 
 ### repos.owner.repo.git.commits.post
 Create a Commit.
@@ -1540,9 +1914,13 @@ github.repos.owner.repo.git.commits.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [repoCommitBody](#repoCommitBody)
+
+#### Output
+* output [gitCommit](#gitCommit)
 
 ### repos.owner.repo.git.commits.shaCode.get
 Get a Commit.
@@ -1557,9 +1935,13 @@ github.repos.owner.repo.git.commits.shaCode.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* shaCode (string) **required** - SHA-1 code.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * shaCode **required** (string): SHA-1 code.
+
+#### Output
+* output [repoCommit](#repoCommit)
 
 ### repos.owner.repo.git.refs.get
 Get all References
@@ -1573,9 +1955,13 @@ github.repos.owner.repo.git.refs.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [refs](#refs)
 
 ### repos.owner.repo.git.refs.post
 Create a Reference
@@ -1590,9 +1976,13 @@ github.repos.owner.repo.git.refs.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [refsBody](#refsBody)
+
+#### Output
+* output [headBranch](#headBranch)
 
 ### repos.owner.repo.git.refs.ref.delete
 Delete a Reference
@@ -1610,9 +2000,13 @@ github.repos.owner.repo.git.refs.ref.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* ref (string) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * ref **required** (string)
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.git.refs.ref.get
 Get a Reference
@@ -1627,9 +2021,13 @@ github.repos.owner.repo.git.refs.ref.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* ref (string) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * ref **required** (string)
+
+#### Output
+* output [headBranch](#headBranch)
 
 ### repos.owner.repo.git.refs.ref.patch
 Update a Reference
@@ -1645,10 +2043,14 @@ github.repos.owner.repo.git.refs.ref.patch({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* ref (string) **required**
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * ref **required** (string)
+  * body **required** [gitRefPatch](#gitRefPatch)
+
+#### Output
+* output [headBranch](#headBranch)
 
 ### repos.owner.repo.git.tags.post
 Create a Tag Object.
@@ -1669,9 +2071,13 @@ github.repos.owner.repo.git.tags.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [tag](#tag)
+
+#### Output
+* output [tags](#tags)
 
 ### repos.owner.repo.git.tags.shaCode.get
 Get a Tag.
@@ -1686,9 +2092,13 @@ github.repos.owner.repo.git.tags.shaCode.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* shaCode (string) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * shaCode **required** (string)
+
+#### Output
+* output [tag](#tag)
 
 ### repos.owner.repo.git.trees.post
 Create a Tree.
@@ -1707,9 +2117,13 @@ github.repos.owner.repo.git.trees.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [tree](#tree)
+
+#### Output
+* output [trees](#trees)
 
 ### repos.owner.repo.git.trees.shaCode.get
 Get a Tree.
@@ -1724,10 +2138,14 @@ github.repos.owner.repo.git.trees.shaCode.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* shaCode (string) **required** - Tree SHA.
-* recursive (integer) - Get a Tree Recursively. (0 or 1)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * shaCode **required** (string): Tree SHA.
+  * recursive (integer): Get a Tree Recursively. (0 or 1)
+
+#### Output
+* output [tree](#tree)
 
 ### repos.owner.repo.hooks.get
 Get list of hooks.
@@ -1741,9 +2159,13 @@ github.repos.owner.repo.hooks.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [hook](#hook)
 
 ### repos.owner.repo.hooks.post
 Create a hook.
@@ -1758,9 +2180,13 @@ github.repos.owner.repo.hooks.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [hookBody](#hookBody)
+
+#### Output
+* output [hook](#hook)
 
 ### repos.owner.repo.hooks.hookId.delete
 Delete a hook.
@@ -1775,9 +2201,13 @@ github.repos.owner.repo.hooks.hookId.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* hookId (integer) **required** - Id of hook.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * hookId **required** (integer): Id of hook.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.hooks.hookId.get
 Get single hook.
@@ -1792,9 +2222,13 @@ github.repos.owner.repo.hooks.hookId.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* hookId (integer) **required** - Id of hook.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * hookId **required** (integer): Id of hook.
+
+#### Output
+* output [hook](#hook)
 
 ### repos.owner.repo.hooks.hookId.patch
 Edit a hook.
@@ -1810,10 +2244,14 @@ github.repos.owner.repo.hooks.hookId.patch({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* hookId (integer) **required** - Id of hook.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * hookId **required** (integer): Id of hook.
+  * body **required** [hookBody](#hookBody)
+
+#### Output
+* output [hook](#hook)
 
 ### repos.owner.repo.hooks.hookId.tests.post
 Test a push hook.
@@ -1834,9 +2272,13 @@ github.repos.owner.repo.hooks.hookId.tests.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* hookId (integer) **required** - Id of hook.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * hookId **required** (integer): Id of hook.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.issues.get
 List issues for a repository.
@@ -1855,15 +2297,19 @@ github.repos.owner.repo.issues.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* filter (string) **required** - Issues assigned to you / created by you / mentioning you / you're
-* state (string) **required**
-* labels (string) **required** - String list of comma separated Label names. Example - bug,ui,@high.
-* sort (string) **required**
-* direction (string) **required**
-* since (string) - Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * filter **required** (string): Issues assigned to you / created by you / mentioning you / you're
+  * state **required** (string)
+  * labels **required** (string): String list of comma separated Label names. Example - bug,ui,@high.
+  * sort **required** (string)
+  * direction **required** (string)
+  * since (string): Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page (integer)
+
+#### Output
+* output [issues](#issues)
 
 ### repos.owner.repo.issues.post
 Create an issue.
@@ -1880,9 +2326,13 @@ github.repos.owner.repo.issues.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [issue](#issue)
+
+#### Output
+* output [issue](#issue)
 
 ### repos.owner.repo.issues.comments.get
 List comments in a repository.
@@ -1896,12 +2346,16 @@ github.repos.owner.repo.issues.comments.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* direction (string) - Ignored without 'sort' parameter.
-* sort (string)
-* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * direction (string): Ignored without 'sort' parameter.
+  * sort (string)
+  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page (integer)
+
+#### Output
+* output [issuesComments](#issuesComments)
 
 ### repos.owner.repo.issues.comments.commentId.delete
 Delete a comment.
@@ -1916,9 +2370,13 @@ github.repos.owner.repo.issues.comments.commentId.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* commentId (integer) **required** - ID of comment.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * commentId **required** (integer): ID of comment.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.issues.comments.commentId.get
 Get a single comment.
@@ -1933,9 +2391,13 @@ github.repos.owner.repo.issues.comments.commentId.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* commentId (integer) **required** - ID of comment.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * commentId **required** (integer): ID of comment.
+
+#### Output
+* output [issuesComment](#issuesComment)
 
 ### repos.owner.repo.issues.comments.commentId.patch
 Edit a comment.
@@ -1953,10 +2415,14 @@ github.repos.owner.repo.issues.comments.commentId.patch({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* commentId (integer) **required** - ID of comment.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * commentId **required** (integer): ID of comment.
+  * body **required** [commentBody](#commentBody)
+
+#### Output
+* output [issuesComment](#issuesComment)
 
 ### repos.owner.repo.issues.events.get
 List issue events for a repository.
@@ -1970,9 +2436,13 @@ github.repos.owner.repo.issues.events.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [events](#events)
 
 ### repos.owner.repo.issues.events.eventId.get
 Get a single event.
@@ -1987,9 +2457,13 @@ github.repos.owner.repo.issues.events.eventId.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* eventId (integer) **required** - Id of the event.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * eventId **required** (integer): Id of the event.
+
+#### Output
+* output [event](#event)
 
 ### repos.owner.repo.issues.number.get
 Get a single issue
@@ -2004,9 +2478,13 @@ github.repos.owner.repo.issues.number.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of issue.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of issue.
+
+#### Output
+* output [issue](#issue)
 
 ### repos.owner.repo.issues.number.patch
 Edit an issue.
@@ -2024,10 +2502,14 @@ github.repos.owner.repo.issues.number.patch({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of issue.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of issue.
+  * body **required** [issue](#issue)
+
+#### Output
+* output [issue](#issue)
 
 ### repos.owner.repo.issues.number.comments.get
 List comments on an issue.
@@ -2042,10 +2524,14 @@ github.repos.owner.repo.issues.number.comments.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of issue.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of issue.
+  * page (integer)
+
+#### Output
+* output [issuesComments](#issuesComments)
 
 ### repos.owner.repo.issues.number.comments.post
 Create a comment.
@@ -2063,10 +2549,14 @@ github.repos.owner.repo.issues.number.comments.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of issue.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of issue.
+  * body **required** [commentBody](#commentBody)
+
+#### Output
+* output [issuesComment](#issuesComment)
 
 ### repos.owner.repo.issues.number.events.get
 List events for an issue.
@@ -2081,10 +2571,14 @@ github.repos.owner.repo.issues.number.events.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of issue.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of issue.
+  * page (integer)
+
+#### Output
+* output [events](#events)
 
 ### repos.owner.repo.issues.number.labels.delete
 Remove all labels from an issue.
@@ -2099,9 +2593,13 @@ github.repos.owner.repo.issues.number.labels.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of issue.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of issue.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.issues.number.labels.get
 List labels on an issue.
@@ -2116,10 +2614,14 @@ github.repos.owner.repo.issues.number.labels.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of issue.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of issue.
+  * page (integer)
+
+#### Output
+* output [labels](#labels)
 
 ### repos.owner.repo.issues.number.labels.post
 Add labels to an issue.
@@ -2135,10 +2637,14 @@ github.repos.owner.repo.issues.number.labels.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of issue.
-* body (array) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of issue.
+  * body **required** [emailsPost](#emailsPost)
+
+#### Output
+* output [label](#label)
 
 ### repos.owner.repo.issues.number.labels.put
 Replace all labels for an issue.
@@ -2156,10 +2662,14 @@ github.repos.owner.repo.issues.number.labels.put({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of issue.
-* body (array) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of issue.
+  * body **required** [emailsPost](#emailsPost)
+
+#### Output
+* output [label](#label)
 
 ### repos.owner.repo.issues.number.labels.name.delete
 Remove a label from an issue.
@@ -2175,10 +2685,14 @@ github.repos.owner.repo.issues.number.labels.name.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of issue.
-* name (string) **required** - Name of the label.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of issue.
+  * name **required** (string): Name of the label.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.keys.get
 Get list of keys.
@@ -2192,9 +2706,13 @@ github.repos.owner.repo.keys.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [keys](#keys)
 
 ### repos.owner.repo.keys.post
 Create a key.
@@ -2209,9 +2727,13 @@ github.repos.owner.repo.keys.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [user-keys-post](#user-keys-post)
+
+#### Output
+* output [user-keys-keyId](#user-keys-keyId)
 
 ### repos.owner.repo.keys.keyId.delete
 Delete a key.
@@ -2226,9 +2748,13 @@ github.repos.owner.repo.keys.keyId.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* keyId (integer) **required** - Id of key.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * keyId **required** (integer): Id of key.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.keys.keyId.get
 Get a key
@@ -2243,9 +2769,13 @@ github.repos.owner.repo.keys.keyId.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* keyId (integer) **required** - Id of key.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * keyId **required** (integer): Id of key.
+
+#### Output
+* output [user-keys-keyId](#user-keys-keyId)
 
 ### repos.owner.repo.labels.get
 List all labels for this repository.
@@ -2259,9 +2789,13 @@ github.repos.owner.repo.labels.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [labels](#labels)
 
 ### repos.owner.repo.labels.post
 Create a label.
@@ -2276,9 +2810,13 @@ github.repos.owner.repo.labels.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (array) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [emailsPost](#emailsPost)
+
+#### Output
+* output [label](#label)
 
 ### repos.owner.repo.labels.name.delete
 Delete a label.
@@ -2293,9 +2831,13 @@ github.repos.owner.repo.labels.name.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* name (string) **required** - Name of the label.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * name **required** (string): Name of the label.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.labels.name.get
 Get a single label.
@@ -2310,9 +2852,13 @@ github.repos.owner.repo.labels.name.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* name (string) **required** - Name of the label.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * name **required** (string): Name of the label.
+
+#### Output
+* output [label](#label)
 
 ### repos.owner.repo.labels.name.patch
 Update a label.
@@ -2328,10 +2874,14 @@ github.repos.owner.repo.labels.name.patch({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* name (string) **required** - Name of the label.
-* body (array) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * name **required** (string): Name of the label.
+  * body **required** [emailsPost](#emailsPost)
+
+#### Output
+* output [label](#label)
 
 ### repos.owner.repo.languages.get
 List languages.
@@ -2348,9 +2898,13 @@ github.repos.owner.repo.languages.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [languages](#languages)
 
 ### repos.owner.repo.merges.post
 Perform a merge.
@@ -2365,9 +2919,13 @@ github.repos.owner.repo.merges.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [mergesBody](#mergesBody)
+
+#### Output
+* output [mergesSuccessful](#mergesSuccessful)
 
 ### repos.owner.repo.milestones.get
 List milestones for a repository.
@@ -2381,12 +2939,16 @@ github.repos.owner.repo.milestones.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* state (string) - String to filter by state.
-* direction (string) - Ignored without 'sort' parameter.
-* sort (string)
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * state (string): String to filter by state.
+  * direction (string): Ignored without 'sort' parameter.
+  * sort (string)
+  * page (integer)
+
+#### Output
+* output [milestone](#milestone)
 
 ### repos.owner.repo.milestones.post
 Create a milestone.
@@ -2401,9 +2963,13 @@ github.repos.owner.repo.milestones.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [milestoneUpdate](#milestoneUpdate)
+
+#### Output
+* output [milestone](#milestone)
 
 ### repos.owner.repo.milestones.number.delete
 Delete a milestone.
@@ -2418,9 +2984,13 @@ github.repos.owner.repo.milestones.number.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of milestone.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of milestone.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.milestones.number.get
 Get a single milestone.
@@ -2435,9 +3005,13 @@ github.repos.owner.repo.milestones.number.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of milestone.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of milestone.
+
+#### Output
+* output [milestone](#milestone)
 
 ### repos.owner.repo.milestones.number.patch
 Update a milestone.
@@ -2453,10 +3027,14 @@ github.repos.owner.repo.milestones.number.patch({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of milestone.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of milestone.
+  * body **required** [milestoneUpdate](#milestoneUpdate)
+
+#### Output
+* output [milestone](#milestone)
 
 ### repos.owner.repo.milestones.number.labels.get
 Get labels for every issue in a milestone.
@@ -2471,10 +3049,14 @@ github.repos.owner.repo.milestones.number.labels.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Number of milestone.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Number of milestone.
+  * page (integer)
+
+#### Output
+* output [labels](#labels)
 
 ### repos.owner.repo.notifications.get
 List your notifications in a repository
@@ -2490,12 +3072,16 @@ github.repos.owner.repo.notifications.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* all (boolean) - True to show notifications marked as read.
-* participating (boolean) - True to show only notifications in which the user is directly participating
-* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * all (boolean): True to show notifications marked as read.
+  * participating (boolean): True to show only notifications in which the user is directly participating
+  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page (integer)
+
+#### Output
+* output [notifications](#notifications)
 
 ### repos.owner.repo.notifications.put
 Mark notifications as read in a repository.
@@ -2513,9 +3099,13 @@ github.repos.owner.repo.notifications.put({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [notificationMarkRead](#notificationMarkRead)
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.pulls.get
 List pull requests.
@@ -2529,12 +3119,16 @@ github.repos.owner.repo.pulls.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* state (string) - String to filter by state.
-* head (string) - Filter pulls by head user and branch name in the format of 'user:ref-name'.
-* base (string) - Filter pulls by base branch name. Example - gh-pages.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * state (string): String to filter by state.
+  * head (string): Filter pulls by head user and branch name in the format of 'user:ref-name'.
+  * base (string): Filter pulls by base branch name. Example - gh-pages.
+  * page (integer)
+
+#### Output
+* output [pulls](#pulls)
 
 ### repos.owner.repo.pulls.post
 Create a pull request.
@@ -2549,9 +3143,13 @@ github.repos.owner.repo.pulls.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [pullsPost](#pullsPost)
+
+#### Output
+* output [pulls](#pulls)
 
 ### repos.owner.repo.pulls.comments.get
 List comments in a repository.
@@ -2567,12 +3165,16 @@ github.repos.owner.repo.pulls.comments.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* direction (string) - Ignored without 'sort' parameter.
-* sort (string)
-* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * direction (string): Ignored without 'sort' parameter.
+  * sort (string)
+  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page (integer)
+
+#### Output
+* output [issuesComments](#issuesComments)
 
 ### repos.owner.repo.pulls.comments.commentId.delete
 Delete a comment.
@@ -2587,9 +3189,13 @@ github.repos.owner.repo.pulls.comments.commentId.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* commentId (integer) **required** - Id of comment.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * commentId **required** (integer): Id of comment.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.pulls.comments.commentId.get
 Get a single comment.
@@ -2604,9 +3210,13 @@ github.repos.owner.repo.pulls.comments.commentId.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* commentId (integer) **required** - Id of comment.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * commentId **required** (integer): Id of comment.
+
+#### Output
+* output [pullsComment](#pullsComment)
 
 ### repos.owner.repo.pulls.comments.commentId.patch
 Edit a comment.
@@ -2624,10 +3234,14 @@ github.repos.owner.repo.pulls.comments.commentId.patch({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* commentId (integer) **required** - Id of comment.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * commentId **required** (integer): Id of comment.
+  * body **required** [commentBody](#commentBody)
+
+#### Output
+* output [pullsComment](#pullsComment)
 
 ### repos.owner.repo.pulls.number.get
 Get a single pull request.
@@ -2642,9 +3256,13 @@ github.repos.owner.repo.pulls.number.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Id of pull.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Id of pull.
+
+#### Output
+* output [pullRequest](#pullRequest)
 
 ### repos.owner.repo.pulls.number.patch
 Update a pull request.
@@ -2660,10 +3278,14 @@ github.repos.owner.repo.pulls.number.patch({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Id of pull.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Id of pull.
+  * body **required** [pullUpdate](#pullUpdate)
+
+#### Output
+* output [repo](#repo)
 
 ### repos.owner.repo.pulls.number.comments.get
 List comments on a pull request.
@@ -2678,10 +3300,14 @@ github.repos.owner.repo.pulls.number.comments.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Id of pull.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Id of pull.
+  * page (integer)
+
+#### Output
+* output [pullsComment](#pullsComment)
 
 ### repos.owner.repo.pulls.number.comments.post
 Create a comment.
@@ -2708,10 +3334,14 @@ github.repos.owner.repo.pulls.number.comments.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Id of pull.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Id of pull.
+  * body **required** [pullsCommentPost](#pullsCommentPost)
+
+#### Output
+* output [pullsComment](#pullsComment)
 
 ### repos.owner.repo.pulls.number.commits.get
 List commits on a pull request.
@@ -2726,10 +3356,14 @@ github.repos.owner.repo.pulls.number.commits.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Id of pull.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Id of pull.
+  * page (integer)
+
+#### Output
+* output [commits](#commits)
 
 ### repos.owner.repo.pulls.number.files.get
 List pull requests files.
@@ -2744,10 +3378,14 @@ github.repos.owner.repo.pulls.number.files.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Id of pull.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Id of pull.
+  * page (integer)
+
+#### Output
+* output [pulls](#pulls)
 
 ### repos.owner.repo.pulls.number.merge.get
 Get if a pull request has been merged.
@@ -2762,9 +3400,13 @@ github.repos.owner.repo.pulls.number.merge.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Id of pull.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Id of pull.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.pulls.number.merge.put
 Merge a pull request (Merge Button's)
@@ -2780,10 +3422,14 @@ github.repos.owner.repo.pulls.number.merge.put({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* number (integer) **required** - Id of pull.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * number **required** (integer): Id of pull.
+  * body **required** [mergePullBody](#mergePullBody)
+
+#### Output
+* output [merge](#merge)
 
 ### repos.owner.repo.readme.get
 Get the README.
@@ -2799,9 +3445,13 @@ github.repos.owner.repo.readme.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* ref (string) - The String name of the Commit/Branch/Tag. Defaults to master.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * ref (string): The String name of the Commit/Branch/Tag. Defaults to master.
+
+#### Output
+* output [contents-path](#contents-path)
 
 ### repos.owner.repo.releases.get
 Users with push access to the repository will receive all releases (i.e., published releases and draft releases). Users with pull access will receive published releases only
@@ -2815,9 +3465,13 @@ github.repos.owner.repo.releases.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [releases](#releases)
 
 ### repos.owner.repo.releases.post
 Create a release
@@ -2834,9 +3488,13 @@ github.repos.owner.repo.releases.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [release-create](#release-create)
+
+#### Output
+* output [release](#release)
 
 ### repos.owner.repo.releases.assets.id.delete
 Delete a release asset
@@ -2851,9 +3509,13 @@ github.repos.owner.repo.releases.assets.id.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* id (string) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * id **required** (string)
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.releases.assets.id.get
 Get a single release asset
@@ -2868,9 +3530,13 @@ github.repos.owner.repo.releases.assets.id.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* id (string) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * id **required** (string)
+
+#### Output
+* output [asset](#asset)
 
 ### repos.owner.repo.releases.assets.id.patch
 Edit a release asset
@@ -2890,10 +3556,14 @@ github.repos.owner.repo.releases.assets.id.patch({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* id (string) **required**
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * id **required** (string)
+  * body **required** [assetPatch](#assetPatch)
+
+#### Output
+* output [asset](#asset)
 
 ### repos.owner.repo.releases.id.delete
 Users with push access to the repository can delete a release.
@@ -2908,9 +3578,13 @@ github.repos.owner.repo.releases.id.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* id (string) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * id **required** (string)
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.releases.id.get
 Get a single release
@@ -2925,9 +3599,13 @@ github.repos.owner.repo.releases.id.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* id (string) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * id **required** (string)
+
+#### Output
+* output [release](#release)
 
 ### repos.owner.repo.releases.id.patch
 Users with push access to the repository can edit a release
@@ -2943,10 +3621,14 @@ github.repos.owner.repo.releases.id.patch({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* id (string) **required**
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * id **required** (string)
+  * body **required** [release-create](#release-create)
+
+#### Output
+* output [release](#release)
 
 ### repos.owner.repo.releases.id.assets.get
 List assets for a release
@@ -2961,10 +3643,14 @@ github.repos.owner.repo.releases.id.assets.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* id (string) **required**
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * id **required** (string)
+  * page (integer)
+
+#### Output
+* output [assets](#assets)
 
 ### repos.owner.repo.stargazers.get
 List Stargazers.
@@ -2978,9 +3664,13 @@ github.repos.owner.repo.stargazers.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [users](#users)
 
 ### repos.owner.repo.stats.code_frequency.get
 Get the number of additions and deletions per week.
@@ -2997,8 +3687,12 @@ github.repos.owner.repo.stats.code_frequency.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+
+#### Output
+* output [codeFrequencyStats](#codeFrequencyStats)
 
 ### repos.owner.repo.stats.commit_activity.get
 Get the last year of commit activity data.
@@ -3015,8 +3709,12 @@ github.repos.owner.repo.stats.commit_activity.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+
+#### Output
+* output [commitActivityStats](#commitActivityStats)
 
 ### repos.owner.repo.stats.contributors.get
 Get contributors list with additions, deletions, and commit counts.
@@ -3030,9 +3728,13 @@ github.repos.owner.repo.stats.contributors.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [contributorsStats](#contributorsStats)
 
 ### repos.owner.repo.stats.participation.get
 Get the weekly commit count for the repo owner and everyone else.
@@ -3046,8 +3748,12 @@ github.repos.owner.repo.stats.participation.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+
+#### Output
+* output [participationStats](#participationStats)
 
 ### repos.owner.repo.stats.punch_card.get
 Get the number of commits per hour in each day.
@@ -3070,8 +3776,12 @@ github.repos.owner.repo.stats.punch_card.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+
+#### Output
+* output [codeFrequencyStats](#codeFrequencyStats)
 
 ### repos.owner.repo.statuses.ref.get
 List Statuses for a specific Ref.
@@ -3086,9 +3796,13 @@ github.repos.owner.repo.statuses.ref.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* ref (string) **required** - Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * ref **required** (string): Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
+
+#### Output
+* output [ref](#ref)
 
 ### repos.owner.repo.statuses.ref.post
 Create a Status.
@@ -3104,10 +3818,14 @@ github.repos.owner.repo.statuses.ref.post({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* ref (string) **required** - Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * ref **required** (string): Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
+  * body **required** [headBranch](#headBranch)
+
+#### Output
+* output [ref](#ref)
 
 ### repos.owner.repo.subscribers.get
 List watchers.
@@ -3121,9 +3839,13 @@ github.repos.owner.repo.subscribers.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [users](#users)
 
 ### repos.owner.repo.subscription.delete
 Delete a Repository Subscription.
@@ -3137,8 +3859,12 @@ github.repos.owner.repo.subscription.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+
+#### Output
+*Output schema unknown*
 
 ### repos.owner.repo.subscription.get
 Get a Repository Subscription.
@@ -3152,8 +3878,12 @@ github.repos.owner.repo.subscription.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+
+#### Output
+* output [subscribition](#subscribition)
 
 ### repos.owner.repo.subscription.put
 Set a Repository Subscription
@@ -3168,9 +3898,13 @@ github.repos.owner.repo.subscription.put({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* body (object) **required**
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * body **required** [subscribitionBody](#subscribitionBody)
+
+#### Output
+* output [subscribition](#subscribition)
 
 ### repos.owner.repo.tags.get
 Get list of tags.
@@ -3184,9 +3918,13 @@ github.repos.owner.repo.tags.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [tags](#tags)
 
 ### repos.owner.repo.teams.get
 Get list of teams
@@ -3200,9 +3938,13 @@ github.repos.owner.repo.teams.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [teams](#teams)
 
 ### repos.owner.repo.watchers.get
 List Stargazers. New implementation.
@@ -3216,9 +3958,13 @@ github.repos.owner.repo.watchers.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* page (integer)
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * page (integer)
+
+#### Output
+* output [users](#users)
 
 ### repos.owner.repo.archive_format.path.get
 Get archive link.
@@ -3240,10 +3986,14 @@ github.repos.owner.repo.archive_format.path.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of repository owner.
-* repo (string) **required** - Name of repository.
-* archive_format (string) **required**
-* path (string) **required** - Valid Git reference, defaults to 'master'.
+* input (object)
+  * owner **required** (string): Name of repository owner.
+  * repo **required** (string): Name of repository.
+  * archive_format **required** (string)
+  * path **required** (string): Valid Git reference, defaults to 'master'.
+
+#### Output
+*Output schema unknown*
 
 ### repositories.get
 List all public repositories.
@@ -3259,8 +4009,12 @@ github.repositories.get({}, context)
 ```
 
 #### Parameters
-* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* page (integer)
+* input (object)
+  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page (integer)
+
+#### Output
+* output [repositories](#repositories)
 
 ### search.code.get
 Search code.
@@ -3273,9 +4027,13 @@ github.search.code.get({
 ```
 
 #### Parameters
-* order (string) - The sort field. if sort param is provided. Can be either asc or desc.
-* q (string) **required** - The search terms. This can be any combination of the supported code
-* sort (string) - Can only be 'indexed', which indicates how recently a file has been indexed
+* input (object)
+  * order (string): The sort field. if sort param is provided. Can be either asc or desc.
+  * q **required** (string): The search terms. This can be any combination of the supported code
+  * sort (string): Can only be 'indexed', which indicates how recently a file has been indexed
+
+#### Output
+* output [search-code](#search-code)
 
 ### search.issues.get
 Find issues by state and keyword. (This method returns up to 100 results per page.)
@@ -3288,10 +4046,14 @@ github.search.issues.get({
 ```
 
 #### Parameters
-* order (string) - The sort field. if sort param is provided. Can be either asc or desc.
-* q (string) **required** - The q search term can also contain any combination of the supported issue search qualifiers:
-* sort (string) - The sort field. Can be comments, created, or updated. Default: results are sorted by best match.
-* page (integer)
+* input (object)
+  * order (string): The sort field. if sort param is provided. Can be either asc or desc.
+  * q **required** (string): The q search term can also contain any combination of the supported issue search qualifiers:
+  * sort (string): The sort field. Can be comments, created, or updated. Default: results are sorted by best match.
+  * page (integer)
+
+#### Output
+* output [search-issues](#search-issues)
 
 ### search.repositories.get
 Search repositories.
@@ -3304,10 +4066,14 @@ github.search.repositories.get({
 ```
 
 #### Parameters
-* order (string) - The sort field. if sort param is provided. Can be either asc or desc.
-* q (string) **required** - The search terms. This can be any combination of the supported repository
-* sort (string) - If not provided, results are sorted by best match.
-* page (integer)
+* input (object)
+  * order (string): The sort field. if sort param is provided. Can be either asc or desc.
+  * q **required** (string): The search terms. This can be any combination of the supported repository
+  * sort (string): If not provided, results are sorted by best match.
+  * page (integer)
+
+#### Output
+* output [search-repositories](#search-repositories)
 
 ### search.users.get
 Search users.
@@ -3320,10 +4086,14 @@ github.search.users.get({
 ```
 
 #### Parameters
-* order (string) - The sort field. if sort param is provided. Can be either asc or desc.
-* q (string) **required** - The search terms. This can be any combination of the supported user
-* sort (string) - If not provided, results are sorted by best match.
-* page (integer)
+* input (object)
+  * order (string): The sort field. if sort param is provided. Can be either asc or desc.
+  * q **required** (string): The search terms. This can be any combination of the supported user
+  * sort (string): If not provided, results are sorted by best match.
+  * page (integer)
+
+#### Output
+* output [search-users](#search-users)
 
 ### teams.teamId.delete
 Delete team.
@@ -3339,7 +4109,11 @@ github.teams.teamId.delete({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
+* input (object)
+  * teamId **required** (integer): Id of team.
+
+#### Output
+*Output schema unknown*
 
 ### teams.teamId.get
 Get team.
@@ -3352,7 +4126,11 @@ github.teams.teamId.get({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
+* input (object)
+  * teamId **required** (integer): Id of team.
+
+#### Output
+* output [team](#team)
 
 ### teams.teamId.patch
 Edit team.
@@ -3371,8 +4149,12 @@ github.teams.teamId.patch({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
-* body (object) **required**
+* input (object)
+  * teamId **required** (integer): Id of team.
+  * body **required** [editTeam](#editTeam)
+
+#### Output
+* output [team](#team)
 
 ### teams.teamId.members.get
 List team members.
@@ -3388,8 +4170,12 @@ github.teams.teamId.members.get({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
-* page (integer)
+* input (object)
+  * teamId **required** (integer): Id of team.
+  * page (integer)
+
+#### Output
+* output [users](#users)
 
 ### teams.teamId.members.username.delete
 The "Remove team member" API is deprecated and is scheduled for removal in the next major version of the API. We recommend using the Remove team membership API instead. It allows you to remove both active and pending memberships.
@@ -3410,8 +4196,12 @@ github.teams.teamId.members.username.delete({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
-* username (string) **required** - Name of a member.
+* input (object)
+  * teamId **required** (integer): Id of team.
+  * username **required** (string): Name of a member.
+
+#### Output
+*Output schema unknown*
 
 ### teams.teamId.members.username.get
 The "Get team member" API is deprecated and is scheduled for removal in the next major version of the API. We recommend using the Get team membership API instead. It allows you to get both active and pending memberships.
@@ -3430,8 +4220,12 @@ github.teams.teamId.members.username.get({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
-* username (string) **required** - Name of a member.
+* input (object)
+  * teamId **required** (integer): Id of team.
+  * username **required** (string): Name of a member.
+
+#### Output
+*Output schema unknown*
 
 ### teams.teamId.members.username.put
 The API (described below) is deprecated and is scheduled for removal in the next major version of the API. We recommend using the Add team membership API instead. It allows you to invite new organization members to your teams.
@@ -3451,8 +4245,12 @@ github.teams.teamId.members.username.put({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
-* username (string) **required** - Name of a member.
+* input (object)
+  * teamId **required** (integer): Id of team.
+  * username **required** (string): Name of a member.
+
+#### Output
+*Output schema unknown*
 
 ### teams.teamId.memberships.username.delete
 Remove team membership.
@@ -3468,8 +4266,12 @@ github.teams.teamId.memberships.username.delete({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
-* username (string) **required** - Name of a member.
+* input (object)
+  * teamId **required** (integer): Id of team.
+  * username **required** (string): Name of a member.
+
+#### Output
+*Output schema unknown*
 
 ### teams.teamId.memberships.username.get
 Get team membership.
@@ -3485,8 +4287,12 @@ github.teams.teamId.memberships.username.get({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
-* username (string) **required** - Name of a member.
+* input (object)
+  * teamId **required** (integer): Id of team.
+  * username **required** (string): Name of a member.
+
+#### Output
+* output [teamMembership](#teamMembership)
 
 ### teams.teamId.memberships.username.put
 Add team membership.
@@ -3506,8 +4312,12 @@ github.teams.teamId.memberships.username.put({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
-* username (string) **required** - Name of a member.
+* input (object)
+  * teamId **required** (integer): Id of team.
+  * username **required** (string): Name of a member.
+
+#### Output
+* output [teamMembership](#teamMembership)
 
 ### teams.teamId.repos.get
 List team repos
@@ -3520,8 +4330,12 @@ github.teams.teamId.repos.get({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
-* page (integer)
+* input (object)
+  * teamId **required** (integer): Id of team.
+  * page (integer)
+
+#### Output
+* output [teamRepos](#teamRepos)
 
 ### teams.teamId.repos.org.repo.put
 In order to add a repository to a team, the authenticated user must be an owner of the org that the team is associated with. Also, the repository must be owned by the organization, or a direct fork of a repository owned by the organization.
@@ -3536,9 +4350,13 @@ github.teams.teamId.repos.org.repo.put({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
-* org (string) **required** - Name of a organization.
-* repo (string) **required** - Name of a repository.
+* input (object)
+  * teamId **required** (integer): Id of team.
+  * org **required** (string): Name of a organization.
+  * repo **required** (string): Name of a repository.
+
+#### Output
+*Output schema unknown*
 
 ### teams.teamId.repos.owner.repo.delete
 In order to remove a repository from a team, the authenticated user must be an owner of the org that the team is associated with. NOTE: This does not delete the repository, it just removes it from the team.
@@ -3553,9 +4371,13 @@ github.teams.teamId.repos.owner.repo.delete({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
-* owner (string) **required** - Name of a repository owner.
-* repo (string) **required** - Name of a repository.
+* input (object)
+  * teamId **required** (integer): Id of team.
+  * owner **required** (string): Name of a repository owner.
+  * repo **required** (string): Name of a repository.
+
+#### Output
+*Output schema unknown*
 
 ### teams.teamId.repos.owner.repo.get
 Check if a team manages a repository
@@ -3570,9 +4392,13 @@ github.teams.teamId.repos.owner.repo.get({
 ```
 
 #### Parameters
-* teamId (integer) **required** - Id of team.
-* owner (string) **required** - Name of a repository owner.
-* repo (string) **required** - Name of a repository.
+* input (object)
+  * teamId **required** (integer): Id of team.
+  * owner **required** (string): Name of a repository owner.
+  * repo **required** (string): Name of a repository.
+
+#### Output
+*Output schema unknown*
 
 ### user.get
 Get the authenticated user.
@@ -3585,6 +4411,9 @@ github.user.get(null, context)
 #### Parameters
 *This action has no parameters*
 
+#### Output
+* output [user](#user)
+
 ### user.patch
 Update the authenticated user.
 
@@ -3596,7 +4425,11 @@ github.user.patch({
 ```
 
 #### Parameters
-* body (object) **required**
+* input (object)
+  * body **required** [user-update](#user-update)
+
+#### Output
+* output [user](#user)
 
 ### user.emails.delete
 Delete email address(es).
@@ -3611,7 +4444,11 @@ github.user.emails.delete({
 ```
 
 #### Parameters
-* body (array) **required**
+* input (object)
+  * body **required** [user-emails](#user-emails)
+
+#### Output
+*Output schema unknown*
 
 ### user.emails.get
 List email addresses for a user.
@@ -3628,7 +4465,11 @@ github.user.emails.get({}, context)
 ```
 
 #### Parameters
-* page (integer)
+* input (object)
+  * page (integer)
+
+#### Output
+* output [user-emails](#user-emails)
 
 ### user.emails.post
 Add email address(es).
@@ -3643,7 +4484,11 @@ github.user.emails.post({
 ```
 
 #### Parameters
-* body (array) **required**
+* input (object)
+  * body **required** [emailsPost](#emailsPost)
+
+#### Output
+*Output schema unknown*
 
 ### user.followers.get
 List the authenticated user's followers
@@ -3654,7 +4499,11 @@ github.user.followers.get({}, context)
 ```
 
 #### Parameters
-* page (integer)
+* input (object)
+  * page (integer)
+
+#### Output
+* output [users](#users)
 
 ### user.following.get
 List who the authenticated user is following.
@@ -3666,6 +4515,9 @@ github.user.following.get(null, context)
 
 #### Parameters
 *This action has no parameters*
+
+#### Output
+* output [users](#users)
 
 ### user.following.username.delete
 Unfollow a user.
@@ -3681,7 +4533,11 @@ github.user.following.username.delete({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
+* input (object)
+  * username **required** (string): Name of user.
+
+#### Output
+*Output schema unknown*
 
 ### user.following.username.get
 Check if you are following a user.
@@ -3694,7 +4550,11 @@ github.user.following.username.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
+* input (object)
+  * username **required** (string): Name of user.
+
+#### Output
+*Output schema unknown*
 
 ### user.following.username.put
 Follow a user.
@@ -3710,7 +4570,11 @@ github.user.following.username.put({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
+* input (object)
+  * username **required** (string): Name of user.
+
+#### Output
+*Output schema unknown*
 
 ### user.issues.get
 List issues.
@@ -3730,13 +4594,17 @@ github.user.issues.get({
 ```
 
 #### Parameters
-* filter (string) **required** - Issues assigned to you / created by you / mentioning you / you're
-* state (string) **required**
-* labels (string) **required** - String list of comma separated Label names. Example - bug,ui,@high.
-* sort (string) **required**
-* direction (string) **required**
-* since (string) - Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* page (integer)
+* input (object)
+  * filter **required** (string): Issues assigned to you / created by you / mentioning you / you're
+  * state **required** (string)
+  * labels **required** (string): String list of comma separated Label names. Example - bug,ui,@high.
+  * sort **required** (string)
+  * direction **required** (string)
+  * since (string): Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page (integer)
+
+#### Output
+* output [issues](#issues)
 
 ### user.keys.get
 List your public keys.
@@ -3750,7 +4618,11 @@ github.user.keys.get({}, context)
 ```
 
 #### Parameters
-* page (integer)
+* input (object)
+  * page (integer)
+
+#### Output
+* output [gitignore](#gitignore)
 
 ### user.keys.post
 Create a public key.
@@ -3763,7 +4635,11 @@ github.user.keys.post({
 ```
 
 #### Parameters
-* body (object) **required**
+* input (object)
+  * body **required** [user-keys-post](#user-keys-post)
+
+#### Output
+* output [user-keys-keyId](#user-keys-keyId)
 
 ### user.keys.keyId.delete
 Delete a public key. Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least admin:public_key scope.
@@ -3776,7 +4652,11 @@ github.user.keys.keyId.delete({
 ```
 
 #### Parameters
-* keyId (integer) **required** - ID of key.
+* input (object)
+  * keyId **required** (integer): ID of key.
+
+#### Output
+*Output schema unknown*
 
 ### user.keys.keyId.get
 Get a single public key.
@@ -3789,7 +4669,11 @@ github.user.keys.keyId.get({
 ```
 
 #### Parameters
-* keyId (integer) **required** - ID of key.
+* input (object)
+  * keyId **required** (integer): ID of key.
+
+#### Output
+* output [user-keys-keyId](#user-keys-keyId)
 
 ### user.orgs.get
 List public and private organizations for the authenticated user.
@@ -3800,7 +4684,11 @@ github.user.orgs.get({}, context)
 ```
 
 #### Parameters
-* page (integer)
+* input (object)
+  * page (integer)
+
+#### Output
+* output [gitignore](#gitignore)
 
 ### user.repos.get
 List repositories for the authenticated user. Note that this does not include
@@ -3814,8 +4702,12 @@ github.user.repos.get({}, context)
 ```
 
 #### Parameters
-* type (string)
-* page (integer)
+* input (object)
+  * type (string)
+  * page (integer)
+
+#### Output
+* output [repos](#repos)
 
 ### user.repos.post
 Create a new repository for the authenticated user. OAuth users must supply
@@ -3832,7 +4724,11 @@ github.user.repos.post({
 ```
 
 #### Parameters
-* body (object) **required**
+* input (object)
+  * body **required** [postRepo](#postRepo)
+
+#### Output
+* output [repos](#repos)
 
 ### user.starred.get
 List repositories being starred by the authenticated user.
@@ -3843,8 +4739,12 @@ github.user.starred.get({}, context)
 ```
 
 #### Parameters
-* direction (string) - Ignored without 'sort' parameter.
-* sort (string)
+* input (object)
+  * direction (string): Ignored without 'sort' parameter.
+  * sort (string)
+
+#### Output
+* output [gitignore](#gitignore)
 
 ### user.starred.owner.repo.delete
 Unstar a repository
@@ -3858,8 +4758,12 @@ github.user.starred.owner.repo.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of a repository owner.
-* repo (string) **required** - Name of a repository.
+* input (object)
+  * owner **required** (string): Name of a repository owner.
+  * repo **required** (string): Name of a repository.
+
+#### Output
+*Output schema unknown*
 
 ### user.starred.owner.repo.get
 Check if you are starring a repository.
@@ -3873,8 +4777,12 @@ github.user.starred.owner.repo.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of a repository owner.
-* repo (string) **required** - Name of a repository.
+* input (object)
+  * owner **required** (string): Name of a repository owner.
+  * repo **required** (string): Name of a repository.
+
+#### Output
+*Output schema unknown*
 
 ### user.starred.owner.repo.put
 Star a repository.
@@ -3888,8 +4796,12 @@ github.user.starred.owner.repo.put({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of a repository owner.
-* repo (string) **required** - Name of a repository.
+* input (object)
+  * owner **required** (string): Name of a repository owner.
+  * repo **required** (string): Name of a repository.
+
+#### Output
+*Output schema unknown*
 
 ### user.subscriptions.get
 List repositories being watched by the authenticated user.
@@ -3900,7 +4812,11 @@ github.user.subscriptions.get({}, context)
 ```
 
 #### Parameters
-* page (integer)
+* input (object)
+  * page (integer)
+
+#### Output
+* output [user-userId-subscribitions](#user-userId-subscribitions)
 
 ### user.subscriptions.owner.repo.delete
 Stop watching a repository
@@ -3914,8 +4830,12 @@ github.user.subscriptions.owner.repo.delete({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of the owner.
-* repo (string) **required** - Name of repository.
+* input (object)
+  * owner **required** (string): Name of the owner.
+  * repo **required** (string): Name of repository.
+
+#### Output
+*Output schema unknown*
 
 ### user.subscriptions.owner.repo.get
 Check if you are watching a repository.
@@ -3929,8 +4849,12 @@ github.user.subscriptions.owner.repo.get({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of the owner.
-* repo (string) **required** - Name of repository.
+* input (object)
+  * owner **required** (string): Name of the owner.
+  * repo **required** (string): Name of repository.
+
+#### Output
+*Output schema unknown*
 
 ### user.subscriptions.owner.repo.put
 Watch a repository.
@@ -3944,8 +4868,12 @@ github.user.subscriptions.owner.repo.put({
 ```
 
 #### Parameters
-* owner (string) **required** - Name of the owner.
-* repo (string) **required** - Name of repository.
+* input (object)
+  * owner **required** (string): Name of the owner.
+  * repo **required** (string): Name of repository.
+
+#### Output
+*Output schema unknown*
 
 ### user.teams.get
 List all of the teams across all of the organizations to which the authenticated user belongs. This method requires user or repo scope when authenticating via OAuth.
@@ -3956,7 +4884,11 @@ github.user.teams.get({}, context)
 ```
 
 #### Parameters
-* page (integer)
+* input (object)
+  * page (integer)
+
+#### Output
+* output [teams-list](#teams-list)
 
 ### users.get
 Get all users.
@@ -3971,8 +4903,12 @@ github.users.get({}, context)
 ```
 
 #### Parameters
-* since (integer) - The integer ID of the last User that you've seen.
-* page (integer)
+* input (object)
+  * since (integer): The integer ID of the last User that you've seen.
+  * page (integer)
+
+#### Output
+* output [users](#users)
 
 ### users.username.get
 Get a single user.
@@ -3985,7 +4921,11 @@ github.users.username.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
+* input (object)
+  * username **required** (string): Name of user.
+
+#### Output
+* output [users](#users)
 
 ### users.username.events.get
 If you are authenticated as the given user, you will see your private events. Otherwise, you'll only see public events.
@@ -3998,8 +4938,12 @@ github.users.username.events.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
-* page (integer)
+* input (object)
+  * username **required** (string): Name of user.
+  * page (integer)
+
+#### Output
+*Output schema unknown*
 
 ### users.username.events.orgs.org.get
 This is the user's organization dashboard. You must be authenticated as the user to view this.
@@ -4013,8 +4957,12 @@ github.users.username.events.orgs.org.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
-* org (string) **required**
+* input (object)
+  * username **required** (string): Name of user.
+  * org **required** (string)
+
+#### Output
+*Output schema unknown*
 
 ### users.username.followers.get
 List a user's followers
@@ -4027,8 +4975,12 @@ github.users.username.followers.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
-* page (integer)
+* input (object)
+  * username **required** (string): Name of user.
+  * page (integer)
+
+#### Output
+* output [users](#users)
 
 ### users.username.following.targetUser.get
 Check if one user follows another.
@@ -4042,8 +4994,12 @@ github.users.username.following.targetUser.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
-* targetUser (string) **required** - Name of user.
+* input (object)
+  * username **required** (string): Name of user.
+  * targetUser **required** (string): Name of user.
+
+#### Output
+*Output schema unknown*
 
 ### users.username.gists.get
 List a users gists.
@@ -4056,9 +5012,13 @@ github.users.username.gists.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
-* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* page (integer)
+* input (object)
+  * username **required** (string): Name of user.
+  * since (string): The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * page (integer)
+
+#### Output
+* output [gists](#gists)
 
 ### users.username.keys.get
 List public keys for a user.
@@ -4073,8 +5033,12 @@ github.users.username.keys.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
-* page (integer)
+* input (object)
+  * username **required** (string): Name of user.
+  * page (integer)
+
+#### Output
+* output [gitignore](#gitignore)
 
 ### users.username.orgs.get
 List all public organizations for a user.
@@ -4087,8 +5051,12 @@ github.users.username.orgs.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
-* page (integer)
+* input (object)
+  * username **required** (string): Name of user.
+  * page (integer)
+
+#### Output
+* output [gitignore](#gitignore)
 
 ### users.username.received_events.get
 These are events that you'll only see public events.
@@ -4101,8 +5069,12 @@ github.users.username.received_events.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
-* page (integer)
+* input (object)
+  * username **required** (string): Name of user.
+  * page (integer)
+
+#### Output
+*Output schema unknown*
 
 ### users.username.received_events.public.get
 List public events that a user has received
@@ -4115,7 +5087,11 @@ github.users.username.received_events.public.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
+* input (object)
+  * username **required** (string): Name of user.
+
+#### Output
+*Output schema unknown*
 
 ### users.username.repos.get
 List public repositories for the specified user.
@@ -4128,9 +5104,13 @@ github.users.username.repos.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
-* type (string)
-* page (integer)
+* input (object)
+  * username **required** (string): Name of user.
+  * type (string)
+  * page (integer)
+
+#### Output
+* output [repos](#repos)
 
 ### users.username.starred.get
 List repositories being starred by a user.
@@ -4143,7 +5123,11 @@ github.users.username.starred.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
+* input (object)
+  * username **required** (string): Name of user.
+
+#### Output
+*Output schema unknown*
 
 ### users.username.subscriptions.get
 List repositories being watched by a user.
@@ -4156,6 +5140,1203 @@ github.users.username.subscriptions.get({
 ```
 
 #### Parameters
-* username (string) **required** - Name of user.
-* page (integer)
+* input (object)
+  * username **required** (string): Name of user.
+  * page (integer)
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+* asset (object)
+  * content_type (string)
+  * created_at (string)
+  * download_count (number)
+  * id (number)
+  * label (string)
+  * name (string)
+  * size (number)
+  * state (string)
+  * updated_at (string)
+  * uploader (object)
+    * avatar_url (string)
+    * events_url (string)
+    * followers_url (string)
+    * following_url (string)
+    * gists_url (string)
+    * gravatar_id (string)
+    * html_url (string)
+    * id (number)
+    * login (string)
+    * organizations_url (string)
+    * received_events_url (string)
+    * repos_url (string)
+    * site_admin (boolean)
+    * starred_url (string)
+    * subscriptions_url (string)
+    * type (string)
+    * url (string)
+  * url (string)* assetPatch (object)
+  * label (string)
+  * name **required** (string)* assets (array)* assignees (array)* blob (object)
+  * content (string)
+
+  * sha (string)
+  * size (integer)* blobs (object)
+  * sha (string)* branch (object)
+  * _links (object)
+    * html (string)
+    * self (string)
+  * commit (object)
+    * author (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * commit (object)
+
+      * committer (object)
+        * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * email (string)
+        * name (string)
+      * message (string)
+      * tree (object)
+        * sha (string)
+        * url (string)
+      * url (string)
+    * committer (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * parents (array)
+    * sha (string)
+    * url (string)
+  * name (string)* branches (array)* codeFrequencyStats (array)* collaborators (array)* comment (object)
+  * body (string)* commentBody (object)
+  * body **required** (string)* comments (array)* commit (object)
+  * author (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+  * commit (object)
+    * author (object)
+      * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * email (string)
+      * name (string)
+    * committer (object)
+      * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * email (string)
+      * name (string)
+    * message (string)
+    * tree (object)
+      * sha (string)
+      * url (string)
+    * url (string)
+  * committer (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+  * files (array)
+  * parents (array)
+  * sha (string)
+  * stats (object)
+    * additions (integer)
+    * deletions (integer)
+    * total (integer)
+  * url (string)* commitActivityStats (array)* commitBody (object)
+  * body **required** (string)
+  * line (string): Deprecated - Use position parameter instead.
+  * number (string): Line number in the file to comment on. Defaults to null.
+  * path (string): Relative path of the file to comment on.
+  * position (integer): Line index in the diff to comment on.
+  * sha **required** (string): SHA of the commit to comment on.* commitComments (object)
+  * body (string)
+  * commit_id (string)
+  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * html_url (string)
+  * id (integer)
+  * line (integer)
+  * path (string)
+  * position (integer)
+  * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * url (string)
+  * user (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)* commits (array)* compare-commits (object)
+  * ahead_by (integer)
+  * base_commit (object)
+    * author (object)
+      * avatar_url (string)
+      * events_url (string)
+      * followers_url (string)
+      * following_url (string)
+      * gists_url (string)
+      * gravatar_id (string)
+      * html_url (string)
+      * id (integer)
+      * login (string)
+      * organizations_url (string)
+      * received_events_url (string)
+      * repos_url (string)
+      * site_admin (boolean)
+      * starred_url (string)
+      * subscriptions_url (string)
+      * type (string)
+      * url (string)
+    * commit (object)
+      * author (object)
+        * date (string)
+        * email (string)
+        * name (string)
+      * committer (object)
+        * date (string)
+        * email (string)
+        * name (string)
+      * message (string)
+      * tree (object)
+        * sha (string)
+        * url (string)
+      * url (string)
+    * committer (object)
+      * avatar_url (string)
+      * events_url (string)
+      * followers_url (string)
+      * following_url (string)
+      * gists_url (string)
+      * gravatar_id (string)
+      * html_url (string)
+      * id (integer)
+      * login (string)
+      * organizations_url (string)
+      * received_events_url (string)
+      * repos_url (string)
+      * site_admin (boolean)
+      * starred_url (string)
+      * subscriptions_url (string)
+      * type (string)
+      * url (string)
+    * parents (array)
+    * sha (string)
+    * url (string)
+  * behind_by (integer)
+  * commits (array)
+  * diff_url (string)
+  * files (array)
+  * html_url (string)
+  * patch_url (string)
+  * permalink_url (string)
+  * status (string)
+  * total_commits (integer)
+  * url (string)* contents-path (object)
+  * _links (object)
+    * git (string)
+    * html (string)
+    * self (string)
+  * content (string)
+  * encoding (string)
+  * git_url (string)
+  * html_url (string)
+  * name (string)
+  * path (string)
+  * sha (string)
+  * size (integer)
+  * type (string)
+  * url (string)* contributors (array)* contributorsStats (array)* createDownload (object)
+  * accesskeyid (string)
+  * acl (string)
+  * bucket (string)
+  * content_type (string)
+  * description (string)
+  * download_count (integer)
+  * expirationdate (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * html_url (string)
+  * id (integer)
+  * mime_type (string)
+  * name (string)
+  * path (string)
+  * policy (string)
+  * prefix (string)
+  * redirect (boolean)
+  * s3_url (string)
+  * signature (string)
+  * size (integer)
+  * url (string)* createFile (object)
+  * commit (object)
+    * author (object)
+      * date (string)
+      * email (string)
+      * name (string)
+    * committer (object)
+      * date (string)
+      * email (string)
+      * name (string)
+    * html_url (string)
+    * message (string)
+    * parents (array)
+    * sha (string)
+    * tree (object)
+      * sha (string)
+      * url (string)
+    * url (string)
+  * content (object)
+    * _links (object)
+      * git (string)
+      * html (string)
+      * self (string)
+    * git_url (string)
+    * html_url (string)
+    * name (string)
+    * path (string)
+    * sha (string)
+    * size (integer)
+    * type (string)
+    * url (string)* createFileBody (object)
+  * committer (object)
+    * email (string)
+    * name (string)
+  * content (string)
+  * message (string)* deleteFile (object)
+  * commit (object)
+    * author (object)
+      * date (string)
+      * email (string)
+      * name (string)
+
+    * html_url (string)
+    * message (string)
+    * parents (object)
+      * html_url (string)
+      * sha (string)
+      * url (string)
+    * sha (string)
+    * tree (object)
+      * sha (string)
+      * url (string)
+    * url (string)
+  * content (string)* deleteFileBody (object)
+  * committer (object)
+    * email (string)
+    * name (string)
+  * message (string)
+  * sha (string)* deployment (object)
+  * description (string)
+  * payload (object)
+    * deploy_user (string)
+    * environment (string)
+    * room_id (number)
+  * ref (string)* deployment-resp (object)
+  * created_at (string)
+  * creator (object)
+    * avatar_url (string)
+    * events_url (string)
+    * followers_url (string)
+    * following_url (string)
+    * gists_url (string)
+    * gravatar_id (string)
+    * html_url (string)
+    * id (integer)
+    * login (string)
+    * organizations_url (string)
+    * received_events_url (string)
+    * repos_url (string)
+    * site_admin (boolean)
+    * starred_url (string)
+    * subscriptions_url (string)
+    * type (string)
+    * url (string)
+  * description (string)
+  * id (integer)
+  * payload (string)
+  * sha (string)
+  * statuses_url (string)
+  * updated_at (string)
+  * url (string)* deployment-statuses (array)* deployment-statuses-create (object)
+  * description (string)
+  * state (string)
+  * target_url (string)* downloadBody (object)
+  * content_type (string)
+  * description (string)
+  * name **required** (string)
+  * size **required** (integer): Size of file in bytes.* downloads (object)
+  * content_type (string)
+  * description (string)
+  * download_count (integer)
+  * html_url (string)
+  * id (integer)
+  * name (string)
+  * size (integer)
+  * url (string)* editTeam (object)
+  * name **required** (string)
+* emailsPost (array)* emojis (object)
+  * 100 (string)
+  * 1234 (string)
+  * +1 (string)
+  * -1 (string)
+  * 8ball (string)
+  * a (string)
+  * ab (string)* event (object)
+  * actor (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+  * commit_id (string)
+  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * event (string)
+  * issue (object)
+
+    * body (string)
+    * closed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * comments (integer)
+    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * html_url (string)
+    * labels (array)
+    * milestone (object)
+      * closed_issues (integer)
+      * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * creator (object)
+        * avatar_url (string)
+        * gravatar_id (string)
+        * id (integer)
+        * login (string)
+        * url (string)
+      * description (string)
+      * due_on (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * number (integer)
+      * open_issues (integer)
+
+      * title (string)
+      * url (string)
+    * number (integer)
+    * pull_request (object)
+      * diff_url (string)
+      * html_url (string)
+      * patch_url (string)
+
+    * title (string)
+    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url (string)
+    * user (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+  * url (string)* events (object)
+  * actor (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+  * created_at (object)
+  * id (integer)
+  * org (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+  * payload (object)
+  * public (boolean)
+  * repo (object)
+    * id (integer)
+    * name (string)
+    * url (string)
+  * type (string)* feeds (object)
+
+  * current_user_actor_url (string)
+  * current_user_organization_url (string)
+  * current_user_public (string)
+  * current_user_url (string)
+  * timeline_url (string)
+  * user_url (string)* fork (object)
+  * clone_url (string)
+  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * description (string)
+  * fork (boolean)
+  * forks (integer)
+  * forks_count (integer)
+  * full_name (string)
+  * git_url (string)
+  * homepage (string)
+  * html_url (string)
+  * id (integer)
+  * language (string)
+  * master_branch (string)
+  * mirror_url (string)
+  * name (string)
+  * open_issues (integer)
+  * open_issues_count (integer)
+  * owner (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+  * private (boolean)
+  * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * size (integer)
+  * ssh_url (string)
+  * svn_url (string)
+  * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * url (string)
+  * watchers (integer)
+  * watchers_count (integer)* forkBody (object)
+  * organization (string)* forks (array)* gist (object)
+  * comments (integer)
+  * comments_url (string)
+  * created_at (string): Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+  * description (string)
+  * files (object)
+    * ring.erl (object)
+      * filename (string)
+      * raw_url (string)
+      * size (integer)
+  * forks (array)
+  * git_pull_url (string)
+  * git_push_url (string)
+  * history (array)
+  * html_url (string)
+  * id (string)
+  * public (boolean)
+  * url (string)
+  * user (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)* gists (array)* gitCommit (object)
+  * author (object)
+    * date (string)
+    * email (string)
+    * name (string)
+  * message (string)
+  * parents (string)
+  * tree (string)* gitRefPatch (object)
+  * force (boolean)
+  * sha (string)* gitignore (array)* gitignore-lang (object)
+  * name (string)
+  * source (string)* headBranch (object)
+  * object (object)
+    * sha (string)
+    * type (string)
+    * url (string)
+  * ref (string)
+  * url (string)* headBranchBody (object)
+  * force **required** (boolean): Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
+  * sha **required** (string): String of the SHA1 value to set this reference to.* heads (array)* hook (array)* hookBody (object)
+  * active (boolean)
+  * add_events (array)* issue (object)
+  * assignee (string)
+  * body (string)
+  * labels (array)
+  * milestone (number)
+  * title (string)* issueBody (object)
+  * assignee (string)
+  * body (string)
+  * labels (array)
+  * milestone (number)
+  * title (string)* issues (array)* issuesComment (object)
+  * body (string)
+  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * html_url (string)
+  * id (integer)
+  * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * url (string)
+  * user (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)* issuesComments (array)* key (object)
+  * id (integer)
+  * key (string)
+  * title (string)
+  * url (string)* keyBody (object)
+  * key (string)
+  * title (string)* keys (array)* label (object)
+  * color (string)
+  * name (string)
+  * url (string)* labels (array)* labelsBody (array)* languages (object)* markdown (object)
+  * context (string)
+  * mode (string)
+  * text (string)* members (array)* merge (object)
+  * merged (boolean)
+  * message (string)
+  * sha (string)* mergePullBody (object)
+  * commit_message (string)* mergesBody (object)
+  * base (string)
+  * commit_message (string)
+  * head (string)* mergesConflict (object)
+  * message (string): Error message* mergesSuccessful (object)
+  * author (object)
+    * avatar_url (string)
+    * events_url (string)
+    * followers_url (string)
+    * following_url (string)
+    * gists_url (string)
+    * gravatar_id (string)
+    * html_url (string)
+    * id (integer)
+    * login (string)
+    * organizations_url (string)
+    * received_events_url (string)
+    * repos_url (string)
+    * starred_url (string)
+    * subscriptions_url (string)
+    * type (string)
+    * url (string)
+  * comments_url (string)
+  * commit (object)
+    * author (object)
+      * date (string)
+      * email (string)
+      * name (string)
+    * comment_count (integer)
+    * committer (object)
+      * date (string)
+      * email (string)
+      * name (string)
+    * message (string)
+    * tree (object)
+      * sha (string)
+      * url (string)
+    * url (string)
+  * committer (object)
+    * avatar_url (string)
+    * events_url (string)
+    * followers_url (string)
+    * following_url (string)
+    * gists_url (string)
+    * gravatar_id (string)
+    * html_url (string)
+    * id (integer)
+    * login (string)
+    * organizations_url (string)
+    * received_events_url (string)
+    * repos_url (string)
+    * starred_url (string)
+    * subscriptions_url (string)
+    * type (string)
+    * url (string)
+  * merged (boolean)
+  * message (string)
+  * parents (array)
+  * sha (string)
+  * url (string)* meta (object)
+  * git (array)
+  * hooks (array)* milestone (object)
+  * closed_issues (integer)
+  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * creator (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+  * description (string)
+  * due_on (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * number (integer)
+  * open_issues (integer)
+
+  * title (string)
+  * url (string)* milestoneBody (object)
+  * description (string)
+  * due_on (string)
+  * state (string)
+  * title (string)* milestoneUpdate (object)
+  * description (string)
+  * due_on (string)
+  * state (string)
+  * title (string)* notificationMarkRead (object)
+  * last_read_at (string)* notifications (object)
+  * id (integer)
+  * last_read_at (string)
+  * reason (string)
+  * repository (object)
+    * description (string)
+    * fork (boolean)
+    * full_name (string)
+    * html_url (string)
+    * id (integer)
+    * name (string)
+    * owner (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * private (boolean)
+    * url (string)
+  * subject (object)
+    * latest_comment_url (string)
+    * title (string)
+    * type (string)
+    * url (string)
+  * unread (boolean)
+  * updated_at (string)
+  * url (string)* orgMembers (array)* orgPublicMembers (array)* orgTeams (array)* orgTeamsPost (object)
+  * name **required** (string)
+
+  * repo_names (array)* organization (object)
+  * avatar_url (string)
+  * blog (string)
+  * company (string)
+  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * email (string)
+  * followers (integer)
+  * following (integer)
+  * html_url (string)
+  * id (integer)
+  * location (string)
+  * login (string)
+  * name (string)
+  * public_gists (integer)
+  * public_repos (integer)
+  * type (string)
+  * url (string)* organizationAsTeamMember (object)
+  * errors (array)
+  * message (string)* participationStats (object)
+  * all (array)
+  * owner (array)* patchGist (object)
+  * description (string)
+* patchOrg (object)
+  * billing_email (string): Billing email address. This address is not publicized.
+  * company (string)
+  * email (string): Publicly visible email address.
+  * location (string)
+  * name (string)* postComment (object)
+  * body **required** (string)* postGist (object)
+  * description (string)
+  * files (object)
+    * file1.txt (object)
+      * content (string)
+  * public (boolean)* postRepo (object)
+  * auto_init (boolean): True to create an initial commit with empty README. Default is false.
+  * description (string)
+  * gitignore_template (string): Desired language or platform .gitignore template to apply. Use the name of the template without the extension. For example, "Haskell" Ignored if auto_init parameter is not provided. 
+  * has_downloads (boolean): True to enable downloads for this repository, false to disable them. Default is true.
+  * has_issues (boolean): True to enable issues for this repository, false to disable them. Default is true.
+  * has_wiki (boolean): True to enable the wiki for this repository, false to disable it. Default is true.
+  * homepage (string)
+  * name **required** (string)
+  * private (boolean): True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account.
+  * team_id (integer): The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization.* pullRequest (object)
+  * _links (object)
+    * comments (object)
+      * href (string)
+    * html (object)
+      * href (string)
+    * review_comments (object)
+      * href (string)
+    * self (object)
+      * href (string)
+  * additions (integer)
+  * base (object)
+    * label (string)
+    * ref (string)
+    * repo (object)
+      * clone_url (string)
+      * created_at (string)
+      * description (string)
+      * fork (boolean)
+      * forks (integer)
+      * forks_count (integer)
+      * full_name (string)
+      * git_url (string)
+      * homepage (string)
+      * html_url (string)
+      * id (integer)
+      * language (null)
+      * master_branch (string)
+      * mirror_url (string)
+      * name (string)
+      * open_issues (integer)
+      * open_issues_count (integer)
+      * owner (object)
+        * avatar_url (string)
+        * gravatar_id (string)
+        * id (integer)
+        * login (string)
+        * url (string)
+      * private (boolean)
+      * pushed_at (string)
+      * size (integer)
+      * ssh_url (string)
+      * svn_url (string)
+      * updated_at (string)
+      * url (string)
+      * watchers (integer)
+      * watchers_count (integer)
+    * sha (string)
+    * user (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+  * body (string)
+  * changed_files (integer)
+  * closed_at (string)
+  * comments (integer)
+  * commits (integer)
+  * created_at (string)
+  * deletions (integer)
+  * diff_url (string)
+  * head (object)
+    * label (string)
+    * ref (string)
+    * repo (object)
+      * clone_url (string)
+      * created_at (string)
+      * description (string)
+      * fork (boolean)
+      * forks (integer)
+      * forks_count (integer)
+      * full_name (string)
+      * git_url (string)
+      * homepage (string)
+      * html_url (string)
+      * id (integer)
+      * language (null)
+      * master_branch (string)
+      * mirror_url (string)
+      * name (string)
+      * open_issues (integer)
+      * open_issues_count (integer)
+      * owner (object)
+        * avatar_url (string)
+        * gravatar_id (string)
+        * id (integer)
+        * login (string)
+        * url (string)
+      * private (boolean)
+      * pushed_at (string)
+      * size (integer)
+      * ssh_url (string)
+      * svn_url (string)
+      * updated_at (string)
+      * url (string)
+      * watchers (integer)
+      * watchers_count (integer)
+    * sha (string)
+    * user (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+  * html_url (string)
+  * issue_url (string)
+  * merge_commit_sha (string)
+  * mergeable (boolean)
+  * merged (boolean)
+  * merged_at (string)
+  * merged_by (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+  * number (integer)
+  * patch_url (string)
+  * state (string)
+  * title (string)
+  * updated_at (string)
+  * url (string)
+  * user (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)* pullUpdate (object)
+  * body (string)
+  * state (string)
+  * title (string)* pulls (array)* pullsComment (object)
+  * _links (object)
+    * html (object)
+      * href (string)
+    * pull_request (object)
+      * href (string)
+    * self (object)
+      * href (string)
+  * body (string)
+  * commit_id (string)
+  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * id (integer)
+  * path (string)
+  * position (integer)
+  * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * url (string)
+  * user (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)* pullsCommentPost (object)
+  * body (string)
+  * commit_id (string)
+  * path (string)
+  * position (number)* pullsComments (array)* pullsPost (object)
+  * base (string)
+  * body (string)
+  * head (string)
+  * title (string)* punchCardStats (array)* putSubscription (object)
+  * created_at (string)
+  * ignored (boolean)
+  * reason (object)
+  * subscribed (boolean)
+  * thread_url (string)
+  * url (string)* rate_limit (object)
+* readme (object)
+  * _links (object)
+    * git (string)
+    * html (string)
+    * self (string)
+  * content (string)
+  * encoding (string)
+  * git_url (string)
+  * html_url (string)
+  * name (string)
+  * path (string)
+  * sha (string)
+  * size (integer)
+  * type (string)
+  * url (string)* ref (array)* refBody (object)
+  * object (object)
+    * sha (string)
+    * type (string)
+    * url (string)
+  * ref (string)
+  * url (string)* refStatus (array)* refs (array)* refsBody (object)
+  * ref (string)
+  * sha (string)* release (object)
+  * assets (array)
+  * assets_url (string)
+  * author (object)
+    * avatar_url (string)
+    * events_url (string)
+    * followers_url (string)
+    * following_url (string)
+    * gists_url (string)
+    * gravatar_id (string)
+    * html_url (string)
+    * id (integer)
+    * login (string)
+    * organizations_url (string)
+    * received_events_url (string)
+    * repos_url (string)
+    * site_admin (boolean)
+    * starred_url (string)
+    * subscriptions_url (string)
+    * type (string)
+    * url (string)
+  * body (string)
+  * created_at (string)
+  * draft (boolean)
+  * html_url (string)
+  * id (integer)
+  * name (string)
+  * prerelease (boolean)
+  * published_at (string)
+  * tag_name (string)
+  * tarball_url (string)
+  * target_commitish (string)
+  * upload_url (string)
+  * url (string)
+  * zipball_url (string)* release-create (object)
+  * body (string)
+  * draft (boolean)
+  * name (string)
+  * prerelease (boolean)
+  * tag_name (string)
+  * target_commitish (string)* releases (array)* repo (object)
+  * clone_url (string)
+  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * description (string)
+  * fork (boolean)
+  * forks (integer)
+  * forks_count (integer)
+  * full_name (string)
+  * git_url (string)
+  * has_downloads (boolean)
+  * has_issues (boolean)
+  * has_wiki (boolean)
+  * homepage (string)
+  * html_url (string)
+  * id (integer)
+  * language (string)
+  * master_branch (string)
+  * mirror_url (string)
+  * name (string)
+  * open_issues (integer)
+  * open_issues_count (integer)
+  * organization (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * type (string)
+    * url (string)
+  * owner (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+  * parent (object): Is present when the repo is a fork. Parent is the repo this repo was forked from.
+    * clone_url (string)
+    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * description (string)
+    * fork (boolean)
+    * forks (integer)
+    * forks_count (integer)
+    * full_name (string)
+    * git_url (string)
+    * homepage (string)
+    * html_url (string)
+    * id (integer)
+    * language (string)
+    * master_branch (string)
+    * mirror_url (string)
+    * name (string)
+    * open_issues (integer)
+    * open_issues_count (integer)
+    * owner (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * private (boolean)
+    * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * size (integer)
+    * ssh_url (string)
+    * svn_url (string)
+    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url (string)
+    * watchers (integer)
+    * watchers_count (integer)
+  * private (boolean)
+  * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * size (integer)
+  * source (object): Is present when the repo is a fork. Source is the ultimate source for the network.
+    * clone_url (string)
+    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * description (string)
+    * fork (boolean)
+    * forks (integer)
+    * forks_count (integer)
+    * full_name (string)
+    * git_url (string)
+    * homepage (string)
+    * html_url (string)
+    * id (integer)
+    * language (string)
+    * master_branch (string)
+    * mirror_url (string)
+    * name (string)
+    * open_issues (integer)
+    * open_issues_count (integer)
+    * owner (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * private (boolean)
+    * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * size (integer)
+    * ssh_url (string)
+    * svn_url (string)
+    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url (string)
+    * watchers (integer)
+    * watchers_count (integer)
+  * ssh_url (string)
+  * svn_url (string)
+  * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * url (string)
+  * watchers (integer)
+  * watchers_count (integer)* repo-deployments (array)* repoComments (array)* repoCommit (object)
+  * author (object)
+    * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * email (string)
+    * name (string)
+  * committer (object)
+    * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * email (string)
+    * name (string)
+  * message (string)
+  * parents (array)
+  * sha (string)
+  * tree (object)
+    * sha (string)
+    * url (string)
+  * url (string)* repoCommitBody (object)
+  * author (object)
+    * date (string)
+    * email (string)
+    * name (string)
+  * message **required** (string)
+  * parents **required** (array)
+  * tree **required** (string)* repoEdit (object)
+  * description (string)
+  * has_downloads (boolean)
+  * has_issues (boolean)
+  * has_wiki (boolean)
+  * homepage (string)
+  * name (string)
+  * private (boolean)* repos (array)* repositories (array)* search-code (object)
+  * items (array)
+  * total_count (integer)* search-issues (object)
+  * items (array)
+  * total_count (integer)* search-issues-by-keyword (object)
+  * issues (array)* search-repositories (object)
+  * items (array)
+  * total_count (integer)* search-repositories-by-keyword (object)
+  * repositories (array)* search-user-by-email (object)
+  * user (object)
+    * blog (string)
+    * company (string)
+    * created (string)
+    * created_at (string)
+    * email (string)
+    * followers_count (integer)
+    * following_count (integer)
+    * gravatar_id (string)
+    * id (integer)
+    * location (string)
+    * login (string)
+    * name (string)
+    * public_gist_count (integer)
+    * public_repo_count (integer)
+    * type (string)* search-users (object)
+  * items (array)
+  * total_count (integer)* search-users-by-keyword (object)
+  * users (array)* stargazers (array)* subscribition (object)
+  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * ignored (boolean)
+  * reason (string)
+  * repository_url (string)
+  * subscribed (boolean)
+  * url (string)* subscribitionBody (object)
+  * ignored (boolean)
+  * subscribed (boolean)* subscription (object)
+  * created_at (string)
+  * ignored (boolean)
+  * reason (boolean)
+  * subscribed (boolean)
+  * thread_url (string)
+  * url (string)* tag (object)
+  * message (string)
+  * object (object)
+    * sha (string)
+    * type (string)
+    * url (string)
+  * sha (string)
+  * tag (string)
+  * tagger (object)
+    * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * email (string)
+    * name (string)
+  * url (string)* tags (object)
+  * message **required** (string): String of the tag message.
+  * object **required** (string): String of the SHA of the git object this is tagging.
+  * tag **required** (string)
+  * tagger **required** (object)
+    * date (string): Timestamp of when this object was tagged.
+    * email (string): String of the email of the author of the tag.
+    * name (string): String of the name of the author of the tag.
+  * type **required** (string): String of the type of the object we’re tagging. Normally this is a commit but it can also be a tree or a blob.* team (object)
+  * id (integer)
+  * members_count (integer)
+  * name (string)
+  * permission (string)
+  * repos_count (integer)
+  * url (string)* teamMembership (object)
+  * state (string)
+  * url (string)* teamRepos (array)* teams (array)* teams-list (array)* tree (object)
+  * sha (string)
+  * tree (array)
+  * url (string)* trees (object)
+  * base_tree (string)
+  * sha (string): SHA1 checksum ID of the object in the tree.
+  * tree (array)
+  * url (string)* user (object)
+  * avatar_url (string)
+  * bio (string)
+  * blog (string)
+  * collaborators (integer)
+  * company (string)
+  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * disk_usage (integer)
+  * email (string)
+  * followers (integer)
+  * following (integer)
+  * gravatar_id (string)
+  * hireable (boolean)
+  * html_url (string)
+  * id (integer)
+  * location (string)
+  * login (string)
+  * name (string)
+  * owned_private_repos (integer)
+  * plan (object)
+    * collaborators (integer)
+    * name (string)
+    * private_repos (integer)
+    * space (integer)
+  * private_gists (integer)
+  * public_gists (integer)
+  * public_repos (integer)
+  * total_private_repos (integer)
+  * type (string)
+  * url (string)* user-emails (array)* user-emails_final (array)* user-keys (array)* user-keys-keyId (object)
+  * id (integer)
+  * key (string)
+  * title (string)
+  * url (string)* user-keys-post (object)
+  * key (string)
+  * title (string)* user-update (object)
+  * bio (string)
+  * blog (string)
+  * company (string)
+  * email (string)
+  * hireable (boolean)
+  * location (string)
+  * name (string)* user-userId (object)
+  * avatar_url (string)
+  * bio (string)
+  * blog (string)
+  * company (string)
+  * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+  * email (string): Note: The returned email is the user’s publicly visible email address (or null if the user has not specified a public email address in their profile).
+  * followers (integer)
+  * following (integer)
+  * gravatar_id (string)
+  * hireable (boolean)
+  * html_url (string)
+  * id (integer)
+  * location (string)
+  * login (string)
+  * name (string)
+  * public_gists (integer)
+  * public_repos (integer)
+  * type (string)
+  * url (string)* user-userId-starred (array)* user-userId-subscribitions (array)* users (array)* users-userId-keys (array)* users-userId-orgs (array)
