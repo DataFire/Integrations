@@ -562,7 +562,7 @@ See the [HTTP](./integrations/manual/http) or [MongoDB](./integrations/manual/mo
 |google_prediction|Prediction|[README](integrations/generated/google_prediction)|[DataFire.io](https://app.datafire.io/integrations/google_prediction)|Lets you access a cloud hosted machine learning service that makes it easy to build smart apps|
 |producthunt|Product Hunt|[README](integrations/generated/producthunt)|[DataFire.io](https://app.datafire.io/integrations/producthunt)||
 |haloapi_profile|Profile|[README](integrations/generated/haloapi_profile)|[DataFire.io](https://app.datafire.io/integrations/haloapi_profile)|API that provides Profile information about Players.|
-|ptv_vic_gov_au|PTV Timetable API|[README](integrations/generated/ptv_vic_gov_au)|[DataFire.io](https://app.datafire.io/integrations/ptv_vic_gov_au)|The PTV Timetable API provides direct access to Public Transport Victoria’s public transport timetable data.|
+|ptv_vic_gov_au|PTV Timetable API|[README](integrations/generated/ptv_vic_gov_au)|[DataFire.io](https://app.datafire.io/integrations/ptv_vic_gov_au)|The PTV Timetable API provides direct access to Public Transport Victoria’s public transport timetable data.|
 |google_qpxexpress|QPX Express|[README](integrations/generated/google_qpxexpress)|[DataFire.io](https://app.datafire.io/integrations/google_qpxexpress)|Finds the least expensive flights between an origin and a destination.|
 |qualpay|Qualpay Payment Gateway|[README](integrations/generated/qualpay)|[DataFire.io](https://app.datafire.io/integrations/qualpay)|This document describes the Qualpay Payment Gateway API.|
 |quandl|Quandl|[README](integrations/generated/quandl)|[DataFire.io](https://app.datafire.io/integrations/quandl)|The Quandl API|
