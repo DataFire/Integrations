@@ -1,7 +1,14 @@
 let path = require('path');
 let fs = require('fs');
-let iterateIntegs = require('./iterate-integrations');
+let marked = require('marked');
+let iterateIntegs = require('../iterate-integrations');
 let args = require('yargs').argv;
+
+function render(template, args) {
+  let tmpl = fs.readFileSync(__dirname + '/' + template + '.md', 'utf8');
+  let md = eval('`' + tmpl.replace(/`/g,'\\`') + '`');
+  return md;
+}
 
 function resolveRef(ref, base) {
   var keys = ref.split('/');
@@ -36,20 +43,10 @@ function getExample(schema, base) {
   return null;
 }
 
-function actionToMarkdown(action, integVarName) {
-  let md = '';
-  let id = action.id.substring(action.id.indexOf('/') + 1);
+function actionToMarkdown(action, integration) {
+  let shortID = action.id.substring(action.id.indexOf('/') + 1);
   let example = getExample(action.inputSchema);
-  md += '### ' + id + '\n' + action.description + '\n\n';
-  let fnName = integVarName + '.' + action.id.substring(action.id.indexOf('/') + 1);
-  md += `
-\`\`\`js
-${fnName}(${JSON.stringify(example, null, 2)}, context)
-\`\`\`
-
-`
-
-  md += '#### Parameters\n';
+  let inputMarkdown = '';
   let refBase = action.inputSchema;
   let addedParameters = false;
   function addSchemaToParameters(schema) {
@@ -59,23 +56,23 @@ ${fnName}(${JSON.stringify(example, null, 2)}, context)
       addedParameters = true;
       let propSchema = schema.properties[prop];
       if (propSchema.$ref) propSchema = resolveRef(propSchema.$ref, refBase);
-      md += `* ${prop} (${propSchema.type})`;
-      if ((schema.required || []).indexOf(prop) !== -1) md += ' **required**';
+      inputMarkdown += `* ${prop} (${propSchema.type})`;
+      if ((schema.required || []).indexOf(prop) !== -1) inputMarkdown += ' **required**';
       if (propSchema.description) {
         let desc = propSchema.description;
         let newLine = desc.indexOf('\n');
         if (newLine !== -1) desc = desc.substring(0, newLine);
-        md += ' - ' + desc;
+        inputMarkdown += ' - ' + desc;
       }
-      md += '\n';
+      inputMarkdown += '\n';
     });
     (schema.allOf || []).forEach(addSchemaToParameters);
   }
   addSchemaToParameters(action.inputSchema);
   if (!addedParameters) {
-    md += '*This action has no parameters*\n';
+    inputMarkdown += '*This action has no parameters*\n';
   }
-  return md + '\n';
+  return render('action', {example, integration, action, shortID, inputMarkdown});
 }
 
 iterateIntegs((dir, name, integ) => {
@@ -94,40 +91,27 @@ iterateIntegs((dir, name, integ) => {
 
   let accountCode = '';
   if (integ.security && integ.security[name] && integ.security[name].fields) {
-    accountCode = `{
-  ${Object.keys(integ.security[name].fields).join(': "",\n  ') + ': "",'}
-}`
+    let keys = Object.keys(integ.security[name].fields);
+    let obj = {};
+    keys.forEach(key => obj[key] = "");
+    accountCode = JSON.stringify(obj, null, 2).replace(/"(\w+)":/g, '$1:');
   }
 
   let integVarName = integ.id.replace(/^[^a-z]+/, '');
-
-  let md = `# @datafire/${integ.id}
-
-Client library for ${(integ.title || name)}
-
-## Installation and Usage
-\`\`\`bash
-npm install --save datafire @datafire/${integ.id}
-\`\`\`
-
-\`\`\`js
-let datafire = require('datafire');
-let ${integVarName} = require('@datafire/${integ.id}').create(${accountCode});
-
-${sampleAction.id.replace('/', '.').replace(integ.id, integVarName)}({}).then(data => {
-  console.log(data);
-})
-\`\`\`
-
-## Description
-${integ.description}
-
-## Actions
-`
+  let actionsMarkdown = '';
   integ.allActions.forEach(action => {
     action.inputSchema.definitions = action.inputSchema.definitions || integ.definitions
-    md += actionToMarkdown(action, integVarName);
+    actionsMarkdown += actionToMarkdown(action, integVarName);
+  });
+
+  let md = render('template', {
+    integration: integ,
+    varName: integVarName,
+    sampleAction: sampleAction.id.replace(/^.*\//, ''),
+    accountCode,
+    actionsMarkdown,
   })
+
   let readmeFile = path.join(dir, 'README.md');
   fs.writeFileSync(readmeFile, md);
 }, name => !args.name || name === args.name)
