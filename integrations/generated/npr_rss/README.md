@@ -38,4 +38,4 @@ npr_rss.news(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

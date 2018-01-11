@@ -501,4 +501,4 @@ circleci.user.heroku_key.post(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

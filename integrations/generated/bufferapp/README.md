@@ -385,4 +385,4 @@ bufferapp.user.json.get(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

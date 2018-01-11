@@ -150,7 +150,7 @@ iterateIntegs((dir, name, integ) => {
     def.title = def.title || key;
     definitionsMarkdown += '### ' + key + '\n' + schemaToMarkdown(def, {definitions}) + '\n\n';
   }
-  if (!definitionsMarkdown) definitionsMarkdown = '** No definitions **';
+  if (!definitionsMarkdown) definitionsMarkdown = '**This integration has no definitions**';
 
   let md = render('template', {
     integration: integ,

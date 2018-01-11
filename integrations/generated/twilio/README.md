@@ -2303,4 +2303,4 @@ twilio.Accounts.json.post(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

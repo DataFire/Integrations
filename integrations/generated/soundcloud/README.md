@@ -927,4 +927,4 @@ soundcloud.resolve.json.get({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

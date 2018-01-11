@@ -301,4 +301,4 @@ storecove.shops_index(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

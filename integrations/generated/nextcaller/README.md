@@ -68,4 +68,4 @@ nextcaller.version.users.nextcaller_id._format_format.post({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

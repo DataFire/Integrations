@@ -66,4 +66,4 @@ shopping_com.CategoryTree.get({}, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

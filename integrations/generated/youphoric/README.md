@@ -79,4 +79,4 @@ youphoric.mt.php_.post({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

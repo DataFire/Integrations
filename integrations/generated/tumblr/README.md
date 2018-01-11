@@ -382,4 +382,4 @@ tumblr.user.unfollow.post({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

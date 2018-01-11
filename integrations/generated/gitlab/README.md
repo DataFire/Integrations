@@ -7330,4 +7330,4 @@ gitlab.getV3Version(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

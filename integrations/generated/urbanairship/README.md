@@ -1059,4 +1059,4 @@ urbanairship.partner.apps.app_id.put({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

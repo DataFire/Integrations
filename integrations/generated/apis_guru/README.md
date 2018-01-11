@@ -65,4 +65,4 @@ apis_guru.getMetrics(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

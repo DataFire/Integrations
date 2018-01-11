@@ -112,4 +112,4 @@ yellowpages.reviews.get({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

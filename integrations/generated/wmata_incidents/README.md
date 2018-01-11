@@ -739,4 +739,4 @@ wmata_incidents.json.Incidents.get(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

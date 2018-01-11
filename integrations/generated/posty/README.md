@@ -510,4 +510,4 @@ posty.api.v1.transports.transport_name.json.put({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

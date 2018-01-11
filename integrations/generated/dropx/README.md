@@ -146,4 +146,4 @@ dropx.users.usage.get(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

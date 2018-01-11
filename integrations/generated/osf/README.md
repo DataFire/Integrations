@@ -6228,4 +6228,4 @@ osf.wiki_content({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

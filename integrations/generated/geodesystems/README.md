@@ -7428,4 +7428,4 @@ geodesystems.search_wikipage({}, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

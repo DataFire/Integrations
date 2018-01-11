@@ -662,4 +662,4 @@ heroku.apps.app.stack.put({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

@@ -257,4 +257,4 @@ thenounproject.getUserUploadsWithUser({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

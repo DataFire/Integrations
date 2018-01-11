@@ -1878,4 +1878,4 @@ etsy.server.ping.get(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

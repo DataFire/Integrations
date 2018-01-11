@@ -404,4 +404,4 @@ cisco.security.advisories.oval.severity.severity.lastpublished.get({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

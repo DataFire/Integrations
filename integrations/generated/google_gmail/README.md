@@ -1719,4 +1719,4 @@ google_gmail.buildMessage({}, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

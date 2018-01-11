@@ -171,4 +171,4 @@ haloapi_ugc.h5.players.player.mapvariants.variant.get({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

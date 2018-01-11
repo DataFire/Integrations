@@ -310,4 +310,4 @@ pandorabots.debugBot({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

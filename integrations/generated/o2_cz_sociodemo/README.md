@@ -84,4 +84,4 @@ o2_cz_sociodemo.getInfo(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

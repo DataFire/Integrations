@@ -80,4 +80,4 @@ bbc_rss.technology(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

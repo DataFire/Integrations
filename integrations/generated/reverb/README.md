@@ -2987,4 +2987,4 @@ reverb.webhooks.registrations.id.get({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

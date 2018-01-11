@@ -119,4 +119,4 @@ haloapi_profile.h5.profiles.player.spartan.get({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

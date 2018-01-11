@@ -326,4 +326,4 @@ nytimes_books_api.reviews.format.get({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

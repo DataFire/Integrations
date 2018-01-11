@@ -753,4 +753,4 @@ etmdb.watchlist_searchall_read({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

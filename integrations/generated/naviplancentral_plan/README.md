@@ -746,4 +746,4 @@ naviplancentral_plan.Auth_ResumeSession(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

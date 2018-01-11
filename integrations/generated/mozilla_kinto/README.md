@@ -447,4 +447,4 @@ mozilla_kinto.get_blocklist({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

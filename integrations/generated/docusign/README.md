@@ -7547,4 +7547,4 @@ docusign.OAuth2_PostToken(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

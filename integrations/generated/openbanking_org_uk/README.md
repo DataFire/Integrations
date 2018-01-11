@@ -1229,4 +1229,4 @@ openbanking_org_uk.unsecured_sme_loans.head({}, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

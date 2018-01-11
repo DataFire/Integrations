@@ -104,4 +104,4 @@ data_gov.documents({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

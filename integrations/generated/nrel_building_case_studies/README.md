@@ -68,4 +68,4 @@ nrel_building_case_studies.document({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

@@ -103,4 +103,4 @@ nsidc.id({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

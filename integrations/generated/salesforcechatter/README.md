@@ -1062,4 +1062,4 @@ salesforcechatter.chatter.users.userId.status.delete({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

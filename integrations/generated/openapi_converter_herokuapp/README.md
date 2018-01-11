@@ -122,4 +122,4 @@ openapi_converter_herokuapp.validate({}, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

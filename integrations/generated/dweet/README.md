@@ -283,4 +283,4 @@ dweet.unlockThing({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

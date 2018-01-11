@@ -123,4 +123,4 @@ orghunter.v1.charitysearch.post({}, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

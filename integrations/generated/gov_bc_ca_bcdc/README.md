@@ -422,4 +422,4 @@ gov_bc_ca_bcdc.action.tag_list.get({}, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

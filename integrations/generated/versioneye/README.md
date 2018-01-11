@@ -1040,4 +1040,4 @@ versioneye.getUsersUsernameFavorites({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

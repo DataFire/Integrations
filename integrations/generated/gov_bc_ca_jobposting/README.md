@@ -118,4 +118,4 @@ gov_bc_ca_jobposting.regions.get(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

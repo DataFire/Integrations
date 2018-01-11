@@ -395,4 +395,4 @@ onenote.pages.post({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

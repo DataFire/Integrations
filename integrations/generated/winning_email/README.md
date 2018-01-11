@@ -82,4 +82,4 @@ winning_email.status(null, context)
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

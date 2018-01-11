@@ -359,4 +359,4 @@ gov_bc_ca_bcgnws.names.nameId.outputFormat.get({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

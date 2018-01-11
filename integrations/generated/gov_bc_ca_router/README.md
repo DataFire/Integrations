@@ -120,4 +120,4 @@ gov_bc_ca_router.route.outputFormat.get({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

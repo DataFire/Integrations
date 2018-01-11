@@ -371,4 +371,4 @@ lufthansa_public.Countries({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

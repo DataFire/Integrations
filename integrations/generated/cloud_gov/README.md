@@ -124,4 +124,4 @@ cloud_gov.List_Vendors({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

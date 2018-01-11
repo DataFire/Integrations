@@ -816,4 +816,4 @@ waag.session.get({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**

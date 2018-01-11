@@ -64,4 +64,4 @@ wso2apistore_transform.xmltojson.post({
 
 ## Definitions
 
-** No definitions **
+**This integration has no definitions**
