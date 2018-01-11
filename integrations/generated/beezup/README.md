@@ -4025,7 +4025,15 @@ beezup.ChangeOrder({
   * orderStatusTransitionId **required** `integer`
 
 ### automaticTransitionInfo
-
+* automaticTransitionInfo
+  * accountId **required** [accountId](#accountid)
+  * enabled **required** `boolean`
+  * marketplaceTechnicalCode **required** [BeezUP.Common.MarketplaceTechnicalCode](#beezup.common.marketplacetechnicalcode)
+  * orderStatusTransitionId **required** `integer`
+  * beezUPOrderStatus **required** [beezUPOrderStatus](#beezuporderstatus)
+  * businessOperationType **required** [businessOperationType](#businessoperationtype)
+  * links [automaticTransitionInfoLinks](#automatictransitioninfolinks)
+  * marketplaceBusinessCode **required** [BeezUP.Common.MarketplaceBusinessCode](#beezup.common.marketplacebusinesscode)
 
 ### automaticTransitionInfoLinks
 * automaticTransitionInfoLinks `object`
@@ -4241,7 +4249,27 @@ beezup.ChangeOrder({
   * userColumName **required** [userColumName](#usercolumname)
 
 ### channelCatalog
-
+* channelCatalog
+  * channelId **required** [BeezUP.Common.ChannelId](#beezup.common.channelid)
+  * channelImageUrl **required** [BeezUP.Common.HttpUrl](#beezup.common.httpurl)
+  * channelName **required** [BeezUP.Common.ChannelName](#beezup.common.channelname)
+  * categoryMappingSettings [channelCatalogCategoryMappingSettings](#channelcatalogcategorymappingsettings)
+  * channelCatalogId **required** [BeezUP.Common.ChannelCatalogId](#beezup.common.channelcatalogid)
+  * channelCategorySettings **required** [channelCategorySettings](#channelcategorysettings)
+  * channelCostSettings **required** [channelCostSettings](#channelcostsettings)
+  * columnMappings [channelCatalogColumnMappingListWithName](#channelcatalogcolumnmappinglistwithname)
+  * costSettings [costSettings](#costsettings)
+  * enabled **required** `boolean`: Indicates if the channel catalog is enable
+  * exclusionFilters [exclusionFilters](#exclusionfilters)
+  * exportUrl [BeezUP.Common.HttpUrl](#beezup.common.httpurl)
+  * generalSettings **required** [generalSettings](#generalsettings)
+  * isMarketplace **required** `boolean`: Indicates if this channel catalog is related to a marketplace
+  * links **required** [channelCatalogLinks](#channelcataloglinks)
+  * productCount **required** `integer`: The product count exported considering category mapping. Not all filters have been applied.
+  * state **required** [channelCatalogState](#channelcatalogstate)
+  * storeId **required** [BeezUP.Common.StoreId](#beezup.common.storeid)
+  * types **required** `array`: The channel type list related to the channel
+    * items `string`
 
 ### channelCatalogCategoryCostValue
 * channelCatalogCategoryCostValue `number`: In case of CPC_ByCategory or CPA_ByCategory cost type, you have to indicate the cost value.
@@ -4295,7 +4323,14 @@ beezup.ChangeOrder({
   * items [channelCatalogColumnMappingWithName](#channelcatalogcolumnmappingwithname)
 
 ### channelCatalogColumnMappingWithName
-
+* channelCatalogColumnMappingWithName
+  * catalogColumnId [BeezUP.Common.CatalogColumnId](#beezup.common.catalogcolumnid)
+  * channelCategoryPath [BeezUP.Common.ChannelCategoryPath](#beezup.common.channelcategorypath)
+  * channelColumnId **required** [BeezUP.Common.ChannelColumnId](#beezup.common.channelcolumnid)
+  * catalogBeezUPColumnName [BeezUP.Common.BeezUPColumnName](#beezup.common.beezupcolumnname)
+  * catalogColumnName [BeezUP.Common.CatalogColumnUserName](#beezup.common.catalogcolumnusername)
+  * channelBeezUPColumnName [BeezUP.Common.BeezUPColumnName](#beezup.common.beezupcolumnname)
+  * channelColumnName **required** [BeezUP.Common.ChannelColumnName](#beezup.common.channelcolumnname)
 
 ### channelCatalogExportCacheInfo
 * channelCatalogExportCacheInfo `object`
@@ -4371,22 +4406,89 @@ beezup.ChangeOrder({
   * channelCatalogExportCacheStatusLov [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
 
 ### channelCatalogMarketplaceBooleanProperty
-
+* channelCatalogMarketplaceBooleanProperty
+  * description `string`: Indicate the description of the property
+  * discriminatorType **required** [channelCatalogMarketplacePropertyDiscriminatorType](#channelcatalogmarketplacepropertydiscriminatortype)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * lovLink [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * lovRequired `boolean`: Indicates if the property value must be in the list of value.
+  * maxItems `integer`: Indicates the maximum item count of the property value
+  * maxLength `integer`: Indicates the maximum size of the property value
+  * minItems `integer`: Indicates the minimum item count of the property value.
+  * minLength `integer`: Indicates the minimum size of the property value
+  * name **required** [channelCatalogMarketplacePropertyName](#channelcatalogmarketplacepropertyname)
+  * offerIdRequired `integer`: Indicates the offer identifier required to configure this property.
+  * pattern `string`: Channel catalog marketplace setting value format validation regular expression
+  * position **required** `integer`: Indicate the position of the property in the display group
+  * readOnly **required** `boolean`: Indicate if the value cannot be changed. This is used for example for ebay token that should not be changed.
+  * required **required** `boolean`: Indicate if the property is required or not
+  * type **required** [type](#type)
+  * visible **required** `boolean`: Indicates if this property should be displayed in the configuration page.
+  * default `boolean`: Indicate the default values of the property
 
 ### channelCatalogMarketplaceBooleanSetting
-
+* channelCatalogMarketplaceBooleanSetting
+  * discriminatorType **required** [channelCatalogMarketplaceSettingDiscriminatorType](#channelcatalogmarketplacesettingdiscriminatortype)
+  * name **required** [channelCatalogMarketplacePropertyName](#channelcatalogmarketplacepropertyname)
+  * value `boolean`: Channel catalog marketplace property values
 
 ### channelCatalogMarketplaceIntegerProperty
-
+* channelCatalogMarketplaceIntegerProperty
+  * description `string`: Indicate the description of the property
+  * discriminatorType **required** [channelCatalogMarketplacePropertyDiscriminatorType](#channelcatalogmarketplacepropertydiscriminatortype)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * lovLink [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * lovRequired `boolean`: Indicates if the property value must be in the list of value.
+  * maxItems `integer`: Indicates the maximum item count of the property value
+  * maxLength `integer`: Indicates the maximum size of the property value
+  * minItems `integer`: Indicates the minimum item count of the property value.
+  * minLength `integer`: Indicates the minimum size of the property value
+  * name **required** [channelCatalogMarketplacePropertyName](#channelcatalogmarketplacepropertyname)
+  * offerIdRequired `integer`: Indicates the offer identifier required to configure this property.
+  * pattern `string`: Channel catalog marketplace setting value format validation regular expression
+  * position **required** `integer`: Indicate the position of the property in the display group
+  * readOnly **required** `boolean`: Indicate if the value cannot be changed. This is used for example for ebay token that should not be changed.
+  * required **required** `boolean`: Indicate if the property is required or not
+  * type **required** [type](#type)
+  * visible **required** `boolean`: Indicates if this property should be displayed in the configuration page.
+  * default `array`: Indicate the default values of the property
+    * items `integer`
 
 ### channelCatalogMarketplaceIntegerSetting
-
+* channelCatalogMarketplaceIntegerSetting
+  * discriminatorType **required** [channelCatalogMarketplaceSettingDiscriminatorType](#channelcatalogmarketplacesettingdiscriminatortype)
+  * name **required** [channelCatalogMarketplacePropertyName](#channelcatalogmarketplacepropertyname)
+  * values `array`: Channel catalog marketplace property values
+    * items `integer`
 
 ### channelCatalogMarketplaceNumberProperty
-
+* channelCatalogMarketplaceNumberProperty
+  * description `string`: Indicate the description of the property
+  * discriminatorType **required** [channelCatalogMarketplacePropertyDiscriminatorType](#channelcatalogmarketplacepropertydiscriminatortype)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * lovLink [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * lovRequired `boolean`: Indicates if the property value must be in the list of value.
+  * maxItems `integer`: Indicates the maximum item count of the property value
+  * maxLength `integer`: Indicates the maximum size of the property value
+  * minItems `integer`: Indicates the minimum item count of the property value.
+  * minLength `integer`: Indicates the minimum size of the property value
+  * name **required** [channelCatalogMarketplacePropertyName](#channelcatalogmarketplacepropertyname)
+  * offerIdRequired `integer`: Indicates the offer identifier required to configure this property.
+  * pattern `string`: Channel catalog marketplace setting value format validation regular expression
+  * position **required** `integer`: Indicate the position of the property in the display group
+  * readOnly **required** `boolean`: Indicate if the value cannot be changed. This is used for example for ebay token that should not be changed.
+  * required **required** `boolean`: Indicate if the property is required or not
+  * type **required** [type](#type)
+  * visible **required** `boolean`: Indicates if this property should be displayed in the configuration page.
+  * default `array`: Indicate the default values of the property
+    * items `number`
 
 ### channelCatalogMarketplaceNumberSetting
-
+* channelCatalogMarketplaceNumberSetting
+  * discriminatorType **required** [channelCatalogMarketplaceSettingDiscriminatorType](#channelcatalogmarketplacesettingdiscriminatortype)
+  * name **required** [channelCatalogMarketplacePropertyName](#channelcatalogmarketplacepropertyname)
+  * values `array`: Channel catalog marketplace property values
+    * items `number`
 
 ### channelCatalogMarketplaceProperties
 * channelCatalogMarketplaceProperties `object`
@@ -4458,10 +4560,33 @@ beezup.ChangeOrder({
   * self **required** [links.GetChannelCatalogMarketplaceSettingsLink](#links.getchannelcatalogmarketplacesettingslink)
 
 ### channelCatalogMarketplaceStringProperty
-
+* channelCatalogMarketplaceStringProperty
+  * description `string`: Indicate the description of the property
+  * discriminatorType **required** [channelCatalogMarketplacePropertyDiscriminatorType](#channelcatalogmarketplacepropertydiscriminatortype)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * lovLink [BeezUP.Common.LOVLink3](#beezup.common.lovlink3)
+  * lovRequired `boolean`: Indicates if the property value must be in the list of value.
+  * maxItems `integer`: Indicates the maximum item count of the property value
+  * maxLength `integer`: Indicates the maximum size of the property value
+  * minItems `integer`: Indicates the minimum item count of the property value.
+  * minLength `integer`: Indicates the minimum size of the property value
+  * name **required** [channelCatalogMarketplacePropertyName](#channelcatalogmarketplacepropertyname)
+  * offerIdRequired `integer`: Indicates the offer identifier required to configure this property.
+  * pattern `string`: Channel catalog marketplace setting value format validation regular expression
+  * position **required** `integer`: Indicate the position of the property in the display group
+  * readOnly **required** `boolean`: Indicate if the value cannot be changed. This is used for example for ebay token that should not be changed.
+  * required **required** `boolean`: Indicate if the property is required or not
+  * type **required** [type](#type)
+  * visible **required** `boolean`: Indicates if this property should be displayed in the configuration page.
+  * default `array`: Indicate the default values of the property
+    * items `string`
 
 ### channelCatalogMarketplaceStringSetting
-
+* channelCatalogMarketplaceStringSetting
+  * discriminatorType **required** [channelCatalogMarketplaceSettingDiscriminatorType](#channelcatalogmarketplacesettingdiscriminatortype)
+  * name **required** [channelCatalogMarketplacePropertyName](#channelcatalogmarketplacepropertyname)
+  * values `array`: Channel catalog marketplace property values
+    * items `string`
 
 ### channelCatalogProductByChannelCatalogRequest
 * channelCatalogProductByChannelCatalogRequest `object`
@@ -4475,7 +4600,19 @@ beezup.ChangeOrder({
   * channelCatalogs `object`: The channel catalog product by channel catalog. The key is the channel catalog identifier
 
 ### channelCatalogProductInfo
-
+* channelCatalogProductInfo
+  * productExists **required** `boolean`: Indicates if the product still exists in your catalog
+  * productId **required** `string`: The product identifier
+  * productImageUrl **required** `string`: The product image Url
+  * productSku **required** `string`: The product SKU
+  * productTitle **required** `string`: The product tile
+  * disabled **required** `boolean`: Indicates if the product has been disabled or not
+  * excluded **required** `boolean`: Indicates if the product has been excluded by a exclusion filter
+  * excludedBy `array`
+    * items [exclusionFilterName](#exclusionfiltername)
+  * links **required** [channelCatalogProductInfoLinks](#channelcatalogproductinfolinks)
+  * overrides **required** [productOverridesWithCatalogValues](#productoverrideswithcatalogvalues)
+  * uncategorized **required** `boolean`: Indicates if the product's category has been NOT mapped to a channel category
 
 ### channelCatalogProductInfoLinks
 * channelCatalogProductInfoLinks `object`: Indicates the differents actions you can do on a channel product
@@ -4845,7 +4982,12 @@ beezup.ChangeOrder({
 * couponOfferCode `string`: Your special coupon offer identifier
 
 ### createContract
-
+* createContract
+  * billingPeriodInMonth **required** [billingPeriodInMonth](#billingperiodinmonth)
+  * couponDiscountCode [couponDiscountCode](#coupondiscountcode)
+  * couponOfferCode [couponOfferCode](#couponoffercode)
+  * offerId **required** [offerId](#offerid)
+  * storeCount **required** [storeCount](#storecount)
 
 ### createContractResponse
 * createContractResponse `object`
@@ -4912,7 +5054,31 @@ beezup.ChangeOrder({
   * expirationYear **required** [expirationYear](#expirationyear)
 
 ### currentContractInfo
-
+* currentContractInfo
+  * additionalClickPrice `number`: Additional click price
+  * billingPeriodInMonth `integer`: The billing period in month
+  * billingPeriodPercentDiscount `number`: The percent discount related to the billing period
+  * clickIncluded `integer`: The click included
+  * commitmentCalculatedFinishUtcDate `string`: The calculated end date of commitment
+  * commitmentPeriodInMonth `integer`: The commitment period in month
+  * contractId [contractId](#contractid)
+  * currencyCode [BeezUP.Common.CurrencyCode](#beezup.common.currencycode)
+  * discountDurationInMonth `integer`: The discount duration in month
+  * discountEndUtcDate `string`: The end of your discount
+  * fixedAndVariableClickInfo [fixedAndVariableClickModelInfo](#fixedandvariableclickmodelinfo)
+  * fixedPrice `number`: The fixed price of your contract
+  * ipUserCreation `string`: The IP of the user who creates the contract
+  * ipUserModification `string`: The IP of the user who modified the contract
+  * isCommitmentRenewalAutomatically `boolean`: Is commitment is automatically renewed
+  * isModifiableContract `boolean`: Is the contract is modifiable ?
+  * offerId [offerId](#offerid)
+  * offerName `string`: The offer name based on /offers
+  * percentDiscount `number`: The percent of the discount
+  * startUtcDate `string`: The start date of your contract
+  * storeCount [storeCount](#storecount)
+  * trialPeriodInMonth `integer`: The trial period in month
+  * variableModelInfo [variableModelInfo](#variablemodelinfo)
+  * links **required** [currentContractInfoLinks](#currentcontractinfolinks)
 
 ### currentContractInfoLinks
 * currentContractInfoLinks `object`
@@ -4979,7 +5145,15 @@ beezup.ChangeOrder({
 * dateSearchType `string` (values: Purchase, Modification, MarketPlaceModification): Indicates on which date you want to make the filter
 
 ### detectedCatalogColumn
-
+* detectedCatalogColumn
+  * catalogColumnName **required** [catalogColumnName](#catalogcolumnname)
+  * configuration **required** [columnConfiguration](#columnconfiguration)
+  * duplicateProductValueConfiguration [duplicateProductValueConfiguration](#duplicateproductvalueconfiguration)
+  * id **required** [columnId](#columnid)
+  * ignored `boolean`: IF true, the product values of this column will be not taken in account during the importation process
+  * links **required** [catalogColumnLinks](#catalogcolumnlinks)
+  * userColumName **required** [userColumName](#usercolumname)
+  * links **required** [detectedCatalogColumnLinks](#detectedcatalogcolumnlinks)
 
 ### detectedCatalogColumnLinks
 * detectedCatalogColumnLinks `object`
@@ -5020,7 +5194,10 @@ beezup.ChangeOrder({
 * encryptedExpression `string`: The encrypted excel expression of the column
 
 ### errorResponseMessagePaymentRequired
-
+* errorResponseMessagePaymentRequired
+  * errors **required** `array`
+    * items [BeezUP.Common.UserErrorMessage](#beezup.common.usererrormessage)
+  * links **required** [errorResponseMessagePaymentRequiredLinks](#errorresponsemessagepaymentrequiredlinks)
 
 ### errorResponseMessagePaymentRequiredLinks
 * errorResponseMessagePaymentRequiredLinks `object`
@@ -5092,13 +5269,46 @@ beezup.ChangeOrder({
   * storeId **required** [BeezUP.Common.StoreId](#beezup.common.storeid)
 
 ### externalLinks.Catalog_GetBeezUPColumnsLink
-
+* externalLinks.Catalog_GetBeezUPColumnsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### externalLinks.GetChannelCatalogMarketplaceSettingsLink
-
+* externalLinks.GetChannelCatalogMarketplaceSettingsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### externalLinks.GetExternalConfigurationPageLink
-
+* externalLinks.GetExternalConfigurationPageLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### feedType
 * feedType `string` (values: Products, Inventory, Pricing, Images, Relationships, Unpublish, Offers): The Feed Type
@@ -5362,481 +5572,2231 @@ beezup.ChangeOrder({
 * linkClickToOrderType `string` (values: OnPurchaseDate, OnClickDate)
 
 ### links.AddChannelCatalogLink
-
+* links.AddChannelCatalogLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.AnalyticsIndexLink
-
+* links.AnalyticsIndexLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Auto_ConfigureAutoImportIntervalLink
-
+* links.Auto_ConfigureAutoImportIntervalLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Auto_GetAutoImportConfigurationLink
-
+* links.Auto_GetAutoImportConfigurationLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Auto_PauseAutoImportLink
-
+* links.Auto_PauseAutoImportLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Auto_ResumeAutoImportLink
-
+* links.Auto_ResumeAutoImportLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Auto_ScheduleAutoImportLink
-
+* links.Auto_ScheduleAutoImportLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Auto_StartAutoImportLink
-
+* links.Auto_StartAutoImportLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.CatalogIndexLink
-
+* links.CatalogIndexLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.CatalogStoreIndexLink
-
+* links.CatalogStoreIndexLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Catalog_ChangeCatalogColumnUserNameLink
-
+* links.Catalog_ChangeCatalogColumnUserNameLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Catalog_ChangeCustomColumnExpressionLink
-
+* links.Catalog_ChangeCustomColumnExpressionLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Catalog_ChangeCustomColumnUserNameLink
-
+* links.Catalog_ChangeCustomColumnUserNameLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Catalog_ComputeExpressionLink
-
+* links.Catalog_ComputeExpressionLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Catalog_DeleteCustomColumnLink
-
+* links.Catalog_DeleteCustomColumnLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Catalog_GetBeezUPColumnsLink
-
+* links.Catalog_GetBeezUPColumnsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Catalog_GetCatalogColumnsLink
-
+* links.Catalog_GetCatalogColumnsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Catalog_GetCategoriesLink
-
+* links.Catalog_GetCategoriesLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Catalog_GetCustomColumnExpressionLink
-
+* links.Catalog_GetCustomColumnExpressionLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Catalog_GetCustomColumnsLink
-
+* links.Catalog_GetCustomColumnsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Catalog_GetProductsLink
-
+* links.Catalog_GetProductsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Catalog_GetRandomProductsLink
-
+* links.Catalog_GetRandomProductsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Catalog_SaveCustomColumnLink
-
+* links.Catalog_SaveCustomColumnLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.ChangeOrderLink
-
+* links.ChangeOrderLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
+  * rel `string`: Indicate the relation name related to the link
 
 ### links.ClearChannelCatalogExportationCacheLink
-
+* links.ClearChannelCatalogExportationCacheLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.ClearMerchantOrderInfoLink
-
+* links.ClearMerchantOrderInfoLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.ClearMerchantOrderInfoListLink
-
+* links.ClearMerchantOrderInfoListLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.ConfigureAutomaticTransitionsLink
-
+* links.ConfigureAutomaticTransitionsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.ConfigureChannelCatalogColumnMappingsLink
-
+* links.ConfigureChannelCatalogColumnMappingsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.ConfigureChannelCatalogCostSettingsLink
-
+* links.ConfigureChannelCatalogCostSettingsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.ConfigureChannelCatalogExclusionFiltersLink
-
+* links.ConfigureChannelCatalogExclusionFiltersLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.ConfigureChannelCatalogGeneralSettingsLink
-
+* links.ConfigureChannelCatalogGeneralSettingsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.CreateRuleLink
-
+* links.CreateRuleLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.DeleteChannelCatalogLink
-
+* links.DeleteChannelCatalogLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.DeleteReportFilterLink
-
+* links.DeleteReportFilterLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.DeleteRuleLink
-
+* links.DeleteRuleLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.DisableChannelCatalogCategoryMappingLink
-
+* links.DisableChannelCatalogCategoryMappingLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.DisableChannelCatalogLink
-
+* links.DisableChannelCatalogLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.DisableChannelCatalogProductLink
-
+* links.DisableChannelCatalogProductLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.DisableRuleLink
-
+* links.DisableRuleLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.EnableChannelCatalogLink
-
+* links.EnableChannelCatalogLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.EnableRuleLink
-
+* links.EnableRuleLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.ExportChannelCatalogProductInfoListLink
-
+* links.ExportChannelCatalogProductInfoListLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.ExportOrdersLink
-
+* links.ExportOrdersLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetAutomaticTransitionsLink
-
+* links.GetAutomaticTransitionsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetChannelCatalogCategoriesLink
-
+* links.GetChannelCatalogCategoriesLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetChannelCatalogExclusionFilterOperatorsLink
-
+* links.GetChannelCatalogExclusionFilterOperatorsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetChannelCatalogExclusionFiltersLink
-
+* links.GetChannelCatalogExclusionFiltersLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetChannelCatalogExportationCacheInfoLink
-
+* links.GetChannelCatalogExportationCacheInfoLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetChannelCatalogExportationHistoryLink
-
+* links.GetChannelCatalogExportationHistoryLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetChannelCatalogLink
-
+* links.GetChannelCatalogLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetChannelCatalogMarketplacePropertiesLink
-
+* links.GetChannelCatalogMarketplacePropertiesLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetChannelCatalogMarketplaceSettingsLink
-
+* links.GetChannelCatalogMarketplaceSettingsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetChannelCatalogProductInfoLink
-
+* links.GetChannelCatalogProductInfoLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetChannelCatalogProductInfoListLink
-
+* links.GetChannelCatalogProductInfoListLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetChannelCatalogsLink
-
+* links.GetChannelCatalogsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetChannelsIndexLink
-
+* links.GetChannelsIndexLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetChannelsLink
-
+* links.GetChannelsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetCustomerIndexLink
-
+* links.GetCustomerIndexLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetMarketplaceAccountStoresLink
-
+* links.GetMarketplaceAccountStoresLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetMarketplaceAccountsSynchronizationLink
-
+* links.GetMarketplaceAccountsSynchronizationLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetOrderExportationsLink
-
+* links.GetOrderExportationsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetOrderHistoryLink
-
+* links.GetOrderHistoryLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetOrderIndexLink
-
+* links.GetOrderIndexLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetOrderLink
-
+* links.GetOrderLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetOrderListFullLink
-
+* links.GetOrderListFullLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetOrderListLightLink
-
+* links.GetOrderListLightLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetPublicListOfValuesLink
-
+* links.GetPublicListOfValuesLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetPublicLovIndexLink
-
+* links.GetPublicLovIndexLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetPublicationsLink
-
+* links.GetPublicationsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetReportFilterLink
-
+* links.GetReportFilterLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetReportFiltersLink
-
+* links.GetReportFiltersLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetRuleLink
-
+* links.GetRuleLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetRulesExecutionsLink
-
+* links.GetRulesExecutionsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetRulesLink
-
+* links.GetRulesLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetStoreReportByCategoryLink
-
+* links.GetStoreReportByCategoryLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetStoreReportByChannelLink
-
+* links.GetStoreReportByChannelLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetStoreReportByDayLink
-
+* links.GetStoreReportByDayLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetStoreReportByProductLink
-
+* links.GetStoreReportByProductLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetStoreTrackedClicksLink
-
+* links.GetStoreTrackedClicksLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetStoreTrackedExternalOrdersLink
-
+* links.GetStoreTrackedExternalOrdersLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetStoreTrackedOrdersLink
-
+* links.GetStoreTrackedOrdersLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetStoreTrackingStatusLink
-
+* links.GetStoreTrackingStatusLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetTrackingStatusLink
-
+* links.GetTrackingStatusLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetUserListOfValuesLink
-
+* links.GetUserListOfValuesLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.GetUserLovIndexLink
-
+* links.GetUserLovIndexLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.HarvestAllLink
-
+* links.HarvestAllLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.HarvestOrderLink
-
+* links.HarvestOrderLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_ActivateAutoImportLink
-
+* links.Importation_ActivateAutoImportLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_CancelLink
-
+* links.Importation_CancelLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_CommitColumnsLink
-
+* links.Importation_CommitColumnsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_CommitLink
-
+* links.Importation_CommitLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_ConfigureCatalogColumnLink
-
+* links.Importation_ConfigureCatalogColumnLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_ConfigureRemainingCatalogColumnsLink
-
+* links.Importation_ConfigureRemainingCatalogColumnsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_DeleteCustomColumnLink
-
+* links.Importation_DeleteCustomColumnLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_GetCustomColumnExpressionLink
-
+* links.Importation_GetCustomColumnExpressionLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_GetCustomColumnsLink
-
+* links.Importation_GetCustomColumnsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_GetDetectedCatalogColumnsLink
-
+* links.Importation_GetDetectedCatalogColumnsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_GetImportationMonitoringLink
-
+* links.Importation_GetImportationMonitoringLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_GetManualUpdateLastInputConfigLink
-
+* links.Importation_GetManualUpdateLastInputConfigLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_GetProductSampleCustomColumnValueLink
-
+* links.Importation_GetProductSampleCustomColumnValueLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_GetProductSampleLink
-
+* links.Importation_GetProductSampleLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_GetReportingsLink
-
+* links.Importation_GetReportingsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_IgnoreColumnLink
-
+* links.Importation_IgnoreColumnLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_MapCatalogColumnLink
-
+* links.Importation_MapCatalogColumnLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_MapCustomColumnLink
-
+* links.Importation_MapCustomColumnLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_ReattendColumnLink
-
+* links.Importation_ReattendColumnLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_SaveCustomColumnLink
-
+* links.Importation_SaveCustomColumnLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_StartManualUpdateLink
-
+* links.Importation_StartManualUpdateLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_TechnicalProgressionLink
-
+* links.Importation_TechnicalProgressionLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_UnmapCatalogColumnLink
-
+* links.Importation_UnmapCatalogColumnLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.Importation_UnmapCustomColumnLink
-
+* links.Importation_UnmapCustomColumnLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.MapChannelCatalogCategoryLink
-
+* links.MapChannelCatalogCategoryLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.MoveDownRuleLink
-
+* links.MoveDownRuleLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.MoveUpRuleLink
-
+* links.MoveUpRuleLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.OptimiseByCategoryLink
-
+* links.OptimiseByCategoryLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.OptimiseByChannelLink
-
+* links.OptimiseByChannelLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.OptimiseByProductLink
-
+* links.OptimiseByProductLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.OptimiseLink
-
+* links.OptimiseLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.OverrideChannelCatalogProductValuesLink
-
+* links.OverrideChannelCatalogProductValuesLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.ReenableChannelCatalogCategoryMappingLink
-
+* links.ReenableChannelCatalogCategoryMappingLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.ReenableChannelCatalogProductLink
-
+* links.ReenableChannelCatalogProductLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.RunRuleLink
-
+* links.RunRuleLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.RunRulesLink
-
+* links.RunRulesLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.SaveReportFilterLink
-
+* links.SaveReportFilterLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.SetChannelCatalogMarketplaceSettingsLink
-
+* links.SetChannelCatalogMarketplaceSettingsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.SetMerchantOrderInfoLink
-
+* links.SetMerchantOrderInfoLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.SetMerchantOrderInfoListLink
-
+* links.SetMerchantOrderInfoListLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.UnmapChannelCatalogCategoryLink
-
+* links.UnmapChannelCatalogCategoryLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.UpdateRuleLink
-
+* links.UpdateRuleLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.activateUserAccountLink
-
+* links.activateUserAccountLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.changePasswordLink
-
+* links.changePasswordLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.createContractLink
-
+* links.createContractLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.createStoreLink
-
+* links.createStoreLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.deleteNextContractLink
-
+* links.deleteNextContractLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.deleteStoreLink
-
+* links.deleteStoreLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.deleteStoreShareLink
-
+* links.deleteStoreShareLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.getBillingPeriodsLink
-
+* links.getBillingPeriodsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.getContractsLink
-
+* links.getContractsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.getCreditCardInfoLink
-
+* links.getCreditCardInfoLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.getFriendInfoLink
-
+* links.getFriendInfoLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.getInvoicesLink
-
+* links.getInvoicesLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.getOfferLink
-
+* links.getOfferLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.getProfilePictureInfoLink
-
+* links.getProfilePictureInfoLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.getStandardOffersLink
-
+* links.getStandardOffersLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.getStoreLink
-
+* links.getStoreLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.getStoreSharesLink
-
+* links.getStoreSharesLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.getStoresLink
-
+* links.getStoresLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.getUserAccountInfoLink
-
+* links.getUserAccountInfoLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.logoutLink
-
+* links.logoutLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.reactivateCurrentContractLink
-
+* links.reactivateCurrentContractLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.saveCompanyInfoLink
-
+* links.saveCompanyInfoLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.saveCreditCardInfoLink
-
+* links.saveCreditCardInfoLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.savePersonalInfoLink
-
+* links.savePersonalInfoLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.saveProfilePictureInfoLink
-
+* links.saveProfilePictureInfoLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.saveStoreAlertsLink
-
+* links.saveStoreAlertsLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.shareStoreLink
-
+* links.shareStoreLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.terminateCurrentContractLink
-
+* links.terminateCurrentContractLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### links.updateStoreLink
-
+* links.updateStoreLink
+  * allOptionalParamsProvided `boolean`: indicates whether all optionals params have been provided
+  * allRequiredParamsProvided `boolean`: indicates whether all required params have been provided
+  * description `string`: The description of the link
+  * docUrl [BeezUP.Common.DocUrl](#beezup.common.docurl)
+  * href **required** [BeezUP.Common.Href](#beezup.common.href)
+  * info [BeezUP.Common.InfoSummaries](#beezup.common.infosummaries)
+  * label `string`: The label corresponding to the link. This label is automatically translated based on the Accept-Language http header.
+  * method [BeezUP.Common.HttpMethod](#beezup.common.httpmethod)
+  * operationId [BeezUP.Common.OperationId](#beezup.common.operationid)
+  * parameters `object`
+  * urlTemplated `boolean`: indicates whether the href is templated or not
 
 ### loginRequest
 * loginRequest `object`
@@ -5904,7 +7864,31 @@ beezup.ChangeOrder({
 * marketplaceOrderStatus `string`: The marketplace order state
 
 ### nextContractInfo
-
+* nextContractInfo
+  * additionalClickPrice `number`: Additional click price
+  * billingPeriodInMonth `integer`: The billing period in month
+  * billingPeriodPercentDiscount `number`: The percent discount related to the billing period
+  * clickIncluded `integer`: The click included
+  * commitmentCalculatedFinishUtcDate `string`: The calculated end date of commitment
+  * commitmentPeriodInMonth `integer`: The commitment period in month
+  * contractId [contractId](#contractid)
+  * currencyCode [BeezUP.Common.CurrencyCode](#beezup.common.currencycode)
+  * discountDurationInMonth `integer`: The discount duration in month
+  * discountEndUtcDate `string`: The end of your discount
+  * fixedAndVariableClickInfo [fixedAndVariableClickModelInfo](#fixedandvariableclickmodelinfo)
+  * fixedPrice `number`: The fixed price of your contract
+  * ipUserCreation `string`: The IP of the user who creates the contract
+  * ipUserModification `string`: The IP of the user who modified the contract
+  * isCommitmentRenewalAutomatically `boolean`: Is commitment is automatically renewed
+  * isModifiableContract `boolean`: Is the contract is modifiable ?
+  * offerId [offerId](#offerid)
+  * offerName `string`: The offer name based on /offers
+  * percentDiscount `number`: The percent of the discount
+  * startUtcDate `string`: The start date of your contract
+  * storeCount [storeCount](#storecount)
+  * trialPeriodInMonth `integer`: The trial period in month
+  * variableModelInfo [variableModelInfo](#variablemodelinfo)
+  * links **required** [nextContractInfoLinks](#nextcontractinfolinks)
 
 ### nextContractInfoLinks
 * nextContractInfoLinks `object`
@@ -5956,10 +7940,88 @@ beezup.ChangeOrder({
 * optimisationActionName `string` (values: reenable, disable): The optimisation action
 
 ### optimiseRequest
-
+* optimiseRequest
+  * advancedFilters **required** [reportAdvancedFilters](#reportadvancedfilters)
+  * beginPeriodUtcDate `string`: The begin date period you want to get the report. It's required only in case of custom period type !
+  * categoryFilter [BeezUP.Common.CatalogCategoryFilter](#beezup.common.catalogcategoryfilter)
+  * channelId [BeezUP.Common.ChannelId](#beezup.common.channelid)
+  * endPeriodUtcDate `string`: The end date period you want to get the report. It's required only in case of custom period type !
+  * indicatorFilters `array`
+    * items [reportIndicatorFilter](#reportindicatorfilter)
+  * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
+  * pageNumber [BeezUP.Common.PageNumber](#beezup.common.pagenumber)
+  * pageSize [BeezUP.Common.PageSize](#beezup.common.pagesize)
+  * productFilters [BeezUP.Common.ProductFilters](#beezup.common.productfilters)
+  * productState [productStateFilter](#productstatefilter)
+  * reportType **required** [reportType](#reporttype)
 
 ### order
-
+* order
+  * accountId **required** [accountId](#accountid)
+  * beezUPOrderId **required** [beezUPOrderId](#beezuporderid)
+  * beezUPOrderUrl [BeezUP.Common.HttpUrl](#beezup.common.httpurl)
+  * etag **required** [etag](#etag)
+  * links **required** [orderHeaderLinks](#orderheaderlinks)
+  * marketplaceBusinessCode **required** [BeezUP.Common.MarketplaceBusinessCode](#beezup.common.marketplacebusinesscode)
+  * marketplaceTechnicalCode **required** [BeezUP.Common.MarketplaceTechnicalCode](#beezup.common.marketplacetechnicalcode)
+  * order_Buyer_Name [order_Buyer_Name](#order_buyer_name)
+  * order_CurrencyCode [BeezUP.Common.CurrencyCode](#beezup.common.currencycode)
+  * order_LastModificationUtcDate **required** `string`: The last modification UTC date done by BeezUP of this order
+  * order_MarketplaceLastModificationUtcDate **required** `string`: The last modification UTC date done by the marketplace on this order
+  * order_MarketplaceOrderId **required** [marketplaceOrderId](#marketplaceorderid)
+  * order_MerchantECommerceSoftwareName [order_MerchantECommerceSoftwareName](#order_merchantecommercesoftwarename)
+  * order_MerchantECommerceSoftwareVersion [order_MerchantECommerceSoftwareVersion](#order_merchantecommercesoftwareversion)
+  * order_MerchantOrderId [order_MerchantOrderId](#order_merchantorderid)
+  * order_PurchaseUtcDate **required** `string`: The purchase date of this order
+  * order_Status_BeezUPOrderStatus **required** [beezUPOrderStatus](#beezuporderstatus)
+  * order_Status_MarketplaceOrderStatus [marketplaceOrderStatus](#marketplaceorderstatus)
+  * order_TotalPrice `number`: The total price of this order (corresponding to the amount paid by the customer)
+  * processing **required** [processing](#processing)
+  * links **required** [orderLinks](#orderlinks)
+  * orderItems **required** `array`
+    * items [orderItem](#orderitem)
+  * order_Buyer_AddressCity `string`: The Buyer address city of this order
+  * order_Buyer_AddressCountryIsoCodeAlpha2 `string`: The Buyer address country iso code alpha 2 (see http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#/decoding_table for more details)
+  * order_Buyer_AddressCountryName `string`: The Buyer address country name
+  * order_Buyer_AddressLine1 `string`: The Buyer address line 1 of this order
+  * order_Buyer_AddressLine2 `string`: The Buyer address line 2 of this order
+  * order_Buyer_AddressLine3 `string`: The Buyer address line 3 of this order
+  * order_Buyer_AddressPostalCode `string`: The Buyer address postal code of this order
+  * order_Buyer_AddressStateOrRegion `string`: The Buyer address state or region of this order
+  * order_Buyer_Civility `string`: The buyer civility for this order
+  * order_Buyer_CompanyName `string`: The buyer company name for this order
+  * order_Buyer_Email `string`: The email of the buyer for this order
+  * order_Buyer_Identifier `string`: The buyer identifier for this order
+  * order_Buyer_MobilePhone `string`: The mobile phone number of the buyer for this order
+  * order_Buyer_Phone `string`: The phone number of the buyer for this order
+  * order_Comment `string`: The comment associated to this order
+  * order_MarketPlaceChannel `string`: Useful to identify the origin of the order. For example in Amazon.
+  * order_OrderItemsSourceUri `string`: Technical information: The url to the source of this order items. We received this information from the marketplace.
+  * order_OrderSourceUri `string`: Technical information: The url to the source of this order. We received this information from the marketplace.
+  * order_PayingUtcDate `string`: The UTC date of the payment of this order
+  * order_PaymentMethod `string`: The payment method of this order
+  * order_Shipping_AddressCity `string`: The shipping address city of this order
+  * order_Shipping_AddressCountryIsoCodeAlpha2 `string`: The shipping address country iso code alpha 2 (see http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#/decoding_table for more details)
+  * order_Shipping_AddressCountryName `string`: The shipping address country name
+  * order_Shipping_AddressLine1 `string`: The shipping address line 1 of this order
+  * order_Shipping_AddressLine2 `string`: The shipping address line 2 of this order
+  * order_Shipping_AddressLine3 `string`: The shipping address line 3 of this order
+  * order_Shipping_AddressName `string`: The name of the person in the shipping address for this order
+  * order_Shipping_AddressPostalCode `string`: The shipping address postal code of this order
+  * order_Shipping_AddressStateOrRegion `string`: The shipping address state or region of this order
+  * order_Shipping_Civility `string`: The civility of the person in the shipping address for this order
+  * order_Shipping_CompanyName `string`: The company name of the shipping address for this order
+  * order_Shipping_EarliestShipUtcDate `string`: The UTC date of the earliest ship for this order
+  * order_Shipping_Email `string`: The email of the person in the shipping address for this order
+  * order_Shipping_LatestShipUtcDate `string`: The UTC date of the latest ship for this order
+  * order_Shipping_Method `string`: The shipping method of this order
+  * order_Shipping_MobilePhone `string`: The mobile phone number of the person in the shipping address for this order
+  * order_Shipping_Phone `string`: The phone number of the person in the shipping address for this order
+  * order_Shipping_Price `number`: The shipping price of this order
+  * order_Shipping_ShippingTax `number`: The shipping tax for this order
+  * order_TotalCommission `number`: The total commission of this order
+  * order_TotalTax `number`: The total tax of this order
+  * transitionLinks **required** [orderTransitionLinks](#ordertransitionlinks)
 
 ### orderExportationReporting
 * orderExportationReporting `object`: Represent the reporting of the Order report exportations
@@ -6042,7 +8104,11 @@ beezup.ChangeOrder({
   * marketplaceTechnicalCode **required** [BeezUP.Common.MarketplaceTechnicalCode](#beezup.common.marketplacetechnicalcode)
 
 ### orderIdentifierWithETag
-
+* orderIdentifierWithETag
+  * accountId **required** [accountId](#accountid)
+  * beezUPOrderId **required** [beezUPOrderId](#beezuporderid)
+  * marketplaceTechnicalCode **required** [BeezUP.Common.MarketplaceTechnicalCode](#beezup.common.marketplacetechnicalcode)
+  * etag **required** [etag](#etag)
 
 ### orderIndex
 * orderIndex `object`
@@ -6089,7 +8155,12 @@ beezup.ChangeOrder({
   * orderItem_TotalPrice `number`: The total price of the order item
 
 ### orderLinks
-
+* orderLinks
+  * self **required** [links.GetOrderLink](#links.getorderlink)
+  * clearMerchantInfo **required** [links.ClearMerchantOrderInfoLink](#links.clearmerchantorderinfolink)
+  * harvest **required** [links.HarvestOrderLink](#links.harvestorderlink)
+  * history **required** [links.GetOrderHistoryLink](#links.getorderhistorylink)
+  * setMerchantInfo **required** [links.SetMerchantOrderInfoLink](#links.setmerchantorderinfolink)
 
 ### orderListFull
 * orderListFull `object`: The order list with all information we have from the orders and its items.\
@@ -6099,7 +8170,13 @@ beezup.ChangeOrder({
   * paginationResult [BeezUP.Common.PaginationResult](#beezup.common.paginationresult)
 
 ### orderListFullLinks
-
+* orderListFullLinks
+  * clearMerchantInfos **required** [links.ClearMerchantOrderInfoListLink](#links.clearmerchantorderinfolistlink)
+  * export **required** [links.ExportOrdersLink](#links.exportorderslink)
+  * harvest **required** [links.HarvestAllLink](#links.harvestalllink)
+  * setMerchantInfos **required** [links.SetMerchantOrderInfoListLink](#links.setmerchantorderinfolistlink)
+  * status **required** [links.GetMarketplaceAccountsSynchronizationLink](#links.getmarketplaceaccountssynchronizationlink)
+  * self **required** [links.GetOrderListFullLink](#links.getorderlistfulllink)
 
 ### orderListLight
 * orderListLight `object`: The order list with minimum information we have from the orders.\
@@ -6109,7 +8186,13 @@ beezup.ChangeOrder({
   * paginationResult [BeezUP.Common.PaginationResult](#beezup.common.paginationresult)
 
 ### orderListLightLinks
-
+* orderListLightLinks
+  * clearMerchantInfos **required** [links.ClearMerchantOrderInfoListLink](#links.clearmerchantorderinfolistlink)
+  * export **required** [links.ExportOrdersLink](#links.exportorderslink)
+  * harvest **required** [links.HarvestAllLink](#links.harvestalllink)
+  * setMerchantInfos **required** [links.SetMerchantOrderInfoListLink](#links.setmerchantorderinfolistlink)
+  * status **required** [links.GetMarketplaceAccountsSynchronizationLink](#links.getmarketplaceaccountssynchronizationlink)
+  * self **required** [links.GetOrderListLightLink](#links.getorderlistlightlink)
 
 ### orderListLinks
 * orderListLinks `object`: The list of actions you can do from the order list response
@@ -6120,7 +8203,25 @@ beezup.ChangeOrder({
   * status **required** [links.GetMarketplaceAccountsSynchronizationLink](#links.getmarketplaceaccountssynchronizationlink)
 
 ### orderListRequest
-
+* orderListRequest
+  * accountIds `array`: Account id list
+    * items [accountId](#accountid)
+  * beezUPOrderStatuses `array`
+    * items [beezUPOrderStatus](#beezuporderstatus)
+  * beginPeriodUtcDate **required** `string`: The begin period you want to make the search. \
+  * dateSearchType **required** [dateSearchType](#datesearchtype)
+  * endPeriodUtcDate **required** `string`: The end period of you search. \
+  * marketplaceBusinessCodes `array`
+    * items [BeezUP.Common.MarketplaceBusinessCode](#beezup.common.marketplacebusinesscode)
+  * marketplaceOrderIds `array`
+    * items [marketplaceOrderId](#marketplaceorderid)
+  * marketplaceTechnicalCodes `array`
+    * items [BeezUP.Common.MarketplaceTechnicalCode](#beezup.common.marketplacetechnicalcode)
+  * order_Buyer_Name [order_Buyer_Name](#order_buyer_name)
+  * order_MerchantOrderIds `array`: Merchant order id list
+    * items [order_MerchantOrderId](#order_merchantorderid)
+  * pageNumber **required** [pageNumber](#pagenumber)
+  * pageSize **required** [pageSize](#pagesize)
 
 ### orderListRequestWithoutPagination
 * orderListRequestWithoutPagination `object`
@@ -6287,7 +8388,11 @@ beezup.ChangeOrder({
   * self **required** [links.getProfilePictureInfoLink](#links.getprofilepictureinfolink)
 
 ### profilePictureInfoWithDefault
-
+* profilePictureInfoWithDefault
+  * profilePictureSelected **required** [profilePictureSelected](#profilepictureselected)
+  * profilePictureUrl [profilePictureUrl](#profilepictureurl)
+  * gravatarProfilePictureUrl **required** [gravatarProfilePictureUrl](#gravatarprofilepictureurl)
+  * initialsProfilePictureUrl **required** [initialsProfilePictureUrl](#initialsprofilepictureurl)
 
 ### profilePictureSelected
 * profilePictureSelected `string` (values: gravatar, initials, uploaded): Your profile picture choice about usage of gravatar picture, initials picture or uploaded picture.
@@ -6398,7 +8503,17 @@ beezup.ChangeOrder({
   * enableProducts [links.OptimiseByCategoryLink](#links.optimisebycategorylink)
 
 ### reportByCategoryRequest
-
+* reportByCategoryRequest
+  * advancedFilters **required** [reportAdvancedFilters](#reportadvancedfilters)
+  * beginPeriodUtcDate `string`: The begin date period you want to get the report. It's required only in case of custom period type !
+  * categoryFilter [BeezUP.Common.CatalogCategoryFilter](#beezup.common.catalogcategoryfilter)
+  * channelId [BeezUP.Common.ChannelId](#beezup.common.channelid)
+  * endPeriodUtcDate `string`: The end date period you want to get the report. It's required only in case of custom period type !
+  * indicatorFilters `array`
+    * items [reportIndicatorFilter](#reportindicatorfilter)
+  * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
+  * pageNumber [BeezUP.Common.PageNumber](#beezup.common.pagenumber)
+  * pageSize [BeezUP.Common.PageSize](#beezup.common.pagesize)
 
 ### reportByCategoryResponse
 * reportByCategoryResponse `object`
@@ -6409,7 +8524,9 @@ beezup.ChangeOrder({
   * paginationResult [BeezUP.Common.PaginationResult](#beezup.common.paginationresult)
 
 ### reportByCategoryResponseLinks
-
+* reportByCategoryResponseLinks
+  * disableAllProducts [links.OptimiseLink](#links.optimiselink)
+  * enableAllProducts [links.OptimiseLink](#links.optimiselink)
 
 ### reportByChannel
 * reportByChannel `object`
@@ -6432,7 +8549,17 @@ beezup.ChangeOrder({
   * enableProducts [links.OptimiseByChannelLink](#links.optimisebychannellink)
 
 ### reportByChannelRequest
-
+* reportByChannelRequest
+  * advancedFilters **required** [reportAdvancedFilters](#reportadvancedfilters)
+  * beginPeriodUtcDate `string`: The begin date period you want to get the report. It's required only in case of custom period type !
+  * categoryFilter [BeezUP.Common.CatalogCategoryFilter](#beezup.common.catalogcategoryfilter)
+  * channelId [BeezUP.Common.ChannelId](#beezup.common.channelid)
+  * endPeriodUtcDate `string`: The end date period you want to get the report. It's required only in case of custom period type !
+  * indicatorFilters `array`
+    * items [reportIndicatorFilter](#reportindicatorfilter)
+  * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
+  * pageNumber [BeezUP.Common.PageNumber](#beezup.common.pagenumber)
+  * pageSize [BeezUP.Common.PageSize](#beezup.common.pagesize)
 
 ### reportByChannelResponse
 * reportByChannelResponse `object`
@@ -6443,7 +8570,9 @@ beezup.ChangeOrder({
   * paginationResult **required** [BeezUP.Common.PaginationResult](#beezup.common.paginationresult)
 
 ### reportByChannelResponseLinks
-
+* reportByChannelResponseLinks
+  * disableAllProducts [links.OptimiseLink](#links.optimiselink)
+  * enableAllProducts [links.OptimiseLink](#links.optimiselink)
 
 ### reportByCommonResponseLinks
 * reportByCommonResponseLinks `object`
@@ -6528,7 +8657,20 @@ beezup.ChangeOrder({
   * productInfo **required** [links.GetChannelCatalogProductInfoLink](#links.getchannelcatalogproductinfolink)
 
 ### reportByProductRequest
-
+* reportByProductRequest
+  * advancedFilters **required** [reportAdvancedFilters](#reportadvancedfilters)
+  * beginPeriodUtcDate `string`: The begin date period you want to get the report. It's required only in case of custom period type !
+  * categoryFilter [BeezUP.Common.CatalogCategoryFilter](#beezup.common.catalogcategoryfilter)
+  * channelId [BeezUP.Common.ChannelId](#beezup.common.channelid)
+  * endPeriodUtcDate `string`: The end date period you want to get the report. It's required only in case of custom period type !
+  * indicatorFilters `array`
+    * items [reportIndicatorFilter](#reportindicatorfilter)
+  * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
+  * pageNumber [BeezUP.Common.PageNumber](#beezup.common.pagenumber)
+  * pageSize [BeezUP.Common.PageSize](#beezup.common.pagesize)
+  * productColumnsToDisplay [productColumnsToDisplay](#productcolumnstodisplay)
+  * productFilters [BeezUP.Common.ProductFilters](#beezup.common.productfilters)
+  * productState **required** [productStateFilter](#productstatefilter)
 
 ### reportByProductResponse
 * reportByProductResponse `object`
@@ -6539,7 +8681,9 @@ beezup.ChangeOrder({
     * items [reportByProduct](#reportbyproduct)
 
 ### reportByProductResponseLinks
-
+* reportByProductResponseLinks
+  * disableAllProducts [links.OptimiseLink](#links.optimiselink)
+  * enableAllProducts [links.OptimiseLink](#links.optimiselink)
 
 ### reportFilter
 * reportFilter `object`
@@ -6583,7 +8727,19 @@ beezup.ChangeOrder({
     * items [reportFilterHeader](#reportfilterheader)
 
 ### reportFilterParameters
-
+* reportFilterParameters
+  * advancedFilters **required** [reportAdvancedFilters](#reportadvancedfilters)
+  * beginPeriodUtcDate `string`: The begin date period you want to get the report. It's required only in case of custom period type !
+  * categoryFilter [BeezUP.Common.CatalogCategoryFilter](#beezup.common.catalogcategoryfilter)
+  * channelId [BeezUP.Common.ChannelId](#beezup.common.channelid)
+  * endPeriodUtcDate `string`: The end date period you want to get the report. It's required only in case of custom period type !
+  * indicatorFilters `array`
+    * items [reportIndicatorFilter](#reportindicatorfilter)
+  * periodType **required** [reportFilterPeriodType](#reportfilterperiodtype)
+  * productColumnsToDisplay [productColumnsToDisplay](#productcolumnstodisplay)
+  * productFilters [BeezUP.Common.ProductFilters](#beezup.common.productfilters)
+  * productState [productStateFilter](#productstatefilter)
+  * reportType **required** [reportType](#reporttype)
 
 ### reportFilterPeriodType
 * reportFilterPeriodType `string` (values: Custom, Yesterday, Last7Days, LastWeek, ThisMonth, Last30Days, LastMonth, Last60Days, Last90Days, Last3Months): Indicates the period type we want use for the report filter
@@ -6718,7 +8874,11 @@ beezup.ChangeOrder({
     * items [setMerchantOrderInfoListRequestItem](#setmerchantorderinfolistrequestitem)
 
 ### setMerchantOrderInfoListRequestItem
-
+* setMerchantOrderInfoListRequestItem
+  * accountId **required** [accountId](#accountid)
+  * beezUPOrderId **required** [beezUPOrderId](#beezuporderid)
+  * marketplaceTechnicalCode **required** [BeezUP.Common.MarketplaceTechnicalCode](#beezup.common.marketplacetechnicalcode)
+  * order_MerchantOrderId **required** [order_MerchantOrderId](#order_merchantorderid)
 
 ### setMerchantOrderInfoRequest
 * setMerchantOrderInfoRequest `object`
@@ -6798,7 +8958,11 @@ beezup.ChangeOrder({
   * propertyValue **required** [alertPropertyValue](#alertpropertyvalue)
 
 ### storeAlertPropertyInfo
-
+* storeAlertPropertyInfo
+  * propertyId **required** [alertPropertyId](#alertpropertyid)
+  * propertyValue **required** [alertPropertyValue](#alertpropertyvalue)
+  * propertyName **required** `string`: The property name of the alert
+  * propertyValidationExpression `string`: The regular expression related to the alert property
 
 ### storeAlerts
 * storeAlerts `object`
@@ -6932,7 +9096,15 @@ beezup.ChangeOrder({
   * utcDate **required** `string`: The utc date of the order.
 
 ### trackedOrderProduct
-
+* trackedOrderProduct
+  * productExists **required** `boolean`: Indicates if the product still exists in your catalog
+  * productId **required** `string`: The product identifier
+  * productImageUrl **required** `string`: The product image Url
+  * productSku **required** `string`: The product SKU
+  * productTitle **required** `string`: The product tile
+  * margin **required** `number`: Indicate the product's margin related to this order.
+  * quantity **required** `number`: Indicate the product's quantity ordered.
+  * unitPrice **required** `number`: The product's unit price related to this order
 
 ### trackedOrders
 * trackedOrders `object`

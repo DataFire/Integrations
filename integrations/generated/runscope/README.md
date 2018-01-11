@@ -814,14 +814,49 @@ runscope.teams.teamId.people.get({
   * trigger_url `string`
 
 ### TestDetail
-
+* TestDetail
+  * environments [Environment](#environment)
+  * exported_at `integer`
+  * last_run `object`
+  * schedules `array`
+    * items [Schedule](#schedule)
+  * steps `array`
+    * items `object`
+  * version `string`
+  * created_at `integer`: The date the test was created in seconds (Unix time stamp format).
+  * created_by `object`
+    * email `string`
+    * id `string`
+    * name `string`
+  * default_environment_id `string`
+  * description `string`: The description for the test.
+  * id `string`
+  * last_run `object`
+  * name **required** `string`: The name for the test.
+  * trigger_url `string`
 
 ### TestStep
 * TestStep `object`
   * step_type `string`: Type of test step -- request, pause, condition, ghost-inspector, or subtest.
 
 ### TestStepRequest
-
+* TestStepRequest
+  * assertions `array`: A list of assertions to apply to the HTTP response from this request.
+    * items [Assertion](#assertion)
+  * auth `object`: An authentication object with either basic, oauth1, or client_certificate credentials for authenticating this request.
+  * before_scripts `array`: A list of pre-request scripts to run before this request.
+    * items `string`
+  * body `string`: A string to use as the body of the request.
+  * form `object`: An object with keys as form post parameter names matched to their values. Values can either be a single string or an array of strings.
+  * headers `object`: An object with keys as header names matched to their values. Values can either be a single string or an array of strings.
+  * method `string`: The HTTP method for this request step. E.g. GET, POST, PUT, DELETE, etc.
+  * note `string`: A description or note for this request step.
+  * scripts `array`: A list of post-response scripts to run after this request.
+    * items `string`
+  * url `string`: The URL to make a request to for this step. This may contain both query string parameters and variables.
+  * variables `array`: A list of variables to extract out of the HTTP response from this request.
+    * items [Variable](#variable)
+  * step_type `string`: Type of test step -- request, pause, condition, ghost-inspector, or subtest.
 
 ### Variable
 * Variable `object`

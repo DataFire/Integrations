@@ -1702,6 +1702,7 @@ ato_gov_au.organisations.partyId.roles.roleId.put({
   * city `string`: The city.
   * country `string`: The country.
   * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * id: The resource's unique identifier.
   * line1 `string`: The address line 1.
   * line2 `string`: The address line 2.
   * line3 `string`: The address line 3.
@@ -1711,20 +1712,27 @@ ato_gov_au.organisations.partyId.roles.roleId.put({
   * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ### address-type
-
+* address-type
+  * description `string`: The scheme value description.
+  * id: The resource's unique identifier.
+  * name `string`: The scheme value.
 
 ### addressId
-
+* addressId
 
 ### business-name
 * business-name `object`: The Business Name resource.
   * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * id: The resource's unique identifier.
   * lifecycleState `string` (values: Approved, Expired, Issued, Pending Approval, Suspended): The business name's lifecycle state.
   * name `string`: The business name.
   * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ### business-name-lifecycle-state
-
+* business-name-lifecycle-state
+  * description `string`: The scheme value description.
+  * id: The resource's unique identifier.
+  * name `string`: The scheme value.
 
 ### electronic-address
 * electronic-address `object`: The Electronic Address resource.
@@ -1734,12 +1742,16 @@ ato_gov_au.organisations.partyId.roles.roleId.put({
   * email `string`: The email address, for example, "robert.ferguson@ato.gov.au".
   * extension `string`: The extension number, for example, "4453".
   * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * id: The resource's unique identifier.
   * number `string`: The number, for example, "62164453".
   * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
   * url `string`: The website address, for example, "https://ato.gov.au".
 
 ### electronic-address-type
-
+* electronic-address-type
+  * description `string`: The scheme value description.
+  * id: The resource's unique identifier.
+  * name `string`: The scheme value.
 
 ### error-details
 * error-details `object`
@@ -1758,6 +1770,7 @@ ato_gov_au.organisations.partyId.roles.roleId.put({
 ### gender
 * gender `object`: The Gender resource.
   * gender `string`: The gender.
+  * id: The resource's unique identifier.
 
 ### individual
 * individual `object`: The Individual resource.
@@ -1768,13 +1781,28 @@ ato_gov_au.organisations.partyId.roles.roleId.put({
     * items [electronic-address](#electronic-address)
   * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
   * gender `string` (values: Female, Male, Not Applicable, Not Known): The individual's gender.
+  * id: The party's unique identifier.
   * names `array`
     * items [individual-name](#individual-name)
   * placeOfBirth **required** `string`: The individual's place of birth, for example, `Tamworth`.
   * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ### individual-address
-
+* individual-address
+  * city `string`: The city.
+  * country `string`: The country.
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * id: The resource's unique identifier.
+  * line1 `string`: The address line 1.
+  * line2 `string`: The address line 2.
+  * line3 `string`: The address line 3.
+  * name `string`: The address name.
+  * postalCode `string`: The postal code.
+  * suburb `string`: The suburb.
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * addressType `string` (values: Mailing, Principal Place of Business, Principal Place of Residence): The address type.
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ### individual-name
 * individual-name `object`: The Individual Name resource.
@@ -1783,6 +1811,7 @@ ato_gov_au.organisations.partyId.roles.roleId.put({
   * formalSalutation `string`: The individual's formal salutation, for example, "Mr William Smith".
   * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
   * givenName `string`: The individual's given name.
+  * id: The resource's unique identifier.
   * informalSalutation `string`: The individual's informal salutation, for example, "Bill".
   * middleName `string`: The individual's middle name.
   * namePrefix `string` (values: Mr, Ms): The individual's name prefix.
@@ -1799,29 +1828,48 @@ ato_gov_au.organisations.partyId.roles.roleId.put({
   * status `string`: The error status.
 
 ### legal-entity-type
-
+* legal-entity-type
+  * description `string`: The scheme value description.
+  * id: The resource's unique identifier.
+  * name `string`: The scheme value.
 
 ### license
 * license `object`: The License resource.
   * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * id: The resource's unique identifier.
   * licenseType `string` (values: Australian Financial Services License, License 2B): The license type.
   * lifecycleState `string` (values: Approved, Expired, Issued, Pending Approval, Suspended): The business name's lifecycle state.
   * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ### license-lifecycle-state
-
+* license-lifecycle-state
+  * description `string`: The scheme value description.
+  * id: The resource's unique identifier.
+  * name `string`: The scheme value.
 
 ### license-type
-
+* license-type
+  * description `string`: The scheme value description.
+  * id: The resource's unique identifier.
+  * name `string`: The scheme value.
 
 ### name-direction
-
+* name-direction
+  * description `string`: The scheme value description.
+  * id: The resource's unique identifier.
+  * name `string`: The scheme value.
 
 ### name-prefix
-
+* name-prefix
+  * description `string`: The scheme value description.
+  * id: The resource's unique identifier.
+  * name `string`: The scheme value.
 
 ### name-type
-
+* name-type
+  * description `string`: The scheme value description.
+  * id: The resource's unique identifier.
+  * name `string`: The scheme value.
 
 ### not-found
 * not-found `object`
@@ -1839,6 +1887,7 @@ ato_gov_au.organisations.partyId.roles.roleId.put({
     * items [electronic-address](#electronic-address)
   * establishmentDate **required** `string`: The organisation's establishment date, for example, `1928-03-03` (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format).
   * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * id: The party's unique identifier.
   * legalEntityType **required** `string` (values: Company, Partnership, Trust, Joint Venture): The organisation's legal entity type.
   * names `array`
     * items [organisation-name](#organisation-name)
@@ -1847,24 +1896,41 @@ ato_gov_au.organisations.partyId.roles.roleId.put({
   * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ### organisation-address
-
+* organisation-address
+  * city `string`: The city.
+  * country `string`: The country.
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * id: The resource's unique identifier.
+  * line1 `string`: The address line 1.
+  * line2 `string`: The address line 2.
+  * line3 `string`: The address line 3.
+  * name `string`: The address name.
+  * postalCode `string`: The postal code.
+  * suburb `string`: The suburb.
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * addressType `string` (values: Mailing, Principal Place of Business): The address type.
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ### organisation-name
 * organisation-name `object`: The Organisation Name resource.
   * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * id: The resource's unique identifier.
   * name `string`: The organisation's name.
   * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ### party-role
 * party-role `object`: The Party Role resource.
   * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * id: The resource's unique identifier.
   * partyRoleType `string` (values: Director, Employee, Member, Partner, Trustee): The party's role type.
+  * relatedPartyId **required**: The related party's unique identifier.
   * relatedPartyRoleType `string` (values: Association, Company, Employer, Organisation, Partnership, Trust): The related party's role type.
   * relationshipType **required** `string` (values: Directorship, Employment, Membership, Partnership, Trusteeship): The relationship type.
   * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ### partyId
-
+* partyId
 
 ### permission-denied
 * permission-denied `object`
@@ -1877,18 +1943,23 @@ ato_gov_au.organisations.partyId.roles.roleId.put({
 ### registered-identifier
 * registered-identifier `object`: The Registered Identifier resource.
   * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * id: The resource's unique identifier.
   * identifier `string`: The registered identifier.
   * identifierType `string` (values: ACN, ABN): The registered identifier type.
   * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ### registered-identifier-type
-
+* registered-identifier-type
+  * description `string`: The scheme value description.
+  * id: The resource's unique identifier.
+  * name `string`: The scheme value.
 
 ### resourceId
 * resourceId `string`: The resource ID. Defaults to UUID v4
 
 ### role
 * role `object`: The Role Type resource.
+  * id: The resource's unique identifier.
   * reciprocalRole `string`: The reciprocal role name.
   * reciprocalRoleDescription `string`: The reciprocal role description.
   * relationship `string`: The relationship name.
@@ -1896,11 +1967,12 @@ ato_gov_au.organisations.partyId.roles.roleId.put({
   * roleDescription `string`: The role description.
 
 ### roleId
-
+* roleId
 
 ### type
 * type `object`: The Type resource.
   * description `string`: The scheme value description.
+  * id: The resource's unique identifier.
   * name `string`: The scheme value.
 
 ### unauthenticated

@@ -1077,7 +1077,16 @@ iqualify.users.userId.offerings.get({
   * version `string`: Content version, if not specified, the most recent version is used.
 
 ### OfferingRequired
-
+* OfferingRequired
+  * contentId `string`
+  * description `string`
+  * earlyCloseOffDate `string`
+  * end `string`
+  * isReadonly `boolean`
+  * name `string`
+  * start `string`
+  * trailerVideoUrl `string`
+  * version `string`: Content version, if not specified, the most recent version is used.
 
 ### OfferingResponse
 * OfferingResponse `object`

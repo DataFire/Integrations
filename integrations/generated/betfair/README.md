@@ -58,13 +58,22 @@ betfair.request.post({
   * status [StatusMessage](#statusmessage)
 
 ### AuthenticationMessage
-
+* AuthenticationMessage
+  * id `integer`: Client generated unique id to link request with response (like json rpc)
+  * op `string`: The operation type
+  * appKey `string`
+  * session `string`
 
 ### ConnectionMessage
-
+* ConnectionMessage
+  * id `integer`: Client generated unique id to link request with response (like json rpc)
+  * op `string`: The operation type
+  * connectionId `string`: The connection id
 
 ### HeartbeatMessage
-
+* HeartbeatMessage
+  * id `integer`: Client generated unique id to link request with response (like json rpc)
+  * op `string`: The operation type
 
 ### KeyLineDefinition
 * KeyLineDefinition `object`
@@ -87,7 +96,19 @@ betfair.request.post({
   * tv `number`: The total amount matched across the market. This value is truncated at 2dp (or null if un-changed)
 
 ### MarketChangeMessage
-
+* MarketChangeMessage
+  * id `integer`: Client generated unique id to link request with response (like json rpc)
+  * op `string`: The operation type
+  * clk `string`: Token value (non-null) should be stored and passed in a MarketSubscriptionMessage to resume subscription (in case of disconnect)
+  * conflateMs `integer`: Conflate Milliseconds - the conflation rate (may differ from that requested if subscription is delayed)
+  * ct `string` (values: SUB_IMAGE, RESUB_DELTA, HEARTBEAT): Change Type - set to indicate the type of change - if null this is a delta)
+  * heartbeatMs `integer`: Heartbeat Milliseconds - the heartbeat rate (may differ from requested: bounds are 500 to 30000)
+  * initialClk `string`: Token value (non-null) should be stored and passed in a MarketSubscriptionMessage to resume subscription (in case of disconnect)
+  * mc `array`: MarketChanges - the modifications to markets (will be null on a heartbeat
+    * items [MarketChange](#marketchange)
+  * pt `integer`: Publish Time (in millis since epoch) that the changes were generated
+  * segmentType `string` (values: SEG_START, SEG, SEG_END): Segment Type - if the change is split into multiple segments, this denotes the beginning and end of a change, and segments in between. Will be null if data is not segmented
+  * status `integer`: Stream status: set to null if the exchange stream data is up to date and 503 if the downstream services are experiencing latencies
 
 ### MarketDataFilter
 * MarketDataFilter `object`
@@ -157,7 +178,16 @@ betfair.request.post({
     * items `string`
 
 ### MarketSubscriptionMessage
-
+* MarketSubscriptionMessage
+  * id `integer`: Client generated unique id to link request with response (like json rpc)
+  * op `string`: The operation type
+  * clk `string`: Token value delta (received in MarketChangeMessage) that should be passed to resume a subscription
+  * conflateMs `integer`: Conflate Milliseconds - the conflation rate (looped back on initial image after validation: bounds are 0 to 120000)
+  * heartbeatMs `integer`: Heartbeat Milliseconds - the heartbeat rate (looped back on initial image after validation: bounds are 500 to 5000)
+  * initialClk `string`: Token value (received in initial MarketChangeMessage) that should be passed to resume a subscription
+  * marketDataFilter [MarketDataFilter](#marketdatafilter)
+  * marketFilter [MarketFilter](#marketfilter)
+  * segmentationEnabled `boolean`: Segmentation Enabled - allow the server to send large sets of data in segments, instead of a single block
 
 ### Order
 * Order `object`
@@ -184,7 +214,19 @@ betfair.request.post({
   * sv `number`: Size Voided - the amount of the order that has been voided
 
 ### OrderChangeMessage
-
+* OrderChangeMessage
+  * id `integer`: Client generated unique id to link request with response (like json rpc)
+  * op `string`: The operation type
+  * clk `string`: Token value (non-null) should be stored and passed in a MarketSubscriptionMessage to resume subscription (in case of disconnect)
+  * conflateMs `integer`: Conflate Milliseconds - the conflation rate (may differ from that requested if subscription is delayed)
+  * ct `string` (values: SUB_IMAGE, RESUB_DELTA, HEARTBEAT): Change Type - set to indicate the type of change - if null this is a delta)
+  * heartbeatMs `integer`: Heartbeat Milliseconds - the heartbeat rate (may differ from requested: bounds are 500 to 30000)
+  * initialClk `string`: Token value (non-null) should be stored and passed in a MarketSubscriptionMessage to resume subscription (in case of disconnect)
+  * oc `array`: OrderMarketChanges - the modifications to account's orders (will be null on a heartbeat
+    * items [OrderMarketChange](#ordermarketchange)
+  * pt `integer`: Publish Time (in millis since epoch) that the changes were generated
+  * segmentType `string` (values: SEG_START, SEG, SEG_END): Segment Type - if the change is split into multiple segments, this denotes the beginning and end of a change, and segments in between. Will be null if data is not segmented
+  * status `integer`: Stream status: set to null if the exchange stream data is up to date and 503 if the downstream services are experiencing latencies
 
 ### OrderFilter
 * OrderFilter `object`
@@ -219,7 +261,15 @@ betfair.request.post({
     * items [Order](#order)
 
 ### OrderSubscriptionMessage
-
+* OrderSubscriptionMessage
+  * id `integer`: Client generated unique id to link request with response (like json rpc)
+  * op `string`: The operation type
+  * clk `string`: Token value delta (received in MarketChangeMessage) that should be passed to resume a subscription
+  * conflateMs `integer`: Conflate Milliseconds - the conflation rate (looped back on initial image after validation: bounds are 0 to 120000)
+  * heartbeatMs `integer`: Heartbeat Milliseconds - the heartbeat rate (looped back on initial image after validation: bounds are 500 to 5000)
+  * initialClk `string`: Token value (received in initial MarketChangeMessage) that should be passed to resume a subscription
+  * orderFilter [OrderFilter](#orderfilter)
+  * segmentationEnabled `boolean`: Segmentation Enabled - allow the server to send large sets of data in segments, instead of a single block
 
 ### PriceLadderDefinition
 * PriceLadderDefinition `object`
@@ -282,7 +332,14 @@ betfair.request.post({
   * status `string` (values: ACTIVE, WINNER, LOSER, REMOVED, REMOVED_VACANT, HIDDEN, PLACED)
 
 ### StatusMessage
-
+* StatusMessage
+  * id `integer`: Client generated unique id to link request with response (like json rpc)
+  * op `string`: The operation type
+  * connectionClosed `boolean`: Is the connection now closed
+  * connectionId `string`: The connection id
+  * errorCode `string` (values: NO_APP_KEY, INVALID_APP_KEY, NO_SESSION, INVALID_SESSION_INFORMATION, NOT_AUTHORIZED, INVALID_INPUT, INVALID_CLOCK, UNEXPECTED_ERROR, TIMEOUT, SUBSCRIPTION_LIMIT_EXCEEDED, INVALID_REQUEST, CONNECTION_FAILED, MAX_CONNECTION_LIMIT_EXCEEDED): The type of error in case of a failure
+  * errorMessage `string`: Additional message in case of a failure
+  * statusCode `string` (values: SUCCESS, FAILURE): The status of the last request
 
 ### StrategyMatchChange
 * StrategyMatchChange `object`

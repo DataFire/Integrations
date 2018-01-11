@@ -62,6 +62,7 @@ etsy.users.user_id.favorites.listings.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -129,6 +130,7 @@ etsy.users.user_id.favorites.users.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -196,6 +198,7 @@ etsy.homepages.pickers.get({}, context)
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -228,6 +231,7 @@ etsy.homepages.pickers.featured_listing_picker_id.featured.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -244,6 +248,7 @@ etsy.homepages.pickers.featured_listing_picker_id.listings.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -260,6 +265,7 @@ etsy.homepages.pickers.featured_listing_picker_id.listings.active.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -274,6 +280,7 @@ etsy.homepages.listings.get({}, context)
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -288,6 +295,7 @@ etsy.homepages.listings.active.get({}, context)
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -468,6 +476,7 @@ etsy.listings.listing_id.favored_by.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -533,6 +542,7 @@ etsy.listings.active.get({}, context)
 
 #### Input
 * input `object`
+  * limit `number`
   * sort_on `string` (values: created, price, score)
   * sort_order `string` (values: up, down)
 
@@ -551,6 +561,7 @@ etsy.shops.shop_id.listings.active.get({
 
 #### Input
 * input `object`
+  * limit `number`
   * sort_on `string` (values: created, price, score)
   * sort_order `string` (values: up, down)
 
@@ -606,6 +617,7 @@ etsy.orders.order_id.receipts.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -652,6 +664,7 @@ etsy.receipts.receipt_id.transactions.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -668,6 +681,7 @@ etsy.users.user_id.recommended_listings.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -910,6 +924,7 @@ etsy.shipping.templates.shipping_template_id.entries.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -977,6 +992,7 @@ etsy.shops.shop_id.receipts.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -993,6 +1009,7 @@ etsy.shops.shop_id.transactions.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1023,6 +1040,7 @@ etsy.shops.get({}, context)
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1039,6 +1057,7 @@ etsy.shops.shop_id.listings.featured.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1055,6 +1074,7 @@ etsy.shops.shop_id.listings.inactive.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1071,6 +1091,7 @@ etsy.shops.shop_id.listings.expired.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1313,6 +1334,7 @@ etsy.taxonomy.tags.get({}, context)
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1329,6 +1351,7 @@ etsy.taxonomy.tags.tags.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1379,6 +1402,7 @@ etsy.treasuries.get({}, context)
   * sort_order `string` (values: up, down)
   * maturity `string` (values: safe_only, safe_and_mature)
   * detail_level `string` (values: low, medium)
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1399,6 +1423,7 @@ etsy.users.user_id.treasuries.get({
   * sort_order `string` (values: up, down)
   * maturity `string` (values: safe_only, safe_and_mature)
   * detail_level `string` (values: low, medium)
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1431,6 +1456,7 @@ etsy.users.user_id.shops.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1447,6 +1473,7 @@ etsy.users.user_id.favored_by.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1463,6 +1490,7 @@ etsy.users.user_id.feedback.as_subject.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1479,6 +1507,7 @@ etsy.users.user_id.feedback.as_author.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1495,6 +1524,7 @@ etsy.users.user_id.feedback.as_buyer.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1511,6 +1541,7 @@ etsy.users.user_id.feedback.as_seller.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1527,6 +1558,7 @@ etsy.users.user_id.orders.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1543,6 +1575,7 @@ etsy.users.user_id.receipts.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1559,6 +1592,7 @@ etsy.users.user_id.transactions.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1575,6 +1609,7 @@ etsy.users.user_id.charges.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1591,6 +1626,7 @@ etsy.users.user_id.payments.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1607,6 +1643,7 @@ etsy.users.user_id.shipping.templates.get({
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*
@@ -1812,6 +1849,7 @@ etsy.featured.users.get({}, context)
 
 #### Input
 * input `object`
+  * limit `number`
 
 #### Output
 *Output schema unknown*

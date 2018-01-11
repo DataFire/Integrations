@@ -615,7 +615,9 @@ npr.getStationById({
 ## Definitions
 
 ### AbstractCDocLink
-
+* AbstractCDocLink
+  * href **required** `string`: The link to be followed
+  * content-type **required** `string`: The MIME type of the response of this link
 
 ### AbstractLink
 * AbstractLink `object`
@@ -634,7 +636,18 @@ npr.getStationById({
   * event **required** `string` (values: start, firstQuartile, midpoint, thirdQuartile, complete): The user-interaction event to submit tracking for
 
 ### AdTrackingDocument
-
+* AdTrackingDocument: All the information needed for the Sponsorship Service to send back tracking information to our external sponsorship provider
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes [AdTrackingData](#adtrackingdata)
+  * items `array`: Not used
+    * items `null`
 
 ### AdXml
 * AdXml `object`
@@ -655,7 +668,19 @@ npr.getStationById({
   * title `string`: The title for the aggregation (program)
 
 ### AggregationAudioItemListDocument
-
+* AggregationAudioItemListDocument: An array of audio recommendations with additional metadata about the aggregation they are associated with
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes [AggregationData](#aggregationdata)
+  * items `array`: An array of Audio Items (recommendations)
+    * items [AudioItemDocument](#audioitemdocument)
+  * links [AggregationLinks](#aggregationlinks)
 
 ### AggregationData
 * AggregationData `object`
@@ -702,7 +727,19 @@ npr.getStationById({
   * unavailableText `string`: The text contents to be displayed on the client if no media URLs are available
 
 ### AudioItemDocument
-
+* AudioItemDocument
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes [AudioItemData](#audioitemdata)
+  * items `array`: Not used
+    * items `null`
+  * links [AudioItemLinks](#audioitemlinks)
 
 ### AudioItemLinks
 * AudioItemLinks `object`
@@ -722,10 +759,24 @@ npr.getStationById({
     * items [OtherLink](#otherlink)
 
 ### AudioItemListDocument
-
+* AudioItemListDocument
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes `object`: Not used
+  * items `array`: An array of Audio Items (recommendations)
+    * items [AudioItemDocument](#audioitemdocument)
+  * links `object`: Not used
 
 ### AudioLink
-
+* AudioLink: A link to audio files for the item
+  * href **required** `string`: The link to be followed
+  * content-type **required** `string` (values: audio/mp3, audio/aac, audio/3gp, application/vnd.apple.mpegurl, audio/x-ms-wax): The MIME type of the response of this link; note that the enumerated list of possible values is not exhaustive and other MIME types could occur. The list should be treated as examples, rather than absolutes.
 
 ### Brand
 * Brand `object`: Branding information for the organization
@@ -759,14 +810,38 @@ npr.getStationById({
   * refreshRule `integer`: In the explore view of a client, this field indicates how this channel should be refreshed.  This is an experimental field and subject to change, but for now zero indicates the client should refresh this channel every time a START rating is sent for a type=audio recommendation, while a 1 would indicate it can be refreshed much less often, such as on a 30 minute timer.   We are still experimenting on the number of rules necessary and the best implementation for each type of rule. 
 
 ### ChannelDocument
-
+* ChannelDocument
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes [ChannelData](#channeldata)
+  * items `array`: Not used
+    * items `null`
+  * links `object`: Not used
 
 ### ChannelsData
 * ChannelsData `object`
   * defaultChannel `string`: The default channel NPR recommends
 
 ### ChannelsDocument
-
+* ChannelsDocument
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes [ChannelsData](#channelsdata)
+  * items `array`: The list of individual channels
+    * items [ChannelDocument](#channeldocument)
+  * links `object`: Not used
 
 ### Cohort
 * Cohort `object`: An experimental grouping for User Experience A/B Testing
@@ -823,7 +898,21 @@ npr.getStationById({
   * text `string`: The error description
 
 ### ErrorDocument
-
+* ErrorDocument: A Collection.doc+JSON representation of an error result from an API call
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes `object`: Ignore; will be empty for errors
+  * errors `array`: A list of encountered errors, ignored on POST, PUT
+    * items [Error](#error)
+  * items `array`: Ignore; will be empty for errors
+    * items `null`
+  * links `object`: Ignore; will be empty for errors
 
 ### ErrorXmlDocument
 * ErrorXmlDocument `object`: One or more errors represented in a DAAST XML document
@@ -842,7 +931,13 @@ npr.getStationById({
   * _links **required** `object`
 
 ### ImageLink
-
+* ImageLink: An image, along with metadata for display
+  * href **required** `string`: The link to be followed
+  * content-type **required** `string` (values: image/jpeg, image/png, image/gif): The MIME type of the response of this link; note that the enumerated list of possible values is not exhaustive and other MIME types could occur. The list should be treated as examples, rather than absolutes.
+  * image `string`: A unique identifier for the image
+  * producer `string`: The producer of the image; should be used for properly attributing the image when it exists
+  * provider `string`: The provider of the image; should be used for properly attributing the image when it exists
+  * rel `string` (values: logo_square, icon, wide, standard, square, enlargement, custom): The crop type or intended display style/size; note that the enumerated list of possible values is not exhaustive and other values could occur. The list should be treated as examples, rather than absolutes.
 
 ### ImpressionXml
 * ImpressionXml `string`
@@ -888,10 +983,29 @@ npr.getStationById({
   * smallLogo `string`: Station logo image url
 
 ### OrganizationCategoryAudioListDocument
-
+* OrganizationCategoryAudioListDocument: An array of a certain category of audio recommendations from a provider
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes [CategoryData](#categorydata)
+  * items `array`: An array of Audio Items (recommendations)
+    * items [AudioItemDocument](#audioitemdocument)
+  * links [CategoryLinks](#categorylinks)
 
 ### OrganizationDocument
-
+* OrganizationDocument
+  * _links **required** `object`
+  * _links `object`: A list of links consisting of logos and external URLs related to this organization.
+  * abbreviation `string`: Short name of the organization
+  * guid `string`: Globally unique id for this organization
+  * name `string`: Full name of the organization
+  * orgId `integer`: Unique id for this organization
+  * tagline `string`: Organization tagline
 
 ### OrganizationOverviewData
 * OrganizationOverviewData `object`
@@ -901,7 +1015,19 @@ npr.getStationById({
   * type **required** `string` (values: organization): The type of list returned; will always be `organization`
 
 ### OrganizationOverviewDocument
-
+* OrganizationOverviewDocument: a variety of details about an organization including various lists of recent audio items
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes [OrganizationOverviewData](#organizationoverviewdata)
+  * items `array`: A list of separate documents which each include their own list of audio
+    * items [OrganizationCategoryAudioListDocument](#organizationcategoryaudiolistdocument)
+  * links [OrganizationOverviewLinks](#organizationoverviewlinks)
 
 ### OrganizationOverviewLinks
 * OrganizationOverviewLinks `object`
@@ -913,7 +1039,9 @@ npr.getStationById({
     * items [OtherLink](#otherlink)
 
 ### OtherLink
-
+* OtherLink: An individual link from a list of links
+  * href **required** `string`: The link to be followed
+  * content-type **required** `string` (values: application/json, application/xml, text/html): The MIME type of the response of this link; note that the enumerated list of possible values is not exhaustive and other MIME types could occur. The list should be treated as examples, rather than absolutes.
 
 ### RatingData
 * RatingData `object`
@@ -942,7 +1070,19 @@ npr.getStationById({
   * type **required** `string` (values: audio, aggregation): The type of search result, which is either an AggregationAudioItemListDocument or an AudioItemDocument
 
 ### SearchListDocument
-
+* SearchListDocument: An array of aggregation or audio recommendations
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes [SearchMetaData](#searchmetadata)
+  * items `array`: A list of aggregation or audio items (recommendations)
+    * items [SearchItemDocument](#searchitemdocument)
+  * links `object`: Not used
 
 ### SearchMetaData
 * SearchMetaData `object`
@@ -968,7 +1108,10 @@ npr.getStationById({
   * tagline **required** `string`: A short text-logo for the station
 
 ### StationBrandLink
-
+* StationBrandLink: A link to a web page, logo, or audio file related to the branding of the station
+  * href **required** `string`: The link to be followed
+  * content-type **required** `string`: The MIME type of the response of this link
+  * rel **required** `string` (values: homepage, logo, small-logo, hello-id-audio, station-message-audio, twitter, facebook): A short string identifier describing the way the way the link relates to the document
 
 ### StationData
 * StationData `object`
@@ -980,10 +1123,27 @@ npr.getStationById({
   * orgId **required** `string`: The system's unique ID for this station, used across NPR One Microservices and NPR's other APIs
 
 ### StationDocument
-
+* StationDocument
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes [StationData](#stationdata)
+  * items `array`: Not used
+    * items `null`
+  * links [StationLinks](#stationlinks)
 
 ### StationDonationLink
-
+* StationDonationLink: A link to a pledge page for the station
+  * href **required** `string`: The link to be followed
+  * guid `string`: The system's internal unique identifier for a link, not typically used by consumers
+  * title **required** `string`: The link text, provided by the station, for the URL
+  * typeName **required** `string`: The semantic name corresponding to the `typeId`
+  * typeId **required** `string` (values: 4, 27, 28): An identifier for the type of link; '4' denotes a generic pledge page, while '27' is an NPR One-specific pledge page
 
 ### StationEligibilityData
 * StationEligibilityData `object`: An associative array of eligibility-related metadata for this station
@@ -993,7 +1153,11 @@ npr.getStationById({
   * status **required** `string` (values: 1, 9, 10, 12, 15): The status of the station within NPR's system, not typically used by consumers
 
 ### StationLink
-
+* StationLink: A link related to the station
+  * href **required** `string`: The link to be followed
+  * guid `string`: The system's internal unique identifier for a link, not typically used by consumers
+  * title **required** `string`: The link text, provided by the station, for the URL
+  * typeName **required** `string`: The semantic name corresponding to the `typeId`
 
 ### StationLinks
 * StationLinks `object`
@@ -1009,7 +1173,19 @@ npr.getStationById({
     * items [StationStreamsLink](#stationstreamslink)
 
 ### StationListDocument
-
+* StationListDocument: A collection of stations close to you or filtered by search criteria
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes [StationSearchMetaData](#stationsearchmetadata)
+  * items `array`: A list of stations
+    * items [StationDocument](#stationdocument)
+  * links `object`: Not used
 
 ### StationNetworkData
 * StationNetworkData `object`: Metadata about the network, if this station is part of a network
@@ -1046,10 +1222,20 @@ npr.getStationById({
   * recency **required** `integer`: How often the newscast should be played, in minutes; a value of `null` implies no information is available, and sensible defaults should be used
 
 ### StationPodcastsLink
-
+* StationPodcastsLink: A link to an audio podcast or podcast feed related to the station
+  * href **required** `string`: The link to be followed
+  * guid `string`: The system's internal unique identifier for a link, not typically used by consumers
+  * title **required** `string`: The link text, provided by the station, for the URL
+  * typeName **required** `string`: The semantic name corresponding to the `typeId`
+  * typeId **required** `string` (values: 9): An identifier for the type of link
 
 ### StationRelatedLink
-
+* StationRelatedLink: A link to miscellaneous related content for the station; these typically are not present, and clients should generally not need to use these
+  * href **required** `string`: The link to be followed
+  * guid `string`: The system's internal unique identifier for a link, not typically used by consumers
+  * title **required** `string`: The link text, provided by the station, for the URL
+  * typeName **required** `string`: The semantic name corresponding to the `typeId`
+  * typeId **required** `string`: An identifier for the type of link
 
 ### StationSearchMetaData
 * StationSearchMetaData `object`
@@ -1060,7 +1246,13 @@ npr.getStationById({
   * state `string`: The state searched for in the original request
 
 ### StationStreamsLink
-
+* StationStreamsLink: A link to an audio stream related to the station
+  * href **required** `string`: The link to be followed
+  * guid `string`: The system's internal unique identifier for a link, not typically used by consumers
+  * title **required** `string`: The link text, provided by the station, for the URL
+  * typeName **required** `string`: The semantic name corresponding to the `typeId`
+  * isPrimaryStream `boolean`: Whether or not this stream is considered the station's primary stream
+  * typeId **required** `string` (values: 10, 11, 12, 13): An identifier for the type of stream
 
 ### TrackingXml
 * TrackingXml `string`
@@ -1073,7 +1265,18 @@ npr.getStationById({
   * userAgent `string`: An identifying string for the browser making the request. The server will attempt to grab this from the headers, so it probably does not need to be passed in the body unless you get back an error message stating that we were unable to determine a User-Agent from the request.
 
 ### UserAdDocument
-
+* UserAdDocument: All information relevant to a user who has requested sponsorship or submitted tracking information
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes [UserAdData](#useraddata)
+  * items `array`: All the information needed for the Sponsorship Service to send back tracking information to our external sponsorship provider
+    * items [AdTrackingDocument](#adtrackingdocument)
 
 ### UserData
 * UserData `object`: Object; see description of a user object below
@@ -1088,6 +1291,18 @@ npr.getStationById({
     * items [Organization](#organization)
 
 ### UserDocument
-
+* UserDocument
+  * attributes **required** `object`
+  * errors **required** `array`: A list of encountered errors, ignored on POST, PUT
+    * items `null`
+  * href **required** `string`: A URL representation of the resource; should generally be ignored by clients unless noted otherwise
+  * items **required** `array`
+    * items `null`
+  * links **required** `object`
+  * version **required** `string`: The version of the Collection.Doc+JSON spec being used
+  * attributes [UserData](#userdata)
+  * items `array`: Not used, ignored on a PUT
+    * items `null`
+  * links `object`: A list of links, not used by the Identity Service; ignored on a PUT
 
 

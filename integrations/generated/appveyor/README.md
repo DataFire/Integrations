@@ -916,13 +916,54 @@ appveyor.getUser({
 * ArtifactType `string` (values: WebDeployPackage)
 
 ### Build
-
+* Build
+  * branch `string`
+  * buildId `integer`
+  * message `string`
+  * version `string`
+  * created `string`
+  * updated `string`
+  * authorName `string`
+  * authorUsername `string`
+  * buildNumber `integer`
+  * commitId `string`
+  * committed `string`
+  * committerName `string`
+  * committerUsername `string`
+  * finished `string`
+  * isTag `boolean`
+  * jobs `array`: Always empty in getProjectHistory and startDeployment responses.
+    * items [BuildJob](#buildjob)
+  * messageExtended `string`
+  * messages `array`
+    * items [BuildMessage](#buildmessage)
+  * pullRequestId `integer`
+  * pullRequestName `string`
+  * started `string`
+  * status [Status](#status)
 
 ### BuildCloudName
 * BuildCloudName `string` (values: gce, pro-vs2013, pro-win2016, pro-vs2017, ubuntu)
 
 ### BuildJob
-
+* BuildJob
+  * created `string`
+  * updated `string`
+  * finished `string`
+  * jobId `string`
+  * name `string`
+  * started `string`
+  * status [Status](#status)
+  * allowFailure `boolean`
+  * artifactsCount `integer`
+  * compilationErrorsCount `integer`
+  * compilationMessagesCount `integer`
+  * compilationWarningsCount `integer`
+  * failedTestsCount `integer`
+  * messagesCount `integer`
+  * osType [OSType](#ostype)
+  * passedTestsCount `integer`
+  * testsCount `integer`
 
 ### BuildLookupModel
 * BuildLookupModel `object`
@@ -979,14 +1020,33 @@ appveyor.getUser({
 * DeployMode `string` (values: providers, none, script)
 
 ### Deployment
-
+* Deployment
+  * build [BuildLookupModel](#buildlookupmodel)
+  * deploymentId `integer`
+  * finished `string`
+  * started `string`
+  * status [Status](#status)
+  * created `string`
+  * updated `string`
+  * build [Build](#build)
+  * environment [DeploymentEnvironment](#deploymentenvironment)
+  * jobs `array`
+    * items [DeploymentJob](#deploymentjob)
 
 ### DeploymentCancellation
 * DeploymentCancellation `object`
   * deploymentId **required** `integer`
 
 ### DeploymentEnvironment
-
+* DeploymentEnvironment
+  * deploymentEnvironmentId `integer`
+  * name `string`
+  * provider [DeploymentProviderType](#deploymentprovidertype)
+  * created `string`
+  * updated `string`
+  * accountId `integer`
+  * projectsMode `integer` (values: 0, 1, 2): 0 is "Any project can be deployed to the environment"
+  * securityDescriptor [SecurityDescriptor](#securitydescriptor)
 
 ### DeploymentEnvironmentAddition
 * DeploymentEnvironmentAddition `object`
@@ -1026,10 +1086,32 @@ appveyor.getUser({
   * environment [DeploymentEnvironmentWithSettings](#deploymentenvironmentwithsettings)
 
 ### DeploymentEnvironmentWithSettings
-
+* DeploymentEnvironmentWithSettings
+  * deploymentEnvironmentId `integer`
+  * name `string`
+  * provider [DeploymentProviderType](#deploymentprovidertype)
+  * created `string`
+  * updated `string`
+  * accountId `integer`
+  * projectsMode `integer` (values: 0, 1, 2): 0 is "Any project can be deployed to the environment"
+  * securityDescriptor [SecurityDescriptor](#securitydescriptor)
+  * environmentAccessKey `string`
+  * projects `array`: Projects available for selection in UI.
+    * items [DeploymentEnvironmentProject](#deploymentenvironmentproject)
+  * selectedProjects `array`: Project IDs of selected projects
+    * items `integer`
+  * settings [DeploymentEnvironmentSettings](#deploymentenvironmentsettings)
 
 ### DeploymentJob
-
+* DeploymentJob
+  * created `string`
+  * updated `string`
+  * finished `string`
+  * jobId `string`
+  * name `string`
+  * started `string`
+  * status [Status](#status)
+  * messagesCount `integer`
 
 ### DeploymentLookupModel
 * DeploymentLookupModel `object`
@@ -1069,7 +1151,13 @@ appveyor.getUser({
   * plainValue `string`
 
 ### EnvironmentDeploymentModel
-
+* EnvironmentDeploymentModel
+  * build [BuildLookupModel](#buildlookupmodel)
+  * deploymentId `integer`
+  * finished `string`
+  * started `string`
+  * status [Status](#status)
+  * project [ProjectLookupModel](#projectlookupmodel)
 
 ### Error
 * Error `object`
@@ -1094,7 +1182,14 @@ appveyor.getUser({
 * HttpMethodRestricted `string` (values: GET, POST)
 
 ### Job
-
+* Job
+  * created `string`
+  * updated `string`
+  * finished `string`
+  * jobId `string`
+  * name `string`
+  * started `string`
+  * status [Status](#status)
 
 ### MSBuildVerbosity
 * MSBuildVerbosity `string` (values: quiet, minimal, normal, detailed)
@@ -1142,7 +1237,14 @@ appveyor.getUser({
 * NotificationSettingsType `string` (values: Appveyor.Models.CampfireNotificationSettings, Appveyor.Models, Appveyor.Models.EmailNotificationSettings, Appveyor.Models, Appveyor.Models.GitHubPullRequestNotificationSettings, Appveyor.Models, Appveyor.Models.HipChatNotificationSettings, Appveyor.Models, Appveyor.Models.SlackNotificationSettings, Appveyor.Models, Appveyor.Models.WebhookNotificationSettings, Appveyor.Models, Appveyor.Models.VSOTeamRoomNotificationSettings, Appveyor.Models)
 
 ### NuGetFeed
-
+* NuGetFeed
+  * created `string`
+  * updated `string`
+  * accountId `integer`
+  * id `string`
+  * name `string`
+  * projectId `integer`
+  * publishingEnabled `boolean`
 
 ### OSServiceName
 * OSServiceName `string` (values: iis, mongodb, msmq, mssql2008r2sp2, mssql2008r2sp2rs, mssql2012sp1, mssql2012sp1rs, mssql2014, mssql2014rs, mssql2016, mysql, postgresql)
@@ -1163,7 +1265,32 @@ appveyor.getUser({
 * PlatformName `string` (values: ARM, Any CPU, x64, x86)
 
 ### Project
-
+* Project
+  * accountName `string`
+  * name `string`
+  * projectId **required** `integer`
+  * slug `string`
+  * created `string`
+  * updated `string`
+  * accountId `integer`
+  * alwaysBuildClosedPullRequests `boolean`
+  * builds `array`: Only non-empty for response from getProjects.
+    * items [Build](#build)
+  * enableDeploymentInPullRequests `boolean`
+  * enableSecureVariablesInPullRequests `boolean`
+  * enableSecureVariablesInPullRequestsFromSameRepo `boolean`
+  * isPrivate `boolean`
+  * nuGetFeed [NuGetFeed](#nugetfeed)
+  * repositoryBranch `string`: Not present in response from addProject.
+  * repositoryName **required** `string`
+  * repositoryScm [RepositoryScm](#repositoryscm)
+  * repositoryType [RepositoryProvider](#repositoryprovider)
+  * rollingBuilds `boolean`
+  * rollingBuildsDoNotCancelRunningBuilds `boolean`
+  * saveBuildCacheInPullRequests `boolean`
+  * securityDescriptor [SecurityDescriptor](#securitydescriptor)
+  * skipBranchesWithoutAppveyorYml `boolean`
+  * tags `string`
 
 ### ProjectAddition
 * ProjectAddition `object`: `repositoryAuthentication` is only used for git, mercurial, subversion `repositoryProvider`.
@@ -1316,7 +1443,13 @@ appveyor.getUser({
   * project **required** [Project](#project)
 
 ### ProjectDeploymentModel
-
+* ProjectDeploymentModel
+  * build [BuildLookupModel](#buildlookupmodel)
+  * deploymentId `integer`
+  * finished `string`
+  * started `string`
+  * status [Status](#status)
+  * environment [DeploymentEnvironmentLookupModel](#deploymentenvironmentlookupmodel)
 
 ### ProjectDeploymentsResults
 * ProjectDeploymentsResults `object`
@@ -1349,6 +1482,31 @@ appveyor.getUser({
 
 ### ProjectWithConfiguration
 * ProjectWithConfiguration `object`
+  * accountName `string`
+  * name `string`
+  * projectId **required** `integer`
+  * slug `string`
+  * created `string`
+  * updated `string`
+  * accountId `integer`
+  * alwaysBuildClosedPullRequests `boolean`
+  * builds `array`: Only non-empty for response from getProjects.
+    * items [Build](#build)
+  * enableDeploymentInPullRequests `boolean`
+  * enableSecureVariablesInPullRequests `boolean`
+  * enableSecureVariablesInPullRequestsFromSameRepo `boolean`
+  * isPrivate `boolean`
+  * nuGetFeed [NuGetFeed](#nugetfeed)
+  * repositoryBranch `string`: Not present in response from addProject.
+  * repositoryName **required** `string`
+  * repositoryScm [RepositoryScm](#repositoryscm)
+  * repositoryType [RepositoryProvider](#repositoryprovider)
+  * rollingBuilds `boolean`
+  * rollingBuildsDoNotCancelRunningBuilds `boolean`
+  * saveBuildCacheInPullRequests `boolean`
+  * securityDescriptor [SecurityDescriptor](#securitydescriptor)
+  * skipBranchesWithoutAppveyorYml `boolean`
+  * tags `string`
   * buildPriority `integer`
   * configuration **required** [ProjectConfiguration](#projectconfiguration)
   * customYmlName `string`
@@ -1373,7 +1531,12 @@ appveyor.getUser({
 * RepositoryScm `string` (values: git, mercurial, subversion)
 
 ### Role
-
+* Role: Technically `roleId` has default value 0 and is not required, but
+  * created `string`
+  * updated `string`
+  * isSystem `boolean`
+  * name **required** `string`
+  * roleId **required** `integer`
 
 ### RoleAce
 * RoleAce `object`
@@ -1388,7 +1551,14 @@ appveyor.getUser({
   * name **required** `string`
 
 ### RoleWithGroups
-
+* RoleWithGroups
+  * created `string`
+  * updated `string`
+  * isSystem `boolean`
+  * name **required** `string`
+  * roleId **required** `integer`
+  * groups `array`
+    * items [GroupPermissions](#grouppermissions)
 
 ### Script
 * Script `object`
@@ -1435,7 +1605,26 @@ appveyor.getUser({
   * updated `string`
 
 ### UserAccount
-
+* UserAccount
+  * created `string`
+  * updated `string`
+  * failedBuildNotification **required** [BuildNotificationFrequency](#buildnotificationfrequency)
+  * failedDeploymentNotification **required** [DeploymentNotificationFrequency](#deploymentnotificationfrequency)
+  * notifyWhenBuildStatusChangedOnly `boolean`: Note that this value is `true` on user creation, but behaves as
+  * notifyWhenDeploymentStatusChangedOnly `boolean`: Note that this value is `true` on user creation, but behaves as
+  * successfulBuildNotification **required** [BuildNotificationFrequency](#buildnotificationfrequency)
+  * successfulDeploymentNotification **required** [DeploymentNotificationFrequency](#deploymentnotificationfrequency)
+  * accountId `integer`
+  * accountName `string`
+  * email **required** `string`
+  * fullName **required** `string`
+  * isCollaborator `boolean`
+  * isOwner `boolean`
+  * pageSize `integer`
+  * password `string`
+  * roleId `integer`
+  * roleName `string`
+  * userId `integer`
 
 ### UserAccountRolesResults
 * UserAccountRolesResults `object`: The roles property contains all roles, not only the role for which the user is a member.

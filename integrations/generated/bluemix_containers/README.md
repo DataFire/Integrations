@@ -1263,7 +1263,10 @@ bluemix_containers.volumes.name.json.get({
     * items `string`
 
 ### ContainersGroupsNameOrIdMaproutePostInfo
-
+* ContainersGroupsNameOrIdMaproutePostInfo
+  * Id `string`: Unique identifier representing a specific container group.
+  * Warnings `array`: Warning information (Initial warning is empty).
+    * items `string`
 
 ### ContainersGroupsNameOrIdPatchUpdatedInfo
 * ContainersGroupsNameOrIdPatchUpdatedInfo `object`

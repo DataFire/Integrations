@@ -10434,7 +10434,11 @@ zuora.PUT_SendUserAccessRequests({
   * updatedDate `string`: The date and time when the billing preview run was last updated.
 
 ### GetCreditMemoAmountBreakdownByOrderResponse
-
+* GetCreditMemoAmountBreakdownByOrderResponse
+  * success `boolean`: Returns `true` if the request was processed successfully.
+  * breakdowns `array`: Invoice breakdown details.
+    * items [CreditMemoItemBreakdown](#creditmemoitembreakdown)
+  * currency `string`: Currency code.
 
 ### GetHostedPageType
 * hostedpages `object`
@@ -10451,19 +10455,37 @@ zuora.PUT_SendUserAccessRequests({
   * success `boolean`: Returns `true` if the request was processed successfully.
 
 ### GetInvoiceAmountBreakdownByOrderResponse
-
+* GetInvoiceAmountBreakdownByOrderResponse
+  * success `boolean`: Returns `true` if the request was processed successfully.
+  * breakdowns `array`: Invoice breakdown details.
+    * items [InvoiceItemBreakdown](#invoiceitembreakdown)
+  * currency `string`: Currency code.
 
 ### GetOrderBillingInfoResponseType
-
+* GetOrderBillingInfoResponseType
+  * success `boolean`: Indicates if the order creation has succeeded.
+  * billingInfo `object`
+    * billedAmount `number`
+    * currency `string`: Currency code.
+    * tcb `number`: Total contracted billing of this order.
+    * unbilledAmount `number`
 
 ### GetOrderRatedResultResponseType
-
+* GetOrderRatedResultResponseType
+  * success `boolean`: Indicates if the order creation has succeeded.
+  * orderRatedResult [OrderRatedResult](#orderratedresult)
 
 ### GetOrderResponse
-
+* GetOrderResponse
+  * success `boolean`: Indicates if the order creation has succeeded.
+  * order [Order](#order)
 
 ### GetOrdersResponse
-
+* GetOrdersResponse
+  * success `boolean`: Indicates if the order creation has succeeded.
+  * nextPage `string`: URL to retrieve the next page of the response if it exists; otherwise absent.
+  * orders `array`
+    * items [Order](#order)
 
 ### GetProductFeatureType
 * productFeatures `object`
@@ -10675,15 +10697,34 @@ zuora.PUT_SendUserAccessRequests({
 
 ### OrderAction
 * OrderAction `object`: Represents the processed order action.
+  * addProduct
+    * chargeOverrides `array`
+      * items [ChargeOverride](#chargeoverride)
+    * customFields [CustomFields](#customfields)
+    * productRatePlanId **required** `string`
+    * uniqueToken `string`: A unique string to represent the rate plan charge in the order. The unique token is used to perform multiple actions against a newly added rate plan. For example, if you want to add and update a product in the same order, you would assign a unique token to the product rate plan when added and use that token in future order actions.
+    * originRatePlanId `string`: The original rate plan id.
   * cancelSubscription [CancelSubscription](#cancelsubscription)
   * createSubscription [CreateSubscription](#createsubscription)
   * customFields [CustomFields](#customfields)
   * orderMetrics [OrderMetrics](#ordermetrics)
   * ownerTransfer [OwnerTransfer](#ownertransfer)
+  * removeProduct
+    * ratePlanId `string`: The origin rate plan id.
+    * uniqueToken `string`: A unique string to represent the rate plan charge in the order. The unique token is used to perform multiple actions against a newly added rate plan. For example, if you want to add and update a product in the same order, you would assign a unique token to the product rate plan when added and use that token in future order actions.A unique string in the order to represent the rate plan.
+    * originRatePlanId `string`: The original rate plan id.
   * sequence `integer`: The sequence of the order actions processed in the order.
   * termsAndConditions [TermsAndConditions](#termsandconditions)
   * triggerDates [TriggerDates](#triggerdates)
   * type `string` (values: CreateSubscription, TermsAndConditions, AddProduct, UpdateProduct, RemoveProduct, RenewSubscription, CancelSubscription, OwnerTransfer): Type of the order action.
+  * updateProduct
+    * chargeUpdates `array`
+      * items [ChargeUpdate](#chargeupdate)
+    * customFields [CustomFields](#customfields)
+    * ratePlanId `string`: The id of the rate plan to be updated. It can be the latest version or any history version id.
+    * specificUpdateDate `string`: Used for the 'update before update' and 'update before remove' cases.
+    * uniqueToken `string`: A unique string to represent the rate plan charge in the order. The unique token is used to perform multiple actions against a newly added rate plan. For example, if you want to add and update a product in the same order, you would assign a unique token to the product rate plan when added and use that token in future order actions.
+    * originRatePlanId `string`: The original rate plan id.
 
 ### OrderMetrics
 * OrderMetrics `array`
@@ -14139,28 +14180,66 @@ zuora.PUT_SendUserAccessRequests({
   * serviceStartDate `string`
 
 ### RecurringFlatFeePricingOverride
-
+* RecurringFlatFeePricingOverride
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * listPrice `number`
+  * listPriceBase `string` (values: Per_Billing_Period, Per_Month, Per_Week)
 
 ### RecurringFlatFeePricingUpdate
-
+* RecurringFlatFeePricingUpdate
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * listPrice `number`
 
 ### RecurringPerUnitPricingOverride
-
+* RecurringPerUnitPricingOverride
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * listPrice `number`
+  * listPriceBase `string` (values: Per_Billing_Period, Per_Month, Per_Week)
+  * quantity `number`
 
 ### RecurringPerUnitPricingUpdate
-
+* RecurringPerUnitPricingUpdate
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * listPrice `number`
+  * quantity `number`
 
 ### RecurringTieredPricingOverride
-
+* RecurringTieredPricingOverride
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * listPriceBase `string` (values: Per_Billing_Period, Per_Month, Per_Week)
+  * quantity `number`
+  * tiers `array`
+    * items [ChargeTier](#chargetier)
 
 ### RecurringTieredPricingUpdate
-
+* RecurringTieredPricingUpdate
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * quantity `number`
+  * tiers `array`
+    * items [ChargeTier](#chargetier)
 
 ### RecurringVolumePricingOverride
-
+* RecurringVolumePricingOverride
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * listPriceBase `string` (values: Per_Billing_Period, Per_Month, Per_Week)
+  * quantity `number`
+  * tiers `array`
+    * items [ChargeTier](#chargetier)
 
 ### RecurringVolumePricingUpdate
-
+* RecurringVolumePricingUpdate
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * quantity `number`
+  * tiers `array`
+    * items [ChargeTier](#chargetier)
 
 ### RefundCreditMemoItemType
 * items `object`
@@ -14608,40 +14687,94 @@ zuora.PUT_SendUserAccessRequests({
     * unappliedPaymentAccountingCode `string`: The accounting code for the unapplied payment.
 
 ### UsageFlatFeePricingOverride
-
+* UsageFlatFeePricingOverride
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * listPrice `number`
 
 ### UsageFlatFeePricingUpdate
-
+* UsageFlatFeePricingUpdate
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * listPrice `number`
 
 ### UsageOveragePricingOverride
-
+* UsageOveragePricingOverride
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * includedUnits `number`
+  * numberOfPeriods `integer`
+  * overagePrice `number`
+  * overageUnusedUnitsCreditOption `string` (values: NoCredit, CreditBySpecificRate)
+  * unusedUnitsCreditRates `number`: Specify only when the overageUnusedUnitsCreditOption is CreditBySpecificRate.
 
 ### UsageOveragePricingUpdate
-
+* UsageOveragePricingUpdate
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * overagePrice `number`
 
 ### UsagePerUnitPricingOverride
-
+* UsagePerUnitPricingOverride
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * listPrice `number`
+  * ratingGroup `string` (values: ByBillingPeriod, ByUsageStartDate, ByUsageRecord, ByUsageUpload)
 
 ### UsagePerUnitPricingUpdate
-
+* UsagePerUnitPricingUpdate
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * listPrice `number`
 
 ### UsageTieredPricingOverride
-
+* UsageTieredPricingOverride
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * ratingGroup `string` (values: ByBillingPeriod, ByUsageStartDate, ByUsageRecord, ByUsageUpload)
+  * tiers `array`
+    * items [ChargeTier](#chargetier)
 
 ### UsageTieredPricingUpdate
-
+* UsageTieredPricingUpdate
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * tiers `array`
+    * items [ChargeTier](#chargetier)
 
 ### UsageTieredWithOveragePricingOverride
-
+* UsageTieredWithOveragePricingOverride
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * numberOfPeriods `integer`
+  * overagePrice `number`
+  * overageUnusedUnitsCreditOption `string` (values: NoCredit, CreditBySpecificRate)
+  * tiers `array`
+    * items [ChargeTier](#chargetier)
+  * unusedUnitsCreditRates `number`: Specify only when the overageUnusedUnitsCreditOption is CreditBySpecificRate.
 
 ### UsageTieredWithOveragePricingUpdate
-
+* UsageTieredWithOveragePricingUpdate
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * overagePrice `number`
+  * tiers `array`
+    * items [ChargeTier](#chargetier)
 
 ### UsageVolumePricingOverride
-
+* UsageVolumePricingOverride
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * ratingGroup `string` (values: ByBillingPeriod, ByUsageStartDate, ByUsageRecord, ByUsageUpload)
+  * tiers `array`
+    * items [ChargeTier](#chargetier)
 
 ### UsageVolumePricingUpdate
-
+* UsageVolumePricingUpdate
+  * priceChangeOption `string` (values: NoChange, SpecificPercentageValue, UseLatestProductCatalogPricing): The options about how the charge price changes when renewed.
+  * priceIncreasePercentage `number`
+  * tiers `array`
+    * items [ChargeTier](#chargetier)
 
 ### tokenResponse
 * tokenResponse `object`

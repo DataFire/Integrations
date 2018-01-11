@@ -2420,7 +2420,11 @@ callfire.updateWebhook({
   * textsSent `integer`: Number of texts sent
 
 ### DncListDto
-
+* DncListDto: ~
+  * items `array`: ~
+    * items `object`
+  * items `array`
+    * items [DoNotContact](#donotcontact)
 
 ### DoNotContact
 * DoNotContact `object`: Represents an opted out contact
@@ -2693,7 +2697,11 @@ callfire.updateWebhook({
 * StreamingOutput `object`: ~
 
 ### StringList
-
+* StringList: ~
+  * items `array`: ~
+    * items `object`
+  * items `array`
+    * items `string`
 
 ### Text
 * Text `object`: Represents a text action sent or received by Callfire platform

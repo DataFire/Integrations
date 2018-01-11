@@ -880,6 +880,7 @@ slack.conversations_replies({}, context)
 * output `object`: Schema for successful response from conversations.replies method
   * has_more `boolean`
   * messages **required** `array`
+    * items
 
   * ok **required** [defs_ok_true](#defs_ok_true)
 
@@ -2696,6 +2697,8 @@ slack.users_setPresence({}, context)
   * is_read_only `boolean`
   * is_shared **required** `boolean`
   * last_read [defs_ts](#defs_ts)
+  * latest
+
   * members **required** `array`
     * items [defs_user](#defs_user)
   * name **required** `string`
@@ -2732,6 +2735,7 @@ slack.users_setPresence({}, context)
 
 
 ### objs_conversation
+* objs_conversation
 
 
 ### objs_file
@@ -2790,6 +2794,8 @@ slack.users_setPresence({}, context)
   * is_open `boolean`
   * is_pending_ext_shared `boolean`
   * last_read [defs_ts](#defs_ts)
+  * latest
+
   * members **required** `array`
     * items [defs_user](#defs_user)
   * name **required** `string`

@@ -57,8 +57,11 @@ function actionToMarkdown(action, integration) {
   return render('action', {example, integration, action, shortID, inputMarkdown, outputMarkdown});
 }
 
+const NEEDED_FIELDS = ['type', '$ref', 'enum', 'default', 'allOf', 'properties', 'items'];
 function schemaToMarkdown(schema, base, property='', required=false, depth=0) {
   if (!schema) return '';
+  let missingNeededFields = NEEDED_FIELDS.filter(field => !schema[field]).length === NEEDED_FIELDS.length;
+  if (missingNeededFields) return '';
   let md = '';
   let spaces = 0;
   while (spaces++ < depth) md += '  ';
@@ -73,14 +76,19 @@ function schemaToMarkdown(schema, base, property='', required=false, depth=0) {
   let types = schema.type;
   if (Array.isArray(types)) {
     types = types.filter(t => t !== 'null').join('`, `');
-  } else if (!types && schema.properties) {
-    types = 'object';
-  } else if (!types && schema.enum) {
-    types = typeof schema.enum[0];
-  } else if (!types) {
-    return '';
   }
-  md += ' `' + types + '`';
+  if (!types) {
+    if (schema.properties) {
+      types = 'object';
+    } else if (schema.default) {
+      types = typeof schema.default;
+    } else if (schema.enum) {
+      types = typeof schema.enum[0];
+    }
+  }
+  if (types) {
+    md += ' `' + types + '`';
+  }
   if (schema.enum) {
     md += ' (values: ' + schema.enum.join(', ') + ')';
   }
@@ -97,7 +105,7 @@ function schemaToMarkdown(schema, base, property='', required=false, depth=0) {
     let propRequired = (schema.required || []).indexOf(prop) !== -1;
     let propMD = schemaToMarkdown(propSchema, base, prop, propRequired, depth + 1);
     if (propMD) md += '\n' + propMD;
-    else console.log("PROP", prop, propSchema);
+    else console.log("skipping property", prop, propSchema);
   });
 
   if (schema.items) {

@@ -305,7 +305,12 @@ deutschebahn_flinkster.getProvider({
   * properties `object`
 
 ### FeatureCollection
-
+* FeatureCollection
+  * bbox `array`
+    * items `number`
+  * crs [Crs](#crs)
+  * features `array`
+    * items [Feature](#feature)
 
 ### GeoJsonObject
 * GeoJsonObject `object`
@@ -352,7 +357,10 @@ deutschebahn_flinkster.getProvider({
   * uid `string`
 
 ### LineString
-
+* LineString
+  * bbox `array`
+    * items `number`
+  * crs [Crs](#crs)
 
 ### LinkJO
 * LinkJO `object`
@@ -367,13 +375,31 @@ deutschebahn_flinkster.getProvider({
   * longitude `number`
 
 ### MultiLineString
-
+* MultiLineString
+  * bbox `array`
+    * items `number`
+  * crs [Crs](#crs)
+  * coordinates `array`
+    * items `array`
+      * items [LngLatAlt](#lnglatalt)
 
 ### MultiPoint
-
+* MultiPoint
+  * bbox `array`
+    * items `number`
+  * crs [Crs](#crs)
+  * coordinates `array`
+    * items [LngLatAlt](#lnglatalt)
 
 ### MultiPolygon
-
+* MultiPolygon
+  * bbox `array`
+    * items `number`
+  * crs [Crs](#crs)
+  * coordinates `array`
+    * items `array`
+      * items `array`
+        * items [LngLatAlt](#lnglatalt)
 
 ### Point
 * Point `object`
@@ -383,7 +409,13 @@ deutschebahn_flinkster.getProvider({
   * crs [Crs](#crs)
 
 ### Polygon
-
+* Polygon
+  * bbox `array`
+    * items `number`
+  * crs [Crs](#crs)
+  * coordinates `array`
+    * items `array`
+      * items [LngLatAlt](#lnglatalt)
 
 ### PriceJO
 * PriceJO `object`

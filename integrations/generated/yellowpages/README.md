@@ -36,6 +36,7 @@ yellowpages.listingmap.get({
   * pixel_width `integer`: Integer representing the width in pixels of the map (Default = 400). Examples: 400, 200, 123.
   * pixel_height `integer`: Integer representing the height in pixels of the map (Default = 400). Examples: 400, 200, 123.
   * image_format `string` (values: jpg, png, gif): String representing the mime-type of map you want returned. Valid values: jpg, png and gif.
+  * zoom `number`: Sets the zoom factor for the map, expressed as a fraction from .1 to 1.
   * pan_vertical `string`: A positive or negative number reflecting the percentage of the map image to pan south (negative) or north (positive). (Default = 0). Examples: 0.5 (50% north) -0.4 (40% south). Postiive numbers tilt to the north, negative numbers tilt to the south.
   * pan_horizontal `string`: A positive or negative number reflecting the percentage of the map image to pan west (negative) or east (positive). (Default = 0). Examples: 0.5 (50% east) -0.4 (40% west). Postiive numbers tilt to the north, negative numbers tilt to the south.
 

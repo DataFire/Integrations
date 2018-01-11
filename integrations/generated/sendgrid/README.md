@@ -6318,7 +6318,11 @@ sendgrid.whitelabel.links.link_id.subuser.post({
   * name `string`: The name of your API Key.
 
 ### api_key_name_id_scopes
-
+* API Key Name, ID, and Scopes
+  * scopes `array`: The permissions this API Key has access to.
+    * items `string`
+  * api_key_id `string`: The ID of your API Key. 
+  * name `string`: The name of your API Key.
 
 ### campaign_request
 * Campaigns Request `object`
@@ -6338,7 +6342,23 @@ sendgrid.whitelabel.links.link_id.subuser.post({
   * title **required** `string`: The display title of your campaign. This will be viewable by you in the Marketing Campaigns UI.
 
 ### campaign_response
-
+* Campaigns Response
+  * categories `array`: The categories you would like associated to this campaign.
+    * items `string`
+  * custom_unsubscribe_url `string`: This is the url of the custom unsubscribe page that you provide for customers to unsubscribe from your suppression groups.
+  * html_content `string`: The HTML of your marketing email.
+  * ip_pool `string`: The pool of IPs that you would like to send this email from.
+  * list_ids `array`: The IDs of the lists you are sending this campaign to. You can have both segment IDs and list IDs
+    * items `integer`
+  * plain_content `string`: The plain text content of your emails.
+  * segment_ids `array`: The segment IDs that you are sending this list to. You can have both segment IDs and list IDs.
+    * items `integer`
+  * sender_id `integer`: The ID of the "sender" identity that you have created. Your recipients will see this as the "from" on your marketing emails.
+  * subject `string`: The subject of your campaign that your recipients will see.
+  * suppression_group_id `integer`: The suppression group that this marketing email belongs to, allowing recipients to opt-out of emails of this type.
+  * title **required** `string`: The display title of your campaign. This will be viewable by you in the Marketing Campaigns UI.
+  * id `integer`
+  * status **required** `string`: The status of your campaign.
 
 ### category_stats
 * Stats: Category Stats `object`
@@ -6371,10 +6391,17 @@ sendgrid.whitelabel.links.link_id.subuser.post({
   * type `string` (values: date, text, number): The type of the field.
 
 ### contactdb_custom_field_with_id
-
+* ContactDB Custom field schema with ID.
+  * name `string`: The name of the field
+  * type `string` (values: date, text, number): The type of the field.
+  * id `number`: The ID of the custom field.
 
 ### contactdb_custom_field_with_id_value
-
+* ContactDB Custom field schema.
+  * name `string`: The name of the field
+  * type `string` (values: date, text, number): The type of the field.
+  * id `number`: The ID of the custom field.
+  * value `string`: The value of this recipient's custom field
 
 ### contactdb_list
 * ContactDB lists `object`
@@ -6433,7 +6460,13 @@ sendgrid.whitelabel.links.link_id.subuser.post({
   * value **required** `string`
 
 ### contactdb_segments_with_id
-
+* ContactDB:: Segments with ID
+  * id **required** `number`: The ID of the segment.
+  * conditions **required** `array`: The conditions for a recipient to be included in this segment.
+    * items [contactdb_segments_conditions](#contactdb_segments_conditions)
+  * list_id `integer`: The list id from which to make this segment. Not including this ID will mean your segment is created from the main contactdb rather than a list.
+  * name **required** `string`: The name of this segment.
+  * recipient_count `number`: The count of recipients in this list. This is not included on creation of segments.
 
 ### contacts
 * Contacts `object`
@@ -6784,7 +6817,9 @@ sendgrid.whitelabel.links.link_id.subuser.post({
   * zip `string`: The zip code for this user.
 
 ### user_scheduled_send_status
-
+* User: Scheduled Send status
+  * batch_id **required** `string`
+  * status **required** `string` (values: cancel, pause): The status of the scheduled send.
 
 ### whitelabel::domain
 * Whitelabel - Domain `object`

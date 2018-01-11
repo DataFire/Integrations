@@ -537,16 +537,31 @@ swaggerhub.searchApisAndDomains({}, context)
   * type `string`
 
 ### ApisJsonUrlProperty
-
+* ApisJsonUrlProperty
+  * type `string`
+  * url `string`
 
 ### ApisJsonValueProperty
-
+* ApisJsonValueProperty
+  * type `string`
+  * value `string`
 
 ### ClosableComment
-
+* ClosableComment
+  * body **required** `string`
+  * created **required** `string`
+  * id **required** `string`
+  * modified `string`
+  * user **required** [User](#user)
+  * position `integer`
+  * replies `array`
+    * items [Comment](#comment)
+  * status `string` (values: OPEN, RESOLVED)
 
 ### ClosableCommentPatch
-
+* ClosableCommentPatch
+  * body `string`
+  * position `integer`
 
 ### CodegenLanguage
 * CodegenLanguage `object`
@@ -583,7 +598,15 @@ swaggerhub.searchApisAndDomains({}, context)
   * uuid `string`
 
 ### CollaborationMembership
-
+* CollaborationMembership
+  * name **required** `string`
+  * startTime `string`
+  * title `string`
+  * uuid `string`
+  * blocked `boolean`
+  * donotdisturb `boolean`
+  * roles **required** `array`
+    * items `string` (values: EDIT, COMMENT, VIEW)
 
 ### CollaborationMembershipList
 * CollaborationMembershipList `object`
@@ -599,7 +622,17 @@ swaggerhub.searchApisAndDomains({}, context)
     * items `string` (values: EDIT, COMMENT, VIEW)
 
 ### CollaborationTeamMembership
-
+* CollaborationTeamMembership
+  * name **required** `string`
+  * startTime `string`
+  * title `string`
+  * uuid `string`
+  * blocked `boolean`
+  * donotdisturb `boolean`
+  * roles **required** `array`
+    * items `string` (values: EDIT, COMMENT, VIEW)
+  * members `array`
+    * items [CollaborationMember](#collaborationmember)
 
 ### Comment
 * Comment `object`

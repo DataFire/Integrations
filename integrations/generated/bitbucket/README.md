@@ -5013,25 +5013,111 @@ bitbucket.users.username.repositories.get({
 ## Definitions
 
 ### account
-
+* account
+  * type **required** `string`
+  * created_on `string`
+  * display_name `string`
+  * links `object`
+    * avatar `object`
+      * href `string`
+    * followers `object`
+      * href `string`
+    * following `object`
+      * href `string`
+    * html `object`
+      * href `string`
+    * repositories `object`
+      * href `string`
+    * self `object`
+      * href `string`
+  * username `string`
+  * uuid `string`
+  * website `string`
 
 ### author
-
+* author
+  * type **required** `string`
+  * raw `string`: The raw author value from the repository. This may be the only value available if the author does not match a user in Bitbucket.
+  * user [account](#account)
 
 ### base_commit
-
+* base_commit
+  * type **required** `string`
+  * author [author](#author)
+  * date `string`
+  * hash `string`
+  * message `string`
+  * parents `array`
+    * items [base_commit](#base_commit)
 
 ### branchrestriction
-
+* branchrestriction
+  * type **required** `string`
+  * groups `array`
+    * items [group](#group)
+  * id `integer`: The branch restriction status' id.
+  * kind `string` (values: require_tasks_to_be_completed, require_passing_builds_to_merge, force, require_all_dependencies_merged, push, require_approvals_to_merge, enforce_merge_checks, restrict_merges, reset_pullrequest_approvals_on_change, delete): The type of restriction that is being applied
+  * links `object`
+    * self `object`
+      * href `string`
+  * users `array`
+    * items [account](#account)
+  * value `integer`: Value with kind-specific semantics: "require_approvals_to_merge" uses it to require a minimum number of approvals on a PR; "require_passing_builds_to_merge" uses it to require a minimum number of passing builds.
 
 ### commit
-
+* commit
+  * type **required** `string`
+  * author [author](#author)
+  * date `string`
+  * hash `string`
+  * message `string`
+  * parents `array`
+    * items [base_commit](#base_commit)
+  * links `object`
+    * approve `object`
+      * href `string`
+    * comments `object`
+      * href `string`
+    * diff `object`
+      * href `string`
+    * html `object`
+      * href `string`
+    * patch `object`
+      * href `string`
+    * self `object`
+      * href `string`
+    * statuses `object`
+      * href `string`
+  * participants `array`
+    * items [participant](#participant)
+  * repository [repository](#repository)
 
 ### commitstatus
-
+* commitstatus
+  * type **required** `string`
+  * created_on `string`
+  * description `string`: A description of the build (e.g. "Unit tests in Bamboo")
+  * key `string`: An identifier for the status that's unique to
+  * links `object`
+    * commit `object`
+      * href `string`
+    * self `object`
+      * href `string`
+  * name `string`: An identifier for the build itself, e.g. BB-DEPLOY-1
+  * refname `string`: 
+  * state `string` (values: SUCCESSFUL, FAILED, INPROGRESS, STOPPED): Provides some indication of the status of this commit
+  * updated_on `string`
+  * url `string`: A URL linking back to the vendor or build system, for providing more information about whatever process produced this status. Accepts context variables `repository` and `commit` that Bitbucket will evaluate at runtime whenever at runtime. For example, one could use https://foo.com/builds/{repository.full_name} which Bitbucket will turn into https://foo.com/builds/foo/bar at render time.
+  * uuid `string`: The commit status' id.
 
 ### component
-
+* component
+  * type **required** `string`
+  * id `integer`
+  * links `object`
+    * self `object`
+      * href `string`
+  * name `string`
 
 ### error
 * error `object`: Base type for most resource objects. It defines the common `type` element that identifies an object's type. It also identifies the element as Swagger's `discriminator`.
@@ -5042,7 +5128,18 @@ bitbucket.users.username.repositories.get({
   * type **required** `string`
 
 ### group
-
+* group
+  * type **required** `string`
+  * full_slug `string`: The concatenation of the owner's username and the group's slug,
+  * links `object`
+    * html `object`
+      * href `string`
+    * self `object`
+      * href `string`
+  * members `integer`: The number of members in this group
+  * name `string`
+  * owner [account](#account)
+  * slug `string`: The "sluggified" version of the group's name. This contains only ASCII
 
 ### hook_event
 * hook_event `object`: An event, associated with a resource or subject type.
@@ -5052,13 +5149,57 @@ bitbucket.users.username.repositories.get({
   * label `string`: Summary of the webhook event type.
 
 ### issue
-
+* issue
+  * type **required** `string`
+  * assignee [user](#user)
+  * component [component](#component)
+  * content `object`
+    * html `string`: The user's markup rendered as HTML.
+    * markup `string` (values: markdown, creole): The type of markup language the content is to be interpreted in.
+    * raw `string`: The text as it was typed by a user.
+  * created_on `string`
+  * edited_on `string`
+  * id `integer`
+  * kind `string` (values: bug, enhancement, proposal, task)
+  * links `object`
+    * attachments `object`
+      * href `string`
+    * comments `object`
+      * href `string`
+    * html `object`
+      * href `string`
+    * self `object`
+      * href `string`
+    * vote `object`
+      * href `string`
+    * watch `object`
+      * href `string`
+  * milestone [milestone](#milestone)
+  * priority `string` (values: trivial, minor, major, critical, blocker)
+  * reporter [user](#user)
+  * repository [repository](#repository)
+  * state `string` (values: new, open, resolved, on hold, invalid, duplicate, wontfix, closed)
+  * title `string`
+  * updated_on `string`
+  * version [version](#version)
+  * votes `integer`
 
 ### issue_attachment
-
+* issue_attachment
+  * type **required** `string`
+  * links `object`
+    * self `object`
+      * href `string`
+  * name `string`
 
 ### milestone
-
+* milestone
+  * type **required** `string`
+  * id `integer`
+  * links `object`
+    * self `object`
+      * href `string`
+  * name `string`
 
 ### object
 * object `object`: Base type for most resource objects. It defines the common `type` element that identifies an object's type. It also identifies the element as Swagger's `discriminator`.
@@ -5283,10 +5424,24 @@ bitbucket.users.username.repositories.get({
     * items [webhook_subscription](#webhook_subscription)
 
 ### participant
-
+* participant
+  * type **required** `string`
+  * approved `boolean`
+  * role `string` (values: PARTICIPANT, REVIEWER)
+  * user [user](#user)
 
 ### pipeline
-
+* pipeline
+  * type **required** `string`
+  * build_seconds_used `integer`: The number of build seconds used by this pipeline.
+  * completed_on `string`: The timestamp when the Pipeline was completed. This is not set if the pipeline is still in progress.
+  * created_on `string`: The timestamp when the pipeline was created.
+  * creator [account](#account)
+  * repository [repository](#repository)
+  * state [pipeline_state](#pipeline_state)
+  * target [pipeline_target](#pipeline_target)
+  * trigger [pipeline_trigger](#pipeline_trigger)
+  * uuid `string`: The UUID identifying the pipeline.
 
 ### pipeline_command
 * pipeline_command `object`: An executable pipeline command.
@@ -5295,10 +5450,16 @@ bitbucket.users.username.repositories.get({
   * name `string`: The name of the command.
 
 ### pipeline_commit_target
-
+* pipeline_commit_target
+  * type **required** `string`
+  * commit [commit](#commit)
+  * selector [pipeline_selector](#pipeline_selector)
 
 ### pipeline_error
-
+* pipeline_error
+  * type **required** `string`
+  * key `string`: The error key.
+  * message `string`: The error message.
 
 ### pipeline_image
 * pipeline_image `object`: The definition of a Docker image that can be used for a Bitbucket Pipelines step execution context.
@@ -5308,7 +5469,11 @@ bitbucket.users.username.repositories.get({
   * username `string`: The username needed to authenticate with the Docker registry. Only required when using a private Docker image.
 
 ### pipeline_known_host
-
+* pipeline_known_host
+  * type **required** `string`
+  * hostname `string`: The hostname of the known host.
+  * public_key [pipeline_ssh_public_key](#pipeline_ssh_public_key)
+  * uuid `string`: The UUID identifying the known host.
 
 ### pipeline_log_range
 * pipeline_log_range `object`: A reference to a range of bytes in a log file (does not contain the actual bytes).
@@ -5316,100 +5481,231 @@ bitbucket.users.username.repositories.get({
   * last_byte_position `integer`: The position of the last byte of the range in the log.
 
 ### pipeline_ref_target
-
+* pipeline_ref_target
+  * type **required** `string`
+  * commit [commit](#commit)
+  * ref_name `string`: The name of the reference.
+  * ref_type `string` (values: branch, tag, named_branch, bookmark): The type of reference (branch/tag).
+  * selector [pipeline_selector](#pipeline_selector)
 
 ### pipeline_selector
-
+* pipeline_selector
+  * type **required** `string`
+  * pattern `string`: The name of the matching pipeline definition.
+  * type `string` (values: branches, tags, bookmarks, default, custom): The type of selector.
 
 ### pipeline_ssh_key_pair
-
+* pipeline_ssh_key_pair
+  * type **required** `string`
+  * private_key `string`: The SSH private key. This value will be empty when retrieving the SSH key pair.
+  * public_key `string`: The SSH public key.
 
 ### pipeline_ssh_public_key
-
+* pipeline_ssh_public_key
+  * type **required** `string`
+  * key `string`: The base64 encoded public key.
+  * key_type `string`: The type of the public key.
+  * md5_fingerprint `string`: The MD5 fingerprint of the public key.
+  * sha256_fingerprint `string`: The SHA-256 fingerprint of the public key.
 
 ### pipeline_state
-
+* pipeline_state
+  * type **required** `string`
 
 ### pipeline_state_completed
-
+* pipeline_state_completed
+  * type **required** `string`
+  * name `string` (values: COMPLETED): The name of pipeline state (COMPLETED).
+  * result [pipeline_state_completed_result](#pipeline_state_completed_result)
 
 ### pipeline_state_completed_error
-
+* pipeline_state_completed_error
+  * type **required** `string`
+  * error [pipeline_error](#pipeline_error)
+  * name `string` (values: ERROR): The name of the result (ERROR)
 
 ### pipeline_state_completed_failed
-
+* pipeline_state_completed_failed
+  * type **required** `string`
+  * name `string` (values: FAILED): The name of the failed result (FAILED).
 
 ### pipeline_state_completed_result
-
+* pipeline_state_completed_result
+  * type **required** `string`
 
 ### pipeline_state_completed_stopped
-
+* pipeline_state_completed_stopped
+  * type **required** `string`
+  * name `string` (values: STOPPED): The name of the stopped result (STOPPED).
 
 ### pipeline_state_completed_successful
-
+* pipeline_state_completed_successful
+  * type **required** `string`
+  * name `string` (values: SUCCESSFUL): The name of the successful result (SUCCESSFUL).
 
 ### pipeline_state_in_progress
-
+* pipeline_state_in_progress
+  * type **required** `string`
+  * name `string` (values: IN_PROGRESS): The name of pipeline state (IN_PROGRESS).
 
 ### pipeline_state_pending
-
+* pipeline_state_pending
+  * type **required** `string`
+  * name `string` (values: PENDING): The name of pipeline state (PENDING).
 
 ### pipeline_step
-
+* pipeline_step
+  * type **required** `string`
+  * completed_on `string`: The timestamp when the step execution was completed. This is not set if the step is still in progress.
+  * image [pipeline_image](#pipeline_image)
+  * logByteCount `integer`: The amount of bytes of the log file that is available.
+  * script_commands `array`: The list of build commands. These commands are executed in the build container.
+    * items [pipeline_command](#pipeline_command)
+  * setup_commands `array`: The list of commands that are executed as part of the setup phase of the build. These commands are executed outside the build container.
+    * items [pipeline_command](#pipeline_command)
+  * started_on `string`: The timestamp when the step execution was started. This is not set when the step hasn't executed yet.
+  * state [pipeline_step_state](#pipeline_step_state)
+  * uuid `string`: The UUID identifying the step.
 
 ### pipeline_step_error
-
+* pipeline_step_error
+  * type **required** `string`
+  * key `string`: The error key.
+  * message `string`: The error message.
 
 ### pipeline_step_state
-
+* pipeline_step_state
+  * type **required** `string`
 
 ### pipeline_step_state_completed
-
+* pipeline_step_state_completed
+  * type **required** `string`
+  * name `string` (values: COMPLETED): The name of pipeline step state (COMPLETED).
+  * result [pipeline_step_state_completed_result](#pipeline_step_state_completed_result)
 
 ### pipeline_step_state_completed_error
-
+* pipeline_step_state_completed_error
+  * type **required** `string`
+  * error [pipeline_step_error](#pipeline_step_error)
+  * name `string` (values: ERROR): The name of the result (ERROR)
 
 ### pipeline_step_state_completed_failed
-
+* pipeline_step_state_completed_failed
+  * type **required** `string`
+  * name `string` (values: FAILED): The name of the result (FAILED)
 
 ### pipeline_step_state_completed_result
-
+* pipeline_step_state_completed_result
+  * type **required** `string`
 
 ### pipeline_step_state_completed_stopped
-
+* pipeline_step_state_completed_stopped
+  * type **required** `string`
+  * name `string` (values: STOPPED): The name of the result (STOPPED)
 
 ### pipeline_step_state_completed_successful
-
+* pipeline_step_state_completed_successful
+  * type **required** `string`
+  * name `string` (values: SUCCESSFUL): The name of the result (SUCCESSFUL)
 
 ### pipeline_step_state_in_progress
-
+* pipeline_step_state_in_progress
+  * type **required** `string`
+  * name `string` (values: IN_PROGRESS): The name of pipeline step state (IN_PROGRESS).
 
 ### pipeline_step_state_pending
-
+* pipeline_step_state_pending
+  * type **required** `string`
+  * name `string` (values: PENDING): The name of pipeline step state (PENDING).
 
 ### pipeline_target
-
+* pipeline_target
+  * type **required** `string`
 
 ### pipeline_trigger
-
+* pipeline_trigger
+  * type **required** `string`
 
 ### pipeline_trigger_manual
-
+* pipeline_trigger_manual
+  * type **required** `string`
 
 ### pipeline_trigger_push
-
+* pipeline_trigger_push
+  * type **required** `string`
 
 ### pipeline_variable
-
+* pipeline_variable
+  * type **required** `string`
+  * key `string`: The unique name of the variable.
+  * secured `boolean`: If true, this variable will be treated as secured. The value will never be exposed in the logs or the REST API.
+  * uuid `string`: The UUID identifying the variable.
+  * value `string`: The value of the variable. If the variable is secured, this will be empty.
 
 ### pipelines_config
-
+* pipelines_config
+  * type **required** `string`
+  * enabled `boolean`: Whether Pipelines is enabled for the repository.
+  * repository [repository](#repository)
 
 ### project
-
+* project
+  * type **required** `string`
+  * created_on `string`
+  * description `string`
+  * is_private `boolean`: 
+  * key `string`: The project's key.
+  * links `object`
+    * avatar `object`
+      * href `string`
+    * html `object`
+      * href `string`
+  * name `string`: The name of the project.
+  * owner [team](#team)
+  * updated_on `string`
+  * uuid `string`: The project's immutable id.
 
 ### pullrequest
-
+* pullrequest
+  * type **required** `string`
+  * author [account](#account)
+  * close_source_branch `boolean`: A boolean flag indicating if merging the pull request closes the source branch.
+  * closed_by [account](#account)
+  * comment_count `integer`: The number of comments for a specific pull request.
+  * created_on `string`: The ISO8601 timestamp the request was created.
+  * destination [pullrequest_endpoint](#pullrequest_endpoint)
+  * id `integer`: The pull request's unique ID. Note that pull request IDs are only unique within their associated repository.
+  * links `object`
+    * activity `object`
+      * href `string`
+    * approve `object`
+      * href `string`
+    * comments `object`
+      * href `string`
+    * commits `object`
+      * href `string`
+    * decline `object`
+      * href `string`
+    * diff `object`
+      * href `string`
+    * html `object`
+      * href `string`
+    * merge `object`
+      * href `string`
+    * self `object`
+      * href `string`
+  * merge_commit `object`
+    * hash `string`
+  * participants `array`:         The list of users that are collaborating on this pull request.
+    * items [participant](#participant)
+  * reason `string`: Explains why a pull request was declined. This field is only applicable to pull requests in rejected state.
+  * reviewers `array`: The list of users that were added as reviewers on this pull request when it was created. For performance reasons, the API only includes this list on a pull request's `self` URL.
+    * items [account](#account)
+  * source [pullrequest_endpoint](#pullrequest_endpoint)
+  * state `string` (values: MERGED, SUPERSEDED, OPEN, DECLINED): The pull request's current status.
+  * task_count `integer`: The number of open tasks for a specific pull request.
+  * title `string`: Title of the pull request.
+  * updated_on `string`: The ISO8601 timestamp the request was last updated.
 
 ### pullrequest_endpoint
 * pullrequest_endpoint `object`
@@ -5427,16 +5723,85 @@ bitbucket.users.username.repositories.get({
   * type **required** `string`
 
 ### repository
-
+* repository
+  * type **required** `string`
+  * created_on `string`
+  * description `string`
+  * fork_policy `string` (values: allow_forks, no_public_forks, no_forks): 
+  * full_name `string`: The concatenation of the repository owner's username and the slugified name, e.g. "evzijst/interruptingcow". This is the same string used in Bitbucket URLs.
+  * has_issues `boolean`
+  * has_wiki `boolean`
+  * is_private `boolean`
+  * language `string`
+  * links `object`
+    * avatar `object`
+      * href `string`
+    * clone `object`
+      * href `string`
+    * commits `object`
+      * href `string`
+    * downloads `object`
+      * href `string`
+    * forks `object`
+      * href `string`
+    * hooks `object`
+      * href `string`
+    * html `object`
+      * href `string`
+    * pullrequests `object`
+      * href `string`
+    * self `object`
+      * href `string`
+    * watchers `object`
+      * href `string`
+  * name `string`
+  * owner [account](#account)
+  * parent [repository](#repository)
+  * project [project](#project)
+  * scm `string` (values: hg, git)
+  * size `integer`
+  * updated_on `string`
+  * uuid `string`: The repository's immutable id. This can be used as a substitute for the slug segment in URLs. Doing this guarantees your URLs will survive renaming of the repository by its owner, or even transfer of the repository to a different user.
 
 ### snippet
-
+* snippet
+  * type **required** `string`
+  * created_on `string`
+  * creator [account](#account)
+  * id `integer`
+  * is_private `boolean`
+  * owner [account](#account)
+  * scm `string` (values: hg, git): The DVCS used to store the snippet.
+  * title `string`
+  * updated_on `string`
 
 ### snippet_comment
-
+* snippet_comment
+  * type **required** `string`
+  * links `object`
+    * html `object`
+      * href `string`
+    * self `object`
+      * href `string`
+  * snippet [snippet](#snippet)
 
 ### snippet_commit
-
+* snippet_commit
+  * type **required** `string`
+  * author [author](#author)
+  * date `string`
+  * hash `string`
+  * message `string`
+  * parents `array`
+    * items [base_commit](#base_commit)
+  * links `object`
+    * diff `object`
+      * href `string`
+    * html `object`
+      * href `string`
+    * self `object`
+      * href `string`
+  * snippet [snippet](#snippet)
 
 ### subject_types
 * subject_types `object`: The mapping of resource/subject types pointing to their individual event types.
@@ -5467,15 +5832,71 @@ bitbucket.users.username.repositories.get({
   * type **required** `string`
 
 ### team
-
+* team
+  * type **required** `string`
+  * created_on `string`
+  * display_name `string`
+  * links `object`
+    * avatar `object`
+      * href `string`
+    * followers `object`
+      * href `string`
+    * following `object`
+      * href `string`
+    * html `object`
+      * href `string`
+    * repositories `object`
+      * href `string`
+    * self `object`
+      * href `string`
+  * username `string`
+  * uuid `string`
+  * website `string`
 
 ### user
-
+* user
+  * type **required** `string`
+  * created_on `string`
+  * display_name `string`
+  * links `object`
+    * avatar `object`
+      * href `string`
+    * followers `object`
+      * href `string`
+    * following `object`
+      * href `string`
+    * html `object`
+      * href `string`
+    * repositories `object`
+      * href `string`
+    * self `object`
+      * href `string`
+  * username `string`
+  * uuid `string`
+  * website `string`
+  * account_id `string`: The user's Atlassian account ID.
+  * is_staff `boolean`
 
 ### version
-
+* version
+  * type **required** `string`
+  * id `integer`
+  * links `object`
+    * self `object`
+      * href `string`
+  * name `string`
 
 ### webhook_subscription
-
+* webhook_subscription
+  * type **required** `string`
+  * active `boolean`
+  * created_at `string`
+  * description `string`: A user-defined description of the webhook.
+  * events `array`: The events this webhook is subscribed to.
+    * items `string` (values: pullrequest:unapproved, issue:comment_created, pullrequest:approved, repo:created, repo:deleted, repo:imported, pullrequest:comment_updated, issue:updated, project:updated, pullrequest:comment_created, repo:commit_status_updated, pullrequest:updated, issue:created, repo:fork, pullrequest:comment_deleted, repo:commit_status_created, repo:updated, pullrequest:rejected, pullrequest:fulfilled, repo:push, pullrequest:created, repo:transfer, repo:commit_comment_created)
+  * subject [object](#object)
+  * subject_type `string` (values: user, repository, team): The type of entity, which is `repository` in the case of webhook subscriptions on repositories.
+  * url `string`: The URL events get delivered to.
+  * uuid `string`: The webhook's id
 
 

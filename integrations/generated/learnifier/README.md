@@ -950,6 +950,23 @@ learnifier.users.userid.projectParticipations.get({
   * locale `string`: The preferred locale. This value can be *null* if no specific preference has been selected.
 
 ### UserWithPermissions
-
+* UserWithPermissions
+  * authorizationPossible `boolean`: True if the user can authorize herself/himself
+  * displayName `string`: Full name of the user
+  * externalId `string`: The external id (foreign key). Must not exceed 255 characters.
+  * firstLogin `string`: The timestamp when the first login was made. This value can be *null*.
+  * firstName `string`: The first name of the user (or given name)
+  * hardLock `boolean`: True if the user is locked and the lock has been set by an administrator
+  * homeOrg `integer`: The primary organization for the user. Must match the id of an Organization Unit.
+  * id `string`: The id of the user this participation belongs to
+  * lastLogin `string`: The timestamp when the last login was made. This value can be *null*.
+  * lastName `string`: The last name of the user (or surname)
+  * locked `boolean`: Lock status. A locked user will not be able to access the platform.
+  * prefs [UserPreferences](#userpreferences)
+  * primaryEmail `string`: The primary email for this user. If the user has no email this value is *null*.
+  * backOfficeRoles `array`
+    * items [BackOfficeRole](#backofficerole)
+  * clientRoles `array`: A list with client roles
+    * items [ClientRoles](#clientroles)
 
 

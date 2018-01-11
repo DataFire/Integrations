@@ -1800,22 +1800,86 @@ flat.getUserScores({
 
 ### UserDetails
 * UserDetails `object`: User details
+  * id `string`: The user unique identifier
+  * isPowerUser `boolean`: User license status. 'True' if user is an individual Power user
+  * name `string`: A displayable name for the user
+  * picture `string`: User pictue
+  * printableName `string`: The name that can be directly printed (name or username)
+  * username `string`: The user name (unique for the organization)
+  * classRole [ClassRoles](#classroles)
+  * htmlUrl `string`: Link to user profile (for Indiv. users only)
+  * organization `string`: Organization ID (for Edu users only)
+  * organizationRole [OrganizationRoles](#organizationroles)
+  * bio `string`: User's biography
+  * followersCount `integer`: Number of followers the user have
+  * followingCount `integer`: Number of people the user follow
+  * instruments [UserInstruments](#userinstruments)
+  * likedScoresCount `integer`: Number of the scores liked by the user
+  * ownedPublicScoresCount `integer`: Number of public scores the user have
+  * profileTheme `string`: Theme (background) for the profile
+  * registrationDate `string`: Date the user signed up
   * id `string`: Identifier of the user
   * locale [FlatLocales](#flatlocales)
   * privateProfile `boolean`: Tell either this user profile is private or not (individual accounts only)
   * type `string` (values: user, guest): The type of account
 
 ### UserDetailsAdmin
-
+* UserDetailsAdmin: User details (view for organization teacher / admin)
+  * id `string`: The user unique identifier
+  * isPowerUser `boolean`: User license status. 'True' if user is an individual Power user
+  * name `string`: A displayable name for the user
+  * picture `string`: User pictue
+  * printableName `string`: The name that can be directly printed (name or username)
+  * username `string`: The user name (unique for the organization)
+  * classRole [ClassRoles](#classroles)
+  * htmlUrl `string`: Link to user profile (for Indiv. users only)
+  * organization `string`: Organization ID (for Edu users only)
+  * organizationRole [OrganizationRoles](#organizationroles)
+  * email `string`: Email of the user
+  * lastActivityDate `string`: Date of the last user activity
+  * license `object`: Current active license of the user
+    * active `boolean`: ID of the current license
+    * expirationDate `string`: Date when the license expires
+    * id `string`: ID of the current license
+    * mode [LicenseMode](#licensemode)
+    * source [LicenseSources](#licensesources)
 
 ### UserInstruments
 * UserInstruments `array`: An array of the instrument identifiers that the user plays.
   * items `string`
 
 ### UserPublic
-
+* UserPublic: Public User details
+  * id `string`: The user unique identifier
+  * isPowerUser `boolean`: User license status. 'True' if user is an individual Power user
+  * name `string`: A displayable name for the user
+  * picture `string`: User pictue
+  * printableName `string`: The name that can be directly printed (name or username)
+  * username `string`: The user name (unique for the organization)
+  * classRole [ClassRoles](#classroles)
+  * htmlUrl `string`: Link to user profile (for Indiv. users only)
+  * organization `string`: Organization ID (for Edu users only)
+  * organizationRole [OrganizationRoles](#organizationroles)
+  * bio `string`: User's biography
+  * followersCount `integer`: Number of followers the user have
+  * followingCount `integer`: Number of people the user follow
+  * instruments [UserInstruments](#userinstruments)
+  * likedScoresCount `integer`: Number of the scores liked by the user
+  * ownedPublicScoresCount `integer`: Number of public scores the user have
+  * profileTheme `string`: Theme (background) for the profile
+  * registrationDate `string`: Date the user signed up
 
 ### UserPublicSummary
-
+* UserPublicSummary: Public User details summary
+  * id `string`: The user unique identifier
+  * isPowerUser `boolean`: User license status. 'True' if user is an individual Power user
+  * name `string`: A displayable name for the user
+  * picture `string`: User pictue
+  * printableName `string`: The name that can be directly printed (name or username)
+  * username `string`: The user name (unique for the organization)
+  * classRole [ClassRoles](#classroles)
+  * htmlUrl `string`: Link to user profile (for Indiv. users only)
+  * organization `string`: Organization ID (for Edu users only)
+  * organizationRole [OrganizationRoles](#organizationroles)
 
 

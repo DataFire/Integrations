@@ -905,7 +905,11 @@ azure_arm_service_map.Summaries_GetMachines({
 * MachineRebootStatus `string` (values: unknown, rebooted, notRebooted): Specifies if the machine has been rebooted since the installation of the dependency agent.
 
 ### MachineReference
-
+* MachineReference: Reference to a machine.
+  * id **required** `string`: Resource URI.
+  * kind **required** `string` (values: ref:machine, ref:machinewithhints, ref:process, ref:port, ref:onmachine): Specifies the sub-class of the reference.
+  * name `string`: Resource name.
+  * type `string`: Resource type qualifier.
 
 ### MachineReferenceWithHints
 * MachineReferenceWithHints `object`: A machine reference with a hint of the machine's name and operating system.
@@ -927,6 +931,9 @@ azure_arm_service_map.Summaries_GetMachines({
 ### MachinesSummary
 * MachinesSummary `object`: A summary of the machines in the workspace.
   * properties [MachinesSummaryProperties](#machinessummaryproperties)
+  * id `string`: Resource identifier.
+  * name `string`: Resource name.
+  * type `string`: Resource type.
 
 ### MachinesSummaryProperties
 * MachinesSummaryProperties `object`: Summarizes machines in the workspace.
@@ -1117,7 +1124,10 @@ azure_arm_service_map.Summaries_GetMachines({
   * startTime `string`: Map interval start time.
 
 ### Summary
-
+* Summary: Base for all resource summaries.
+  * id `string`: Resource identifier.
+  * name `string`: Resource name.
+  * type `string`: Resource type.
 
 ### SummaryProperties
 * SummaryProperties `object`: Base for all summaries.

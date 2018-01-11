@@ -2348,7 +2348,13 @@ wowza.showViewerDataStreamTarget({
     * items `string`
 
 ### geoblock_create_input
-
+* geoblock_create_input
+  * geoblock **required** `object`
+    * countries `array`: Required when <em>type</em> is <strong>allow</strong> or <strong>deny</strong>. The locations affected by the geo-blocking. Enter a comma-separated list (an array) of two-letter ISO 3166-1 country codes. For a list, see <a href='https://en.wikipedia.org/wiki/ISO_3166-1' target='_blank'>ISO 3166-1</a> on wikipedia.
+      * items `string`
+    * type **required** `string` (values: disabled, allow, deny): The type of geo-blocking to apply. The value <strong>allow</strong> permits viewing only in the locations specified by the <em>countries</em> parameter. The value <strong>deny</strong> prohibits viewing in the locations specified by the <em>countries</em> parameter. The value <strong>disabled</strong> (the default) permits viewing everywhere.
+    * whitelist `array`: Whitelisted addresses can be viewed even if they're within a geo-blocked location. Enter a comma-separated list (an array) of IP addresses that always allow streaming.
+      * items `string`
 
 ### geoblock_input
 * geoblock_input `object`
@@ -2360,7 +2366,13 @@ wowza.showViewerDataStreamTarget({
       * items `string`
 
 ### geoblock_update_input
-
+* geoblock_update_input
+  * geoblock **required** `object`
+    * countries `array`: Required when <em>type</em> is <strong>allow</strong> or <strong>deny</strong>. The locations affected by the geo-blocking. Enter a comma-separated list (an array) of two-letter ISO 3166-1 country codes. For a list, see <a href='https://en.wikipedia.org/wiki/ISO_3166-1' target='_blank'>ISO 3166-1</a> on wikipedia.
+      * items `string`
+    * type **required** `string` (values: disabled, allow, deny): The type of geo-blocking to apply. The value <strong>allow</strong> permits viewing only in the locations specified by the <em>countries</em> parameter. The value <strong>deny</strong> prohibits viewing in the locations specified by the <em>countries</em> parameter. The value <strong>disabled</strong> (the default) permits viewing everywhere.
+    * whitelist `array`: Whitelisted addresses can be viewed even if they're within a geo-blocked location. Enter a comma-separated list (an array) of IP addresses that always allow streaming.
+      * items `string`
 
 ### gpu_decoder_usage_metric
 * gpu_decoder_usage_metric `object`
@@ -2592,7 +2604,18 @@ wowza.showViewerDataStreamTarget({
     * use_stream_target_backup_url `boolean`: Use the target's backup URL. Not available for targets whose <em>provider</em> is <strong>akamai_cupertino</strong>. The default is <strong>false</strong>.
 
 ### output_create_input
-
+* output_create_input
+  * output **required** `object`
+    * aspect_ratio_height `integer`: The height, in pixels, of the output rendition. Should correspond to a widescreen or standard aspect ratio and be divisible by 8. The default is <strong>1080</strong>.
+    * aspect_ratio_width `integer`: The width, in pixels, of the output rendition. Should correspond to a widescreen or standard aspect ratio and be divisible by 8. The default is <strong>1980</strong>.
+    * bitrate_audio `integer`: The audio bitrate, in kilobits per second (Kbps). Must be between <strong>0</strong> (for passthrough audio) and <strong>1000</strong>. The default is <strong>128</strong>.
+    * bitrate_video `integer`: The video bitrate, in kilobits per second (Kbps). Must be between <strong>0</strong> (for passthrough video) and <strong>10240</strong>. The default is <strong>4000</strong>.
+    * framerate_reduction `string` (values: 0, 1/2, 1/4, 1/25, 1/30, 1/50, 1/60): Reduce the frame rate of the transcoded output rendition. The default, <strong>0</strong>, uses the encoded stream's frame rate without reduction.
+    * h264_profile `string` (values: main, baseline, high): The encoding method. Specify <strong>main</strong> for desktop streaming, <strong>baseline</strong> for playback on mobile devices, or <strong>high</strong> for HD playback. The default is <strong>high</strong>.
+    * keyframes `string` (values: follow_source, 25, 30, 50, 60, 100, 120): The interval used to define the compression applied to a group of frames. The default, <strong>follow_source</strong>, uses the keyframe interval of the source video.
+    * passthrough_audio `boolean`: If <strong>true</strong>, sends the audio track to the target without transcoding. The default is <strong>false</strong>.
+    * passthrough_video `boolean`: If <strong>true</strong>, sends the video track to the target without transcoding. The default is <strong>false</strong>.
+    * stream_format **required** `string` (values: audiovideo, videoonly, audioonly): The contents of the stream. The default is both audio and video (<strong>audiovideo</strong>).
 
 ### output_input
 * output_input `object`
@@ -2624,7 +2647,10 @@ wowza.showViewerDataStreamTarget({
   * use_stream_target_backup_url `boolean`: Specifies whether to use the stream target's primary or backup URL.
 
 ### output_stream_target_create_input
-
+* output_stream_target_create_input
+  * output_stream_target **required** `object`
+    * stream_target_id **required** `string`: The unique alphanumeric string that identifies the stream target.
+    * use_stream_target_backup_url `boolean`: Specifies whether to use the stream target's primary or backup URL.
 
 ### output_stream_target_input
 * output_stream_target_input `object`
@@ -2633,7 +2659,10 @@ wowza.showViewerDataStreamTarget({
     * use_stream_target_backup_url `boolean`: Specifies whether to use the stream target's primary or backup URL.
 
 ### output_stream_target_update_input
-
+* output_stream_target_update_input
+  * output_stream_target **required** `object`
+    * stream_target_id **required** `string`: The unique alphanumeric string that identifies the stream target.
+    * use_stream_target_backup_url `boolean`: Specifies whether to use the stream target's primary or backup URL.
 
 ### output_stream_targets
 * output_stream_targets `object`
@@ -2641,7 +2670,18 @@ wowza.showViewerDataStreamTarget({
     * items [output_stream_target](#output_stream_target)
 
 ### output_update_input
-
+* output_update_input
+  * output **required** `object`
+    * aspect_ratio_height `integer`: The height, in pixels, of the output rendition. Should correspond to a widescreen or standard aspect ratio and be divisible by 8. The default is <strong>1080</strong>.
+    * aspect_ratio_width `integer`: The width, in pixels, of the output rendition. Should correspond to a widescreen or standard aspect ratio and be divisible by 8. The default is <strong>1980</strong>.
+    * bitrate_audio `integer`: The audio bitrate, in kilobits per second (Kbps). Must be between <strong>0</strong> (for passthrough audio) and <strong>1000</strong>. The default is <strong>128</strong>.
+    * bitrate_video `integer`: The video bitrate, in kilobits per second (Kbps). Must be between <strong>0</strong> (for passthrough video) and <strong>10240</strong>. The default is <strong>4000</strong>.
+    * framerate_reduction `string` (values: 0, 1/2, 1/4, 1/25, 1/30, 1/50, 1/60): Reduce the frame rate of the transcoded output rendition. The default, <strong>0</strong>, uses the encoded stream's frame rate without reduction.
+    * h264_profile `string` (values: main, baseline, high): The encoding method. Specify <strong>main</strong> for desktop streaming, <strong>baseline</strong> for playback on mobile devices, or <strong>high</strong> for HD playback. The default is <strong>high</strong>.
+    * keyframes `string` (values: follow_source, 25, 30, 50, 60, 100, 120): The interval used to define the compression applied to a group of frames. The default, <strong>follow_source</strong>, uses the keyframe interval of the source video.
+    * passthrough_audio `boolean`: If <strong>true</strong>, sends the audio track to the target without transcoding. The default is <strong>false</strong>.
+    * passthrough_video `boolean`: If <strong>true</strong>, sends the video track to the target without transcoding. The default is <strong>false</strong>.
+    * stream_format **required** `string` (values: audiovideo, videoonly, audioonly): The contents of the stream. The default is both audio and video (<strong>audiovideo</strong>).
 
 ### outputs
 * outputs `object`
@@ -2875,7 +2915,31 @@ wowza.showViewerDataStreamTarget({
   * username `string`: Only for targets whose <em>type</em> is <strong>CustomStreamTarget</strong> and <em>provider</em> is <em>not</em> **akamai_cupertino**. The username or ID that the target uses for RTMP authentication.
 
 ### stream_target_create_input
-
+* stream_target_create_input
+  * stream_target **required** `object`
+    * backup_url `string`: Only for targets whose <em>type</em> is <strong>CustomStreamTarget</strong>. The backup RTMP ingest URL of the target, without the preceding protocol and without the trailing slash (/).
+    * chunk_size `string` (values: 2, 4, 6, 8, 10): <strong>The <em>chunk_size</em> parameter is deprecated. To set the chunk size of a stream target, use the POST /stream_targets/[stream_target_id]/properties endpoint.</strong> Only for targets whose <em>type</em> is <strong>WowzaStreamTarget</strong> and <em>provider</em> is <strong>akamai_cupertino</strong>. The segment duration for HLS encoding. The default is <strong>10</strong>.
+    * enable_hls `boolean`: Only for targets whose <em>type</em> is <strong>UltraLowLatencyStreamTarget</strong>. If <strong>true</strong>, creates an Apple HLS URL for playback on iOS devices (<em>hls_playback_url</em>). The default is <strong>false</strong>.
+    * enabled `boolean`: Only for targets whose <em>type</em> is <strong>UltraLowLatencyStreamTarget</strong>. If <strong>true</strong> (the default), the source stream is ready to be ingested. If **false**, the source stream won't be ingested by the target's origin server.
+    * hds_playback_url `string`: Only for targets whose <em>type</em> is <strong>CustomStreamTarget</strong> and <em>provider</em> is <em>not</em> <strong>akamai_cupertino</strong>. The web address that the target uses to play Adobe HDS streams.
+    * hls_playback_url `string`: Only for targets whose <em>type</em> is <strong>CustomStreamTarget</strong>. The web address that the target uses to play Apple HLS streams.
+    * ingest_ip_whitelist `array`: Only for targets whose <em>type</em> is <strong>UltraLowLatencyStreamTarget</strong> and <em>source_delivery_method</em> is **push**. A list of IP addresses that can be used to connect to the target's origin server.
+      * items `string`
+    * location **required** `string` (values: asia_pacific_australia, asia_pacific_japan, asia_pacific_singapore, asia_pacific_taiwan, eu_belgium, eu_germany, eu_ireland, south_america_brazil, us_central_iowa, us_east_s_carolina, us_east_virginia, us_west_california, us_west_oregon): Only for targets whose <em>type</em> is <strong>WowzaStreamTarget</strong> and <em>provider</em> is <em>not</em> <strong>akamai_cupertino</strong>. Choose a location as close as possible to your video source.
+    * name **required** `string`: A descriptive name for the stream target. Maximum 255 characters.
+    * password `string`: Only for targets whose <em>type</em> is <strong>CustomStreamTarget</strong> and <em>provider</em> is <em>not</em> **akamai_cupertino**. A <em>username</em> must also be present. The password associated with the target username for RTMP authentication.
+    * primary_url **required** `string`: Only for targets whose <em>type</em> is <strong>CustomStreamTarget</strong>. The primary RTMP ingest URL, without the preceding protocol and without the trailing slash (/).
+    * provider `string`: The CDN for the target. <br /><br />Required for targets whose <em>type</em> is <strong>CustomStreamTarget</strong>. Valid values for <strong>CustomStreamTarget</strong> are <strong>akamai</strong>, <strong>akamai_cupertino</strong>, <strong>akamai_rtmp</strong>, <strong>limelight</strong>, <strong>rtmp</strong>, and <strong>ustream</strong>. Values can be appended with **_mock** to use in the sandbox environment. <br /><br />Valid values for <strong>WowzaStreamTarget</strong> are <strong>akamai</strong>, <strong>akamai_cupertino</strong> (default), <strong>akamai_legacy_rtmp</strong>, and <strong>wowza</strong>. <br /><br /><strong>UltraLowLatencyStreamTarget</strong> defaults to and must be <strong>wowza</strong>.
+    * region_override `string` (values: azure-westus, azure-eastus2, azure-northeurope): Only for targets whose <em>type</em> is <strong>UltraLowLatencyStreamTarget</strong> and <em>source_delivery_method</em> is **pull**. The location of the stream target's origin server. If unspecified, Wowza Streaming Cloud determines the optimal region for the origin server.
+    * rtmp_playback_url `string`: Only for targets whose <em>type</em> is <strong>CustomStreamTarget</strong>. The web address that the target uses to play RTMP streams.
+    * source_delivery_method **required** `string` (values: push, pull): Only for targets whose <em>type</em> is <strong>UltraLowLatencyStreamTarget</strong>. The type of connection between the stream source and the stream target. **push** instructs the source to push the stream to the stream target. **pull** instructs the stream target to pull the stream from the source.
+    * source_url **required** `string`: Only for targets whose <em>type</em> is <strong>UltraLowLatencyStreamTarget</strong> and <em>source_delivery_method</em> is **pull**. The URL of a source IP camera or encoder connecting to the stream target.
+    * stream_name **required** `string`: Only for targets whose <em>type</em> is <strong>CustomStreamTarget</strong>. The name of the stream as defined in the target's ingestion settings.
+    * type `string` (values: WowzaStreamTarget, UltraLowLatencyStreamTarget, CustomStreamTarget): <strong>WowzaStreamTarget</strong> is a Wowza CDN target. <strong>UltraLowLatencyStreamTarget</strong> is an ultra low latency Wowza stream target. <strong>CustomStreamTarget</strong> (the default) is an external, third-party destination. <!--and <strong>FacebookStreamTarget</strong> (a Facebook Live target).-->
+    * use_cors `boolean`: Only for targets whose <em>type</em> is <strong>WowzaStreamTarget</strong> and <em>provider</em> is <strong>akamai_cupertino</strong>. CORS, or cross-origin resource sharing, allows streams to be sent to providers such as Peer5, Viblast, and Streamroot, which implement a peer-to-peer grid delivery system.
+    * use_https `boolean`: <strong>The <em>use_https</em> parameter is deprecated. Use the POST /stream_targets/[<em>stream_target_id</em>]/properties endpoint and the <em>relative_playlists</em> parameter instead.</strong>
+    * use_secure_ingest `boolean`: Only for targets whose <em>type</em> is <strong>WowzaStreamTarget</strong> and <em>provider</em> is <strong>akamai_cupertino</strong>. If <strong>true</strong>, generates a <em>secure_ingest_query_param</em> to securely deliver the stream from the transcoder to the provider.
+    * username `string`: Only for targets whose <em>type</em> is <strong>CustomStreamTarget</strong> and <em>provider</em> is <em>not</em> **akamai_cupertino**. The username or ID that the target uses for RTMP authentication.
 
 ### stream_target_input
 * stream_target_input `object`
@@ -3172,7 +3236,13 @@ wowza.showViewerDataStreamTarget({
   * width `integer`: The width, in pixels, of the output rendition that will be played at the URL. May correspond to the width of an output rendition being used by the live stream or transcoder. Must be greater than <strong>0</strong>.
 
 ### url_create_input
-
+* url_create_input
+  * url **required** `object`
+    * bitrate `integer`: The video bitrate, in kilobits per second (Kbps), of the output rendition that will be played at the URL. May correspond to the bitrate of an output rendition being used by the live stream or transcoder. Must be greater than <strong>0</strong>.
+    * height `integer`: The height, in pixels, of the output rendition that will be played at the URL. May correspond to the height of an output rendition being used by the live stream or transcoder. Must be greater than <strong>0</strong>.
+    * label `string`: A descriptive name for the player URL. Maximum 255 characters.
+    * url `string`: The URL of the player. If using a Wowza CDN target, the URL format is `http://[wowzasubdomain]-f.akamaihd.net/z/[stream_name]_[angle]@[stream_id]/manifest.f4m` for Adobe HDS playback or `http://[wowzasubdomain]-f.akamaihd.net/i/[stream_name]_[angle]@[stream_id]/master.m3u8` for Apple HLS playback.
+    * width `integer`: The width, in pixels, of the output rendition that will be played at the URL. May correspond to the width of an output rendition being used by the live stream or transcoder. Must be greater than <strong>0</strong>.
 
 ### url_input
 * url_input `object`
@@ -3184,7 +3254,13 @@ wowza.showViewerDataStreamTarget({
     * width `integer`: The width, in pixels, of the output rendition that will be played at the URL. May correspond to the width of an output rendition being used by the live stream or transcoder. Must be greater than <strong>0</strong>.
 
 ### url_update_input
-
+* url_update_input
+  * url **required** `object`
+    * bitrate `integer`: The video bitrate, in kilobits per second (Kbps), of the output rendition that will be played at the URL. May correspond to the bitrate of an output rendition being used by the live stream or transcoder. Must be greater than <strong>0</strong>.
+    * height `integer`: The height, in pixels, of the output rendition that will be played at the URL. May correspond to the height of an output rendition being used by the live stream or transcoder. Must be greater than <strong>0</strong>.
+    * label `string`: A descriptive name for the player URL. Maximum 255 characters.
+    * url `string`: The URL of the player. If using a Wowza CDN target, the URL format is `http://[wowzasubdomain]-f.akamaihd.net/z/[stream_name]_[angle]@[stream_id]/manifest.f4m` for Adobe HDS playback or `http://[wowzasubdomain]-f.akamaihd.net/i/[stream_name]_[angle]@[stream_id]/master.m3u8` for Apple HLS playback.
+    * width `integer`: The width, in pixels, of the output rendition that will be played at the URL. May correspond to the width of an output rendition being used by the live stream or transcoder. Must be greater than <strong>0</strong>.
 
 ### urls
 * urls `object`

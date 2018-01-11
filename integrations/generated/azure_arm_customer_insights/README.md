@@ -1646,7 +1646,31 @@ azure_arm_customer_insights.WidgetTypes_Get({
   * precedence `integer`: the precedence value.
 
 ### EnrichingKpi
-
+* EnrichingKpi: The enriching KPI definition.
+  * aliases `array`: The aliases.
+    * items [KpiAlias](#kpialias)
+  * calculationWindow **required** `string` (values: Lifetime, Hour, Day, Week, Month): The calculation window.
+  * calculationWindowFieldName `string`: Name of calculation window field.
+  * description `object`: Localized description for the KPI.
+  * displayName `object`: Localized display name for the KPI.
+  * entityType **required** `string` (values: None, Profile, Interaction, Relationship): The mapping entity type.
+  * entityTypeName **required** `string`: The mapping entity name.
+  * expression **required** `string`: The computation expression for the KPI.
+  * extracts `array`: The KPI extracts.
+    * items [KpiExtract](#kpiextract)
+  * filter `string`: The filter expression for the KPI.
+  * function **required** `string` (values: Sum, Avg, Min, Max, Last, Count, None, CountDistinct): The computation function for the KPI.
+  * groupBy `array`: the group by properties for the KPI.
+    * items `string`
+  * groupByMetadata `array`: The KPI GroupByMetadata.
+    * items [KpiGroupByMetadata](#kpigroupbymetadata)
+  * kpiName `string`: The KPI name.
+  * participantProfilesMetadata `array`: The participant profiles.
+    * items [KpiParticipantProfilesMetadata](#kpiparticipantprofilesmetadata)
+  * provisioningState [ProvisioningState](#provisioningstate)
+  * tenantId `string`: The hub name.
+  * thresHolds [KpiThresholds](#kpithresholds)
+  * unit `string`: The unit of measurement for the KPI.
 
 ### EntityTypeDefinition
 * EntityTypeDefinition `object`: Describes an entity.

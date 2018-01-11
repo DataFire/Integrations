@@ -4961,7 +4961,38 @@ rebilly.websites.id.webhook.put({
 ## Definitions
 
 ### A1Gateway
+* A1Gateway: A1Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`: A1Gateway credentials object
+    * accountId **required** `string`: A1Gateway account ID
+    * password **required** `string`: A1Gateway password
+  * mpi [A1GatewayMpis](#a1gatewaympis)
 
 ### A1GatewayMpis
 * A1GatewayMpis `object`: A1Gateway Mpis
@@ -4971,7 +5002,40 @@ rebilly.websites.id.webhook.put({
 * AcquirerName `string` (values: Alipay, AIB, B+S, Bank of America, Bank of Moscow, Bank of Rebilly, Bank One, Beanstream, BMO Harris Bank, Borgun, BraintreePayments, Catalunya Caixa, Chase, ChinaUnionPay, CIM, Credorax, Elavon, EMS, Fifth Third Bank, First Data Buypass, First Data Nashville, First Data North, First Data Omaha, Flexepin, Forte, FundSend, GlobalCollect, Global East, Gpaysafe, Heartland, HSBC, iCheque, Ilixium, Intuit, Jeton, Masapay, Merrick, Mission Valley Bank, Moneris, NATWEST, NMI, OchaPay, Other, Panda Bank, PayPal, Payr, Payvision, Peoples Trust Company, Privatbank, RBC, RBS WorldPay, RealTime, RebillyProcessor, SMSVoucher, State Bank of Mauritius, Stripe, TBI, TrustPay, TSYS, UPayCard, Vantiv, VoicePay, WeChat Pay, Wells Fargo, Wing Hang Bank, Wirecard, WorldPay): Acquirer name
 
 ### AmexVPC
+* AmexVPC: AmexVPC config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`: AmexVPC credentials object
+    * accessCode **required** `string`: Access Code
+    * merchantId **required** `string`: Merchant ID
+    * password **required** `string`: Password (used for refund, void and capture)
+    * url **required** `string`: Virtual Payment Client URL
+    * user **required** `string`: User (used for refund, void and capture)
 
 ### AmountAdjustment
 * AmountAdjustment `object`
@@ -4982,15 +5046,19 @@ rebilly.websites.id.webhook.put({
   * _links `array`: The links related to resource
 
   * apiUser `string`: API user name
+  * createdTime: The API key created time
   * datetimeFormat `string` (values: mysql, iso8601): Date time format
   * description `string`: API key description
+  * id
   * secretKey `string`: API secret key's value
 
 ### ApiTracking
 * ApiTracking `object`: Tracking API Requests.
   * _links `array`: The links related to resource
 
+  * createdTime: The log created time
   * duration `integer`: Request duration in milliseconds
+  * id
   * method `string` (values: HEAD, GET, POST, PUT, DELETE, PATCH): HTTP method
   * request `string`: Request JSON-string
   * requestHeaders `object`
@@ -4999,6 +5067,7 @@ rebilly.websites.id.webhook.put({
   * status `integer`: HTTP response code
   * url `string`: API request address
   * user `object`: The user who has made a request
+    * apiKeyId
     * email `string`: The user email
     * fingerprint `string`: The user device fingerprint hash
     * firstName `string`: The user first name
@@ -5006,6 +5075,7 @@ rebilly.websites.id.webhook.put({
     * isSupport `boolean`: If user from support
     * lastName `string`: The user last name
     * userAgent `string`: The software that is acting on behalf of a user
+    * userId
 
 ### ApprovalUrlLink
 * ApprovalUrlLink `object`
@@ -5016,11 +5086,14 @@ rebilly.websites.id.webhook.put({
 * Attachment `object`
   * _links `array`: The links related to resource
 
+  * createdTime: Creation date/time
   * description `string`: The Attachment description
   * fileId **required** `string`: Linked File object id
+  * id
   * name `string`: The Original Attachment name
   * relatedId **required** `string`: Linked object Id
   * relatedType **required** `string` (values: customer, dispute, invoice, note, payment, plan, product, subscription, transaction): Linked object type
+  * updatedTime: Latest update date/time
 
 ### AttachmentResourceLink
 * AttachmentResourceLink `object`
@@ -5038,13 +5111,45 @@ rebilly.websites.id.webhook.put({
 * AuthenticationToken `object`
   * _links `array`: The links related to resource
 
+  * credentialId: The credential's ID
+  * customerId: The token's customer ID
   * expiredTime `string`: Token's expired time
   * password **required** `string`: The token's password (write-only)
   * token `string`: The token identifier string
   * username **required** `string`: The token's username
 
 ### AuthorizeNet
+* AuthorizeNet: AuthorizeNet Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * apiLoginId **required** `string`: AuthorizeNet Gateway api login ID
+    * transactionKey **required** `string`: AuthorizeNet Gateway Transaction Key
 
 ### BankAccount
 * BankAccount `object`
@@ -5052,11 +5157,27 @@ rebilly.websites.id.webhook.put({
 
   * accountNumber `string`: Bank's Account Number. Required if bank account is not created from Token. This field is write-only
   * accountType `string`: Banks's Account type. Required if bank account is not created from Token
+  * address: The Address. Required if bank account is not created from Token
+    * address `string`: The contact street address
+    * address2 `string`: The contact street address (second line)
+    * city `string`: The contact city
+    * country `string`: The contact country ISO Alpha-2 code
+    * emails [ContactEmails](#contactemails)
+    * firstName `string`: The contact first name
+    * lastName `string`: The contact last name
+    * organization `string`: The contact organization
+    * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
+    * postalCode `string`: The contact postal code
+    * region `string`: The contact region (state)
   * bankName `string`: Bank's name.
+  * createdTime: Bank Account created time
   * customFields [ResourceCustomFields](#resourcecustomfields)
+  * customerId: The Customer's ID.
+  * id: The bank account identifier string
   * routingNumber `string`: Bank's Routing Number. Required if bank account is not created from Token. This field is write-only
   * status `string` (values: active, deactivated): Bank Account status
   * token `string`: Bank Account Token. Use without any other fields
+  * updatedTime: Bank Account updated time
 
 ### BankAccountLink
 * BankAccountLink `object`
@@ -5064,7 +5185,37 @@ rebilly.websites.id.webhook.put({
   * href **required** `string`: The link URL
 
 ### Beanstream
+* Beanstream: Beanstream Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * apiPasscode **required** `string`: Beanstream Gateway API Passcode
+    * merchantId **required** `string`: Beanstream Gateway merchant ID
 
 ### BillingContactLink
 * BillingContactLink `object`
@@ -5075,12 +5226,47 @@ rebilly.websites.id.webhook.put({
 * Blacklist `object`
   * _links `array`: The links related to resource
 
+  * createdTime: The blacklist created time
   * expiredTime `string`: The blacklist expired time
+  * id: The blacklist identifier string
   * type **required** `string` (values: payment-card-id, customer-id, email, ip-address, country, fingerprint, bin): The blacklist type
+  * updatedTime: The blacklist updated time
   * value **required** `string`: The blacklist value
 
 ### BraintreePayments
+* BraintreePayments: BraintreePayments Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * merchantAccountId **required** `string`: BraintreePayments merchant account ID
+    * merchantId **required** `string`: BraintreePayments merchant ID
+    * privateKey **required** `string`: BraintreePayments Private Key
+    * publicKey **required** `string`: BraintreePayments Public Key
 
 ### CancelUrlLink
 * CancelUrlLink `object`
@@ -5088,22 +5274,121 @@ rebilly.websites.id.webhook.put({
   * href **required** `string`: The link URL
 
 ### CardinalCommerce
-
+* CardinalCommerce: CardinalCommerce Mpi Credentials
+  * name **required** `string` (values: PayvisionMpi, CardinalCommerce, Other)
+  * merchantId **required** `string`: Cardinal MerchantId
+  * processorId **required** `string`: Cardinal ProcessorId
+  * transactionPwd **required** `string`: Cardinal TransactionPwd
 
 ### Cashflows
+* Cashflows: Cashflows Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * authId **required** `string`: Cashflows Gateway auth ID
+    * authPassword **required** `string`: Cashflows Gateway auth password
 
 ### Cayan
+* Cayan: Cayan Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * merchantKey **required** `string`: Cayan Gateway merchant key
+    * merchantName **required** `string`: Cayan Gateway merchant name
+    * merchantSiteId **required** `string`: Cayan Gateway merchant site ID
 
 ### Chase
+* Chase: Chase Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * coNumber **required** `string`: Chase Gateway CO Number used for delimited file reports
+    * divisionId **required** `string`: Chase Gateway division ID
+    * partialAuth **required** `boolean`: Support for Partial Auths
+    * password **required** `string`: Chase Gateway Net Connect password
+    * username **required** `string`: Chase Gateway Net Connect username
 
 ### CheckoutPage
 * CheckoutPage `object`
   * _links `array`: The links related to resource
 
   * allowCustomCustomerId `boolean`: If to enable your own customer ID in requests
+  * id: Checkout page identifier string
   * isActive `boolean`: If checkout page active
   * name **required** `string`: Checkout page name
   * planId **required** `string`: Checkout page plan ID
@@ -5113,7 +5398,40 @@ rebilly.websites.id.webhook.put({
   * websiteId **required** `string`: Checkout page website ID
 
 ### ChinaUnionPay
+* ChinaUnionPay: China Union Pay Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * accountId **required** `string`: China Union Pay Gateway account ID
+    * goods **required** `string`: China Union Pay Gateway goods
+    * md5key **required** `string`: China Union Pay Gateway md5key
+    * mobilePay **required** `string`: China Union Pay Gateway mobile pay param
+    * partyId **required** `string`: China Union Pay Gateway party ID
 
 ### CommonScheduleInstruction
 * CommonScheduleInstruction `object`: The calculation instruction of scheduled time
@@ -5131,15 +5449,19 @@ rebilly.websites.id.webhook.put({
   * address2 `string`: The contact street address (second line)
   * city `string`: The contact city
   * country `string`: The contact country ISO Alpha-2 code
+  * createdTime: The contact created time
   * customFields [ResourceCustomFields](#resourcecustomfields)
+  * customerId: The contact customer ID
   * emails [ContactEmails](#contactemails)
   * firstName `string`: The contact first name
+  * id: The contact identifier string
   * isOutdated `boolean`: Is contact outdated
   * lastName `string`: The contact last name
   * organization `string`: The contact organization
   * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
   * postalCode `string`: The contact postal code
   * region `string`: The contact region (state)
+  * updatedTime: The contact updated time
 
 ### ContactEmails
 * ContactEmails `array`: The contact emails
@@ -5178,14 +5500,17 @@ rebilly.websites.id.webhook.put({
 * Coupon `object`: Coupons and Discounts
   * _links `array`: The links related to resource
 
+  * createdTime: Coupon created time
   * description `string`: Your coupon description. When it is not empty this is used for invoice discount item description,
   * discount **required** [Discount](#discount)
   * expiredTime `string`: Coupon's expire time (end time)
   * issuedTime **required** `string`: Coupon's issued time (start time)
+  * redemptionCode: Coupon's redemption code
   * redemptionsCount `integer`: Coupon's redemptions count
   * restrictions `array`: Coupon restrictions
 
   * status `string` (values: issued, expired): If coupon enabled
+  * updatedTime: Coupon updated time.
 
 ### CouponExpiration
 * CouponExpiration `object`
@@ -5197,6 +5522,11 @@ rebilly.websites.id.webhook.put({
 
   * additionalRestrictions `array`: Additional restrictions for coupon's redemptions
 
+  * canceledTime: Coupon redemption canceled time
+  * customerId: Customer's ID
+  * id
+  * redeemedTime: Coupon redeem time
+  * redemptionCode: Coupon's redemption code
 
 ### CouponRestriction
 * CouponRestriction `object`: Coupon restrictions
@@ -5208,11 +5538,42 @@ rebilly.websites.id.webhook.put({
 
   * customerId **required** `string`: The credential's customer ID
   * expiredTime `string`: The credential's expired time
+  * id: The credential identifier string
   * password **required** `string`: The credential's password
   * username **required** `string`: Credential's username
 
 ### Credorax
+* Credorax: Credorax Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * merchantId **required** `string`: Credorax Gateway merchant ID
+    * merchantMd5Signature **required** `string`: Credorax Gateway md5 signature
 
 ### CustomEvent
 * CustomEvent `object`
@@ -5220,6 +5581,7 @@ rebilly.websites.id.webhook.put({
   * createdTime [ServerTimestamp](#servertimestamp)
   * description `string`: The custom event description
   * eventType **required** `string` (values: subscription-ended, subscription-trial-ended, subscription-renewed, payment-card-expired, invoice-past-due, invoice-issued, invoice-voided, invoice-paid, invoice-abandoned): The system event type
+  * id: The custom event identifier string
   * rulesCount `integer`
   * scheduleInstruction **required** [CustomEventScheduleInstruction](#customeventscheduleinstruction)
   * title **required** `string`: The custom event title
@@ -5241,9 +5603,12 @@ rebilly.websites.id.webhook.put({
 * Customer `object`
   * _links `array`: The links related to resource
 
+  * createdTime: The customer created time
   * customFields [ResourceCustomFields](#resourcecustomfields)
   * defaultPaymentInstrument [PaymentInstrument](#paymentinstrument)
+  * id: The customer identifier string
   * primaryAddress [ContactObject](#contactobject)
+  * updatedTime: The customer updated time
 
 ### CustomerLink
 * CustomerLink `object`
@@ -5251,10 +5616,44 @@ rebilly.websites.id.webhook.put({
   * href **required** `string`: The link URL
 
 ### DataCash
+* DataCash: DataCash Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * client **required** `string`: DataCash Gateway client
+    * delay **required** `integer`: Auto Capture delay (in hours)
+    * password **required** `string`: DataCash Gateway password
+    * policy **required** `integer`: Policy
+  * mpi [DataCashMpis](#datacashmpis)
 
 ### DataCashMpi
-
+* DataCashMpi: DataCash Integrated
+  * name **required** `string` (values: DataCashMpi)
 
 ### DataCashMpis
 * DataCashMpis `object`: DataCash Mpis
@@ -5274,7 +5673,38 @@ rebilly.websites.id.webhook.put({
   * href **required** `string`: The link URL
 
 ### Dengi
+* Dengi: Dengi Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * projectId **required** `string`: Dengi Gateway project ID
+    * publicKey **required** `string`: Dengi Gateway public key
+    * refundKey **required** `string`: Dengi Gateway refund key
 
 ### Discount
 * Discount `object`
@@ -5287,15 +5717,19 @@ rebilly.websites.id.webhook.put({
   * acquirerReferenceNumber `string`: The dispute's acquirer reference number
   * amount `number`: The dispute amount
   * category `string` (values: fraud, unrecognized, product-not-received, product-unacceptable, product-not-refunded, duplicate, subscription-canceled, uncategorized): The dispute's category
+  * createdTime: Dispute created time
   * currency **required** `string`: The dispute currency ISO Alpha code
   * customerId `string`: The dispute's customer ID
   * deadlineTime `string`: Dispute deadline time
+  * id: The dispute identifier string
   * postedTime **required** `string`: Dispute posted time
   * rawResponse `string`: Dispute raw response from gateway
   * reasonCode **required** `string` (values: 1000, 12, 2, 30, 31, 35, 37, 40, 41, 42, 46, 47, 49, 50, 53, 54, 55, 57, 59, 60, 62, 7, 70, 71, 72, 73, 74, 75, 76, 77, 79, 8, 80, 81, 82, 83, 85, 86, 93, 00, 63, A01, A02, A08, F10, F14, F22, F24, F29, C02, C04, C05, C08, C14, C18, C28, C31, C32, M10, M49, P01, P03, P04, P05, P07, P08, P22, P23, R03, R13, M01, FR1, FR4, FR6, AL, AP, AW, CA, CD, CR, DA, DP, DP1, EX, IC, IN, IS, LP, N, NA, NC, P, RG, RM, RN1, RN2, SV, TF, TNM, UA01, UA02, UA32, UA99, UA03, UA10, UA11, UA12, UA18, UA20, UA21, UA22, UA23, UA28, UA30, UA31, UA38, duplicate, fraudulent, subscription_canceled, product_unacceptable, product_not_received, unrecognized, credit_not_processed, customer_initiated, incorrect_account_details, insufficient_funds, bank_cannot_process, debit_not_authorized, general): The dispute's reason code
+  * resolvedTime: Dispute resolved time
   * status **required** `string` (values: response-needed, under-review, forfeited, won, lost, unknown): The dispute's status
   * transactionId **required** `string`: The dispute's transaction ID
   * type **required** `string` (values: information-request, first-chargeback, second-chargeback, arbitration): The dispute's type
+  * updatedTime: Dispute updated time
 
 ### DisputeEvidence
 * DisputeEvidence `object`
@@ -5342,15 +5776,18 @@ rebilly.websites.id.webhook.put({
 * File `object`
   * _links `array`: The links related to resource
 
+  * createdTime: The upload date/time
   * description `string`: The File description
   * extension `string`: The File extension
   * height `integer`: Image height, applicable to images only
+  * id
   * mime `string` (values: image/png, image/jpeg, image/gif, application/pdf, audio/mpeg): The mime type
   * name `string`: Original File name
   * sha1 `string`: Hash sum of the file
   * size `integer`: The File size in bytes
   * tags `array`: The tags list
     * items `string`
+  * updatedTime: The latest update date/time
   * url `string`: Write-only. If defined on POST, this would be used as a file source.
   * width `integer`: Image width, applicable to images only
 
@@ -5360,16 +5797,138 @@ rebilly.websites.id.webhook.put({
   * href **required** `string`: The link URL
 
 ### Flexepin
+* Flexepin: Flexepin Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * apiKey **required** `string`: Flexepin API Key
+    * apiSecret **required** `string`: Flexepin API Secret
 
 ### Forte
+* Forte: Forte Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * accountId **required** `string`: Forte Gateway account ID
+    * apiAccessId **required** `string`: Forte Gateway api access ID
+    * apiSecretKey **required** `string`: Forte Gateway api secret key
+    * locationId **required** `string`: Forte Gateway location ID
 
 ### FundSend
+* FundSend: FundSend Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * clientId **required** `string`: FundSend Gateway client ID
+    * secretWord **required** `string`: FundSend Gateway secret word
 
 ### GET
+* GET: GET Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * accountId **required** `string`: GET Gateway account ID
+  * mpi [GETMpis](#getmpis)
 
 ### GETMpis
 * GETMpis `object`: GET Mpis
@@ -5383,6 +5942,7 @@ rebilly.websites.id.webhook.put({
     * items `string`
   * acquirerName **required** [AcquirerName](#acquirername)
   * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
   * dccMarkup `integer`: Dynamic currency conversion markup in basis points
   * descriptor `string`: The gateway account's descriptor
   * downtimeEnd `string`: Gateway account downtime end
@@ -5391,15 +5951,18 @@ rebilly.websites.id.webhook.put({
   * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
     * items `string`
   * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
   * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
   * method [Method](#method)
   * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
   * paymentCardSchemes `array`: Accepted payment card brands
     * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
   * status `string` (values: active, inactive, pending): The gateway account's status
   * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
   * websites **required** `array`: Websites IDs
-
+    * items: Website ID
 
 ### GatewayAccountLink
 * GatewayAccountLink `object`
@@ -5414,74 +5977,281 @@ rebilly.websites.id.webhook.put({
 * GatewayName `string` (values: A1Gateway, AmexVPC, AuthorizeNet, Beanstream, BraintreePayments, Cashflows, Cayan, Chase, ChinaUnionPay, Credorax, DataCash, Dengi, eMerchantPay, Flexepin, FundSend, Forte, GET, GlobalCollect, GlobalOne, Gpaysafe, iCheque, Ilixium, Intuit, JetPay, Jeton, Moneris, NMI, OchaPay, Optimal, PandaGateway, Payeezy, Payflow, PayPal, Payr, Payvision, Plugnpay, Realex, RealTime, RebillyProcessor, Redsys, RPN, Sagepay, SMSVoucher, Stripe, UPayCard, USAePay, VantivLitle, vegaaH, Walpay, Wirecard, Worldpay): The gateway name
 
 ### GlobalCollect
+* GlobalCollect: GlobalCollect Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * apiKeyId **required** `string`: GlobalCollect Gateway api key ID
+    * apiSecretKey **required** `string`: GlobalCollect Gateway api secret key
+    * merchantId **required** `string`: GlobalCollect Gateway merchant ID
+    * skipFraudService `boolean`: GlobalCollect skip fraud service
+  * mpi [GlobalCollectMpis](#globalcollectmpis)
 
 ### GlobalCollectMpi
-
+* GlobalCollectMpi: GlobalCollect Integrated
+  * name **required** `string` (values: GlobalCollectMpi)
 
 ### GlobalCollectMpis
 * GlobalCollectMpis `object`: GlobalCollect Mpis
   * name **required** `string` (values: GlobalCollectMpi)
 
 ### GlobalOne
+* GlobalOne: GlobalOne Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * sharedSecret **required** `string`: GlobalOne Gateway shared secret
+    * terminalId **required** `string`: GlobalOne Gateway terminal ID
 
 ### GlobalWebhook
 * GlobalWebhook `object`
   * _links `array`: Links related to resource
 
+  * createdTime: List created time
   * credentialHash **required** `string`: Hash from Credentials which is used for authentication by the given URL
   * eventsFilter `array`: An array of System event type
     * items [GlobalWebhookEventType](#globalwebhookeventtype)
   * headers `object`: Map of elements with header name - header value association
+  * id: The webhook identifier string
   * method **required** `string` (values: GET, POST, PUT, PATCH, DELETE)
   * status [OnOff](#onoff)
+  * updatedTime: List updated time
   * url **required** `string`: URL that will be triggered when the given event occurs.
 
 ### GlobalWebhookEventType
 * GlobalWebhookEventType `string` (values: gateway-account-requested, subscription-trial-ended, subscription-activated, subscription-canceled, subscription-renewed, transaction-processed, payment-card-expired, payment-declined, invoice-modified, invoice-created, dispute-created, suspended-payment-completed): Rebilly webhooks event type
 
 ### Gpaysafe
+* Gpaysafe: Gpaysafe Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * apiKey **required** `string`: Gpaysafe apiKey
 
 ### Ilixium
+* Ilixium: Ilixium Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * accountId **required** `string`: Ilixium Gateway account ID
+    * digestPassword **required** `string`: Ilixium Gateway digest password
+    * merchantId **required** `string`: Ilixium Gateway merchant ID
+  * mpi [IlixiumMpis](#ilixiummpis)
 
 ### IlixiumMpi
-
+* IlixiumMpi: Ilixium Integrated
+  * name **required** `string` (values: IlixiumMpi)
 
 ### IlixiumMpis
 * IlixiumMpis `object`: IlixiumMpis Mpis
   * name **required** `string` (values: IlixiumMpi)
 
 ### Intuit
+* Intuit: Intuit Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * clientId **required** `string`: The Intuit client_id key
+    * clientSecret **required** `string`: The Intuit client_secret key
 
 ### InvalidError
-
+* InvalidError
+  * error `string`
+  * status `integer`
+  * details `array`
+    * items `string`
 
 ### Invoice
 * Invoice `object`
   * _links `array`: The links related to resource
 
+  * abandonedTime: Invoice abandoned time
   * amount `number`: The Invoice's amount
+  * billingAddress: Invoice's billing address
+    * address `string`: The contact street address
+    * address2 `string`: The contact street address (second line)
+    * city `string`: The contact city
+    * country `string`: The contact country ISO Alpha-2 code
+    * emails [ContactEmails](#contactemails)
+    * firstName `string`: The contact first name
+    * lastName `string`: The contact last name
+    * organization `string`: The contact organization
+    * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
+    * postalCode `string`: The contact postal code
+    * region `string`: The contact region (state)
   * collectionPeriod `integer`: Collection Period - difference between paidTime and issuedTime in days.
+  * createdTime: Invoice created time
   * currency **required** `string`: The currency three letter code
+  * customerId **required**: The customer's ID
   * delinquentCollectionPeriod `integer`: Delinquent Collection Period - difference between paidTime and dueTime in days.
+  * deliveryAddress: Invoice's delivery address
+    * address `string`: The contact street address
+    * address2 `string`: The contact street address (second line)
+    * city `string`: The contact city
+    * country `string`: The contact country ISO Alpha-2 code
+    * emails [ContactEmails](#contactemails)
+    * firstName `string`: The contact first name
+    * lastName `string`: The contact last name
+    * organization `string`: The contact organization
+    * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
+    * postalCode `string`: The contact postal code
+    * region `string`: The contact region (state)
   * discounts `array`: Discounts applied
-
+    * items
+      * amount `number`: Total amount that was discounted by this Coupon
+      * description `string`: Discount description
+      * redemptionCode: Coupon's redemption code
+      * redemptionId: Redemption ID
+  * dueTime: Invoice due time
+  * id: The invoice identifier string
+  * issuedTime: Invoice issued time
   * items `array`: Invoice items array
     * items `string`
   * notes `string`: Notes for the customer which will display on the invoice
+  * organizationId: The organization's ID
+  * paidTime: Invoice paid time
   * shippingAmount `number`: The Invoice's shipping amount
   * status `string` (values: draft, issued, past-due, paid, abandoned, voided): Invoice status.
+  * subscriptionId: The related Subscription's ID if available, otherwise null
   * taxes `array`: Taxes applied to this invoice
-
+    * items
+      * amount `number`: Tax amount
+      * description `string`: Tax description
+  * updatedTime: Invoice updated time
+  * voidedTime: Invoice voided time
+  * websiteId **required**: The website's ID
 
 ### InvoiceDiscount
 * InvoiceDiscount `object`
   * amount `number`: Total amount that was discounted by this Coupon
   * description `string`: Discount description
+  * redemptionCode: Coupon's redemption code
+  * redemptionId: Redemption ID
 
 ### InvoiceIssue
 * InvoiceIssue `object`
@@ -5493,8 +6263,10 @@ rebilly.websites.id.webhook.put({
 
   * description `string`: Invoice item's description
   * discountAmount `number`: Invoice item discount amount
+  * id: The website identifier string
   * periodEndTime `string`: End time
   * periodStartTime `string`: Start time
+  * productId: The product's ID
   * quantity `integer`: Invoice item's quantity
   * type **required** `string` (values: debit, credit): Invoice item's type
   * unitPrice **required** `number`: Invoice item's price
@@ -5510,15 +6282,75 @@ rebilly.websites.id.webhook.put({
   * href **required** `string`: The link URL
 
 ### JetPay
+* JetPay: JetPay Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * TerminalID **required** `string`: JetPay Gateway terminal ID
 
 ### Jeton
+* Jeton: Jeton Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * apiKey **required** `string`: Jeton apiKey
 
 ### Layout
 * Layout `object`
   * _links `array`: The links related to resource
 
+  * createdTime: Layout created time
+  * id: The layout identifier string
   * items `array`: The array of layout items (planId and starred)
     * items [LayoutItem](#layoutitem)
   * name **required** `string`: The name of the layout string
@@ -5528,6 +6360,7 @@ rebilly.websites.id.webhook.put({
   * _links `array`: The links related to resource
 
   * order `integer`: Item's order in Layout
+  * planId **required**: The plan identifier string
   * starred `boolean`: Boolean if the plan should be starred (special callout presentation)
 
 ### LeadSource
@@ -5539,7 +6372,9 @@ rebilly.websites.id.webhook.put({
   * campaign `string`: Lead Source's campaign (eg go-big-123)
   * clickId `string`: Lead Source's click id (may come from an ad server)
   * content `string`: Lead Source's content (eg smiley faces)
+  * createdTime: LeadSource created time
   * currency `string`: Currency (three letter ISO 4217 alpha code) (eg USD, EUR)
+  * id: The lead source identifier string
   * ipAddress `string`: Customer's IP Address
   * medium `string`: Lead Source's medium (eg search, display)
   * path `string`: Lead Source's path uri (eg www.example.com/some/landing/path)
@@ -5547,6 +6382,7 @@ rebilly.websites.id.webhook.put({
   * source `string`: Lead Source's source (eg google, yahoo)
   * subAffiliate `string`: Lead Source's sub-affiliate also called a sub-id or click id in some circles (eg 123456)
   * term `string`: Lead Source's term (eg salt shakers)
+  * updatedTime: LeadSource updated time
 
 ### LeadSourceLink
 * LeadSourceLink `object`
@@ -5557,7 +6393,10 @@ rebilly.websites.id.webhook.put({
 * List `object`
   * _links `array`: Links related to resource
 
+  * createdTime: List created time
+  * id: List ID
   * name **required** `string`: List name
+  * updatedTime: List updated time
   * values **required** `array`: List values
     * items `string`
   * version `integer`: List version
@@ -5566,13 +6405,74 @@ rebilly.websites.id.webhook.put({
 * Method `string` (values: ach, cash, payment-card, paypal, Alipay, China UnionPay, Flexepin, Gpaysafe, Jeton, OchaPay, SMSVoucher, UPayCard, WeChat Pay): The payment method
 
 ### Moneris
+* Moneris: Moneris Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * apiToken **required** `string`: Moneris Gateway api token
+    * storeId **required** `string`: Moneris Gateway store ID
 
 ### MpiName
 * MpiName `string` (values: PayvisionMpi, WirecardMpi, IlixiumMpi, DataCashMpi, OptimalMpi, GlobalCollectMpi, CardinalCommerce, Other): The Merchant plug-in Name
 
 ### NMI
+* NMI: NMI Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * password **required** `string`: NMI Gateway store ID
+    * username **required** `string`: NMI Gateway api token
+  * mpi [NMIMpis](#nmimpis)
 
 ### NMIMpis
 * NMIMpis `object`: NMI Mpis
@@ -5587,9 +6487,14 @@ rebilly.websites.id.webhook.put({
   * _links `array`: The links related to resource
 
   * archived `boolean`: Is the note archived (excluded from List method)
+  * archivedTime: Note archived time
   * content **required** `string`: The note's name
   * createdBy `string`: The note's creator
+  * createdTime: Note created time
+  * id: The note identifier string
+  * relatedId **required**: The note's related resource ID
   * relatedType **required** `string` (values: customer, payment-card, payment-gateway, subscription, transaction): The note's related resource type
+  * updatedTime: Note updated time
 
 ### NotesLink
 * NotesLink `object`
@@ -5597,7 +6502,38 @@ rebilly.websites.id.webhook.put({
   * href **required** `string`: The link URL
 
 ### OchaPay
+* OchaPay: OchaPay Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * apiPassword **required** `string`: OchaPay Gateway api password
+    * apiUsername **required** `string`: OchaPay Gateway username
+    * secretWord **required** `string`: OchaPay Gateway secret word
 
 ### OnBoardingUrlLink
 * OnBoardingUrlLink `object`
@@ -5608,10 +6544,43 @@ rebilly.websites.id.webhook.put({
 * OnOff `string` (values: active, inactive)
 
 ### Optimal
+* Optimal: Optimal Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * accountNum **required** `string`: Optimal Gateway account number
+    * storeId **required** `string`: Optimal Gateway store ID
+    * storePwd **required** `string`: Optimal Gateway store password
+  * mpi [OptimalMpis](#optimalmpis)
 
 ### OptimalMpi
-
+* OptimalMpi: Optimal Integrated
+  * name **required** `string` (values: OptimalMpi)
 
 ### OptimalMpis
 * OptimalMpis `object`: Optimal Mpis
@@ -5626,9 +6595,11 @@ rebilly.websites.id.webhook.put({
   * city `string`: The organization city
   * country **required** `string`: The organization country ISO Alpha-2 code
   * createdTime [ServerTimestamp](#servertimestamp)
+  * id: The organization identifier string
   * name **required** `string`: The organization name
   * postalCode `string`: The organization postal code
   * region `string`: The organization region (state)
+  * updatedTime: The organization updated time
 
 ### OrganizationLink
 * OrganizationLink `object`
@@ -5636,10 +6607,49 @@ rebilly.websites.id.webhook.put({
   * href **required** `string`: The link URL
 
 ### Other
-
+* Other: Other
+  * name **required** `string` (values: Other)
+  * name **required** `string` (values: Other)
+  * name **required** `string` (values: Other)
+  * name **required** `string` (values: Other)
+  * name **required** `string` (values: PayvisionMpi, CardinalCommerce, Other)
+  * name **required** `string` (values: Other)
+  * name **required** `string` (values: Other)
+  * name **required** `string` (values: Other)
 
 ### PandaGateway
+* PandaGateway: Panda Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * apiCode **required** `string`: Panda Gateway api code
+    * merchantCode **required** `string`: Panda Gateway merchant code
+    * signKey **required** `string`: Panda Gateway sign key
 
 ### ParentTransactionLink
 * ParentTransactionLink `object`
@@ -5647,40 +6657,185 @@ rebilly.websites.id.webhook.put({
   * href **required** `string`: The link URL
 
 ### PayPal
+* PayPal: PayPal Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * merchantIdInPayPal **required** `string`: PayPal Gateway merchant id
+    * redirectUrl **required** `string`: PayPal Gateway redirect url
 
 ### PayPalAccount
 * PayPalAccount `object`
   * _links `array`: The links related to resource
 
+  * billingAddress **required**: The Customer's Billing Address.
+    * address `string`: The contact street address
+    * address2 `string`: The contact street address (second line)
+    * city `string`: The contact city
+    * country `string`: The contact country ISO Alpha-2 code
+    * emails [ContactEmails](#contactemails)
+    * firstName `string`: The contact first name
+    * lastName `string`: The contact last name
+    * organization `string`: The contact organization
+    * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
+    * postalCode `string`: The contact postal code
+    * region `string`: The contact region (state)
+  * createdTime: PayPal Account created time
   * customFields [ResourceCustomFields](#resourcecustomfields)
+  * customerId **required**: The Customer's ID.
+  * id: The PayPal identifier string
   * status `string` (values: inactive, active, deactivated): PayPal Account status
+  * updatedTime: PayPal Account updated time
   * username `string`: PayPal username.
 
 ### Payeezy
+* Payeezy: Payeezy Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * apiKey **required** `string`: API Key
+    * apiSecret **required** `string`: API Secret
+    * merchantId **required** `string`: Payeezy Merchant ID
+    * merchantToken **required** `string`: Merchant Token
 
 ### Payflow
+* Payflow: Payflow config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`: Payflow credentials object
+    * password **required** `string`: The password you defined while registering for the account.
+    * user **required** `string`: If you set up one or more additional users on the account, this value is the ID of the user authorized to process transactions. If, however, you have not set up additional users, USER has the same value as VENDOR
+    * vendor **required** `string`: Your merchant login ID created when you registered for the account.
 
 ### Payment
 * Payment `object`
   * _links `array`: The links related to resource
 
   * amount **required** `number`: The payment amount
+  * billingAddress: Billing Address
+    * address `string`: The contact street address
+    * address2 `string`: The contact street address (second line)
+    * city `string`: The contact city
+    * country `string`: The contact country ISO Alpha-2 code
+    * emails [ContactEmails](#contactemails)
+    * firstName `string`: The contact first name
+    * lastName `string`: The contact last name
+    * organization `string`: The contact organization
+    * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
+    * postalCode `string`: The contact postal code
+    * region `string`: The contact region (state)
   * createdBy `string`: The process that created this payment
+  * createdTime: Payment created time
   * currency **required** `string`: The payment currency ISO Alpha code
   * customFields [ResourceCustomFields](#resourcecustomfields)
+  * customerId **required**: The customer identifier string
   * description `string`: The payment description
+  * id: The payment identifier string
   * invoiceIds `array`: The array of invoice identifiers
     * items [ResourceId](#resourceid)
   * paymentInstrument [PaymentInstrument](#paymentinstrument)
   * result `string` (values: approved, declined, canceled, unknown): Payment result
+  * retriedPaymentId: The retried payment ID
   * retryInstruction [PaymentRetry](#paymentretry)
   * retryNumber `integer`: The position in the sequence of retries
+  * riskMetadata: Risk metadata
+    * accuracyRadius `integer`: Accuracy radius for specified ipAddress (kilometers)
+    * city `string`: City for specified ipAddress
+    * country `string`: Country ISO Alpha-2 code for specified ipAddress
+    * distance `integer`: Distance between IP Address and Billing Address geolocation (kilometers)
+    * fingerprint `string`: The fingerprint
+    * httpHeaders `object`: HTTP headers
+    * ipAddress `string`: The customer's IP
+    * isHosting `boolean`: True if customer's ip address is related to hosting
+    * isProxy `boolean`: True if customer's ip address is related to proxy
+    * isTor `boolean`: True if customer's ip address is related to TOR
+    * isVpn `boolean`: True if customer's ip address is related to VPN
+    * isp `string`: Internet Service Provider name, if available
+    * latitude `number`: Latitude for specified ipAddress
+    * longitude `number`: Longitude for specified ipAddress
+    * postalCode `string`: Postal code for specified ipAddress
+    * timeZone `string`: Time zone for specified ipAddress
+    * vpnServiceName `string`: VPN service name, if available
   * scheduledTime `string`: The time the payment is scheduled for collection
   * status `string` (values: scheduled, queued, in-progress, incomplete, waiting-gateway, suspended, completed): Payment status
   * updatedBy `string`: The process that updated this payment
+  * updatedTime: Payment updated time
+  * websiteId **required**: The website identifier string
 
 ### PaymentCard
 * PaymentCard `object`
@@ -5688,17 +6843,33 @@ rebilly.websites.id.webhook.put({
 
   * bankCountry `string`: Payment Card bank country
   * bankName `string`: Payment Card bank name
+  * billingAddress: The Billing Address. Required if card is creating not from Token
+    * address `string`: The contact street address
+    * address2 `string`: The contact street address (second line)
+    * city `string`: The contact city
+    * country `string`: The contact country ISO Alpha-2 code
+    * emails [ContactEmails](#contactemails)
+    * firstName `string`: The contact first name
+    * lastName `string`: The contact last name
+    * organization `string`: The contact organization
+    * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
+    * postalCode `string`: The contact postal code
+    * region `string`: The contact region (state)
   * bin `string`: The card's bin (the PAN's first 6 digits)
   * brand `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China UnionPay): Payment Card brand
+  * createdTime: Card created time
   * customFields [ResourceCustomFields](#resourcecustomfields)
+  * customerId: The Customer's ID. Required if card is creating not from Token
   * cvv `string`: Card's cvv (card verification value). Required if card is creating not from Token
   * expMonth `integer`: Card's expiry month. Required if card is creating not from Token
   * expYear `integer`: Card's expiry year. Required if card is creating not from Token
+  * id: The card identifier string
   * last4 `string`: The PAN's last 4 digits
   * pan `string`: The card PAN (Primary Account Number). Required if card is creating not from Token
   * safeHash `string`: The card's hash. Based on bin and last 4 digits of the PAN
   * status `string` (values: active, expired, inactive, deactivated, pending): Payment Card status
   * token `string`: PaymentCardToken. Use without any other fields
+  * updatedTime: Card updated time
 
 ### PaymentCardLink
 * PaymentCardLink `object`
@@ -5707,8 +6878,10 @@ rebilly.websites.id.webhook.put({
 
 ### PaymentCardMigrationRequest
 * PaymentCardMigrationRequest `object`
+  * fromGatewayAccountId **required**: An ID of Gateway Account cards should be migrated from
   * paymentCardIds **required** `array`
-
+    * items: An array of payment card IDs
+  * toGatewayAccountId **required**: An ID of Gateway Account cards should be migrated to
 
 ### PaymentCardMigrationResponse
 * PaymentCardMigrationResponse `object`
@@ -5736,7 +6909,20 @@ rebilly.websites.id.webhook.put({
 * PaymentToken `object`
   * _links `array`: The links related to resource
 
+  * billingAddress: The Address. Required if bank account is not created from Token
+    * address `string`: The contact street address
+    * address2 `string`: The contact street address (second line)
+    * city `string`: The contact city
+    * country `string`: The contact country ISO Alpha-2 code
+    * emails [ContactEmails](#contactemails)
+    * firstName `string`: The contact first name
+    * lastName `string`: The contact last name
+    * organization `string`: The contact organization
+    * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
+    * postalCode `string`: The contact postal code
+    * region `string`: The contact region (state)
   * fingerprint `string`: Device fingerprint hash
+  * id: The token identifier string
   * method **required** [Method](#method)
   * paymentInstrument **required** [PaymentTokenInstrument](#paymenttokeninstrument)
 
@@ -5752,13 +6938,77 @@ rebilly.websites.id.webhook.put({
   * routingNumber `integer`: Routing Number
 
 ### Payr
+* Payr: Payr Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * clientId **required** `string`: Payr Gateway client ID
+    * secretWord **required** `string`: Payr Gateway secret word
 
 ### Payvision
+* Payvision: Payvision Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * avs **required** `boolean`: Payvision Gateway avs
+    * delay **required** `integer`: Payvision Gateway delay
+    * memberGuid **required** `string`: Payvision Gateway member guid
+    * memberId **required** `string`: Payvision Gateway member id
+  * mpi [PayvisionMpis](#payvisionmpis)
 
 ### PayvisionMpi
-
+* PayvisionMpi: Payvision Integrated
+  * name **required** `string` (values: PayvisionMpi, CardinalCommerce, Other)
 
 ### PayvisionMpis
 * PayvisionMpis `object`: Payvision Mpis
@@ -5775,10 +7025,12 @@ rebilly.websites.id.webhook.put({
 
   * contractTermLength `integer`: The length that corresponds with the contractTermUnit
   * contractTermUnit `string` (values: day, week, month, year): The unit of time
+  * createdTime: Plan created time
   * currency **required** `string`: Currency (three letter ISO 4217 code)
   * currencySign `string`: Currency sign
   * description `string`: The plan description
   * expiredTime `string`: Time when the plan is not longer valid
+  * id: The website identifier string
   * isActive `boolean`: If the plan is not active, customers cannot subscribe to the plan (default to true)
   * maxQuantity `integer`: Maximum quantity per order (NULL if no maximum)
   * minQuantity `integer`: Minimum quantity per order, defaults to 1
@@ -5792,6 +7044,7 @@ rebilly.websites.id.webhook.put({
   * trialAmount `number`: The amount of a trial - 0 is a valid value (for free)
   * trialPeriodLength `integer`: The length of time (used with the trialPeriodUnit)
   * trialPeriodUnit `string` (values: day, week, month, year): The unit of time
+  * updatedTime: Plan updated time
 
 ### PlanLink
 * PlanLink `object`
@@ -5799,7 +7052,37 @@ rebilly.websites.id.webhook.put({
   * href **required** `string`: The link URL
 
 ### Plugnpay
+* Plugnpay: Plugnpay Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * publisher-name **required** `string`: Plugnpay Gateway member id
+    * publisher-password **required** `string`: Plugnpay Gateway avs
 
 ### PriceBasedShippingRate
 * PriceBasedShippingRate `object`
@@ -5816,11 +7099,14 @@ rebilly.websites.id.webhook.put({
   * _links `array`: The links related to resource
 
   * accountingCode `string`: The product accounting code
+  * createdTime: The product created time
   * customFields [ResourceCustomFields](#resourcecustomfields)
   * description `string`: The product description
+  * id: The product identifier string
   * name **required** `string`: The product name
   * requiresShipping `boolean`: If the product requires shipping, shipping calculations will be applied
   * taxCategoryId `string` (values: 99999, 20010, 40030, 51020, 51010, 31000, 30070): The product's tax category identifier string
+  * updatedTime: The product updated time
 
 ### Profile
 * Profile `object`
@@ -5830,6 +7116,7 @@ rebilly.websites.id.webhook.put({
   * country `string`: The user country setting - two letter code
   * email `string`: The user email
   * firstName `string`: User's first name
+  * id: The user identifier string
   * lastName `string`: User's last name
   * mobilePhone `string`: The user mobile phone number
   * preferences `object`: User preferences like timezone, language and many more. This is an object with custom properties.
@@ -5839,19 +7126,140 @@ rebilly.websites.id.webhook.put({
   * totpUrl `string`: The user link to QR-code for TOTP authentification app (if TOTP enabled)
 
 ### RPN
+* RPN: RPN Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * key **required** `string`: RPN Key
+    * mid **required** `string`: RPN MID
 
 ### RealTime
+* RealTime: RealTime Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * clientId **required** `string`: RealTime Gateway client ID
+    * secretWord **required** `string`: RealTime Gateway secret word
 
 ### Realex
+* Realex: Realex Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * account **required** `string`: Realex Gateway account
+    * merchantId **required** `string`: Realex Gateway merchant id
+    * rebatePassword **required** `string`: Realex Gateway rebate password
+    * secretKey **required** `string`: Realex Gateway secret key
 
 ### RebillyProcessor
+* RebillyProcessor: RebillyProcessor Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * mpi [RebillyProcessorMpis](#rebillyprocessormpis)
 
 ### RebillyProcessorMpi
-
+* RebillyProcessorMpi: RebillyProcessor Integrated
+  * name **required** `string` (values: RebillySandboxMpi)
 
 ### RebillyProcessorMpis
 * RebillyProcessorMpis `object`: RebillyProcessorMpis Mpis
@@ -5869,7 +7277,37 @@ rebilly.websites.id.webhook.put({
   * success **required** `string`
 
 ### Redsys
+* Redsys: Redsys Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * merchantCode **required** `string`: Redsys Gateway merchant code
+    * secretCode **required** `string`: Redsys Gateway secret code
 
 ### RefundUrlLink
 * RefundUrlLink `object`
@@ -5966,10 +7404,69 @@ rebilly.websites.id.webhook.put({
   * href **required** `string`: The link URL
 
 ### SMSVoucher
+* SMSVoucher: SMSVoucher Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * AppId **required** `string`: SMSVoucher AppId
 
 ### Sagepay
+* Sagepay: Sagepay Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * M_ID **required** `string`: Sagepay Gateway merchant ID
+    * M_KEY **required** `string`: Sagepay Gateway merchant key
 
 ### SelfLink
 * SelfLink `object`
@@ -5977,10 +7474,28 @@ rebilly.websites.id.webhook.put({
   * href **required** `string`: The link URL
 
 ### SendPreviewWebhook
-
+* SendPreviewWebhook: Trigger a test webhook
+  * body `string`
+  * credentialHash `string`: Webhook Credential identifier string.
+  * headers `array`
+    * items [WebhookHeader](#webhookheader)
+  * method **required** `string` (values: GET, POST, PUT, PATCH, DELETE)
+  * query `object`: The URI parameters
+  * url **required** `string`
 
 ### SendTestEmail
-
+* SendTestEmail: Send a test email
+  * bcc `array`: The hidden recipients addresses. The template palceholders are allowed.
+    * items `string`
+  * bodyHtml **required** `string`: Leave empty to recieve "text/plain" email.
+  * bodyText **required** `string`: Leave empty to use text from "bodyHtml" without tags.
+  * cc `array`: The recipients addresses. The template palceholders are allowed.
+    * items `string`
+  * credentialHash **required** `string`: SMTP Credential identifier string.
+  * recipients **required** `array`: The recipients addresses. The template palceholders are allowed.
+    * items `string`
+  * sender **required** `string`: The sender address. The template palceholders are allowed.
+  * subject **required** `string`: The message subject. The template palceholders are allowed.
 
 ### ServerTimestamp
 * ServerTimestamp `string`: Read-only timestamp, automatically assigned on back-end.
@@ -5989,8 +7504,19 @@ rebilly.websites.id.webhook.put({
 * Session `object`
   * _links `array`: The links related to resource
 
+  * createdTime: Session created time
   * expiredTime `string`: Session expired time. Defaults to one hour
+  * id: The session identifier string
+  * permissions **required**: The session's permissions. See the format in example
+    * items `object`
+      * methods `array`
+        * items `string` (values: HEAD, GET, POST, PUT, DELETE, PATCH)
+      * resourceIds `array`
+        * items [ResourceId](#resourceid)
+      * resourceName `string` (values: 3dsecure, api-keys, api-tracking, authentication-options, authentication-tokens, bank-accounts, blacklists, checkout-pages, contacts, coupons, coupons-redemptions, credentials, custom-events, custom-fields, customers, disputes, events, gateway-accounts, invoices, layouts, lead-sources, lists, matched-rules, notes, oct-batch, organizations, password-tokens, payments, payment-cards, payment-cards-migrations, paypal-accounts, plans, reports, reset-sandbox, rulesets, sessions, subscriptions, subscription-tracking, tokens, transactions, users, webhook, webhook-tracking, websites)
   * token `string`: The session's token used for authentication
+  * updatedTime: Session updated time
+  * userId: The user identifier string
 
 ### ShippingZone
 * ShippingZone `object`
@@ -5998,9 +7524,19 @@ rebilly.websites.id.webhook.put({
 
   * countries `array`: Countries covered by the shipping zone. A country can only belong to one shipping zone (no overlapping).
     * items `string`: Country ISO Alpha-2 code
+  * createdTime: The shipping zone created time
+  * id: The shipping zone identifier string
   * name **required** `string`: The shipping zone name
   * rates `array`: Price-based shipping rate instructions
+    * items: Price based shipping rate instruction
+      * _links `array`: The links related to resource
 
+      * currency **required** `string`: Currency (three letter ISO 4217 code)
+      * maxOrderSubtotal `number`: Maximum order subtotal for which this shipping rate is applicable (NULL if no maximum)
+      * minOrderSubtotal `number`: Minimum order subtotal for which this shipping rate is applicable, defaults to 0.00
+      * name **required** `string`: The shipping rate name
+      * price **required** `number`: The shipping price - 0 is a valid value (for free)
+  * updatedTime: The shipping zone updated time
 
 ### Signin
 * Signin `object`
@@ -6031,31 +7567,114 @@ rebilly.websites.id.webhook.put({
 
   * auth [SmtpAuthorization](#smtpauthorization)
   * encryption `string` (values: none, tls, ssl): The encryption value
+  * hash
   * host **required** `string`: The host name
   * port `integer`: The port value
 
 ### Status
 * Status `object`
   * status `string` (values: ok): The API status. If everything is ok - value is 'ok'
+  * time: Current time
 
 ### Stripe
+* Stripe: Stripe Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * redirectUrl **required** `string`: Stripe Gateway redirect url
 
 ### Subscription
 * Subscription `object`
   * _links `array`: The links related to resource
 
+  * activationTime: Subscription activation time
   * autopay `boolean`: Autopay determines if a payment attempt will be automatic
+  * billingAddress: Billing address
+    * address `string`: The contact street address
+    * address2 `string`: The contact street address (second line)
+    * city `string`: The contact city
+    * country `string`: The contact country ISO Alpha-2 code
+    * emails [ContactEmails](#contactemails)
+    * firstName `string`: The contact first name
+    * lastName `string`: The contact last name
+    * organization `string`: The contact organization
+    * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
+    * postalCode `string`: The contact postal code
+    * region `string`: The contact region (state)
   * cancelCategory `string` (values: billing-failure, did-not-use, did-not-want, missing-features, bugs-or-problems, do-not-remember, risk-warning, contract-expired, too-expensive, never-started, switched-plan, other): Cancel category
   * cancelDescription `string`: Cancel reason description in free form
   * canceledBy `string` (values: merchant, customer, rebilly): Canceled by
+  * canceledTime: Subscription canceled time
+  * createdTime: Subscription created time
   * customFields [ResourceCustomFields](#resourcecustomfields)
+  * customerId **required**: Unique id for each customer
+  * deliveryAddress: Delivery address
+    * address `string`: The contact street address
+    * address2 `string`: The contact street address (second line)
+    * city `string`: The contact city
+    * country `string`: The contact country ISO Alpha-2 code
+    * emails [ContactEmails](#contactemails)
+    * firstName `string`: The contact first name
+    * lastName `string`: The contact last name
+    * organization `string`: The contact organization
+    * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
+    * postalCode `string`: The contact postal code
+    * region `string`: The contact region (state)
+  * endTime: Subscription end time
+  * id: The Subscription identifier string
   * inTrial `boolean`: True if the subscription is currently in a trial period
+  * initialInvoiceId: Unique id for the initial invoice
+  * planId **required**: Unique id for each plan
   * quantity `integer`: Quantity for each subscription. Default value to 1
   * rebillNumber `integer`: The current period number
   * renewalTime `string`: Subscription renewal time
+  * riskMetadata: Risk metadata
+    * accuracyRadius `integer`: Accuracy radius for specified ipAddress (kilometers)
+    * city `string`: City for specified ipAddress
+    * country `string`: Country ISO Alpha-2 code for specified ipAddress
+    * distance `integer`: Distance between IP Address and Billing Address geolocation (kilometers)
+    * fingerprint `string`: The fingerprint
+    * httpHeaders `object`: HTTP headers
+    * ipAddress `string`: The customer's IP
+    * isHosting `boolean`: True if customer's ip address is related to hosting
+    * isProxy `boolean`: True if customer's ip address is related to proxy
+    * isTor `boolean`: True if customer's ip address is related to TOR
+    * isVpn `boolean`: True if customer's ip address is related to VPN
+    * isp `string`: Internet Service Provider name, if available
+    * latitude `number`: Latitude for specified ipAddress
+    * longitude `number`: Longitude for specified ipAddress
+    * postalCode `string`: Postal code for specified ipAddress
+    * timeZone `string`: Time zone for specified ipAddress
+    * vpnServiceName `string`: VPN service name, if available
   * startTime `string`: Subscription start time
   * status `string`: Subscription status
+  * updatedTime: Subscription updated time
+  * websiteId **required**: Unique id for each website
 
 ### SubscriptionCancel
 * SubscriptionCancel `object`
@@ -6071,15 +7690,21 @@ rebilly.websites.id.webhook.put({
 
 ### SubscriptionSwitch
 * SubscriptionSwitch `object`
+  * planId **required**: The plan identifier string
   * policy **required** `string` (values: at-next-renewal, now-with-prorata-credit, now): Switch policy
   * quantity `integer`: Quantity for each subscription. Default value to 1
+  * websiteId: The website's ID
 
 ### SubscriptionTracking
 * SubscriptionTracking `object`: Tracking subscription log
   * _links `array`: The links related to resource
 
+  * createdTime: The log created time
+  * id
+  * invoiceItemId
   * message `string`: It contains the transaction number and renewal time
   * result `string` (values: created, postponed, stopped, error): Subscription's result
+  * subscriptionId
 
 ### SystemEvent
 * SystemEvent `object`: The application event
@@ -6104,12 +7729,18 @@ rebilly.websites.id.webhook.put({
 
   * amount **required** `number`: Transaction amount
   * cavv `string`: The 3D Secure entry cardholder authentication verification value
+  * createdTime: The 3D Secure entry created time
   * currency **required** `string`: The currency three letter code
+  * customerId **required**: Related customer ID
   * eci `integer`: The 3D Secure entry electronic commerce indicator
   * enrolled **required** `string` (values: Y, N, U): Is the cardholder enrolled in 3DSecure
   * enrollmentEci **required** `string`: The 3D Secure entry enrollment eci
+  * gatewayAccountId **required**: Related gateway account ID
+  * id: The 3D Secure entry identifier string
   * payerAuthResponseStatus `string` (values: Y, N, U, A): The 3D Secure entry Auth Response Status
+  * paymentCardId **required**: Related payment card ID
   * signatureVerification `string` (values: Y, N): If signature was verified
+  * websiteId **required**: Related Website ID
   * xid `string`: The 3D Secure entry transaction Id
 
 ### ThreeDSecureResult
@@ -6126,15 +7757,33 @@ rebilly.websites.id.webhook.put({
 
 ### Transaction
 * Transaction `object`
+  * 3ds
+    * authenticated **required** `string` (values: yes, no, not applicable, attempted): The 3D Secure entry Auth Response Status
+    * enrolled **required** `string` (values: yes, no, invalid card/timeout, unavailable): Is the cardholder enrolled in 3D Secure
+    * liability **required** `string` (values: protected, not protected, protected (attempt))
   * _links `array`: The links related to resource
 
   * acquirerName `string`: Acquirer name, available only when transaction use gateway, else null
   * amount `number`: The transactions's amount
+  * billingAddress: Billing Address
+    * address `string`: The contact street address
+    * address2 `string`: The contact street address (second line)
+    * city `string`: The contact city
+    * country `string`: The contact country ISO Alpha-2 code
+    * emails [ContactEmails](#contactemails)
+    * firstName `string`: The contact first name
+    * lastName `string`: The contact last name
+    * organization `string`: The contact organization
+    * phoneNumbers [ContactPhoneNumbers](#contactphonenumbers)
+    * postalCode `string`: The contact postal code
+    * region `string`: The contact region (state)
   * bin `string`: Payment Card BIN
   * childTransactions `array`: The child transaction IDs
 
+  * createdTime: Transaction created time
   * currency `string`: The transactions's currency
   * customFields [ResourceCustomFields](#resourcecustomfields)
+  * customerId: Customer's ID
   * dcc `object`: Dynamic Currency Conversion detailed information. Null if hasDcc is false
     * base `object`: Initial amount and currency to convert from
       * amount `number`
@@ -6158,31 +7807,59 @@ rebilly.websites.id.webhook.put({
       * originalCode `string`: The raw, unmapped gateway's response code
       * originalMessage `string`: The raw, unmapped gateway's response message
       * type `string`: The gateway's response type
+  * gatewayAccountId: The transactions's Gateway Account ID
   * gatewayName `string`: Payment Gateway name, available only when transaction use gateway, else null
+  * gatewayTransactionId: The gateway's transaction ID
   * has3ds `boolean`
   * hasDcc `boolean`: True if transaction has Dynamic Currency Conversion applied
+  * id: The transaction identifier string
   * invoiceIds `array`: The invoice IDs related to transaction
 
   * isDisputed `boolean`: True if transaction is disputed
   * isRebill `boolean`
+  * method: Payment Method
+  * parentTransactionId: The transactions's parent ID
   * paymentInstrument [PaymentInstrument](#paymentinstrument)
+  * processedTime: Transaction processed time
   * rebillNumber `integer`: The transactions's rebill number
   * redirectUrls [RedirectUrls](#redirecturls)
   * result `string` (values: approved, canceled, declined, unknown): Transaction result
+  * retriedTransactionId: The retried transaction ID
   * retryInstruction [PaymentRetry](#paymentretry)
   * retryNumber `integer`: The position in the sequence of retries
+  * riskMetadata: Risk metadata
+    * accuracyRadius `integer`: Accuracy radius for specified ipAddress (kilometers)
+    * city `string`: City for specified ipAddress
+    * country `string`: Country ISO Alpha-2 code for specified ipAddress
+    * distance `integer`: Distance between IP Address and Billing Address geolocation (kilometers)
+    * fingerprint `string`: The fingerprint
+    * httpHeaders `object`: HTTP headers
+    * ipAddress `string`: The customer's IP
+    * isHosting `boolean`: True if customer's ip address is related to hosting
+    * isProxy `boolean`: True if customer's ip address is related to proxy
+    * isTor `boolean`: True if customer's ip address is related to TOR
+    * isVpn `boolean`: True if customer's ip address is related to VPN
+    * isp `string`: Internet Service Provider name, if available
+    * latitude `number`: Latitude for specified ipAddress
+    * longitude `number`: Longitude for specified ipAddress
+    * postalCode `string`: Postal code for specified ipAddress
+    * timeZone `string`: Time zone for specified ipAddress
+    * vpnServiceName `string`: VPN service name, if available
   * riskScore `number`: The transactions's risk score
   * scheduledTime `string`: The time the transaction is scheduled for collection
   * status `string` (values: completed, connection-error, never-sent, pending, sending, suspended, timeout, waiting-capture, waiting-refund): Transaction status
   * subscriptionIds `array`: The subscription IDs related to transaction
 
   * type `string` (values: authorize, capture, credit, refund, sale, void): Transaction type
+  * updatedTime: Transaction updated time
   * velocity `number`: The number of transactions by the same customer in the past 24 hours
+  * websiteId: Website's ID
 
 ### TransactionGatewayLog
 * TransactionGatewayLog `object`
   * _links `array`: The links related to resource
 
+  * createdTime: The log entry created time
   * duration `integer`: The request time, msec
   * headers `array`: The request headers
     * items `string`
@@ -6200,10 +7877,71 @@ rebilly.websites.id.webhook.put({
   * amount **required** `number`: Refund amount
 
 ### UPayCard
+* UPayCard: UPayCard Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * key **required** `string`: merchant key
+    * receiver_account **required** `string`: merchant receiver account
+    * secret **required** `string`: merchant secret
 
 ### USAePay
+* USAePay: USAePay Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * pin **required** `string`: USAePay Gateway pin
+    * sourceKey **required** `string`: USAePay Gateway source key
 
 ### UpdatePassword
 * UpdatePassword `object`
@@ -6218,17 +7956,28 @@ rebilly.websites.id.webhook.put({
     * items `string`
   * businessPhone `string`: The user business phone number
   * country `string`: The user country setting - two letter code
+  * createdTime: The user created time
   * email **required** `string`: The user email
   * firstName **required** `string`: User's first name
+  * id: The user identifier string
   * lastName **required** `string`: User's last name
+  * loginTime: The user last login time
   * mobilePhone `string`: The user mobile phone number
   * password `string`: User's password. If not provided, password reset email will be sent
+  * permissions: The user's permissions. See the format in example
+    * items `object`
+      * methods `array`
+        * items `string` (values: HEAD, GET, POST, PUT, DELETE, PATCH)
+      * resourceIds `array`
+        * items [ResourceId](#resourceid)
+      * resourceName `string` (values: 3dsecure, api-keys, api-tracking, authentication-options, authentication-tokens, bank-accounts, blacklists, checkout-pages, contacts, coupons, coupons-redemptions, credentials, custom-events, custom-fields, customers, disputes, events, gateway-accounts, invoices, layouts, lead-sources, lists, matched-rules, notes, oct-batch, organizations, password-tokens, payments, payment-cards, payment-cards-migrations, paypal-accounts, plans, reports, reset-sandbox, rulesets, sessions, subscriptions, subscription-tracking, tokens, transactions, users, webhook, webhook-tracking, websites)
   * preferences `object`: User preferences like timezone, language and many more. This is an object with custom properties.
   * reportingCurrency `string`: The user's ISO Alpha-3 code used for reports
   * status `string` (values: active, inactive, pending-confirmation): The user status
   * totpRequired `boolean`: The user setting of two-factor authentification
   * totpSecret `string`: The user TOTP key for authentification app (if TOTP enabled)
   * totpUrl `string`: The user link to QR-code for TOTP authentification app (if TOTP enabled)
+  * updatedTime: The user updated time
 
 ### UserPasswordAuthorization
 * UserPasswordAuthorization `object`
@@ -6245,14 +7994,77 @@ rebilly.websites.id.webhook.put({
     * resourceName `string` (values: 3dsecure, api-keys, api-tracking, authentication-options, authentication-tokens, bank-accounts, blacklists, checkout-pages, contacts, coupons, coupons-redemptions, credentials, custom-events, custom-fields, customers, disputes, events, gateway-accounts, invoices, layouts, lead-sources, lists, matched-rules, notes, oct-batch, organizations, password-tokens, payments, payment-cards, payment-cards-migrations, paypal-accounts, plans, reports, reset-sandbox, rulesets, sessions, subscriptions, subscription-tracking, tokens, transactions, users, webhook, webhook-tracking, websites)
 
 ### VantivLitle
+* VantivLitle: VantivLitle Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * merchantId **required** `string`: VantivLitle Gateway merchant ID
+    * password **required** `string`: VantivLitle Gateway password
+    * username **required** `string`: VantivLitle Gateway username
+  * mpi [VantivLitleMpis](#vantivlitlempis)
 
 ### VantivLitleMpis
 * VantivLitleMpis `object`: VantivLitle Mpis
   * name **required** `string` (values: Other)
 
 ### Walpay
+* Walpay: Walpay Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * merchantName **required** `string`: Walpay Gateway merchant name
+    * merchantPin **required** `string`: Walpay Gateway merchant pin
+  * mpi [WalpayMpis](#walpaympis)
 
 ### WalpayMpis
 * WalpayMpis `object`: WalpayMpis Mpis
@@ -6275,6 +8087,7 @@ rebilly.websites.id.webhook.put({
 ### WebhookCredential
 * WebhookCredential `object`: Webhook credential
   * auth [WebhookAuthorization](#webhookauthorization)
+  * hash
   * host **required** `string`: The host name
 
 ### WebhookHeader
@@ -6288,12 +8101,16 @@ rebilly.websites.id.webhook.put({
   * _links `array`: The links related to resource
 
   * attempt `integer`: The Webhook's attempt number
+  * createdTime: The log created time
   * eventType [EventType](#eventtype)
   * headers `object`: HTTP headers which were used to send webhook
+  * id
+  * initiatedTime: Initiated time
   * method `string`: HTTP method which was used to send webhook
   * payload `string`: Webhook's payload
   * responseBody `string`: Response body received
   * responseCode `integer`: HTTP code response
+  * sentTime: Sent time
   * source `string` (values: webhooks, rules): The Webhook's source
   * url `string`: Url where webhook was sent
 
@@ -6302,10 +8119,13 @@ rebilly.websites.id.webhook.put({
   * _links `array`: The links related to resource
 
   * checkoutPageUri `string`: Your own custom URI for this Checkout Page
+  * createdTime: Website created time
   * customFields [ResourceCustomFields](#resourcecustomfields)
+  * id: The website identifier string
   * name **required** `string`: The website's name
   * serviceEmail **required** `string`: The website's customer service email address
   * servicePhone **required** `string`: The website's customer service phone number
+  * updatedTime: Website updated time
   * url **required** `string`: The website's domain address
 
 ### WebsiteLink
@@ -6323,33 +8143,109 @@ rebilly.websites.id.webhook.put({
 * WebsiteWebhookTracking `object`: Webhook Tracking Requests.
   * _links `array`: The links related to resource
 
+  * createdTime: The log created time
   * eventName `string`: Event name for which webhook was called
+  * id
+  * nextSendTime: Next send time
   * pushData `string`: Event's data information JSON-string
   * response `integer`: HTTP code response
+  * sentTime: Sent time
   * status `string` (values: fail, success): Event's status
+  * websiteId
 
 ### Wirecard
+* Wirecard: Wirecard Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * businessSignature **required** `string`: Wirecard Gateway merchant business case signature
+    * delay **required** `integer`: Wirecard Gateway delay
+    * merchantPassword **required** `string`: Wirecard Gateway merchant password
+    * merchantUsername **required** `string`: Wirecard Gateway merchant username
+  * mpi [WirecardMpis](#wirecardmpis)
 
 ### WirecardMpi
-
+* WirecardMpi: Wirecard Integrated
+  * name **required** `string` (values: WirecardMpi)
 
 ### WirecardMpis
 * WirecardMpis `object`: Wirecard Mpis
   * name **required** `string` (values: WirecardMpi)
 
 ### Worldpay
+* Worldpay: Worldpay Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * merchantCode **required** `string`: Worldpay Gateway merchant code
+    * merchantPassword **required** `string`: Worldpay Gateway merchant password
+  * mpi [WorldpayMpis](#worldpaympis)
 
 ### WorldpayMpis
 * WorldpayMpis `object`: Worldpay Mpis
   * name **required** `string` (values: Other)
 
 ### ach
-
+* ach: ACH payment instrument object
+  * method **required** [Method](#method)
+  * bankAccountId **required**: The bank account identifier string
+  * gatewayAccountId: The payment gateway identifier string
 
 ### add-risk-score
-
+* add-risk-score
+  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
+  * status [OnOff](#onoff)
+  * score `integer`
 
 ### and
 * and `object`: Logical AND
@@ -6358,10 +8254,14 @@ rebilly.websites.id.webhook.put({
     * items [Condition](#condition)
 
 ### auto
-
+* auto
+  * method **required** `string` (values: auto, immediately, date-interval, day-of-month, day-of-week)
 
 ### basic
-
+* basic
+  * type **required** `string` (values: none, basic, digest, oauth1): The authorization type
+  * password **required** `string`
+  * username **required** `string`
 
 ### between
 * between `object`: Between condition
@@ -6371,13 +8271,21 @@ rebilly.websites.id.webhook.put({
   * path **required** `string`
 
 ### blacklist
-
+* blacklist: Add customer data to blacklist
+  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
+  * status [OnOff](#onoff)
+  * ttl `integer`: Blacklist TTL. Defaults to zero, meaning blacklist record won't expire ever.
+  * type **required** `string` (values: customer-id, email, fingerprint, ip-address, payment-card-id)
 
 ### cancel-scheduled-payments
-
+* cancel-scheduled-payments
+  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
+  * status [OnOff](#onoff)
 
 ### cash
-
+* cash: Cash payment instrument object
+  * method **required** [Method](#method)
+  * receivedBy `string`: The receiver's name
 
 ### compare
 * compare `object`
@@ -6385,28 +8293,84 @@ rebilly.websites.id.webhook.put({
   * value **required** `string`
 
 ### cram-md5
-
+* cram-md5
+  * type `string` (values: none, plain, login, cram-md5)
+  * password **required** `string`
+  * username **required** `string`
 
 ### date-interval
-
+* date-interval
+  * method **required** `string` (values: auto, immediately, date-interval, day-of-month, day-of-week)
+  * method **required** `string` (values: date-interval, day-of-month, day-of-week)
+  * duration **required** `integer`: The number of the units
+  * unit **required** [TimeUnit](#timeunit)
 
 ### day-of-month
-
+* day-of-month
+  * method **required** `string` (values: auto, immediately, date-interval, day-of-month, day-of-week)
+  * method **required** `string` (values: date-interval, day-of-month, day-of-week)
+  * day **required** `integer`: The day of the month when event will be scheduled.
+  * time [Time](#time)
 
 ### day-of-week
-
+* day-of-week
+  * method **required** `string` (values: auto, immediately, date-interval, day-of-month, day-of-week)
+  * method **required** `string` (values: date-interval, day-of-month, day-of-week)
+  * day **required** [DayOfWeek](#dayofweek)
+  * time [Time](#time)
+  * week `string` (values: next, first-in-month, last-in-month)
 
 ### digest
-
+* digest
+  * type **required** `string` (values: none, basic, digest, oauth1): The authorization type
+  * password **required** `string`
+  * username **required** `string`
 
 ### discount
-
+* discount
+  * method **required** `string` (values: none, partial, discount)
+  * type **required** `string` (values: percent, fixed): The payment amount discount type
+  * value **required** `number`: The payment amount discount
 
 ### discounts-per-redemption
-
+* discounts-per-redemption: discounts-per-redemption restrictions
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, redemptions-per-customer, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions, total-redemptions): Coupon's restriction type
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions): Redemption's additional restriction type
+  * quantity **required** `integer`: Restriction quantity
 
 ### eMerchantPay
+* eMerchantPay: eMerchantPay Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * apiKey **required** `string`: eMerchantPay Gateway api key
+    * clientId **required** `string`: eMerchantPay Gateway client ID
+  * mpi [eMerchantPayMpis](#emerchantpaympis)
 
 ### eMerchantPayMpis
 * eMerchantPayMpis `object`: eMerchantPay Mpis
@@ -6419,13 +8383,27 @@ rebilly.websites.id.webhook.put({
   * value **required** `string`
 
 ### fixed
-
+* fixed: Coupon fixed amount discount
+  * type `string` (values: fixed, percent): Discount type
+  * amount **required** `number`: Discount amount
+  * currency **required** `string`: Discount currency
 
 ### gateway-account-weights
-
+* gateway-account-weights
+  * method **required** `string` (values: gateway-account-weights, gateway-acquirer-weights)
+  * weightedList **required** `array`
+    * items `object`
+      * gatewayAccountId **required** [ResourceId](#resourceid)
+      * weight **required** `integer`
 
 ### gateway-acquirer-weights
-
+* gateway-acquirer-weights
+  * method **required** `string` (values: gateway-account-weights, gateway-acquirer-weights)
+  * weightedList **required** `array`
+    * items `object`
+      * acquirerName **required** [AcquirerName](#acquirername)
+      * gatewayName **required** [GatewayName](#gatewayname)
+      * weight **required** `integer`
 
 ### gt
 * gt `object`: Greater than condition
@@ -6440,13 +8418,46 @@ rebilly.websites.id.webhook.put({
   * value **required** `string`
 
 ### guess-payment-card-expiration
-
+* guess-payment-card-expiration
+  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
+  * status [OnOff](#onoff)
 
 ### iCheque
+* iCheque: iCheque Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * clientId **required** `string`: iCheque Gateway client ID
+    * secretWord **required** `string`: iCheque Gateway secret word
 
 ### immediately
-
+* immediately
+  * method **required** `string` (values: auto, immediately, date-interval, day-of-month, day-of-week)
 
 ### in
 * in `object`: In condition
@@ -6465,7 +8476,10 @@ rebilly.websites.id.webhook.put({
   * condition **required** [Condition](#condition)
 
 ### login
-
+* login
+  * type `string` (values: none, plain, login, cram-md5)
+  * password **required** `string`
+  * username **required** `string`
 
 ### lt
 * lt `object`: Less than condition
@@ -6480,10 +8494,17 @@ rebilly.websites.id.webhook.put({
   * value **required** `string`
 
 ### minimum-order-amount
-
+* minimum-order-amount: minimum-order-amount restrictions
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, redemptions-per-customer, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions, total-redemptions): Coupon's restriction type
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions): Redemption's additional restriction type
+  * amount **required** `integer`: Minimum order quantity
+  * currency **required** `string`: Minimum order currency
 
 ### none
-
+* none
+  * method **required** `string` (values: none, partial, discount)
+  * type `string` (values: none, plain, login, cram-md5)
+  * type **required** `string` (values: none, basic, digest, oauth1): The authorization type
 
 ### not
 * not `object`: Logical NOT
@@ -6491,7 +8512,12 @@ rebilly.websites.id.webhook.put({
   * condition **required** [Condition](#condition)
 
 ### oauth1
-
+* oauth1
+  * type **required** `string` (values: none, basic, digest, oauth1): The authorization type
+  * consumerKey **required** `string`
+  * consumerSecret **required** `string`
+  * token **required** `string`
+  * tokenSecret **required** `string`
 
 ### or
 * or `object`: Logical OR
@@ -6500,54 +8526,155 @@ rebilly.websites.id.webhook.put({
     * items [Condition](#condition)
 
 ### partial
-
+* partial
+  * method **required** `string` (values: none, partial, discount)
+  * type **required** `string` (values: percent, fixed): The payment amount type
+  * value **required** `number`: The payment amount
 
 ### payment-card
-
+* payment-card: Payment card payment instrument object
+  * method **required** [Method](#method)
+  * gatewayAccountId: The payment gateway identifier string
+  * paymentCardId **required**: The payment card identifier string
 
 ### paypal
-
+* paypal: PayPal payment instrument object
+  * method **required** [Method](#method)
+  * gatewayAccountId: The payment gateway identifier string
+  * payPalAccountId **required**: The PayPal account identifier string
 
 ### percent
-
+* percent: Coupon percent discount
+  * type `string` (values: fixed, percent): Discount type
+  * value **required** `number`: Discount percent
 
 ### pick-gateway-account
-
+* pick-gateway-account
+  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
+  * status [OnOff](#onoff)
+  * pickInstruction **required** [GatewayAccountPickInstruction](#gatewayaccountpickinstruction)
 
 ### plain
-
+* plain
+  * type `string` (values: none, plain, login, cram-md5)
+  * password **required** `string`
+  * username **required** `string`
 
 ### redemptions-per-customer
-
+* redemptions-per-customer: Quantity per Customer restrictions
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, redemptions-per-customer, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions, total-redemptions): Coupon's restriction type
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions): Redemption's additional restriction type
+  * quantity **required** `integer`: Restriction value
 
 ### restrict-to-invoices
-
+* restrict-to-invoices: restrict-to-invoices restrictions
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, redemptions-per-customer, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions, total-redemptions): Coupon's restriction type
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions): Redemption's additional restriction type
+  * invoiceIds **required** `array`: Invoice IDs coupon can be applied to
+    * items `string`
 
 ### restrict-to-plans
-
+* restrict-to-plans: restrict-to-plans restrictions
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, redemptions-per-customer, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions, total-redemptions): Coupon's restriction type
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions): Redemption's additional restriction type
+  * planIds **required** `array`: Plan IDs coupon can be applied to
+    * items `string`
 
 ### restrict-to-subscriptions
-
+* restrict-to-subscriptions: restrict-to-subscriptions restrictions
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, redemptions-per-customer, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions, total-redemptions): Coupon's restriction type
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions): Redemption's additional restriction type
+  * subscriptionIds **required** `array`: Subscription IDs coupon can be applied to
+    * items `string`
 
 ### schedule-payment
-
+* schedule-payment
+  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
+  * status [OnOff](#onoff)
+  * amountPolicy **required** `string` (values: balance-outstanding, invoice-total)
+  * scheduleInstruction **required** [CommonScheduleInstruction](#commonscheduleinstruction)
 
 ### schedule-payment-retry
-
+* schedule-payment-retry
+  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
+  * status [OnOff](#onoff)
+  * afterAttemptPolicy **required** `string` (values: none, change-subscription-renewal-time): The policy on the attempt finishes
+  * afterRetryEndPolicy **required** `string` (values: none, cancel-subscription): The policy on the retry ends
+  * attempts **required** `array`
+    * items `object`
+      * paymentInstruction **required** [AmountAdjustment](#amountadjustment)
+      * scheduleInstruction **required** [CommonScheduleInstruction](#commonscheduleinstruction)
 
 ### send-email
-
+* send-email
+  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
+  * status [OnOff](#onoff)
+  * bcc `array`: The hidden recipients addresses. The template palceholders are allowed.
+    * items `string`
+  * bodyHtml **required** `string`: Leave empty to recieve "text/plain" email.
+  * bodyText **required** `string`: Leave empty to use text from "bodyHtml" without tags.
+  * cc `array`: The recipients addresses. The template palceholders are allowed.
+    * items `string`
+  * credentialHash **required** `string`: SMTP Credential identifier string.
+  * recipients **required** `array`: The recipients addresses. The template palceholders are allowed.
+    * items `string`
+  * sender **required** `string`: The sender address. The template palceholders are allowed.
+  * subject **required** `string`: The message subject. The template palceholders are allowed.
 
 ### stop-subscriptions
-
+* stop-subscriptions: Stop active subscriptions
+  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
+  * status [OnOff](#onoff)
 
 ### total-redemptions
-
+* total-redemptions: total-redemptions restrictions
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, redemptions-per-customer, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions, total-redemptions): Coupon's restriction type
+  * type **required** `string` (values: discounts-per-redemption, minimum-order-amount, restrict-to-invoices, restrict-to-plans, restrict-to-subscriptions): Redemption's additional restriction type
+  * quantity **required** `integer`: Total redemptions quantity
 
 ### trigger-webhook
-
+* trigger-webhook
+  * name **required** `string` (values: blacklist, cancel-scheduled-payments, guess-payment-card-expiration, pick-gateway-account, schedule-payment-retry, schedule-payment, send-email, trigger-webhook, stop-subscriptions, add-risk-score): The action name
+  * status [OnOff](#onoff)
+  * body `string`
+  * credentialHash `string`: Webhook Credential identifier string.
+  * headers `array`
+    * items [WebhookHeader](#webhookheader)
+  * method **required** `string` (values: GET, POST, PUT, PATCH, DELETE)
+  * query `object`: The URI parameters
+  * url **required** `string`
 
 ### vegaaH
+* vegaaH: vegaaH Gateway config
+  * _links `array`: The links related to resource
 
+  * acceptedCurrencies **required** `array`: Accepted currencies (array of the currency three letter code)
+    * items `string`
+  * acquirerName **required** [AcquirerName](#acquirername)
+  * cityField `string`: The gateway account's city field (also known as line 2 descriptor)
+  * createdTime: Gateway Account created time
+  * dccMarkup `integer`: Dynamic currency conversion markup in basis points
+  * descriptor `string`: The gateway account's descriptor
+  * downtimeEnd `string`: Gateway account downtime end
+  * downtimeStart `string`: Gateway account downtime start
+  * dynamicDescriptor `boolean`: True, if Gateway Account allows dynamic descriptor
+  * excludedDccQuoteCurrencies `array`: Excluded Dynamic Currency Conversion Quote Currencies
+    * items `string`
+  * gatewayName **required** [GatewayName](#gatewayname)
+  * id: The gateway identifier string
+  * merchantCategoryCode **required** `integer`: The gateway account's merchant category code
+  * method [Method](#method)
+  * monthlyLimit `number`: Monthly Limit
+  * organizationId **required**: Organization ID
+  * paymentCardSchemes `array`: Accepted payment card brands
+    * items `string` (values: Visa, MasterCard, American Express, Discover, Maestro, Solo, Electron, JCB, Voyager, Diners Club, Switch, Laser, China Unionpay)
+  * status `string` (values: active, inactive, pending): The gateway account's status
+  * threeDSecure `boolean`: True, if Gateway Account allows 3DSecure
+  * updatedTime: Gateway Account updated time
+  * websites **required** `array`: Websites IDs
+    * items: Website ID
+  * gatewayConfig **required** `object`
+    * password **required** `string`: vegaaH Gateway password
+    * terminalId **required** `string`: vegaaH Gateway terminal ID
 
 

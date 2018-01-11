@@ -250,6 +250,206 @@ giphy.trendingStickers({}, context)
     * items `string`: Tag name
   * id `string`: This GIF's unique ID
   * images `object`: An object containing data for various available formats and sizes of this GIF.
+    * downsized
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * downsized_large
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * downsized_medium
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * downsized_small
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * downsized_still
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * fixed_height
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * fixed_height_downsampled
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * fixed_height_small
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * fixed_height_small_still
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * fixed_height_still
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * fixed_width
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * fixed_width_downsampled
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * fixed_width_small
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * fixed_width_small_still
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * fixed_width_still
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * looping
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * original
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * original_still
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * preview
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
+    * preview_gif
+      * frames `string`: The number of frames in this GIF.
+      * height `string`: The height of this GIF in pixels.
+      * mp4 `string`: The URL for this GIF in .MP4 format.
+      * mp4_size `string`: The size in bytes of the .MP4 file corresponding to this GIF.
+      * size `string`: The size of this GIF in bytes.
+      * url `string`: The publicly-accessible direct URL for this GIF.
+      * webp `string`: The URL for this GIF in .webp format.
+      * webp_size `string`: The size in bytes of the .webp file corresponding to this GIF.
+      * width `string`: The width of this GIF in pixels.
   * import_datetime `string`: The creation or upload date from this GIF's source.
   * rating `string`: The MPAA-style rating for this content. Examples include Y, G, PG, PG-13 and R
   * slug `string`: The unique slug used in this GIF's URL

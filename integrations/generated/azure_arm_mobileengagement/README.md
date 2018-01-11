@@ -1044,7 +1044,10 @@ azure_arm_mobileengagement.Devices_GetByUserId({
 ## Definitions
 
 ### AnnouncementFeedbackCriterion
-
+* AnnouncementFeedbackCriterion: Used to target devices who received an announcement.
+  * type **required** `string`
+  * action `string` (values: pushed, replied, actioned, exited): Action that was performed on the announcement.
+  * content-id `integer`: The unique identifier of the announcement.
 
 ### ApiError
 * ApiError `object`
@@ -1087,7 +1090,10 @@ azure_arm_mobileengagement.Devices_GetByUserId({
   * provisioningState `string` (values: Creating, Succeeded): Mobile Engagement AppCollection Properties.
 
 ### AppInfoFilter
-
+* AppInfoFilter: Send only to users who have some app info set. This is a special filter that is automatically added if your campaign contains appInfo parameters. It is not intended to be public and should not be used as it could be removed or replaced by the API.
+  * type **required** `string`
+  * appInfo `array`: An array containing all the required appInfo.
+    * items `string`
 
 ### AppListResult
 * AppListResult `object`: The list Apps operation response.
@@ -1102,10 +1108,15 @@ azure_arm_mobileengagement.Devices_GetByUserId({
   * platform `string`: The platform of the app.
 
 ### ApplicationVersionCriterion
-
+* ApplicationVersionCriterion: Used to target devices based on the version of the application they are using.
+  * type **required** `string`
+  * name `string`: The application version.
 
 ### BooleanTagCriterion
-
+* BooleanTagCriterion: Target devices based on a boolean tag value.
+  * type **required** `string`
+  * name `string`: The name of the custom tag.
+  * value `boolean`: A custom boolean value to match.
 
 ### Campaign
 * Campaign `object`
@@ -1270,20 +1281,31 @@ azure_arm_mobileengagement.Devices_GetByUserId({
     * items [CampaignListResult](#campaignlistresult)
 
 ### CarrierCountryCriterion
-
+* CarrierCountryCriterion: Used to target devices based on their carrier country.
+  * type **required** `string`
+  * name `string`: Two-characters country code (ISO 3166-1).
 
 ### CarrierNameCriterion
-
+* CarrierNameCriterion: Used to target devices based on their carrier name.
+  * type **required** `string`
+  * name `string`: Carrier name value.
 
 ### Criterion
 * Criterion `object`
   * type **required** `string`
 
 ### DatapushFeedbackCriterion
-
+* DatapushFeedbackCriterion: Used to target devices who received a data push.
+  * type **required** `string`
+  * action `string` (values: pushed, replied, actioned, exited): Action that was performed on the data push (action depends on the return value in the callbacks you declared in the client code).
+  * content-id `integer`: The unique identifier of the data push.
 
 ### DateTagCriterion
-
+* DateTagCriterion: Target devices based on a date tag value.
+  * type **required** `string`
+  * name `string`: The name of the custom tag.
+  * op `string` (values: EQ, LT, GT, LE, GE): comparison operator: `EQ` (equal to), `LT` (less than), `GT` (greater than), `LE` (less than or equal to) or `GE` (greater than or equal to).
+  * value `string`: It can be either: * an absolute date using yyyy-MM-dd format (e.g. 1969-12-07 stands for 7 Dec 1969). * an offset in days relative to the current day (`TODAY` + `value`).
 
 ### Device
 * Device `object`
@@ -1317,7 +1339,9 @@ azure_arm_mobileengagement.Devices_GetByUserId({
   * region `string`: An administrative region of the nation, such as a state or province.
 
 ### DeviceManufacturerCriterion
-
+* DeviceManufacturerCriterion: Used to target devices based on the device manufacturer.
+  * type **required** `string`
+  * name `string`: The device manufacturer.
 
 ### DeviceMeta
 * DeviceMeta `object`
@@ -1328,7 +1352,9 @@ azure_arm_mobileengagement.Devices_GetByUserId({
   * nativePushEnabled `boolean`: Boolean indicating if native push notifications (like Android’s GCM or Apple’s APNS) are enabled for the application. This boolean is set to true when the application registers successfully to the native push service, and set to false when the native push service reports to Mobile Engagement that the application can no longer be pushed (which means that it has been uninstalled). This report is performed a few hours after Mobile Engagement has tried to perform a native push to a device on which the application has been uninstalled.
 
 ### DeviceModelCriterion
-
+* DeviceModelCriterion: Used to target devices based on the device model.
+  * type **required** `string`
+  * name `string`: The device model.
 
 ### DeviceQueryResult
 * DeviceQueryResult `object`
@@ -1352,44 +1378,74 @@ azure_arm_mobileengagement.Devices_GetByUserId({
     * items [DeviceQueryResult](#devicequeryresult)
 
 ### EngageActiveUsersFilter
-
+* EngageActiveUsersFilter: Send only to users who have used the app in the last {threshold} days.
+  * type **required** `string`
+  * threshold `integer`: An integer value representing the threshold to apply on this filter.
 
 ### EngageIdleUsersFilter
-
+* EngageIdleUsersFilter: Send only to users who haven't used the app in the last {threshold} days.
+  * type **required** `string`
+  * threshold `integer`: An integer value representing the threshold to apply on this filter.
 
 ### EngageNewUsersFilter
-
+* EngageNewUsersFilter: Send only to users whose first app use is less than {threshold} days old.
+  * type **required** `string`
+  * threshold `integer`: An integer value representing the threshold to apply on this filter.
 
 ### EngageOldUsersFilter
-
+* EngageOldUsersFilter: Send only to users whose first app use is more than {threshold} days old.
+  * type **required** `string`
+  * threshold `integer`: An integer value representing the threshold to apply on this filter.
 
 ### EngageSubsetFilter
-
+* EngageSubsetFilter: Send only to a maximum of max users.
+  * type **required** `string`
+  * max `integer`: An integer value representing the maximum users that should be pushed.
 
 ### Filter
 * Filter `object`
   * type **required** `string`
 
 ### FirmwareVersionCriterion
-
+* FirmwareVersionCriterion: Used to target devices based on their firmware version.
+  * type **required** `string`
+  * name `string`: Firmware version.
 
 ### GeoFencingCriterion
-
+* GeoFencingCriterion: Used to target devices based on a specific region. A center point (defined by a latitude and longitude) and a radius form the boundary for the region. This criterion will be met when the user crosses the boundaries of the region.
+  * type **required** `string`
+  * expiration `integer`: Number of minutes before device location is considered to be expired.
+  * lat `number`: The latitude of the central point of the region.
+  * lon `number`: The longitude of the central point of the region.
+  * radius `integer`: The radius of the central point of the region, in meters.
 
 ### IntegerTagCriterion
-
+* IntegerTagCriterion: Target devices based on an integer tag value.
+  * type **required** `string`
+  * name `string`: The name of the custom tag.
+  * op `string` (values: EQ, LT, GT, LE, GE): comparison operator: `EQ` (equal to), `LT` (less than), `GT` (greater than), `LE` (less than or equal to) or `GE` (greater than or equal to).
+  * value `integer`: A custom integer value to match.
 
 ### LanguageCriterion
-
+* LanguageCriterion: Used to target devices based on the language of their device.
+  * type **required** `string`
+  * name `string`: Two character language code (ISO 639-1).
 
 ### LocationCriterion
-
+* LocationCriterion: Used to target devices based on their last know area.
+  * type **required** `string`
+  * country **required** `string`: Two character country code where the user is located (ISO 3166-1).
+  * locality `string`: A locality within the administrative region, such as a town or city.
+  * region `string`: An administrative region of the country, such as a state or province.
 
 ### NativePushEnabledFilter
-
+* NativePushEnabledFilter: Engage only users with native push enabled.
+  * type **required** `string`
 
 ### NetworkTypeCriterion
-
+* NetworkTypeCriterion: Used to target devices based their network type.
+  * type **required** `string`
+  * name `string`: The network type (Wifi, Mobile...).
 
 ### NotificationOptions
 * NotificationOptions `object`
@@ -1399,10 +1455,16 @@ azure_arm_mobileengagement.Devices_GetByUserId({
   * sound `string`: iOS only. The name of a sound file in the application bundle. The sound in this file is played as an alert. If the sound file doesn’t exist or default is specified as the value, the default alert sound is played. The audio must be in one of the audio data formats that are compatible with system sounds. The `deliveryTime` property must be set to `any` or `background`.
 
 ### PollAnswerFeedbackCriterion
-
+* PollAnswerFeedbackCriterion: Used to target devices who answered X to a given question.
+  * type **required** `string`
+  * choice-id `integer`: The unique identifier of the choice.
+  * content-id `integer`: The unique identifier of the poll.
 
 ### PollFeedbackCriterion
-
+* PollFeedbackCriterion: Used to target devices who received a poll.
+  * type **required** `string`
+  * action `string` (values: pushed, replied, actioned, exited): Action that was performed on the poll.
+  * content-id `integer`: The unique identifier of the poll.
 
 ### PollQuestion
 * PollQuestion `object`
@@ -1428,7 +1490,8 @@ azure_arm_mobileengagement.Devices_GetByUserId({
   * title `string`: Title of the question.
 
 ### PushQuotaFilter
-
+* PushQuotaFilter: Engage only users for whom the push quota is not reached.
+  * type **required** `string`
 
 ### Resource
 * Resource `object`
@@ -1439,13 +1502,21 @@ azure_arm_mobileengagement.Devices_GetByUserId({
   * type `string`: Resource type
 
 ### ScreenSizeCriterion
-
+* ScreenSizeCriterion: Used to target devices based on the screen resolution of their device.
+  * type **required** `string`
+  * name `string`: Screen size using the following format WIDTH**x**HEIGHT.
 
 ### SegmentCriterion
-
+* SegmentCriterion: Target devices based on an existing segment.
+  * type **required** `string`
+  * exclude `boolean`: If value is true, the criterion will target users that are NOT part of the segment.
+  * id `integer`: Segment identifier.
 
 ### StringTagCriterion
-
+* StringTagCriterion: Target devices based on a string tag value.
+  * type **required** `string`
+  * name `string`: The name of the custom tag.
+  * value `string`: A custom string to match for tag value (? and * characters can be used to perform wildcard matching).
 
 ### SupportedPlatformsListResult
 * SupportedPlatformsListResult `object`
