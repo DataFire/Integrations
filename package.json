@@ -26,5 +26,8 @@
     "request": "^2.79.0",
     "to-markdown": "^3.1.0",
     "yargs": "^6.4.0"
+  },
+  "dependencies": {
+    "remove-markdown-and-html": "^0.1.0"
   }
 }

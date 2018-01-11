@@ -1,6 +1,7 @@
 const fs = require('fs');
 const TITLE_LINE = '## Integrations';
 const README_FILE = __dirname + '/../../README.md';
+const removeMD = require('remove-markdown-and-html');
 
 let readme = fs.readFileSync(README_FILE, 'utf8');
 let list = require('../../json/list');
@@ -25,7 +26,7 @@ Object.keys(list).sort((k1, k2) => {
     details.title,
     `[README](integrations/${details.directory}/${key})`,
     `[DataFire.io](https://app.datafire.io/integrations/${key})`,
-    details.description,
+    removeMD(details.description || ''),
   ]
   let line = '|' + parts.join('|') + '|';
   readme += '\n' + line;
