@@ -10,7 +10,7 @@ This is a set of NodeJS clients for over 600 different APIs and services, includ
 
 AWS • Azure • MongoDB • Slack • GitHub • Twilio • Trello • Square • Google Sheets • Gmail • Heroku
 
-The client libraries can be used with or without the [DataFire framework](https://github.com/DataFire/DataFire).
+The client libraries can be used **with or without** the [DataFire framework](https://github.com/DataFire/DataFire).
 
 ## Installing an Integration
 Integrations are available in the `@datafire` scope in npm:
