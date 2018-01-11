@@ -146,7 +146,7 @@ github.gists.post({
 
 #### Parameters
 * input `object`
-  * body **required** [postGist](#postGist)
+  * body **required** [postGist](#postgist)
 
 #### Output
 * output [gist](#gist)
@@ -229,7 +229,7 @@ github.gists.id.patch({
 #### Parameters
 * input `object`
   * id **required** `integer`: Id of gist.
-  * body **required** [patchGist](#patchGist)
+  * body **required** [patchGist](#patchgist)
 
 #### Output
 * output [gist](#gist)
@@ -268,7 +268,7 @@ github.gists.id.comments.post({
 #### Parameters
 * input `object`
   * id **required** `integer`: Id of gist.
-  * body **required** [commentBody](#commentBody)
+  * body **required** [commentBody](#commentbody)
 
 #### Output
 * output [comment](#comment)
@@ -643,7 +643,7 @@ github.notifications.put({
 
 #### Parameters
 * input `object`
-  * body **required** [notificationMarkRead](#notificationMarkRead)
+  * body **required** [notificationMarkRead](#notificationmarkread)
 
 #### Output
 *Output schema unknown*
@@ -734,7 +734,7 @@ github.notifications.threads.id.subscription.put({
 #### Parameters
 * input `object`
   * id **required** `integer`: Id of thread.
-  * body **required** [putSubscription](#putSubscription)
+  * body **required** [putSubscription](#putsubscription)
 
 #### Output
 * output [subscription](#subscription)
@@ -770,7 +770,7 @@ github.orgs.org.patch({
 #### Parameters
 * input `object`
   * org **required** `string`: Name of organisation.
-  * body **required** [patchOrg](#patchOrg)
+  * body **required** [patchOrg](#patchorg)
 
 #### Output
 * output [organization](#organization)
@@ -1004,7 +1004,7 @@ github.orgs.org.repos.post({
 #### Parameters
 * input `object`
   * org **required** `string`: Name of organisation.
-  * body **required** [postRepo](#postRepo)
+  * body **required** [postRepo](#postrepo)
 
 #### Output
 * output [repos](#repos)
@@ -1045,7 +1045,7 @@ github.orgs.org.teams.post({
 #### Parameters
 * input `object`
   * org **required** `string`: Name of organisation.
-  * body **required** [orgTeamsPost](#orgTeamsPost)
+  * body **required** [orgTeamsPost](#orgteamspost)
 
 #### Output
 * output [team](#team)
@@ -1123,7 +1123,7 @@ github.repos.owner.repo.patch({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * body **required** [repoEdit](#repoEdit)
+  * body **required** [repoEdit](#repoedit)
 
 #### Output
 * output [repo](#repo)
@@ -1323,7 +1323,7 @@ github.repos.owner.repo.comments.get({
   * page `integer`
 
 #### Output
-* output [repoComments](#repoComments)
+* output [repoComments](#repocomments)
 
 ### repos.owner.repo.comments.commentId.delete
 Delete a commit comment
@@ -1365,7 +1365,7 @@ github.repos.owner.repo.comments.commentId.get({
   * commentId **required** `integer`: Id of comment.
 
 #### Output
-* output [commitComments](#commitComments)
+* output [commitComments](#commitcomments)
 
 ### repos.owner.repo.comments.commentId.patch
 Update a commit comment.
@@ -1387,10 +1387,10 @@ github.repos.owner.repo.comments.commentId.patch({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * commentId **required** `integer`: Id of comment.
-  * body **required** [commentBody](#commentBody)
+  * body **required** [commentBody](#commentbody)
 
 #### Output
-* output [commitComments](#commitComments)
+* output [commitComments](#commitcomments)
 
 ### repos.owner.repo.commits.get
 List commits on a repository.
@@ -1441,7 +1441,7 @@ github.repos.owner.repo.commits.ref.status.get({
   * page `integer`
 
 #### Output
-* output [refStatus](#refStatus)
+* output [refStatus](#refstatus)
 
 ### repos.owner.repo.commits.shaCode.get
 Get a single commit.
@@ -1484,7 +1484,7 @@ github.repos.owner.repo.commits.shaCode.comments.get({
   * page `integer`
 
 #### Output
-* output [repoComments](#repoComments)
+* output [repoComments](#repocomments)
 
 ### repos.owner.repo.commits.shaCode.comments.post
 Create a commit comment.
@@ -1507,10 +1507,10 @@ github.repos.owner.repo.commits.shaCode.comments.post({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * shaCode **required** `string`: SHA-1 code of the commit.
-  * body **required** [commitBody](#commitBody)
+  * body **required** [commitBody](#commitbody)
 
 #### Output
-* output [commitComments](#commitComments)
+* output [commitComments](#commitcomments)
 
 ### repos.owner.repo.compare.baseId...headId.get
 Compare two commits
@@ -1555,10 +1555,10 @@ github.repos.owner.repo.contents.path.delete({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * path **required** `string`
-  * body **required** [deleteFileBody](#deleteFileBody)
+  * body **required** [deleteFileBody](#deletefilebody)
 
 #### Output
-* output [deleteFile](#deleteFile)
+* output [deleteFile](#deletefile)
 
 ### repos.owner.repo.contents.path.get
 Get contents.
@@ -1607,10 +1607,10 @@ github.repos.owner.repo.contents.path.put({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * path **required** `string`
-  * body **required** [createFileBody](#createFileBody)
+  * body **required** [createFileBody](#createfilebody)
 
 #### Output
-* output [createFile](#createFile)
+* output [createFile](#createfile)
 
 ### repos.owner.repo.contributors.get
 Get list of contributors.
@@ -1845,7 +1845,7 @@ github.repos.owner.repo.forks.post({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * body **required** [forkBody](#forkBody)
+  * body **required** [forkBody](#forkbody)
 
 #### Output
 * output [fork](#fork)
@@ -1917,10 +1917,10 @@ github.repos.owner.repo.git.commits.post({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * body **required** [repoCommitBody](#repoCommitBody)
+  * body **required** [repoCommitBody](#repocommitbody)
 
 #### Output
-* output [gitCommit](#gitCommit)
+* output [gitCommit](#gitcommit)
 
 ### repos.owner.repo.git.commits.shaCode.get
 Get a Commit.
@@ -1941,7 +1941,7 @@ github.repos.owner.repo.git.commits.shaCode.get({
   * shaCode **required** `string`: SHA-1 code.
 
 #### Output
-* output [repoCommit](#repoCommit)
+* output [repoCommit](#repocommit)
 
 ### repos.owner.repo.git.refs.get
 Get all References
@@ -1979,10 +1979,10 @@ github.repos.owner.repo.git.refs.post({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * body **required** [refsBody](#refsBody)
+  * body **required** [refsBody](#refsbody)
 
 #### Output
-* output [headBranch](#headBranch)
+* output [headBranch](#headbranch)
 
 ### repos.owner.repo.git.refs.ref.delete
 Delete a Reference
@@ -2027,7 +2027,7 @@ github.repos.owner.repo.git.refs.ref.get({
   * ref **required** `string`
 
 #### Output
-* output [headBranch](#headBranch)
+* output [headBranch](#headbranch)
 
 ### repos.owner.repo.git.refs.ref.patch
 Update a Reference
@@ -2047,10 +2047,10 @@ github.repos.owner.repo.git.refs.ref.patch({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * ref **required** `string`
-  * body **required** [gitRefPatch](#gitRefPatch)
+  * body **required** [gitRefPatch](#gitrefpatch)
 
 #### Output
-* output [headBranch](#headBranch)
+* output [headBranch](#headbranch)
 
 ### repos.owner.repo.git.tags.post
 Create a Tag Object.
@@ -2183,7 +2183,7 @@ github.repos.owner.repo.hooks.post({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * body **required** [hookBody](#hookBody)
+  * body **required** [hookBody](#hookbody)
 
 #### Output
 * output [hook](#hook)
@@ -2248,7 +2248,7 @@ github.repos.owner.repo.hooks.hookId.patch({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * hookId **required** `integer`: Id of hook.
-  * body **required** [hookBody](#hookBody)
+  * body **required** [hookBody](#hookbody)
 
 #### Output
 * output [hook](#hook)
@@ -2355,7 +2355,7 @@ github.repos.owner.repo.issues.comments.get({
   * page `integer`
 
 #### Output
-* output [issuesComments](#issuesComments)
+* output [issuesComments](#issuescomments)
 
 ### repos.owner.repo.issues.comments.commentId.delete
 Delete a comment.
@@ -2397,7 +2397,7 @@ github.repos.owner.repo.issues.comments.commentId.get({
   * commentId **required** `integer`: ID of comment.
 
 #### Output
-* output [issuesComment](#issuesComment)
+* output [issuesComment](#issuescomment)
 
 ### repos.owner.repo.issues.comments.commentId.patch
 Edit a comment.
@@ -2419,10 +2419,10 @@ github.repos.owner.repo.issues.comments.commentId.patch({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * commentId **required** `integer`: ID of comment.
-  * body **required** [commentBody](#commentBody)
+  * body **required** [commentBody](#commentbody)
 
 #### Output
-* output [issuesComment](#issuesComment)
+* output [issuesComment](#issuescomment)
 
 ### repos.owner.repo.issues.events.get
 List issue events for a repository.
@@ -2531,7 +2531,7 @@ github.repos.owner.repo.issues.number.comments.get({
   * page `integer`
 
 #### Output
-* output [issuesComments](#issuesComments)
+* output [issuesComments](#issuescomments)
 
 ### repos.owner.repo.issues.number.comments.post
 Create a comment.
@@ -2553,10 +2553,10 @@ github.repos.owner.repo.issues.number.comments.post({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * number **required** `integer`: Number of issue.
-  * body **required** [commentBody](#commentBody)
+  * body **required** [commentBody](#commentbody)
 
 #### Output
-* output [issuesComment](#issuesComment)
+* output [issuesComment](#issuescomment)
 
 ### repos.owner.repo.issues.number.events.get
 List events for an issue.
@@ -2641,7 +2641,7 @@ github.repos.owner.repo.issues.number.labels.post({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * number **required** `integer`: Number of issue.
-  * body **required** [emailsPost](#emailsPost)
+  * body **required** [emailsPost](#emailspost)
 
 #### Output
 * output [label](#label)
@@ -2666,7 +2666,7 @@ github.repos.owner.repo.issues.number.labels.put({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * number **required** `integer`: Number of issue.
-  * body **required** [emailsPost](#emailsPost)
+  * body **required** [emailsPost](#emailspost)
 
 #### Output
 * output [label](#label)
@@ -2733,7 +2733,7 @@ github.repos.owner.repo.keys.post({
   * body **required** [user-keys-post](#user-keys-post)
 
 #### Output
-* output [user-keys-keyId](#user-keys-keyId)
+* output [user-keys-keyId](#user-keys-keyid)
 
 ### repos.owner.repo.keys.keyId.delete
 Delete a key.
@@ -2775,7 +2775,7 @@ github.repos.owner.repo.keys.keyId.get({
   * keyId **required** `integer`: Id of key.
 
 #### Output
-* output [user-keys-keyId](#user-keys-keyId)
+* output [user-keys-keyId](#user-keys-keyid)
 
 ### repos.owner.repo.labels.get
 List all labels for this repository.
@@ -2813,7 +2813,7 @@ github.repos.owner.repo.labels.post({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * body **required** [emailsPost](#emailsPost)
+  * body **required** [emailsPost](#emailspost)
 
 #### Output
 * output [label](#label)
@@ -2878,7 +2878,7 @@ github.repos.owner.repo.labels.name.patch({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * name **required** `string`: Name of the label.
-  * body **required** [emailsPost](#emailsPost)
+  * body **required** [emailsPost](#emailspost)
 
 #### Output
 * output [label](#label)
@@ -2922,10 +2922,10 @@ github.repos.owner.repo.merges.post({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * body **required** [mergesBody](#mergesBody)
+  * body **required** [mergesBody](#mergesbody)
 
 #### Output
-* output [mergesSuccessful](#mergesSuccessful)
+* output [mergesSuccessful](#mergessuccessful)
 
 ### repos.owner.repo.milestones.get
 List milestones for a repository.
@@ -2966,7 +2966,7 @@ github.repos.owner.repo.milestones.post({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * body **required** [milestoneUpdate](#milestoneUpdate)
+  * body **required** [milestoneUpdate](#milestoneupdate)
 
 #### Output
 * output [milestone](#milestone)
@@ -3031,7 +3031,7 @@ github.repos.owner.repo.milestones.number.patch({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * number **required** `integer`: Number of milestone.
-  * body **required** [milestoneUpdate](#milestoneUpdate)
+  * body **required** [milestoneUpdate](#milestoneupdate)
 
 #### Output
 * output [milestone](#milestone)
@@ -3102,7 +3102,7 @@ github.repos.owner.repo.notifications.put({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * body **required** [notificationMarkRead](#notificationMarkRead)
+  * body **required** [notificationMarkRead](#notificationmarkread)
 
 #### Output
 *Output schema unknown*
@@ -3146,7 +3146,7 @@ github.repos.owner.repo.pulls.post({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * body **required** [pullsPost](#pullsPost)
+  * body **required** [pullsPost](#pullspost)
 
 #### Output
 * output [pulls](#pulls)
@@ -3174,7 +3174,7 @@ github.repos.owner.repo.pulls.comments.get({
   * page `integer`
 
 #### Output
-* output [issuesComments](#issuesComments)
+* output [issuesComments](#issuescomments)
 
 ### repos.owner.repo.pulls.comments.commentId.delete
 Delete a comment.
@@ -3216,7 +3216,7 @@ github.repos.owner.repo.pulls.comments.commentId.get({
   * commentId **required** `integer`: Id of comment.
 
 #### Output
-* output [pullsComment](#pullsComment)
+* output [pullsComment](#pullscomment)
 
 ### repos.owner.repo.pulls.comments.commentId.patch
 Edit a comment.
@@ -3238,10 +3238,10 @@ github.repos.owner.repo.pulls.comments.commentId.patch({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * commentId **required** `integer`: Id of comment.
-  * body **required** [commentBody](#commentBody)
+  * body **required** [commentBody](#commentbody)
 
 #### Output
-* output [pullsComment](#pullsComment)
+* output [pullsComment](#pullscomment)
 
 ### repos.owner.repo.pulls.number.get
 Get a single pull request.
@@ -3262,7 +3262,7 @@ github.repos.owner.repo.pulls.number.get({
   * number **required** `integer`: Id of pull.
 
 #### Output
-* output [pullRequest](#pullRequest)
+* output [pullRequest](#pullrequest)
 
 ### repos.owner.repo.pulls.number.patch
 Update a pull request.
@@ -3282,7 +3282,7 @@ github.repos.owner.repo.pulls.number.patch({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * number **required** `integer`: Id of pull.
-  * body **required** [pullUpdate](#pullUpdate)
+  * body **required** [pullUpdate](#pullupdate)
 
 #### Output
 * output [repo](#repo)
@@ -3307,7 +3307,7 @@ github.repos.owner.repo.pulls.number.comments.get({
   * page `integer`
 
 #### Output
-* output [pullsComment](#pullsComment)
+* output [pullsComment](#pullscomment)
 
 ### repos.owner.repo.pulls.number.comments.post
 Create a comment.
@@ -3338,10 +3338,10 @@ github.repos.owner.repo.pulls.number.comments.post({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * number **required** `integer`: Id of pull.
-  * body **required** [pullsCommentPost](#pullsCommentPost)
+  * body **required** [pullsCommentPost](#pullscommentpost)
 
 #### Output
-* output [pullsComment](#pullsComment)
+* output [pullsComment](#pullscomment)
 
 ### repos.owner.repo.pulls.number.commits.get
 List commits on a pull request.
@@ -3426,7 +3426,7 @@ github.repos.owner.repo.pulls.number.merge.put({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * number **required** `integer`: Id of pull.
-  * body **required** [mergePullBody](#mergePullBody)
+  * body **required** [mergePullBody](#mergepullbody)
 
 #### Output
 * output [merge](#merge)
@@ -3560,7 +3560,7 @@ github.repos.owner.repo.releases.assets.id.patch({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * id **required** `string`
-  * body **required** [assetPatch](#assetPatch)
+  * body **required** [assetPatch](#assetpatch)
 
 #### Output
 * output [asset](#asset)
@@ -3692,7 +3692,7 @@ github.repos.owner.repo.stats.code_frequency.get({
   * repo **required** `string`: Name of repository.
 
 #### Output
-* output [codeFrequencyStats](#codeFrequencyStats)
+* output [codeFrequencyStats](#codefrequencystats)
 
 ### repos.owner.repo.stats.commit_activity.get
 Get the last year of commit activity data.
@@ -3714,7 +3714,7 @@ github.repos.owner.repo.stats.commit_activity.get({
   * repo **required** `string`: Name of repository.
 
 #### Output
-* output [commitActivityStats](#commitActivityStats)
+* output [commitActivityStats](#commitactivitystats)
 
 ### repos.owner.repo.stats.contributors.get
 Get contributors list with additions, deletions, and commit counts.
@@ -3734,7 +3734,7 @@ github.repos.owner.repo.stats.contributors.get({
   * page `integer`
 
 #### Output
-* output [contributorsStats](#contributorsStats)
+* output [contributorsStats](#contributorsstats)
 
 ### repos.owner.repo.stats.participation.get
 Get the weekly commit count for the repo owner and everyone else.
@@ -3753,7 +3753,7 @@ github.repos.owner.repo.stats.participation.get({
   * repo **required** `string`: Name of repository.
 
 #### Output
-* output [participationStats](#participationStats)
+* output [participationStats](#participationstats)
 
 ### repos.owner.repo.stats.punch_card.get
 Get the number of commits per hour in each day.
@@ -3781,7 +3781,7 @@ github.repos.owner.repo.stats.punch_card.get({
   * repo **required** `string`: Name of repository.
 
 #### Output
-* output [codeFrequencyStats](#codeFrequencyStats)
+* output [codeFrequencyStats](#codefrequencystats)
 
 ### repos.owner.repo.statuses.ref.get
 List Statuses for a specific Ref.
@@ -3822,7 +3822,7 @@ github.repos.owner.repo.statuses.ref.post({
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
   * ref **required** `string`: Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
-  * body **required** [headBranch](#headBranch)
+  * body **required** [headBranch](#headbranch)
 
 #### Output
 * output [ref](#ref)
@@ -3901,7 +3901,7 @@ github.repos.owner.repo.subscription.put({
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
-  * body **required** [subscribitionBody](#subscribitionBody)
+  * body **required** [subscribitionBody](#subscribitionbody)
 
 #### Output
 * output [subscribition](#subscribition)
@@ -4151,7 +4151,7 @@ github.teams.teamId.patch({
 #### Parameters
 * input `object`
   * teamId **required** `integer`: Id of team.
-  * body **required** [editTeam](#editTeam)
+  * body **required** [editTeam](#editteam)
 
 #### Output
 * output [team](#team)
@@ -4292,7 +4292,7 @@ github.teams.teamId.memberships.username.get({
   * username **required** `string`: Name of a member.
 
 #### Output
-* output [teamMembership](#teamMembership)
+* output [teamMembership](#teammembership)
 
 ### teams.teamId.memberships.username.put
 Add team membership.
@@ -4317,7 +4317,7 @@ github.teams.teamId.memberships.username.put({
   * username **required** `string`: Name of a member.
 
 #### Output
-* output [teamMembership](#teamMembership)
+* output [teamMembership](#teammembership)
 
 ### teams.teamId.repos.get
 List team repos
@@ -4335,7 +4335,7 @@ github.teams.teamId.repos.get({
   * page `integer`
 
 #### Output
-* output [teamRepos](#teamRepos)
+* output [teamRepos](#teamrepos)
 
 ### teams.teamId.repos.org.repo.put
 In order to add a repository to a team, the authenticated user must be an owner of the org that the team is associated with. Also, the repository must be owned by the organization, or a direct fork of a repository owned by the organization.
@@ -4485,7 +4485,7 @@ github.user.emails.post({
 
 #### Parameters
 * input `object`
-  * body **required** [emailsPost](#emailsPost)
+  * body **required** [emailsPost](#emailspost)
 
 #### Output
 *Output schema unknown*
@@ -4639,7 +4639,7 @@ github.user.keys.post({
   * body **required** [user-keys-post](#user-keys-post)
 
 #### Output
-* output [user-keys-keyId](#user-keys-keyId)
+* output [user-keys-keyId](#user-keys-keyid)
 
 ### user.keys.keyId.delete
 Delete a public key. Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least admin:public_key scope.
@@ -4673,7 +4673,7 @@ github.user.keys.keyId.get({
   * keyId **required** `integer`: ID of key.
 
 #### Output
-* output [user-keys-keyId](#user-keys-keyId)
+* output [user-keys-keyId](#user-keys-keyid)
 
 ### user.orgs.get
 List public and private organizations for the authenticated user.
@@ -4725,7 +4725,7 @@ github.user.repos.post({
 
 #### Parameters
 * input `object`
-  * body **required** [postRepo](#postRepo)
+  * body **required** [postRepo](#postrepo)
 
 #### Output
 * output [repos](#repos)
@@ -4816,7 +4816,7 @@ github.user.subscriptions.get({}, context)
   * page `integer`
 
 #### Output
-* output [user-userId-subscribitions](#user-userId-subscribitions)
+* output [user-userId-subscribitions](#user-userid-subscribitions)
 
 ### user.subscriptions.owner.repo.delete
 Stop watching a repository
