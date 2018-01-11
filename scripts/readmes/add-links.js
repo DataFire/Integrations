@@ -15,11 +15,7 @@ readme += TITLE_LINE + '\n';
 readme += '\n|name|title|README|link|description|';
 readme += '\n|---|---|---|---|---|';
 
-Object.keys(list).sort((k1, k2) => {
-  let d1 = list[k1];
-  let d2 = list[k2];
-  return d1.title.toLowerCase() < d2.title.toLowerCase() ? -1 : 1;
-}).forEach(key => {
+Object.keys(list).sort().forEach(key => {
   let details = list[key];
   let parts = [
     key,
