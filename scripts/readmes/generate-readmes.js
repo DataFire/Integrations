@@ -46,23 +46,23 @@ function getExample(schema, base) {
 function actionToMarkdown(action, integration) {
   let shortID = action.id.substring(action.id.indexOf('/') + 1);
   let example = getExample(action.inputSchema);
-  let inputMarkdown = schemaToMarkdown(action.inputSchema, 'input');
+  let inputMarkdown = schemaToMarkdown(action.inputSchema, action.inputSchema, 'input');
   if (!inputMarkdown) {
     inputMarkdown = '*This action has no parameters*';
   }
-  let outputMarkdown = schemaToMarkdown(action.outputSchema, 'output');
+  let outputMarkdown = schemaToMarkdown(action.outputSchema, action.outputSchema, 'output');
   if (!outputMarkdown) {
     outputMarkdown = '*Output schema unknown*';
   }
   return render('action', {example, integration, action, shortID, inputMarkdown, outputMarkdown});
 }
 
-function schemaToMarkdown(schema, property='', required=false, depth=0) {
+function schemaToMarkdown(schema, base, property='', required=false, depth=0) {
   if (!schema) return '';
   let md = '';
   let spaces = 0;
   while (spaces++ < depth) md += '  ';
-  property = property || schema.title;
+  property = property || schema.title || '';
   md += '* ' + property;
   if (required) md += ' **required**'
 
@@ -95,15 +95,22 @@ function schemaToMarkdown(schema, property='', required=false, depth=0) {
     addedParameters = true;
     let propSchema = schema.properties[prop];
     let propRequired = (schema.required || []).indexOf(prop) !== -1;
-    let propMD = schemaToMarkdown(propSchema, prop, propRequired, depth + 1);
+    let propMD = schemaToMarkdown(propSchema, base, prop, propRequired, depth + 1);
     if (propMD) md += '\n' + propMD;
     else console.log("PROP", prop, propSchema);
   });
 
   if (schema.items) {
-    md += '\n' + schemaToMarkdown(schema.items, 'items', false, depth + 1);
+    md += '\n' + schemaToMarkdown(schema.items, base, 'items', false, depth + 1);
   }
-  //(schema.allOf || []).forEach(addSchemaToParameters);
+  (schema.allOf || []).forEach(subschema => {
+    if (subschema.$ref) subschema = resolveRef(subschema.$ref, base);
+    let subMD = schemaToMarkdown(subschema, base, '', false, depth);
+    let newLine = subMD.indexOf('\n');
+    if (newLine !== -1) {
+      md += '\n' + subMD.substring(newLine + 1);
+    }
+  });
   return md;
 }
 
@@ -141,7 +148,7 @@ iterateIntegs((dir, name, integ) => {
   for (let key in definitions) {
     let def = definitions[key];
     def.title = def.title || key;
-    definitionsMarkdown += '### ' + key + '\n' + schemaToMarkdown(def) + '\n\n';
+    definitionsMarkdown += '### ' + key + '\n' + schemaToMarkdown(def, {definitions}) + '\n\n';
   }
   if (!definitionsMarkdown) definitionsMarkdown = '** No definitions **';
 
