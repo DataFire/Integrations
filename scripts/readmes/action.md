@@ -6,5 +6,9 @@ ${args.action.description}
 ${args.integration}.${args.shortID}(${JSON.stringify(args.example, null, 2)}, context)
 ```
 
-#### Parameters
+#### Input
 ${args.inputMarkdown}
+
+#### Output
+${args.outputMarkdown}
+

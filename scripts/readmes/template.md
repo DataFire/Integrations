@@ -4,7 +4,7 @@ Client library for ${(args.integration.title || args.integration.id)}
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/${args.integration.id}
+npm install --save @datafire/${args.integration.id}
 ```
 ```js
 let ${args.varName} = require('@datafire/${args.integration.id}').create(${args.accountCode});
@@ -22,3 +22,6 @@ ${args.integration.description}
 
 ${args.actionsMarkdown}
 
+## Definitions
+
+${args.definitionsMarkdown}
