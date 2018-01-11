@@ -4,14 +4,12 @@ Client library for kinto
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/mozilla_kinto
+npm install --save @datafire/mozilla_kinto
 ```
-
 ```js
-let datafire = require('datafire');
 let mozilla_kinto = require('@datafire/mozilla_kinto').create({
   username: "",
-  password: "",
+  password: ""
 });
 
 mozilla_kinto.get_changess({}).then(data => {
@@ -22,7 +20,9 @@ mozilla_kinto.get_changess({}).then(data => {
 ## Description
 
 
+
 ## Actions
+
 ### server_info
 
 
@@ -31,8 +31,11 @@ mozilla_kinto.get_changess({}).then(data => {
 mozilla_kinto.server_info(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
 
 ### get_openapi_spec
 
@@ -42,8 +45,11 @@ mozilla_kinto.server_info(null, context)
 mozilla_kinto.get_openapi_spec(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
 
 ### __heartbeat__
 
@@ -53,8 +59,11 @@ mozilla_kinto.get_openapi_spec(null, context)
 mozilla_kinto.__heartbeat__(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
 
 ### __lbheartbeat__
 
@@ -64,8 +73,11 @@ mozilla_kinto.__heartbeat__(null, context)
 mozilla_kinto.__lbheartbeat__(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
 
 ### __version__
 
@@ -75,8 +87,11 @@ mozilla_kinto.__lbheartbeat__(null, context)
 mozilla_kinto.__version__(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
 
 ### batch
 
@@ -90,8 +105,29 @@ mozilla_kinto.batch({
 }, context)
 ```
 
-#### Parameters
-* BatchPayloadSchema (object) **required**
+#### Input
+* input `object`
+  * BatchPayloadSchema **required** `object`
+    * defaults `object`
+      * body `object`
+      * headers `object`
+      * method `string` (values: GET, HEAD, DELETE, TRACE, POST, PUT, PATCH)
+      * path `string`
+    * requests **required** `array`
+      * items `object`
+        * body `object`
+        * headers `object`
+        * method `string` (values: GET, HEAD, DELETE, TRACE, POST, PUT, PATCH)
+        * path **required** `string`
+
+#### Output
+* output `object`
+  * responses **required** `array`
+    * items `object`
+      * body `object`
+      * headers `object`
+      * path **required** `string`
+      * status **required** `integer`
 
 ### get_buckets
 
@@ -101,18 +137,24 @@ mozilla_kinto.batch({
 mozilla_kinto.get_buckets({}, context)
 ```
 
-#### Parameters
-* _limit (integer)
-* _sort (array)
-* _token (string)
-* _since (integer)
-* _to (integer)
-* _before (integer)
-* id (string)
-* last_modified (integer)
-* _fields (array)
-* If-Match (string)
-* If-None-Match (string)
+#### Input
+* input `object`
+  * _limit `integer`
+  * _sort `array`
+  * _token `string`
+  * _since `integer`
+  * _to `integer`
+  * _before `integer`
+  * id `string`
+  * last_modified `integer`
+  * _fields `array`
+  * If-Match `string`
+  * If-None-Match `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
 
 ### get_changess
 
@@ -122,18 +164,27 @@ mozilla_kinto.get_buckets({}, context)
 mozilla_kinto.get_changess({}, context)
 ```
 
-#### Parameters
-* _limit (integer)
-* _sort (array)
-* _token (string)
-* _since (integer)
-* _to (integer)
-* _before (integer)
-* id (string)
-* last_modified (integer)
-* _fields (array)
-* If-Match (string)
-* If-None-Match (string)
+#### Input
+* input `object`
+  * _limit `integer`
+  * _sort `array`
+  * _token `string`
+  * _since `integer`
+  * _to `integer`
+  * _before `integer`
+  * id `string`
+  * last_modified `integer`
+  * _fields `array`
+  * If-Match `string`
+  * If-None-Match `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+      * bucket **required** `string`
+      * collection **required** `string`
+      * host **required** `string`
 
 ### get_collections
 
@@ -145,19 +196,27 @@ mozilla_kinto.get_collections({
 }, context)
 ```
 
-#### Parameters
-* _limit (integer)
-* _sort (array)
-* _token (string)
-* _since (integer)
-* _to (integer)
-* _before (integer)
-* id (string)
-* last_modified (integer)
-* _fields (array)
-* If-Match (string)
-* If-None-Match (string)
-* bucket_id (string) **required**
+#### Input
+* input `object`
+  * _limit `integer`
+  * _sort `array`
+  * _token `string`
+  * _since `integer`
+  * _to `integer`
+  * _before `integer`
+  * id `string`
+  * last_modified `integer`
+  * _fields `array`
+  * If-Match `string`
+  * If-None-Match `string`
+  * bucket_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+      * cache_expires `integer`
+      * schema `object`
 
 ### get_records
 
@@ -170,20 +229,26 @@ mozilla_kinto.get_records({
 }, context)
 ```
 
-#### Parameters
-* _limit (integer)
-* _sort (array)
-* _token (string)
-* _since (integer)
-* _to (integer)
-* _before (integer)
-* id (string)
-* last_modified (integer)
-* _fields (array)
-* If-Match (string)
-* If-None-Match (string)
-* bucket_id (string) **required**
-* collection_id (string) **required**
+#### Input
+* input `object`
+  * _limit `integer`
+  * _sort `array`
+  * _token `string`
+  * _since `integer`
+  * _to `integer`
+  * _before `integer`
+  * id `string`
+  * last_modified `integer`
+  * _fields `array`
+  * If-Match `string`
+  * If-None-Match `string`
+  * bucket_id **required** `string`
+  * collection_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
 
 ### get_record
 
@@ -197,13 +262,23 @@ mozilla_kinto.get_record({
 }, context)
 ```
 
-#### Parameters
-* _fields (array)
-* If-Match (string)
-* If-None-Match (string)
-* bucket_id (string) **required**
-* collection_id (string) **required**
-* id (string) **required**
+#### Input
+* input `object`
+  * _fields `array`
+  * If-Match `string`
+  * If-None-Match `string`
+  * bucket_id **required** `string`
+  * collection_id **required** `string`
+  * id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+  * permissions `object`
+    * read `array`
+      * items `string`
+    * write `array`
+      * items `string`
 
 ### get_collection
 
@@ -216,12 +291,26 @@ mozilla_kinto.get_collection({
 }, context)
 ```
 
-#### Parameters
-* _fields (array)
-* If-Match (string)
-* If-None-Match (string)
-* bucket_id (string) **required**
-* id (string) **required**
+#### Input
+* input `object`
+  * _fields `array`
+  * If-Match `string`
+  * If-None-Match `string`
+  * bucket_id **required** `string`
+  * id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * cache_expires `integer`
+    * schema `object`
+  * permissions `object`
+    * read `array`
+      * items `string`
+    * record:create `array`
+      * items `string`
+    * write `array`
+      * items `string`
 
 ### get_groups
 
@@ -233,19 +322,27 @@ mozilla_kinto.get_groups({
 }, context)
 ```
 
-#### Parameters
-* _limit (integer)
-* _sort (array)
-* _token (string)
-* _since (integer)
-* _to (integer)
-* _before (integer)
-* id (string)
-* last_modified (integer)
-* _fields (array)
-* If-Match (string)
-* If-None-Match (string)
-* bucket_id (string) **required**
+#### Input
+* input `object`
+  * _limit `integer`
+  * _sort `array`
+  * _token `string`
+  * _since `integer`
+  * _to `integer`
+  * _before `integer`
+  * id `string`
+  * last_modified `integer`
+  * _fields `array`
+  * If-Match `string`
+  * If-None-Match `string`
+  * bucket_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+      * members `array`
+        * items `string`
 
 ### get_group
 
@@ -258,12 +355,24 @@ mozilla_kinto.get_group({
 }, context)
 ```
 
-#### Parameters
-* _fields (array)
-* If-Match (string)
-* If-None-Match (string)
-* bucket_id (string) **required**
-* id (string) **required**
+#### Input
+* input `object`
+  * _fields `array`
+  * If-Match `string`
+  * If-None-Match `string`
+  * bucket_id **required** `string`
+  * id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * members `array`
+      * items `string`
+  * permissions `object`
+    * read `array`
+      * items `string`
+    * write `array`
+      * items `string`
 
 ### get_bucket
 
@@ -275,11 +384,25 @@ mozilla_kinto.get_bucket({
 }, context)
 ```
 
-#### Parameters
-* _fields (array)
-* If-Match (string)
-* If-None-Match (string)
-* id (string) **required**
+#### Input
+* input `object`
+  * _fields `array`
+  * If-Match `string`
+  * If-None-Match `string`
+  * id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+  * permissions `object`
+    * collection:create `array`
+      * items `string`
+    * group:create `array`
+      * items `string`
+    * read `array`
+      * items `string`
+    * write `array`
+      * items `string`
 
 ### contribute
 
@@ -289,8 +412,11 @@ mozilla_kinto.get_bucket({
 mozilla_kinto.contribute(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
 
 ### get_blocklist
 
@@ -306,10 +432,19 @@ mozilla_kinto.get_blocklist({
 }, context)
 ```
 
-#### Parameters
-* api_ver:\d+ (string) **required**
-* metrics:.* (string) **required**
-* prefix (string) **required**
-* application_guid (string) **required**
-* application_ver (string) **required**
+#### Input
+* input `object`
+  * api_ver:\d+ **required** `string`
+  * metrics:.* **required** `string`
+  * prefix **required** `string`
+  * application_guid **required** `string`
+  * application_ver **required** `string`
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

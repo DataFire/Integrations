@@ -4,11 +4,9 @@ Client library for api.ecota.co v2
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/staging_ecotaco
+npm install --save @datafire/staging_ecotaco
 ```
-
 ```js
-let datafire = require('datafire');
 let staging_ecotaco = require('@datafire/staging_ecotaco').create();
 
 staging_ecotaco..get({}).then(data => {
@@ -17,6 +15,7 @@ staging_ecotaco..get({}).then(data => {
 ```
 
 ## Description
+
 The API ecotaco allows you to connect, create an account,
 manage your credit cards and order rides.
 
@@ -65,6 +64,7 @@ EcoTa.co currently support two languages: English, French. ("en" and "fr")
 All requests and answers on EcoTa.co are in UTF-8.
 
 ## Actions
+
 ### .get
 Retrieve the version API
 
@@ -73,8 +73,11 @@ Retrieve the version API
 staging_ecotaco..get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### accounts.get
 Get current user
@@ -84,8 +87,11 @@ Get current user
 staging_ecotaco.accounts.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### accounts.post
 Create a new account with an application key
@@ -95,8 +101,11 @@ Create a new account with an application key
 staging_ecotaco.accounts.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### accounts.put
 Update User
@@ -106,8 +115,11 @@ Update User
 staging_ecotaco.accounts.put(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### accounts.password.post
 Forget password with email
@@ -117,8 +129,11 @@ Forget password with email
 staging_ecotaco.accounts.password.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### accounts.payment_methods.get
 Payment Methods
@@ -128,8 +143,11 @@ Payment Methods
 staging_ecotaco.accounts.payment_methods.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### accounts.settings.post
 Settings
@@ -139,8 +157,11 @@ Settings
 staging_ecotaco.accounts.settings.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### accounts.sign_in.post
 Login with email, password and application key
@@ -150,8 +171,11 @@ Login with email, password and application key
 staging_ecotaco.accounts.sign_in.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### accounts.update_password.put
 Update Password
@@ -161,8 +185,11 @@ Update Password
 staging_ecotaco.accounts.update_password.put(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### addresses.places_autocomplete.post
 For searching places just send the following attributes :
@@ -178,8 +205,11 @@ For searching places just send the following attributes :
 staging_ecotaco.addresses.places_autocomplete.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### addresses.places_details.post
 Get autocomplete places details
@@ -189,8 +219,11 @@ Get autocomplete places details
 staging_ecotaco.addresses.places_details.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### catchement_areas.get
 List all catchement areas
@@ -200,8 +233,11 @@ List all catchement areas
 staging_ecotaco.catchement_areas.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### catchement_areas.id.get
 Get a Catchement Area
@@ -213,8 +249,12 @@ staging_ecotaco.catchement_areas.id.get({
 }, context)
 ```
 
-#### Parameters
-* id (number) **required** - Numeric `id` of the Catchement Area
+#### Input
+* input `object`
+  * id **required** `number`: Numeric `id` of the Catchement Area
+
+#### Output
+*Output schema unknown*
 
 ### credit_cards.get
 List all CreditCards for the current User
@@ -224,8 +264,11 @@ List all CreditCards for the current User
 staging_ecotaco.credit_cards.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### credit_cards.id.get
 Get a CreditCard
@@ -237,8 +280,12 @@ staging_ecotaco.credit_cards.id.get({
 }, context)
 ```
 
-#### Parameters
-* id (number) **required** - Numeric `id` of the Credit Card
+#### Input
+* input `object`
+  * id **required** `number`: Numeric `id` of the Credit Card
+
+#### Output
+*Output schema unknown*
 
 ### products.get
 List all products
@@ -248,8 +295,11 @@ List all products
 staging_ecotaco.products.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### products.id.get
 Get a Product
@@ -261,8 +311,12 @@ staging_ecotaco.products.id.get({
 }, context)
 ```
 
-#### Parameters
-* id (number) **required** - Numeric `id` of the Product
+#### Input
+* input `object`
+  * id **required** `number`: Numeric `id` of the Product
+
+#### Output
+*Output schema unknown*
 
 ### promotional_codes.get
 Get all promotional codes for user
@@ -272,8 +326,11 @@ Get all promotional codes for user
 staging_ecotaco.promotional_codes.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### promotional_codes.post
 Add a promotional code
@@ -283,8 +340,11 @@ Add a promotional code
 staging_ecotaco.promotional_codes.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### rides.id.get
 Get a ride
@@ -296,8 +356,12 @@ staging_ecotaco.rides.id.get({
 }, context)
 ```
 
-#### Parameters
-* id (number) **required** - Numeric `id` of Ride
+#### Input
+* input `object`
+  * id **required** `number`: Numeric `id` of Ride
+
+#### Output
+*Output schema unknown*
 
 ### rides.id.cancel.get
 **Must be authenticate**
@@ -309,8 +373,12 @@ staging_ecotaco.rides.id.cancel.get({
 }, context)
 ```
 
-#### Parameters
-* id (number) **required** - Numeric `id` of Ride
+#### Input
+* input `object`
+  * id **required** `number`: Numeric `id` of Ride
+
+#### Output
+*Output schema unknown*
 
 ### rides.id.cancel_fees.get
 **Must be authenticate**
@@ -322,8 +390,12 @@ staging_ecotaco.rides.id.cancel_fees.get({
 }, context)
 ```
 
-#### Parameters
-* id (number) **required** - Numeric `id` of Ride
+#### Input
+* input `object`
+  * id **required** `number`: Numeric `id` of Ride
+
+#### Output
+*Output schema unknown*
 
 ### rides.id.estimate.get
 Estimate a ride
@@ -335,8 +407,12 @@ staging_ecotaco.rides.id.estimate.get({
 }, context)
 ```
 
-#### Parameters
-* id (number) **required** - Numeric `id` of Ride
+#### Input
+* input `object`
+  * id **required** `number`: Numeric `id` of Ride
+
+#### Output
+*Output schema unknown*
 
 ### rides.id.reserve.post
 To book, the ride must belong to the connected user. The ride must have a main passenger at least, the booking user id and the payment hash must be set.
@@ -350,8 +426,12 @@ staging_ecotaco.rides.id.reserve.post({
 }, context)
 ```
 
-#### Parameters
-* id (number) **required** - Numeric `id` of Ride
+#### Input
+* input `object`
+  * id **required** `number`: Numeric `id` of Ride
+
+#### Output
+*Output schema unknown*
 
 ### rides_page_page_per_page_per_page.get
 Get all user rides
@@ -364,9 +444,13 @@ staging_ecotaco.rides_page_page_per_page_per_page.get({
 }, context)
 ```
 
-#### Parameters
-* page (number) **required** - Number of the page to load
-* per_page (number) **required** - Number of items per page to load
+#### Input
+* input `object`
+  * page **required** `number`: Number of the page to load
+  * per_page **required** `number`: Number of items per page to load
+
+#### Output
+*Output schema unknown*
 
 ### rides_page_page_per_page_per_page.post
 Create a ride
@@ -379,9 +463,13 @@ staging_ecotaco.rides_page_page_per_page_per_page.post({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required**
-* per_page (string) **required**
+#### Input
+* input `object`
+  * page **required** `string`
+  * per_page **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### version.get
 Retrieve the Entry Point on Version
@@ -393,6 +481,87 @@ staging_ecotaco.version.get({
 }, context)
 ```
 
-#### Parameters
-* version (string) **required** - Ecotaco API version
+#### Input
+* input `object`
+  * version **required** `string`: Ecotaco API version
+
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+### Autocomplete_places
+
+
+### Autocomplete_places_details
+
+
+### Cancel_Ride
+
+
+### Cancel_fee
+
+
+### Catchement_Area
+
+
+### Collection_of_catchement_areas
+
+
+### Collection_of_products
+
+
+### Credit_card
+
+
+### Current_User
+
+
+### Endpoint
+
+
+### Estimate_Ride
+
+
+### Forget_password
+
+
+### Login
+
+
+### Password
+
+
+### Payment_Methods
+
+
+### Product
+
+
+### Register
+
+
+### Reserve_Ride
+
+
+### Settings
+
+
+### User_Credit_Cards
+
+
+### User_Promotional_Codes
+
+
+### User_Ride
+
+
+### User_Rides
+
+
+### Version
+
+
 

@@ -4,17 +4,15 @@ Client library for Facebook
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/facebook
+npm install --save @datafire/facebook
 ```
-
 ```js
-let datafire = require('datafire');
 let facebook = require('@datafire/facebook').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 facebook.video.picture.get({}).then(data => {
@@ -23,9 +21,11 @@ facebook.video.picture.get({}).then(data => {
 ```
 
 ## Description
+
 Connect to the social network with the Graph API.
 
 ## Actions
+
 ### video.picture.get
 The image which represents the content of the video
 
@@ -36,8 +36,12 @@ facebook.video.picture.get({
 }, context)
 ```
 
-#### Parameters
-* video (string) **required** - Represents the ID of the video object.
+#### Input
+* input `object`
+  * video **required** `string`: Represents the ID of the video object.
+
+#### Output
+*Output schema unknown*
 
 ### video.likes.delete
 Unlikes this video.
@@ -49,8 +53,12 @@ facebook.video.likes.delete({
 }, context)
 ```
 
-#### Parameters
-* video (string) **required** - Represents the ID of the video object.
+#### Input
+* input `object`
+  * video **required** `string`: Represents the ID of the video object.
+
+#### Output
+*Output schema unknown*
 
 ### video.likes.post
 Likes this video.
@@ -62,8 +70,12 @@ facebook.video.likes.post({
 }, context)
 ```
 
-#### Parameters
-* video (string) **required** - Represents the ID of the video object.
+#### Input
+* input `object`
+  * video **required** `string`: Represents the ID of the video object.
+
+#### Output
+*Output schema unknown*
 
 ### video.likes.get
 Users who like this video.
@@ -75,8 +87,12 @@ facebook.video.likes.get({
 }, context)
 ```
 
-#### Parameters
-* video (string) **required** - Represents the ID of the video object.
+#### Input
+* input `object`
+  * video **required** `string`: Represents the ID of the video object.
+
+#### Output
+*Output schema unknown*
 
 ### video.comments.post
 Posts a comment to this video.
@@ -89,9 +105,13 @@ facebook.video.comments.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Comment text
-* video (string) **required** - Represents the ID of the video object.
+#### Input
+* input `object`
+  * message **required** `string`: Comment text
+  * video **required** `string`: Represents the ID of the video object.
+
+#### Output
+*Output schema unknown*
 
 ### video.comments.get
 All of the comments on this video.
@@ -103,8 +123,12 @@ facebook.video.comments.get({
 }, context)
 ```
 
-#### Parameters
-* video (string) **required** - Represents the ID of the video object.
+#### Input
+* input `object`
+  * video **required** `string`: Represents the ID of the video object.
+
+#### Output
+*Output schema unknown*
 
 ### video.get
 An individual video
@@ -116,8 +140,12 @@ facebook.video.get({
 }, context)
 ```
 
-#### Parameters
-* video (string) **required** - Represents the ID of the video object.
+#### Input
+* input `object`
+  * video **required** `string`: Represents the ID of the video object.
+
+#### Output
+*Output schema unknown*
 
 ### notification.post
 Marks the notification as read
@@ -130,9 +158,13 @@ facebook.notification.post({
 }, context)
 ```
 
-#### Parameters
-* unread (boolean) **required**
-* notification (string) **required** - Represents the ID of the notification.
+#### Input
+* input `object`
+  * unread **required** `boolean`
+  * notification **required** `string`: Represents the ID of the notification.
+
+#### Output
+*Output schema unknown*
 
 ### user.videos.post
 Publishes a video on behalf of the user
@@ -144,10 +176,14 @@ facebook.user.videos.post({
 }, context)
 ```
 
-#### Parameters
-* title (string) - Video title
-* description (string) - Video description
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * title `string`: Video title
+  * description `string`: Video description
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.videos.get
 The videos this user has been tagged in
@@ -159,8 +195,12 @@ facebook.user.videos.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.updates.get
 The updates in this user's inbox.
@@ -172,8 +212,12 @@ facebook.user.updates.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.television.get
 The television listed on the user's profile
@@ -185,8 +229,12 @@ facebook.user.television.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.tagged.get
 Posts the user is tagged in
@@ -198,8 +246,12 @@ facebook.user.tagged.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.statuses.post
 Posts a status message on the user
@@ -212,9 +264,13 @@ facebook.user.statuses.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Status Message content
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * message **required** `string`: Status Message content
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.statuses.get
 The user's status updates
@@ -226,8 +282,12 @@ facebook.user.statuses.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.scores.post
 Posts a score for the user
@@ -240,9 +300,13 @@ facebook.user.scores.post({
 }, context)
 ```
 
-#### Parameters
-* score (integer) **required** - Numeric score with value < 0.
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * score **required** `integer`: Numeric score with value < 0.
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.scores.get
 The scores for the user
@@ -254,8 +318,12 @@ facebook.user.scores.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.posts.post
 Creates a post on behalf of the user
@@ -269,17 +337,21 @@ facebook.user.posts.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Post message
-* link (string) **required** - Post URL
-* picture (string) - Post thumbnail image
-* name (string) - Post name
-* caption (string) - Post caption
-* description (string) - Post description
-* actions (string) - Post actions
-* privacy (string) - Post privacy settings
-* object_attachment (string) - Facebook ID for an existing picture in the User's photo albums to use as the thumbnail image. The User must be the owner of the photo, and the photo cannot be part of a message attachment.
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * message **required** `string`: Post message
+  * link **required** `string`: Post URL
+  * picture `string`: Post thumbnail image
+  * name `string`: Post name
+  * caption `string`: Post caption
+  * description `string`: Post description
+  * actions `string`: Post actions
+  * privacy `string`: Post privacy settings
+  * object_attachment `string`: Facebook ID for an existing picture in the User's photo albums to use as the thumbnail image. The User must be the owner of the photo, and the photo cannot be part of a message attachment.
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.posts.get
 The user's posts
@@ -291,8 +363,12 @@ facebook.user.posts.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.pokes.get
 The user's pokes
@@ -304,8 +380,12 @@ facebook.user.pokes.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.picture.get
 The user's profile picture
@@ -317,9 +397,13 @@ facebook.user.picture.get({
 }, context)
 ```
 
-#### Parameters
-* type (string) - One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * type `string` (values: square, small, large): One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.photos.post
 Posts a photo to the user's Wall
@@ -331,9 +415,13 @@ facebook.user.photos.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) - Photo description
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * message `string`: Photo description
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.photos.get
 The photos the user is tagged in
@@ -345,8 +433,12 @@ facebook.user.photos.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.permissions.delete
 De-authorizes an application or revokes a specific extended permissions on behalf of a user
@@ -358,9 +450,13 @@ facebook.user.permissions.delete({
 }, context)
 ```
 
-#### Parameters
-* permission (string) - The permission you wish to revoke. If you don't specify a permission then this will de-authorize the application completely.
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * permission `string`: The permission you wish to revoke. If you don't specify a permission then this will de-authorize the application completely.
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.permissions.get
 The permissions that user has granted the application.
@@ -372,8 +468,12 @@ facebook.user.permissions.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.payments.get
 The transactions the user placed with an application.
@@ -385,8 +485,12 @@ facebook.user.payments.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.outbox.get
 The messages in this user's outbox.
@@ -398,8 +502,12 @@ facebook.user.outbox.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.notifications.get
 The user's notifications
@@ -411,9 +519,13 @@ facebook.user.notifications.get({
 }, context)
 ```
 
-#### Parameters
-* include_read (boolean) - Enables you to see notifications that the user has already read in addition to the ones which are unread
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * include_read `boolean`: Enables you to see notifications that the user has already read in addition to the ones which are unread
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.notes.post
 Creates a note on behalf of the user
@@ -426,10 +538,14 @@ facebook.user.notes.post({
 }, context)
 ```
 
-#### Parameters
-* subject (string) **required** - The subject of the Note
-* message (string) - Note content
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * subject **required** `string`: The subject of the Note
+  * message `string`: Note content
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.notes.get
 The user's notes
@@ -441,8 +557,12 @@ facebook.user.notes.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.music.get
 The music listed on the user's profile
@@ -454,8 +574,12 @@ facebook.user.music.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.movies.get
 The movies listed on the user's profile
@@ -467,8 +591,12 @@ facebook.user.movies.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.links.post
 Posts a link on the user's profile page
@@ -481,10 +609,14 @@ facebook.user.links.post({
 }, context)
 ```
 
-#### Parameters
-* link (string) **required** - Link URL
-* message (string) - Link message
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * link **required** `string`: Link URL
+  * message `string`: Link message
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.links.get
 The user's posted links.
@@ -496,8 +628,12 @@ facebook.user.links.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.likes.page.get
 Checks if the user likes the given page.
@@ -510,9 +646,13 @@ facebook.user.likes.page.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
-* page (string) **required** - Represents the ID of the page.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+  * page **required** `string`: Represents the ID of the page.
+
+#### Output
+*Output schema unknown*
 
 ### user.likes.get
 All the pages this user has liked.
@@ -524,8 +664,12 @@ facebook.user.likes.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.interests.get
 The interests listed on the user's profile
@@ -537,8 +681,12 @@ facebook.user.interests.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.inbox.get
 The threads in this user's inbox.
@@ -550,8 +698,12 @@ facebook.user.inbox.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.home.get
 The user's news feed
@@ -563,8 +715,12 @@ facebook.user.home.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.groups.get
 The Groups that the user belongs to.
@@ -576,8 +732,12 @@ facebook.user.groups.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.games.get
 Games the user has added to the Arts and Entertainment section of their profile.
@@ -589,8 +749,12 @@ facebook.user.games.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.friends.friend.get
 Checks if the given user is a friend of the current user
@@ -603,9 +767,13 @@ facebook.user.friends.friend.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
-* friend (string) **required** - Represents the ID of the user's friend.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+  * friend **required** `string`: Represents the ID of the user's friend.
+
+#### Output
+*Output schema unknown*
 
 ### user.friends.get
 The user's friends
@@ -617,8 +785,12 @@ facebook.user.friends.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.friendlists.post
 Creates a FriendList for the user
@@ -631,9 +803,13 @@ facebook.user.friendlists.post({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - Friend list name
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * name **required** `string`: Friend list name
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.feed.post
 Posts a status message on this user's wall
@@ -646,9 +822,13 @@ facebook.user.feed.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Status Message content
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * message **required** `string`: Status Message content
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.feed.get
 This user's wall
@@ -660,8 +840,12 @@ facebook.user.feed.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.events.post
 Creates an event for the user
@@ -675,14 +859,18 @@ facebook.user.events.post({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - Event name
-* start_time (integer) **required** - Event start time
-* end_time (integer) - Event end time
-* message (string) - Event description
-* location (string) - Event location
-* privacy_type (string) - Event privacy setting
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * name **required** `string`: Event name
+  * start_time **required** `integer`: Event start time
+  * end_time `integer`: Event end time
+  * message `string`: Event description
+  * location `string`: Event location
+  * privacy_type `string` (values: OPEN, CLOSED, SECRET): Event privacy setting
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.events.get
 The events this user is attending.
@@ -694,8 +882,12 @@ facebook.user.events.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.checkins.post
 Checks the user into a place
@@ -709,14 +901,18 @@ facebook.user.checkins.post({
 }, context)
 ```
 
-#### Parameters
-* place (string) **required** - Checkin Place ID; for example 110506962309835 for Facebook HQ
-* coordinates (string) **required** - The user's location, as a string containing latitude and longitude: {"latitude":"...", "longitude": "..."}
-* tags (string) - Comma-separated list of tagged friends' user IDs
-* message (string) - Checkin description
-* link (string) - Checkin link
-* picture (string) - Checkin picture
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * place **required** `string`: Checkin Place ID; for example 110506962309835 for Facebook HQ
+  * coordinates **required** `string`: The user's location, as a string containing latitude and longitude: {"latitude":"...", "longitude": "..."}
+  * tags `string`: Comma-separated list of tagged friends' user IDs
+  * message `string`: Checkin description
+  * link `string`: Checkin link
+  * picture `string`: Checkin picture
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.checkins.get
 The places that the user has checked-into
@@ -728,8 +924,12 @@ facebook.user.checkins.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.books.get
 The books listed on the user's profile.
@@ -741,8 +941,12 @@ facebook.user.books.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.apprequests.get
 The user's outstanding requests from an app.
@@ -754,8 +958,12 @@ facebook.user.apprequests.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.albums.post
 Creates an album for the user
@@ -768,11 +976,15 @@ facebook.user.albums.post({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - Album name
-* message (string) - Album description
-* privacy (string) - Privacy settings for the Album. Format: A JSON-encoded object that defines the privacy setting for the album, for example: {"value":"SELF"}. Only the user can specify the privacy settings for the post.
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * name **required** `string`: Album name
+  * message `string`: Album description
+  * privacy `string`: Privacy settings for the Album. Format: A JSON-encoded object that defines the privacy setting for the album, for example: {"value":"SELF"}. Only the user can specify the privacy settings for the post.
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.albums.get
 The photo albums this user has created
@@ -784,8 +996,12 @@ facebook.user.albums.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.activities.get
 The activities listed on the user's profile
@@ -797,8 +1013,12 @@ facebook.user.activities.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.achievements.delete
 Deletes an achievement for the user
@@ -811,9 +1031,13 @@ facebook.user.achievements.delete({
 }, context)
 ```
 
-#### Parameters
-* achievement (string) **required** - The unique URL of the achievement you wish to delete.
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * achievement **required** `string`: The unique URL of the achievement you wish to delete.
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.achievements.post
 Posts an achievement for the user
@@ -826,9 +1050,13 @@ facebook.user.achievements.post({
 }, context)
 ```
 
-#### Parameters
-* achievement (string) **required** - The unique URL of the achievement which the user achieved.
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * achievement **required** `string`: The unique URL of the achievement which the user achieved.
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.accounts.get
 The Facebook apps and pages owned by the current user
@@ -840,8 +1068,12 @@ facebook.user.accounts.get({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### user.get
 A user profile.
@@ -853,9 +1085,13 @@ facebook.user.get({
 }, context)
 ```
 
-#### Parameters
-* fields (string) - The fields to return
-* user (string) **required** - Represents the ID of the user object.
+#### Input
+* input `object`
+  * fields `string`: The fields to return
+  * user **required** `string`: Represents the ID of the user object.
+
+#### Output
+*Output schema unknown*
 
 ### status.likes.delete
 Unlikes this status.
@@ -867,8 +1103,12 @@ facebook.status.likes.delete({
 }, context)
 ```
 
-#### Parameters
-* status (string) **required** - Represents the ID of the status object.
+#### Input
+* input `object`
+  * status **required** `string`: Represents the ID of the status object.
+
+#### Output
+*Output schema unknown*
 
 ### status.likes.post
 Likes this status.
@@ -880,8 +1120,12 @@ facebook.status.likes.post({
 }, context)
 ```
 
-#### Parameters
-* status (string) **required** - Represents the ID of the status object.
+#### Input
+* input `object`
+  * status **required** `string`: Represents the ID of the status object.
+
+#### Output
+*Output schema unknown*
 
 ### status.likes.get
 Users who like this status.
@@ -893,8 +1137,12 @@ facebook.status.likes.get({
 }, context)
 ```
 
-#### Parameters
-* status (string) **required** - Represents the ID of the status object.
+#### Input
+* input `object`
+  * status **required** `string`: Represents the ID of the status object.
+
+#### Output
+*Output schema unknown*
 
 ### status.comments.post
 Posts a comment to this status.
@@ -907,9 +1155,13 @@ facebook.status.comments.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Comment text
-* status (string) **required** - Represents the ID of the status object.
+#### Input
+* input `object`
+  * message **required** `string`: Comment text
+  * status **required** `string`: Represents the ID of the status object.
+
+#### Output
+*Output schema unknown*
 
 ### status.comments.get
 All of the comments on this status.
@@ -921,8 +1173,12 @@ facebook.status.comments.get({
 }, context)
 ```
 
-#### Parameters
-* status (string) **required** - Represents the ID of the status object.
+#### Input
+* input `object`
+  * status **required** `string`: Represents the ID of the status object.
+
+#### Output
+*Output schema unknown*
 
 ### status.get
 A Facebook status
@@ -934,8 +1190,12 @@ facebook.status.get({
 }, context)
 ```
 
-#### Parameters
-* status (string) **required** - Represents the ID of the status object.
+#### Input
+* input `object`
+  * status **required** `string`: Represents the ID of the status object.
+
+#### Output
+*Output schema unknown*
 
 ### post.likes.delete
 Unlikes this post.
@@ -947,8 +1207,12 @@ facebook.post.likes.delete({
 }, context)
 ```
 
-#### Parameters
-* post (string) **required** - Represents the ID of the post object.
+#### Input
+* input `object`
+  * post **required** `string`: Represents the ID of the post object.
+
+#### Output
+*Output schema unknown*
 
 ### post.likes.post
 Likes this post.
@@ -960,8 +1224,12 @@ facebook.post.likes.post({
 }, context)
 ```
 
-#### Parameters
-* post (string) **required** - Represents the ID of the post object.
+#### Input
+* input `object`
+  * post **required** `string`: Represents the ID of the post object.
+
+#### Output
+*Output schema unknown*
 
 ### post.likes.get
 Users who like this post.
@@ -973,8 +1241,12 @@ facebook.post.likes.get({
 }, context)
 ```
 
-#### Parameters
-* post (string) **required** - Represents the ID of the post object.
+#### Input
+* input `object`
+  * post **required** `string`: Represents the ID of the post object.
+
+#### Output
+*Output schema unknown*
 
 ### post.comments.post
 Posts a comment to this post.
@@ -987,9 +1259,13 @@ facebook.post.comments.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Comment text
-* post (string) **required** - Represents the ID of the post object.
+#### Input
+* input `object`
+  * message **required** `string`: Comment text
+  * post **required** `string`: Represents the ID of the post object.
+
+#### Output
+*Output schema unknown*
 
 ### post.comments.get
 All of the comments on this post.
@@ -1001,8 +1277,12 @@ facebook.post.comments.get({
 }, context)
 ```
 
-#### Parameters
-* post (string) **required** - Represents the ID of the post object.
+#### Input
+* input `object`
+  * post **required** `string`: Represents the ID of the post object.
+
+#### Output
+*Output schema unknown*
 
 ### post.get
 A Facebook post
@@ -1014,8 +1294,12 @@ facebook.post.get({
 }, context)
 ```
 
-#### Parameters
-* post (string) **required** - Represents the ID of the post object.
+#### Input
+* input `object`
+  * post **required** `string`: Represents the ID of the post object.
+
+#### Output
+*Output schema unknown*
 
 ### photo.tags.user.post
 Updates the position of a tag on this photo for the user.
@@ -1028,11 +1312,15 @@ facebook.photo.tags.user.post({
 }, context)
 ```
 
-#### Parameters
-* x (string) - x coordinate of tag, as a percentage offset from the left edge of the picture
-* y (string) - y coordinate of tag, as a percentage offset from the top edge of the picture
-* photo (string) **required** - Represents the ID of the photo object.
-* user (string) **required** - Represents the ID of the user.
+#### Input
+* input `object`
+  * x `string`: x coordinate of tag, as a percentage offset from the left edge of the picture
+  * y `string`: y coordinate of tag, as a percentage offset from the top edge of the picture
+  * photo **required** `string`: Represents the ID of the photo object.
+  * user **required** `string`: Represents the ID of the user.
+
+#### Output
+*Output schema unknown*
 
 ### photo.tags.post
 Creates a tag on this photo.
@@ -1045,11 +1333,15 @@ facebook.photo.tags.post({
 }, context)
 ```
 
-#### Parameters
-* to (string) **required** - USER_ID of the User to tag; can also be provided in URL path
-* x (string) - x coordinate of tag, as a percentage offset from the left edge of the picture
-* y (string) - y coordinate of tag, as a percentage offset from the top edge of the picture
-* photo (string) **required** - Represents the ID of the photo object.
+#### Input
+* input `object`
+  * to **required** `string`: USER_ID of the User to tag; can also be provided in URL path
+  * x `string`: x coordinate of tag, as a percentage offset from the left edge of the picture
+  * y `string`: y coordinate of tag, as a percentage offset from the top edge of the picture
+  * photo **required** `string`: Represents the ID of the photo object.
+
+#### Output
+*Output schema unknown*
 
 ### photo.tags.get
 Tags for this photo.
@@ -1061,8 +1353,12 @@ facebook.photo.tags.get({
 }, context)
 ```
 
-#### Parameters
-* photo (string) **required** - Represents the ID of the photo object.
+#### Input
+* input `object`
+  * photo **required** `string`: Represents the ID of the photo object.
+
+#### Output
+*Output schema unknown*
 
 ### photo.picture.get
 The album-sized view of the photo
@@ -1074,8 +1370,12 @@ facebook.photo.picture.get({
 }, context)
 ```
 
-#### Parameters
-* photo (string) **required** - Represents the ID of the photo object.
+#### Input
+* input `object`
+  * photo **required** `string`: Represents the ID of the photo object.
+
+#### Output
+*Output schema unknown*
 
 ### photo.likes.delete
 Unlikes this photo.
@@ -1087,8 +1387,12 @@ facebook.photo.likes.delete({
 }, context)
 ```
 
-#### Parameters
-* photo (string) **required** - Represents the ID of the photo object.
+#### Input
+* input `object`
+  * photo **required** `string`: Represents the ID of the photo object.
+
+#### Output
+*Output schema unknown*
 
 ### photo.likes.post
 Likes this photo.
@@ -1100,8 +1404,12 @@ facebook.photo.likes.post({
 }, context)
 ```
 
-#### Parameters
-* photo (string) **required** - Represents the ID of the photo object.
+#### Input
+* input `object`
+  * photo **required** `string`: Represents the ID of the photo object.
+
+#### Output
+*Output schema unknown*
 
 ### photo.likes.get
 Users who like this photo.
@@ -1113,8 +1421,12 @@ facebook.photo.likes.get({
 }, context)
 ```
 
-#### Parameters
-* photo (string) **required** - Represents the ID of the photo object.
+#### Input
+* input `object`
+  * photo **required** `string`: Represents the ID of the photo object.
+
+#### Output
+*Output schema unknown*
 
 ### photo.comments.post
 Posts a comment to this photo.
@@ -1127,9 +1439,13 @@ facebook.photo.comments.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Comment text
-* photo (string) **required** - Represents the ID of the photo object.
+#### Input
+* input `object`
+  * message **required** `string`: Comment text
+  * photo **required** `string`: Represents the ID of the photo object.
+
+#### Output
+*Output schema unknown*
 
 ### photo.comments.get
 All of the comments on this photo.
@@ -1141,8 +1457,12 @@ facebook.photo.comments.get({
 }, context)
 ```
 
-#### Parameters
-* photo (string) **required** - Represents the ID of the photo object.
+#### Input
+* input `object`
+  * photo **required** `string`: Represents the ID of the photo object.
+
+#### Output
+*Output schema unknown*
 
 ### photo.get
 An individual photo
@@ -1154,8 +1474,12 @@ facebook.photo.get({
 }, context)
 ```
 
-#### Parameters
-* photo (string) **required** - Represents the ID of the photo object.
+#### Input
+* input `object`
+  * photo **required** `string`: Represents the ID of the photo object.
+
+#### Output
+*Output schema unknown*
 
 ### page.blocked.user.get
 Checks if a user is blocked from the page
@@ -1168,9 +1492,13 @@ facebook.page.blocked.user.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
-* user (string) **required** - Represents the ID of a user.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+  * user **required** `string`: Represents the ID of a user.
+
+#### Output
+*Output schema unknown*
 
 ### page.blocked.delete
 Unblocks a user (or users) for the page
@@ -1183,9 +1511,13 @@ facebook.page.blocked.delete({
 }, context)
 ```
 
-#### Parameters
-* uids (string) **required** - Comma-separated list of the user IDs you wish to unblock
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * uids **required** `string`: Comma-separated list of the user IDs you wish to unblock
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.blocked.post
 Blocks a user (or users) from posting content to the page
@@ -1198,9 +1530,13 @@ facebook.page.blocked.post({
 }, context)
 ```
 
-#### Parameters
-* uids (string) **required** - Comma-separated list of the user IDs you wish to block
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * uids **required** `string`: Comma-separated list of the user IDs you wish to block
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.blocked.get
 A list of the users blocked from the page.
@@ -1212,8 +1548,12 @@ facebook.page.blocked.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.admins.get
 A list of the Page's admins.
@@ -1225,8 +1565,12 @@ facebook.page.admins.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.tabs.tab.delete
 Deletes an installed profile tab (where is_permanent is not true) for a page
@@ -1239,9 +1583,13 @@ facebook.page.tabs.tab.delete({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
-* tab (string) **required** - Represents the ID of the tab.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+  * tab **required** `string`: Represents the ID of the tab.
+
+#### Output
+*Output schema unknown*
 
 ### page.tabs.tab.post
 Updates an installed profile tab for a page
@@ -1254,12 +1602,16 @@ facebook.page.tabs.tab.post({
 }, context)
 ```
 
-#### Parameters
-* position (integer) - Order in which the tab will appear on the profile. Must be after permanent tabs and less than the number of installed tabs. Index starts at 0
-* custom_name (string) - Name to be used for the tab. If this is set to an empty string, the tab will use the application’s default tab name.
-* is_non_connection_landing_tab (boolean) - Set this tab as the default landing tab for users who have not liked and are not admins of the Page. If provided, value must be true.
-* page (string) **required** - Represents the ID of the page object.
-* tab (string) **required** - Represents the ID of the tab.
+#### Input
+* input `object`
+  * position `integer`: Order in which the tab will appear on the profile. Must be after permanent tabs and less than the number of installed tabs. Index starts at 0
+  * custom_name `string`: Name to be used for the tab. If this is set to an empty string, the tab will use the application’s default tab name.
+  * is_non_connection_landing_tab `boolean`: Set this tab as the default landing tab for users who have not liked and are not admins of the Page. If provided, value must be true.
+  * page **required** `string`: Represents the ID of the page object.
+  * tab **required** `string`: Represents the ID of the tab.
+
+#### Output
+*Output schema unknown*
 
 ### page.tabs.post
 Installs a profile tab at the end of the current list of installed tabs for the page
@@ -1272,9 +1624,13 @@ facebook.page.tabs.post({
 }, context)
 ```
 
-#### Parameters
-* app_id (string) **required** - ID of the application for which to install the tab
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * app_id **required** `string`: ID of the application for which to install the tab
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.tabs.get
 The page's profile tabs
@@ -1286,8 +1642,12 @@ facebook.page.tabs.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.checkins.get
 Checkins made to this Place Page by the current user, and friends of the current user
@@ -1299,8 +1659,12 @@ facebook.page.checkins.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.events.post
 Creates an event for the page
@@ -1314,14 +1678,18 @@ facebook.page.events.post({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - Event name
-* start_time (integer) **required** - Event start time
-* end_time (integer) - Event end time
-* message (string) - Event description
-* location (string) - Event location
-* privacy_type (string) - Event privacy setting
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * name **required** `string`: Event name
+  * start_time **required** `integer`: Event start time
+  * end_time `integer`: Event end time
+  * message `string`: Event description
+  * location `string`: Event location
+  * privacy_type `string` (values: OPEN, CLOSED, SECRET): Event privacy setting
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.events.get
 The events the Page is attending
@@ -1333,8 +1701,12 @@ facebook.page.events.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.posts.get
 The page's own posts
@@ -1346,8 +1718,12 @@ facebook.page.posts.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.notes.post
 Creates a note on the page
@@ -1360,10 +1736,14 @@ facebook.page.notes.post({
 }, context)
 ```
 
-#### Parameters
-* subject (string) **required** - The subject of the Note
-* message (string) - Note content
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * subject **required** `string`: The subject of the Note
+  * message `string`: Note content
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.notes.get
 The notes contained on this page
@@ -1375,8 +1755,12 @@ facebook.page.notes.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.videos.post
 Publishes a video to the page
@@ -1388,10 +1772,14 @@ facebook.page.videos.post({
 }, context)
 ```
 
-#### Parameters
-* title (string) - Video title
-* description (string) - Video description
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * title `string`: Video title
+  * description `string`: Video description
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.videos.get
 The videos contained on this page
@@ -1403,8 +1791,12 @@ facebook.page.videos.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.statuses.post
 Posts a status message on the page
@@ -1417,9 +1809,13 @@ facebook.page.statuses.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Status Message content
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * message **required** `string`: Status Message content
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.statuses.get
 The page's status updates
@@ -1431,8 +1827,12 @@ facebook.page.statuses.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.albums.get
 The photo albums this Page has uploaded
@@ -1444,8 +1844,12 @@ facebook.page.albums.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.groups.get
 The groups this page is a member of
@@ -1457,8 +1861,12 @@ facebook.page.groups.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.photos.post
 Adds a photo to the page
@@ -1470,9 +1878,13 @@ facebook.page.photos.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) - Photo description
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * message `string`: Photo description
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.photos.get
 The photos contained on this page
@@ -1484,8 +1896,12 @@ facebook.page.photos.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.links.post
 Posts a link on the page
@@ -1498,10 +1914,14 @@ facebook.page.links.post({
 }, context)
 ```
 
-#### Parameters
-* link (string) **required** - Link URL
-* message (string) - Link message
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * link **required** `string`: Link URL
+  * message `string`: Link message
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.links.get
 The page's posted links
@@ -1513,8 +1933,12 @@ facebook.page.links.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.tagged.get
 The photos, videos, and posts in which this page has been tagged
@@ -1526,8 +1950,12 @@ facebook.page.tagged.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.settings.post
 The page's post permission settings
@@ -1541,10 +1969,14 @@ facebook.page.settings.post({
 }, context)
 ```
 
-#### Parameters
-* setting (string) **required** - Which single setting to update: USERS_CAN_POST, USERS_CAN_POST_PHOTOS, USERS_CAN_TAG_PHOTOS, USERS_CAN_POST_VIDEOS
-* value (boolean) **required**
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * setting **required** `string` (values: USERS_CAN_POST, USERS_CAN_POST_PHOTOS, USERS_CAN_TAG_PHOTOS, USERS_CAN_POST_VIDEOS): Which single setting to update: USERS_CAN_POST, USERS_CAN_POST_PHOTOS, USERS_CAN_TAG_PHOTOS, USERS_CAN_POST_VIDEOS
+  * value **required** `boolean`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.settings.get
 The page's post permission settings
@@ -1556,8 +1988,12 @@ facebook.page.settings.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.picture.get
 The page's profile picture
@@ -1569,9 +2005,13 @@ facebook.page.picture.get({
 }, context)
 ```
 
-#### Parameters
-* type (string) - One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * type `string` (values: square, small, large): One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.feed.post
 Posts a status message on this page's wall
@@ -1584,9 +2024,13 @@ facebook.page.feed.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Status Message content
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * message **required** `string`: Status Message content
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.feed.get
 This page's wall
@@ -1598,8 +2042,12 @@ facebook.page.feed.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### page.get
 Returns a Page
@@ -1611,8 +2059,12 @@ facebook.page.get({
 }, context)
 ```
 
-#### Parameters
-* page (string) **required** - Represents the ID of the page object.
+#### Input
+* input `object`
+  * page **required** `string`: Represents the ID of the page object.
+
+#### Output
+*Output schema unknown*
 
 ### note.likes.delete
 Unlikes this note.
@@ -1624,8 +2076,12 @@ facebook.note.likes.delete({
 }, context)
 ```
 
-#### Parameters
-* note (string) **required** - Represents the ID of the note object.
+#### Input
+* input `object`
+  * note **required** `string`: Represents the ID of the note object.
+
+#### Output
+*Output schema unknown*
 
 ### note.likes.post
 Likes this note.
@@ -1637,8 +2093,12 @@ facebook.note.likes.post({
 }, context)
 ```
 
-#### Parameters
-* note (string) **required** - Represents the ID of the note object.
+#### Input
+* input `object`
+  * note **required** `string`: Represents the ID of the note object.
+
+#### Output
+*Output schema unknown*
 
 ### note.likes.get
 Users who like this note.
@@ -1650,8 +2110,12 @@ facebook.note.likes.get({
 }, context)
 ```
 
-#### Parameters
-* note (string) **required** - Represents the ID of the note object.
+#### Input
+* input `object`
+  * note **required** `string`: Represents the ID of the note object.
+
+#### Output
+*Output schema unknown*
 
 ### note.comments.post
 Posts a comment to this note.
@@ -1664,9 +2128,13 @@ facebook.note.comments.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Comment text
-* note (string) **required** - Represents the ID of the note object.
+#### Input
+* input `object`
+  * message **required** `string`: Comment text
+  * note **required** `string`: Represents the ID of the note object.
+
+#### Output
+*Output schema unknown*
 
 ### note.comments.get
 All of the comments on this note.
@@ -1678,8 +2146,12 @@ facebook.note.comments.get({
 }, context)
 ```
 
-#### Parameters
-* note (string) **required** - Represents the ID of the note object.
+#### Input
+* input `object`
+  * note **required** `string`: Represents the ID of the note object.
+
+#### Output
+*Output schema unknown*
 
 ### note.get
 A Facebook note
@@ -1691,8 +2163,12 @@ facebook.note.get({
 }, context)
 ```
 
-#### Parameters
-* note (string) **required** - Represents the ID of the note object.
+#### Input
+* input `object`
+  * note **required** `string`: Represents the ID of the note object.
+
+#### Output
+*Output schema unknown*
 
 ### link.likes.delete
 Unlikes this link.
@@ -1704,8 +2180,12 @@ facebook.link.likes.delete({
 }, context)
 ```
 
-#### Parameters
-* link (string) **required** - Represents the ID of the link object.
+#### Input
+* input `object`
+  * link **required** `string`: Represents the ID of the link object.
+
+#### Output
+*Output schema unknown*
 
 ### link.likes.post
 Likes this link.
@@ -1717,8 +2197,12 @@ facebook.link.likes.post({
 }, context)
 ```
 
-#### Parameters
-* link (string) **required** - Represents the ID of the link object.
+#### Input
+* input `object`
+  * link **required** `string`: Represents the ID of the link object.
+
+#### Output
+*Output schema unknown*
 
 ### link.likes.get
 Users who like this link.
@@ -1730,8 +2214,12 @@ facebook.link.likes.get({
 }, context)
 ```
 
-#### Parameters
-* link (string) **required** - Represents the ID of the link object.
+#### Input
+* input `object`
+  * link **required** `string`: Represents the ID of the link object.
+
+#### Output
+*Output schema unknown*
 
 ### link.comments.post
 Posts a comment to this link.
@@ -1744,9 +2232,13 @@ facebook.link.comments.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Comment text
-* link (string) **required** - Represents the ID of the link object.
+#### Input
+* input `object`
+  * message **required** `string`: Comment text
+  * link **required** `string`: Represents the ID of the link object.
+
+#### Output
+*Output schema unknown*
 
 ### link.comments.get
 All of the comments on this link.
@@ -1758,8 +2250,12 @@ facebook.link.comments.get({
 }, context)
 ```
 
-#### Parameters
-* link (string) **required** - Represents the ID of the link object.
+#### Input
+* input `object`
+  * link **required** `string`: Represents the ID of the link object.
+
+#### Output
+*Output schema unknown*
 
 ### link.get
 A link shared on a user's wall
@@ -1771,8 +2267,12 @@ facebook.link.get({
 }, context)
 ```
 
-#### Parameters
-* link (string) **required** - Represents the ID of the link object.
+#### Input
+* input `object`
+  * link **required** `string`: Represents the ID of the link object.
+
+#### Output
+*Output schema unknown*
 
 ### group.docs.get
 The docs in this group
@@ -1784,8 +2284,12 @@ facebook.group.docs.get({
 }, context)
 ```
 
-#### Parameters
-* group (string) **required** - Represents the ID of the group object.
+#### Input
+* input `object`
+  * group **required** `string`: Represents the ID of the group object.
+
+#### Output
+*Output schema unknown*
 
 ### group.picture.get
 The profile picture of this group
@@ -1797,9 +2301,13 @@ facebook.group.picture.get({
 }, context)
 ```
 
-#### Parameters
-* type (string) - One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
-* group (string) **required** - Represents the ID of the group object.
+#### Input
+* input `object`
+  * type `string` (values: square, small, large): One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
+  * group **required** `string`: Represents the ID of the group object.
+
+#### Output
+*Output schema unknown*
 
 ### group.members.get
 All of the users who are members of this group
@@ -1811,8 +2319,12 @@ facebook.group.members.get({
 }, context)
 ```
 
-#### Parameters
-* group (string) **required** - Represents the ID of the group object.
+#### Input
+* input `object`
+  * group **required** `string`: Represents the ID of the group object.
+
+#### Output
+*Output schema unknown*
 
 ### group.feed.post
 Posts a status message on this group's wall
@@ -1825,9 +2337,13 @@ facebook.group.feed.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Status Message content
-* group (string) **required** - Represents the ID of the group object.
+#### Input
+* input `object`
+  * message **required** `string`: Status Message content
+  * group **required** `string`: Represents the ID of the group object.
+
+#### Output
+*Output schema unknown*
 
 ### group.feed.get
 This group's wall
@@ -1839,8 +2355,12 @@ facebook.group.feed.get({
 }, context)
 ```
 
-#### Parameters
-* group (string) **required** - Represents the ID of the group object.
+#### Input
+* input `object`
+  * group **required** `string`: Represents the ID of the group object.
+
+#### Output
+*Output schema unknown*
 
 ### group.get
 A Facebook group
@@ -1852,8 +2372,12 @@ facebook.group.get({
 }, context)
 ```
 
-#### Parameters
-* group (string) **required** - Represents the ID of the group object.
+#### Input
+* input `object`
+  * group **required** `string`: Represents the ID of the group object.
+
+#### Output
+*Output schema unknown*
 
 ### friendlist.members.user.delete
 Removes a user from the friend list
@@ -1866,9 +2390,13 @@ facebook.friendlist.members.user.delete({
 }, context)
 ```
 
-#### Parameters
-* friendlist (string) **required** - Represents the ID of the FriendList object.
-* user (string) **required** - Represents the ID of the User to add to or remove from the friend list.
+#### Input
+* input `object`
+  * friendlist **required** `string`: Represents the ID of the FriendList object.
+  * user **required** `string`: Represents the ID of the User to add to or remove from the friend list.
+
+#### Output
+*Output schema unknown*
 
 ### friendlist.members.user.post
 Adds a user to the friend list
@@ -1881,9 +2409,13 @@ facebook.friendlist.members.user.post({
 }, context)
 ```
 
-#### Parameters
-* friendlist (string) **required** - Represents the ID of the FriendList object.
-* user (string) **required** - Represents the ID of the User to add to or remove from the friend list.
+#### Input
+* input `object`
+  * friendlist **required** `string`: Represents the ID of the FriendList object.
+  * user **required** `string`: Represents the ID of the User to add to or remove from the friend list.
+
+#### Output
+*Output schema unknown*
 
 ### friendlist.members.get
 All of the users who are members of this list.
@@ -1895,8 +2427,12 @@ facebook.friendlist.members.get({
 }, context)
 ```
 
-#### Parameters
-* friendlist (string) **required** - Represents the ID of the FriendList object.
+#### Input
+* input `object`
+  * friendlist **required** `string`: Represents the ID of the FriendList object.
+
+#### Output
+*Output schema unknown*
 
 ### friendlist.delete
 Deletes the FriendList.
@@ -1908,8 +2444,12 @@ facebook.friendlist.delete({
 }, context)
 ```
 
-#### Parameters
-* friendlist (string) **required** - Represents the ID of the FriendList object.
+#### Input
+* input `object`
+  * friendlist **required** `string`: Represents the ID of the FriendList object.
+
+#### Output
+*Output schema unknown*
 
 ### friendlist.get
 A Facebook friend list. This object represents the list itself and not the members of the list.
@@ -1921,8 +2461,12 @@ facebook.friendlist.get({
 }, context)
 ```
 
-#### Parameters
-* friendlist (string) **required** - Represents the ID of the FriendList object.
+#### Input
+* input `object`
+  * friendlist **required** `string`: Represents the ID of the FriendList object.
+
+#### Output
+*Output schema unknown*
 
 ### event.picture.get
 The event's profile picture
@@ -1934,9 +2478,13 @@ facebook.event.picture.get({
 }, context)
 ```
 
-#### Parameters
-* type (string) - One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
-* event (string) **required** - Represents the ID of the event object.
+#### Input
+* input `object`
+  * type `string` (values: square, small, large): One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
+  * event **required** `string`: Represents the ID of the event object.
+
+#### Output
+*Output schema unknown*
 
 ### event.declined.post
 RSVPs the user as 'declined' for the event
@@ -1948,8 +2496,12 @@ facebook.event.declined.post({
 }, context)
 ```
 
-#### Parameters
-* event (string) **required** - Represents the ID of the event object.
+#### Input
+* input `object`
+  * event **required** `string`: Represents the ID of the event object.
+
+#### Output
+*Output schema unknown*
 
 ### event.declined.get
 All of the users who declined their invitation to this event
@@ -1961,8 +2513,12 @@ facebook.event.declined.get({
 }, context)
 ```
 
-#### Parameters
-* event (string) **required** - Represents the ID of the event object.
+#### Input
+* input `object`
+  * event **required** `string`: Represents the ID of the event object.
+
+#### Output
+*Output schema unknown*
 
 ### event.attending.post
 RSVPs the user as 'attending' for the event
@@ -1974,8 +2530,12 @@ facebook.event.attending.post({
 }, context)
 ```
 
-#### Parameters
-* event (string) **required** - Represents the ID of the event object.
+#### Input
+* input `object`
+  * event **required** `string`: Represents the ID of the event object.
+
+#### Output
+*Output schema unknown*
 
 ### event.attending.get
 All of the users who are attending this event
@@ -1987,8 +2547,12 @@ facebook.event.attending.get({
 }, context)
 ```
 
-#### Parameters
-* event (string) **required** - Represents the ID of the event object.
+#### Input
+* input `object`
+  * event **required** `string`: Represents the ID of the event object.
+
+#### Output
+*Output schema unknown*
 
 ### event.invited.get
 All of the users who have been invited to this event
@@ -2000,8 +2564,12 @@ facebook.event.invited.get({
 }, context)
 ```
 
-#### Parameters
-* event (string) **required** - Represents the ID of the event object.
+#### Input
+* input `object`
+  * event **required** `string`: Represents the ID of the event object.
+
+#### Output
+*Output schema unknown*
 
 ### event.maybe.post
 RSVPs the user as a 'maybe' for the event
@@ -2013,8 +2581,12 @@ facebook.event.maybe.post({
 }, context)
 ```
 
-#### Parameters
-* event (string) **required** - Represents the ID of the event object.
+#### Input
+* input `object`
+  * event **required** `string`: Represents the ID of the event object.
+
+#### Output
+*Output schema unknown*
 
 ### event.maybe.get
 All of the users who have been responded "Maybe" to their invitation to this event
@@ -2026,8 +2598,12 @@ facebook.event.maybe.get({
 }, context)
 ```
 
-#### Parameters
-* event (string) **required** - Represents the ID of the event object.
+#### Input
+* input `object`
+  * event **required** `string`: Represents the ID of the event object.
+
+#### Output
+*Output schema unknown*
 
 ### event.noreply.get
 All of the users who have been not yet responded to their invitation to this event
@@ -2039,8 +2615,12 @@ facebook.event.noreply.get({
 }, context)
 ```
 
-#### Parameters
-* event (string) **required** - Represents the ID of the event object.
+#### Input
+* input `object`
+  * event **required** `string`: Represents the ID of the event object.
+
+#### Output
+*Output schema unknown*
 
 ### event.feed.post
 Posts a status message on this event's wall
@@ -2053,9 +2633,13 @@ facebook.event.feed.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Status Message content
-* event (string) **required** - Represents the ID of the event object.
+#### Input
+* input `object`
+  * message **required** `string`: Status Message content
+  * event **required** `string`: Represents the ID of the event object.
+
+#### Output
+*Output schema unknown*
 
 ### event.feed.get
 This event's wall
@@ -2067,8 +2651,12 @@ facebook.event.feed.get({
 }, context)
 ```
 
-#### Parameters
-* event (string) **required** - Represents the ID of the event object.
+#### Input
+* input `object`
+  * event **required** `string`: Represents the ID of the event object.
+
+#### Output
+*Output schema unknown*
 
 ### event.get
 Specifies information about an event, including the location, event name, and which invitees plan to attend.
@@ -2080,8 +2668,12 @@ facebook.event.get({
 }, context)
 ```
 
-#### Parameters
-* event (string) **required** - Represents the ID of the event object.
+#### Input
+* input `object`
+  * event **required** `string`: Represents the ID of the event object.
+
+#### Output
+*Output schema unknown*
 
 ### comment.likes.delete
 Unlikes the comment
@@ -2093,8 +2685,12 @@ facebook.comment.likes.delete({
 }, context)
 ```
 
-#### Parameters
-* comment (string) **required** - Represents the ID of the comment object.
+#### Input
+* input `object`
+  * comment **required** `string`: Represents the ID of the comment object.
+
+#### Output
+*Output schema unknown*
 
 ### comment.likes.post
 Likes the comment
@@ -2106,8 +2702,12 @@ facebook.comment.likes.post({
 }, context)
 ```
 
-#### Parameters
-* comment (string) **required** - Represents the ID of the comment object.
+#### Input
+* input `object`
+  * comment **required** `string`: Represents the ID of the comment object.
+
+#### Output
+*Output schema unknown*
 
 ### comment.likes.get
 All the likes on this comment
@@ -2119,8 +2719,12 @@ facebook.comment.likes.get({
 }, context)
 ```
 
-#### Parameters
-* comment (string) **required** - Represents the ID of the comment object.
+#### Input
+* input `object`
+  * comment **required** `string`: Represents the ID of the comment object.
+
+#### Output
+*Output schema unknown*
 
 ### comment.delete
 Deletes a comment
@@ -2132,8 +2736,12 @@ facebook.comment.delete({
 }, context)
 ```
 
-#### Parameters
-* comment (string) **required** - Represents the ID of the comment object.
+#### Input
+* input `object`
+  * comment **required** `string`: Represents the ID of the comment object.
+
+#### Output
+*Output schema unknown*
 
 ### comment.get
 Returns a comment
@@ -2145,8 +2753,12 @@ facebook.comment.get({
 }, context)
 ```
 
-#### Parameters
-* comment (string) **required** - Represents the ID of the comment object.
+#### Input
+* input `object`
+  * comment **required** `string`: Represents the ID of the comment object.
+
+#### Output
+*Output schema unknown*
 
 ### checkin.likes.delete
 Unlikes this checkin.
@@ -2158,8 +2770,12 @@ facebook.checkin.likes.delete({
 }, context)
 ```
 
-#### Parameters
-* checkin (string) **required** - Represents the ID of the checkin object.
+#### Input
+* input `object`
+  * checkin **required** `string`: Represents the ID of the checkin object.
+
+#### Output
+*Output schema unknown*
 
 ### checkin.likes.post
 Likes this checkin.
@@ -2171,8 +2787,12 @@ facebook.checkin.likes.post({
 }, context)
 ```
 
-#### Parameters
-* checkin (string) **required** - Represents the ID of the checkin object.
+#### Input
+* input `object`
+  * checkin **required** `string`: Represents the ID of the checkin object.
+
+#### Output
+*Output schema unknown*
 
 ### checkin.likes.get
 Users who like this checkin.
@@ -2184,8 +2804,12 @@ facebook.checkin.likes.get({
 }, context)
 ```
 
-#### Parameters
-* checkin (string) **required** - Represents the ID of the checkin object.
+#### Input
+* input `object`
+  * checkin **required** `string`: Represents the ID of the checkin object.
+
+#### Output
+*Output schema unknown*
 
 ### checkin.comments.post
 Posts a comment to this checkin.
@@ -2198,9 +2822,13 @@ facebook.checkin.comments.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Comment text
-* checkin (string) **required** - Represents the ID of the checkin object.
+#### Input
+* input `object`
+  * message **required** `string`: Comment text
+  * checkin **required** `string`: Represents the ID of the checkin object.
+
+#### Output
+*Output schema unknown*
 
 ### checkin.comments.get
 All of the comments on this checkin.
@@ -2212,8 +2840,12 @@ facebook.checkin.comments.get({
 }, context)
 ```
 
-#### Parameters
-* checkin (string) **required** - Represents the ID of the checkin object.
+#### Input
+* input `object`
+  * checkin **required** `string`: Represents the ID of the checkin object.
+
+#### Output
+*Output schema unknown*
 
 ### checkin.get
 Represents a single visit by a user to a location
@@ -2225,8 +2857,12 @@ facebook.checkin.get({
 }, context)
 ```
 
-#### Parameters
-* checkin (string) **required** - Represents the ID of the checkin object.
+#### Input
+* input `object`
+  * checkin **required** `string`: Represents the ID of the checkin object.
+
+#### Output
+*Output schema unknown*
 
 ### application.achievements.delete
 Unregisters an achievement for the application
@@ -2239,9 +2875,13 @@ facebook.application.achievements.delete({
 }, context)
 ```
 
-#### Parameters
-* achievement (string) **required** - Unique URL to the achievement.
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * achievement **required** `string`: Unique URL to the achievement.
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.achievements.post
 Registers an achievement for the application
@@ -2255,10 +2895,14 @@ facebook.application.achievements.post({
 }, context)
 ```
 
-#### Parameters
-* achievement (string) **required** - Unique URL to the achievement.
-* display_order (integer) **required** - Order of this achievement as it shows up in the achievement stories UI (low to high). For example a display order of 100 will be displayed in the UI before 200. We use this value to surface achievements according to the order the developer has specified. Please make sure this value is unique and increments in the correct order for your achievements.
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * achievement **required** `string`: Unique URL to the achievement.
+  * display_order **required** `integer`: Order of this achievement as it shows up in the achievement stories UI (low to high). For example a display order of 100 will be displayed in the UI before 200. We use this value to surface achievements according to the order the developer has specified. Please make sure this value is unique and increments in the correct order for your achievements.
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.scores.delete
 Deletes all the scores for the application.
@@ -2270,8 +2914,12 @@ facebook.application.scores.delete({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.scores.get
 Scores for the user and their friends.
@@ -2283,8 +2931,12 @@ facebook.application.scores.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.translations.delete
 Deletes a translation string for this application.
@@ -2297,9 +2949,13 @@ facebook.application.translations.delete({
 }, context)
 ```
 
-#### Parameters
-* native_hashes (string) **required** - An array of native hashes. The native hash is a unique identifier of the native string and a description and is generated by the Translations application.
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * native_hashes **required** `string`: An array of native hashes. The native hash is a unique identifier of the native string and a description and is generated by the Translations application.
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.translations.post
 Uploads translated strings for this application.
@@ -2312,9 +2968,13 @@ facebook.application.translations.post({
 }, context)
 ```
 
-#### Parameters
-* native_strings (string) **required** - A JSON-encoded array of strings to translate. Each element of the string array is an object, with text storing the actual string, description storing the description of the text.
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * native_strings **required** `string`: A JSON-encoded array of strings to translate. Each element of the string array is an object, with text storing the actual string, description storing the description of the text.
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.translations.get
 The translated strings for this application.
@@ -2326,8 +2986,12 @@ facebook.application.translations.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.tagged.get
 The photos, videos, and posts in which this application has been tagged.
@@ -2339,8 +3003,12 @@ facebook.application.tagged.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.subscriptions.delete
 Deletes a real-time notification subscription for this application.
@@ -2352,9 +3020,13 @@ facebook.application.subscriptions.delete({
 }, context)
 ```
 
-#### Parameters
-* object (string) - Object to monitor - `user`, `permissions`, or `page`. If no object is specified all subscriptions are deleted.
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * object `string` (values: user, permissions, page): Object to monitor - `user`, `permissions`, or `page`. If no object is specified all subscriptions are deleted.
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.subscriptions.post
 Adds a real-time notification subscription for this application.
@@ -2368,12 +3040,16 @@ facebook.application.subscriptions.post({
 }, context)
 ```
 
-#### Parameters
-* object (string) **required** - Object to monitor - `user`, `permissions`, or `page`.
-* fields (string) - List of properties for the `object` to monitor.
-* callback_url (string) **required** - A callback URL to which Facebook will post subscription updates.
-* verify_token (string) - Token sent in the verification request.
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * object **required** `string` (values: user, permissions, page): Object to monitor - `user`, `permissions`, or `page`.
+  * fields `string`: List of properties for the `object` to monitor.
+  * callback_url **required** `string`: A callback URL to which Facebook will post subscription updates.
+  * verify_token `string`: Token sent in the verification request.
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.subscriptions.get
 All of the subscriptions this application has for real-time notifications.
@@ -2385,8 +3061,12 @@ facebook.application.subscriptions.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.statuses.post
 Posts a status message on the application's profile page
@@ -2399,9 +3079,13 @@ facebook.application.statuses.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Status Message content
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * message **required** `string`: Status Message content
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.statuses.get
 The application's status updates
@@ -2413,8 +3097,12 @@ facebook.application.statuses.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.staticresources.get
 Usage stats about the canvas application's static resources, such as javascript and CSS, and which ones are being flushed to browsers early.
@@ -2426,8 +3114,12 @@ facebook.application.staticresources.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.reviews.get
 Reviews of this application
@@ -2439,8 +3131,12 @@ facebook.application.reviews.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.posts.get
 The application's own posts.
@@ -2452,8 +3148,12 @@ facebook.application.posts.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.picture.get
 The application's logo
@@ -2465,9 +3165,13 @@ facebook.application.picture.get({
 }, context)
 ```
 
-#### Parameters
-* type (string) - One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * type `string` (values: square, small, large): One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.links.post
 Posts a link on the application's profile page
@@ -2480,10 +3184,14 @@ facebook.application.links.post({
 }, context)
 ```
 
-#### Parameters
-* link (string) **required** - Link URL
-* message (string) - Link message
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * link **required** `string`: Link URL
+  * message `string`: Link message
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.links.get
 The application's posted links.
@@ -2495,8 +3203,12 @@ facebook.application.links.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.insights.get
 Usage metrics for this application
@@ -2508,8 +3220,12 @@ facebook.application.insights.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.feed.post
 Posts a status message on the application's profile page
@@ -2522,9 +3238,13 @@ facebook.application.feed.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Status Message content
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * message **required** `string`: Status Message content
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.feed.get
 The application's wall.
@@ -2536,8 +3256,12 @@ facebook.application.feed.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.albums.get
 The photo albums this application has created.
@@ -2549,8 +3273,12 @@ facebook.application.albums.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.accounts.test_users.post
 Creates a test account for the application
@@ -2562,11 +3290,15 @@ facebook.application.accounts.test_users.post({
 }, context)
 ```
 
-#### Parameters
-* installed (boolean) - Install app for the test user upon creation
-* permissions (string) - List of extended permissions app granted for the new test user if installed is true
-* name (string) - A name for the test user. The specified name will also be used in the email address assigned to the test user.
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * installed `boolean`: Install app for the test user upon creation
+  * permissions `string`: List of extended permissions app granted for the new test user if installed is true
+  * name `string`: A name for the test user. The specified name will also be used in the email address assigned to the test user.
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.accounts.get
 Test User accounts associated with the application.
@@ -2578,8 +3310,12 @@ facebook.application.accounts.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### application.get
 An application's profile
@@ -2591,8 +3327,12 @@ facebook.application.get({
 }, context)
 ```
 
-#### Parameters
-* application (string) **required** - Represents the ID of the application object.
+#### Input
+* input `object`
+  * application **required** `string`: Represents the ID of the application object.
+
+#### Output
+*Output schema unknown*
 
 ### album.picture.get
 The album's cover photo; the first picture uploaded to an album becomes the cover photo for the album.
@@ -2604,9 +3344,13 @@ facebook.album.picture.get({
 }, context)
 ```
 
-#### Parameters
-* type (string) - One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
-* album (string) **required** - Represents the ID of the album object.
+#### Input
+* input `object`
+  * type `string` (values: square, small, large): One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
+  * album **required** `string`: Represents the ID of the album object.
+
+#### Output
+*Output schema unknown*
 
 ### album.comments.post
 Posts a comment on the album
@@ -2619,9 +3363,13 @@ facebook.album.comments.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) **required** - Comment text
-* album (string) **required** - Represents the ID of the album object.
+#### Input
+* input `object`
+  * message **required** `string`: Comment text
+  * album **required** `string`: Represents the ID of the album object.
+
+#### Output
+*Output schema unknown*
 
 ### album.comments.get
 The comments made on this album
@@ -2633,8 +3381,12 @@ facebook.album.comments.get({
 }, context)
 ```
 
-#### Parameters
-* album (string) **required** - Represents the ID of the album object.
+#### Input
+* input `object`
+  * album **required** `string`: Represents the ID of the album object.
+
+#### Output
+*Output schema unknown*
 
 ### album.likes.delete
 Unlikes the album
@@ -2646,8 +3398,12 @@ facebook.album.likes.delete({
 }, context)
 ```
 
-#### Parameters
-* album (string) **required** - Represents the ID of the album object.
+#### Input
+* input `object`
+  * album **required** `string`: Represents the ID of the album object.
+
+#### Output
+*Output schema unknown*
 
 ### album.likes.post
 Likes the album
@@ -2659,8 +3415,12 @@ facebook.album.likes.post({
 }, context)
 ```
 
-#### Parameters
-* album (string) **required** - Represents the ID of the album object.
+#### Input
+* input `object`
+  * album **required** `string`: Represents the ID of the album object.
+
+#### Output
+*Output schema unknown*
 
 ### album.likes.get
 The likes made on this album
@@ -2672,8 +3432,12 @@ facebook.album.likes.get({
 }, context)
 ```
 
-#### Parameters
-* album (string) **required** - Represents the ID of the album object.
+#### Input
+* input `object`
+  * album **required** `string`: Represents the ID of the album object.
+
+#### Output
+*Output schema unknown*
 
 ### album.photos.post
 Adds a photo to the album
@@ -2685,9 +3449,13 @@ facebook.album.photos.post({
 }, context)
 ```
 
-#### Parameters
-* message (string) - Photo description
-* album (string) **required** - Represents the ID of the album object.
+#### Input
+* input `object`
+  * message `string`: Photo description
+  * album **required** `string`: Represents the ID of the album object.
+
+#### Output
+*Output schema unknown*
 
 ### album.photos.get
 The photos contained in this album
@@ -2699,8 +3467,12 @@ facebook.album.photos.get({
 }, context)
 ```
 
-#### Parameters
-* album (string) **required** - Represents the ID of the album object.
+#### Input
+* input `object`
+  * album **required** `string`: Represents the ID of the album object.
+
+#### Output
+*Output schema unknown*
 
 ### album.get
 A photo album
@@ -2712,8 +3484,12 @@ facebook.album.get({
 }, context)
 ```
 
-#### Parameters
-* album (string) **required** - Represents the ID of the album object.
+#### Input
+* input `object`
+  * album **required** `string`: Represents the ID of the album object.
+
+#### Output
+*Output schema unknown*
 
 ### search.get
 Search over all public objects in the social graph
@@ -2725,7 +3501,16 @@ facebook.search.get({
 }, context)
 ```
 
-#### Parameters
-* q (string) **required** - The search string
-* type (string) - Supports these types of objects: All public posts (post), people (user), pages (page), events
+#### Input
+* input `object`
+  * q **required** `string`: The search string
+  * type `string` (values: post, user, page, event, group, checkin): Supports these types of objects: All public posts (post), people (user), pages (page), events
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

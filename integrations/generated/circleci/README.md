@@ -4,13 +4,11 @@ Client library for CircleCI
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/circleci
+npm install --save @datafire/circleci
 ```
-
 ```js
-let datafire = require('datafire');
 let circleci = require('@datafire/circleci').create({
-  apikey: "",
+  apikey: ""
 });
 
 circleci.recent_builds.get({}).then(data => {
@@ -19,12 +17,14 @@ circleci.recent_builds.get({}).then(data => {
 ```
 
 ## Description
+
 The CircleCI API is a RESTful, fully-featured API that allows you to do almost anything in CircleCI.
 You can access all information and trigger all actions.
 The only thing we don’t provide access to is billing functions, which must be done from the CircleCI web UI.
 
 
 ## Actions
+
 ### me.get
 Provides information about the signed in user.
 
@@ -34,8 +34,11 @@ Provides information about the signed in user.
 circleci.me.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [User](#user)
 
 ### project.username.project.get
 Build summary for each of the last 30 builds for a single git repo.
@@ -49,12 +52,16 @@ circleci.project.username.project.get({
 }, context)
 ```
 
-#### Parameters
-* limit (integer) - The number of builds to return. Maximum 100, defaults to 30.
-* offset (integer) - The API returns builds starting from this offset, defaults to 0.
-* filter (string) - Restricts which builds are returned.
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
+#### Input
+* input `object`
+  * limit `integer`: The number of builds to return. Maximum 100, defaults to 30.
+  * offset `integer`: The API returns builds starting from this offset, defaults to 0.
+  * filter `string` (values: completed, successful, failed, running): Restricts which builds are returned.
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+
+#### Output
+* output [Builds](#builds)
 
 ### project.username.project.post
 Triggers a new build, returns a summary of the build.
@@ -68,10 +75,18 @@ circleci.project.username.project.post({
 }, context)
 ```
 
-#### Parameters
-* body (object)
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
+#### Input
+* input `object`
+  * body `object`
+    * build_parameters [BuildParameters](#buildparameters)
+    * parallel [Parallel](#parallel)
+    * revision [Revision](#revision)
+    * tag [Tag](#tag)
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+
+#### Output
+* output [BuildSummary](#buildsummary)
 
 ### project.username.project.build_cache.delete
 Clears the cache for a project.
@@ -85,9 +100,14 @@ circleci.project.username.project.build_cache.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
+#### Input
+* input `object`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+
+#### Output
+* output `object`
+  * status `string`
 
 ### project.username.project.checkout_key.get
 Lists checkout keys.
@@ -101,9 +121,13 @@ circleci.project.username.project.checkout_key.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
+#### Input
+* input `object`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+
+#### Output
+* output [Keys](#keys)
 
 ### project.username.project.checkout_key.post
 Creates a new checkout key.
@@ -118,10 +142,14 @@ circleci.project.username.project.checkout_key.post({
 }, context)
 ```
 
-#### Parameters
-* type (string)
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
+#### Input
+* input `object`
+  * type `string` (values: deploy-key, github-user-key)
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+
+#### Output
+* output [Key](#key)
 
 ### project.username.project.checkout_key.fingerprint.delete
 Delete a checkout key.
@@ -136,10 +164,15 @@ circleci.project.username.project.checkout_key.fingerprint.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
-* fingerprint (string) **required** - XXXXXXXXXX
+#### Input
+* input `object`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+  * fingerprint **required** `string`: XXXXXXXXXX
+
+#### Output
+* output `object`
+  * message `string` (values: OK)
 
 ### project.username.project.checkout_key.fingerprint.get
 Get a checkout key.
@@ -154,10 +187,14 @@ circleci.project.username.project.checkout_key.fingerprint.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
-* fingerprint (string) **required** - XXXXXXXXXX
+#### Input
+* input `object`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+  * fingerprint **required** `string`: XXXXXXXXXX
+
+#### Output
+* output [Key](#key)
 
 ### project.username.project.envvar.get
 Lists the environment variables for :project
@@ -171,9 +208,13 @@ circleci.project.username.project.envvar.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
+#### Input
+* input `object`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+
+#### Output
+* output [Envvars](#envvars)
 
 ### project.username.project.envvar.post
 Creates a new environment variable
@@ -187,9 +228,13 @@ circleci.project.username.project.envvar.post({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
+#### Input
+* input `object`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+
+#### Output
+* output [Envvar](#envvar)
 
 ### project.username.project.envvar.name.delete
 Deletes the environment variable named ':name'
@@ -204,10 +249,15 @@ circleci.project.username.project.envvar.name.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
-* name (string) **required** - XXXXXXXXXX
+#### Input
+* input `object`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+  * name **required** `string`: XXXXXXXXXX
+
+#### Output
+* output `object`
+  * message `string` (values: OK)
 
 ### project.username.project.envvar.name.get
 Gets the hidden value of environment variable :name
@@ -222,10 +272,14 @@ circleci.project.username.project.envvar.name.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
-* name (string) **required** - XXXXXXXXXX
+#### Input
+* input `object`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+  * name **required** `string`: XXXXXXXXXX
+
+#### Output
+* output [Envvar](#envvar)
 
 ### project.username.project.ssh_key.post
 Create an ssh key used to access external systems that require SSH key-based authentication
@@ -241,11 +295,18 @@ circleci.project.username.project.ssh_key.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required**
-* body (object) **required**
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
+#### Input
+* input `object`
+  * Content-Type **required** `string` (values: application/json)
+  * body **required** `object`
+    * hostname `string`
+    * private_key `string`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+
+#### Output
+* output `object`
+  * message `string`
 
 ### project.username.project.tree.branch.post
 Triggers a new build, returns a summary of the build.
@@ -263,11 +324,18 @@ circleci.project.username.project.tree.branch.post({
 }, context)
 ```
 
-#### Parameters
-* body (object)
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
-* branch (string) **required** - The branch name should be url-encoded.
+#### Input
+* input `object`
+  * body `object`
+    * build_parameters [BuildParameters](#buildparameters)
+    * parallel [Parallel](#parallel)
+    * revision [Revision](#revision)
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+  * branch **required** `string`: The branch name should be url-encoded.
+
+#### Output
+* output [Build](#build)
 
 ### project.username.project.build_num.get
 Full details for a single build. The response includes all of the fields from the build summary.
@@ -283,10 +351,14 @@ circleci.project.username.project.build_num.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
-* build_num (integer) **required** - XXXXXXXXXX
+#### Input
+* input `object`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+  * build_num **required** `integer`: XXXXXXXXXX
+
+#### Output
+* output [BuildDetail](#builddetail)
 
 ### project.username.project.build_num.artifacts.get
 List the artifacts produced by a given build.
@@ -301,10 +373,14 @@ circleci.project.username.project.build_num.artifacts.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
-* build_num (integer) **required** - XXXXXXXXXX
+#### Input
+* input `object`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+  * build_num **required** `integer`: XXXXXXXXXX
+
+#### Output
+* output [Artifacts](#artifacts)
 
 ### project.username.project.build_num.cancel.post
 Cancels the build, returns a summary of the build.
@@ -319,10 +395,14 @@ circleci.project.username.project.build_num.cancel.post({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
-* build_num (integer) **required** - XXXXXXXXXX
+#### Input
+* input `object`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+  * build_num **required** `integer`: XXXXXXXXXX
+
+#### Output
+* output [Build](#build)
 
 ### project.username.project.build_num.retry.post
 Retries the build, returns a summary of the new build.
@@ -337,10 +417,14 @@ circleci.project.username.project.build_num.retry.post({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
-* build_num (integer) **required** - XXXXXXXXXX
+#### Input
+* input `object`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+  * build_num **required** `integer`: XXXXXXXXXX
+
+#### Output
+* output [Build](#build)
 
 ### project.username.project.build_num.tests.get
 Provides test metadata for a build
@@ -356,10 +440,14 @@ circleci.project.username.project.build_num.tests.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - XXXXXXXXX
-* project (string) **required** - XXXXXXXXX
-* build_num (integer) **required** - XXXXXXXXXX
+#### Input
+* input `object`
+  * username **required** `string`: XXXXXXXXX
+  * project **required** `string`: XXXXXXXXX
+  * build_num **required** `integer`: XXXXXXXXXX
+
+#### Output
+* output [Tests](#tests)
 
 ### projects.get
 List of all the projects you're following on CircleCI, with build information organized by branch.
@@ -370,8 +458,11 @@ List of all the projects you're following on CircleCI, with build information or
 circleci.projects.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Projects](#projects)
 
 ### recent_builds.get
 Build summary for each of the last 30 recent builds, ordered by build_num.
@@ -382,9 +473,13 @@ Build summary for each of the last 30 recent builds, ordered by build_num.
 circleci.recent_builds.get({}, context)
 ```
 
-#### Parameters
-* limit (integer) - The number of builds to return. Maximum 100, defaults to 30.
-* offset (integer) - The API returns builds starting from this offset, defaults to 0.
+#### Input
+* input `object`
+  * limit `integer`: The number of builds to return. Maximum 100, defaults to 30.
+  * offset `integer`: The API returns builds starting from this offset, defaults to 0.
+
+#### Output
+* output [Builds](#builds)
 
 ### user.heroku_key.post
 Adds your Heroku API key to CircleCI, takes apikey as form param name.
@@ -395,6 +490,15 @@ Adds your Heroku API key to CircleCI, takes apikey as form param name.
 circleci.user.heroku_key.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
+#### Output
+* output `object`
+  * message `string`
+
+
+
+## Definitions
+
+** No definitions **

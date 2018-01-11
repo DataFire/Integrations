@@ -4,14 +4,12 @@ Client library for Zoom Connect
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/zoomconnect
+npm install --save @datafire/zoomconnect
 ```
-
 ```js
-let datafire = require('datafire');
 let zoomconnect = require('@datafire/zoomconnect').create({
   email: "",
-  token: "",
+  token: ""
 });
 
 zoomconnect.sms.send_bulk.post({}).then(data => {
@@ -20,9 +18,11 @@ zoomconnect.sms.send_bulk.post({}).then(data => {
 ```
 
 ## Description
+
 The world's greatest SMS API
 
 ## Actions
+
 ### getBalance
 Returns your account's credit balance
 
@@ -31,8 +31,11 @@ Returns your account's credit balance
 zoomconnect.getBalance(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [WebServiceAccount](#webserviceaccount)
 
 ### transfer
 Transfers credits between two users in the same team. The <i>account email address</i> fields as well as the <i>number of credits to transfer</i> are required. 
@@ -42,8 +45,12 @@ Transfers credits between two users in the same team. The <i>account email addre
 zoomconnect.transfer({}, context)
 ```
 
-#### Parameters
-* body (undefined) - WebServiceTransferCreditsRequest
+#### Input
+* input `object`
+  * body [WebServiceTransferCreditsRequest](#webservicetransfercreditsrequest)
+
+#### Output
+*Output schema unknown*
 
 ### search
 Find a user for a particular email address
@@ -55,8 +62,12 @@ zoomconnect.search({
 }, context)
 ```
 
-#### Parameters
-* searchEmail (string) **required** - search by email address
+#### Input
+* input `object`
+  * searchEmail **required** `string`: search by email address
+
+#### Output
+* output [WebServiceUsers](#webserviceusers)
 
 ### account.user.put
 Creates a new sub-account in your team. The following fields are required <i>firstname, lastname, email address, contact number</i> and <i>password.</i>
@@ -66,8 +77,12 @@ Creates a new sub-account in your team. The following fields are required <i>fir
 zoomconnect.account.user.put({}, context)
 ```
 
-#### Parameters
-* body (undefined) - WebServiceUser
+#### Input
+* input `object`
+  * body [WebServiceUser](#webserviceuser)
+
+#### Output
+* output [WebServiceUser](#webserviceuser)
 
 ### getUser
 Gets a user from a given user id
@@ -79,8 +94,12 @@ zoomconnect.getUser({
 }, context)
 ```
 
-#### Parameters
-* userId (integer) **required** - userId
+#### Input
+* input `object`
+  * userId **required** `integer`: userId
+
+#### Output
+* output [WebServiceUser](#webserviceuser)
 
 ### account.user.userId.post
 Updates a sub-account in your team. The following fields can be updated <i>firstname, lastname, contact number</i> and <i>password.</i>
@@ -92,9 +111,13 @@ zoomconnect.account.user.userId.post({
 }, context)
 ```
 
-#### Parameters
-* userId (integer) **required** - userId
-* body (undefined) - WebServiceUser
+#### Input
+* input `object`
+  * userId **required** `integer`: userId
+  * body [WebServiceUser](#webserviceuser)
+
+#### Output
+* output [WebServiceUser](#webserviceuser)
 
 ### contacts.all.get
 Returns all contacts
@@ -104,8 +127,11 @@ Returns all contacts
 zoomconnect.contacts.all.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [WebServiceContacts](#webservicecontacts)
 
 ### contacts.create.post
 Creates a  contact
@@ -115,8 +141,12 @@ Creates a  contact
 zoomconnect.contacts.create.post({}, context)
 ```
 
-#### Parameters
-* body (undefined) - WebServiceContact
+#### Input
+* input `object`
+  * body [WebServiceContact](#webservicecontact)
+
+#### Output
+* output [WebServiceContact](#webservicecontact)
 
 ### contacts.contactId.delete
 Deletes a  contact
@@ -128,8 +158,12 @@ zoomconnect.contacts.contactId.delete({
 }, context)
 ```
 
-#### Parameters
-* contactId (string) **required** - contactId
+#### Input
+* input `object`
+  * contactId **required** `string`: contactId
+
+#### Output
+*Output schema unknown*
 
 ### contacts.contactId.get
 Returns details for a single contact
@@ -141,8 +175,12 @@ zoomconnect.contacts.contactId.get({
 }, context)
 ```
 
-#### Parameters
-* contactId (string) **required** - contactId
+#### Input
+* input `object`
+  * contactId **required** `string`: contactId
+
+#### Output
+* output [WebServiceContact](#webservicecontact)
 
 ### contacts.contactId.post
 Updates a  contact
@@ -154,9 +192,13 @@ zoomconnect.contacts.contactId.post({
 }, context)
 ```
 
-#### Parameters
-* contactId (string) **required** - contactId
-* body (undefined) - WebServiceContact
+#### Input
+* input `object`
+  * contactId **required** `string`: contactId
+  * body [WebServiceContact](#webservicecontact)
+
+#### Output
+* output [WebServiceContact](#webservicecontact)
 
 ### contacts.contactId.addFromGroup.groupId.get
 Remove a contact from a group
@@ -169,9 +211,13 @@ zoomconnect.contacts.contactId.addFromGroup.groupId.get({
 }, context)
 ```
 
-#### Parameters
-* contactId (string) **required** - contactId
-* groupId (string) **required** - groupId
+#### Input
+* input `object`
+  * contactId **required** `string`: contactId
+  * groupId **required** `string`: groupId
+
+#### Output
+*Output schema unknown*
 
 ### contacts.contactId.addFromGroup.groupId.post
 Remove a contact from a group
@@ -184,9 +230,13 @@ zoomconnect.contacts.contactId.addFromGroup.groupId.post({
 }, context)
 ```
 
-#### Parameters
-* contactId (string) **required** - contactId
-* groupId (string) **required** - groupId
+#### Input
+* input `object`
+  * contactId **required** `string`: contactId
+  * groupId **required** `string`: groupId
+
+#### Output
+*Output schema unknown*
 
 ### contacts.contactId.addToGroup.groupId.get
 Add a contact to a group
@@ -199,9 +249,13 @@ zoomconnect.contacts.contactId.addToGroup.groupId.get({
 }, context)
 ```
 
-#### Parameters
-* contactId (string) **required** - contactId
-* groupId (string) **required** - groupId
+#### Input
+* input `object`
+  * contactId **required** `string`: contactId
+  * groupId **required** `string`: groupId
+
+#### Output
+*Output schema unknown*
 
 ### contacts.contactId.addToGroup.groupId.post
 Add a contact to a group
@@ -214,9 +268,13 @@ zoomconnect.contacts.contactId.addToGroup.groupId.post({
 }, context)
 ```
 
-#### Parameters
-* contactId (string) **required** - contactId
-* groupId (string) **required** - groupId
+#### Input
+* input `object`
+  * contactId **required** `string`: contactId
+  * groupId **required** `string`: groupId
+
+#### Output
+*Output schema unknown*
 
 ### context.lookup.get
 Returns context information for a single provided
@@ -226,8 +284,12 @@ Returns context information for a single provided
 zoomconnect.context.lookup.get({}, context)
 ```
 
-#### Parameters
-* body (string)
+#### Input
+* input `object`
+  * body `string`
+
+#### Output
+* output [WebServiceNumberContextLookupResponse](#webservicenumbercontextlookupresponse)
 
 ### context.lookup.post
 Returns context information for a single provided
@@ -237,8 +299,12 @@ Returns context information for a single provided
 zoomconnect.context.lookup.post({}, context)
 ```
 
-#### Parameters
-* body (string)
+#### Input
+* input `object`
+  * body `string`
+
+#### Output
+* output [WebServiceNumberContextLookupResponse](#webservicenumbercontextlookupresponse)
 
 ### groups.all.get
 Returns all groups
@@ -248,8 +314,11 @@ Returns all groups
 zoomconnect.groups.all.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [WebServiceGroups](#webservicegroups)
 
 ### groups.create.post
 Create a  group
@@ -259,8 +328,12 @@ Create a  group
 zoomconnect.groups.create.post({}, context)
 ```
 
-#### Parameters
-* body (undefined) - WebServiceGroup
+#### Input
+* input `object`
+  * body [WebServiceGroup](#webservicegroup)
+
+#### Output
+* output [WebServiceGroup](#webservicegroup)
 
 ### groups.groupId.delete
 Deletes a  group
@@ -272,8 +345,12 @@ zoomconnect.groups.groupId.delete({
 }, context)
 ```
 
-#### Parameters
-* groupId (string) **required** - groupId
+#### Input
+* input `object`
+  * groupId **required** `string`: groupId
+
+#### Output
+*Output schema unknown*
 
 ### groups.groupId.get
 Returns details for a single group
@@ -285,8 +362,12 @@ zoomconnect.groups.groupId.get({
 }, context)
 ```
 
-#### Parameters
-* groupId (string) **required** - groupId
+#### Input
+* input `object`
+  * groupId **required** `string`: groupId
+
+#### Output
+* output [WebServiceGroup](#webservicegroup)
 
 ### groups.groupId.post
 Update a  group
@@ -298,9 +379,13 @@ zoomconnect.groups.groupId.post({
 }, context)
 ```
 
-#### Parameters
-* groupId (string) **required** - groupId
-* body (undefined) - WebServiceGroup
+#### Input
+* input `object`
+  * groupId **required** `string`: groupId
+  * body [WebServiceGroup](#webservicegroup)
+
+#### Output
+* output [WebServiceGroup](#webservicegroup)
 
 ### groups.groupId.addContact.contactId.get
 Add a contact to a group
@@ -313,9 +398,13 @@ zoomconnect.groups.groupId.addContact.contactId.get({
 }, context)
 ```
 
-#### Parameters
-* groupId (string) **required** - groupId
-* contactId (string) **required** - contactId
+#### Input
+* input `object`
+  * groupId **required** `string`: groupId
+  * contactId **required** `string`: contactId
+
+#### Output
+*Output schema unknown*
 
 ### groups.groupId.addContact.contactId.post
 Add a contact to a group
@@ -328,9 +417,13 @@ zoomconnect.groups.groupId.addContact.contactId.post({
 }, context)
 ```
 
-#### Parameters
-* groupId (string) **required** - groupId
-* contactId (string) **required** - contactId
+#### Input
+* input `object`
+  * groupId **required** `string`: groupId
+  * contactId **required** `string`: contactId
+
+#### Output
+*Output schema unknown*
 
 ### groups.groupId.removeContact.contactId.get
 Remove a contact from a group
@@ -343,9 +436,13 @@ zoomconnect.groups.groupId.removeContact.contactId.get({
 }, context)
 ```
 
-#### Parameters
-* groupId (string) **required** - groupId
-* contactId (string) **required** - contactId
+#### Input
+* input `object`
+  * groupId **required** `string`: groupId
+  * contactId **required** `string`: contactId
+
+#### Output
+*Output schema unknown*
 
 ### groups.groupId.removeContact.contactId.post
 Remove a contact from a group
@@ -358,9 +455,13 @@ zoomconnect.groups.groupId.removeContact.contactId.post({
 }, context)
 ```
 
-#### Parameters
-* groupId (string) **required** - groupId
-* contactId (string) **required** - contactId
+#### Input
+* input `object`
+  * groupId **required** `string`: groupId
+  * contactId **required** `string`: contactId
+
+#### Output
+*Output schema unknown*
 
 ### messages.all.get
 Returns all messages
@@ -370,22 +471,26 @@ Returns all messages
 zoomconnect.messages.all.get({}, context)
 ```
 
-#### Parameters
-* pageSize (integer) - number of elements to return at a time
-* page (integer) - page number
-* type (string) - filter by message type
-* status (string) - filter by message status
-* fromDateTimeSent (string) - date format: yyyyMMdd
-* toDateTimeSent (string) - date format: yyyyMMdd
-* fromDateTimeReceived (string) - date format: yyyyMMdd
-* toDateTimeReceived (string) - date format: yyyyMMdd
-* fromNumber (string) - phone number the message was sent from
-* toNumber (string) - phone number the message was sent to
-* message (string) - search matching message text
-* campaign (string) - search by campaign
-* dataField (string) - search by data field
-* deleted (boolean) - return only deleted / not deleted messages
-* read (boolean) - return only read / unread messages (inbox messages only)
+#### Input
+* input `object`
+  * pageSize `integer`: number of elements to return at a time
+  * page `integer`: page number
+  * type `string` (values: OUTBOUND, INBOUND): filter by message type
+  * status `string` (values: SCHEDULED, UNKNOWN, SENT, FAILED, FAILED_REFUNDED, FAILED_OPTOUT, DELIVERED): filter by message status
+  * fromDateTimeSent `string`: date format: yyyyMMdd
+  * toDateTimeSent `string`: date format: yyyyMMdd
+  * fromDateTimeReceived `string`: date format: yyyyMMdd
+  * toDateTimeReceived `string`: date format: yyyyMMdd
+  * fromNumber `string`: phone number the message was sent from
+  * toNumber `string`: phone number the message was sent to
+  * message `string`: search matching message text
+  * campaign `string`: search by campaign
+  * dataField `string`: search by data field
+  * deleted `boolean`: return only deleted / not deleted messages
+  * read `boolean`: return only read / unread messages (inbox messages only)
+
+#### Output
+* output [WebServiceMessages](#webservicemessages)
 
 ### messages.messageId.delete
 Deletes a  message
@@ -397,8 +502,12 @@ zoomconnect.messages.messageId.delete({
 }, context)
 ```
 
-#### Parameters
-* messageId (string) **required** - messageId
+#### Input
+* input `object`
+  * messageId **required** `string`: messageId
+
+#### Output
+*Output schema unknown*
 
 ### messages.messageId.get
 Returns details for a single message
@@ -410,8 +519,12 @@ zoomconnect.messages.messageId.get({
 }, context)
 ```
 
-#### Parameters
-* messageId (string) **required** - messageId
+#### Input
+* input `object`
+  * messageId **required** `string`: messageId
+
+#### Output
+* output [WebServiceMessage](#webservicemessage)
 
 ### messages.messageId.markRead.post
 Marks a  message as read
@@ -423,8 +536,12 @@ zoomconnect.messages.messageId.markRead.post({
 }, context)
 ```
 
-#### Parameters
-* messageId (string) **required** - messageId
+#### Input
+* input `object`
+  * messageId **required** `string`: messageId
+
+#### Output
+* output [WebServiceMessage](#webservicemessage)
 
 ### messages.messageId.markRead.put
 Marks a  message as read
@@ -436,8 +553,12 @@ zoomconnect.messages.messageId.markRead.put({
 }, context)
 ```
 
-#### Parameters
-* messageId (string) **required** - messageId
+#### Input
+* input `object`
+  * messageId **required** `string`: messageId
+
+#### Output
+* output [WebServiceMessage](#webservicemessage)
 
 ### messages.messageId.markUnread.post
 Marks a  message as unread
@@ -449,8 +570,12 @@ zoomconnect.messages.messageId.markUnread.post({
 }, context)
 ```
 
-#### Parameters
-* messageId (string) **required** - messageId
+#### Input
+* input `object`
+  * messageId **required** `string`: messageId
+
+#### Output
+* output [WebServiceMessage](#webservicemessage)
 
 ### messages.messageId.markUnread.put
 Marks a  message as unread
@@ -462,8 +587,12 @@ zoomconnect.messages.messageId.markUnread.put({
 }, context)
 ```
 
-#### Parameters
-* messageId (string) **required** - messageId
+#### Input
+* input `object`
+  * messageId **required** `string`: messageId
+
+#### Output
+* output [WebServiceMessage](#webservicemessage)
 
 ### sms.send.get
 Returns an example of the data to POST to send a single message.
@@ -473,8 +602,11 @@ Returns an example of the data to POST to send a single message.
 zoomconnect.sms.send.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [WebServiceSendSmsRequest](#webservicesendsmsrequest)
 
 ### sms.send.post
 Sends a single message. The <i>recipientNumber</i> and <i>message</i> fields are required. All other fields are optional.
@@ -484,8 +616,12 @@ Sends a single message. The <i>recipientNumber</i> and <i>message</i> fields are
 zoomconnect.sms.send.post({}, context)
 ```
 
-#### Parameters
-* body (undefined) - WebServiceSendSmsRequest
+#### Input
+* input `object`
+  * body [WebServiceSendSmsRequest](#webservicesendsmsrequest)
+
+#### Output
+* output [WebServiceSendSmsResponse](#webservicesendsmsresponse)
 
 ### sms.send_bulk.get
 Returns an example of the data to POST to send multiple messages in one transaction.
@@ -495,8 +631,11 @@ Returns an example of the data to POST to send multiple messages in one transact
 zoomconnect.sms.send_bulk.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [WebServiceSendSmsRequests](#webservicesendsmsrequests)
 
 ### sms.send_bulk.post
 Send multiple messages in one transaction.
@@ -506,8 +645,12 @@ Send multiple messages in one transaction.
 zoomconnect.sms.send_bulk.post({}, context)
 ```
 
-#### Parameters
-* body (undefined) - WebServiceSendSmsRequests
+#### Input
+* input `object`
+  * body [WebServiceSendSmsRequests](#webservicesendsmsrequests)
+
+#### Output
+* output [WebServiceSendSmsResponses](#webservicesendsmsresponses)
 
 ### sms.send_url_parameters.get
 Send a single message using URL parameters.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.
@@ -520,12 +663,16 @@ zoomconnect.sms.send_url_parameters.get({
 }, context)
 ```
 
-#### Parameters
-* recipientNumber (string) **required** - the phone number of the recipient to send to
-* message (string) **required** - the message to send
-* dateToSend (string) - date format: yyyyMMddHHmm
-* campaign (string) - optional campaign name
-* dataField (string) - optional extra data
+#### Input
+* input `object`
+  * recipientNumber **required** `string`: the phone number of the recipient to send to
+  * message **required** `string`: the message to send
+  * dateToSend `string`: date format: yyyyMMddHHmm
+  * campaign `string`: optional campaign name
+  * dataField `string`: optional extra data
+
+#### Output
+* output `string`
 
 ### sms.send_url_parameters.post
 Send a single message using URL parameters.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.
@@ -538,12 +685,16 @@ zoomconnect.sms.send_url_parameters.post({
 }, context)
 ```
 
-#### Parameters
-* recipientNumber (string) **required** - the phone number of the recipient to send to
-* message (string) **required** - the message to send
-* dateToSend (string) - date format: yyyyMMddHHmm
-* campaign (string) - optional campaign name
-* dataField (string) - optional extra data
+#### Input
+* input `object`
+  * recipientNumber **required** `string`: the phone number of the recipient to send to
+  * message **required** `string`: the message to send
+  * dateToSend `string`: date format: yyyyMMddHHmm
+  * campaign `string`: optional campaign name
+  * dataField `string`: optional extra data
+
+#### Output
+* output `string`
 
 ### sms.send_url.token.get
 Send a single message using your unique URL without having to authenticate using your email address or REST API token. The token required is the URL Sending token available on the developer setting page. The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional. Not that the token required here is 
@@ -557,13 +708,17 @@ zoomconnect.sms.send_url.token.get({
 }, context)
 ```
 
-#### Parameters
-* token (string) **required** - token
-* recipientNumber (string) **required** - the phone number of the recipient to send to
-* message (string) **required** - the message to send
-* dateToSend (string) - date format: yyyyMMddHHmm
-* campaign (string) - optional campaign name
-* dataField (string) - optional extra data
+#### Input
+* input `object`
+  * token **required** `string`: token
+  * recipientNumber **required** `string`: the phone number of the recipient to send to
+  * message **required** `string`: the message to send
+  * dateToSend `string`: date format: yyyyMMddHHmm
+  * campaign `string`: optional campaign name
+  * dataField `string`: optional extra data
+
+#### Output
+* output `string`
 
 ### sms.send_url.token.post
 Send a single message using your unique URL without having to authenticate using your email address or REST API token. The token required is the URL Sending token available on the developer setting page. The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional. Not that the token required here is 
@@ -577,13 +732,17 @@ zoomconnect.sms.send_url.token.post({
 }, context)
 ```
 
-#### Parameters
-* token (string) **required** - token
-* recipientNumber (string) **required** - the phone number of the recipient to send to
-* message (string) **required** - the message to send
-* dateToSend (string) - date format: yyyyMMddHHmm
-* campaign (string) - optional campaign name
-* dataField (string) - optional extra data
+#### Input
+* input `object`
+  * token **required** `string`: token
+  * recipientNumber **required** `string`: the phone number of the recipient to send to
+  * message **required** `string`: the message to send
+  * dateToSend `string`: date format: yyyyMMddHHmm
+  * campaign `string`: optional campaign name
+  * dataField `string`: optional extra data
+
+#### Output
+* output `string`
 
 ### templates.all.get
 Returns all templates
@@ -593,8 +752,11 @@ Returns all templates
 zoomconnect.templates.all.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [WebServiceTemplates](#webservicetemplates)
 
 ### templates.templateId.delete
 Deletes a  template
@@ -606,8 +768,12 @@ zoomconnect.templates.templateId.delete({
 }, context)
 ```
 
-#### Parameters
-* templateId (integer) **required** - templateId
+#### Input
+* input `object`
+  * templateId **required** `integer`: templateId
+
+#### Output
+*Output schema unknown*
 
 ### templates.templateId.get
 Returns details for a single template
@@ -619,6 +785,184 @@ zoomconnect.templates.templateId.get({
 }, context)
 ```
 
-#### Parameters
-* templateId (integer) **required** - templateId
+#### Input
+* input `object`
+  * templateId **required** `integer`: templateId
+
+#### Output
+* output [WebServiceTemplate](#webservicetemplate)
+
+
+
+## Definitions
+
+### Link
+* Link `object`
+  * href `string`
+  * rel `string`
+  * templated `boolean`
+
+### RestErrorDTO
+* RestErrorDTO `object`: RestErrorDTO
+  * code `integer`
+  * developerMessage `string`
+  * message `string`
+  * moreInfoUrl `string`
+  * status `string`
+
+### Void
+
+
+### WebServiceAccount
+* WebServiceAccount `object`: WebServiceAccount
+  * creditBalance `number`
+  * links `array`
+    * items [Link](#link)
+
+### WebServiceContact
+* WebServiceContact `object`: WebServiceContact
+  * contactId `string`
+  * contactNumber `string`
+  * firstName `string`
+  * lastName `string`
+  * links `array`
+    * items [Link](#link)
+  * title `string`
+
+### WebServiceContactLink
+* WebServiceContactLink `object`: WebServiceContactLink
+  * contactId `string`
+  * links `array`
+    * items [Link](#link)
+
+### WebServiceContacts
+* WebServiceContacts `object`: WebServiceContacts
+  * links `array`
+    * items [Link](#link)
+  * webServiceContacts `array`
+    * items [WebServiceContact](#webservicecontact)
+
+### WebServiceGroup
+* WebServiceGroup `object`: WebServiceGroup
+  * groupId `string`
+  * links `array`
+    * items [Link](#link)
+  * name `string`
+
+### WebServiceGroups
+* WebServiceGroups `object`: WebServiceGroups
+  * links `array`
+    * items [Link](#link)
+  * webServiceGroups `array`
+    * items [WebServiceGroup](#webservicegroup)
+
+### WebServiceMessage
+* WebServiceMessage `object`: WebServiceMessage
+  * campaign `string`
+  * contact [WebServiceContactLink](#webservicecontactlink)
+  * creditCost `number`
+  * dateTimeReceived `string`
+  * dateTimeScheduled `string`
+  * dateTimeSent `string`
+  * deleted `boolean`
+  * fromNumber `string`
+  * links `array`
+    * items [Link](#link)
+  * message `string`
+  * messageId `string`
+  * messageStatus `string`
+  * messageType `string`
+  * numberOfMessages `integer`
+  * read `boolean`
+  * toNumber `string`
+  * userDataField `string`
+
+### WebServiceMessages
+* WebServiceMessages `object`: WebServiceMessages
+  * elements `integer`
+  * links `array`
+    * items [Link](#link)
+  * page `integer`
+  * pageSize `integer`
+  * totalElements `integer`
+  * totalPages `integer`
+  * webServiceMessages `array`
+    * items [WebServiceMessage](#webservicemessage)
+
+### WebServiceNumberContextLookupRequest
+* WebServiceNumberContextLookupRequest `object`: WebServiceNumberContextLookupRequest
+  * links `array`
+    * items [Link](#link)
+  * numbers `array`
+    * items `string`
+
+### WebServiceNumberContextLookupResponse
+* WebServiceNumberContextLookupResponse `object`: WebServiceNumberContextLookupResponse
+  * links `array`
+    * items [Link](#link)
+  * number `string`
+  * numberValid `boolean`
+
+### WebServiceSendSmsRequest
+* WebServiceSendSmsRequest `object`: WebServiceSendSmsRequest
+  * campaign `string`
+  * dataField `string`
+  * dateToSend `string`
+  * message `string`
+  * recipientNumber `string`
+
+### WebServiceSendSmsRequests
+* WebServiceSendSmsRequests `object`: WebServiceSendSmsRequests
+  * defaultDateToSend `string`
+  * messagesPerMinute `integer`
+  * sendSmsRequests `array`
+    * items [WebServiceSendSmsRequest](#webservicesendsmsrequest)
+
+### WebServiceSendSmsResponse
+* WebServiceSendSmsResponse `object`: WebServiceSendSmsResponse
+  * error `string`
+  * messageId `string`
+
+### WebServiceSendSmsResponses
+* WebServiceSendSmsResponses `object`: WebServiceSendSmsResponses
+  * sendSmsResponses `array`
+    * items [WebServiceSendSmsResponse](#webservicesendsmsresponse)
+
+### WebServiceTemplate
+* WebServiceTemplate `object`: WebServiceTemplate
+  * data `string`
+  * links `array`
+    * items [Link](#link)
+  * name `string`
+  * templateId `integer`
+
+### WebServiceTemplates
+* WebServiceTemplates `object`: WebServiceTemplates
+  * links `array`
+    * items [Link](#link)
+  * webServiceTemplates `array`
+    * items [WebServiceTemplate](#webservicetemplate)
+
+### WebServiceTransferCreditsRequest
+* WebServiceTransferCreditsRequest `object`: WebServiceTransferCreditsRequest
+  * numberOfCreditsToTransfer `integer`
+  * transferFromEmailAddress `string`
+  * transferToEmailAddress `string`
+
+### WebServiceUser
+* WebServiceUser `object`: WebServiceUser
+  * company `string`
+  * contactNumber `string`
+  * creditBalance `number`
+  * emailAddress `string`
+  * firstName `string`
+  * lastName `string`
+  * password `string`
+  * userId `integer`
+
+### WebServiceUsers
+* WebServiceUsers `object`: WebServiceUsers
+  * webServiceUserList `array`
+    * items [WebServiceUser](#webserviceuser)
+
 

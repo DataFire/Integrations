@@ -4,11 +4,9 @@ Client library for APIs.guru
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/apis_guru
+npm install --save @datafire/apis_guru
 ```
-
 ```js
-let datafire = require('datafire');
 let apis_guru = require('@datafire/apis_guru').create();
 
 apis_guru.listAPIs({}).then(data => {
@@ -17,6 +15,7 @@ apis_guru.listAPIs({}).then(data => {
 ```
 
 ## Description
+
 Wikipedia for Web APIs. Repository of API specs in OpenAPI(fka Swagger) 2.0 format.
 
 **Warning**: If you want to be notified about changes in advance please subscribe to our [Gitter channel](https://gitter.im/APIs-guru/api-models).
@@ -25,6 +24,7 @@ Client sample: [[Demo]](https://apis.guru/simple-ui) [[Repo]](https://github.com
 
 
 ## Actions
+
 ### listAPIs
 List all APIs in the directory.
 Returns links to OpenAPI specification for each API in the directory.
@@ -39,8 +39,11 @@ This allows to generate some simple views without need to fetch OpenAPI spec for
 apis_guru.listAPIs(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [APIs](#apis)
 
 ### getMetrics
 Some basic metrics for the entire directory.
@@ -52,6 +55,14 @@ Just stunning numbers to put on a front page and are intended purely for WoW eff
 apis_guru.getMetrics(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
+#### Output
+* output [Metrics](#metrics)
+
+
+
+## Definitions
+
+** No definitions **

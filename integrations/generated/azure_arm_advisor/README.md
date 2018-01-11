@@ -4,17 +4,15 @@ Client library for AdvisorManagementClient
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/azure_arm_advisor
+npm install --save @datafire/azure_arm_advisor
 ```
-
 ```js
-let datafire = require('datafire');
 let azure_arm_advisor = require('@datafire/azure_arm_advisor').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 azure_arm_advisor.Operations_List({}).then(data => {
@@ -23,9 +21,11 @@ azure_arm_advisor.Operations_List({}).then(data => {
 ```
 
 ## Description
+
 REST APIs for Azure Advisor
 
 ## Actions
+
 ### Operations_List
 Lists all the available Advisor REST API operations.
 
@@ -36,8 +36,12 @@ azure_arm_advisor.Operations_List({
 }, context)
 ```
 
-#### Parameters
-* api-version (string) **required** - The version of the API to be used with the client request.
+#### Input
+* input `object`
+  * api-version **required** `string`: The version of the API to be used with the client request.
+
+#### Output
+* output [OperationEntityListResult](#operationentitylistresult)
 
 ### Recommendations_Generate
 Initiates the recommendation generation or computation process for a subscription. This operation is asynchronous. The generated recommendations are stored in a cache in the Advisor service.
@@ -50,9 +54,13 @@ azure_arm_advisor.Recommendations_Generate({
 }, context)
 ```
 
-#### Parameters
-* subscriptionId (string) **required** - The Azure subscription ID.
-* api-version (string) **required** - The version of the API to be used with the client request.
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The Azure subscription ID.
+  * api-version **required** `string`: The version of the API to be used with the client request.
+
+#### Output
+*Output schema unknown*
 
 ### Recommendations_GetGenerateRecommendationsStatus
 Retrieves the status of the recommendation computation or generation process. Invoke this API after calling the generation recommendation. The URI of this API is returned in the Location field of the response header.
@@ -66,10 +74,14 @@ azure_arm_advisor.Recommendations_GetGenerateRecommendationsStatus({
 }, context)
 ```
 
-#### Parameters
-* subscriptionId (string) **required** - The Azure subscription ID.
-* operationId (string) **required** - The operation ID, which can be found from the Location field in the generate recommendation response header.
-* api-version (string) **required** - The version of the API to be used with the client request.
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The Azure subscription ID.
+  * operationId **required** `string`: The operation ID, which can be found from the Location field in the generate recommendation response header.
+  * api-version **required** `string`: The version of the API to be used with the client request.
+
+#### Output
+*Output schema unknown*
 
 ### Recommendations_List
 Obtains cached recommendations for a subscription. The recommendations are generated or computed by invoking generateRecommendations.
@@ -82,12 +94,16 @@ azure_arm_advisor.Recommendations_List({
 }, context)
 ```
 
-#### Parameters
-* subscriptionId (string) **required** - The Azure subscription ID.
-* api-version (string) **required** - The version of the API to be used with the client request.
-* $filter (string) - The filter to apply to the recommendations.
-* $top (integer) - The number of recommendations per page if a paged version of this API is being used.
-* $skipToken (string) - The page-continuation token to use with a paged version of this API.
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The Azure subscription ID.
+  * api-version **required** `string`: The version of the API to be used with the client request.
+  * $filter `string`: The filter to apply to the recommendations.
+  * $top `integer`: The number of recommendations per page if a paged version of this API is being used.
+  * $skipToken `string`: The page-continuation token to use with a paged version of this API.
+
+#### Output
+* output [ResourceRecommendationBaseListResult](#resourcerecommendationbaselistresult)
 
 ### Suppressions_List
 Retrieves the list of snoozed or dismissed suppressions for a subscription. The snoozed or dismissed attribute of a recommendation is referred to as a suppression.
@@ -100,9 +116,14 @@ azure_arm_advisor.Suppressions_List({
 }, context)
 ```
 
-#### Parameters
-* subscriptionId (string) **required** - The Azure subscription ID.
-* api-version (string) **required** - The version of the API to be used with the client request.
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The Azure subscription ID.
+  * api-version **required** `string`: The version of the API to be used with the client request.
+
+#### Output
+* output `array`
+  * items [SuppressionContract](#suppressioncontract)
 
 ### Recommendations_Get
 Obtains details of a cached recommendation.
@@ -116,10 +137,14 @@ azure_arm_advisor.Recommendations_Get({
 }, context)
 ```
 
-#### Parameters
-* resourceUri (string) **required** - The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
-* recommendationId (string) **required** - The recommendation ID.
-* api-version (string) **required** - The version of the API to be used with the client request.
+#### Input
+* input `object`
+  * resourceUri **required** `string`: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
+  * recommendationId **required** `string`: The recommendation ID.
+  * api-version **required** `string`: The version of the API to be used with the client request.
+
+#### Output
+* output [ResourceRecommendationBase](#resourcerecommendationbase)
 
 ### Suppressions_Delete
 Enables the activation of a snoozed or dismissed recommendation. The snoozed or dismissed attribute of a recommendation is referred to as a suppression.
@@ -134,11 +159,15 @@ azure_arm_advisor.Suppressions_Delete({
 }, context)
 ```
 
-#### Parameters
-* resourceUri (string) **required** - The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
-* recommendationId (string) **required** - The recommendation ID.
-* name (string) **required** - The name of the suppression.
-* api-version (string) **required** - The version of the API to be used with the client request.
+#### Input
+* input `object`
+  * resourceUri **required** `string`: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
+  * recommendationId **required** `string`: The recommendation ID.
+  * name **required** `string`: The name of the suppression.
+  * api-version **required** `string`: The version of the API to be used with the client request.
+
+#### Output
+*Output schema unknown*
 
 ### Suppressions_Get
 Obtains the details of a suppression.
@@ -153,11 +182,15 @@ azure_arm_advisor.Suppressions_Get({
 }, context)
 ```
 
-#### Parameters
-* resourceUri (string) **required** - The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
-* recommendationId (string) **required** - The recommendation ID.
-* name (string) **required** - The name of the suppression.
-* api-version (string) **required** - The version of the API to be used with the client request.
+#### Input
+* input `object`
+  * resourceUri **required** `string`: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
+  * recommendationId **required** `string`: The recommendation ID.
+  * name **required** `string`: The name of the suppression.
+  * api-version **required** `string`: The version of the API to be used with the client request.
+
+#### Output
+* output [SuppressionContract](#suppressioncontract)
 
 ### Suppressions_Create
 Enables the snoozed or dismissed attribute of a recommendation. The snoozed or dismissed attribute is referred to as a suppression. Use this API to create or update the snoozed or dismissed status of a recommendation.
@@ -173,10 +206,87 @@ azure_arm_advisor.Suppressions_Create({
 }, context)
 ```
 
-#### Parameters
-* resourceUri (string) **required** - The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
-* recommendationId (string) **required** - The recommendation ID.
-* name (string) **required** - The name of the suppression.
-* suppressionContract (object) **required** - The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-* api-version (string) **required** - The version of the API to be used with the client request.
+#### Input
+* input `object`
+  * resourceUri **required** `string`: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
+  * recommendationId **required** `string`: The recommendation ID.
+  * name **required** `string`: The name of the suppression.
+  * suppressionContract **required** [SuppressionContract](#suppressioncontract)
+  * api-version **required** `string`: The version of the API to be used with the client request.
+
+#### Output
+* output [SuppressionContract](#suppressioncontract)
+
+
+
+## Definitions
+
+### OperationDisplayInfo
+* OperationDisplayInfo `object`: The operation supported by Advisor.
+  * description `string`: The description of the operation.
+  * operation `string`: The action that users can perform, based on their permission level.
+  * provider `string`: Service provider: Microsoft Advisor.
+  * resource `string`: Resource on which the operation is performed.
+
+### OperationEntity
+* OperationEntity `object`: The operation supported by Advisor.
+  * display [OperationDisplayInfo](#operationdisplayinfo)
+  * name `string`: Operation name: {provider}/{resource}/{operation}.
+
+### OperationEntityListResult
+* OperationEntityListResult `object`: The list of Advisor operations.
+  * nextLink `string`: The link used to get the next page of operations.
+  * value `array`: The list of operations.
+    * items [OperationEntity](#operationentity)
+
+### RecommendationProperties
+* RecommendationProperties `object`: The properties of the recommendation.
+  * category `string` (values: HighAvailability, Security, Performance, Cost): The category of the recommendation.
+  * impact `string` (values: High, Medium, Low): The business impact of the recommendation.
+  * impactedField `string`: The resource type identified by Advisor.
+  * impactedValue `string`: The resource identified by Advisor.
+  * lastUpdated `string`: The most recent time that Advisor checked the validity of the recommendation.
+  * metadata `object`: The recommendation metadata.
+  * recommendationTypeId `string`: The recommendation-type GUID.
+  * risk `string` (values: Error, Warning, None): The potential risk of not implementing the recommendation.
+  * shortDescription [ShortDescription](#shortdescription)
+
+### Resource
+* Resource `object`: An Azure resource.
+  * id `string`: The resource ID.
+  * location `string`: The location of the resource. This cannot be changed after the resource is created.
+  * name `string`: The name of the resource.
+  * tags `object`: The tags of the resource.
+  * type `string`: The type of the resource.
+
+### ResourceRecommendationBase
+* ResourceRecommendationBase `object`: Advisor Recommendation.
+  * id `string`: The fully qualified recommendation ID, for example /subscriptions/subscriptionId/resourceGroups/resourceGroup1/providers/Microsoft.ClassicCompute/virtualMachines/vm1/providers/Microsoft.Advisor/recommendations/recommendationGUID.
+  * name `string`: The name of recommendation.
+  * properties [RecommendationProperties](#recommendationproperties)
+  * suppressionIds `array`: The list of snoozed and dismissed rules for the recommendation.
+    * items `string`
+  * type `string`: The recommendation type: Microsoft.Advisor/recommendations.
+
+### ResourceRecommendationBaseListResult
+* ResourceRecommendationBaseListResult `object`: The list of Advisor recommendations.
+  * nextLink `string`: The link used to get the next page of recommendations.
+  * value `array`: The list of recommendations.
+    * items [ResourceRecommendationBase](#resourcerecommendationbase)
+
+### ShortDescription
+* ShortDescription `object`: A summary of the recommendation.
+  * problem `string`: The issue or opportunity identified by the recommendation.
+  * solution `string`: The remediation action suggested by the recommendation.
+
+### SuppressionContract
+* SuppressionContract `object`: The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+  * suppressionId `string`: The GUID of the suppression.
+  * ttl `string`: The duration for which the suppression is valid.
+  * id `string`: The resource ID.
+  * location `string`: The location of the resource. This cannot be changed after the resource is created.
+  * name `string`: The name of the resource.
+  * tags `object`: The tags of the resource.
+  * type `string`: The type of the resource.
+
 

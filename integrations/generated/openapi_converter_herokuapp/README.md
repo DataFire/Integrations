@@ -4,11 +4,9 @@ Client library for Swagger2OpenAPI Converter
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/openapi_converter_herokuapp
+npm install --save @datafire/openapi_converter_herokuapp
 ```
-
 ```js
-let datafire = require('datafire');
 let openapi_converter_herokuapp = require('@datafire/openapi_converter_herokuapp').create();
 
 openapi_converter_herokuapp.validate({}).then(data => {
@@ -17,9 +15,11 @@ openapi_converter_herokuapp.validate({}).then(data => {
 ```
 
 ## Description
+
 Converter and validator for Swagger 2.0 to OpenAPI 3.0.x definitions
 
 ## Actions
+
 ### getBadge
 Return a redirect to a badge svg file depending on a source definition's validity
 
@@ -30,8 +30,12 @@ openapi_converter_herokuapp.getBadge({
 }, context)
 ```
 
-#### Parameters
-* url (string) **required** - The URL to retrieve the OpenAPI 3.0.x definition from
+#### Input
+* input `object`
+  * url **required** `string`: The URL to retrieve the OpenAPI 3.0.x definition from
+
+#### Output
+*Output schema unknown*
 
 ### convertUrl
 Convert a Swagger 2.0 definition to OpenAPI 3.0.x from a URL
@@ -43,8 +47,12 @@ openapi_converter_herokuapp.convertUrl({
 }, context)
 ```
 
-#### Parameters
-* url (string) **required** - The URL to retrieve the OpenAPI 2.0 definition from
+#### Input
+* input `object`
+  * url **required** `string`: The URL to retrieve the OpenAPI 2.0 definition from
+
+#### Output
+*Output schema unknown*
 
 ### convert
 Convert a Swagger 2.0 definition passed in the body to OpenAPI 3.0.x 
@@ -54,10 +62,14 @@ Convert a Swagger 2.0 definition passed in the body to OpenAPI 3.0.x
 openapi_converter_herokuapp.convert({}, context)
 ```
 
-#### Parameters
-* filename (string) - The file to upload and convert
-* source (string) - The text of a Swagger 2.0 definition to convert
-* validate (string)
+#### Input
+* input `object`
+  * filename `string`: The file to upload and convert
+  * source `string`: The text of a Swagger 2.0 definition to convert
+  * validate `string` (values: on)
+
+#### Output
+*Output schema unknown*
 
 ### getStatus
 Get the status of the API
@@ -67,8 +79,11 @@ Get the status of the API
 openapi_converter_herokuapp.getStatus(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### validateUrl
 Validate an OpenAPI 3.0.x definition
@@ -80,8 +95,12 @@ openapi_converter_herokuapp.validateUrl({
 }, context)
 ```
 
-#### Parameters
-* url (string) **required** - The URL to retrieve the OpenAPI 3.0.x definition from
+#### Input
+* input `object`
+  * url **required** `string`: The URL to retrieve the OpenAPI 3.0.x definition from
+
+#### Output
+*Output schema unknown*
 
 ### validate
 Validate an OpenAPI 3.0.x definition supplied in the body of the request
@@ -91,7 +110,16 @@ Validate an OpenAPI 3.0.x definition supplied in the body of the request
 openapi_converter_herokuapp.validate({}, context)
 ```
 
-#### Parameters
-* filename (string) - The file to upload and validate
-* source (string) - The text of an OpenAPI 3.0.x definition to validate
+#### Input
+* input `object`
+  * filename `string`: The file to upload and validate
+  * source `string`: The text of an OpenAPI 3.0.x definition to validate
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

@@ -4,13 +4,11 @@ Client library for VisageCloud
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/visagecloud
+npm install --save @datafire/visagecloud
 ```
-
 ```js
-let datafire = require('datafire');
 let visagecloud = require('@datafire/visagecloud').create({
-  accessKey: "",
+  accessKey: ""
 });
 
 visagecloud.performAnalysisUsingPOST({}).then(data => {
@@ -19,9 +17,11 @@ visagecloud.performAnalysisUsingPOST({}).then(data => {
 ```
 
 ## Description
+
 Face search, recognition & classification API. Just make a call to our REST API each time your app needs to access face recognition and classification capabilities.
 
 ## Actions
+
 ### performAnalysisUsingPOST
 Perform detection on a given picture or picture URL
 
@@ -32,11 +32,15 @@ visagecloud.performAnalysisUsingPOST({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* storePicture (boolean) - Boolean value indicating whether you want the original picture to be stored for later retrieval
-* pictureURL (string) - The URL of the picture, assuming it is served by a third party server. Server should be accesible from the Internet or through another netwoek by VisageCloud infrastructure
-* picture (string) - The multipart/form-data version of the image, in case a direct upload is used. At least one of picture or pictureURL must be present
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * storePicture `boolean`: Boolean value indicating whether you want the original picture to be stored for later retrieval
+  * pictureURL `string`: The URL of the picture, assuming it is served by a third party server. Server should be accesible from the Internet or through another netwoek by VisageCloud infrastructure
+  * picture `string`: The multipart/form-data version of the image, in case a direct upload is used. At least one of picture or pictureURL must be present
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### retriveLatestUsingGET
 Retrieve the last *count* operations per current account
@@ -48,9 +52,13 @@ visagecloud.retriveLatestUsingGET({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* count (integer) - How many records to retrieve at a time
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * count `integer`: How many records to retrieve at a time
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### performRecognitionUsingPOST
 Perform labeled recognition on a given picture or picture URL
@@ -63,14 +71,18 @@ visagecloud.performRecognitionUsingPOST({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* storePicture (boolean) - Boolean value indicating whether you want the original picture to be stored for later retrieval
-* collectionId (string) **required** - Uniquely identified collection that can store multiple profiles
-* labels (array) - Labels associated with the given picture or picture URL
-* attributeFilters (array) - Filters that will be applied on the recognition operation
-* pictureURL (string) - The URL of the picture
-* picture (string) - The picture itself
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * storePicture `boolean`: Boolean value indicating whether you want the original picture to be stored for later retrieval
+  * collectionId **required** `string`: Uniquely identified collection that can store multiple profiles
+  * labels `array`: Labels associated with the given picture or picture URL
+  * attributeFilters `array` (values: GENDER_FILTER, AGE_GROUP_FILTER): Filters that will be applied on the recognition operation
+  * pictureURL `string`: The URL of the picture
+  * picture `string`: The picture itself
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### retrieveAnalysisUsingGET
 Retrieve a complete analysis object including both detection and recognition information
@@ -83,9 +95,13 @@ visagecloud.retrieveAnalysisUsingGET({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* analysisId (string) **required** - The ID of the analysis for which the data will be retrieved
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * analysisId **required** `string`: The ID of the analysis for which the data will be retrieved
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### getAllCollectionsUsingGET
 Retrieve all collections
@@ -97,8 +113,12 @@ visagecloud.getAllCollectionsUsingGET({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### removeFaceFromProfileUsingDELETE
 Delete existing collection
@@ -111,9 +131,13 @@ visagecloud.removeFaceFromProfileUsingDELETE({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* collectionId (string) **required** - The id of the collection that will be removed
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * collectionId **required** `string`: The id of the collection that will be removed
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### getProfilesFromCollectionUsingGET
 Retrieve existing collection content
@@ -126,9 +150,13 @@ visagecloud.getProfilesFromCollectionUsingGET({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* collectionId (string) **required** - The id of the collection for which the data will be retrieved
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * collectionId **required** `string`: The id of the collection for which the data will be retrieved
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### addCollectionUsingPOST
 Create new empty collection with given name
@@ -141,9 +169,13 @@ visagecloud.addCollectionUsingPOST({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* collectionName (string) **required** - The name of the collection that will be created
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * collectionName **required** `string`: The name of the collection that will be created
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### getProfileEnrollmentStatusUsingGET
 Gets the enrollment status of a profile: information on whether it is suitable for authentication.
@@ -157,10 +189,14 @@ visagecloud.getProfileEnrollmentStatusUsingGET({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* profileId (string) **required** - The profile that contains the faces
-* collectionId (string) **required** - The collection that contains the profile
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * profileId **required** `string`: The profile that contains the faces
+  * collectionId **required** `string`: The collection that contains the profile
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### removeFaceFromProfileUsingDELETE_1
 Removes (unmaps) a face, identified by faceHash, from a profile, identified by profileId
@@ -175,11 +211,15 @@ visagecloud.removeFaceFromProfileUsingDELETE_1({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* faceHash (string) **required** - The face that will be removed from a profile
-* profileId (string) **required** - The profile that contains the face
-* collectionId (string) **required** - The collection that contains the profile
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * faceHash **required** `string`: The face that will be removed from a profile
+  * profileId **required** `string`: The profile that contains the face
+  * collectionId **required** `string`: The collection that contains the profile
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### getFacesFromProfileUsingGET
 Gets all the faceHashes associated to a profile
@@ -193,10 +233,14 @@ visagecloud.getFacesFromProfileUsingGET({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* profileId (string) **required** - The profile that contains the faces
-* collectionId (string) **required** - The collection that contains the profile
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * profileId **required** `string`: The profile that contains the faces
+  * collectionId **required** `string`: The collection that contains the profile
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### mapFaceToProfileUsingPOST
 Adds (maps) a face, identified by faceHash, to a profile, identified by profileId
@@ -211,11 +255,15 @@ visagecloud.mapFaceToProfileUsingPOST({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* faceHash (string) **required** - The face that will be added to a profile
-* profileId (string) **required** - The profile that will store the face
-* collectionId (string) **required** - The collection that contains the profile
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * faceHash **required** `string`: The face that will be added to a profile
+  * profileId **required** `string`: The profile that will store the face
+  * collectionId **required** `string`: The collection that contains the profile
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### addProfileUsingPOST
 Creates a new profile with no faces associated to it (empty profile)
@@ -228,12 +276,16 @@ visagecloud.addProfileUsingPOST({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* collectionId (string) **required** - Uniquely identified collection that can store multiple profiles
-* externalId (string) - External reference to additional information you don’t want to share with VisageCloud
-* screenName (string) - Human-readable label for the profile
-* labels (array) - Allows you to do finer filtering in face recognition
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * collectionId **required** `string`: Uniquely identified collection that can store multiple profiles
+  * externalId `string`: External reference to additional information you don’t want to share with VisageCloud
+  * screenName `string`: Human-readable label for the profile
+  * labels `array`: Allows you to do finer filtering in face recognition
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### getLastNFramesUsingGET
 Get last processed N frames from stream
@@ -246,10 +298,14 @@ visagecloud.getLastNFramesUsingGET({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* streamId (string) **required** - The id of the stream for which the frames will be retrieved
-* count (integer) - How many frames to retrieve at a time
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * streamId **required** `string`: The id of the stream for which the frames will be retrieved
+  * count `integer`: How many frames to retrieve at a time
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### startStreamUsingPATCH
 Start existing stream
@@ -262,9 +318,13 @@ visagecloud.startStreamUsingPATCH({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* id (string) **required** - The id of the stream that will be started
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * id **required** `string`: The id of the stream that will be started
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### stopStreamUsingPATCH
 Stop existing stream
@@ -277,9 +337,13 @@ visagecloud.stopStreamUsingPATCH({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* id (string) **required** - The id of the stream that will be stopped
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * id **required** `string`: The id of the stream that will be stopped
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### removeStreamUsingDELETE
 Delete existing stream
@@ -292,9 +356,13 @@ visagecloud.removeStreamUsingDELETE({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* id (string) **required** - The id of the stream that will be removed
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * id **required** `string`: The id of the stream that will be removed
+
+#### Output
+* output [RestResponse](#restresponse)
 
 ### addStreamUsingPOST
 Create new stream with given name
@@ -310,13 +378,28 @@ visagecloud.addStreamUsingPOST({
 }, context)
 ```
 
-#### Parameters
-* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
-* name (string) **required** - The name of the stream that will be created
-* url (string) **required** - The url of the stream
-* method (string) - Streaming method
-* username (string) **required** - Username
-* password (string) **required** - Password
-* storeOriginalFrames (boolean) - Boolean value indicating whether you want the original picture to be stored for later retrieval
-* isActive (boolean) - Boolean value indicating whether the stream is currently active or not
+#### Input
+* input `object`
+  * secretKey **required** `string`: The secretKey or readOnlyKey provided by VisageCloud
+  * name **required** `string`: The name of the stream that will be created
+  * url **required** `string`: The url of the stream
+  * method `string` (values: WEBRTC_PULL, WEBRTC_PUSH, SNAPSHOT_PULL): Streaming method
+  * username **required** `string`: Username
+  * password **required** `string`: Password
+  * storeOriginalFrames `boolean`: Boolean value indicating whether you want the original picture to be stored for later retrieval
+  * isActive `boolean`: Boolean value indicating whether the stream is currently active or not
+
+#### Output
+* output [RestResponse](#restresponse)
+
+
+
+## Definitions
+
+### RestResponse
+* RestResponse `object`
+  * message `string`
+  * payload `object`
+  * status `string`
+
 

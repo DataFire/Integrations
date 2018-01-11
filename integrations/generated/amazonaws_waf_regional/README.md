@@ -4,15 +4,13 @@ Client library for AWS WAF Regional
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/amazonaws_waf_regional
+npm install --save @datafire/amazonaws_waf_regional
 ```
-
 ```js
-let datafire = require('datafire');
 let amazonaws_waf_regional = require('@datafire/amazonaws_waf_regional').create({
   accessKeyId: "",
   secretAccessKey: "",
-  region: "",
+  region: ""
 });
 
 amazonaws_waf_regional.AssociateWebACL({}).then(data => {
@@ -21,9 +19,11 @@ amazonaws_waf_regional.AssociateWebACL({}).then(data => {
 ```
 
 ## Description
+
 This is the <i>AWS WAF Regional API Reference</i> for using AWS WAF with Elastic Load Balancing (ELB) Application Load Balancers. The AWS WAF actions and data types listed in the reference are available for protecting Application Load Balancers. You can use these actions and data types by means of the endpoints listed in <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region">AWS Regions and Endpoints</a>. This guide is for developers who need detailed information about the AWS WAF API actions, data types, and errors. For detailed information about AWS WAF features and an overview of how to use the AWS WAF API, see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.
 
 ## Actions
+
 ### AssociateWebACL
 
 
@@ -35,9 +35,13 @@ amazonaws_waf_regional.AssociateWebACL({
 }, context)
 ```
 
-#### Parameters
-* ResourceArn (string) **required**
-* WebACLId (string) **required**
+#### Input
+* input `object`
+  * ResourceArn **required** [ResourceArn](#resourcearn)
+  * WebACLId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [AssociateWebACLResponse](#associatewebaclresponse)
 
 ### CreateByteMatchSet
 
@@ -50,9 +54,13 @@ amazonaws_waf_regional.CreateByteMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* Name (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateByteMatchSetResponse](#createbytematchsetresponse)
 
 ### CreateGeoMatchSet
 
@@ -65,9 +73,13 @@ amazonaws_waf_regional.CreateGeoMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* Name (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateGeoMatchSetResponse](#creategeomatchsetresponse)
 
 ### CreateIPSet
 
@@ -80,9 +92,13 @@ amazonaws_waf_regional.CreateIPSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* Name (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateIPSetResponse](#createipsetresponse)
 
 ### CreateRateBasedRule
 
@@ -98,12 +114,16 @@ amazonaws_waf_regional.CreateRateBasedRule({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* MetricName (string) **required**
-* Name (string) **required**
-* RateKey (string) **required**
-* RateLimit (integer) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * MetricName **required** [MetricName](#metricname)
+  * Name **required** [ResourceName](#resourcename)
+  * RateKey **required** [RateKey](#ratekey)
+  * RateLimit **required** [RateLimit](#ratelimit)
+
+#### Output
+* output [CreateRateBasedRuleResponse](#createratebasedruleresponse)
 
 ### CreateRegexMatchSet
 
@@ -116,9 +136,13 @@ amazonaws_waf_regional.CreateRegexMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* Name (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateRegexMatchSetResponse](#createregexmatchsetresponse)
 
 ### CreateRegexPatternSet
 
@@ -131,9 +155,13 @@ amazonaws_waf_regional.CreateRegexPatternSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* Name (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateRegexPatternSetResponse](#createregexpatternsetresponse)
 
 ### CreateRule
 
@@ -147,10 +175,14 @@ amazonaws_waf_regional.CreateRule({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* MetricName (string) **required**
-* Name (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * MetricName **required** [MetricName](#metricname)
+  * Name **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateRuleResponse](#createruleresponse)
 
 ### CreateSizeConstraintSet
 
@@ -163,9 +195,13 @@ amazonaws_waf_regional.CreateSizeConstraintSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* Name (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateSizeConstraintSetResponse](#createsizeconstraintsetresponse)
 
 ### CreateSqlInjectionMatchSet
 
@@ -178,9 +214,13 @@ amazonaws_waf_regional.CreateSqlInjectionMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* Name (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateSqlInjectionMatchSetResponse](#createsqlinjectionmatchsetresponse)
 
 ### CreateWebACL
 
@@ -197,11 +237,15 @@ amazonaws_waf_regional.CreateWebACL({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* DefaultAction (object) **required** - For the action that is associated with a rule in a <code>WebACL</code>, specifies the action that you want AWS WAF to perform when a web request matches all of the conditions in a rule. For the default action in a <code>WebACL</code>, specifies the action that you want AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a <code>WebACL</code>. 
-* MetricName (string) **required**
-* Name (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * DefaultAction **required** [WafAction](#wafaction)
+  * MetricName **required** [MetricName](#metricname)
+  * Name **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateWebACLResponse](#createwebaclresponse)
 
 ### CreateXssMatchSet
 
@@ -214,9 +258,13 @@ amazonaws_waf_regional.CreateXssMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* Name (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+#### Output
+* output [CreateXssMatchSetResponse](#createxssmatchsetresponse)
 
 ### DeleteByteMatchSet
 
@@ -229,9 +277,13 @@ amazonaws_waf_regional.DeleteByteMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ByteMatchSetId (string) **required**
-* ChangeToken (string) **required**
+#### Input
+* input `object`
+  * ByteMatchSetId **required** [ResourceId](#resourceid)
+  * ChangeToken **required** [ChangeToken](#changetoken)
+
+#### Output
+* output [DeleteByteMatchSetResponse](#deletebytematchsetresponse)
 
 ### DeleteGeoMatchSet
 
@@ -244,9 +296,13 @@ amazonaws_waf_regional.DeleteGeoMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* GeoMatchSetId (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * GeoMatchSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [DeleteGeoMatchSetResponse](#deletegeomatchsetresponse)
 
 ### DeleteIPSet
 
@@ -259,9 +315,13 @@ amazonaws_waf_regional.DeleteIPSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* IPSetId (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * IPSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [DeleteIPSetResponse](#deleteipsetresponse)
 
 ### DeleteRateBasedRule
 
@@ -274,9 +334,13 @@ amazonaws_waf_regional.DeleteRateBasedRule({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* RuleId (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RuleId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [DeleteRateBasedRuleResponse](#deleteratebasedruleresponse)
 
 ### DeleteRegexMatchSet
 
@@ -289,9 +353,13 @@ amazonaws_waf_regional.DeleteRegexMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* RegexMatchSetId (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RegexMatchSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [DeleteRegexMatchSetResponse](#deleteregexmatchsetresponse)
 
 ### DeleteRegexPatternSet
 
@@ -304,9 +372,13 @@ amazonaws_waf_regional.DeleteRegexPatternSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* RegexPatternSetId (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RegexPatternSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [DeleteRegexPatternSetResponse](#deleteregexpatternsetresponse)
 
 ### DeleteRule
 
@@ -319,9 +391,13 @@ amazonaws_waf_regional.DeleteRule({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* RuleId (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RuleId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [DeleteRuleResponse](#deleteruleresponse)
 
 ### DeleteSizeConstraintSet
 
@@ -334,9 +410,13 @@ amazonaws_waf_regional.DeleteSizeConstraintSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* SizeConstraintSetId (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * SizeConstraintSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [DeleteSizeConstraintSetResponse](#deletesizeconstraintsetresponse)
 
 ### DeleteSqlInjectionMatchSet
 
@@ -349,9 +429,13 @@ amazonaws_waf_regional.DeleteSqlInjectionMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* SqlInjectionMatchSetId (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * SqlInjectionMatchSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [DeleteSqlInjectionMatchSetResponse](#deletesqlinjectionmatchsetresponse)
 
 ### DeleteWebACL
 
@@ -364,9 +448,13 @@ amazonaws_waf_regional.DeleteWebACL({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* WebACLId (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * WebACLId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [DeleteWebACLResponse](#deletewebaclresponse)
 
 ### DeleteXssMatchSet
 
@@ -379,9 +467,13 @@ amazonaws_waf_regional.DeleteXssMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* XssMatchSetId (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * XssMatchSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [DeleteXssMatchSetResponse](#deletexssmatchsetresponse)
 
 ### DisassociateWebACL
 
@@ -393,8 +485,12 @@ amazonaws_waf_regional.DisassociateWebACL({
 }, context)
 ```
 
-#### Parameters
-* ResourceArn (string) **required**
+#### Input
+* input `object`
+  * ResourceArn **required** [ResourceArn](#resourcearn)
+
+#### Output
+* output [DisassociateWebACLResponse](#disassociatewebaclresponse)
 
 ### GetByteMatchSet
 
@@ -406,8 +502,12 @@ amazonaws_waf_regional.GetByteMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ByteMatchSetId (string) **required**
+#### Input
+* input `object`
+  * ByteMatchSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetByteMatchSetResponse](#getbytematchsetresponse)
 
 ### GetChangeToken
 
@@ -417,8 +517,11 @@ amazonaws_waf_regional.GetByteMatchSet({
 amazonaws_waf_regional.GetChangeToken({}, context)
 ```
 
-#### Parameters
-*This action has no parameters*
+#### Input
+* input `object`
+
+#### Output
+* output [GetChangeTokenResponse](#getchangetokenresponse)
 
 ### GetChangeTokenStatus
 
@@ -430,8 +533,12 @@ amazonaws_waf_regional.GetChangeTokenStatus({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+
+#### Output
+* output [GetChangeTokenStatusResponse](#getchangetokenstatusresponse)
 
 ### GetGeoMatchSet
 
@@ -443,8 +550,12 @@ amazonaws_waf_regional.GetGeoMatchSet({
 }, context)
 ```
 
-#### Parameters
-* GeoMatchSetId (string) **required**
+#### Input
+* input `object`
+  * GeoMatchSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetGeoMatchSetResponse](#getgeomatchsetresponse)
 
 ### GetIPSet
 
@@ -456,8 +567,12 @@ amazonaws_waf_regional.GetIPSet({
 }, context)
 ```
 
-#### Parameters
-* IPSetId (string) **required**
+#### Input
+* input `object`
+  * IPSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetIPSetResponse](#getipsetresponse)
 
 ### GetRateBasedRule
 
@@ -469,8 +584,12 @@ amazonaws_waf_regional.GetRateBasedRule({
 }, context)
 ```
 
-#### Parameters
-* RuleId (string) **required**
+#### Input
+* input `object`
+  * RuleId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetRateBasedRuleResponse](#getratebasedruleresponse)
 
 ### GetRateBasedRuleManagedKeys
 
@@ -482,9 +601,13 @@ amazonaws_waf_regional.GetRateBasedRuleManagedKeys({
 }, context)
 ```
 
-#### Parameters
-* NextMarker (string)
-* RuleId (string) **required**
+#### Input
+* input `object`
+  * NextMarker [NextMarker](#nextmarker)
+  * RuleId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetRateBasedRuleManagedKeysResponse](#getratebasedrulemanagedkeysresponse)
 
 ### GetRegexMatchSet
 
@@ -496,8 +619,12 @@ amazonaws_waf_regional.GetRegexMatchSet({
 }, context)
 ```
 
-#### Parameters
-* RegexMatchSetId (string) **required**
+#### Input
+* input `object`
+  * RegexMatchSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetRegexMatchSetResponse](#getregexmatchsetresponse)
 
 ### GetRegexPatternSet
 
@@ -509,8 +636,12 @@ amazonaws_waf_regional.GetRegexPatternSet({
 }, context)
 ```
 
-#### Parameters
-* RegexPatternSetId (string) **required**
+#### Input
+* input `object`
+  * RegexPatternSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetRegexPatternSetResponse](#getregexpatternsetresponse)
 
 ### GetRule
 
@@ -522,8 +653,12 @@ amazonaws_waf_regional.GetRule({
 }, context)
 ```
 
-#### Parameters
-* RuleId (string) **required**
+#### Input
+* input `object`
+  * RuleId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetRuleResponse](#getruleresponse)
 
 ### GetSampledRequests
 
@@ -541,11 +676,15 @@ amazonaws_waf_regional.GetSampledRequests({
 }, context)
 ```
 
-#### Parameters
-* MaxItems (integer) **required**
-* RuleId (string) **required**
-* TimeWindow (object) **required** - <p>In a <a>GetSampledRequests</a> request, the <code>StartTime</code> and <code>EndTime</code> objects specify the time range for which you want AWS WAF to return a sample of web requests.</p> <p>In a <a>GetSampledRequests</a> response, the <code>StartTime</code> and <code>EndTime</code> objects specify the time range for which AWS WAF actually returned a sample of web requests. AWS WAF gets the specified number of requests from among the first 5,000 requests that your AWS resource receives during the specified time period. If your resource receives more than 5,000 requests during that period, AWS WAF stops sampling after the 5,000th request. In that case, <code>EndTime</code> is the time that AWS WAF received the 5,000th request. </p>
-* WebAclId (string) **required**
+#### Input
+* input `object`
+  * MaxItems **required** [GetSampledRequestsMaxItems](#getsampledrequestsmaxitems)
+  * RuleId **required** [ResourceId](#resourceid)
+  * TimeWindow **required** [TimeWindow](#timewindow)
+  * WebAclId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetSampledRequestsResponse](#getsampledrequestsresponse)
 
 ### GetSizeConstraintSet
 
@@ -557,8 +696,12 @@ amazonaws_waf_regional.GetSizeConstraintSet({
 }, context)
 ```
 
-#### Parameters
-* SizeConstraintSetId (string) **required**
+#### Input
+* input `object`
+  * SizeConstraintSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetSizeConstraintSetResponse](#getsizeconstraintsetresponse)
 
 ### GetSqlInjectionMatchSet
 
@@ -570,8 +713,12 @@ amazonaws_waf_regional.GetSqlInjectionMatchSet({
 }, context)
 ```
 
-#### Parameters
-* SqlInjectionMatchSetId (string) **required**
+#### Input
+* input `object`
+  * SqlInjectionMatchSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetSqlInjectionMatchSetResponse](#getsqlinjectionmatchsetresponse)
 
 ### GetWebACL
 
@@ -583,8 +730,12 @@ amazonaws_waf_regional.GetWebACL({
 }, context)
 ```
 
-#### Parameters
-* WebACLId (string) **required**
+#### Input
+* input `object`
+  * WebACLId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetWebACLResponse](#getwebaclresponse)
 
 ### GetWebACLForResource
 
@@ -596,8 +747,12 @@ amazonaws_waf_regional.GetWebACLForResource({
 }, context)
 ```
 
-#### Parameters
-* ResourceArn (string) **required**
+#### Input
+* input `object`
+  * ResourceArn **required** [ResourceArn](#resourcearn)
+
+#### Output
+* output [GetWebACLForResourceResponse](#getwebaclforresourceresponse)
 
 ### GetXssMatchSet
 
@@ -609,8 +764,12 @@ amazonaws_waf_regional.GetXssMatchSet({
 }, context)
 ```
 
-#### Parameters
-* XssMatchSetId (string) **required**
+#### Input
+* input `object`
+  * XssMatchSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [GetXssMatchSetResponse](#getxssmatchsetresponse)
 
 ### ListByteMatchSets
 
@@ -620,9 +779,13 @@ amazonaws_waf_regional.GetXssMatchSet({
 amazonaws_waf_regional.ListByteMatchSets({}, context)
 ```
 
-#### Parameters
-* Limit (integer)
-* NextMarker (string)
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+#### Output
+* output [ListByteMatchSetsResponse](#listbytematchsetsresponse)
 
 ### ListGeoMatchSets
 
@@ -632,9 +795,13 @@ amazonaws_waf_regional.ListByteMatchSets({}, context)
 amazonaws_waf_regional.ListGeoMatchSets({}, context)
 ```
 
-#### Parameters
-* Limit (integer)
-* NextMarker (string)
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+#### Output
+* output [ListGeoMatchSetsResponse](#listgeomatchsetsresponse)
 
 ### ListIPSets
 
@@ -644,9 +811,13 @@ amazonaws_waf_regional.ListGeoMatchSets({}, context)
 amazonaws_waf_regional.ListIPSets({}, context)
 ```
 
-#### Parameters
-* Limit (integer)
-* NextMarker (string)
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+#### Output
+* output [ListIPSetsResponse](#listipsetsresponse)
 
 ### ListRateBasedRules
 
@@ -656,9 +827,13 @@ amazonaws_waf_regional.ListIPSets({}, context)
 amazonaws_waf_regional.ListRateBasedRules({}, context)
 ```
 
-#### Parameters
-* Limit (integer)
-* NextMarker (string)
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+#### Output
+* output [ListRateBasedRulesResponse](#listratebasedrulesresponse)
 
 ### ListRegexMatchSets
 
@@ -668,9 +843,13 @@ amazonaws_waf_regional.ListRateBasedRules({}, context)
 amazonaws_waf_regional.ListRegexMatchSets({}, context)
 ```
 
-#### Parameters
-* Limit (integer)
-* NextMarker (string)
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+#### Output
+* output [ListRegexMatchSetsResponse](#listregexmatchsetsresponse)
 
 ### ListRegexPatternSets
 
@@ -680,9 +859,13 @@ amazonaws_waf_regional.ListRegexMatchSets({}, context)
 amazonaws_waf_regional.ListRegexPatternSets({}, context)
 ```
 
-#### Parameters
-* Limit (integer)
-* NextMarker (string)
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+#### Output
+* output [ListRegexPatternSetsResponse](#listregexpatternsetsresponse)
 
 ### ListResourcesForWebACL
 
@@ -694,8 +877,12 @@ amazonaws_waf_regional.ListResourcesForWebACL({
 }, context)
 ```
 
-#### Parameters
-* WebACLId (string) **required**
+#### Input
+* input `object`
+  * WebACLId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [ListResourcesForWebACLResponse](#listresourcesforwebaclresponse)
 
 ### ListRules
 
@@ -705,9 +892,13 @@ amazonaws_waf_regional.ListResourcesForWebACL({
 amazonaws_waf_regional.ListRules({}, context)
 ```
 
-#### Parameters
-* Limit (integer)
-* NextMarker (string)
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+#### Output
+* output [ListRulesResponse](#listrulesresponse)
 
 ### ListSizeConstraintSets
 
@@ -717,9 +908,13 @@ amazonaws_waf_regional.ListRules({}, context)
 amazonaws_waf_regional.ListSizeConstraintSets({}, context)
 ```
 
-#### Parameters
-* Limit (integer)
-* NextMarker (string)
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+#### Output
+* output [ListSizeConstraintSetsResponse](#listsizeconstraintsetsresponse)
 
 ### ListSqlInjectionMatchSets
 
@@ -729,9 +924,13 @@ amazonaws_waf_regional.ListSizeConstraintSets({}, context)
 amazonaws_waf_regional.ListSqlInjectionMatchSets({}, context)
 ```
 
-#### Parameters
-* Limit (integer)
-* NextMarker (string)
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+#### Output
+* output [ListSqlInjectionMatchSetsResponse](#listsqlinjectionmatchsetsresponse)
 
 ### ListWebACLs
 
@@ -741,9 +940,13 @@ amazonaws_waf_regional.ListSqlInjectionMatchSets({}, context)
 amazonaws_waf_regional.ListWebACLs({}, context)
 ```
 
-#### Parameters
-* Limit (integer)
-* NextMarker (string)
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+#### Output
+* output [ListWebACLsResponse](#listwebaclsresponse)
 
 ### ListXssMatchSets
 
@@ -753,9 +956,13 @@ amazonaws_waf_regional.ListWebACLs({}, context)
 amazonaws_waf_regional.ListXssMatchSets({}, context)
 ```
 
-#### Parameters
-* Limit (integer)
-* NextMarker (string)
+#### Input
+* input `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+#### Output
+* output [ListXssMatchSetsResponse](#listxssmatchsetsresponse)
 
 ### UpdateByteMatchSet
 
@@ -769,10 +976,14 @@ amazonaws_waf_regional.UpdateByteMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ByteMatchSetId (string) **required**
-* ChangeToken (string) **required**
-* Updates (array) **required**
+#### Input
+* input `object`
+  * ByteMatchSetId **required** [ResourceId](#resourceid)
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Updates **required** [ByteMatchSetUpdates](#bytematchsetupdates)
+
+#### Output
+* output [UpdateByteMatchSetResponse](#updatebytematchsetresponse)
 
 ### UpdateGeoMatchSet
 
@@ -786,10 +997,14 @@ amazonaws_waf_regional.UpdateGeoMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* GeoMatchSetId (string) **required**
-* Updates (array) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * GeoMatchSetId **required** [ResourceId](#resourceid)
+  * Updates **required** [GeoMatchSetUpdates](#geomatchsetupdates)
+
+#### Output
+* output [UpdateGeoMatchSetResponse](#updategeomatchsetresponse)
 
 ### UpdateIPSet
 
@@ -803,10 +1018,14 @@ amazonaws_waf_regional.UpdateIPSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* IPSetId (string) **required**
-* Updates (array) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * IPSetId **required** [ResourceId](#resourceid)
+  * Updates **required** [IPSetUpdates](#ipsetupdates)
+
+#### Output
+* output [UpdateIPSetResponse](#updateipsetresponse)
 
 ### UpdateRateBasedRule
 
@@ -821,11 +1040,15 @@ amazonaws_waf_regional.UpdateRateBasedRule({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* RateLimit (integer) **required**
-* RuleId (string) **required**
-* Updates (array) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RateLimit **required** [RateLimit](#ratelimit)
+  * RuleId **required** [ResourceId](#resourceid)
+  * Updates **required** [RuleUpdates](#ruleupdates)
+
+#### Output
+* output [UpdateRateBasedRuleResponse](#updateratebasedruleresponse)
 
 ### UpdateRegexMatchSet
 
@@ -839,10 +1062,14 @@ amazonaws_waf_regional.UpdateRegexMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* RegexMatchSetId (string) **required**
-* Updates (array) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RegexMatchSetId **required** [ResourceId](#resourceid)
+  * Updates **required** [RegexMatchSetUpdates](#regexmatchsetupdates)
+
+#### Output
+* output [UpdateRegexMatchSetResponse](#updateregexmatchsetresponse)
 
 ### UpdateRegexPatternSet
 
@@ -856,10 +1083,14 @@ amazonaws_waf_regional.UpdateRegexPatternSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* RegexPatternSetId (string) **required**
-* Updates (array) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RegexPatternSetId **required** [ResourceId](#resourceid)
+  * Updates **required** [RegexPatternSetUpdates](#regexpatternsetupdates)
+
+#### Output
+* output [UpdateRegexPatternSetResponse](#updateregexpatternsetresponse)
 
 ### UpdateRule
 
@@ -873,10 +1104,14 @@ amazonaws_waf_regional.UpdateRule({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* RuleId (string) **required**
-* Updates (array) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RuleId **required** [ResourceId](#resourceid)
+  * Updates **required** [RuleUpdates](#ruleupdates)
+
+#### Output
+* output [UpdateRuleResponse](#updateruleresponse)
 
 ### UpdateSizeConstraintSet
 
@@ -890,10 +1125,14 @@ amazonaws_waf_regional.UpdateSizeConstraintSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* SizeConstraintSetId (string) **required**
-* Updates (array) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * SizeConstraintSetId **required** [ResourceId](#resourceid)
+  * Updates **required** [SizeConstraintSetUpdates](#sizeconstraintsetupdates)
+
+#### Output
+* output [UpdateSizeConstraintSetResponse](#updatesizeconstraintsetresponse)
 
 ### UpdateSqlInjectionMatchSet
 
@@ -907,10 +1146,14 @@ amazonaws_waf_regional.UpdateSqlInjectionMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* SqlInjectionMatchSetId (string) **required**
-* Updates (array) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * SqlInjectionMatchSetId **required** [ResourceId](#resourceid)
+  * Updates **required** [SqlInjectionMatchSetUpdates](#sqlinjectionmatchsetupdates)
+
+#### Output
+* output [UpdateSqlInjectionMatchSetResponse](#updatesqlinjectionmatchsetresponse)
 
 ### UpdateWebACL
 
@@ -923,11 +1166,15 @@ amazonaws_waf_regional.UpdateWebACL({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* DefaultAction (object) - For the action that is associated with a rule in a <code>WebACL</code>, specifies the action that you want AWS WAF to perform when a web request matches all of the conditions in a rule. For the default action in a <code>WebACL</code>, specifies the action that you want AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a <code>WebACL</code>. 
-* Updates (array)
-* WebACLId (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * DefaultAction [WafAction](#wafaction)
+  * Updates [WebACLUpdates](#webaclupdates)
+  * WebACLId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [UpdateWebACLResponse](#updatewebaclresponse)
 
 ### UpdateXssMatchSet
 
@@ -941,8 +1188,1195 @@ amazonaws_waf_regional.UpdateXssMatchSet({
 }, context)
 ```
 
-#### Parameters
-* ChangeToken (string) **required**
-* Updates (array) **required**
-* XssMatchSetId (string) **required**
+#### Input
+* input `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Updates **required** [XssMatchSetUpdates](#xssmatchsetupdates)
+  * XssMatchSetId **required** [ResourceId](#resourceid)
+
+#### Output
+* output [UpdateXssMatchSetResponse](#updatexssmatchsetresponse)
+
+
+
+## Definitions
+
+### Action
+* Action `string`
+
+### ActivatedRule
+* ActivatedRule `object`: <p>The <code>ActivatedRule</code> object in an <a>UpdateWebACL</a> request specifies a <code>Rule</code> that you want to insert or delete, the priority of the <code>Rule</code> in the <code>WebACL</code>, and the action that you want AWS WAF to take when a web request matches the <code>Rule</code> (<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>).</p> <p>To specify whether to insert or delete a <code>Rule</code>, use the <code>Action</code> parameter in the <a>WebACLUpdate</a> data type.</p>
+  * Action **required** [WafAction](#wafaction)
+  * Priority **required** [RulePriority](#rulepriority)
+  * RuleId **required** [ResourceId](#resourceid)
+  * Type [WafRuleType](#wafruletype)
+
+### ActivatedRules
+* ActivatedRules `array`
+  * items [ActivatedRule](#activatedrule)
+
+### AssociateWebACLRequest
+* AssociateWebACLRequest `object`
+  * ResourceArn **required** [ResourceArn](#resourcearn)
+  * WebACLId **required** [ResourceId](#resourceid)
+
+### AssociateWebACLResponse
+* AssociateWebACLResponse `object`
+
+### ByteMatchSet
+* ByteMatchSet `object`: <p>In a <a>GetByteMatchSet</a> request, <code>ByteMatchSet</code> is a complex type that contains the <code>ByteMatchSetId</code> and <code>Name</code> of a <code>ByteMatchSet</code>, and the values that you specified when you updated the <code>ByteMatchSet</code>. </p> <p>A complex type that contains <code>ByteMatchTuple</code> objects, which specify the parts of web requests that you want AWS WAF to inspect and the values that you want AWS WAF to search for. If a <code>ByteMatchSet</code> contains more than one <code>ByteMatchTuple</code> object, a request needs to match the settings in only one <code>ByteMatchTuple</code> to be considered a match.</p>
+  * ByteMatchSetId **required** [ResourceId](#resourceid)
+  * ByteMatchTuples **required** [ByteMatchTuples](#bytematchtuples)
+  * Name [ResourceName](#resourcename)
+
+### ByteMatchSetSummaries
+* ByteMatchSetSummaries `array`
+  * items [ByteMatchSetSummary](#bytematchsetsummary)
+
+### ByteMatchSetSummary
+* ByteMatchSetSummary `object`: Returned by <a>ListByteMatchSets</a>. Each <code>ByteMatchSetSummary</code> object includes the <code>Name</code> and <code>ByteMatchSetId</code> for one <a>ByteMatchSet</a>.
+  * ByteMatchSetId **required** [ResourceId](#resourceid)
+  * Name **required** [ResourceName](#resourcename)
+
+### ByteMatchSetUpdate
+* ByteMatchSetUpdate `object`: In an <a>UpdateByteMatchSet</a> request, <code>ByteMatchSetUpdate</code> specifies whether to insert or delete a <a>ByteMatchTuple</a> and includes the settings for the <code>ByteMatchTuple</code>.
+  * Action **required** [ChangeAction](#changeaction)
+  * ByteMatchTuple **required** [ByteMatchTuple](#bytematchtuple)
+
+### ByteMatchSetUpdates
+* ByteMatchSetUpdates `array`
+  * items [ByteMatchSetUpdate](#bytematchsetupdate)
+
+### ByteMatchTargetString
+* ByteMatchTargetString `string`
+
+### ByteMatchTuple
+* ByteMatchTuple `object`: The bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.
+  * FieldToMatch **required** [FieldToMatch](#fieldtomatch)
+  * PositionalConstraint **required** [PositionalConstraint](#positionalconstraint)
+  * TargetString **required** [ByteMatchTargetString](#bytematchtargetstring)
+  * TextTransformation **required** [TextTransformation](#texttransformation)
+
+### ByteMatchTuples
+* ByteMatchTuples `array`
+  * items [ByteMatchTuple](#bytematchtuple)
+
+### ChangeAction
+* ChangeAction `string` (values: INSERT, DELETE)
+
+### ChangeToken
+* ChangeToken `string`
+
+### ChangeTokenStatus
+* ChangeTokenStatus `string` (values: PROVISIONED, PENDING, INSYNC)
+
+### ComparisonOperator
+* ComparisonOperator `string` (values: EQ, NE, LE, LT, GE, GT)
+
+### Country
+* Country `string`
+
+### CreateByteMatchSetRequest
+* CreateByteMatchSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+### CreateByteMatchSetResponse
+* CreateByteMatchSetResponse `object`
+  * ByteMatchSet [ByteMatchSet](#bytematchset)
+  * ChangeToken [ChangeToken](#changetoken)
+
+### CreateGeoMatchSetRequest
+* CreateGeoMatchSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+### CreateGeoMatchSetResponse
+* CreateGeoMatchSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+  * GeoMatchSet [GeoMatchSet](#geomatchset)
+
+### CreateIPSetRequest
+* CreateIPSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+### CreateIPSetResponse
+* CreateIPSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+  * IPSet [IPSet](#ipset)
+
+### CreateRateBasedRuleRequest
+* CreateRateBasedRuleRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * MetricName **required** [MetricName](#metricname)
+  * Name **required** [ResourceName](#resourcename)
+  * RateKey **required** [RateKey](#ratekey)
+  * RateLimit **required** [RateLimit](#ratelimit)
+
+### CreateRateBasedRuleResponse
+* CreateRateBasedRuleResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+  * Rule [RateBasedRule](#ratebasedrule)
+
+### CreateRegexMatchSetRequest
+* CreateRegexMatchSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+### CreateRegexMatchSetResponse
+* CreateRegexMatchSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+  * RegexMatchSet [RegexMatchSet](#regexmatchset)
+
+### CreateRegexPatternSetRequest
+* CreateRegexPatternSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+### CreateRegexPatternSetResponse
+* CreateRegexPatternSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+  * RegexPatternSet [RegexPatternSet](#regexpatternset)
+
+### CreateRuleRequest
+* CreateRuleRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * MetricName **required** [MetricName](#metricname)
+  * Name **required** [ResourceName](#resourcename)
+
+### CreateRuleResponse
+* CreateRuleResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+  * Rule [Rule](#rule)
+
+### CreateSizeConstraintSetRequest
+* CreateSizeConstraintSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+### CreateSizeConstraintSetResponse
+* CreateSizeConstraintSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+  * SizeConstraintSet [SizeConstraintSet](#sizeconstraintset)
+
+### CreateSqlInjectionMatchSetRequest
+* CreateSqlInjectionMatchSetRequest `object`: A request to create a <a>SqlInjectionMatchSet</a>.
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+### CreateSqlInjectionMatchSetResponse
+* CreateSqlInjectionMatchSetResponse `object`: The response to a <code>CreateSqlInjectionMatchSet</code> request.
+  * ChangeToken [ChangeToken](#changetoken)
+  * SqlInjectionMatchSet [SqlInjectionMatchSet](#sqlinjectionmatchset)
+
+### CreateWebACLRequest
+* CreateWebACLRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * DefaultAction **required** [WafAction](#wafaction)
+  * MetricName **required** [MetricName](#metricname)
+  * Name **required** [ResourceName](#resourcename)
+
+### CreateWebACLResponse
+* CreateWebACLResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+  * WebACL [WebACL](#webacl)
+
+### CreateXssMatchSetRequest
+* CreateXssMatchSetRequest `object`: A request to create an <a>XssMatchSet</a>.
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Name **required** [ResourceName](#resourcename)
+
+### CreateXssMatchSetResponse
+* CreateXssMatchSetResponse `object`: The response to a <code>CreateXssMatchSet</code> request.
+  * ChangeToken [ChangeToken](#changetoken)
+  * XssMatchSet [XssMatchSet](#xssmatchset)
+
+### DeleteByteMatchSetRequest
+* DeleteByteMatchSetRequest `object`
+  * ByteMatchSetId **required** [ResourceId](#resourceid)
+  * ChangeToken **required** [ChangeToken](#changetoken)
+
+### DeleteByteMatchSetResponse
+* DeleteByteMatchSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### DeleteGeoMatchSetRequest
+* DeleteGeoMatchSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * GeoMatchSetId **required** [ResourceId](#resourceid)
+
+### DeleteGeoMatchSetResponse
+* DeleteGeoMatchSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### DeleteIPSetRequest
+* DeleteIPSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * IPSetId **required** [ResourceId](#resourceid)
+
+### DeleteIPSetResponse
+* DeleteIPSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### DeleteRateBasedRuleRequest
+* DeleteRateBasedRuleRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RuleId **required** [ResourceId](#resourceid)
+
+### DeleteRateBasedRuleResponse
+* DeleteRateBasedRuleResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### DeleteRegexMatchSetRequest
+* DeleteRegexMatchSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RegexMatchSetId **required** [ResourceId](#resourceid)
+
+### DeleteRegexMatchSetResponse
+* DeleteRegexMatchSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### DeleteRegexPatternSetRequest
+* DeleteRegexPatternSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RegexPatternSetId **required** [ResourceId](#resourceid)
+
+### DeleteRegexPatternSetResponse
+* DeleteRegexPatternSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### DeleteRuleRequest
+* DeleteRuleRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RuleId **required** [ResourceId](#resourceid)
+
+### DeleteRuleResponse
+* DeleteRuleResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### DeleteSizeConstraintSetRequest
+* DeleteSizeConstraintSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * SizeConstraintSetId **required** [ResourceId](#resourceid)
+
+### DeleteSizeConstraintSetResponse
+* DeleteSizeConstraintSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### DeleteSqlInjectionMatchSetRequest
+* DeleteSqlInjectionMatchSetRequest `object`: A request to delete a <a>SqlInjectionMatchSet</a> from AWS WAF.
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * SqlInjectionMatchSetId **required** [ResourceId](#resourceid)
+
+### DeleteSqlInjectionMatchSetResponse
+* DeleteSqlInjectionMatchSetResponse `object`: The response to a request to delete a <a>SqlInjectionMatchSet</a> from AWS WAF.
+  * ChangeToken [ChangeToken](#changetoken)
+
+### DeleteWebACLRequest
+* DeleteWebACLRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * WebACLId **required** [ResourceId](#resourceid)
+
+### DeleteWebACLResponse
+* DeleteWebACLResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### DeleteXssMatchSetRequest
+* DeleteXssMatchSetRequest `object`: A request to delete an <a>XssMatchSet</a> from AWS WAF.
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * XssMatchSetId **required** [ResourceId](#resourceid)
+
+### DeleteXssMatchSetResponse
+* DeleteXssMatchSetResponse `object`: The response to a request to delete an <a>XssMatchSet</a> from AWS WAF.
+  * ChangeToken [ChangeToken](#changetoken)
+
+### DisassociateWebACLRequest
+* DisassociateWebACLRequest `object`
+  * ResourceArn **required** [ResourceArn](#resourcearn)
+
+### DisassociateWebACLResponse
+* DisassociateWebACLResponse `object`
+
+### FieldToMatch
+* FieldToMatch `object`: Specifies where in a web request to look for <code>TargetString</code>.
+  * Data [MatchFieldData](#matchfielddata)
+  * Type **required** [MatchFieldType](#matchfieldtype)
+
+### GeoMatchConstraint
+* GeoMatchConstraint `object`: The country from which web requests originate that you want AWS WAF to search for.
+  * Type **required** [GeoMatchConstraintType](#geomatchconstrainttype)
+  * Value **required** [GeoMatchConstraintValue](#geomatchconstraintvalue)
+
+### GeoMatchConstraintType
+* GeoMatchConstraintType `string` (values: Country)
+
+### GeoMatchConstraintValue
+* GeoMatchConstraintValue `string` (values: AF, AX, AL, DZ, AS, AD, AO, AI, AQ, AG, AR, AM, AW, AU, AT, AZ, BS, BH, BD, BB, BY, BE, BZ, BJ, BM, BT, BO, BQ, BA, BW, BV, BR, IO, BN, BG, BF, BI, KH, CM, CA, CV, KY, CF, TD, CL, CN, CX, CC, CO, KM, CG, CD, CK, CR, CI, HR, CU, CW, CY, CZ, DK, DJ, DM, DO, EC, EG, SV, GQ, ER, EE, ET, FK, FO, FJ, FI, FR, GF, PF, TF, GA, GM, GE, DE, GH, GI, GR, GL, GD, GP, GU, GT, GG, GN, GW, GY, HT, HM, VA, HN, HK, HU, IS, IN, ID, IR, IQ, IE, IM, IL, IT, JM, JP, JE, JO, KZ, KE, KI, KP, KR, KW, KG, LA, LV, LB, LS, LR, LY, LI, LT, LU, MO, MK, MG, MW, MY, MV, ML, MT, MH, MQ, MR, MU, YT, MX, FM, MD, MC, MN, ME, MS, MA, MZ, MM, NA, NR, NP, NL, NC, NZ, NI, NE, NG, NU, NF, MP, NO, OM, PK, PW, PS, PA, PG, PY, PE, PH, PN, PL, PT, PR, QA, RE, RO, RU, RW, BL, SH, KN, LC, MF, PM, VC, WS, SM, ST, SA, SN, RS, SC, SL, SG, SX, SK, SI, SB, SO, ZA, GS, SS, ES, LK, SD, SR, SJ, SZ, SE, CH, SY, TW, TJ, TZ, TH, TL, TG, TK, TO, TT, TN, TR, TM, TC, TV, UG, UA, AE, GB, US, UM, UY, UZ, VU, VE, VN, VG, VI, WF, EH, YE, ZM, ZW)
+
+### GeoMatchConstraints
+* GeoMatchConstraints `array`
+  * items [GeoMatchConstraint](#geomatchconstraint)
+
+### GeoMatchSet
+* GeoMatchSet `object`: Contains one or more countries that AWS WAF will search for.
+  * GeoMatchConstraints **required** [GeoMatchConstraints](#geomatchconstraints)
+  * GeoMatchSetId **required** [ResourceId](#resourceid)
+  * Name [ResourceName](#resourcename)
+
+### GeoMatchSetSummaries
+* GeoMatchSetSummaries `array`
+  * items [GeoMatchSetSummary](#geomatchsetsummary)
+
+### GeoMatchSetSummary
+* GeoMatchSetSummary `object`: Contains the identifier and the name of the <code>GeoMatchSet</code>.
+  * GeoMatchSetId **required** [ResourceId](#resourceid)
+  * Name **required** [ResourceName](#resourcename)
+
+### GeoMatchSetUpdate
+* GeoMatchSetUpdate `object`: Specifies the type of update to perform to an <a>GeoMatchSet</a> with <a>UpdateGeoMatchSet</a>.
+  * Action **required** [ChangeAction](#changeaction)
+  * GeoMatchConstraint **required** [GeoMatchConstraint](#geomatchconstraint)
+
+### GeoMatchSetUpdates
+* GeoMatchSetUpdates `array`
+  * items [GeoMatchSetUpdate](#geomatchsetupdate)
+
+### GetByteMatchSetRequest
+* GetByteMatchSetRequest `object`
+  * ByteMatchSetId **required** [ResourceId](#resourceid)
+
+### GetByteMatchSetResponse
+* GetByteMatchSetResponse `object`
+  * ByteMatchSet [ByteMatchSet](#bytematchset)
+
+### GetChangeTokenRequest
+* GetChangeTokenRequest `object`
+
+### GetChangeTokenResponse
+* GetChangeTokenResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### GetChangeTokenStatusRequest
+* GetChangeTokenStatusRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+
+### GetChangeTokenStatusResponse
+* GetChangeTokenStatusResponse `object`
+  * ChangeTokenStatus [ChangeTokenStatus](#changetokenstatus)
+
+### GetGeoMatchSetRequest
+* GetGeoMatchSetRequest `object`
+  * GeoMatchSetId **required** [ResourceId](#resourceid)
+
+### GetGeoMatchSetResponse
+* GetGeoMatchSetResponse `object`
+  * GeoMatchSet [GeoMatchSet](#geomatchset)
+
+### GetIPSetRequest
+* GetIPSetRequest `object`
+  * IPSetId **required** [ResourceId](#resourceid)
+
+### GetIPSetResponse
+* GetIPSetResponse `object`
+  * IPSet [IPSet](#ipset)
+
+### GetRateBasedRuleManagedKeysRequest
+* GetRateBasedRuleManagedKeysRequest `object`
+  * NextMarker [NextMarker](#nextmarker)
+  * RuleId **required** [ResourceId](#resourceid)
+
+### GetRateBasedRuleManagedKeysResponse
+* GetRateBasedRuleManagedKeysResponse `object`
+  * ManagedKeys [ManagedKeys](#managedkeys)
+  * NextMarker [NextMarker](#nextmarker)
+
+### GetRateBasedRuleRequest
+* GetRateBasedRuleRequest `object`
+  * RuleId **required** [ResourceId](#resourceid)
+
+### GetRateBasedRuleResponse
+* GetRateBasedRuleResponse `object`
+  * Rule [RateBasedRule](#ratebasedrule)
+
+### GetRegexMatchSetRequest
+* GetRegexMatchSetRequest `object`
+  * RegexMatchSetId **required** [ResourceId](#resourceid)
+
+### GetRegexMatchSetResponse
+* GetRegexMatchSetResponse `object`
+  * RegexMatchSet [RegexMatchSet](#regexmatchset)
+
+### GetRegexPatternSetRequest
+* GetRegexPatternSetRequest `object`
+  * RegexPatternSetId **required** [ResourceId](#resourceid)
+
+### GetRegexPatternSetResponse
+* GetRegexPatternSetResponse `object`
+  * RegexPatternSet [RegexPatternSet](#regexpatternset)
+
+### GetRuleRequest
+* GetRuleRequest `object`
+  * RuleId **required** [ResourceId](#resourceid)
+
+### GetRuleResponse
+* GetRuleResponse `object`
+  * Rule [Rule](#rule)
+
+### GetSampledRequestsMaxItems
+* GetSampledRequestsMaxItems `integer`
+
+### GetSampledRequestsRequest
+* GetSampledRequestsRequest `object`
+  * MaxItems **required** [GetSampledRequestsMaxItems](#getsampledrequestsmaxitems)
+  * RuleId **required** [ResourceId](#resourceid)
+  * TimeWindow **required** [TimeWindow](#timewindow)
+  * WebAclId **required** [ResourceId](#resourceid)
+
+### GetSampledRequestsResponse
+* GetSampledRequestsResponse `object`
+  * PopulationSize [PopulationSize](#populationsize)
+  * SampledRequests [SampledHTTPRequests](#sampledhttprequests)
+  * TimeWindow [TimeWindow](#timewindow)
+
+### GetSizeConstraintSetRequest
+* GetSizeConstraintSetRequest `object`
+  * SizeConstraintSetId **required** [ResourceId](#resourceid)
+
+### GetSizeConstraintSetResponse
+* GetSizeConstraintSetResponse `object`
+  * SizeConstraintSet [SizeConstraintSet](#sizeconstraintset)
+
+### GetSqlInjectionMatchSetRequest
+* GetSqlInjectionMatchSetRequest `object`: A request to get a <a>SqlInjectionMatchSet</a>.
+  * SqlInjectionMatchSetId **required** [ResourceId](#resourceid)
+
+### GetSqlInjectionMatchSetResponse
+* GetSqlInjectionMatchSetResponse `object`: The response to a <a>GetSqlInjectionMatchSet</a> request.
+  * SqlInjectionMatchSet [SqlInjectionMatchSet](#sqlinjectionmatchset)
+
+### GetWebACLForResourceRequest
+* GetWebACLForResourceRequest `object`
+  * ResourceArn **required** [ResourceArn](#resourcearn)
+
+### GetWebACLForResourceResponse
+* GetWebACLForResourceResponse `object`
+  * WebACLSummary [WebACLSummary](#webaclsummary)
+
+### GetWebACLRequest
+* GetWebACLRequest `object`
+  * WebACLId **required** [ResourceId](#resourceid)
+
+### GetWebACLResponse
+* GetWebACLResponse `object`
+  * WebACL [WebACL](#webacl)
+
+### GetXssMatchSetRequest
+* GetXssMatchSetRequest `object`: A request to get an <a>XssMatchSet</a>.
+  * XssMatchSetId **required** [ResourceId](#resourceid)
+
+### GetXssMatchSetResponse
+* GetXssMatchSetResponse `object`: The response to a <a>GetXssMatchSet</a> request.
+  * XssMatchSet [XssMatchSet](#xssmatchset)
+
+### HTTPHeader
+* HTTPHeader `object`: The response from a <a>GetSampledRequests</a> request includes an <code>HTTPHeader</code> complex type that appears as <code>Headers</code> in the response syntax. <code>HTTPHeader</code> contains the names and values of all of the headers that appear in one of the web requests that were returned by <code>GetSampledRequests</code>. 
+  * Name [HeaderName](#headername)
+  * Value [HeaderValue](#headervalue)
+
+### HTTPHeaders
+* HTTPHeaders `array`
+  * items [HTTPHeader](#httpheader)
+
+### HTTPMethod
+* HTTPMethod `string`
+
+### HTTPRequest
+* HTTPRequest `object`: The response from a <a>GetSampledRequests</a> request includes an <code>HTTPRequest</code> complex type that appears as <code>Request</code> in the response syntax. <code>HTTPRequest</code> contains information about one of the web requests that were returned by <code>GetSampledRequests</code>. 
+  * ClientIP [IPString](#ipstring)
+  * Country [Country](#country)
+  * HTTPVersion [HTTPVersion](#httpversion)
+  * Headers [HTTPHeaders](#httpheaders)
+  * Method [HTTPMethod](#httpmethod)
+  * URI [URIString](#uristring)
+
+### HTTPVersion
+* HTTPVersion `string`
+
+### HeaderName
+* HeaderName `string`
+
+### HeaderValue
+* HeaderValue `string`
+
+### IPSet
+* IPSet `object`: <p>Contains one or more IP addresses or blocks of IP addresses specified in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32, /48, /56, /64 and /128 for IPv6.</p> <p>To specify an individual IP address, you specify the four-part IP address followed by a <code>/32</code>, for example, 192.0.2.0/31. To block a range of IP addresses, you can specify a <code>/128</code>, <code>/64</code>, <code>/56</code>, <code>/48</code>, <code>/32</code>, <code>/24</code>, <code>/16</code>, or <code>/8</code> CIDR. For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>. </p>
+  * IPSetDescriptors **required** [IPSetDescriptors](#ipsetdescriptors)
+  * IPSetId **required** [ResourceId](#resourceid)
+  * Name [ResourceName](#resourcename)
+
+### IPSetDescriptor
+* IPSetDescriptor `object`: Specifies the IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR format) that web requests originate from.
+  * Type **required** [IPSetDescriptorType](#ipsetdescriptortype)
+  * Value **required** [IPSetDescriptorValue](#ipsetdescriptorvalue)
+
+### IPSetDescriptorType
+* IPSetDescriptorType `string` (values: IPV4, IPV6)
+
+### IPSetDescriptorValue
+* IPSetDescriptorValue `string`
+
+### IPSetDescriptors
+* IPSetDescriptors `array`
+  * items [IPSetDescriptor](#ipsetdescriptor)
+
+### IPSetSummaries
+* IPSetSummaries `array`
+  * items [IPSetSummary](#ipsetsummary)
+
+### IPSetSummary
+* IPSetSummary `object`: Contains the identifier and the name of the <code>IPSet</code>.
+  * IPSetId **required** [ResourceId](#resourceid)
+  * Name **required** [ResourceName](#resourcename)
+
+### IPSetUpdate
+* IPSetUpdate `object`: Specifies the type of update to perform to an <a>IPSet</a> with <a>UpdateIPSet</a>.
+  * Action **required** [ChangeAction](#changeaction)
+  * IPSetDescriptor **required** [IPSetDescriptor](#ipsetdescriptor)
+
+### IPSetUpdates
+* IPSetUpdates `array`
+  * items [IPSetUpdate](#ipsetupdate)
+
+### IPString
+* IPString `string`
+
+### ListByteMatchSetsRequest
+* ListByteMatchSetsRequest `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListByteMatchSetsResponse
+* ListByteMatchSetsResponse `object`
+  * ByteMatchSets [ByteMatchSetSummaries](#bytematchsetsummaries)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListGeoMatchSetsRequest
+* ListGeoMatchSetsRequest `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListGeoMatchSetsResponse
+* ListGeoMatchSetsResponse `object`
+  * GeoMatchSets [GeoMatchSetSummaries](#geomatchsetsummaries)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListIPSetsRequest
+* ListIPSetsRequest `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListIPSetsResponse
+* ListIPSetsResponse `object`
+  * IPSets [IPSetSummaries](#ipsetsummaries)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListRateBasedRulesRequest
+* ListRateBasedRulesRequest `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListRateBasedRulesResponse
+* ListRateBasedRulesResponse `object`
+  * NextMarker [NextMarker](#nextmarker)
+  * Rules [RuleSummaries](#rulesummaries)
+
+### ListRegexMatchSetsRequest
+* ListRegexMatchSetsRequest `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListRegexMatchSetsResponse
+* ListRegexMatchSetsResponse `object`
+  * NextMarker [NextMarker](#nextmarker)
+  * RegexMatchSets [RegexMatchSetSummaries](#regexmatchsetsummaries)
+
+### ListRegexPatternSetsRequest
+* ListRegexPatternSetsRequest `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListRegexPatternSetsResponse
+* ListRegexPatternSetsResponse `object`
+  * NextMarker [NextMarker](#nextmarker)
+  * RegexPatternSets [RegexPatternSetSummaries](#regexpatternsetsummaries)
+
+### ListResourcesForWebACLRequest
+* ListResourcesForWebACLRequest `object`
+  * WebACLId **required** [ResourceId](#resourceid)
+
+### ListResourcesForWebACLResponse
+* ListResourcesForWebACLResponse `object`
+  * ResourceArns [ResourceArns](#resourcearns)
+
+### ListRulesRequest
+* ListRulesRequest `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListRulesResponse
+* ListRulesResponse `object`
+  * NextMarker [NextMarker](#nextmarker)
+  * Rules [RuleSummaries](#rulesummaries)
+
+### ListSizeConstraintSetsRequest
+* ListSizeConstraintSetsRequest `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListSizeConstraintSetsResponse
+* ListSizeConstraintSetsResponse `object`
+  * NextMarker [NextMarker](#nextmarker)
+  * SizeConstraintSets [SizeConstraintSetSummaries](#sizeconstraintsetsummaries)
+
+### ListSqlInjectionMatchSetsRequest
+* ListSqlInjectionMatchSetsRequest `object`: A request to list the <a>SqlInjectionMatchSet</a> objects created by the current AWS account.
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListSqlInjectionMatchSetsResponse
+* ListSqlInjectionMatchSetsResponse `object`: The response to a <a>ListSqlInjectionMatchSets</a> request.
+  * NextMarker [NextMarker](#nextmarker)
+  * SqlInjectionMatchSets [SqlInjectionMatchSetSummaries](#sqlinjectionmatchsetsummaries)
+
+### ListWebACLsRequest
+* ListWebACLsRequest `object`
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListWebACLsResponse
+* ListWebACLsResponse `object`
+  * NextMarker [NextMarker](#nextmarker)
+  * WebACLs [WebACLSummaries](#webaclsummaries)
+
+### ListXssMatchSetsRequest
+* ListXssMatchSetsRequest `object`: A request to list the <a>XssMatchSet</a> objects created by the current AWS account.
+  * Limit [PaginationLimit](#paginationlimit)
+  * NextMarker [NextMarker](#nextmarker)
+
+### ListXssMatchSetsResponse
+* ListXssMatchSetsResponse `object`: The response to a <a>ListXssMatchSets</a> request.
+  * NextMarker [NextMarker](#nextmarker)
+  * XssMatchSets [XssMatchSetSummaries](#xssmatchsetsummaries)
+
+### ManagedKey
+* ManagedKey `string`
+
+### ManagedKeys
+* ManagedKeys `array`
+  * items [ManagedKey](#managedkey)
+
+### MatchFieldData
+* MatchFieldData `string`
+
+### MatchFieldType
+* MatchFieldType `string` (values: URI, QUERY_STRING, HEADER, METHOD, BODY)
+
+### MetricName
+* MetricName `string`
+
+### Negated
+* Negated `boolean`
+
+### NextMarker
+* NextMarker `string`
+
+### PaginationLimit
+* PaginationLimit `integer`
+
+### ParameterExceptionField
+* ParameterExceptionField `string` (values: CHANGE_ACTION, WAF_ACTION, PREDICATE_TYPE, IPSET_TYPE, BYTE_MATCH_FIELD_TYPE, SQL_INJECTION_MATCH_FIELD_TYPE, BYTE_MATCH_TEXT_TRANSFORMATION, BYTE_MATCH_POSITIONAL_CONSTRAINT, SIZE_CONSTRAINT_COMPARISON_OPERATOR, GEO_MATCH_LOCATION_TYPE, GEO_MATCH_LOCATION_VALUE, RATE_KEY, RULE_TYPE, NEXT_MARKER)
+
+### ParameterExceptionParameter
+* ParameterExceptionParameter `string`
+
+### ParameterExceptionReason
+* ParameterExceptionReason `string` (values: INVALID_OPTION, ILLEGAL_COMBINATION)
+
+### PopulationSize
+* PopulationSize `integer`
+
+### PositionalConstraint
+* PositionalConstraint `string` (values: EXACTLY, STARTS_WITH, ENDS_WITH, CONTAINS, CONTAINS_WORD)
+
+### Predicate
+* Predicate `object`: Specifies the <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, <a>RegexMatchSet</a>, <a>GeoMatchSet</a>, and <a>SizeConstraintSet</a> objects that you want to add to a <code>Rule</code> and, for each object, indicates whether you want to negate the settings, for example, requests that do NOT originate from the IP address 192.0.2.44. 
+  * DataId **required** [ResourceId](#resourceid)
+  * Negated **required** [Negated](#negated)
+  * Type **required** [PredicateType](#predicatetype)
+
+### PredicateType
+* PredicateType `string` (values: IPMatch, ByteMatch, SqlInjectionMatch, GeoMatch, SizeConstraint, XssMatch, RegexMatch)
+
+### Predicates
+* Predicates `array`
+  * items [Predicate](#predicate)
+
+### RateBasedRule
+* RateBasedRule `object`: <p>A <code>RateBasedRule</code> is identical to a regular <a>Rule</a>, with one addition: a <code>RateBasedRule</code> counts the number of requests that arrive from a specified IP address every five minutes. For example, based on recent requests that you've seen from an attacker, you might create a <code>RateBasedRule</code> that includes the following conditions: </p> <ul> <li> <p>The requests come from 192.0.2.44.</p> </li> <li> <p>They contain the value <code>BadBot</code> in the <code>User-Agent</code> header.</p> </li> </ul> <p>In the rule, you also define the rate limit as 15,000.</p> <p>Requests that meet both of these conditions and exceed 15,000 requests every five minutes trigger the rule's action (block or count), which is defined in the web ACL.</p>
+  * MatchPredicates **required** [Predicates](#predicates)
+  * MetricName [MetricName](#metricname)
+  * Name [ResourceName](#resourcename)
+  * RateKey **required** [RateKey](#ratekey)
+  * RateLimit **required** [RateLimit](#ratelimit)
+  * RuleId **required** [ResourceId](#resourceid)
+
+### RateKey
+* RateKey `string` (values: IP)
+
+### RateLimit
+* RateLimit `integer`
+
+### RegexMatchSet
+* RegexMatchSet `object`: <p>In a <a>GetRegexMatchSet</a> request, <code>RegexMatchSet</code> is a complex type that contains the <code>RegexMatchSetId</code> and <code>Name</code> of a <code>RegexMatchSet</code>, and the values that you specified when you updated the <code>RegexMatchSet</code>.</p> <p> The values are contained in a <code>RegexMatchTuple</code> object, which specify the parts of web requests that you want AWS WAF to inspect and the values that you want AWS WAF to search for. If a <code>RegexMatchSet</code> contains more than one <code>RegexMatchTuple</code> object, a request needs to match the settings in only one <code>ByteMatchTuple</code> to be considered a match.</p>
+  * Name [ResourceName](#resourcename)
+  * RegexMatchSetId [ResourceId](#resourceid)
+  * RegexMatchTuples [RegexMatchTuples](#regexmatchtuples)
+
+### RegexMatchSetSummaries
+* RegexMatchSetSummaries `array`
+  * items [RegexMatchSetSummary](#regexmatchsetsummary)
+
+### RegexMatchSetSummary
+* RegexMatchSetSummary `object`: Returned by <a>ListRegexMatchSets</a>. Each <code>RegexMatchSetSummary</code> object includes the <code>Name</code> and <code>RegexMatchSetId</code> for one <a>RegexMatchSet</a>.
+  * Name **required** [ResourceName](#resourcename)
+  * RegexMatchSetId **required** [ResourceId](#resourceid)
+
+### RegexMatchSetUpdate
+* RegexMatchSetUpdate `object`: In an <a>UpdateRegexMatchSet</a> request, <code>RegexMatchSetUpdate</code> specifies whether to insert or delete a <a>RegexMatchTuple</a> and includes the settings for the <code>RegexMatchTuple</code>.
+  * Action **required** [ChangeAction](#changeaction)
+  * RegexMatchTuple **required** [RegexMatchTuple](#regexmatchtuple)
+
+### RegexMatchSetUpdates
+* RegexMatchSetUpdates `array`
+  * items [RegexMatchSetUpdate](#regexmatchsetupdate)
+
+### RegexMatchTuple
+* RegexMatchTuple `object`: <p>The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. Each <code>RegexMatchTuple</code> object contains: </p> <ul> <li> <p>The part of a web request that you want AWS WAF to inspect, such as a query string or the value of the <code>User-Agent</code> header. </p> </li> <li> <p>The identifier of the pattern (a regular expression) that you want AWS WAF to look for. For more information, see <a>RegexPatternSet</a>. </p> </li> <li> <p>Whether to perform any conversions on the request, such as converting it to lowercase, before inspecting it for the specified string.</p> </li> </ul>
+  * FieldToMatch **required** [FieldToMatch](#fieldtomatch)
+  * RegexPatternSetId **required** [ResourceId](#resourceid)
+  * TextTransformation **required** [TextTransformation](#texttransformation)
+
+### RegexMatchTuples
+* RegexMatchTuples `array`
+  * items [RegexMatchTuple](#regexmatchtuple)
+
+### RegexPatternSet
+* RegexPatternSet `object`: The <code>RegexPatternSet</code> specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.
+  * Name [ResourceName](#resourcename)
+  * RegexPatternSetId **required** [ResourceId](#resourceid)
+  * RegexPatternStrings **required** [RegexPatternStrings](#regexpatternstrings)
+
+### RegexPatternSetSummaries
+* RegexPatternSetSummaries `array`
+  * items [RegexPatternSetSummary](#regexpatternsetsummary)
+
+### RegexPatternSetSummary
+* RegexPatternSetSummary `object`: Returned by <a>ListRegexPatternSets</a>. Each <code>RegexPatternSetSummary</code> object includes the <code>Name</code> and <code>RegexPatternSetId</code> for one <a>RegexPatternSet</a>.
+  * Name **required** [ResourceName](#resourcename)
+  * RegexPatternSetId **required** [ResourceId](#resourceid)
+
+### RegexPatternSetUpdate
+* RegexPatternSetUpdate `object`: In an <a>UpdateRegexPatternSet</a> request, <code>RegexPatternSetUpdate</code> specifies whether to insert or delete a <code>RegexPatternString</code> and includes the settings for the <code>RegexPatternString</code>.
+  * Action **required** [ChangeAction](#changeaction)
+  * RegexPatternString **required** [RegexPatternString](#regexpatternstring)
+
+### RegexPatternSetUpdates
+* RegexPatternSetUpdates `array`
+  * items [RegexPatternSetUpdate](#regexpatternsetupdate)
+
+### RegexPatternString
+* RegexPatternString `string`
+
+### RegexPatternStrings
+* RegexPatternStrings `array`
+  * items [RegexPatternString](#regexpatternstring)
+
+### ResourceArn
+* ResourceArn `string`
+
+### ResourceArns
+* ResourceArns `array`
+  * items [ResourceArn](#resourcearn)
+
+### ResourceId
+* ResourceId `string`
+
+### ResourceName
+* ResourceName `string`
+
+### Rule
+* Rule `object`: <p>A combination of <a>ByteMatchSet</a>, <a>IPSet</a>, and/or <a>SqlInjectionMatchSet</a> objects that identify the web requests that you want to allow, block, or count. For example, you might create a <code>Rule</code> that includes the following predicates:</p> <ul> <li> <p>An <code>IPSet</code> that causes AWS WAF to search for web requests that originate from the IP address <code>192.0.2.44</code> </p> </li> <li> <p>A <code>ByteMatchSet</code> that causes AWS WAF to search for web requests for which the value of the <code>User-Agent</code> header is <code>BadBot</code>.</p> </li> </ul> <p>To match the settings in this <code>Rule</code>, a request must originate from <code>192.0.2.44</code> AND include a <code>User-Agent</code> header for which the value is <code>BadBot</code>.</p>
+  * MetricName [MetricName](#metricname)
+  * Name [ResourceName](#resourcename)
+  * Predicates **required** [Predicates](#predicates)
+  * RuleId **required** [ResourceId](#resourceid)
+
+### RulePriority
+* RulePriority `integer`
+
+### RuleSummaries
+* RuleSummaries `array`
+  * items [RuleSummary](#rulesummary)
+
+### RuleSummary
+* RuleSummary `object`: Contains the identifier and the friendly name or description of the <code>Rule</code>.
+  * Name **required** [ResourceName](#resourcename)
+  * RuleId **required** [ResourceId](#resourceid)
+
+### RuleUpdate
+* RuleUpdate `object`: Specifies a <code>Predicate</code> (such as an <code>IPSet</code>) and indicates whether you want to add it to a <code>Rule</code> or delete it from a <code>Rule</code>.
+  * Action **required** [ChangeAction](#changeaction)
+  * Predicate **required** [Predicate](#predicate)
+
+### RuleUpdates
+* RuleUpdates `array`
+  * items [RuleUpdate](#ruleupdate)
+
+### SampleWeight
+* SampleWeight `integer`
+
+### SampledHTTPRequest
+* SampledHTTPRequest `object`: The response from a <a>GetSampledRequests</a> request includes a <code>SampledHTTPRequests</code> complex type that appears as <code>SampledRequests</code> in the response syntax. <code>SampledHTTPRequests</code> contains one <code>SampledHTTPRequest</code> object for each web request that is returned by <code>GetSampledRequests</code>.
+  * Action [Action](#action)
+  * Request **required** [HTTPRequest](#httprequest)
+  * Timestamp [Timestamp](#timestamp)
+  * Weight **required** [SampleWeight](#sampleweight)
+
+### SampledHTTPRequests
+* SampledHTTPRequests `array`
+  * items [SampledHTTPRequest](#sampledhttprequest)
+
+### Size
+* Size `integer`
+
+### SizeConstraint
+* SizeConstraint `object`: Specifies a constraint on the size of a part of the web request. AWS WAF uses the <code>Size</code>, <code>ComparisonOperator</code>, and <code>FieldToMatch</code> to build an expression in the form of "<code>Size</code> <code>ComparisonOperator</code> size in bytes of <code>FieldToMatch</code>". If that expression is true, the <code>SizeConstraint</code> is considered to match.
+  * ComparisonOperator **required** [ComparisonOperator](#comparisonoperator)
+  * FieldToMatch **required** [FieldToMatch](#fieldtomatch)
+  * Size **required** [Size](#size)
+  * TextTransformation **required** [TextTransformation](#texttransformation)
+
+### SizeConstraintSet
+* SizeConstraintSet `object`: A complex type that contains <code>SizeConstraint</code> objects, which specify the parts of web requests that you want AWS WAF to inspect the size of. If a <code>SizeConstraintSet</code> contains more than one <code>SizeConstraint</code> object, a request only needs to match one constraint to be considered a match.
+  * Name [ResourceName](#resourcename)
+  * SizeConstraintSetId **required** [ResourceId](#resourceid)
+  * SizeConstraints **required** [SizeConstraints](#sizeconstraints)
+
+### SizeConstraintSetSummaries
+* SizeConstraintSetSummaries `array`
+  * items [SizeConstraintSetSummary](#sizeconstraintsetsummary)
+
+### SizeConstraintSetSummary
+* SizeConstraintSetSummary `object`: The <code>Id</code> and <code>Name</code> of a <code>SizeConstraintSet</code>.
+  * Name **required** [ResourceName](#resourcename)
+  * SizeConstraintSetId **required** [ResourceId](#resourceid)
+
+### SizeConstraintSetUpdate
+* SizeConstraintSetUpdate `object`: Specifies the part of a web request that you want to inspect the size of and indicates whether you want to add the specification to a <a>SizeConstraintSet</a> or delete it from a <code>SizeConstraintSet</code>.
+  * Action **required** [ChangeAction](#changeaction)
+  * SizeConstraint **required** [SizeConstraint](#sizeconstraint)
+
+### SizeConstraintSetUpdates
+* SizeConstraintSetUpdates `array`
+  * items [SizeConstraintSetUpdate](#sizeconstraintsetupdate)
+
+### SizeConstraints
+* SizeConstraints `array`
+  * items [SizeConstraint](#sizeconstraint)
+
+### SqlInjectionMatchSet
+* SqlInjectionMatchSet `object`: A complex type that contains <code>SqlInjectionMatchTuple</code> objects, which specify the parts of web requests that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header. If a <code>SqlInjectionMatchSet</code> contains more than one <code>SqlInjectionMatchTuple</code> object, a request needs to include snippets of SQL code in only one of the specified parts of the request to be considered a match.
+  * Name [ResourceName](#resourcename)
+  * SqlInjectionMatchSetId **required** [ResourceId](#resourceid)
+  * SqlInjectionMatchTuples **required** [SqlInjectionMatchTuples](#sqlinjectionmatchtuples)
+
+### SqlInjectionMatchSetSummaries
+* SqlInjectionMatchSetSummaries `array`
+  * items [SqlInjectionMatchSetSummary](#sqlinjectionmatchsetsummary)
+
+### SqlInjectionMatchSetSummary
+* SqlInjectionMatchSetSummary `object`: The <code>Id</code> and <code>Name</code> of a <code>SqlInjectionMatchSet</code>.
+  * Name **required** [ResourceName](#resourcename)
+  * SqlInjectionMatchSetId **required** [ResourceId](#resourceid)
+
+### SqlInjectionMatchSetUpdate
+* SqlInjectionMatchSetUpdate `object`: Specifies the part of a web request that you want to inspect for snippets of malicious SQL code and indicates whether you want to add the specification to a <a>SqlInjectionMatchSet</a> or delete it from a <code>SqlInjectionMatchSet</code>.
+  * Action **required** [ChangeAction](#changeaction)
+  * SqlInjectionMatchTuple **required** [SqlInjectionMatchTuple](#sqlinjectionmatchtuple)
+
+### SqlInjectionMatchSetUpdates
+* SqlInjectionMatchSetUpdates `array`
+  * items [SqlInjectionMatchSetUpdate](#sqlinjectionmatchsetupdate)
+
+### SqlInjectionMatchTuple
+* SqlInjectionMatchTuple `object`: Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+  * FieldToMatch **required** [FieldToMatch](#fieldtomatch)
+  * TextTransformation **required** [TextTransformation](#texttransformation)
+
+### SqlInjectionMatchTuples
+* SqlInjectionMatchTuples `array`
+  * items [SqlInjectionMatchTuple](#sqlinjectionmatchtuple)
+
+### TextTransformation
+* TextTransformation `string` (values: NONE, COMPRESS_WHITE_SPACE, HTML_ENTITY_DECODE, LOWERCASE, CMD_LINE, URL_DECODE)
+
+### TimeWindow
+* TimeWindow `object`: <p>In a <a>GetSampledRequests</a> request, the <code>StartTime</code> and <code>EndTime</code> objects specify the time range for which you want AWS WAF to return a sample of web requests.</p> <p>In a <a>GetSampledRequests</a> response, the <code>StartTime</code> and <code>EndTime</code> objects specify the time range for which AWS WAF actually returned a sample of web requests. AWS WAF gets the specified number of requests from among the first 5,000 requests that your AWS resource receives during the specified time period. If your resource receives more than 5,000 requests during that period, AWS WAF stops sampling after the 5,000th request. In that case, <code>EndTime</code> is the time that AWS WAF received the 5,000th request. </p>
+  * EndTime **required** [Timestamp](#timestamp)
+  * StartTime **required** [Timestamp](#timestamp)
+
+### Timestamp
+* Timestamp `string`
+
+### URIString
+* URIString `string`
+
+### UpdateByteMatchSetRequest
+* UpdateByteMatchSetRequest `object`
+  * ByteMatchSetId **required** [ResourceId](#resourceid)
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Updates **required** [ByteMatchSetUpdates](#bytematchsetupdates)
+
+### UpdateByteMatchSetResponse
+* UpdateByteMatchSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### UpdateGeoMatchSetRequest
+* UpdateGeoMatchSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * GeoMatchSetId **required** [ResourceId](#resourceid)
+  * Updates **required** [GeoMatchSetUpdates](#geomatchsetupdates)
+
+### UpdateGeoMatchSetResponse
+* UpdateGeoMatchSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### UpdateIPSetRequest
+* UpdateIPSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * IPSetId **required** [ResourceId](#resourceid)
+  * Updates **required** [IPSetUpdates](#ipsetupdates)
+
+### UpdateIPSetResponse
+* UpdateIPSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### UpdateRateBasedRuleRequest
+* UpdateRateBasedRuleRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RateLimit **required** [RateLimit](#ratelimit)
+  * RuleId **required** [ResourceId](#resourceid)
+  * Updates **required** [RuleUpdates](#ruleupdates)
+
+### UpdateRateBasedRuleResponse
+* UpdateRateBasedRuleResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### UpdateRegexMatchSetRequest
+* UpdateRegexMatchSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RegexMatchSetId **required** [ResourceId](#resourceid)
+  * Updates **required** [RegexMatchSetUpdates](#regexmatchsetupdates)
+
+### UpdateRegexMatchSetResponse
+* UpdateRegexMatchSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### UpdateRegexPatternSetRequest
+* UpdateRegexPatternSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RegexPatternSetId **required** [ResourceId](#resourceid)
+  * Updates **required** [RegexPatternSetUpdates](#regexpatternsetupdates)
+
+### UpdateRegexPatternSetResponse
+* UpdateRegexPatternSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### UpdateRuleRequest
+* UpdateRuleRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * RuleId **required** [ResourceId](#resourceid)
+  * Updates **required** [RuleUpdates](#ruleupdates)
+
+### UpdateRuleResponse
+* UpdateRuleResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### UpdateSizeConstraintSetRequest
+* UpdateSizeConstraintSetRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * SizeConstraintSetId **required** [ResourceId](#resourceid)
+  * Updates **required** [SizeConstraintSetUpdates](#sizeconstraintsetupdates)
+
+### UpdateSizeConstraintSetResponse
+* UpdateSizeConstraintSetResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### UpdateSqlInjectionMatchSetRequest
+* UpdateSqlInjectionMatchSetRequest `object`: A request to update a <a>SqlInjectionMatchSet</a>.
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * SqlInjectionMatchSetId **required** [ResourceId](#resourceid)
+  * Updates **required** [SqlInjectionMatchSetUpdates](#sqlinjectionmatchsetupdates)
+
+### UpdateSqlInjectionMatchSetResponse
+* UpdateSqlInjectionMatchSetResponse `object`: The response to an <a>UpdateSqlInjectionMatchSets</a> request.
+  * ChangeToken [ChangeToken](#changetoken)
+
+### UpdateWebACLRequest
+* UpdateWebACLRequest `object`
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * DefaultAction [WafAction](#wafaction)
+  * Updates [WebACLUpdates](#webaclupdates)
+  * WebACLId **required** [ResourceId](#resourceid)
+
+### UpdateWebACLResponse
+* UpdateWebACLResponse `object`
+  * ChangeToken [ChangeToken](#changetoken)
+
+### UpdateXssMatchSetRequest
+* UpdateXssMatchSetRequest `object`: A request to update an <a>XssMatchSet</a>.
+  * ChangeToken **required** [ChangeToken](#changetoken)
+  * Updates **required** [XssMatchSetUpdates](#xssmatchsetupdates)
+  * XssMatchSetId **required** [ResourceId](#resourceid)
+
+### UpdateXssMatchSetResponse
+* UpdateXssMatchSetResponse `object`: The response to an <a>UpdateXssMatchSets</a> request.
+  * ChangeToken [ChangeToken](#changetoken)
+
+### WAFDisallowedNameException
+* WAFDisallowedNameException `object`: The name specified is invalid.
+  * message [errorMessage](#errormessage)
+
+### WAFInternalErrorException
+* WAFInternalErrorException `object`: The operation failed because of a system problem, even though the request was valid. Retry your request.
+  * message [errorMessage](#errormessage)
+
+### WAFInvalidAccountException
+* WAFInvalidAccountException `object`: The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.
+
+### WAFInvalidOperationException
+* WAFInvalidOperationException `object`: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add an IP address to an <code>IPSet</code>, but the IP address already exists in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+  * message [errorMessage](#errormessage)
+
+### WAFInvalidParameterException
+* WAFInvalidParameterException `object`: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+  * field [ParameterExceptionField](#parameterexceptionfield)
+  * parameter [ParameterExceptionParameter](#parameterexceptionparameter)
+  * reason [ParameterExceptionReason](#parameterexceptionreason)
+
+### WAFInvalidRegexPatternException
+* WAFInvalidRegexPatternException `object`: The regular expression (regex) you specified in <code>RegexPatternString</code> is invalid.
+  * message [errorMessage](#errormessage)
+
+### WAFLimitsExceededException
+* WAFLimitsExceededException `object`: The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href="http://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.
+  * message [errorMessage](#errormessage)
+
+### WAFNonEmptyEntityException
+* WAFNonEmptyEntityException `object`: <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
+  * message [errorMessage](#errormessage)
+
+### WAFNonexistentContainerException
+* WAFNonexistentContainerException `object`: <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
+  * message [errorMessage](#errormessage)
+
+### WAFNonexistentItemException
+* WAFNonexistentItemException `object`: The operation failed because the referenced object doesn't exist.
+  * message [errorMessage](#errormessage)
+
+### WAFReferencedItemException
+* WAFReferencedItemException `object`: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+  * message [errorMessage](#errormessage)
+
+### WAFStaleDataException
+* WAFStaleDataException `object`: The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.
+  * message [errorMessage](#errormessage)
+
+### WAFUnavailableEntityException
+* WAFUnavailableEntityException `object`: The operation failed because the entity referenced is temporarily unavailable. Retry your request.
+  * message [errorMessage](#errormessage)
+
+### WafAction
+* WafAction `object`: For the action that is associated with a rule in a <code>WebACL</code>, specifies the action that you want AWS WAF to perform when a web request matches all of the conditions in a rule. For the default action in a <code>WebACL</code>, specifies the action that you want AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a <code>WebACL</code>. 
+  * Type **required** [WafActionType](#wafactiontype)
+
+### WafActionType
+* WafActionType `string` (values: BLOCK, ALLOW, COUNT)
+
+### WafRuleType
+* WafRuleType `string` (values: REGULAR, RATE_BASED)
+
+### WebACL
+* WebACL `object`: Contains the <code>Rules</code> that identify the requests that you want to allow, block, or count. In a <code>WebACL</code>, you also specify a default action (<code>ALLOW</code> or <code>BLOCK</code>), and the action for each <code>Rule</code> that you add to a <code>WebACL</code>, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the <code>WebACL</code> with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one <code>Rule</code> to a <code>WebACL</code>, a request needs to match only one of the specifications to be allowed, blocked, or counted. For more information, see <a>UpdateWebACL</a>.
+  * DefaultAction **required** [WafAction](#wafaction)
+  * MetricName [MetricName](#metricname)
+  * Name [ResourceName](#resourcename)
+  * Rules **required** [ActivatedRules](#activatedrules)
+  * WebACLId **required** [ResourceId](#resourceid)
+
+### WebACLSummaries
+* WebACLSummaries `array`
+  * items [WebACLSummary](#webaclsummary)
+
+### WebACLSummary
+* WebACLSummary `object`: Contains the identifier and the name or description of the <a>WebACL</a>.
+  * Name **required** [ResourceName](#resourcename)
+  * WebACLId **required** [ResourceId](#resourceid)
+
+### WebACLUpdate
+* WebACLUpdate `object`: Specifies whether to insert a <code>Rule</code> into or delete a <code>Rule</code> from a <code>WebACL</code>.
+  * Action **required** [ChangeAction](#changeaction)
+  * ActivatedRule **required** [ActivatedRule](#activatedrule)
+
+### WebACLUpdates
+* WebACLUpdates `array`
+  * items [WebACLUpdate](#webaclupdate)
+
+### XssMatchSet
+* XssMatchSet `object`: A complex type that contains <code>XssMatchTuple</code> objects, which specify the parts of web requests that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header. If a <code>XssMatchSet</code> contains more than one <code>XssMatchTuple</code> object, a request needs to include cross-site scripting attacks in only one of the specified parts of the request to be considered a match.
+  * Name [ResourceName](#resourcename)
+  * XssMatchSetId **required** [ResourceId](#resourceid)
+  * XssMatchTuples **required** [XssMatchTuples](#xssmatchtuples)
+
+### XssMatchSetSummaries
+* XssMatchSetSummaries `array`
+  * items [XssMatchSetSummary](#xssmatchsetsummary)
+
+### XssMatchSetSummary
+* XssMatchSetSummary `object`: The <code>Id</code> and <code>Name</code> of an <code>XssMatchSet</code>.
+  * Name **required** [ResourceName](#resourcename)
+  * XssMatchSetId **required** [ResourceId](#resourceid)
+
+### XssMatchSetUpdate
+* XssMatchSetUpdate `object`: Specifies the part of a web request that you want to inspect for cross-site scripting attacks and indicates whether you want to add the specification to an <a>XssMatchSet</a> or delete it from an <code>XssMatchSet</code>.
+  * Action **required** [ChangeAction](#changeaction)
+  * XssMatchTuple **required** [XssMatchTuple](#xssmatchtuple)
+
+### XssMatchSetUpdates
+* XssMatchSetUpdates `array`
+  * items [XssMatchSetUpdate](#xssmatchsetupdate)
+
+### XssMatchTuple
+* XssMatchTuple `object`: Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.
+  * FieldToMatch **required** [FieldToMatch](#fieldtomatch)
+  * TextTransformation **required** [TextTransformation](#texttransformation)
+
+### XssMatchTuples
+* XssMatchTuples `array`
+  * items [XssMatchTuple](#xssmatchtuple)
+
+### errorMessage
+* errorMessage `string`
+
 

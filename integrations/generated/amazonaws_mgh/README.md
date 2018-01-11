@@ -4,15 +4,13 @@ Client library for AWS Migration Hub
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/amazonaws_mgh
+npm install --save @datafire/amazonaws_mgh
 ```
-
 ```js
-let datafire = require('datafire');
 let amazonaws_mgh = require('@datafire/amazonaws_mgh').create({
   accessKeyId: "",
   secretAccessKey: "",
-  region: "",
+  region: ""
 });
 
 amazonaws_mgh.AssociateCreatedArtifact({}).then(data => {
@@ -21,9 +19,11 @@ amazonaws_mgh.AssociateCreatedArtifact({}).then(data => {
 ```
 
 ## Description
+
 <p/>
 
 ## Actions
+
 ### AssociateCreatedArtifact
 
 
@@ -38,11 +38,15 @@ amazonaws_mgh.AssociateCreatedArtifact({
 }, context)
 ```
 
-#### Parameters
-* CreatedArtifact (object) **required** - An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2 instance, RDS instance, etc.).
-* DryRun (boolean)
-* MigrationTaskName (string) **required**
-* ProgressUpdateStream (string) **required**
+#### Input
+* input `object`
+  * CreatedArtifact **required** [CreatedArtifact](#createdartifact)
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+#### Output
+* output [AssociateCreatedArtifactResult](#associatecreatedartifactresult)
 
 ### AssociateDiscoveredResource
 
@@ -58,11 +62,15 @@ amazonaws_mgh.AssociateDiscoveredResource({
 }, context)
 ```
 
-#### Parameters
-* DiscoveredResource (object) **required** - Object representing the on-premises resource being migrated.
-* DryRun (boolean)
-* MigrationTaskName (string) **required**
-* ProgressUpdateStream (string) **required**
+#### Input
+* input `object`
+  * DiscoveredResource **required** [DiscoveredResource](#discoveredresource)
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+#### Output
+* output [AssociateDiscoveredResourceResult](#associatediscoveredresourceresult)
 
 ### CreateProgressUpdateStream
 
@@ -74,9 +82,13 @@ amazonaws_mgh.CreateProgressUpdateStream({
 }, context)
 ```
 
-#### Parameters
-* DryRun (boolean)
-* ProgressUpdateStreamName (string) **required**
+#### Input
+* input `object`
+  * DryRun [DryRun](#dryrun)
+  * ProgressUpdateStreamName **required** [ProgressUpdateStream](#progressupdatestream)
+
+#### Output
+* output [CreateProgressUpdateStreamResult](#createprogressupdatestreamresult)
 
 ### DeleteProgressUpdateStream
 
@@ -88,9 +100,13 @@ amazonaws_mgh.DeleteProgressUpdateStream({
 }, context)
 ```
 
-#### Parameters
-* DryRun (boolean)
-* ProgressUpdateStreamName (string) **required**
+#### Input
+* input `object`
+  * DryRun [DryRun](#dryrun)
+  * ProgressUpdateStreamName **required** [ProgressUpdateStream](#progressupdatestream)
+
+#### Output
+* output [DeleteProgressUpdateStreamResult](#deleteprogressupdatestreamresult)
 
 ### DescribeApplicationState
 
@@ -102,8 +118,12 @@ amazonaws_mgh.DescribeApplicationState({
 }, context)
 ```
 
-#### Parameters
-* ApplicationId (string) **required**
+#### Input
+* input `object`
+  * ApplicationId **required** [ApplicationId](#applicationid)
+
+#### Output
+* output [DescribeApplicationStateResult](#describeapplicationstateresult)
 
 ### DescribeMigrationTask
 
@@ -116,9 +136,13 @@ amazonaws_mgh.DescribeMigrationTask({
 }, context)
 ```
 
-#### Parameters
-* MigrationTaskName (string) **required**
-* ProgressUpdateStream (string) **required**
+#### Input
+* input `object`
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+#### Output
+* output [DescribeMigrationTaskResult](#describemigrationtaskresult)
 
 ### DisassociateCreatedArtifact
 
@@ -132,11 +156,15 @@ amazonaws_mgh.DisassociateCreatedArtifact({
 }, context)
 ```
 
-#### Parameters
-* CreatedArtifactName (string) **required**
-* DryRun (boolean)
-* MigrationTaskName (string) **required**
-* ProgressUpdateStream (string) **required**
+#### Input
+* input `object`
+  * CreatedArtifactName **required** [CreatedArtifactName](#createdartifactname)
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+#### Output
+* output [DisassociateCreatedArtifactResult](#disassociatecreatedartifactresult)
 
 ### DisassociateDiscoveredResource
 
@@ -150,11 +178,15 @@ amazonaws_mgh.DisassociateDiscoveredResource({
 }, context)
 ```
 
-#### Parameters
-* ConfigurationId (string) **required**
-* DryRun (boolean)
-* MigrationTaskName (string) **required**
-* ProgressUpdateStream (string) **required**
+#### Input
+* input `object`
+  * ConfigurationId **required** [ConfigurationId](#configurationid)
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+#### Output
+* output [DisassociateDiscoveredResourceResult](#disassociatediscoveredresourceresult)
 
 ### ImportMigrationTask
 
@@ -167,10 +199,14 @@ amazonaws_mgh.ImportMigrationTask({
 }, context)
 ```
 
-#### Parameters
-* DryRun (boolean)
-* MigrationTaskName (string) **required**
-* ProgressUpdateStream (string) **required**
+#### Input
+* input `object`
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+#### Output
+* output [ImportMigrationTaskResult](#importmigrationtaskresult)
 
 ### ListCreatedArtifacts
 
@@ -183,11 +219,15 @@ amazonaws_mgh.ListCreatedArtifacts({
 }, context)
 ```
 
-#### Parameters
-* MaxResults (integer)
-* MigrationTaskName (string) **required**
-* NextToken (string)
-* ProgressUpdateStream (string) **required**
+#### Input
+* input `object`
+  * MaxResults [MaxResultsCreatedArtifacts](#maxresultscreatedartifacts)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * NextToken [Token](#token)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+#### Output
+* output [ListCreatedArtifactsResult](#listcreatedartifactsresult)
 
 ### ListDiscoveredResources
 
@@ -200,11 +240,15 @@ amazonaws_mgh.ListDiscoveredResources({
 }, context)
 ```
 
-#### Parameters
-* MaxResults (integer)
-* MigrationTaskName (string) **required**
-* NextToken (string)
-* ProgressUpdateStream (string) **required**
+#### Input
+* input `object`
+  * MaxResults [MaxResultsResources](#maxresultsresources)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * NextToken [Token](#token)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+#### Output
+* output [ListDiscoveredResourcesResult](#listdiscoveredresourcesresult)
 
 ### ListMigrationTasks
 
@@ -214,10 +258,14 @@ amazonaws_mgh.ListDiscoveredResources({
 amazonaws_mgh.ListMigrationTasks({}, context)
 ```
 
-#### Parameters
-* MaxResults (integer)
-* NextToken (string)
-* ResourceName (string)
+#### Input
+* input `object`
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [Token](#token)
+  * ResourceName [ResourceName](#resourcename)
+
+#### Output
+* output [ListMigrationTasksResult](#listmigrationtasksresult)
 
 ### ListProgressUpdateStreams
 
@@ -227,9 +275,13 @@ amazonaws_mgh.ListMigrationTasks({}, context)
 amazonaws_mgh.ListProgressUpdateStreams({}, context)
 ```
 
-#### Parameters
-* MaxResults (integer)
-* NextToken (string)
+#### Input
+* input `object`
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [Token](#token)
+
+#### Output
+* output [ListProgressUpdateStreamsResult](#listprogressupdatestreamsresult)
 
 ### NotifyApplicationState
 
@@ -242,10 +294,14 @@ amazonaws_mgh.NotifyApplicationState({
 }, context)
 ```
 
-#### Parameters
-* ApplicationId (string) **required**
-* DryRun (boolean)
-* Status (string) **required**
+#### Input
+* input `object`
+  * ApplicationId **required** [ApplicationId](#applicationid)
+  * DryRun [DryRun](#dryrun)
+  * Status **required** [ApplicationStatus](#applicationstatus)
+
+#### Output
+* output [NotifyApplicationStateResult](#notifyapplicationstateresult)
 
 ### NotifyMigrationTaskState
 
@@ -263,13 +319,17 @@ amazonaws_mgh.NotifyMigrationTaskState({
 }, context)
 ```
 
-#### Parameters
-* DryRun (boolean)
-* MigrationTaskName (string) **required**
-* NextUpdateSeconds (integer) **required**
-* ProgressUpdateStream (string) **required**
-* Task (object) **required** - Task object encapsulating task information.
-* UpdateDateTime (string) **required**
+#### Input
+* input `object`
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * NextUpdateSeconds **required** [NextUpdateSeconds](#nextupdateseconds)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+  * Task **required** [Task](#task)
+  * UpdateDateTime **required** [UpdateDateTime](#updatedatetime)
+
+#### Output
+* output [NotifyMigrationTaskStateResult](#notifymigrationtaskstateresult)
 
 ### PutResourceAttributes
 
@@ -283,9 +343,341 @@ amazonaws_mgh.PutResourceAttributes({
 }, context)
 ```
 
-#### Parameters
-* DryRun (boolean)
-* MigrationTaskName (string) **required**
-* ProgressUpdateStream (string) **required**
-* ResourceAttributeList (array) **required**
+#### Input
+* input `object`
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+  * ResourceAttributeList **required** [ResourceAttributeList](#resourceattributelist)
+
+#### Output
+* output [PutResourceAttributesResult](#putresourceattributesresult)
+
+
+
+## Definitions
+
+### AccessDeniedException
+* AccessDeniedException `object`: Exception raised when the account making the call is not whitelisted or there are other authentication errors.
+  * Message [ErrorMessage](#errormessage)
+
+### ApplicationId
+* ApplicationId `string`
+
+### ApplicationStatus
+* ApplicationStatus `string` (values: NOT_STARTED, IN_PROGRESS, COMPLETED)
+
+### AssociateCreatedArtifactRequest
+* AssociateCreatedArtifactRequest `object`
+  * CreatedArtifact **required** [CreatedArtifact](#createdartifact)
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+### AssociateCreatedArtifactResult
+* AssociateCreatedArtifactResult `object`
+
+### AssociateDiscoveredResourceRequest
+* AssociateDiscoveredResourceRequest `object`
+  * DiscoveredResource **required** [DiscoveredResource](#discoveredresource)
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+### AssociateDiscoveredResourceResult
+* AssociateDiscoveredResourceResult `object`
+
+### ConfigurationId
+* ConfigurationId `string`
+
+### CreateProgressUpdateStreamRequest
+* CreateProgressUpdateStreamRequest `object`
+  * DryRun [DryRun](#dryrun)
+  * ProgressUpdateStreamName **required** [ProgressUpdateStream](#progressupdatestream)
+
+### CreateProgressUpdateStreamResult
+* CreateProgressUpdateStreamResult `object`
+
+### CreatedArtifact
+* CreatedArtifact `object`: An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2 instance, RDS instance, etc.).
+  * Description [CreatedArtifactDescription](#createdartifactdescription)
+  * Name **required** [CreatedArtifactName](#createdartifactname)
+
+### CreatedArtifactDescription
+* CreatedArtifactDescription `string`
+
+### CreatedArtifactList
+* CreatedArtifactList `array`
+  * items [CreatedArtifact](#createdartifact)
+
+### CreatedArtifactName
+* CreatedArtifactName `string`
+
+### DeleteProgressUpdateStreamRequest
+* DeleteProgressUpdateStreamRequest `object`
+  * DryRun [DryRun](#dryrun)
+  * ProgressUpdateStreamName **required** [ProgressUpdateStream](#progressupdatestream)
+
+### DeleteProgressUpdateStreamResult
+* DeleteProgressUpdateStreamResult `object`
+
+### DescribeApplicationStateRequest
+* DescribeApplicationStateRequest `object`
+  * ApplicationId **required** [ApplicationId](#applicationid)
+
+### DescribeApplicationStateResult
+* DescribeApplicationStateResult `object`
+  * ApplicationStatus [ApplicationStatus](#applicationstatus)
+  * LastUpdatedTime [UpdateDateTime](#updatedatetime)
+
+### DescribeMigrationTaskRequest
+* DescribeMigrationTaskRequest `object`
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+### DescribeMigrationTaskResult
+* DescribeMigrationTaskResult `object`
+  * MigrationTask [MigrationTask](#migrationtask)
+
+### DisassociateCreatedArtifactRequest
+* DisassociateCreatedArtifactRequest `object`
+  * CreatedArtifactName **required** [CreatedArtifactName](#createdartifactname)
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+### DisassociateCreatedArtifactResult
+* DisassociateCreatedArtifactResult `object`
+
+### DisassociateDiscoveredResourceRequest
+* DisassociateDiscoveredResourceRequest `object`
+  * ConfigurationId **required** [ConfigurationId](#configurationid)
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+### DisassociateDiscoveredResourceResult
+* DisassociateDiscoveredResourceResult `object`
+
+### DiscoveredResource
+* DiscoveredResource `object`: Object representing the on-premises resource being migrated.
+  * ConfigurationId **required** [ConfigurationId](#configurationid)
+  * Description [DiscoveredResourceDescription](#discoveredresourcedescription)
+
+### DiscoveredResourceDescription
+* DiscoveredResourceDescription `string`
+
+### DiscoveredResourceList
+* DiscoveredResourceList `array`
+  * items [DiscoveredResource](#discoveredresource)
+
+### DryRun
+* DryRun `boolean`
+
+### DryRunOperation
+* DryRunOperation `object`: Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to "true".
+  * Message [ErrorMessage](#errormessage)
+
+### ErrorMessage
+* ErrorMessage `string`
+
+### ImportMigrationTaskRequest
+* ImportMigrationTaskRequest `object`
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+### ImportMigrationTaskResult
+* ImportMigrationTaskResult `object`
+
+### InternalServerError
+* InternalServerError `object`: Exception raised when there is an internal, configuration, or dependency error encountered.
+  * Message [ErrorMessage](#errormessage)
+
+### InvalidInputException
+* InvalidInputException `object`: Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.
+  * Message [ErrorMessage](#errormessage)
+
+### LatestResourceAttributeList
+* LatestResourceAttributeList `array`
+  * items [ResourceAttribute](#resourceattribute)
+
+### ListCreatedArtifactsRequest
+* ListCreatedArtifactsRequest `object`
+  * MaxResults [MaxResultsCreatedArtifacts](#maxresultscreatedartifacts)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * NextToken [Token](#token)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+### ListCreatedArtifactsResult
+* ListCreatedArtifactsResult `object`
+  * CreatedArtifactList [CreatedArtifactList](#createdartifactlist)
+  * NextToken [Token](#token)
+
+### ListDiscoveredResourcesRequest
+* ListDiscoveredResourcesRequest `object`
+  * MaxResults [MaxResultsResources](#maxresultsresources)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * NextToken [Token](#token)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+
+### ListDiscoveredResourcesResult
+* ListDiscoveredResourcesResult `object`
+  * DiscoveredResourceList [DiscoveredResourceList](#discoveredresourcelist)
+  * NextToken [Token](#token)
+
+### ListMigrationTasksRequest
+* ListMigrationTasksRequest `object`
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [Token](#token)
+  * ResourceName [ResourceName](#resourcename)
+
+### ListMigrationTasksResult
+* ListMigrationTasksResult `object`
+  * MigrationTaskSummaryList [MigrationTaskSummaryList](#migrationtasksummarylist)
+  * NextToken [Token](#token)
+
+### ListProgressUpdateStreamsRequest
+* ListProgressUpdateStreamsRequest `object`
+  * MaxResults [MaxResults](#maxresults)
+  * NextToken [Token](#token)
+
+### ListProgressUpdateStreamsResult
+* ListProgressUpdateStreamsResult `object`
+  * NextToken [Token](#token)
+  * ProgressUpdateStreamSummaryList [ProgressUpdateStreamSummaryList](#progressupdatestreamsummarylist)
+
+### MaxResults
+* MaxResults `integer`
+
+### MaxResultsCreatedArtifacts
+* MaxResultsCreatedArtifacts `integer`
+
+### MaxResultsResources
+* MaxResultsResources `integer`
+
+### MigrationTask
+* MigrationTask `object`: Represents a migration task in a migration tool.
+  * MigrationTaskName [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream [ProgressUpdateStream](#progressupdatestream)
+  * ResourceAttributeList [LatestResourceAttributeList](#latestresourceattributelist)
+  * Task [Task](#task)
+  * UpdateDateTime [UpdateDateTime](#updatedatetime)
+
+### MigrationTaskName
+* MigrationTaskName `string`
+
+### MigrationTaskSummary
+* MigrationTaskSummary `object`: MigrationTaskSummary includes <code>MigrationTaskName</code>, <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>, and <code>UpdateDateTime</code> for each task.
+  * MigrationTaskName [MigrationTaskName](#migrationtaskname)
+  * ProgressPercent [ProgressPercent](#progresspercent)
+  * ProgressUpdateStream [ProgressUpdateStream](#progressupdatestream)
+  * Status [Status](#status)
+  * StatusDetail [StatusDetail](#statusdetail)
+  * UpdateDateTime [UpdateDateTime](#updatedatetime)
+
+### MigrationTaskSummaryList
+* MigrationTaskSummaryList `array`
+  * items [MigrationTaskSummary](#migrationtasksummary)
+
+### NextUpdateSeconds
+* NextUpdateSeconds `integer`
+
+### NotifyApplicationStateRequest
+* NotifyApplicationStateRequest `object`
+  * ApplicationId **required** [ApplicationId](#applicationid)
+  * DryRun [DryRun](#dryrun)
+  * Status **required** [ApplicationStatus](#applicationstatus)
+
+### NotifyApplicationStateResult
+* NotifyApplicationStateResult `object`
+
+### NotifyMigrationTaskStateRequest
+* NotifyMigrationTaskStateRequest `object`
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * NextUpdateSeconds **required** [NextUpdateSeconds](#nextupdateseconds)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+  * Task **required** [Task](#task)
+  * UpdateDateTime **required** [UpdateDateTime](#updatedatetime)
+
+### NotifyMigrationTaskStateResult
+* NotifyMigrationTaskStateResult `object`
+
+### PolicyErrorException
+* PolicyErrorException `object`: Exception raised when there are problems accessing ADS (Application Discovery Service); most likely due to a misconfigured policy or the <code>ADSCaller</code> role is missing or not configured correctly.
+  * Message [ErrorMessage](#errormessage)
+
+### ProgressPercent
+* ProgressPercent `integer`
+
+### ProgressUpdateStream
+* ProgressUpdateStream `string`
+
+### ProgressUpdateStreamSummary
+* ProgressUpdateStreamSummary `object`: Summary of the AWS resource used for access control that is implicitly linked to your AWS account.
+  * ProgressUpdateStreamName [ProgressUpdateStream](#progressupdatestream)
+
+### ProgressUpdateStreamSummaryList
+* ProgressUpdateStreamSummaryList `array`
+  * items [ProgressUpdateStreamSummary](#progressupdatestreamsummary)
+
+### PutResourceAttributesRequest
+* PutResourceAttributesRequest `object`
+  * DryRun [DryRun](#dryrun)
+  * MigrationTaskName **required** [MigrationTaskName](#migrationtaskname)
+  * ProgressUpdateStream **required** [ProgressUpdateStream](#progressupdatestream)
+  * ResourceAttributeList **required** [ResourceAttributeList](#resourceattributelist)
+
+### PutResourceAttributesResult
+* PutResourceAttributesResult `object`
+
+### ResourceAttribute
+* ResourceAttribute `object`: Attribute associated with a resource.
+  * Type **required** [ResourceAttributeType](#resourceattributetype)
+  * Value **required** [ResourceAttributeValue](#resourceattributevalue)
+
+### ResourceAttributeList
+* ResourceAttributeList `array`
+  * items [ResourceAttribute](#resourceattribute)
+
+### ResourceAttributeType
+* ResourceAttributeType `string` (values: IPV4_ADDRESS, IPV6_ADDRESS, MAC_ADDRESS, FQDN, VM_MANAGER_ID, VM_MANAGED_OBJECT_REFERENCE, VM_NAME, VM_PATH, BIOS_ID, MOTHERBOARD_SERIAL_NUMBER, LABEL)
+
+### ResourceAttributeValue
+* ResourceAttributeValue `string`
+
+### ResourceName
+* ResourceName `string`
+
+### ResourceNotFoundException
+* ResourceNotFoundException `object`: Exception raised when the request references a resource (ADS configuration, update stream, migration task, etc.) that does not exist in ADS (Application Discovery Service) or in Migration Hub's repository.
+  * Message [ErrorMessage](#errormessage)
+
+### ServiceUnavailableException
+* ServiceUnavailableException `object`: Exception raised when the service encounters throttled communication with upstream dependencies or is overloaded with requests.
+  * Message [ErrorMessage](#errormessage)
+
+### Status
+* Status `string` (values: NOT_STARTED, IN_PROGRESS, FAILED, COMPLETED)
+
+### StatusDetail
+* StatusDetail `string`
+
+### Task
+* Task `object`: Task object encapsulating task information.
+  * ProgressPercent [ProgressPercent](#progresspercent)
+  * Status **required** [Status](#status)
+  * StatusDetail [StatusDetail](#statusdetail)
+
+### Token
+* Token `string`
+
+### UnauthorizedOperation
+* UnauthorizedOperation `object`: Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to "true".
+  * Message [ErrorMessage](#errormessage)
+
+### UpdateDateTime
+* UpdateDateTime `string`
+
 

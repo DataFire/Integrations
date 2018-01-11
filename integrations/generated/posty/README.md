@@ -4,11 +4,9 @@ Client library for posty_API
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/posty
+npm install --save @datafire/posty
 ```
-
 ```js
-let datafire = require('datafire');
 let posty = require('@datafire/posty').create();
 
 posty.api.v1.domains.json.get({}).then(data => {
@@ -17,9 +15,11 @@ posty.api.v1.domains.json.get({}).then(data => {
 ```
 
 ## Description
+
 The posty_API is the core element of the posty softwarestack. It is developed to administrate a mailserver based on Postfix and Dovecot. It offers an easy REST interface which can be used in own applications or with the posty client applications, posty_CLI and posty_webUI.
 
 ## Actions
+
 ### api.v1.domains.json.get
 Returns all available domains
 
@@ -28,8 +28,11 @@ Returns all available domains
 posty.api.v1.domains.json.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.json.post
 Create new domain
@@ -39,8 +42,11 @@ Create new domain
 posty.api.v1.domains.json.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.json.delete
 Delete the specified domain
@@ -52,8 +58,12 @@ posty.api.v1.domains.domain_name.json.delete({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.json.get
 Returns the information to the specified domain
@@ -65,8 +75,12 @@ posty.api.v1.domains.domain_name.json.get({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.json.put
 Update the specified domain
@@ -78,8 +92,12 @@ posty.api.v1.domains.domain_name.json.put({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.aliases.json.get
 Returns all aliases for the specified domain
@@ -91,8 +109,12 @@ posty.api.v1.domains.domain_name.aliases.json.get({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.aliases.json.post
 Create new domain alias
@@ -104,8 +126,12 @@ posty.api.v1.domains.domain_name.aliases.json.post({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.aliases.alias_name.json.delete
 Delete the specified domain alias
@@ -118,9 +144,13 @@ posty.api.v1.domains.domain_name.aliases.alias_name.json.delete({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
-* alias_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+  * alias_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.aliases.alias_name.json.get
 Returns the information to the specified domain alias
@@ -133,9 +163,13 @@ posty.api.v1.domains.domain_name.aliases.alias_name.json.get({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
-* alias_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+  * alias_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.aliases.alias_name.json.put
 Update the specified domain alias
@@ -148,9 +182,13 @@ posty.api.v1.domains.domain_name.aliases.alias_name.json.put({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
-* alias_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+  * alias_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.users.json.get
 Returns all users for the specified domain
@@ -162,8 +200,12 @@ posty.api.v1.domains.domain_name.users.json.get({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.users.json.post
 Create new user
@@ -175,8 +217,12 @@ posty.api.v1.domains.domain_name.users.json.post({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.users.user_name.json.delete
 Delete the specified user
@@ -189,9 +235,13 @@ posty.api.v1.domains.domain_name.users.user_name.json.delete({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
-* user_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+  * user_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.users.user_name.json.get
 Returns the information to the specified user
@@ -204,9 +254,13 @@ posty.api.v1.domains.domain_name.users.user_name.json.get({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
-* user_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+  * user_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.users.user_name.json.put
 Update the specified user
@@ -219,9 +273,13 @@ posty.api.v1.domains.domain_name.users.user_name.json.put({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
-* user_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+  * user_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.users.user_name.aliases.json.get
 Returns all aliases for the specified user
@@ -234,9 +292,13 @@ posty.api.v1.domains.domain_name.users.user_name.aliases.json.get({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
-* user_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+  * user_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.users.user_name.aliases.json.post
 Create new user alias
@@ -249,9 +311,13 @@ posty.api.v1.domains.domain_name.users.user_name.aliases.json.post({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
-* user_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+  * user_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.delete
 Delete the specified user alias
@@ -265,10 +331,14 @@ posty.api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.delete(
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
-* user_name (string) **required**
-* alias_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+  * user_name **required** `string`
+  * alias_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.get
 Returns the information to the specified user alias
@@ -282,10 +352,14 @@ posty.api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.get({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
-* user_name (string) **required**
-* alias_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+  * user_name **required** `string`
+  * alias_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.put
 Update the specified user alias
@@ -299,10 +373,14 @@ posty.api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.put({
 }, context)
 ```
 
-#### Parameters
-* domain_name (string) **required**
-* user_name (string) **required**
-* alias_name (string) **required**
+#### Input
+* input `object`
+  * domain_name **required** `string`
+  * user_name **required** `string`
+  * alias_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.summary.json.get
 Returns a summary of all Resources
@@ -312,8 +390,11 @@ Returns a summary of all Resources
 posty.api.v1.summary.json.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.swagger_doc.json.get
 Swagger compatible API description
@@ -323,8 +404,11 @@ Swagger compatible API description
 posty.api.v1.swagger_doc.json.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.swagger_doc.name.json.get
 Swagger compatible API description for specific API
@@ -336,8 +420,12 @@ posty.api.v1.swagger_doc.name.json.get({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - Resource name of mounted API
+#### Input
+* input `object`
+  * name **required** `string`: Resource name of mounted API
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.transports.json.get
 Returns all available transports
@@ -347,8 +435,11 @@ Returns all available transports
 posty.api.v1.transports.json.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.transports.json.post
 Create new transport
@@ -358,8 +449,11 @@ Create new transport
 posty.api.v1.transports.json.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.transports.transport_name.json.delete
 Delete the specified transport
@@ -371,8 +465,12 @@ posty.api.v1.transports.transport_name.json.delete({
 }, context)
 ```
 
-#### Parameters
-* transport_name (string) **required**
+#### Input
+* input `object`
+  * transport_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.transports.transport_name.json.get
 Returns the information to the specified transport
@@ -384,8 +482,12 @@ posty.api.v1.transports.transport_name.json.get({
 }, context)
 ```
 
-#### Parameters
-* transport_name (string) **required**
+#### Input
+* input `object`
+  * transport_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.transports.transport_name.json.put
 Update the specified transport
@@ -397,6 +499,15 @@ posty.api.v1.transports.transport_name.json.put({
 }, context)
 ```
 
-#### Parameters
-* transport_name (string) **required**
+#### Input
+* input `object`
+  * transport_name **required** `string`
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

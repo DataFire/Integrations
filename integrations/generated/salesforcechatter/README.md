@@ -4,11 +4,9 @@ Client library for Salesforce Chatter
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/salesforcechatter
+npm install --save @datafire/salesforcechatter
 ```
-
 ```js
-let datafire = require('datafire');
 let salesforcechatter = require('@datafire/salesforcechatter').create();
 
 salesforcechatter.chatter.users.me.groups.get({}).then(data => {
@@ -17,9 +15,11 @@ salesforcechatter.chatter.users.me.groups.get({}).then(data => {
 ```
 
 ## Description
+
 Create applications for the social enterprise with Salesforce's collaboration platform
 
 ## Actions
+
 ### chatter.comments.commentId.get
 Gets info on a comment.
 
@@ -30,8 +30,12 @@ salesforcechatter.chatter.comments.commentId.get({
 }, context)
 ```
 
-#### Parameters
-* commentId (string) **required**
+#### Input
+* input `object`
+  * commentId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.comments.commentId.delete
 Deletes a comment.
@@ -43,8 +47,12 @@ salesforcechatter.chatter.comments.commentId.delete({
 }, context)
 ```
 
-#### Parameters
-* commentId (string) **required**
+#### Input
+* input `object`
+  * commentId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feed_items.feedItemId.get
 Gets info on a feedItem.
@@ -56,9 +64,13 @@ salesforcechatter.chatter.feed_items.feedItemId.get({
 }, context)
 ```
 
-#### Parameters
-* page (string)
-* feedItemId (string) **required**
+#### Input
+* input `object`
+  * page `string`
+  * feedItemId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feed_items.feedItemId.delete
 Deletes a feedItem.
@@ -70,8 +82,12 @@ salesforcechatter.chatter.feed_items.feedItemId.delete({
 }, context)
 ```
 
-#### Parameters
-* feedItemId (string) **required**
+#### Input
+* input `object`
+  * feedItemId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feed_items.feedItemId.comments.get
 Gets comments on a feedItem.
@@ -83,9 +99,13 @@ salesforcechatter.chatter.feed_items.feedItemId.comments.get({
 }, context)
 ```
 
-#### Parameters
-* page (string)
-* feedItemId (string) **required**
+#### Input
+* input `object`
+  * page `string`
+  * feedItemId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feed_items.feedItemId.comments.post
 Post a comment on a feedItem.
@@ -98,9 +118,13 @@ salesforcechatter.chatter.feed_items.feedItemId.comments.post({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required**
-* feedItemId (string) **required**
+#### Input
+* input `object`
+  * text **required** `string`
+  * feedItemId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feed_items.feedItemId.likes.get
 Gets likes on a feedItem.
@@ -112,9 +136,13 @@ salesforcechatter.chatter.feed_items.feedItemId.likes.get({
 }, context)
 ```
 
-#### Parameters
-* page (string)
-* feedItemId (string) **required**
+#### Input
+* input `object`
+  * page `string`
+  * feedItemId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feed_items.feedItemId.likes.post
 Post a like on a feedItem.
@@ -126,8 +154,12 @@ salesforcechatter.chatter.feed_items.feedItemId.likes.post({
 }, context)
 ```
 
-#### Parameters
-* feedItemId (string) **required**
+#### Input
+* input `object`
+  * feedItemId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.group_memberships.membershipId.get
 Gets info on a subscriber to a group.
@@ -139,8 +171,12 @@ salesforcechatter.chatter.group_memberships.membershipId.get({
 }, context)
 ```
 
-#### Parameters
-* membershipId (string) **required**
+#### Input
+* input `object`
+  * membershipId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.group_memberships.membershipId.delete
 Deletes a subscriber.
@@ -152,8 +188,12 @@ salesforcechatter.chatter.group_memberships.membershipId.delete({
 }, context)
 ```
 
-#### Parameters
-* membershipId (string) **required**
+#### Input
+* input `object`
+  * membershipId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.groups.groupId.get
 Gets info on a group.
@@ -165,8 +205,12 @@ salesforcechatter.chatter.groups.groupId.get({
 }, context)
 ```
 
-#### Parameters
-* groupId (string) **required**
+#### Input
+* input `object`
+  * groupId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.groups.groupId.members.get
 Gets members of a group.
@@ -178,9 +222,13 @@ salesforcechatter.chatter.groups.groupId.members.get({
 }, context)
 ```
 
-#### Parameters
-* page (string)
-* groupId (string) **required**
+#### Input
+* input `object`
+  * page `string`
+  * groupId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.groups.groupId.members.post
 Add member to a group.
@@ -192,9 +240,13 @@ salesforcechatter.chatter.groups.groupId.members.post({
 }, context)
 ```
 
-#### Parameters
-* userId (string)
-* groupId (string) **required**
+#### Input
+* input `object`
+  * userId `string`
+  * groupId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.groups.groupId.photos.get
 Gets photos of a group.
@@ -206,8 +258,12 @@ salesforcechatter.chatter.groups.groupId.photos.get({
 }, context)
 ```
 
-#### Parameters
-* groupId (string) **required**
+#### Input
+* input `object`
+  * groupId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.groups.groupId.photos.post
 Post photos to a group.
@@ -219,8 +275,12 @@ salesforcechatter.chatter.groups.groupId.photos.post({
 }, context)
 ```
 
-#### Parameters
-* groupId (string) **required**
+#### Input
+* input `object`
+  * groupId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.groups.groupId.photos.delete
 Post photos to a group.
@@ -232,8 +292,12 @@ salesforcechatter.chatter.groups.groupId.photos.delete({
 }, context)
 ```
 
-#### Parameters
-* groupId (string) **required**
+#### Input
+* input `object`
+  * groupId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.likes.likeId.get
 Gets info on a specified like.
@@ -245,8 +309,12 @@ salesforcechatter.chatter.likes.likeId.get({
 }, context)
 ```
 
-#### Parameters
-* likeId (string) **required**
+#### Input
+* input `object`
+  * likeId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.likes.likeId.delete
 Deletes a specified like.
@@ -258,8 +326,12 @@ salesforcechatter.chatter.likes.likeId.delete({
 }, context)
 ```
 
-#### Parameters
-* likeId (string) **required**
+#### Input
+* input `object`
+  * likeId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.news.me.feed_items.get
 Gets news on a specified feed.
@@ -269,8 +341,12 @@ Gets news on a specified feed.
 salesforcechatter.chatter.feeds.news.me.feed_items.get({}, context)
 ```
 
-#### Parameters
-* page (string)
+#### Input
+* input `object`
+  * page `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.news.me.feed_items.post
 Posts news on a specified feed.
@@ -280,14 +356,18 @@ Posts news on a specified feed.
 salesforcechatter.chatter.feeds.news.me.feed_items.post({}, context)
 ```
 
-#### Parameters
-* contentDocumentId (string)
-* fileName (string)
-* feedItemFileUpload (string)
-* desc (string)
-* text (string)
-* url (string)
-* urlName (string)
+#### Input
+* input `object`
+  * contentDocumentId `string`
+  * fileName `string`
+  * feedItemFileUpload `string`
+  * desc `string`
+  * text `string`
+  * url `string`
+  * urlName `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.news.userId.feed_items.get
 Gets news on a specified user's feed items.
@@ -299,9 +379,13 @@ salesforcechatter.chatter.feeds.news.userId.feed_items.get({
 }, context)
 ```
 
-#### Parameters
-* page (string)
-* userId (string) **required**
+#### Input
+* input `object`
+  * page `string`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.news.userId.feed_items.post
 Post news on a specified user's feed items.
@@ -313,15 +397,19 @@ salesforcechatter.chatter.feeds.news.userId.feed_items.post({
 }, context)
 ```
 
-#### Parameters
-* contentDocumentId (string)
-* fileName (string)
-* feedItemFileUpload (string)
-* desc (string)
-* text (string)
-* url (string)
-* urlName (string)
-* userId (string) **required**
+#### Input
+* input `object`
+  * contentDocumentId `string`
+  * fileName `string`
+  * feedItemFileUpload `string`
+  * desc `string`
+  * text `string`
+  * url `string`
+  * urlName `string`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.record.me.feed_items.get
 Gets records on a specified feed.
@@ -334,16 +422,20 @@ salesforcechatter.chatter.feeds.record.me.feed_items.get({
 }, context)
 ```
 
-#### Parameters
-* page (string)
-* text (string) **required**
-* url (string)
-* contentDocumentId (string)
-* fileName (string)
-* feedItemFileUpload (string)
-* desc (string)
-* urlName (string)
-* recordId (string) **required**
+#### Input
+* input `object`
+  * page `string`
+  * text **required** `string`
+  * url `string`
+  * contentDocumentId `string`
+  * fileName `string`
+  * feedItemFileUpload `string`
+  * desc `string`
+  * urlName `string`
+  * recordId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.record.me.feed_items.post
 Posts a record on a specified feed.
@@ -356,15 +448,19 @@ salesforcechatter.chatter.feeds.record.me.feed_items.post({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required**
-* url (string)
-* contentDocumentId (string)
-* fileName (string)
-* feedItemFileUpload (string)
-* desc (string)
-* urlName (string)
-* recordId (string) **required**
+#### Input
+* input `object`
+  * text **required** `string`
+  * url `string`
+  * contentDocumentId `string`
+  * fileName `string`
+  * feedItemFileUpload `string`
+  * desc `string`
+  * urlName `string`
+  * recordId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.record.userId.feed_items.get
 Gets records on a specified user's feed items.
@@ -376,9 +472,13 @@ salesforcechatter.chatter.feeds.record.userId.feed_items.get({
 }, context)
 ```
 
-#### Parameters
-* page (string)
-* userId (string) **required**
+#### Input
+* input `object`
+  * page `string`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.record.userId.feed_items.post
 Post record on a specified user's feed items.
@@ -390,15 +490,19 @@ salesforcechatter.chatter.feeds.record.userId.feed_items.post({
 }, context)
 ```
 
-#### Parameters
-* contentDocumentId (string)
-* fileName (string)
-* feedItemFileUpload (string)
-* desc (string)
-* text (string)
-* url (string)
-* urlName (string)
-* userId (string) **required**
+#### Input
+* input `object`
+  * contentDocumentId `string`
+  * fileName `string`
+  * feedItemFileUpload `string`
+  * desc `string`
+  * text `string`
+  * url `string`
+  * urlName `string`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.subscriptions.subscriptionId.get
 Gets info on a specified subscription.
@@ -410,8 +514,12 @@ salesforcechatter.chatter.subscriptions.subscriptionId.get({
 }, context)
 ```
 
-#### Parameters
-* subscriptionId (string) **required**
+#### Input
+* input `object`
+  * subscriptionId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.subscriptions.subscriptionId.delete
 Deletes a specified subscription.
@@ -423,8 +531,12 @@ salesforcechatter.chatter.subscriptions.subscriptionId.delete({
 }, context)
 ```
 
-#### Parameters
-* subscriptionId (string) **required**
+#### Input
+* input `object`
+  * subscriptionId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.to.me.feed_items.get
 Gets @mentions of the current user.
@@ -434,8 +546,12 @@ Gets @mentions of the current user.
 salesforcechatter.chatter.feeds.to.me.feed_items.get({}, context)
 ```
 
-#### Parameters
-* page (string)
+#### Input
+* input `object`
+  * page `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.to.me.feed_items.post
 Posts a @mention on the current user.
@@ -445,14 +561,18 @@ Posts a @mention on the current user.
 salesforcechatter.chatter.feeds.to.me.feed_items.post({}, context)
 ```
 
-#### Parameters
-* contentDocumentId (string)
-* fileName (string)
-* feedItemFileUpload (string)
-* desc (string)
-* text (string)
-* url (string)
-* urlName (string)
+#### Input
+* input `object`
+  * contentDocumentId `string`
+  * fileName `string`
+  * feedItemFileUpload `string`
+  * desc `string`
+  * text `string`
+  * url `string`
+  * urlName `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.to.userId.feed_items.get
 Gets @mentions on a specified user.
@@ -464,9 +584,13 @@ salesforcechatter.chatter.feeds.to.userId.feed_items.get({
 }, context)
 ```
 
-#### Parameters
-* page (string)
-* userId (string) **required**
+#### Input
+* input `object`
+  * page `string`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.to.userId.feed_items.post
 Post @mentions on a specified user.
@@ -478,15 +602,19 @@ salesforcechatter.chatter.feeds.to.userId.feed_items.post({
 }, context)
 ```
 
-#### Parameters
-* contentDocumentId (string)
-* fileName (string)
-* feedItemFileUpload (string)
-* desc (string)
-* text (string)
-* url (string)
-* urlName (string)
-* userId (string) **required**
+#### Input
+* input `object`
+  * contentDocumentId `string`
+  * fileName `string`
+  * feedItemFileUpload `string`
+  * desc `string`
+  * text `string`
+  * url `string`
+  * urlName `string`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.user_profile.me.feed_items.get
 Gets profile feed of the current user.
@@ -496,8 +624,12 @@ Gets profile feed of the current user.
 salesforcechatter.chatter.feeds.user_profile.me.feed_items.get({}, context)
 ```
 
-#### Parameters
-* page (string)
+#### Input
+* input `object`
+  * page `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.user_profile.me.feed_items.post
 Posts a profile feed on the current user.
@@ -507,14 +639,18 @@ Posts a profile feed on the current user.
 salesforcechatter.chatter.feeds.user_profile.me.feed_items.post({}, context)
 ```
 
-#### Parameters
-* contentDocumentId (string)
-* fileName (string)
-* feedItemFileUpload (string)
-* desc (string)
-* text (string)
-* url (string)
-* urlName (string)
+#### Input
+* input `object`
+  * contentDocumentId `string`
+  * fileName `string`
+  * feedItemFileUpload `string`
+  * desc `string`
+  * text `string`
+  * url `string`
+  * urlName `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.user_profile.userId.feed_items.get
 Gets profile feed on a specified user.
@@ -526,9 +662,13 @@ salesforcechatter.chatter.feeds.user_profile.userId.feed_items.get({
 }, context)
 ```
 
-#### Parameters
-* page (string)
-* userId (string) **required**
+#### Input
+* input `object`
+  * page `string`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.feeds.user_profile.userId.feed_items.post
 Post profile feed on a specified user.
@@ -540,15 +680,19 @@ salesforcechatter.chatter.feeds.user_profile.userId.feed_items.post({
 }, context)
 ```
 
-#### Parameters
-* contentDocumentId (string)
-* fileName (string)
-* feedItemFileUpload (string)
-* desc (string)
-* text (string)
-* url (string)
-* urlName (string)
-* userId (string) **required**
+#### Input
+* input `object`
+  * contentDocumentId `string`
+  * fileName `string`
+  * feedItemFileUpload `string`
+  * desc `string`
+  * text `string`
+  * url `string`
+  * urlName `string`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.me.get
 Returns information on the current user.
@@ -558,8 +702,12 @@ Returns information on the current user.
 salesforcechatter.chatter.users.me.get({}, context)
 ```
 
-#### Parameters
-* page (integer)
+#### Input
+* input `object`
+  * page `integer`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.me.followers.get
 Returns information on followers of the current user.
@@ -569,8 +717,12 @@ Returns information on followers of the current user.
 salesforcechatter.chatter.users.me.followers.get({}, context)
 ```
 
-#### Parameters
-* page (integer)
+#### Input
+* input `object`
+  * page `integer`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.me.following.get
 Returns information on who the current user follows.
@@ -580,8 +732,12 @@ Returns information on who the current user follows.
 salesforcechatter.chatter.users.me.following.get({}, context)
 ```
 
-#### Parameters
-* page (integer)
+#### Input
+* input `object`
+  * page `integer`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.me.following.post
 Posts information on who the current user follows.
@@ -593,8 +749,12 @@ salesforcechatter.chatter.users.me.following.post({
 }, context)
 ```
 
-#### Parameters
-* subjectId (string) **required**
+#### Input
+* input `object`
+  * subjectId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.me.groups.get
 Returns information on groups the current user is in.
@@ -604,8 +764,12 @@ Returns information on groups the current user is in.
 salesforcechatter.chatter.users.me.groups.get({}, context)
 ```
 
-#### Parameters
-* page (integer)
+#### Input
+* input `object`
+  * page `integer`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.me.photo.get
 Returns information on the current user's photos.
@@ -615,8 +779,11 @@ Returns information on the current user's photos.
 salesforcechatter.chatter.users.me.photo.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.me.photo.post
 Post photo to current user's profile.
@@ -626,8 +793,11 @@ Post photo to current user's profile.
 salesforcechatter.chatter.users.me.photo.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.me.photo.delete
 Delete photo of current user's profile.
@@ -637,8 +807,11 @@ Delete photo of current user's profile.
 salesforcechatter.chatter.users.me.photo.delete(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.me.status.get
 Returns info of current user's status.
@@ -648,8 +821,11 @@ Returns info of current user's status.
 salesforcechatter.chatter.users.me.status.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.me.status.post
 Post text to current user's status.
@@ -661,8 +837,12 @@ salesforcechatter.chatter.users.me.status.post({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required**
+#### Input
+* input `object`
+  * text **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.me.status.delete
 Delete current user's status containing text.
@@ -674,8 +854,12 @@ salesforcechatter.chatter.users.me.status.delete({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required**
+#### Input
+* input `object`
+  * text **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.userId.get
 Returns information on the specified user.
@@ -687,9 +871,13 @@ salesforcechatter.chatter.users.userId.get({
 }, context)
 ```
 
-#### Parameters
-* page (integer)
-* userId (string) **required**
+#### Input
+* input `object`
+  * page `integer`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.userId.followers.get
 Returns information on followers of the specified user.
@@ -701,9 +889,13 @@ salesforcechatter.chatter.users.userId.followers.get({
 }, context)
 ```
 
-#### Parameters
-* page (integer)
-* userId (string) **required**
+#### Input
+* input `object`
+  * page `integer`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.userId.following.get
 Returns information on who the specified user follows.
@@ -715,9 +907,13 @@ salesforcechatter.chatter.users.userId.following.get({
 }, context)
 ```
 
-#### Parameters
-* page (integer)
-* userId (string) **required**
+#### Input
+* input `object`
+  * page `integer`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.userId.following.post
 Posts information on who the specified user follows.
@@ -730,9 +926,13 @@ salesforcechatter.chatter.users.userId.following.post({
 }, context)
 ```
 
-#### Parameters
-* subjectId (string) **required**
-* userId (string) **required**
+#### Input
+* input `object`
+  * subjectId **required** `string`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.userId.groups.get
 Returns information on groups the specified user is in.
@@ -744,9 +944,13 @@ salesforcechatter.chatter.users.userId.groups.get({
 }, context)
 ```
 
-#### Parameters
-* page (integer)
-* userId (string) **required**
+#### Input
+* input `object`
+  * page `integer`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.userId.photo.get
 Returns information on the specified user's photos.
@@ -758,8 +962,12 @@ salesforcechatter.chatter.users.userId.photo.get({
 }, context)
 ```
 
-#### Parameters
-* userId (string) **required**
+#### Input
+* input `object`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.userId.photo.post
 Post photo to specified user's profile.
@@ -771,8 +979,12 @@ salesforcechatter.chatter.users.userId.photo.post({
 }, context)
 ```
 
-#### Parameters
-* userId (string) **required**
+#### Input
+* input `object`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.userId.photo.delete
 Delete photo of specified user's profile.
@@ -784,8 +996,12 @@ salesforcechatter.chatter.users.userId.photo.delete({
 }, context)
 ```
 
-#### Parameters
-* userId (string) **required**
+#### Input
+* input `object`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.userId.status.get
 Returns info of specified user's status.
@@ -797,8 +1013,12 @@ salesforcechatter.chatter.users.userId.status.get({
 }, context)
 ```
 
-#### Parameters
-* userId (string) **required**
+#### Input
+* input `object`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.userId.status.post
 Post text to specified user's status.
@@ -811,9 +1031,13 @@ salesforcechatter.chatter.users.userId.status.post({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required**
-* userId (string) **required**
+#### Input
+* input `object`
+  * text **required** `string`
+  * userId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### chatter.users.userId.status.delete
 Delete specified user's status containing text.
@@ -826,7 +1050,16 @@ salesforcechatter.chatter.users.userId.status.delete({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required**
-* userId (string) **required**
+#### Input
+* input `object`
+  * text **required** `string`
+  * userId **required** `string`
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

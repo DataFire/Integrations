@@ -4,11 +4,9 @@ Client library for Hacker News
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/hacker_news
+npm install --save @datafire/hacker_news
 ```
-
 ```js
-let datafire = require('datafire');
 let hacker_news = require('@datafire/hacker_news').create();
 
 hacker_news.getStories({}).then(data => {
@@ -17,9 +15,11 @@ hacker_news.getStories({}).then(data => {
 ```
 
 ## Description
+
 Hacker News is a social news website focusing on computer science and entrepreneurship
 
 ## Actions
+
 ### getStories
 Get an up-to-date list of stories for the given type
 
@@ -28,8 +28,13 @@ Get an up-to-date list of stories for the given type
 hacker_news.getStories({}, context)
 ```
 
-#### Parameters
-* storyType (string) - The type of stories to retrieve
+#### Input
+* input `object`
+  * storyType `string` (values: top, new, job, show, ask): The type of stories to retrieve
+
+#### Output
+* output `array`
+  * items `integer`
 
 ### getItem
 Get details for a given item
@@ -41,8 +46,12 @@ hacker_news.getItem({
 }, context)
 ```
 
-#### Parameters
-* itemID (integer) **required** - The ID of the item to retrieve
+#### Input
+* input `object`
+  * itemID **required** `integer`: The ID of the item to retrieve
+
+#### Output
+* output [Item](#item)
 
 ### getUser
 Get details for a given user
@@ -54,6 +63,44 @@ hacker_news.getUser({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The unique username for this user
+#### Input
+* input `object`
+  * username **required** `string`: The unique username for this user
+
+#### Output
+* output [User](#user)
+
+
+
+## Definitions
+
+### Item
+* Item `object`
+  * id `integer`
+  * title `string`
+  * deleted `boolean`
+  * by `string`
+  * time `string`
+  * text `string`
+  * dead `boolean`
+  * parent `integer`
+  * kids `array`
+    * items `integer`
+  * url `string`
+  * score `integer`
+  * parts `array`
+    * items `integer`
+  * descendants `array`
+    * items `integer`
+
+### User
+* User `object`
+  * id `string`
+  * created `integer`
+  * delay `integer`
+  * karma `integer`
+  * about `string`
+  * submitted `array`
+    * items `integer`
+
 

@@ -4,11 +4,9 @@ Client library for feeds.bbci.co.uk
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/bbc_rss
+npm install --save @datafire/bbc_rss
 ```
-
 ```js
-let datafire = require('datafire');
 let bbc_rss = require('@datafire/bbc_rss').create();
 
 bbc_rss.topStories({}).then(data => {
@@ -19,7 +17,9 @@ bbc_rss.topStories({}).then(data => {
 ## Description
 
 
+
 ## Actions
+
 ### topStories
 BBC News - Home
 
@@ -28,8 +28,11 @@ BBC News - Home
 bbc_rss.topStories(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Feed](#feed)
 
 ### world
 BBC News - World
@@ -39,8 +42,11 @@ BBC News - World
 bbc_rss.world(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Feed](#feed)
 
 ### uk
 BBC News - UK
@@ -50,8 +56,11 @@ BBC News - UK
 bbc_rss.uk(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Feed](#feed)
 
 ### technology
 BBC News - Technology
@@ -61,6 +70,14 @@ BBC News - Technology
 bbc_rss.technology(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
+#### Output
+* output [Feed](#feed)
+
+
+
+## Definitions
+
+** No definitions **

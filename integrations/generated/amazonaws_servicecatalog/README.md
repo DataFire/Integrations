@@ -4,15 +4,13 @@ Client library for AWS Service Catalog
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/amazonaws_servicecatalog
+npm install --save @datafire/amazonaws_servicecatalog
 ```
-
 ```js
-let datafire = require('datafire');
 let amazonaws_servicecatalog = require('@datafire/amazonaws_servicecatalog').create({
   accessKeyId: "",
   secretAccessKey: "",
-  region: "",
+  region: ""
 });
 
 amazonaws_servicecatalog.AcceptPortfolioShare({}).then(data => {
@@ -21,9 +19,11 @@ amazonaws_servicecatalog.AcceptPortfolioShare({}).then(data => {
 ```
 
 ## Description
-<fullname>AWS Service Catalog</fullname> <p> <b>Overview</b> </p> <p> <a href="https://aws.amazon.com/servicecatalog/">AWS Service Catalog</a> allows organizations to create and manage catalogs of IT services that are approved for use on AWS. This documentation provides reference material for the AWS Service Catalog end user API. To get the most out of this documentation, be familiar with the terminology discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">AWS Service Catalog Concepts</a>.</p> <p> <i>Additional Resources</i> </p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">AWS Service Catalog Administrator Guide</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/servicecatalog/latest/userguide/introduction.html">AWS Service Catalog User Guide</a> </p> </li> </ul>
+
+<fullname>AWS Service Catalog</fullname> <p> <a href="https://aws.amazon.com/servicecatalog/">AWS Service Catalog</a> enables organizations to create and manage catalogs of IT services that are approved for use on AWS. To get the most out of this documentation, you should be familiar with the terminology discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">AWS Service Catalog Concepts</a>.</p>
 
 ## Actions
+
 ### AcceptPortfolioShare
 
 
@@ -34,9 +34,13 @@ amazonaws_servicecatalog.AcceptPortfolioShare({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* PortfolioId (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+
+#### Output
+* output [AcceptPortfolioShareOutput](#acceptportfolioshareoutput)
 
 ### AssociatePrincipalWithPortfolio
 
@@ -50,11 +54,15 @@ amazonaws_servicecatalog.AssociatePrincipalWithPortfolio({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* PortfolioId (string) **required**
-* PrincipalARN (string) **required**
-* PrincipalType (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+  * PrincipalARN **required** [PrincipalARN](#principalarn)
+  * PrincipalType **required** [PrincipalType](#principaltype)
+
+#### Output
+* output [AssociatePrincipalWithPortfolioOutput](#associateprincipalwithportfoliooutput)
 
 ### AssociateProductWithPortfolio
 
@@ -67,11 +75,15 @@ amazonaws_servicecatalog.AssociateProductWithPortfolio({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* PortfolioId (string) **required**
-* ProductId (string) **required**
-* SourcePortfolioId (string)
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+  * ProductId **required** [Id](#id)
+  * SourcePortfolioId [Id](#id)
+
+#### Output
+* output [AssociateProductWithPortfolioOutput](#associateproductwithportfoliooutput)
 
 ### AssociateTagOptionWithResource
 
@@ -84,9 +96,13 @@ amazonaws_servicecatalog.AssociateTagOptionWithResource({
 }, context)
 ```
 
-#### Parameters
-* ResourceId (string) **required**
-* TagOptionId (string) **required**
+#### Input
+* input `object`
+  * ResourceId **required** [ResourceId](#resourceid)
+  * TagOptionId **required** [TagOptionId](#tagoptionid)
+
+#### Output
+* output [AssociateTagOptionWithResourceOutput](#associatetagoptionwithresourceoutput)
 
 ### CopyProduct
 
@@ -99,14 +115,18 @@ amazonaws_servicecatalog.CopyProduct({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* CopyOptions (array)
-* IdempotencyToken (string) **required**
-* SourceProductArn (string) **required**
-* SourceProvisioningArtifactIdentifiers (array)
-* TargetProductId (string)
-* TargetProductName (string)
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * CopyOptions [CopyOptions](#copyoptions)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * SourceProductArn **required** [ProductArn](#productarn)
+  * SourceProvisioningArtifactIdentifiers [SourceProvisioningArtifactProperties](#sourceprovisioningartifactproperties)
+  * TargetProductId [Id](#id)
+  * TargetProductName [ProductViewName](#productviewname)
+
+#### Output
+* output [CopyProductOutput](#copyproductoutput)
 
 ### CreateConstraint
 
@@ -122,14 +142,18 @@ amazonaws_servicecatalog.CreateConstraint({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Description (string)
-* IdempotencyToken (string) **required**
-* Parameters (string) **required**
-* PortfolioId (string) **required**
-* ProductId (string) **required**
-* Type (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Description [ConstraintDescription](#constraintdescription)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * Parameters **required** [ConstraintParameters](#constraintparameters)
+  * PortfolioId **required** [Id](#id)
+  * ProductId **required** [Id](#id)
+  * Type **required** [ConstraintType](#constrainttype)
+
+#### Output
+* output [CreateConstraintOutput](#createconstraintoutput)
 
 ### CreatePortfolio
 
@@ -143,13 +167,17 @@ amazonaws_servicecatalog.CreatePortfolio({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Description (string)
-* DisplayName (string) **required**
-* IdempotencyToken (string) **required**
-* ProviderName (string) **required**
-* Tags (array)
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Description [PortfolioDescription](#portfoliodescription)
+  * DisplayName **required** [PortfolioDisplayName](#portfoliodisplayname)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * ProviderName **required** [ProviderName](#providername)
+  * Tags [AddTags](#addtags)
+
+#### Output
+* output [CreatePortfolioOutput](#createportfoliooutput)
 
 ### CreatePortfolioShare
 
@@ -162,10 +190,14 @@ amazonaws_servicecatalog.CreatePortfolioShare({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* AccountId (string) **required**
-* PortfolioId (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AccountId **required** [AccountId](#accountid)
+  * PortfolioId **required** [Id](#id)
+
+#### Output
+* output [CreatePortfolioShareOutput](#createportfolioshareoutput)
 
 ### CreateProduct
 
@@ -183,19 +215,23 @@ amazonaws_servicecatalog.CreateProduct({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Description (string)
-* Distributor (string)
-* IdempotencyToken (string) **required**
-* Name (string) **required**
-* Owner (string) **required**
-* ProductType (string) **required**
-* ProvisioningArtifactParameters (object) **required** - Provisioning artifact properties. For example request JSON, see <a>CreateProvisioningArtifact</a>.
-* SupportDescription (string)
-* SupportEmail (string)
-* SupportUrl (string)
-* Tags (array)
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Description [ProductViewShortDescription](#productviewshortdescription)
+  * Distributor [ProductViewOwner](#productviewowner)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * Name **required** [ProductViewName](#productviewname)
+  * Owner **required** [ProductViewOwner](#productviewowner)
+  * ProductType **required** [ProductType](#producttype)
+  * ProvisioningArtifactParameters **required** [ProvisioningArtifactProperties](#provisioningartifactproperties)
+  * SupportDescription [SupportDescription](#supportdescription)
+  * SupportEmail [SupportEmail](#supportemail)
+  * SupportUrl [SupportUrl](#supporturl)
+  * Tags [AddTags](#addtags)
+
+#### Output
+* output [CreateProductOutput](#createproductoutput)
 
 ### CreateProvisioningArtifact
 
@@ -211,11 +247,15 @@ amazonaws_servicecatalog.CreateProvisioningArtifact({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* IdempotencyToken (string) **required**
-* Parameters (object) **required** - Provisioning artifact properties. For example request JSON, see <a>CreateProvisioningArtifact</a>.
-* ProductId (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * Parameters **required** [ProvisioningArtifactProperties](#provisioningartifactproperties)
+  * ProductId **required** [Id](#id)
+
+#### Output
+* output [CreateProvisioningArtifactOutput](#createprovisioningartifactoutput)
 
 ### CreateTagOption
 
@@ -228,9 +268,13 @@ amazonaws_servicecatalog.CreateTagOption({
 }, context)
 ```
 
-#### Parameters
-* Key (string) **required**
-* Value (string) **required**
+#### Input
+* input `object`
+  * Key **required** [TagOptionKey](#tagoptionkey)
+  * Value **required** [TagOptionValue](#tagoptionvalue)
+
+#### Output
+* output [CreateTagOptionOutput](#createtagoptionoutput)
 
 ### DeleteConstraint
 
@@ -242,9 +286,13 @@ amazonaws_servicecatalog.DeleteConstraint({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Id (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+#### Output
+* output [DeleteConstraintOutput](#deleteconstraintoutput)
 
 ### DeletePortfolio
 
@@ -256,9 +304,13 @@ amazonaws_servicecatalog.DeletePortfolio({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Id (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+#### Output
+* output [DeletePortfolioOutput](#deleteportfoliooutput)
 
 ### DeletePortfolioShare
 
@@ -271,10 +323,14 @@ amazonaws_servicecatalog.DeletePortfolioShare({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* AccountId (string) **required**
-* PortfolioId (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AccountId **required** [AccountId](#accountid)
+  * PortfolioId **required** [Id](#id)
+
+#### Output
+* output [DeletePortfolioShareOutput](#deleteportfolioshareoutput)
 
 ### DeleteProduct
 
@@ -286,9 +342,13 @@ amazonaws_servicecatalog.DeleteProduct({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Id (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+#### Output
+* output [DeleteProductOutput](#deleteproductoutput)
 
 ### DeleteProvisioningArtifact
 
@@ -301,10 +361,14 @@ amazonaws_servicecatalog.DeleteProvisioningArtifact({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* ProductId (string) **required**
-* ProvisioningArtifactId (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * ProductId **required** [Id](#id)
+  * ProvisioningArtifactId **required** [Id](#id)
+
+#### Output
+* output [DeleteProvisioningArtifactOutput](#deleteprovisioningartifactoutput)
 
 ### DescribeConstraint
 
@@ -316,9 +380,13 @@ amazonaws_servicecatalog.DescribeConstraint({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Id (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+#### Output
+* output [DescribeConstraintOutput](#describeconstraintoutput)
 
 ### DescribeCopyProductStatus
 
@@ -330,9 +398,13 @@ amazonaws_servicecatalog.DescribeCopyProductStatus({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* CopyProductToken (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * CopyProductToken **required** [Id](#id)
+
+#### Output
+* output [DescribeCopyProductStatusOutput](#describecopyproductstatusoutput)
 
 ### DescribePortfolio
 
@@ -344,9 +416,13 @@ amazonaws_servicecatalog.DescribePortfolio({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Id (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+#### Output
+* output [DescribePortfolioOutput](#describeportfoliooutput)
 
 ### DescribeProduct
 
@@ -358,9 +434,13 @@ amazonaws_servicecatalog.DescribeProduct({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Id (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+#### Output
+* output [DescribeProductOutput](#describeproductoutput)
 
 ### DescribeProductAsAdmin
 
@@ -372,9 +452,13 @@ amazonaws_servicecatalog.DescribeProductAsAdmin({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Id (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+#### Output
+* output [DescribeProductAsAdminOutput](#describeproductasadminoutput)
 
 ### DescribeProductView
 
@@ -386,9 +470,13 @@ amazonaws_servicecatalog.DescribeProductView({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Id (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+#### Output
+* output [DescribeProductViewOutput](#describeproductviewoutput)
 
 ### DescribeProvisionedProduct
 
@@ -400,9 +488,13 @@ amazonaws_servicecatalog.DescribeProvisionedProduct({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Id (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+#### Output
+* output [DescribeProvisionedProductOutput](#describeprovisionedproductoutput)
 
 ### DescribeProvisioningArtifact
 
@@ -415,11 +507,15 @@ amazonaws_servicecatalog.DescribeProvisioningArtifact({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* ProductId (string) **required**
-* ProvisioningArtifactId (string) **required**
-* Verbose (boolean)
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * ProductId **required** [Id](#id)
+  * ProvisioningArtifactId **required** [Id](#id)
+  * Verbose [Verbose](#verbose)
+
+#### Output
+* output [DescribeProvisioningArtifactOutput](#describeprovisioningartifactoutput)
 
 ### DescribeProvisioningParameters
 
@@ -432,11 +528,15 @@ amazonaws_servicecatalog.DescribeProvisioningParameters({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* PathId (string)
-* ProductId (string) **required**
-* ProvisioningArtifactId (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PathId [Id](#id)
+  * ProductId **required** [Id](#id)
+  * ProvisioningArtifactId **required** [Id](#id)
+
+#### Output
+* output [DescribeProvisioningParametersOutput](#describeprovisioningparametersoutput)
 
 ### DescribeRecord
 
@@ -448,11 +548,15 @@ amazonaws_servicecatalog.DescribeRecord({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Id (string) **required**
-* PageSize (integer)
-* PageToken (string)
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+
+#### Output
+* output [DescribeRecordOutput](#describerecordoutput)
 
 ### DescribeTagOption
 
@@ -464,8 +568,12 @@ amazonaws_servicecatalog.DescribeTagOption({
 }, context)
 ```
 
-#### Parameters
-* Id (string) **required**
+#### Input
+* input `object`
+  * Id **required** [TagOptionId](#tagoptionid)
+
+#### Output
+* output [DescribeTagOptionOutput](#describetagoptionoutput)
 
 ### DisassociatePrincipalFromPortfolio
 
@@ -478,10 +586,14 @@ amazonaws_servicecatalog.DisassociatePrincipalFromPortfolio({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* PortfolioId (string) **required**
-* PrincipalARN (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+  * PrincipalARN **required** [PrincipalARN](#principalarn)
+
+#### Output
+* output [DisassociatePrincipalFromPortfolioOutput](#disassociateprincipalfromportfoliooutput)
 
 ### DisassociateProductFromPortfolio
 
@@ -494,10 +606,14 @@ amazonaws_servicecatalog.DisassociateProductFromPortfolio({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* PortfolioId (string) **required**
-* ProductId (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+  * ProductId **required** [Id](#id)
+
+#### Output
+* output [DisassociateProductFromPortfolioOutput](#disassociateproductfromportfoliooutput)
 
 ### DisassociateTagOptionFromResource
 
@@ -510,9 +626,13 @@ amazonaws_servicecatalog.DisassociateTagOptionFromResource({
 }, context)
 ```
 
-#### Parameters
-* ResourceId (string) **required**
-* TagOptionId (string) **required**
+#### Input
+* input `object`
+  * ResourceId **required** [ResourceId](#resourceid)
+  * TagOptionId **required** [TagOptionId](#tagoptionid)
+
+#### Output
+* output [DisassociateTagOptionFromResourceOutput](#disassociatetagoptionfromresourceoutput)
 
 ### ListAcceptedPortfolioShares
 
@@ -522,12 +642,16 @@ amazonaws_servicecatalog.DisassociateTagOptionFromResource({
 amazonaws_servicecatalog.ListAcceptedPortfolioShares({}, context)
 ```
 
-#### Parameters
-* PageSize (string)
-* PageToken (string)
-* AcceptLanguage (string)
-* PageSize (integer)
-* PageToken (string)
+#### Input
+* input `object`
+  * PageSize `string`
+  * PageToken `string`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+
+#### Output
+* output [ListAcceptedPortfolioSharesOutput](#listacceptedportfoliosharesoutput)
 
 ### ListConstraintsForPortfolio
 
@@ -539,14 +663,18 @@ amazonaws_servicecatalog.ListConstraintsForPortfolio({
 }, context)
 ```
 
-#### Parameters
-* PageSize (string)
-* PageToken (string)
-* AcceptLanguage (string)
-* PageSize (integer)
-* PageToken (string)
-* PortfolioId (string) **required**
-* ProductId (string)
+#### Input
+* input `object`
+  * PageSize `string`
+  * PageToken `string`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * PortfolioId **required** [Id](#id)
+  * ProductId [Id](#id)
+
+#### Output
+* output [ListConstraintsForPortfolioOutput](#listconstraintsforportfoliooutput)
 
 ### ListLaunchPaths
 
@@ -558,13 +686,17 @@ amazonaws_servicecatalog.ListLaunchPaths({
 }, context)
 ```
 
-#### Parameters
-* PageSize (string)
-* PageToken (string)
-* AcceptLanguage (string)
-* PageSize (integer)
-* PageToken (string)
-* ProductId (string) **required**
+#### Input
+* input `object`
+  * PageSize `string`
+  * PageToken `string`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * ProductId **required** [Id](#id)
+
+#### Output
+* output [ListLaunchPathsOutput](#listlaunchpathsoutput)
 
 ### ListPortfolioAccess
 
@@ -576,9 +708,13 @@ amazonaws_servicecatalog.ListPortfolioAccess({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* PortfolioId (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+
+#### Output
+* output [ListPortfolioAccessOutput](#listportfolioaccessoutput)
 
 ### ListPortfolios
 
@@ -588,12 +724,16 @@ amazonaws_servicecatalog.ListPortfolioAccess({
 amazonaws_servicecatalog.ListPortfolios({}, context)
 ```
 
-#### Parameters
-* PageSize (string)
-* PageToken (string)
-* AcceptLanguage (string)
-* PageSize (integer)
-* PageToken (string)
+#### Input
+* input `object`
+  * PageSize `string`
+  * PageToken `string`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+
+#### Output
+* output [ListPortfoliosOutput](#listportfoliosoutput)
 
 ### ListPortfoliosForProduct
 
@@ -605,13 +745,17 @@ amazonaws_servicecatalog.ListPortfoliosForProduct({
 }, context)
 ```
 
-#### Parameters
-* PageSize (string)
-* PageToken (string)
-* AcceptLanguage (string)
-* PageSize (integer)
-* PageToken (string)
-* ProductId (string) **required**
+#### Input
+* input `object`
+  * PageSize `string`
+  * PageToken `string`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * ProductId **required** [Id](#id)
+
+#### Output
+* output [ListPortfoliosForProductOutput](#listportfoliosforproductoutput)
 
 ### ListPrincipalsForPortfolio
 
@@ -623,13 +767,17 @@ amazonaws_servicecatalog.ListPrincipalsForPortfolio({
 }, context)
 ```
 
-#### Parameters
-* PageSize (string)
-* PageToken (string)
-* AcceptLanguage (string)
-* PageSize (integer)
-* PageToken (string)
-* PortfolioId (string) **required**
+#### Input
+* input `object`
+  * PageSize `string`
+  * PageToken `string`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * PortfolioId **required** [Id](#id)
+
+#### Output
+* output [ListPrincipalsForPortfolioOutput](#listprincipalsforportfoliooutput)
 
 ### ListProvisioningArtifacts
 
@@ -641,9 +789,13 @@ amazonaws_servicecatalog.ListProvisioningArtifacts({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* ProductId (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * ProductId **required** [Id](#id)
+
+#### Output
+* output [ListProvisioningArtifactsOutput](#listprovisioningartifactsoutput)
 
 ### ListRecordHistory
 
@@ -653,12 +805,16 @@ amazonaws_servicecatalog.ListProvisioningArtifacts({
 amazonaws_servicecatalog.ListRecordHistory({}, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* AccessLevelFilter (object) - The access level to limit results.
-* PageSize (integer)
-* PageToken (string)
-* SearchFilter (object) - The search filter to limit results when listing request history records.
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AccessLevelFilter [AccessLevelFilter](#accesslevelfilter)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * SearchFilter [ListRecordHistorySearchFilter](#listrecordhistorysearchfilter)
+
+#### Output
+* output [ListRecordHistoryOutput](#listrecordhistoryoutput)
 
 ### ListResourcesForTagOption
 
@@ -670,13 +826,17 @@ amazonaws_servicecatalog.ListResourcesForTagOption({
 }, context)
 ```
 
-#### Parameters
-* PageSize (string)
-* PageToken (string)
-* PageSize (integer)
-* PageToken (string)
-* ResourceType (string)
-* TagOptionId (string) **required**
+#### Input
+* input `object`
+  * PageSize `string`
+  * PageToken `string`
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * ResourceType [ResourceType](#resourcetype)
+  * TagOptionId **required** [TagOptionId](#tagoptionid)
+
+#### Output
+* output [ListResourcesForTagOptionOutput](#listresourcesfortagoptionoutput)
 
 ### ListTagOptions
 
@@ -686,12 +846,16 @@ amazonaws_servicecatalog.ListResourcesForTagOption({
 amazonaws_servicecatalog.ListTagOptions({}, context)
 ```
 
-#### Parameters
-* PageSize (string)
-* PageToken (string)
-* Filters (object) - The ListTagOptions filters.
-* PageSize (integer)
-* PageToken (string)
+#### Input
+* input `object`
+  * PageSize `string`
+  * PageToken `string`
+  * Filters [ListTagOptionsFilters](#listtagoptionsfilters)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+
+#### Output
+* output [ListTagOptionsOutput](#listtagoptionsoutput)
 
 ### ProvisionProduct
 
@@ -706,16 +870,20 @@ amazonaws_servicecatalog.ProvisionProduct({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* NotificationArns (array)
-* PathId (string)
-* ProductId (string) **required**
-* ProvisionToken (string) **required**
-* ProvisionedProductName (string) **required**
-* ProvisioningArtifactId (string) **required**
-* ProvisioningParameters (array)
-* Tags (array)
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * NotificationArns [NotificationArns](#notificationarns)
+  * PathId [Id](#id)
+  * ProductId **required** [Id](#id)
+  * ProvisionToken **required** [IdempotencyToken](#idempotencytoken)
+  * ProvisionedProductName **required** [ProvisionedProductName](#provisionedproductname)
+  * ProvisioningArtifactId **required** [Id](#id)
+  * ProvisioningParameters [ProvisioningParameters](#provisioningparameters)
+  * Tags [Tags](#tags)
+
+#### Output
+* output [ProvisionProductOutput](#provisionproductoutput)
 
 ### RejectPortfolioShare
 
@@ -727,9 +895,13 @@ amazonaws_servicecatalog.RejectPortfolioShare({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* PortfolioId (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+
+#### Output
+* output [RejectPortfolioShareOutput](#rejectportfolioshareoutput)
 
 ### ScanProvisionedProducts
 
@@ -739,11 +911,15 @@ amazonaws_servicecatalog.RejectPortfolioShare({
 amazonaws_servicecatalog.ScanProvisionedProducts({}, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* AccessLevelFilter (object) - The access level to limit results.
-* PageSize (integer)
-* PageToken (string)
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AccessLevelFilter [AccessLevelFilter](#accesslevelfilter)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+
+#### Output
+* output [ScanProvisionedProductsOutput](#scanprovisionedproductsoutput)
 
 ### SearchProducts
 
@@ -753,15 +929,19 @@ amazonaws_servicecatalog.ScanProvisionedProducts({}, context)
 amazonaws_servicecatalog.SearchProducts({}, context)
 ```
 
-#### Parameters
-* PageSize (string)
-* PageToken (string)
-* AcceptLanguage (string)
-* Filters (array)
-* PageSize (integer)
-* PageToken (string)
-* SortBy (string)
-* SortOrder (string)
+#### Input
+* input `object`
+  * PageSize `string`
+  * PageToken `string`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Filters [ProductViewFilters](#productviewfilters)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * SortBy [ProductViewSortBy](#productviewsortby)
+  * SortOrder [SortOrder](#sortorder)
+
+#### Output
+* output [SearchProductsOutput](#searchproductsoutput)
 
 ### SearchProductsAsAdmin
 
@@ -771,17 +951,21 @@ amazonaws_servicecatalog.SearchProducts({}, context)
 amazonaws_servicecatalog.SearchProductsAsAdmin({}, context)
 ```
 
-#### Parameters
-* PageSize (string)
-* PageToken (string)
-* AcceptLanguage (string)
-* Filters (array)
-* PageSize (integer)
-* PageToken (string)
-* PortfolioId (string)
-* ProductSource (string)
-* SortBy (string)
-* SortOrder (string)
+#### Input
+* input `object`
+  * PageSize `string`
+  * PageToken `string`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Filters [ProductViewFilters](#productviewfilters)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * PortfolioId [Id](#id)
+  * ProductSource [ProductSource](#productsource)
+  * SortBy [ProductViewSortBy](#productviewsortby)
+  * SortOrder [SortOrder](#sortorder)
+
+#### Output
+* output [SearchProductsAsAdminOutput](#searchproductsasadminoutput)
 
 ### TerminateProvisionedProduct
 
@@ -793,12 +977,16 @@ amazonaws_servicecatalog.TerminateProvisionedProduct({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* IgnoreErrors (boolean)
-* ProvisionedProductId (string)
-* ProvisionedProductName (string)
-* TerminateToken (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * IgnoreErrors [IgnoreErrors](#ignoreerrors)
+  * ProvisionedProductId [Id](#id)
+  * ProvisionedProductName [ProvisionedProductNameOrArn](#provisionedproductnameorarn)
+  * TerminateToken **required** [IdempotencyToken](#idempotencytoken)
+
+#### Output
+* output [TerminateProvisionedProductOutput](#terminateprovisionedproductoutput)
 
 ### UpdateConstraint
 
@@ -810,10 +998,14 @@ amazonaws_servicecatalog.UpdateConstraint({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Description (string)
-* Id (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Description [ConstraintDescription](#constraintdescription)
+  * Id **required** [Id](#id)
+
+#### Output
+* output [UpdateConstraintOutput](#updateconstraintoutput)
 
 ### UpdatePortfolio
 
@@ -825,14 +1017,18 @@ amazonaws_servicecatalog.UpdatePortfolio({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* AddTags (array)
-* Description (string)
-* DisplayName (string)
-* Id (string) **required**
-* ProviderName (string)
-* RemoveTags (array)
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AddTags [AddTags](#addtags)
+  * Description [PortfolioDescription](#portfoliodescription)
+  * DisplayName [PortfolioDisplayName](#portfoliodisplayname)
+  * Id **required** [Id](#id)
+  * ProviderName [ProviderName](#providername)
+  * RemoveTags [TagKeys](#tagkeys)
+
+#### Output
+* output [UpdatePortfolioOutput](#updateportfoliooutput)
 
 ### UpdateProduct
 
@@ -844,18 +1040,22 @@ amazonaws_servicecatalog.UpdateProduct({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* AddTags (array)
-* Description (string)
-* Distributor (string)
-* Id (string) **required**
-* Name (string)
-* Owner (string)
-* RemoveTags (array)
-* SupportDescription (string)
-* SupportEmail (string)
-* SupportUrl (string)
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AddTags [AddTags](#addtags)
+  * Description [ProductViewShortDescription](#productviewshortdescription)
+  * Distributor [ProductViewOwner](#productviewowner)
+  * Id **required** [Id](#id)
+  * Name [ProductViewName](#productviewname)
+  * Owner [ProductViewOwner](#productviewowner)
+  * RemoveTags [TagKeys](#tagkeys)
+  * SupportDescription [SupportDescription](#supportdescription)
+  * SupportEmail [SupportEmail](#supportemail)
+  * SupportUrl [SupportUrl](#supporturl)
+
+#### Output
+* output [UpdateProductOutput](#updateproductoutput)
 
 ### UpdateProvisionedProduct
 
@@ -867,15 +1067,19 @@ amazonaws_servicecatalog.UpdateProvisionedProduct({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* PathId (string)
-* ProductId (string)
-* ProvisionedProductId (string)
-* ProvisionedProductName (string)
-* ProvisioningArtifactId (string)
-* ProvisioningParameters (array)
-* UpdateToken (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PathId [Id](#id)
+  * ProductId [Id](#id)
+  * ProvisionedProductId [Id](#id)
+  * ProvisionedProductName [ProvisionedProductNameOrArn](#provisionedproductnameorarn)
+  * ProvisioningArtifactId [Id](#id)
+  * ProvisioningParameters [UpdateProvisioningParameters](#updateprovisioningparameters)
+  * UpdateToken **required** [IdempotencyToken](#idempotencytoken)
+
+#### Output
+* output [UpdateProvisionedProductOutput](#updateprovisionedproductoutput)
 
 ### UpdateProvisioningArtifact
 
@@ -888,12 +1092,16 @@ amazonaws_servicecatalog.UpdateProvisioningArtifact({
 }, context)
 ```
 
-#### Parameters
-* AcceptLanguage (string)
-* Description (string)
-* Name (string)
-* ProductId (string) **required**
-* ProvisioningArtifactId (string) **required**
+#### Input
+* input `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Description [ProvisioningArtifactDescription](#provisioningartifactdescription)
+  * Name [ProvisioningArtifactName](#provisioningartifactname)
+  * ProductId **required** [Id](#id)
+  * ProvisioningArtifactId **required** [Id](#id)
+
+#### Output
+* output [UpdateProvisioningArtifactOutput](#updateprovisioningartifactoutput)
 
 ### UpdateTagOption
 
@@ -905,8 +1113,1292 @@ amazonaws_servicecatalog.UpdateTagOption({
 }, context)
 ```
 
-#### Parameters
-* Active (boolean)
-* Id (string) **required**
-* Value (string)
+#### Input
+* input `object`
+  * Active [TagOptionActive](#tagoptionactive)
+  * Id **required** [TagOptionId](#tagoptionid)
+  * Value [TagOptionValue](#tagoptionvalue)
+
+#### Output
+* output [UpdateTagOptionOutput](#updatetagoptionoutput)
+
+
+
+## Definitions
+
+### AcceptLanguage
+* AcceptLanguage `string`
+
+### AcceptPortfolioShareInput
+* AcceptPortfolioShareInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+
+### AcceptPortfolioShareOutput
+* AcceptPortfolioShareOutput `object`
+
+### AccessLevelFilter
+* AccessLevelFilter `object`: The access level to limit results.
+  * Key [AccessLevelFilterKey](#accesslevelfilterkey)
+  * Value [AccessLevelFilterValue](#accesslevelfiltervalue)
+
+### AccessLevelFilterKey
+* AccessLevelFilterKey `string` (values: Account, Role, User)
+
+### AccessLevelFilterValue
+* AccessLevelFilterValue `string`
+
+### AccountId
+* AccountId `string`
+
+### AccountIds
+* AccountIds `array`
+  * items [AccountId](#accountid)
+
+### AddTags
+* AddTags `array`
+  * items [Tag](#tag)
+
+### AllowedValue
+* AllowedValue `string`
+
+### AllowedValues
+* AllowedValues `array`
+  * items [AllowedValue](#allowedvalue)
+
+### ApproximateCount
+* ApproximateCount `integer`
+
+### AssociatePrincipalWithPortfolioInput
+* AssociatePrincipalWithPortfolioInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+  * PrincipalARN **required** [PrincipalARN](#principalarn)
+  * PrincipalType **required** [PrincipalType](#principaltype)
+
+### AssociatePrincipalWithPortfolioOutput
+* AssociatePrincipalWithPortfolioOutput `object`
+
+### AssociateProductWithPortfolioInput
+* AssociateProductWithPortfolioInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+  * ProductId **required** [Id](#id)
+  * SourcePortfolioId [Id](#id)
+
+### AssociateProductWithPortfolioOutput
+* AssociateProductWithPortfolioOutput `object`
+
+### AssociateTagOptionWithResourceInput
+* AssociateTagOptionWithResourceInput `object`
+  * ResourceId **required** [ResourceId](#resourceid)
+  * TagOptionId **required** [TagOptionId](#tagoptionid)
+
+### AssociateTagOptionWithResourceOutput
+* AssociateTagOptionWithResourceOutput `object`
+
+### AttributeValue
+* AttributeValue `string`
+
+### ConstraintDescription
+* ConstraintDescription `string`
+
+### ConstraintDetail
+* ConstraintDetail `object`: Detailed constraint information.
+  * ConstraintId [Id](#id)
+  * Description [ConstraintDescription](#constraintdescription)
+  * Owner [AccountId](#accountid)
+  * Type [ConstraintType](#constrainttype)
+
+### ConstraintDetails
+* ConstraintDetails `array`
+  * items [ConstraintDetail](#constraintdetail)
+
+### ConstraintParameters
+* ConstraintParameters `string`
+
+### ConstraintSummaries
+* ConstraintSummaries `array`
+  * items [ConstraintSummary](#constraintsummary)
+
+### ConstraintSummary
+* ConstraintSummary `object`: An administrator-specified constraint to apply when provisioning a product.
+  * Description [ConstraintDescription](#constraintdescription)
+  * Type [ConstraintType](#constrainttype)
+
+### ConstraintType
+* ConstraintType `string`
+
+### CopyOption
+* CopyOption `string` (values: CopyTags)
+
+### CopyOptions
+* CopyOptions `array`
+  * items [CopyOption](#copyoption)
+
+### CopyProductInput
+* CopyProductInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * CopyOptions [CopyOptions](#copyoptions)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * SourceProductArn **required** [ProductArn](#productarn)
+  * SourceProvisioningArtifactIdentifiers [SourceProvisioningArtifactProperties](#sourceprovisioningartifactproperties)
+  * TargetProductId [Id](#id)
+  * TargetProductName [ProductViewName](#productviewname)
+
+### CopyProductOutput
+* CopyProductOutput `object`
+  * CopyProductToken [Id](#id)
+
+### CopyProductStatus
+* CopyProductStatus `string` (values: SUCCEEDED, IN_PROGRESS, FAILED)
+
+### CreateConstraintInput
+* CreateConstraintInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Description [ConstraintDescription](#constraintdescription)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * Parameters **required** [ConstraintParameters](#constraintparameters)
+  * PortfolioId **required** [Id](#id)
+  * ProductId **required** [Id](#id)
+  * Type **required** [ConstraintType](#constrainttype)
+
+### CreateConstraintOutput
+* CreateConstraintOutput `object`
+  * ConstraintDetail [ConstraintDetail](#constraintdetail)
+  * ConstraintParameters [ConstraintParameters](#constraintparameters)
+  * Status [Status](#status)
+
+### CreatePortfolioInput
+* CreatePortfolioInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Description [PortfolioDescription](#portfoliodescription)
+  * DisplayName **required** [PortfolioDisplayName](#portfoliodisplayname)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * ProviderName **required** [ProviderName](#providername)
+  * Tags [AddTags](#addtags)
+
+### CreatePortfolioOutput
+* CreatePortfolioOutput `object`
+  * PortfolioDetail [PortfolioDetail](#portfoliodetail)
+  * Tags [Tags](#tags)
+
+### CreatePortfolioShareInput
+* CreatePortfolioShareInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AccountId **required** [AccountId](#accountid)
+  * PortfolioId **required** [Id](#id)
+
+### CreatePortfolioShareOutput
+* CreatePortfolioShareOutput `object`
+
+### CreateProductInput
+* CreateProductInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Description [ProductViewShortDescription](#productviewshortdescription)
+  * Distributor [ProductViewOwner](#productviewowner)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * Name **required** [ProductViewName](#productviewname)
+  * Owner **required** [ProductViewOwner](#productviewowner)
+  * ProductType **required** [ProductType](#producttype)
+  * ProvisioningArtifactParameters **required** [ProvisioningArtifactProperties](#provisioningartifactproperties)
+  * SupportDescription [SupportDescription](#supportdescription)
+  * SupportEmail [SupportEmail](#supportemail)
+  * SupportUrl [SupportUrl](#supporturl)
+  * Tags [AddTags](#addtags)
+
+### CreateProductOutput
+* CreateProductOutput `object`
+  * ProductViewDetail [ProductViewDetail](#productviewdetail)
+  * ProvisioningArtifactDetail [ProvisioningArtifactDetail](#provisioningartifactdetail)
+  * Tags [Tags](#tags)
+
+### CreateProvisioningArtifactInput
+* CreateProvisioningArtifactInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * IdempotencyToken **required** [IdempotencyToken](#idempotencytoken)
+  * Parameters **required** [ProvisioningArtifactProperties](#provisioningartifactproperties)
+  * ProductId **required** [Id](#id)
+
+### CreateProvisioningArtifactOutput
+* CreateProvisioningArtifactOutput `object`
+  * Info [ProvisioningArtifactInfo](#provisioningartifactinfo)
+  * ProvisioningArtifactDetail [ProvisioningArtifactDetail](#provisioningartifactdetail)
+  * Status [Status](#status)
+
+### CreateTagOptionInput
+* CreateTagOptionInput `object`
+  * Key **required** [TagOptionKey](#tagoptionkey)
+  * Value **required** [TagOptionValue](#tagoptionvalue)
+
+### CreateTagOptionOutput
+* CreateTagOptionOutput `object`
+  * TagOptionDetail [TagOptionDetail](#tagoptiondetail)
+
+### CreatedTime
+* CreatedTime `string`
+
+### CreationTime
+* CreationTime `string`
+
+### DefaultValue
+* DefaultValue `string`
+
+### DeleteConstraintInput
+* DeleteConstraintInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+### DeleteConstraintOutput
+* DeleteConstraintOutput `object`
+
+### DeletePortfolioInput
+* DeletePortfolioInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+### DeletePortfolioOutput
+* DeletePortfolioOutput `object`
+
+### DeletePortfolioShareInput
+* DeletePortfolioShareInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AccountId **required** [AccountId](#accountid)
+  * PortfolioId **required** [Id](#id)
+
+### DeletePortfolioShareOutput
+* DeletePortfolioShareOutput `object`
+
+### DeleteProductInput
+* DeleteProductInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+### DeleteProductOutput
+* DeleteProductOutput `object`
+
+### DeleteProvisioningArtifactInput
+* DeleteProvisioningArtifactInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * ProductId **required** [Id](#id)
+  * ProvisioningArtifactId **required** [Id](#id)
+
+### DeleteProvisioningArtifactOutput
+* DeleteProvisioningArtifactOutput `object`
+
+### DescribeConstraintInput
+* DescribeConstraintInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+### DescribeConstraintOutput
+* DescribeConstraintOutput `object`
+  * ConstraintDetail [ConstraintDetail](#constraintdetail)
+  * ConstraintParameters [ConstraintParameters](#constraintparameters)
+  * Status [Status](#status)
+
+### DescribeCopyProductStatusInput
+* DescribeCopyProductStatusInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * CopyProductToken **required** [Id](#id)
+
+### DescribeCopyProductStatusOutput
+* DescribeCopyProductStatusOutput `object`
+  * CopyProductStatus [CopyProductStatus](#copyproductstatus)
+  * StatusDetail [StatusDetail](#statusdetail)
+  * TargetProductId [Id](#id)
+
+### DescribePortfolioInput
+* DescribePortfolioInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+### DescribePortfolioOutput
+* DescribePortfolioOutput `object`
+  * PortfolioDetail [PortfolioDetail](#portfoliodetail)
+  * TagOptions [TagOptionDetails](#tagoptiondetails)
+  * Tags [Tags](#tags)
+
+### DescribeProductAsAdminInput
+* DescribeProductAsAdminInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+### DescribeProductAsAdminOutput
+* DescribeProductAsAdminOutput `object`
+  * ProductViewDetail [ProductViewDetail](#productviewdetail)
+  * ProvisioningArtifactSummaries [ProvisioningArtifactSummaries](#provisioningartifactsummaries)
+  * TagOptions [TagOptionDetails](#tagoptiondetails)
+  * Tags [Tags](#tags)
+
+### DescribeProductInput
+* DescribeProductInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+### DescribeProductOutput
+* DescribeProductOutput `object`
+  * ProductViewSummary [ProductViewSummary](#productviewsummary)
+  * ProvisioningArtifacts [ProvisioningArtifacts](#provisioningartifacts)
+
+### DescribeProductViewInput
+* DescribeProductViewInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+### DescribeProductViewOutput
+* DescribeProductViewOutput `object`
+  * ProductViewSummary [ProductViewSummary](#productviewsummary)
+  * ProvisioningArtifacts [ProvisioningArtifacts](#provisioningartifacts)
+
+### DescribeProvisionedProductInput
+* DescribeProvisionedProductInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+
+### DescribeProvisionedProductOutput
+* DescribeProvisionedProductOutput `object`
+  * ProvisionedProductDetail [ProvisionedProductDetail](#provisionedproductdetail)
+
+### DescribeProvisioningArtifactInput
+* DescribeProvisioningArtifactInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * ProductId **required** [Id](#id)
+  * ProvisioningArtifactId **required** [Id](#id)
+  * Verbose [Verbose](#verbose)
+
+### DescribeProvisioningArtifactOutput
+* DescribeProvisioningArtifactOutput `object`
+  * Info [ProvisioningArtifactInfo](#provisioningartifactinfo)
+  * ProvisioningArtifactDetail [ProvisioningArtifactDetail](#provisioningartifactdetail)
+  * Status [Status](#status)
+
+### DescribeProvisioningParametersInput
+* DescribeProvisioningParametersInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PathId [Id](#id)
+  * ProductId **required** [Id](#id)
+  * ProvisioningArtifactId **required** [Id](#id)
+
+### DescribeProvisioningParametersOutput
+* DescribeProvisioningParametersOutput `object`
+  * ConstraintSummaries [ConstraintSummaries](#constraintsummaries)
+  * ProvisioningArtifactParameters [ProvisioningArtifactParameters](#provisioningartifactparameters)
+  * TagOptions [TagOptionSummaries](#tagoptionsummaries)
+  * UsageInstructions [UsageInstructions](#usageinstructions)
+
+### DescribeRecordInput
+* DescribeRecordInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Id **required** [Id](#id)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+
+### DescribeRecordOutput
+* DescribeRecordOutput `object`
+  * NextPageToken [PageToken](#pagetoken)
+  * RecordDetail [RecordDetail](#recorddetail)
+  * RecordOutputs [RecordOutputs](#recordoutputs)
+
+### DescribeTagOptionInput
+* DescribeTagOptionInput `object`
+  * Id **required** [TagOptionId](#tagoptionid)
+
+### DescribeTagOptionOutput
+* DescribeTagOptionOutput `object`
+  * TagOptionDetail [TagOptionDetail](#tagoptiondetail)
+
+### Description
+* Description `string`
+
+### DisassociatePrincipalFromPortfolioInput
+* DisassociatePrincipalFromPortfolioInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+  * PrincipalARN **required** [PrincipalARN](#principalarn)
+
+### DisassociatePrincipalFromPortfolioOutput
+* DisassociatePrincipalFromPortfolioOutput `object`
+
+### DisassociateProductFromPortfolioInput
+* DisassociateProductFromPortfolioInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+  * ProductId **required** [Id](#id)
+
+### DisassociateProductFromPortfolioOutput
+* DisassociateProductFromPortfolioOutput `object`
+
+### DisassociateTagOptionFromResourceInput
+* DisassociateTagOptionFromResourceInput `object`
+  * ResourceId **required** [ResourceId](#resourceid)
+  * TagOptionId **required** [TagOptionId](#tagoptionid)
+
+### DisassociateTagOptionFromResourceOutput
+* DisassociateTagOptionFromResourceOutput `object`
+
+### DuplicateResourceException
+* DuplicateResourceException `object`: The specified resource is a duplicate.
+
+### ErrorCode
+* ErrorCode `string`
+
+### ErrorDescription
+* ErrorDescription `string`
+
+### HasDefaultPath
+* HasDefaultPath `boolean`
+
+### Id
+* Id `string`
+
+### IdempotencyToken
+* IdempotencyToken `string`
+
+### IgnoreErrors
+* IgnoreErrors `boolean`
+
+### InstructionType
+* InstructionType `string`
+
+### InstructionValue
+* InstructionValue `string`
+
+### InvalidParametersException
+* InvalidParametersException `object`: One or more parameters provided to the operation are invalid.
+
+### InvalidStateException
+* InvalidStateException `object`: An attempt was made to modify a resource that is in an invalid state. Inspect the resource you are using for this operation to ensure that all resource states are valid before retrying the operation.
+
+### LastRequestId
+* LastRequestId `string`
+
+### LaunchPathSummaries
+* LaunchPathSummaries `array`
+  * items [LaunchPathSummary](#launchpathsummary)
+
+### LaunchPathSummary
+* LaunchPathSummary `object`: Summary information about a path for a user to have access to a specified product.
+  * ConstraintSummaries [ConstraintSummaries](#constraintsummaries)
+  * Id [Id](#id)
+  * Name [PortfolioName](#portfolioname)
+  * Tags [Tags](#tags)
+
+### LimitExceededException
+* LimitExceededException `object`: The current limits of the service would have been exceeded by this operation. Reduce the resource use or increase the service limits and retry the operation.
+
+### ListAcceptedPortfolioSharesInput
+* ListAcceptedPortfolioSharesInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+
+### ListAcceptedPortfolioSharesOutput
+* ListAcceptedPortfolioSharesOutput `object`
+  * NextPageToken [PageToken](#pagetoken)
+  * PortfolioDetails [PortfolioDetails](#portfoliodetails)
+
+### ListConstraintsForPortfolioInput
+* ListConstraintsForPortfolioInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * PortfolioId **required** [Id](#id)
+  * ProductId [Id](#id)
+
+### ListConstraintsForPortfolioOutput
+* ListConstraintsForPortfolioOutput `object`
+  * ConstraintDetails [ConstraintDetails](#constraintdetails)
+  * NextPageToken [PageToken](#pagetoken)
+
+### ListLaunchPathsInput
+* ListLaunchPathsInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * ProductId **required** [Id](#id)
+
+### ListLaunchPathsOutput
+* ListLaunchPathsOutput `object`
+  * LaunchPathSummaries [LaunchPathSummaries](#launchpathsummaries)
+  * NextPageToken [PageToken](#pagetoken)
+
+### ListPortfolioAccessInput
+* ListPortfolioAccessInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+
+### ListPortfolioAccessOutput
+* ListPortfolioAccessOutput `object`
+  * AccountIds [AccountIds](#accountids)
+  * NextPageToken [PageToken](#pagetoken)
+
+### ListPortfoliosForProductInput
+* ListPortfoliosForProductInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * ProductId **required** [Id](#id)
+
+### ListPortfoliosForProductOutput
+* ListPortfoliosForProductOutput `object`
+  * NextPageToken [PageToken](#pagetoken)
+  * PortfolioDetails [PortfolioDetails](#portfoliodetails)
+
+### ListPortfoliosInput
+* ListPortfoliosInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+
+### ListPortfoliosOutput
+* ListPortfoliosOutput `object`
+  * NextPageToken [PageToken](#pagetoken)
+  * PortfolioDetails [PortfolioDetails](#portfoliodetails)
+
+### ListPrincipalsForPortfolioInput
+* ListPrincipalsForPortfolioInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * PortfolioId **required** [Id](#id)
+
+### ListPrincipalsForPortfolioOutput
+* ListPrincipalsForPortfolioOutput `object`
+  * NextPageToken [PageToken](#pagetoken)
+  * Principals [Principals](#principals)
+
+### ListProvisioningArtifactsInput
+* ListProvisioningArtifactsInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * ProductId **required** [Id](#id)
+
+### ListProvisioningArtifactsOutput
+* ListProvisioningArtifactsOutput `object`
+  * NextPageToken [PageToken](#pagetoken)
+  * ProvisioningArtifactDetails [ProvisioningArtifactDetails](#provisioningartifactdetails)
+
+### ListRecordHistoryInput
+* ListRecordHistoryInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AccessLevelFilter [AccessLevelFilter](#accesslevelfilter)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * SearchFilter [ListRecordHistorySearchFilter](#listrecordhistorysearchfilter)
+
+### ListRecordHistoryOutput
+* ListRecordHistoryOutput `object`
+  * NextPageToken [PageToken](#pagetoken)
+  * RecordDetails [RecordDetails](#recorddetails)
+
+### ListRecordHistorySearchFilter
+* ListRecordHistorySearchFilter `object`: The search filter to limit results when listing request history records.
+  * Key [SearchFilterKey](#searchfilterkey)
+  * Value [SearchFilterValue](#searchfiltervalue)
+
+### ListResourcesForTagOptionInput
+* ListResourcesForTagOptionInput `object`
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * ResourceType [ResourceType](#resourcetype)
+  * TagOptionId **required** [TagOptionId](#tagoptionid)
+
+### ListResourcesForTagOptionOutput
+* ListResourcesForTagOptionOutput `object`
+  * PageToken [PageToken](#pagetoken)
+  * ResourceDetails [ResourceDetails](#resourcedetails)
+
+### ListTagOptionsFilters
+* ListTagOptionsFilters `object`: The ListTagOptions filters.
+  * Active [TagOptionActive](#tagoptionactive)
+  * Key [TagOptionKey](#tagoptionkey)
+  * Value [TagOptionValue](#tagoptionvalue)
+
+### ListTagOptionsInput
+* ListTagOptionsInput `object`
+  * Filters [ListTagOptionsFilters](#listtagoptionsfilters)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+
+### ListTagOptionsOutput
+* ListTagOptionsOutput `object`
+  * PageToken [PageToken](#pagetoken)
+  * TagOptionDetails [TagOptionDetails](#tagoptiondetails)
+
+### NoEcho
+* NoEcho `boolean`
+
+### NotificationArn
+* NotificationArn `string`
+
+### NotificationArns
+* NotificationArns `array`
+  * items [NotificationArn](#notificationarn)
+
+### OutputKey
+* OutputKey `string`
+
+### OutputValue
+* OutputValue `string`
+
+### PageSize
+* PageSize `integer`
+
+### PageToken
+* PageToken `string`
+
+### ParameterConstraints
+* ParameterConstraints `object`: The constraints that the administrator has put on the parameter.
+  * AllowedValues [AllowedValues](#allowedvalues)
+
+### ParameterKey
+* ParameterKey `string`
+
+### ParameterType
+* ParameterType `string`
+
+### ParameterValue
+* ParameterValue `string`
+
+### PortfolioDescription
+* PortfolioDescription `string`
+
+### PortfolioDetail
+* PortfolioDetail `object`: Detailed portfolio information.
+  * ARN [ResourceARN](#resourcearn)
+  * CreatedTime [CreationTime](#creationtime)
+  * Description [PortfolioDescription](#portfoliodescription)
+  * DisplayName [PortfolioDisplayName](#portfoliodisplayname)
+  * Id [Id](#id)
+  * ProviderName [ProviderName](#providername)
+
+### PortfolioDetails
+* PortfolioDetails `array`
+  * items [PortfolioDetail](#portfoliodetail)
+
+### PortfolioDisplayName
+* PortfolioDisplayName `string`
+
+### PortfolioName
+* PortfolioName `string`
+
+### Principal
+* Principal `object`: A principal's ARN and type.
+  * PrincipalARN [PrincipalARN](#principalarn)
+  * PrincipalType [PrincipalType](#principaltype)
+
+### PrincipalARN
+* PrincipalARN `string`
+
+### PrincipalType
+* PrincipalType `string` (values: IAM)
+
+### Principals
+* Principals `array`
+  * items [Principal](#principal)
+
+### ProductArn
+* ProductArn `string`
+
+### ProductSource
+* ProductSource `string` (values: ACCOUNT)
+
+### ProductType
+* ProductType `string` (values: CLOUD_FORMATION_TEMPLATE, MARKETPLACE)
+
+### ProductViewAggregationType
+* ProductViewAggregationType `string`
+
+### ProductViewAggregationValue
+* ProductViewAggregationValue `object`: A single product view aggregation value/count pair, containing metadata about each product to which the calling user has access.
+  * ApproximateCount [ApproximateCount](#approximatecount)
+  * Value [AttributeValue](#attributevalue)
+
+### ProductViewAggregationValues
+* ProductViewAggregationValues `array`
+  * items [ProductViewAggregationValue](#productviewaggregationvalue)
+
+### ProductViewAggregations
+* ProductViewAggregations `array`
+  * items `object`
+    * key [ProductViewAggregationType](#productviewaggregationtype)
+    * value [ProductViewAggregationValues](#productviewaggregationvalues)
+
+### ProductViewDetail
+* ProductViewDetail `object`: Detailed product view information.
+  * CreatedTime [CreatedTime](#createdtime)
+  * ProductARN [ResourceARN](#resourcearn)
+  * ProductViewSummary [ProductViewSummary](#productviewsummary)
+  * Status [Status](#status)
+
+### ProductViewDetails
+* ProductViewDetails `array`
+  * items [ProductViewDetail](#productviewdetail)
+
+### ProductViewDistributor
+* ProductViewDistributor `string`
+
+### ProductViewFilterBy
+* ProductViewFilterBy `string` (values: FullTextSearch, Owner, ProductType, SourceProductId)
+
+### ProductViewFilterValue
+* ProductViewFilterValue `string`
+
+### ProductViewFilterValues
+* ProductViewFilterValues `array`
+  * items [ProductViewFilterValue](#productviewfiltervalue)
+
+### ProductViewFilters
+* ProductViewFilters `array`
+  * items `object`
+    * key [ProductViewFilterBy](#productviewfilterby)
+    * value [ProductViewFilterValues](#productviewfiltervalues)
+
+### ProductViewName
+* ProductViewName `string`
+
+### ProductViewOwner
+* ProductViewOwner `string`
+
+### ProductViewShortDescription
+* ProductViewShortDescription `string`
+
+### ProductViewSortBy
+* ProductViewSortBy `string` (values: Title, VersionCount, CreationDate)
+
+### ProductViewSummaries
+* ProductViewSummaries `array`
+  * items [ProductViewSummary](#productviewsummary)
+
+### ProductViewSummary
+* ProductViewSummary `object`: The summary metadata about the specified product.
+  * Distributor [ProductViewDistributor](#productviewdistributor)
+  * HasDefaultPath [HasDefaultPath](#hasdefaultpath)
+  * Id [Id](#id)
+  * Name [ProductViewName](#productviewname)
+  * Owner [ProductViewOwner](#productviewowner)
+  * ProductId [Id](#id)
+  * ShortDescription [ProductViewShortDescription](#productviewshortdescription)
+  * SupportDescription [SupportDescription](#supportdescription)
+  * SupportEmail [SupportEmail](#supportemail)
+  * SupportUrl [SupportUrl](#supporturl)
+  * Type [ProductType](#producttype)
+
+### ProviderName
+* ProviderName `string`
+
+### ProvisionProductInput
+* ProvisionProductInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * NotificationArns [NotificationArns](#notificationarns)
+  * PathId [Id](#id)
+  * ProductId **required** [Id](#id)
+  * ProvisionToken **required** [IdempotencyToken](#idempotencytoken)
+  * ProvisionedProductName **required** [ProvisionedProductName](#provisionedproductname)
+  * ProvisioningArtifactId **required** [Id](#id)
+  * ProvisioningParameters [ProvisioningParameters](#provisioningparameters)
+  * Tags [Tags](#tags)
+
+### ProvisionProductOutput
+* ProvisionProductOutput `object`
+  * RecordDetail [RecordDetail](#recorddetail)
+
+### ProvisionedProductDetail
+* ProvisionedProductDetail `object`: Detailed information about a ProvisionedProduct object.
+  * Arn [ProvisionedProductNameOrArn](#provisionedproductnameorarn)
+  * CreatedTime [CreatedTime](#createdtime)
+  * Id [ProvisionedProductId](#provisionedproductid)
+  * IdempotencyToken [IdempotencyToken](#idempotencytoken)
+  * LastRecordId [LastRequestId](#lastrequestid)
+  * Name [ProvisionedProductNameOrArn](#provisionedproductnameorarn)
+  * Status [ProvisionedProductStatus](#provisionedproductstatus)
+  * StatusMessage [ProvisionedProductStatusMessage](#provisionedproductstatusmessage)
+  * Type [ProvisionedProductType](#provisionedproducttype)
+
+### ProvisionedProductDetails
+* ProvisionedProductDetails `array`
+  * items [ProvisionedProductDetail](#provisionedproductdetail)
+
+### ProvisionedProductId
+* ProvisionedProductId `string`
+
+### ProvisionedProductName
+* ProvisionedProductName `string`
+
+### ProvisionedProductNameOrArn
+* ProvisionedProductNameOrArn `string`
+
+### ProvisionedProductStatus
+* ProvisionedProductStatus `string` (values: AVAILABLE, UNDER_CHANGE, TAINTED, ERROR)
+
+### ProvisionedProductStatusMessage
+* ProvisionedProductStatusMessage `string`
+
+### ProvisionedProductType
+* ProvisionedProductType `string`
+
+### ProvisioningArtifact
+* ProvisioningArtifact `object`: Contains information indicating the ways in which a product can be provisioned.
+  * CreatedTime [ProvisioningArtifactCreatedTime](#provisioningartifactcreatedtime)
+  * Description [ProvisioningArtifactDescription](#provisioningartifactdescription)
+  * Id [Id](#id)
+  * Name [ProvisioningArtifactName](#provisioningartifactname)
+
+### ProvisioningArtifactCreatedTime
+* ProvisioningArtifactCreatedTime `string`
+
+### ProvisioningArtifactDescription
+* ProvisioningArtifactDescription `string`
+
+### ProvisioningArtifactDetail
+* ProvisioningArtifactDetail `object`: Detailed provisioning artifact information.
+  * CreatedTime [CreationTime](#creationtime)
+  * Description [ProvisioningArtifactName](#provisioningartifactname)
+  * Id [Id](#id)
+  * Name [ProvisioningArtifactName](#provisioningartifactname)
+  * Type [ProvisioningArtifactType](#provisioningartifacttype)
+
+### ProvisioningArtifactDetails
+* ProvisioningArtifactDetails `array`
+  * items [ProvisioningArtifactDetail](#provisioningartifactdetail)
+
+### ProvisioningArtifactInfo
+* ProvisioningArtifactInfo `array`
+  * items `object`
+    * key [ProvisioningArtifactInfoKey](#provisioningartifactinfokey)
+    * value [ProvisioningArtifactInfoValue](#provisioningartifactinfovalue)
+
+### ProvisioningArtifactInfoKey
+* ProvisioningArtifactInfoKey `string`
+
+### ProvisioningArtifactInfoValue
+* ProvisioningArtifactInfoValue `string`
+
+### ProvisioningArtifactName
+* ProvisioningArtifactName `string`
+
+### ProvisioningArtifactParameter
+* ProvisioningArtifactParameter `object`: A parameter used to successfully provision the product. This value includes a list of allowable values and additional metadata. 
+  * DefaultValue [DefaultValue](#defaultvalue)
+  * Description [Description](#description)
+  * IsNoEcho [NoEcho](#noecho)
+  * ParameterConstraints [ParameterConstraints](#parameterconstraints)
+  * ParameterKey [ParameterKey](#parameterkey)
+  * ParameterType [ParameterType](#parametertype)
+
+### ProvisioningArtifactParameters
+* ProvisioningArtifactParameters `array`
+  * items [ProvisioningArtifactParameter](#provisioningartifactparameter)
+
+### ProvisioningArtifactProperties
+* ProvisioningArtifactProperties `object`: Provisioning artifact properties. For example request JSON, see <a>CreateProvisioningArtifact</a>.
+  * Description [ProvisioningArtifactDescription](#provisioningartifactdescription)
+  * Info **required** [ProvisioningArtifactInfo](#provisioningartifactinfo)
+  * Name [ProvisioningArtifactName](#provisioningartifactname)
+  * Type [ProvisioningArtifactType](#provisioningartifacttype)
+
+### ProvisioningArtifactPropertyName
+* ProvisioningArtifactPropertyName `string` (values: Id)
+
+### ProvisioningArtifactPropertyValue
+* ProvisioningArtifactPropertyValue `string`
+
+### ProvisioningArtifactSummaries
+* ProvisioningArtifactSummaries `array`
+  * items [ProvisioningArtifactSummary](#provisioningartifactsummary)
+
+### ProvisioningArtifactSummary
+* ProvisioningArtifactSummary `object`: Stores summary information about a provisioning artifact.
+  * CreatedTime [ProvisioningArtifactCreatedTime](#provisioningartifactcreatedtime)
+  * Description [ProvisioningArtifactDescription](#provisioningartifactdescription)
+  * Id [Id](#id)
+  * Name [ProvisioningArtifactName](#provisioningartifactname)
+  * ProvisioningArtifactMetadata [ProvisioningArtifactInfo](#provisioningartifactinfo)
+
+### ProvisioningArtifactType
+* ProvisioningArtifactType `string` (values: CLOUD_FORMATION_TEMPLATE, MARKETPLACE_AMI, MARKETPLACE_CAR)
+
+### ProvisioningArtifacts
+* ProvisioningArtifacts `array`
+  * items [ProvisioningArtifact](#provisioningartifact)
+
+### ProvisioningParameter
+* ProvisioningParameter `object`: The parameter key-value pairs used to provision a product.
+  * Key [ParameterKey](#parameterkey)
+  * Value [ParameterValue](#parametervalue)
+
+### ProvisioningParameters
+* ProvisioningParameters `array`
+  * items [ProvisioningParameter](#provisioningparameter)
+
+### RecordDetail
+* RecordDetail `object`: The full details of a specific ProvisionedProduct object.
+  * CreatedTime [CreatedTime](#createdtime)
+  * PathId [Id](#id)
+  * ProductId [Id](#id)
+  * ProvisionedProductId [Id](#id)
+  * ProvisionedProductName [ProvisionedProductName](#provisionedproductname)
+  * ProvisionedProductType [ProvisionedProductType](#provisionedproducttype)
+  * ProvisioningArtifactId [Id](#id)
+  * RecordErrors [RecordErrors](#recorderrors)
+  * RecordId [Id](#id)
+  * RecordTags [RecordTags](#recordtags)
+  * RecordType [RecordType](#recordtype)
+  * Status [RecordStatus](#recordstatus)
+  * UpdatedTime [UpdatedTime](#updatedtime)
+
+### RecordDetails
+* RecordDetails `array`
+  * items [RecordDetail](#recorddetail)
+
+### RecordError
+* RecordError `object`: The error code and description resulting from an operation.
+  * Code [ErrorCode](#errorcode)
+  * Description [ErrorDescription](#errordescription)
+
+### RecordErrors
+* RecordErrors `array`
+  * items [RecordError](#recorderror)
+
+### RecordOutput
+* RecordOutput `object`: An output for the specified Product object created as the result of a request. For example, a CloudFormation-backed product that creates an S3 bucket would have an output for the S3 bucket URL.
+  * Description [Description](#description)
+  * OutputKey [OutputKey](#outputkey)
+  * OutputValue [OutputValue](#outputvalue)
+
+### RecordOutputs
+* RecordOutputs `array`
+  * items [RecordOutput](#recordoutput)
+
+### RecordStatus
+* RecordStatus `string` (values: CREATED, IN_PROGRESS, IN_PROGRESS_IN_ERROR, SUCCEEDED, FAILED)
+
+### RecordTag
+* RecordTag `object`: A tag associated with the record, stored as a key-value pair.
+  * Key [RecordTagKey](#recordtagkey)
+  * Value [RecordTagValue](#recordtagvalue)
+
+### RecordTagKey
+* RecordTagKey `string`
+
+### RecordTagValue
+* RecordTagValue `string`
+
+### RecordTags
+* RecordTags `array`
+  * items [RecordTag](#recordtag)
+
+### RecordType
+* RecordType `string`
+
+### RejectPortfolioShareInput
+* RejectPortfolioShareInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PortfolioId **required** [Id](#id)
+
+### RejectPortfolioShareOutput
+* RejectPortfolioShareOutput `object`
+
+### ResourceARN
+* ResourceARN `string`
+
+### ResourceDetail
+* ResourceDetail `object`: Detailed resource information.
+  * ARN [ResourceDetailARN](#resourcedetailarn)
+  * CreatedTime [ResourceDetailCreatedTime](#resourcedetailcreatedtime)
+  * Description [ResourceDetailDescription](#resourcedetaildescription)
+  * Id [ResourceDetailId](#resourcedetailid)
+  * Name [ResourceDetailName](#resourcedetailname)
+
+### ResourceDetailARN
+* ResourceDetailARN `string`
+
+### ResourceDetailCreatedTime
+* ResourceDetailCreatedTime `string`
+
+### ResourceDetailDescription
+* ResourceDetailDescription `string`
+
+### ResourceDetailId
+* ResourceDetailId `string`
+
+### ResourceDetailName
+* ResourceDetailName `string`
+
+### ResourceDetails
+* ResourceDetails `array`
+  * items [ResourceDetail](#resourcedetail)
+
+### ResourceId
+* ResourceId `string`
+
+### ResourceInUseException
+* ResourceInUseException `object`: The operation was requested against a resource that is currently in use. Free the resource from use and retry the operation.
+
+### ResourceNotFoundException
+* ResourceNotFoundException `object`: The specified resource was not found.
+
+### ResourceType
+* ResourceType `string`
+
+### ScanProvisionedProductsInput
+* ScanProvisionedProductsInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AccessLevelFilter [AccessLevelFilter](#accesslevelfilter)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+
+### ScanProvisionedProductsOutput
+* ScanProvisionedProductsOutput `object`
+  * NextPageToken [PageToken](#pagetoken)
+  * ProvisionedProducts [ProvisionedProductDetails](#provisionedproductdetails)
+
+### SearchFilterKey
+* SearchFilterKey `string`
+
+### SearchFilterValue
+* SearchFilterValue `string`
+
+### SearchProductsAsAdminInput
+* SearchProductsAsAdminInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Filters [ProductViewFilters](#productviewfilters)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * PortfolioId [Id](#id)
+  * ProductSource [ProductSource](#productsource)
+  * SortBy [ProductViewSortBy](#productviewsortby)
+  * SortOrder [SortOrder](#sortorder)
+
+### SearchProductsAsAdminOutput
+* SearchProductsAsAdminOutput `object`
+  * NextPageToken [PageToken](#pagetoken)
+  * ProductViewDetails [ProductViewDetails](#productviewdetails)
+
+### SearchProductsInput
+* SearchProductsInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Filters [ProductViewFilters](#productviewfilters)
+  * PageSize [PageSize](#pagesize)
+  * PageToken [PageToken](#pagetoken)
+  * SortBy [ProductViewSortBy](#productviewsortby)
+  * SortOrder [SortOrder](#sortorder)
+
+### SearchProductsOutput
+* SearchProductsOutput `object`
+  * NextPageToken [PageToken](#pagetoken)
+  * ProductViewAggregations [ProductViewAggregations](#productviewaggregations)
+  * ProductViewSummaries [ProductViewSummaries](#productviewsummaries)
+
+### SortOrder
+* SortOrder `string` (values: ASCENDING, DESCENDING)
+
+### SourceProvisioningArtifactProperties
+* SourceProvisioningArtifactProperties `array`
+  * items [SourceProvisioningArtifactPropertiesMap](#sourceprovisioningartifactpropertiesmap)
+
+### SourceProvisioningArtifactPropertiesMap
+* SourceProvisioningArtifactPropertiesMap `array`
+  * items `object`
+    * key [ProvisioningArtifactPropertyName](#provisioningartifactpropertyname)
+    * value [ProvisioningArtifactPropertyValue](#provisioningartifactpropertyvalue)
+
+### Status
+* Status `string` (values: AVAILABLE, CREATING, FAILED)
+
+### StatusDetail
+* StatusDetail `string`
+
+### SupportDescription
+* SupportDescription `string`
+
+### SupportEmail
+* SupportEmail `string`
+
+### SupportUrl
+* SupportUrl `string`
+
+### Tag
+* Tag `object`: Key-value pairs to associate with this provisioning. These tags are entirely discretionary and are propagated to the resources created in the provisioning.
+  * Key **required** [TagKey](#tagkey)
+  * Value **required** [TagValue](#tagvalue)
+
+### TagKey
+* TagKey `string`
+
+### TagKeys
+* TagKeys `array`
+  * items [TagKey](#tagkey)
+
+### TagOptionActive
+* TagOptionActive `boolean`
+
+### TagOptionDetail
+* TagOptionDetail `object`: The TagOption details.
+  * Active [TagOptionActive](#tagoptionactive)
+  * Id [TagOptionId](#tagoptionid)
+  * Key [TagOptionKey](#tagoptionkey)
+  * Value [TagOptionValue](#tagoptionvalue)
+
+### TagOptionDetails
+* TagOptionDetails `array`
+  * items [TagOptionDetail](#tagoptiondetail)
+
+### TagOptionId
+* TagOptionId `string`
+
+### TagOptionKey
+* TagOptionKey `string`
+
+### TagOptionNotMigratedException
+* TagOptionNotMigratedException `object`: An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Please use the AWS console to perform the migration process before retrying the operation.
+
+### TagOptionSummaries
+* TagOptionSummaries `array`
+  * items [TagOptionSummary](#tagoptionsummary)
+
+### TagOptionSummary
+* TagOptionSummary `object`: The TagOption summary key-value pair.
+  * Key [TagOptionKey](#tagoptionkey)
+  * Values [TagOptionValues](#tagoptionvalues)
+
+### TagOptionValue
+* TagOptionValue `string`
+
+### TagOptionValues
+* TagOptionValues `array`
+  * items [TagOptionValue](#tagoptionvalue)
+
+### TagValue
+* TagValue `string`
+
+### Tags
+* Tags `array`
+  * items [Tag](#tag)
+
+### TerminateProvisionedProductInput
+* TerminateProvisionedProductInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * IgnoreErrors [IgnoreErrors](#ignoreerrors)
+  * ProvisionedProductId [Id](#id)
+  * ProvisionedProductName [ProvisionedProductNameOrArn](#provisionedproductnameorarn)
+  * TerminateToken **required** [IdempotencyToken](#idempotencytoken)
+
+### TerminateProvisionedProductOutput
+* TerminateProvisionedProductOutput `object`
+  * RecordDetail [RecordDetail](#recorddetail)
+
+### UpdateConstraintInput
+* UpdateConstraintInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Description [ConstraintDescription](#constraintdescription)
+  * Id **required** [Id](#id)
+
+### UpdateConstraintOutput
+* UpdateConstraintOutput `object`
+  * ConstraintDetail [ConstraintDetail](#constraintdetail)
+  * ConstraintParameters [ConstraintParameters](#constraintparameters)
+  * Status [Status](#status)
+
+### UpdatePortfolioInput
+* UpdatePortfolioInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AddTags [AddTags](#addtags)
+  * Description [PortfolioDescription](#portfoliodescription)
+  * DisplayName [PortfolioDisplayName](#portfoliodisplayname)
+  * Id **required** [Id](#id)
+  * ProviderName [ProviderName](#providername)
+  * RemoveTags [TagKeys](#tagkeys)
+
+### UpdatePortfolioOutput
+* UpdatePortfolioOutput `object`
+  * PortfolioDetail [PortfolioDetail](#portfoliodetail)
+  * Tags [Tags](#tags)
+
+### UpdateProductInput
+* UpdateProductInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * AddTags [AddTags](#addtags)
+  * Description [ProductViewShortDescription](#productviewshortdescription)
+  * Distributor [ProductViewOwner](#productviewowner)
+  * Id **required** [Id](#id)
+  * Name [ProductViewName](#productviewname)
+  * Owner [ProductViewOwner](#productviewowner)
+  * RemoveTags [TagKeys](#tagkeys)
+  * SupportDescription [SupportDescription](#supportdescription)
+  * SupportEmail [SupportEmail](#supportemail)
+  * SupportUrl [SupportUrl](#supporturl)
+
+### UpdateProductOutput
+* UpdateProductOutput `object`
+  * ProductViewDetail [ProductViewDetail](#productviewdetail)
+  * Tags [Tags](#tags)
+
+### UpdateProvisionedProductInput
+* UpdateProvisionedProductInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * PathId [Id](#id)
+  * ProductId [Id](#id)
+  * ProvisionedProductId [Id](#id)
+  * ProvisionedProductName [ProvisionedProductNameOrArn](#provisionedproductnameorarn)
+  * ProvisioningArtifactId [Id](#id)
+  * ProvisioningParameters [UpdateProvisioningParameters](#updateprovisioningparameters)
+  * UpdateToken **required** [IdempotencyToken](#idempotencytoken)
+
+### UpdateProvisionedProductOutput
+* UpdateProvisionedProductOutput `object`
+  * RecordDetail [RecordDetail](#recorddetail)
+
+### UpdateProvisioningArtifactInput
+* UpdateProvisioningArtifactInput `object`
+  * AcceptLanguage [AcceptLanguage](#acceptlanguage)
+  * Description [ProvisioningArtifactDescription](#provisioningartifactdescription)
+  * Name [ProvisioningArtifactName](#provisioningartifactname)
+  * ProductId **required** [Id](#id)
+  * ProvisioningArtifactId **required** [Id](#id)
+
+### UpdateProvisioningArtifactOutput
+* UpdateProvisioningArtifactOutput `object`
+  * Info [ProvisioningArtifactInfo](#provisioningartifactinfo)
+  * ProvisioningArtifactDetail [ProvisioningArtifactDetail](#provisioningartifactdetail)
+  * Status [Status](#status)
+
+### UpdateProvisioningParameter
+* UpdateProvisioningParameter `object`: The parameter key-value pair used to update a ProvisionedProduct object. If <code>UsePreviousValue</code> is set to true, <code>Value</code> is ignored and the value for <code>Key</code> is kept as previously set (current value).
+  * Key [ParameterKey](#parameterkey)
+  * UsePreviousValue [UsePreviousValue](#usepreviousvalue)
+  * Value [ParameterValue](#parametervalue)
+
+### UpdateProvisioningParameters
+* UpdateProvisioningParameters `array`
+  * items [UpdateProvisioningParameter](#updateprovisioningparameter)
+
+### UpdateTagOptionInput
+* UpdateTagOptionInput `object`
+  * Active [TagOptionActive](#tagoptionactive)
+  * Id **required** [TagOptionId](#tagoptionid)
+  * Value [TagOptionValue](#tagoptionvalue)
+
+### UpdateTagOptionOutput
+* UpdateTagOptionOutput `object`
+  * TagOptionDetail [TagOptionDetail](#tagoptiondetail)
+
+### UpdatedTime
+* UpdatedTime `string`
+
+### UsageInstruction
+* UsageInstruction `object`: Additional information provided by the administrator.
+  * Type [InstructionType](#instructiontype)
+  * Value [InstructionValue](#instructionvalue)
+
+### UsageInstructions
+* UsageInstructions `array`
+  * items [UsageInstruction](#usageinstruction)
+
+### UsePreviousValue
+* UsePreviousValue `boolean`
+
+### Verbose
+* Verbose `boolean`
+
 

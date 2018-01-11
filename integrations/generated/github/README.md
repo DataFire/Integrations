@@ -37,7 +37,7 @@ github.oauthCallback({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * code **required** `string`
 
@@ -57,7 +57,7 @@ Exchange a refresh_token for an access_token
 github.oauthRefresh(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
 #### Output
@@ -76,7 +76,7 @@ Lists all the emojis available to use on GitHub.
 github.emojis.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * page `integer`
 
@@ -91,7 +91,7 @@ List public events.
 github.events.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * page `integer`
 
@@ -109,7 +109,7 @@ GitHub provides several timeline resources in Atom format. The Feeds API
 github.feeds.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * page `integer`
 
@@ -126,7 +126,7 @@ return all public gists.
 github.gists.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * since `string`: Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
   * page `integer`
@@ -144,7 +144,7 @@ github.gists.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * body **required** [postGist](#postgist)
 
@@ -159,7 +159,7 @@ List all public gists.
 github.gists.public.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * since `string`: Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
 
@@ -174,7 +174,7 @@ List the authenticated user's starred gists.
 github.gists.starred.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * since `string`: Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
 
@@ -191,7 +191,7 @@ github.gists.id.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of gist.
 
@@ -208,7 +208,7 @@ github.gists.id.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of gist.
 
@@ -226,7 +226,7 @@ github.gists.id.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of gist.
   * body **required** [patchGist](#patchgist)
@@ -244,7 +244,7 @@ github.gists.id.comments.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of gist.
   * page `integer`
@@ -265,7 +265,7 @@ github.gists.id.comments.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of gist.
   * body **required** [commentBody](#commentbody)
@@ -284,7 +284,7 @@ github.gists.id.comments.commentId.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of gist.
   * commentId **required** `integer`: Id of comment.
@@ -303,7 +303,7 @@ github.gists.id.comments.commentId.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of gist.
   * commentId **required** `integer`: Id of comment.
@@ -323,7 +323,7 @@ github.gists.id.comments.commentId.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of gist.
   * commentId **required** `integer`: Id of comment.
@@ -342,7 +342,7 @@ github.gists.id.forks.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of gist.
 
@@ -359,7 +359,7 @@ github.gists.id.star.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of gist.
 
@@ -376,7 +376,7 @@ github.gists.id.star.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of gist.
 
@@ -393,7 +393,7 @@ github.gists.id.star.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of gist.
 
@@ -410,7 +410,7 @@ List all templates available to pass as an option when creating a repository.
 github.gitignore.templates.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * page `integer`
 
@@ -427,7 +427,7 @@ github.gitignore.templates.language.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * language **required** `string`
 
@@ -450,7 +450,7 @@ github.issues.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * filter **required** `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
   * state **required** `string` (values: open, closed)
@@ -476,7 +476,7 @@ github.legacy.issues.search.owner.repository.state.keyword.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * keyword **required** `string`: The search term.
   * state **required** `string` (values: open, closed): Indicates the state of the issues to return. Can be either open or closed.
@@ -496,7 +496,7 @@ github.legacy.repos.search.keyword.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * keyword **required** `string`: The search term
   * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
@@ -517,7 +517,7 @@ github.legacy.user.email.email.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * email **required** `string`: The email address
 
@@ -534,7 +534,7 @@ github.legacy.user.search.keyword.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * keyword **required** `string`: The search term
   * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
@@ -554,7 +554,7 @@ github.markdown.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * body **required** [markdown](#markdown)
 
@@ -569,7 +569,7 @@ Render a Markdown document in raw mode
 github.markdown.raw.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
 #### Output
@@ -583,7 +583,7 @@ This gives some information about GitHub.com, the service.
 github.meta.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
 #### Output
@@ -600,7 +600,7 @@ github.networks.owner.repo.events.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of the owner.
   * repo **required** `string`: Name of repository.
@@ -619,7 +619,7 @@ List all notifications for the current user, grouped by repository.
 github.notifications.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * all `boolean`: True to show notifications marked as read.
   * participating `boolean`: True to show only notifications in which the user is directly participating
@@ -641,7 +641,7 @@ github.notifications.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * body **required** [notificationMarkRead](#notificationmarkread)
 
@@ -658,7 +658,7 @@ github.notifications.threads.id.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of thread.
 
@@ -675,7 +675,7 @@ github.notifications.threads.id.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of thread.
 
@@ -692,7 +692,7 @@ github.notifications.threads.id.subscription.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of thread.
 
@@ -709,7 +709,7 @@ github.notifications.threads.id.subscription.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of thread.
 
@@ -731,7 +731,7 @@ github.notifications.threads.id.subscription.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * id **required** `integer`: Id of thread.
   * body **required** [putSubscription](#putsubscription)
@@ -749,7 +749,7 @@ github.orgs.org.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
 
@@ -767,7 +767,7 @@ github.orgs.org.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * body **required** [patchOrg](#patchorg)
@@ -785,7 +785,7 @@ github.orgs.org.events.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * page `integer`
@@ -810,7 +810,7 @@ github.orgs.org.issues.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * filter **required** `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
@@ -840,7 +840,7 @@ github.orgs.org.members.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * page `integer`
@@ -862,7 +862,7 @@ github.orgs.org.members.username.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * username **required** `string`: Name of the user.
@@ -881,7 +881,7 @@ github.orgs.org.members.username.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * username **required** `string`: Name of the user.
@@ -902,7 +902,7 @@ github.orgs.org.public_members.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * page `integer`
@@ -921,7 +921,7 @@ github.orgs.org.public_members.username.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * username **required** `string`: Name of the user.
@@ -940,7 +940,7 @@ github.orgs.org.public_members.username.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * username **required** `string`: Name of the user.
@@ -959,7 +959,7 @@ github.orgs.org.public_members.username.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * username **required** `string`: Name of the user.
@@ -977,7 +977,7 @@ github.orgs.org.repos.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * type `string` (values: all, public, private, forks, sources, member)
@@ -1001,7 +1001,7 @@ github.orgs.org.repos.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * body **required** [postRepo](#postrepo)
@@ -1019,7 +1019,7 @@ github.orgs.org.teams.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * page `integer`
@@ -1042,7 +1042,7 @@ github.orgs.org.teams.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * org **required** `string`: Name of organisation.
   * body **required** [orgTeamsPost](#orgteamspost)
@@ -1060,7 +1060,7 @@ Note: Accessing this endpoint does not count against your rate limit.
 github.rate_limit.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
 #### Output
@@ -1080,7 +1080,7 @@ github.repos.owner.repo.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1099,7 +1099,7 @@ github.repos.owner.repo.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1119,7 +1119,7 @@ github.repos.owner.repo.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1142,7 +1142,7 @@ github.repos.owner.repo.assignees.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1165,7 +1165,7 @@ github.repos.owner.repo.assignees.assignee.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1185,7 +1185,7 @@ github.repos.owner.repo.branches.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1206,7 +1206,7 @@ github.repos.owner.repo.branches.branch.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1231,7 +1231,7 @@ github.repos.owner.repo.collaborators.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1252,7 +1252,7 @@ github.repos.owner.repo.collaborators.user.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1273,7 +1273,7 @@ github.repos.owner.repo.collaborators.user.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1294,7 +1294,7 @@ github.repos.owner.repo.collaborators.user.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1316,7 +1316,7 @@ github.repos.owner.repo.comments.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1337,7 +1337,7 @@ github.repos.owner.repo.comments.commentId.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1358,7 +1358,7 @@ github.repos.owner.repo.comments.commentId.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1382,7 +1382,7 @@ github.repos.owner.repo.comments.commentId.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1403,7 +1403,7 @@ github.repos.owner.repo.commits.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1433,7 +1433,7 @@ github.repos.owner.repo.commits.ref.status.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1455,7 +1455,7 @@ github.repos.owner.repo.commits.shaCode.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1476,7 +1476,7 @@ github.repos.owner.repo.commits.shaCode.comments.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1502,7 +1502,7 @@ github.repos.owner.repo.commits.shaCode.comments.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1525,7 +1525,7 @@ github.repos.owner.repo.compare.baseId...headId.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1550,7 +1550,7 @@ github.repos.owner.repo.contents.path.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1578,7 +1578,7 @@ github.repos.owner.repo.contents.path.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1602,7 +1602,7 @@ github.repos.owner.repo.contents.path.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1624,7 +1624,7 @@ github.repos.owner.repo.contributors.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1645,7 +1645,7 @@ github.repos.owner.repo.deployments.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1666,7 +1666,7 @@ github.repos.owner.repo.deployments.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1687,7 +1687,7 @@ github.repos.owner.repo.deployments.id.statuses.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1712,7 +1712,7 @@ github.repos.owner.repo.deployments.id.statuses.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1733,7 +1733,7 @@ github.repos.owner.repo.downloads.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1754,7 +1754,7 @@ github.repos.owner.repo.downloads.downloadId.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1775,7 +1775,7 @@ github.repos.owner.repo.downloads.downloadId.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1795,7 +1795,7 @@ github.repos.owner.repo.events.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1815,7 +1815,7 @@ github.repos.owner.repo.forks.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1841,7 +1841,7 @@ github.repos.owner.repo.forks.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1862,7 +1862,7 @@ github.repos.owner.repo.git.blobs.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1888,7 +1888,7 @@ github.repos.owner.repo.git.blobs.shaCode.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1913,7 +1913,7 @@ github.repos.owner.repo.git.commits.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1934,7 +1934,7 @@ github.repos.owner.repo.git.commits.shaCode.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1954,7 +1954,7 @@ github.repos.owner.repo.git.refs.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1975,7 +1975,7 @@ github.repos.owner.repo.git.refs.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -1999,7 +1999,7 @@ github.repos.owner.repo.git.refs.ref.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2020,7 +2020,7 @@ github.repos.owner.repo.git.refs.ref.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2042,7 +2042,7 @@ github.repos.owner.repo.git.refs.ref.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2070,7 +2070,7 @@ github.repos.owner.repo.git.tags.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2091,7 +2091,7 @@ github.repos.owner.repo.git.tags.shaCode.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2116,7 +2116,7 @@ github.repos.owner.repo.git.trees.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2137,7 +2137,7 @@ github.repos.owner.repo.git.trees.shaCode.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2158,7 +2158,7 @@ github.repos.owner.repo.hooks.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2179,7 +2179,7 @@ github.repos.owner.repo.hooks.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2200,7 +2200,7 @@ github.repos.owner.repo.hooks.hookId.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2221,7 +2221,7 @@ github.repos.owner.repo.hooks.hookId.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2243,7 +2243,7 @@ github.repos.owner.repo.hooks.hookId.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2271,7 +2271,7 @@ github.repos.owner.repo.hooks.hookId.tests.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2296,7 +2296,7 @@ github.repos.owner.repo.issues.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2325,7 +2325,7 @@ github.repos.owner.repo.issues.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2345,7 +2345,7 @@ github.repos.owner.repo.issues.comments.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2369,7 +2369,7 @@ github.repos.owner.repo.issues.comments.commentId.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2390,7 +2390,7 @@ github.repos.owner.repo.issues.comments.commentId.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2414,7 +2414,7 @@ github.repos.owner.repo.issues.comments.commentId.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2435,7 +2435,7 @@ github.repos.owner.repo.issues.events.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2456,7 +2456,7 @@ github.repos.owner.repo.issues.events.eventId.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2477,7 +2477,7 @@ github.repos.owner.repo.issues.number.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2501,7 +2501,7 @@ github.repos.owner.repo.issues.number.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2523,7 +2523,7 @@ github.repos.owner.repo.issues.number.comments.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2548,7 +2548,7 @@ github.repos.owner.repo.issues.number.comments.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2570,7 +2570,7 @@ github.repos.owner.repo.issues.number.events.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2592,7 +2592,7 @@ github.repos.owner.repo.issues.number.labels.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2613,7 +2613,7 @@ github.repos.owner.repo.issues.number.labels.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2636,7 +2636,7 @@ github.repos.owner.repo.issues.number.labels.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2661,7 +2661,7 @@ github.repos.owner.repo.issues.number.labels.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2684,7 +2684,7 @@ github.repos.owner.repo.issues.number.labels.name.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2705,7 +2705,7 @@ github.repos.owner.repo.keys.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2726,7 +2726,7 @@ github.repos.owner.repo.keys.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2747,7 +2747,7 @@ github.repos.owner.repo.keys.keyId.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2768,7 +2768,7 @@ github.repos.owner.repo.keys.keyId.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2788,7 +2788,7 @@ github.repos.owner.repo.labels.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2809,7 +2809,7 @@ github.repos.owner.repo.labels.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2830,7 +2830,7 @@ github.repos.owner.repo.labels.name.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2851,7 +2851,7 @@ github.repos.owner.repo.labels.name.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2873,7 +2873,7 @@ github.repos.owner.repo.labels.name.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2897,7 +2897,7 @@ github.repos.owner.repo.languages.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2918,7 +2918,7 @@ github.repos.owner.repo.merges.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2938,7 +2938,7 @@ github.repos.owner.repo.milestones.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2962,7 +2962,7 @@ github.repos.owner.repo.milestones.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -2983,7 +2983,7 @@ github.repos.owner.repo.milestones.number.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3004,7 +3004,7 @@ github.repos.owner.repo.milestones.number.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3026,7 +3026,7 @@ github.repos.owner.repo.milestones.number.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3048,7 +3048,7 @@ github.repos.owner.repo.milestones.number.labels.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3071,7 +3071,7 @@ github.repos.owner.repo.notifications.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3098,7 +3098,7 @@ github.repos.owner.repo.notifications.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3118,7 +3118,7 @@ github.repos.owner.repo.pulls.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3142,7 +3142,7 @@ github.repos.owner.repo.pulls.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3164,7 +3164,7 @@ github.repos.owner.repo.pulls.comments.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3188,7 +3188,7 @@ github.repos.owner.repo.pulls.comments.commentId.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3209,7 +3209,7 @@ github.repos.owner.repo.pulls.comments.commentId.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3233,7 +3233,7 @@ github.repos.owner.repo.pulls.comments.commentId.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3255,7 +3255,7 @@ github.repos.owner.repo.pulls.number.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3277,7 +3277,7 @@ github.repos.owner.repo.pulls.number.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3299,7 +3299,7 @@ github.repos.owner.repo.pulls.number.comments.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3333,7 +3333,7 @@ github.repos.owner.repo.pulls.number.comments.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3355,7 +3355,7 @@ github.repos.owner.repo.pulls.number.commits.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3377,7 +3377,7 @@ github.repos.owner.repo.pulls.number.files.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3399,7 +3399,7 @@ github.repos.owner.repo.pulls.number.merge.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3421,7 +3421,7 @@ github.repos.owner.repo.pulls.number.merge.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3444,7 +3444,7 @@ github.repos.owner.repo.readme.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3464,7 +3464,7 @@ github.repos.owner.repo.releases.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3487,7 +3487,7 @@ github.repos.owner.repo.releases.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3508,7 +3508,7 @@ github.repos.owner.repo.releases.assets.id.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3529,7 +3529,7 @@ github.repos.owner.repo.releases.assets.id.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3555,7 +3555,7 @@ github.repos.owner.repo.releases.assets.id.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3577,7 +3577,7 @@ github.repos.owner.repo.releases.id.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3598,7 +3598,7 @@ github.repos.owner.repo.releases.id.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3620,7 +3620,7 @@ github.repos.owner.repo.releases.id.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3642,7 +3642,7 @@ github.repos.owner.repo.releases.id.assets.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3663,7 +3663,7 @@ github.repos.owner.repo.stargazers.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3686,7 +3686,7 @@ github.repos.owner.repo.stats.code_frequency.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3708,7 +3708,7 @@ github.repos.owner.repo.stats.commit_activity.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3727,7 +3727,7 @@ github.repos.owner.repo.stats.contributors.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3747,7 +3747,7 @@ github.repos.owner.repo.stats.participation.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3775,7 +3775,7 @@ github.repos.owner.repo.stats.punch_card.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3795,7 +3795,7 @@ github.repos.owner.repo.statuses.ref.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3817,7 +3817,7 @@ github.repos.owner.repo.statuses.ref.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3838,7 +3838,7 @@ github.repos.owner.repo.subscribers.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3858,7 +3858,7 @@ github.repos.owner.repo.subscription.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3877,7 +3877,7 @@ github.repos.owner.repo.subscription.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3897,7 +3897,7 @@ github.repos.owner.repo.subscription.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3917,7 +3917,7 @@ github.repos.owner.repo.tags.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3937,7 +3937,7 @@ github.repos.owner.repo.teams.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3957,7 +3957,7 @@ github.repos.owner.repo.watchers.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -3985,7 +3985,7 @@ github.repos.owner.repo.archive_format.path.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of repository owner.
   * repo **required** `string`: Name of repository.
@@ -4008,7 +4008,7 @@ Link header to get the URL for the next page of repositories.
 github.repositories.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * since `string`: The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
   * page `integer`
@@ -4026,7 +4026,7 @@ github.search.code.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
   * q **required** `string`: The search terms. This can be any combination of the supported code
@@ -4045,7 +4045,7 @@ github.search.issues.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
   * q **required** `string`: The q search term can also contain any combination of the supported issue search qualifiers:
@@ -4065,7 +4065,7 @@ github.search.repositories.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
   * q **required** `string`: The search terms. This can be any combination of the supported repository
@@ -4085,7 +4085,7 @@ github.search.users.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * order `string` (values: desc, asc): The sort field. if sort param is provided. Can be either asc or desc.
   * q **required** `string`: The search terms. This can be any combination of the supported user
@@ -4108,7 +4108,7 @@ github.teams.teamId.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
 
@@ -4125,7 +4125,7 @@ github.teams.teamId.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
 
@@ -4148,7 +4148,7 @@ github.teams.teamId.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
   * body **required** [editTeam](#editteam)
@@ -4169,7 +4169,7 @@ github.teams.teamId.members.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
   * page `integer`
@@ -4195,7 +4195,7 @@ github.teams.teamId.members.username.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
   * username **required** `string`: Name of a member.
@@ -4219,7 +4219,7 @@ github.teams.teamId.members.username.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
   * username **required** `string`: Name of a member.
@@ -4244,7 +4244,7 @@ github.teams.teamId.members.username.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
   * username **required** `string`: Name of a member.
@@ -4265,7 +4265,7 @@ github.teams.teamId.memberships.username.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
   * username **required** `string`: Name of a member.
@@ -4286,7 +4286,7 @@ github.teams.teamId.memberships.username.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
   * username **required** `string`: Name of a member.
@@ -4311,7 +4311,7 @@ github.teams.teamId.memberships.username.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
   * username **required** `string`: Name of a member.
@@ -4329,7 +4329,7 @@ github.teams.teamId.repos.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
   * page `integer`
@@ -4349,7 +4349,7 @@ github.teams.teamId.repos.org.repo.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
   * org **required** `string`: Name of a organization.
@@ -4370,7 +4370,7 @@ github.teams.teamId.repos.owner.repo.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
   * owner **required** `string`: Name of a repository owner.
@@ -4391,7 +4391,7 @@ github.teams.teamId.repos.owner.repo.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * teamId **required** `integer`: Id of team.
   * owner **required** `string`: Name of a repository owner.
@@ -4408,7 +4408,7 @@ Get the authenticated user.
 github.user.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
 #### Output
@@ -4424,7 +4424,7 @@ github.user.patch({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * body **required** [user-update](#user-update)
 
@@ -4443,7 +4443,7 @@ github.user.emails.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * body **required** [user-emails](#user-emails)
 
@@ -4464,7 +4464,7 @@ get other response format.
 github.user.emails.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * page `integer`
 
@@ -4483,7 +4483,7 @@ github.user.emails.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * body **required** [emailsPost](#emailspost)
 
@@ -4498,7 +4498,7 @@ List the authenticated user's followers
 github.user.followers.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * page `integer`
 
@@ -4513,7 +4513,7 @@ List who the authenticated user is following.
 github.user.following.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
 #### Output
@@ -4532,7 +4532,7 @@ github.user.following.username.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
 
@@ -4549,7 +4549,7 @@ github.user.following.username.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
 
@@ -4569,7 +4569,7 @@ github.user.following.username.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
 
@@ -4593,7 +4593,7 @@ github.user.issues.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * filter **required** `string` (values: assigned, created, mentioned, subscribed, all): Issues assigned to you / created by you / mentioning you / you're
   * state **required** `string` (values: open, closed)
@@ -4617,7 +4617,7 @@ that you are authenticated through basic auth, or OAuth with the 'user', 'write:
 github.user.keys.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * page `integer`
 
@@ -4634,7 +4634,7 @@ github.user.keys.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * body **required** [user-keys-post](#user-keys-post)
 
@@ -4651,7 +4651,7 @@ github.user.keys.keyId.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * keyId **required** `integer`: ID of key.
 
@@ -4668,7 +4668,7 @@ github.user.keys.keyId.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * keyId **required** `integer`: ID of key.
 
@@ -4683,7 +4683,7 @@ List public and private organizations for the authenticated user.
 github.user.orgs.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * page `integer`
 
@@ -4701,7 +4701,7 @@ user organizations and list organization repositories separately.
 github.user.repos.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * type `string` (values: all, public, private, forks, sources, member)
   * page `integer`
@@ -4723,7 +4723,7 @@ github.user.repos.post({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * body **required** [postRepo](#postrepo)
 
@@ -4738,7 +4738,7 @@ List repositories being starred by the authenticated user.
 github.user.starred.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * direction `string`: Ignored without 'sort' parameter.
   * sort `string` (values: created, updated)
@@ -4757,7 +4757,7 @@ github.user.starred.owner.repo.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of a repository owner.
   * repo **required** `string`: Name of a repository.
@@ -4776,7 +4776,7 @@ github.user.starred.owner.repo.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of a repository owner.
   * repo **required** `string`: Name of a repository.
@@ -4795,7 +4795,7 @@ github.user.starred.owner.repo.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of a repository owner.
   * repo **required** `string`: Name of a repository.
@@ -4811,7 +4811,7 @@ List repositories being watched by the authenticated user.
 github.user.subscriptions.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * page `integer`
 
@@ -4829,7 +4829,7 @@ github.user.subscriptions.owner.repo.delete({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of the owner.
   * repo **required** `string`: Name of repository.
@@ -4848,7 +4848,7 @@ github.user.subscriptions.owner.repo.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of the owner.
   * repo **required** `string`: Name of repository.
@@ -4867,7 +4867,7 @@ github.user.subscriptions.owner.repo.put({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * owner **required** `string`: Name of the owner.
   * repo **required** `string`: Name of repository.
@@ -4883,7 +4883,7 @@ List all of the teams across all of the organizations to which the authenticated
 github.user.teams.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * page `integer`
 
@@ -4902,7 +4902,7 @@ header to get the URL for the next page of users.
 github.users.get({}, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * since `integer`: The integer ID of the last User that you've seen.
   * page `integer`
@@ -4920,7 +4920,7 @@ github.users.username.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
 
@@ -4937,7 +4937,7 @@ github.users.username.events.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
   * page `integer`
@@ -4956,7 +4956,7 @@ github.users.username.events.orgs.org.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
   * org **required** `string`
@@ -4974,7 +4974,7 @@ github.users.username.followers.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
   * page `integer`
@@ -4993,7 +4993,7 @@ github.users.username.following.targetUser.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
   * targetUser **required** `string`: Name of user.
@@ -5011,7 +5011,7 @@ github.users.username.gists.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
   * since `string`: The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
@@ -5032,7 +5032,7 @@ github.users.username.keys.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
   * page `integer`
@@ -5050,7 +5050,7 @@ github.users.username.orgs.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
   * page `integer`
@@ -5068,7 +5068,7 @@ github.users.username.received_events.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
   * page `integer`
@@ -5086,7 +5086,7 @@ github.users.username.received_events.public.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
 
@@ -5103,7 +5103,7 @@ github.users.username.repos.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
   * type `string` (values: all, public, private, forks, sources, member)
@@ -5122,7 +5122,7 @@ github.users.username.starred.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
 
@@ -5139,7 +5139,7 @@ github.users.username.subscriptions.get({
 }, context)
 ```
 
-#### Parameters
+#### Input
 * input `object`
   * username **required** `string`: Name of user.
   * page `integer`

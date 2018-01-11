@@ -4,17 +4,15 @@ Client library for airportsapi
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/airport_web_appspot
+npm install --save @datafire/airport_web_appspot
 ```
-
 ```js
-let datafire = require('datafire');
 let airport_web_appspot = require('@datafire/airport_web_appspot').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 airport_web_appspot.AirportApi_getAirport({}).then(data => {
@@ -23,9 +21,11 @@ airport_web_appspot.AirportApi_getAirport({}).then(data => {
 ```
 
 ## Description
+
 Get name and website-URL for airports by ICAO code. Covered airports are mostly in Germany.
 
 ## Actions
+
 ### AirportApi_getAirport
 
 
@@ -36,6 +36,22 @@ airport_web_appspot.AirportApi_getAirport({
 }, context)
 ```
 
-#### Parameters
-* icao_code (string) **required**
+#### Input
+* input `object`
+  * icao_code **required** `string`
+
+#### Output
+* output [ApiEndpointsAirportResponse](#apiendpointsairportresponse)
+
+
+
+## Definitions
+
+### ApiEndpointsAirportResponse
+* ApiEndpointsAirportResponse `object`
+  * ICAO `string`
+  * last_update `string`
+  * name `string`
+  * url `string`
+
 

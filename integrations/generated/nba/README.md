@@ -4,11 +4,9 @@ Client library for NBA Stats
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/nba
+npm install --save @datafire/nba
 ```
-
 ```js
-let datafire = require('datafire');
 let nba = require('@datafire/nba').create();
 
 nba.playerdashptshotlog.get({}).then(data => {
@@ -17,9 +15,11 @@ nba.playerdashptshotlog.get({}).then(data => {
 ```
 
 ## Description
+
 The destination for current and historic NBA statistics.
 
 ## Actions
+
 ### allstarballotpredictor.get
 
 
@@ -39,18 +39,22 @@ nba.allstarballotpredictor.get({
 }, context)
 ```
 
-#### Parameters
-* PointCap (string)
-* WestPlayer1 (string) **required**
-* WestPlayer2 (string) **required**
-* WestPlayer3 (string) **required**
-* WestPlayer4 (string) **required**
-* WestPlayer5 (string) **required**
-* EastPlayer1 (string) **required**
-* EastPlayer2 (string) **required**
-* EastPlayer3 (string) **required**
-* EastPlayer4 (string) **required**
-* EastPlayer5 (string) **required**
+#### Input
+* input `object`
+  * PointCap `string`
+  * WestPlayer1 **required** `string`
+  * WestPlayer2 **required** `string`
+  * WestPlayer3 **required** `string`
+  * WestPlayer4 **required** `string`
+  * WestPlayer5 **required** `string`
+  * EastPlayer1 **required** `string`
+  * EastPlayer2 **required** `string`
+  * EastPlayer3 **required** `string`
+  * EastPlayer4 **required** `string`
+  * EastPlayer5 **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscore.get
 
@@ -60,13 +64,17 @@ nba.allstarballotpredictor.get({
 nba.boxscore.get({}, context)
 ```
 
-#### Parameters
-* GameID (string)
-* StartPeriod (string)
-* EndPeriod (string)
-* StartRange (string)
-* EndRange (string)
-* RangeType (string)
+#### Input
+* input `object`
+  * GameID `string`
+  * StartPeriod `string`
+  * EndPeriod `string`
+  * StartRange `string`
+  * EndRange `string`
+  * RangeType `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscoreadvanced.get
 
@@ -76,13 +84,17 @@ nba.boxscore.get({}, context)
 nba.boxscoreadvanced.get({}, context)
 ```
 
-#### Parameters
-* GameID (string)
-* StartPeriod (string)
-* EndPeriod (string)
-* StartRange (string)
-* EndRange (string)
-* RangeType (string)
+#### Input
+* input `object`
+  * GameID `string`
+  * StartPeriod `string`
+  * EndPeriod `string`
+  * StartRange `string`
+  * EndRange `string`
+  * RangeType `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscoreadvancedv2.get
 
@@ -99,13 +111,17 @@ nba.boxscoreadvancedv2.get({
 }, context)
 ```
 
-#### Parameters
-* GameID (string) **required**
-* StartPeriod (string) **required**
-* EndPeriod (string) **required**
-* StartRange (string) **required**
-* EndRange (string) **required**
-* RangeType (string) **required**
+#### Input
+* input `object`
+  * GameID **required** `string`
+  * StartPeriod **required** `string`
+  * EndPeriod **required** `string`
+  * StartRange **required** `string`
+  * EndRange **required** `string`
+  * RangeType **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscorefourfactors.get
 
@@ -115,13 +131,17 @@ nba.boxscoreadvancedv2.get({
 nba.boxscorefourfactors.get({}, context)
 ```
 
-#### Parameters
-* GameID (string)
-* StartPeriod (string)
-* EndPeriod (string)
-* StartRange (string)
-* EndRange (string)
-* RangeType (string)
+#### Input
+* input `object`
+  * GameID `string`
+  * StartPeriod `string`
+  * EndPeriod `string`
+  * StartRange `string`
+  * EndRange `string`
+  * RangeType `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscorefourfactorsv2.get
 
@@ -138,13 +158,17 @@ nba.boxscorefourfactorsv2.get({
 }, context)
 ```
 
-#### Parameters
-* GameID (string) **required**
-* StartPeriod (string) **required**
-* EndPeriod (string) **required**
-* StartRange (string) **required**
-* EndRange (string) **required**
-* RangeType (string) **required**
+#### Input
+* input `object`
+  * GameID **required** `string`
+  * StartPeriod **required** `string`
+  * EndPeriod **required** `string`
+  * StartRange **required** `string`
+  * EndRange **required** `string`
+  * RangeType **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscoremisc.get
 
@@ -154,13 +178,17 @@ nba.boxscorefourfactorsv2.get({
 nba.boxscoremisc.get({}, context)
 ```
 
-#### Parameters
-* GameID (string)
-* StartPeriod (string)
-* EndPeriod (string)
-* StartRange (string)
-* EndRange (string)
-* RangeType (string)
+#### Input
+* input `object`
+  * GameID `string`
+  * StartPeriod `string`
+  * EndPeriod `string`
+  * StartRange `string`
+  * EndRange `string`
+  * RangeType `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscoremiscv2.get
 
@@ -177,13 +205,17 @@ nba.boxscoremiscv2.get({
 }, context)
 ```
 
-#### Parameters
-* GameID (string) **required**
-* StartPeriod (string) **required**
-* EndPeriod (string) **required**
-* StartRange (string) **required**
-* EndRange (string) **required**
-* RangeType (string) **required**
+#### Input
+* input `object`
+  * GameID **required** `string`
+  * StartPeriod **required** `string`
+  * EndPeriod **required** `string`
+  * StartRange **required** `string`
+  * EndRange **required** `string`
+  * RangeType **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscoreplayertrackv2.get
 
@@ -195,8 +227,12 @@ nba.boxscoreplayertrackv2.get({
 }, context)
 ```
 
-#### Parameters
-* GameID (string) **required**
+#### Input
+* input `object`
+  * GameID **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscorescoring.get
 
@@ -206,13 +242,17 @@ nba.boxscoreplayertrackv2.get({
 nba.boxscorescoring.get({}, context)
 ```
 
-#### Parameters
-* GameID (string)
-* StartPeriod (string)
-* EndPeriod (string)
-* StartRange (string)
-* EndRange (string)
-* RangeType (string)
+#### Input
+* input `object`
+  * GameID `string`
+  * StartPeriod `string`
+  * EndPeriod `string`
+  * StartRange `string`
+  * EndRange `string`
+  * RangeType `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscorescoringv2.get
 
@@ -229,13 +269,17 @@ nba.boxscorescoringv2.get({
 }, context)
 ```
 
-#### Parameters
-* GameID (string) **required**
-* StartPeriod (string) **required**
-* EndPeriod (string) **required**
-* StartRange (string) **required**
-* EndRange (string) **required**
-* RangeType (string) **required**
+#### Input
+* input `object`
+  * GameID **required** `string`
+  * StartPeriod **required** `string`
+  * EndPeriod **required** `string`
+  * StartRange **required** `string`
+  * EndRange **required** `string`
+  * RangeType **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscoresummaryv2.get
 
@@ -247,8 +291,12 @@ nba.boxscoresummaryv2.get({
 }, context)
 ```
 
-#### Parameters
-* GameID (string) **required**
+#### Input
+* input `object`
+  * GameID **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscoretraditionalv2.get
 
@@ -265,13 +313,17 @@ nba.boxscoretraditionalv2.get({
 }, context)
 ```
 
-#### Parameters
-* GameID (string) **required**
-* StartPeriod (string) **required**
-* EndPeriod (string) **required**
-* StartRange (string) **required**
-* EndRange (string) **required**
-* RangeType (string) **required**
+#### Input
+* input `object`
+  * GameID **required** `string`
+  * StartPeriod **required** `string`
+  * EndPeriod **required** `string`
+  * StartRange **required** `string`
+  * EndRange **required** `string`
+  * RangeType **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscoreusage.get
 
@@ -281,13 +333,17 @@ nba.boxscoretraditionalv2.get({
 nba.boxscoreusage.get({}, context)
 ```
 
-#### Parameters
-* GameID (string)
-* StartPeriod (string)
-* EndPeriod (string)
-* StartRange (string)
-* EndRange (string)
-* RangeType (string)
+#### Input
+* input `object`
+  * GameID `string`
+  * StartPeriod `string`
+  * EndPeriod `string`
+  * StartRange `string`
+  * EndRange `string`
+  * RangeType `string`
+
+#### Output
+*Output schema unknown*
 
 ### boxscoreusagev2.get
 
@@ -304,13 +360,17 @@ nba.boxscoreusagev2.get({
 }, context)
 ```
 
-#### Parameters
-* GameID (string) **required**
-* StartPeriod (string) **required**
-* EndPeriod (string) **required**
-* StartRange (string) **required**
-* EndRange (string) **required**
-* RangeType (string) **required**
+#### Input
+* input `object`
+  * GameID **required** `string`
+  * StartPeriod **required** `string`
+  * EndPeriod **required** `string`
+  * StartRange **required** `string`
+  * EndRange **required** `string`
+  * RangeType **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### commonTeamYears.get
 
@@ -322,8 +382,12 @@ nba.commonTeamYears.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### commonallplayers.get
 
@@ -337,10 +401,14 @@ nba.commonallplayers.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* Season (string) **required**
-* IsOnlyCurrentSeason (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * Season **required** `string`
+  * IsOnlyCurrentSeason **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### commonplayerinfo.get
 
@@ -352,8 +420,12 @@ nba.commonplayerinfo.get({
 }, context)
 ```
 
-#### Parameters
-* PlayerID (string) **required**
+#### Input
+* input `object`
+  * PlayerID **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### commonplayoffseries.get
 
@@ -366,9 +438,13 @@ nba.commonplayoffseries.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* Season (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * Season **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### commonteamroster.get
 
@@ -381,9 +457,13 @@ nba.commonteamroster.get({
 }, context)
 ```
 
-#### Parameters
-* Season (string) **required**
-* TeamID (string) **required**
+#### Input
+* input `object`
+  * Season **required** `string`
+  * TeamID **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### draftcombinedrillresults.get
 
@@ -396,9 +476,13 @@ nba.draftcombinedrillresults.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* SeasonYear (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * SeasonYear **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### draftcombinenonstationaryshooting.get
 
@@ -411,9 +495,13 @@ nba.draftcombinenonstationaryshooting.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* SeasonYear (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * SeasonYear **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### draftcombineplayeranthro.get
 
@@ -426,9 +514,13 @@ nba.draftcombineplayeranthro.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* SeasonYear (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * SeasonYear **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### draftcombinespotshooting.get
 
@@ -441,9 +533,13 @@ nba.draftcombinespotshooting.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* SeasonYear (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * SeasonYear **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### draftcombinestats.get
 
@@ -456,9 +552,13 @@ nba.draftcombinestats.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* SeasonYear (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * SeasonYear **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### drafthistory.get
 
@@ -470,8 +570,12 @@ nba.drafthistory.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### franchisehistory.get
 
@@ -483,8 +587,12 @@ nba.franchisehistory.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### homepageleaders.get
 
@@ -502,16 +610,20 @@ nba.homepageleaders.get({
 }, context)
 ```
 
-#### Parameters
-* StatCategory (string) **required**
-* LeagueID (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerOrTeam (string) **required**
-* Game (string)
-* Player (string)
-* PlayerScope (string) **required**
-* GameScope (string) **required**
+#### Input
+* input `object`
+  * StatCategory **required** `string`
+  * LeagueID **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerOrTeam **required** `string`
+  * Game `string`
+  * Player `string`
+  * PlayerScope **required** `string`
+  * GameScope **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### homepagev2.get
 
@@ -529,16 +641,20 @@ nba.homepagev2.get({
 }, context)
 ```
 
-#### Parameters
-* StatType (string) **required**
-* LeagueID (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerOrTeam (string) **required**
-* Game (string)
-* Player (string)
-* PlayerScope (string) **required**
-* GameScope (string) **required**
+#### Input
+* input `object`
+  * StatType **required** `string`
+  * LeagueID **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerOrTeam **required** `string`
+  * Game `string`
+  * Player `string`
+  * PlayerScope **required** `string`
+  * GameScope **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leaderstiles.get
 
@@ -556,16 +672,20 @@ nba.leaderstiles.get({
 }, context)
 ```
 
-#### Parameters
-* Stat (string) **required**
-* LeagueID (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerOrTeam (string) **required**
-* Game (string)
-* Player (string)
-* PlayerScope (string) **required**
-* GameScope (string) **required**
+#### Input
+* input `object`
+  * Stat **required** `string`
+  * LeagueID **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerOrTeam **required** `string`
+  * Game `string`
+  * Player `string`
+  * PlayerScope **required** `string`
+  * GameScope **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leaguedashlineups.get
 
@@ -596,27 +716,31 @@ nba.leaguedashlineups.get({
 }, context)
 ```
 
-#### Parameters
-* GroupQuantity (string) **required**
-* SeasonType (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * GroupQuantity **required** `string`
+  * SeasonType **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leaguedashplayerbiostats.get
 
@@ -631,11 +755,15 @@ nba.leaguedashplayerbiostats.get({
 }, context)
 ```
 
-#### Parameters
-* PerMode (string) **required**
-* LeagueID (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
+#### Input
+* input `object`
+  * PerMode **required** `string`
+  * LeagueID **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leaguedashplayerclutch.get
 
@@ -672,33 +800,37 @@ nba.leaguedashplayerclutch.get({
 }, context)
 ```
 
-#### Parameters
-* ClutchTime (string) **required**
-* AheadBehind (string) **required**
-* PointDiff (string) **required**
-* GameScope (string) **required**
-* PlayerExperience (string) **required**
-* PlayerPosition (string) **required**
-* StarterBench (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * ClutchTime **required** `string`
+  * AheadBehind **required** `string`
+  * PointDiff **required** `string`
+  * GameScope **required** `string`
+  * PlayerExperience **required** `string`
+  * PlayerPosition **required** `string`
+  * StarterBench **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leaguedashplayerptshot.get
 
@@ -713,11 +845,15 @@ nba.leaguedashplayerptshot.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* PerMode (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * PerMode **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leaguedashplayershotlocations.get
 
@@ -752,31 +888,35 @@ nba.leaguedashplayershotlocations.get({
 }, context)
 ```
 
-#### Parameters
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
-* DistanceRange (string) **required**
-* GameScope (string) **required**
-* PlayerExperience (string) **required**
-* PlayerPosition (string) **required**
-* StarterBench (string) **required**
+#### Input
+* input `object`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+  * DistanceRange **required** `string`
+  * GameScope **required** `string`
+  * PlayerExperience **required** `string`
+  * PlayerPosition **required** `string`
+  * StarterBench **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leaguedashplayerstats.get
 
@@ -810,30 +950,34 @@ nba.leaguedashplayerstats.get({
 }, context)
 ```
 
-#### Parameters
-* GameScope (string) **required**
-* PlayerExperience (string) **required**
-* PlayerPosition (string) **required**
-* StarterBench (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * GameScope **required** `string`
+  * PlayerExperience **required** `string`
+  * PlayerPosition **required** `string`
+  * StarterBench **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leaguedashptdefend.get
 
@@ -849,12 +993,16 @@ nba.leaguedashptdefend.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* PerMode (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* DefenseCategory (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * PerMode **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * DefenseCategory **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leaguedashptteamdefend.get
 
@@ -870,12 +1018,16 @@ nba.leaguedashptteamdefend.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* PerMode (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* DefenseCategory (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * PerMode **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * DefenseCategory **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leaguedashteamclutch.get
 
@@ -912,33 +1064,37 @@ nba.leaguedashteamclutch.get({
 }, context)
 ```
 
-#### Parameters
-* ClutchTime (string) **required**
-* AheadBehind (string) **required**
-* PointDiff (string) **required**
-* GameScope (string) **required**
-* PlayerExperience (string) **required**
-* PlayerPosition (string) **required**
-* StarterBench (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * ClutchTime **required** `string`
+  * AheadBehind **required** `string`
+  * PointDiff **required** `string`
+  * GameScope **required** `string`
+  * PlayerExperience **required** `string`
+  * PlayerPosition **required** `string`
+  * StarterBench **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leaguedashteamptshot.get
 
@@ -953,11 +1109,15 @@ nba.leaguedashteamptshot.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* PerMode (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * PerMode **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leaguedashteamshotlocations.get
 
@@ -992,31 +1152,35 @@ nba.leaguedashteamshotlocations.get({
 }, context)
 ```
 
-#### Parameters
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
-* DistanceRange (string) **required**
-* GameScope (string) **required**
-* PlayerExperience (string) **required**
-* PlayerPosition (string) **required**
-* StarterBench (string) **required**
+#### Input
+* input `object`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+  * DistanceRange **required** `string`
+  * GameScope **required** `string`
+  * PlayerExperience **required** `string`
+  * PlayerPosition **required** `string`
+  * StarterBench **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leaguedashteamstats.get
 
@@ -1046,26 +1210,30 @@ nba.leaguedashteamstats.get({
 }, context)
 ```
 
-#### Parameters
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### leagueleaders.get
 
@@ -1081,13 +1249,17 @@ nba.leagueleaders.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* PerMode (string) **required**
-* StatCategory (string)
-* Season (string) **required**
-* SeasonType (string) **required**
-* Scope (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * PerMode **required** `string`
+  * StatCategory `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Scope **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playbyplay.get
 
@@ -1101,10 +1273,14 @@ nba.playbyplay.get({
 }, context)
 ```
 
-#### Parameters
-* GameID (string) **required**
-* StartPeriod (string) **required**
-* EndPeriod (string) **required**
+#### Input
+* input `object`
+  * GameID **required** `string`
+  * StartPeriod **required** `string`
+  * EndPeriod **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playbyplayv2.get
 
@@ -1118,10 +1294,14 @@ nba.playbyplayv2.get({
 }, context)
 ```
 
-#### Parameters
-* GameID (string) **required**
-* StartPeriod (string) **required**
-* EndPeriod (string) **required**
+#### Input
+* input `object`
+  * GameID **required** `string`
+  * StartPeriod **required** `string`
+  * EndPeriod **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playercareerstats.get
 
@@ -1134,9 +1314,13 @@ nba.playercareerstats.get({
 }, context)
 ```
 
-#### Parameters
-* PerMode (string) **required**
-* PlayerID (string) **required**
+#### Input
+* input `object`
+  * PerMode **required** `string`
+  * PlayerID **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playercompare.get
 
@@ -1168,28 +1352,32 @@ nba.playercompare.get({
 }, context)
 ```
 
-#### Parameters
-* PlayerIDList (string) **required**
-* VsPlayerIDList (string) **required**
-* SeasonType (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * PlayerIDList **required** `string`
+  * VsPlayerIDList **required** `string`
+  * SeasonType **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashboardbyclutch.get
 
@@ -1220,27 +1408,31 @@ nba.playerdashboardbyclutch.get({
 }, context)
 ```
 
-#### Parameters
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashboardbygamesplits.get
 
@@ -1271,27 +1463,31 @@ nba.playerdashboardbygamesplits.get({
 }, context)
 ```
 
-#### Parameters
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashboardbygeneralsplits.get
 
@@ -1322,27 +1518,31 @@ nba.playerdashboardbygeneralsplits.get({
 }, context)
 ```
 
-#### Parameters
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashboardbylastngames.get
 
@@ -1373,27 +1573,31 @@ nba.playerdashboardbylastngames.get({
 }, context)
 ```
 
-#### Parameters
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashboardbyopponent.get
 
@@ -1424,27 +1628,31 @@ nba.playerdashboardbyopponent.get({
 }, context)
 ```
 
-#### Parameters
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashboardbyshootingsplits.get
 
@@ -1475,27 +1683,31 @@ nba.playerdashboardbyshootingsplits.get({
 }, context)
 ```
 
-#### Parameters
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashboardbyteamperformance.get
 
@@ -1526,27 +1738,31 @@ nba.playerdashboardbyteamperformance.get({
 }, context)
 ```
 
-#### Parameters
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashboardbyyearoveryear.get
 
@@ -1577,27 +1793,31 @@ nba.playerdashboardbyyearoveryear.get({
 }, context)
 ```
 
-#### Parameters
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashptpass.get
 
@@ -1623,22 +1843,26 @@ nba.playerdashptpass.get({
 }, context)
 ```
 
-#### Parameters
-* PerMode (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerID (string) **required**
-* TeamID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * PerMode **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerID **required** `string`
+  * TeamID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashptreb.get
 
@@ -1666,24 +1890,28 @@ nba.playerdashptreb.get({
 }, context)
 ```
 
-#### Parameters
-* PerMode (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerID (string) **required**
-* TeamID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * PerMode **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerID **required** `string`
+  * TeamID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashptreboundlogs.get
 
@@ -1693,23 +1921,27 @@ nba.playerdashptreb.get({
 nba.playerdashptreboundlogs.get({}, context)
 ```
 
-#### Parameters
-* Season (string)
-* SeasonType (string)
-* PlayerID (string)
-* TeamID (string)
-* Outcome (string)
-* Location (string)
-* Month (string)
-* SeasonSegment (string)
-* DateFrom (string)
-* DateTo (string)
-* OpponentTeamID (string)
-* VsConference (string)
-* VsDivision (string)
-* GameSegment (string)
-* Period (string)
-* LastNGames (string)
+#### Input
+* input `object`
+  * Season `string`
+  * SeasonType `string`
+  * PlayerID `string`
+  * TeamID `string`
+  * Outcome `string`
+  * Location `string`
+  * Month `string`
+  * SeasonSegment `string`
+  * DateFrom `string`
+  * DateTo `string`
+  * OpponentTeamID `string`
+  * VsConference `string`
+  * VsDivision `string`
+  * GameSegment `string`
+  * Period `string`
+  * LastNGames `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashptshotdefend.get
 
@@ -1737,24 +1969,28 @@ nba.playerdashptshotdefend.get({
 }, context)
 ```
 
-#### Parameters
-* PerMode (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerID (string) **required**
-* TeamID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * PerMode **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerID **required** `string`
+  * TeamID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashptshotlog.get
 
@@ -1764,12 +2000,16 @@ nba.playerdashptshotdefend.get({
 nba.playerdashptshotlog.get({}, context)
 ```
 
-#### Parameters
-* LeagueID (string)
-* Season (string)
-* SeasonType (string)
-* PlayerID (string)
-* TeamID (string)
+#### Input
+* input `object`
+  * LeagueID `string`
+  * Season `string`
+  * SeasonType `string`
+  * PlayerID `string`
+  * TeamID `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerdashptshots.get
 
@@ -1797,24 +2037,28 @@ nba.playerdashptshots.get({
 }, context)
 ```
 
-#### Parameters
-* PerMode (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* PlayerID (string) **required**
-* TeamID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * PerMode **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * PlayerID **required** `string`
+  * TeamID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playergamelog.get
 
@@ -1828,10 +2072,14 @@ nba.playergamelog.get({
 }, context)
 ```
 
-#### Parameters
-* PlayerID (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
+#### Input
+* input `object`
+  * PlayerID **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerprofile.get
 
@@ -1849,14 +2097,18 @@ nba.playerprofile.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* PlayerID (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* GraphStartSeason (string) **required**
-* GraphEndSeason (string) **required**
-* GraphStat (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * PlayerID **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * GraphStartSeason **required** `string`
+  * GraphEndSeason **required** `string`
+  * GraphStat **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playerprofilev2.get
 
@@ -1869,9 +2121,13 @@ nba.playerprofilev2.get({
 }, context)
 ```
 
-#### Parameters
-* PerMode (string) **required**
-* PlayerID (string) **required**
+#### Input
+* input `object`
+  * PerMode **required** `string`
+  * PlayerID **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playersvsplayers.get
 
@@ -1913,38 +2169,42 @@ nba.playersvsplayers.get({
 }, context)
 ```
 
-#### Parameters
-* PlayerTeamID (string) **required**
-* PlayerID1 (string) **required**
-* PlayerID2 (string) **required**
-* PlayerID3 (string) **required**
-* PlayerID4 (string) **required**
-* PlayerID5 (string) **required**
-* VsTeamID (string) **required**
-* VsPlayerID1 (string) **required**
-* VsPlayerID2 (string) **required**
-* VsPlayerID3 (string) **required**
-* VsPlayerID4 (string) **required**
-* VsPlayerID5 (string) **required**
-* SeasonType (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * PlayerTeamID **required** `string`
+  * PlayerID1 **required** `string`
+  * PlayerID2 **required** `string`
+  * PlayerID3 **required** `string`
+  * PlayerID4 **required** `string`
+  * PlayerID5 **required** `string`
+  * VsTeamID **required** `string`
+  * VsPlayerID1 **required** `string`
+  * VsPlayerID2 **required** `string`
+  * VsPlayerID3 **required** `string`
+  * VsPlayerID4 **required** `string`
+  * VsPlayerID5 **required** `string`
+  * SeasonType **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playervsplayer.get
 
@@ -1976,28 +2236,32 @@ nba.playervsplayer.get({
 }, context)
 ```
 
-#### Parameters
-* PlayerID (string) **required**
-* VsPlayerID (string) **required**
-* SeasonType (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * PlayerID **required** `string`
+  * VsPlayerID **required** `string`
+  * SeasonType **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### playoffpicture.get
 
@@ -2010,9 +2274,13 @@ nba.playoffpicture.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* SeasonID (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * SeasonID **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### scoreboard.get
 
@@ -2026,10 +2294,14 @@ nba.scoreboard.get({
 }, context)
 ```
 
-#### Parameters
-* GameDate (string) **required**
-* LeagueID (string) **required**
-* DayOffset (string) **required**
+#### Input
+* input `object`
+  * GameDate **required** `string`
+  * LeagueID **required** `string`
+  * DayOffset **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### scoreboardV2.get
 
@@ -2043,10 +2315,14 @@ nba.scoreboardV2.get({
 }, context)
 ```
 
-#### Parameters
-* GameDate (string) **required**
-* LeagueID (string) **required**
-* DayOffset (string) **required**
+#### Input
+* input `object`
+  * GameDate **required** `string`
+  * LeagueID **required** `string`
+  * DayOffset **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### shotchartdetail.get
 
@@ -2076,26 +2352,30 @@ nba.shotchartdetail.get({
 }, context)
 ```
 
-#### Parameters
-* SeasonType (string) **required**
-* TeamID (string) **required**
-* PlayerID (string) **required**
-* GameID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* Position (string) **required**
-* RookieYear (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
-* ContextMeasure (string) **required**
+#### Input
+* input `object`
+  * SeasonType **required** `string`
+  * TeamID **required** `string`
+  * PlayerID **required** `string`
+  * GameID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * Position **required** `string`
+  * RookieYear **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+  * ContextMeasure **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### shotchartlineupdetail.get
 
@@ -2126,27 +2406,31 @@ nba.shotchartlineupdetail.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* TeamID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
-* GameID (string) **required**
-* GROUP_ID (string) **required**
-* ContextMeasure (string) **required**
-* ContextFilter (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * TeamID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+  * GameID **required** `string`
+  * GROUP_ID **required** `string`
+  * ContextMeasure **required** `string`
+  * ContextFilter **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamdashboardbyclutch.get
 
@@ -2177,27 +2461,31 @@ nba.teamdashboardbyclutch.get({
 }, context)
 ```
 
-#### Parameters
-* TeamID (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * TeamID **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamdashboardbygamesplits.get
 
@@ -2228,27 +2516,31 @@ nba.teamdashboardbygamesplits.get({
 }, context)
 ```
 
-#### Parameters
-* TeamID (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * TeamID **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamdashboardbygeneralsplits.get
 
@@ -2279,27 +2571,31 @@ nba.teamdashboardbygeneralsplits.get({
 }, context)
 ```
 
-#### Parameters
-* SeasonType (string) **required**
-* TeamID (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * SeasonType **required** `string`
+  * TeamID **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamdashboardbylastngames.get
 
@@ -2330,27 +2626,31 @@ nba.teamdashboardbylastngames.get({
 }, context)
 ```
 
-#### Parameters
-* TeamID (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * TeamID **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamdashboardbyopponent.get
 
@@ -2381,27 +2681,31 @@ nba.teamdashboardbyopponent.get({
 }, context)
 ```
 
-#### Parameters
-* TeamID (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * TeamID **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamdashboardbyshootingsplits.get
 
@@ -2432,27 +2736,31 @@ nba.teamdashboardbyshootingsplits.get({
 }, context)
 ```
 
-#### Parameters
-* TeamID (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * TeamID **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamdashboardbyteamperformance.get
 
@@ -2483,27 +2791,31 @@ nba.teamdashboardbyteamperformance.get({
 }, context)
 ```
 
-#### Parameters
-* TeamID (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * TeamID **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamdashboardbyyearoveryear.get
 
@@ -2534,27 +2846,31 @@ nba.teamdashboardbyyearoveryear.get({
 }, context)
 ```
 
-#### Parameters
-* TeamID (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * TeamID **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamdashlineups.get
 
@@ -2587,29 +2903,33 @@ nba.teamdashlineups.get({
 }, context)
 ```
 
-#### Parameters
-* GroupQuantity (string) **required**
-* GameID (string) **required**
-* SeasonType (string) **required**
-* TeamID (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * GroupQuantity **required** `string`
+  * GameID **required** `string`
+  * SeasonType **required** `string`
+  * TeamID **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamdashptpass.get
 
@@ -2634,21 +2954,25 @@ nba.teamdashptpass.get({
 }, context)
 ```
 
-#### Parameters
-* PerMode (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* TeamID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * PerMode **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * TeamID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamdashptreb.get
 
@@ -2675,23 +2999,27 @@ nba.teamdashptreb.get({
 }, context)
 ```
 
-#### Parameters
-* PerMode (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* TeamID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * PerMode **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * TeamID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamdashptshots.get
 
@@ -2718,23 +3046,27 @@ nba.teamdashptshots.get({
 }, context)
 ```
 
-#### Parameters
-* PerMode (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* TeamID (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * PerMode **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * TeamID **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamgamelog.get
 
@@ -2748,10 +3080,14 @@ nba.teamgamelog.get({
 }, context)
 ```
 
-#### Parameters
-* TeamID (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
+#### Input
+* input `object`
+  * TeamID **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teaminfocommon.get
 
@@ -2766,11 +3102,15 @@ nba.teaminfocommon.get({
 }, context)
 ```
 
-#### Parameters
-* Season (string) **required**
-* TeamID (string) **required**
-* LeagueID (string) **required**
-* SeasonType (string) **required**
+#### Input
+* input `object`
+  * Season **required** `string`
+  * TeamID **required** `string`
+  * LeagueID **required** `string`
+  * SeasonType **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamplayerdashboard.get
 
@@ -2801,27 +3141,31 @@ nba.teamplayerdashboard.get({
 }, context)
 ```
 
-#### Parameters
-* SeasonType (string) **required**
-* TeamID (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * SeasonType **required** `string`
+  * TeamID **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamplayeronoffdetails.get
 
@@ -2852,27 +3196,31 @@ nba.teamplayeronoffdetails.get({
 }, context)
 ```
 
-#### Parameters
-* TeamID (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * TeamID **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamplayeronoffsummary.get
 
@@ -2903,27 +3251,31 @@ nba.teamplayeronoffsummary.get({
 }, context)
 ```
 
-#### Parameters
-* TeamID (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* SeasonType (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * TeamID **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * SeasonType **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamvsplayer.get
 
@@ -2955,28 +3307,32 @@ nba.teamvsplayer.get({
 }, context)
 ```
 
-#### Parameters
-* TeamID (string) **required**
-* VsPlayerID (string) **required**
-* SeasonType (string) **required**
-* MeasureType (string) **required**
-* PerMode (string) **required**
-* PlusMinus (string) **required**
-* PaceAdjust (string) **required**
-* Rank (string) **required**
-* Season (string) **required**
-* Outcome (string) **required**
-* Location (string) **required**
-* Month (string) **required**
-* SeasonSegment (string) **required**
-* DateFrom (string) **required**
-* DateTo (string) **required**
-* OpponentTeamID (string) **required**
-* VsConference (string) **required**
-* VsDivision (string) **required**
-* GameSegment (string) **required**
-* Period (string) **required**
-* LastNGames (string) **required**
+#### Input
+* input `object`
+  * TeamID **required** `string`
+  * VsPlayerID **required** `string`
+  * SeasonType **required** `string`
+  * MeasureType **required** `string`
+  * PerMode **required** `string`
+  * PlusMinus **required** `string`
+  * PaceAdjust **required** `string`
+  * Rank **required** `string`
+  * Season **required** `string`
+  * Outcome **required** `string`
+  * Location **required** `string`
+  * Month **required** `string`
+  * SeasonSegment **required** `string`
+  * DateFrom **required** `string`
+  * DateTo **required** `string`
+  * OpponentTeamID **required** `string`
+  * VsConference **required** `string`
+  * VsDivision **required** `string`
+  * GameSegment **required** `string`
+  * Period **required** `string`
+  * LastNGames **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teamyearbyyearstats.get
 
@@ -2991,11 +3347,15 @@ nba.teamyearbyyearstats.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* SeasonType (string) **required**
-* PerMode (string) **required**
-* TeamID (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * SeasonType **required** `string`
+  * PerMode **required** `string`
+  * TeamID **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### videoStatus.get
 
@@ -3008,7 +3368,16 @@ nba.videoStatus.get({
 }, context)
 ```
 
-#### Parameters
-* LeagueID (string) **required**
-* GameDate (string) **required**
+#### Input
+* input `object`
+  * LeagueID **required** `string`
+  * GameDate **required** `string`
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

@@ -4,11 +4,9 @@ Client library for 1Forge Finance APIs
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/1forge
+npm install --save @datafire/1forge
 ```
-
 ```js
-let datafire = require('datafire');
 let forge = require('@datafire/1forge').create();
 
 forge.quotes.get({}).then(data => {
@@ -17,9 +15,11 @@ forge.quotes.get({}).then(data => {
 ```
 
 ## Description
+
 Stock and Forex Data and Realtime Quotes
 
 ## Actions
+
 ### quotes.get
 Get quotes
 
@@ -28,8 +28,11 @@ Get quotes
 forge.quotes.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### symbols.get
 Symbol List
@@ -39,6 +42,15 @@ Symbol List
 forge.symbols.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
+#### Output
+* output `array`
+  * items `string`
+
+
+
+## Definitions
+
+** No definitions **

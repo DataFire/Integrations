@@ -4,13 +4,11 @@ Client library for Ritc
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/ritc
+npm install --save @datafire/ritc
 ```
-
 ```js
-let datafire = require('datafire');
 let ritc = require('@datafire/ritc').create({
-  Authorization: "",
+  Authorization: ""
 });
 
 ritc.runApp({}).then(data => {
@@ -19,9 +17,11 @@ ritc.runApp({}).then(data => {
 ```
 
 ## Description
+
 Rules in the Cloud
 
 ## Actions
+
 ### listActions
 List actions
 
@@ -30,8 +30,12 @@ List actions
 ritc.listActions(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [ActionShortResponse](#actionshortresponse)
 
 ### addAction
 Create a new action
@@ -47,8 +51,12 @@ ritc.addAction({
 }, context)
 ```
 
-#### Parameters
-* Action Object (object) **required**
+#### Input
+* input `object`
+  * Action Object **required** [Action59](#action59)
+
+#### Output
+* output [ActionShortResponse](#actionshortresponse)
 
 ### removeAction
 Delete an action
@@ -60,8 +68,12 @@ ritc.removeAction({
 }, context)
 ```
 
-#### Parameters
-* action_id (string) **required** - Id of action
+#### Input
+* input `object`
+  * action_id **required** `string`: Id of action
+
+#### Output
+*Output schema unknown*
 
 ### getAction
 Get an action
@@ -73,8 +85,13 @@ ritc.getAction({
 }, context)
 ```
 
-#### Parameters
-* action_id (string) **required** - Id of action_id
+#### Input
+* input `object`
+  * action_id **required** `string`: Id of action_id
+
+#### Output
+* output `array`
+  * items [ActionFullResponse](#actionfullresponse)
 
 ### updateAction
 Update information about a specific action
@@ -91,9 +108,13 @@ ritc.updateAction({
 }, context)
 ```
 
-#### Parameters
-* action_id (string) **required** - Id of user
-* Action Object (object) **required**
+#### Input
+* input `object`
+  * action_id **required** `string`: Id of user
+  * Action Object **required** [Action59](#action59)
+
+#### Output
+* output [ActionShortResponse](#actionshortresponse)
 
 ### admin
 Ping the server
@@ -103,8 +124,11 @@ Ping the server
 ritc.admin(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
 
 ### logInRitc
 Log a message
@@ -116,8 +140,12 @@ ritc.logInRitc({
 }, context)
 ```
 
-#### Parameters
-* message (object) **required**
+#### Input
+* input `object`
+  * message **required** `object`
+
+#### Output
+* output `object`
 
 ### pingRitc
 Ping the server
@@ -127,8 +155,11 @@ Ping the server
 ritc.pingRitc(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
 
 ### listApps
 Get apps information
@@ -138,8 +169,12 @@ Get apps information
 ritc.listApps(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [AppResponse](#appresponse)
 
 ### addApp
 Create a new app
@@ -151,8 +186,12 @@ ritc.addApp({
 }, context)
 ```
 
-#### Parameters
-* App Object (object) **required**
+#### Input
+* input `object`
+  * App Object **required** [App](#app)
+
+#### Output
+* output [AppResponse](#appresponse)
 
 ### listAppChannels
 Get app channels
@@ -162,8 +201,12 @@ Get app channels
 ritc.listAppChannels(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [AppChannelResponse](#appchannelresponse)
 
 ### listAppChannelUsers
 Get users of a specified channel
@@ -175,8 +218,13 @@ ritc.listAppChannelUsers({
 }, context)
 ```
 
-#### Parameters
-* channel_id (string) **required** - Id of Channel
+#### Input
+* input `object`
+  * channel_id **required** `string`: Id of Channel
+
+#### Output
+* output `array`
+  * items [AppChannelResponse](#appchannelresponse)
 
 ### getAppChannelUser
 Get user of a specified channel
@@ -189,9 +237,14 @@ ritc.getAppChannelUser({
 }, context)
 ```
 
-#### Parameters
-* channel_id (string) **required** - Id of Channel
-* user_id (string) **required** - Id of User
+#### Input
+* input `object`
+  * channel_id **required** `string`: Id of Channel
+  * user_id **required** `string`: Id of User
+
+#### Output
+* output `array`
+  * items [AppChannelResponse](#appchannelresponse)
 
 ### addAppChannelUser
 Create user channel
@@ -204,9 +257,13 @@ ritc.addAppChannelUser({
 }, context)
 ```
 
-#### Parameters
-* channel_id (string) **required** - Id of Channel
-* user_id (string) **required** - Id of User
+#### Input
+* input `object`
+  * channel_id **required** `string`: Id of Channel
+  * user_id **required** `string`: Id of User
+
+#### Output
+* output [AppChannelResponse](#appchannelresponse)
 
 ### listChannelExternalCredentials
 Get external credentials
@@ -216,8 +273,12 @@ Get external credentials
 ritc.listChannelExternalCredentials(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [AppExternalCredentialsResponse](#appexternalcredentialsresponse)
 
 ### addChannelExternalCredentials
 Create new external credentials
@@ -229,8 +290,12 @@ ritc.addChannelExternalCredentials({
 }, context)
 ```
 
-#### Parameters
-* App_External_Credentials Object (object) **required**
+#### Input
+* input `object`
+  * App_External_Credentials Object **required** [AppExternalCredentials](#appexternalcredentials)
+
+#### Output
+* output [AppExternalCredentialsResponse](#appexternalcredentialsresponse)
 
 ### removeChannelExternalCredentials
 Delete credentials for a channel
@@ -242,8 +307,12 @@ ritc.removeChannelExternalCredentials({
 }, context)
 ```
 
-#### Parameters
-* channel_id (string) **required** - Id of Channel
+#### Input
+* input `object`
+  * channel_id **required** `string`: Id of Channel
+
+#### Output
+*Output schema unknown*
 
 ### getChannelExternalCredentials
 Get credentials for a channel in an app
@@ -255,8 +324,13 @@ ritc.getChannelExternalCredentials({
 }, context)
 ```
 
-#### Parameters
-* channel_id (string) **required** - Id of Channel
+#### Input
+* input `object`
+  * channel_id **required** `string`: Id of Channel
+
+#### Output
+* output `array`
+  * items [AppExternalCredentialsResponse](#appexternalcredentialsresponse)
 
 ### updateChannelExternalCredentials
 Update credentials for a channel
@@ -269,9 +343,13 @@ ritc.updateChannelExternalCredentials({
 }, context)
 ```
 
-#### Parameters
-* channel_id (string) **required** - Id of Channel
-* App_External_Credentials Object (object) **required**
+#### Input
+* input `object`
+  * channel_id **required** `string`: Id of Channel
+  * App_External_Credentials Object **required** [AppExternalCredentials](#appexternalcredentials)
+
+#### Output
+* output [AppExternalCredentialsResponse](#appexternalcredentialsresponse)
 
 ### runRuleGroup
 Run specified rule group in the app
@@ -283,10 +361,15 @@ ritc.runRuleGroup({
 }, context)
 ```
 
-#### Parameters
-* rule_id_list (string) **required** - Ids of rules in the group, separated by commas, no spaces
-* initial_data (object)
-* break_when_rule_fires (boolean) - Do not continue with remaining rules after a rule fires
+#### Input
+* input `object`
+  * rule_id_list **required** `string`: Ids of rules in the group, separated by commas, no spaces
+  * initial_data `object`
+  * break_when_rule_fires `boolean`: Do not continue with remaining rules after a rule fires
+
+#### Output
+* output `array`
+  * items [RuleResults](#ruleresults)
 
 ### runApp
 Run active app rules
@@ -296,9 +379,14 @@ Run active app rules
 ritc.runApp({}, context)
 ```
 
-#### Parameters
-* initial_data (object)
-* break_when_rule_fires (boolean) - Do not continue with remaining rules after a rule fires
+#### Input
+* input `object`
+  * initial_data `object`
+  * break_when_rule_fires `boolean`: Do not continue with remaining rules after a rule fires
+
+#### Output
+* output `array`
+  * items [RuleResults](#ruleresults)
 
 ### removeApp
 Delete an app
@@ -310,8 +398,12 @@ ritc.removeApp({
 }, context)
 ```
 
-#### Parameters
-* app_id (string) **required** - Id of App
+#### Input
+* input `object`
+  * app_id **required** `string`: Id of App
+
+#### Output
+*Output schema unknown*
 
 ### getApp
 Get app information
@@ -323,8 +415,13 @@ ritc.getApp({
 }, context)
 ```
 
-#### Parameters
-* app_id (string) **required** - Id of App
+#### Input
+* input `object`
+  * app_id **required** `string`: Id of App
+
+#### Output
+* output `array`
+  * items [AppResponse](#appresponse)
 
 ### updateApp
 Update an app
@@ -337,9 +434,13 @@ ritc.updateApp({
 }, context)
 ```
 
-#### Parameters
-* app_id (string) **required** - Id of app
-* App Object (object) **required**
+#### Input
+* input `object`
+  * app_id **required** `string`: Id of app
+  * App Object **required** [App](#app)
+
+#### Output
+* output [AppResponse](#appresponse)
 
 ### listChannels
 Retrieve Channels
@@ -349,8 +450,12 @@ Retrieve Channels
 ritc.listChannels(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [ChannelResponse](#channelresponse)
 
 ### addChannel
 Create a channel
@@ -362,8 +467,12 @@ ritc.addChannel({
 }, context)
 ```
 
-#### Parameters
-* Channel Object (object) **required**
+#### Input
+* input `object`
+  * Channel Object **required** [Channel](#channel)
+
+#### Output
+* output [ChannelResponse](#channelresponse)
 
 ### listAnonymousChannels
 Retrieve Channels anonymously
@@ -373,8 +482,12 @@ Retrieve Channels anonymously
 ritc.listAnonymousChannels(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [ChannelResponse](#channelresponse)
 
 ### removeChannel
 Delete a channel
@@ -386,8 +499,12 @@ ritc.removeChannel({
 }, context)
 ```
 
-#### Parameters
-* channel_id (string) **required** - Id of Channel
+#### Input
+* input `object`
+  * channel_id **required** `string`: Id of Channel
+
+#### Output
+*Output schema unknown*
 
 ### getChannel
 Get channel information
@@ -399,8 +516,13 @@ ritc.getChannel({
 }, context)
 ```
 
-#### Parameters
-* channel_id (string) **required** - Id of Channel
+#### Input
+* input `object`
+  * channel_id **required** `string`: Id of Channel
+
+#### Output
+* output `array`
+  * items [ChannelResponse](#channelresponse)
 
 ### updateChannel
 Update a channel
@@ -413,9 +535,13 @@ ritc.updateChannel({
 }, context)
 ```
 
-#### Parameters
-* channel_id (string) **required** - Id of Channel
-* Channel Object (object) **required**
+#### Input
+* input `object`
+  * channel_id **required** `string`: Id of Channel
+  * Channel Object **required** [Rule](#rule)
+
+#### Output
+* output [ChannelResponse](#channelresponse)
 
 ### listChannelFunctions
 Retrieve Channel Functions
@@ -427,8 +553,13 @@ ritc.listChannelFunctions({
 }, context)
 ```
 
-#### Parameters
-* channel_id (string) **required** - Id of Channel
+#### Input
+* input `object`
+  * channel_id **required** `string`: Id of Channel
+
+#### Output
+* output `array`
+  * items [FunctionResponse](#functionresponse)
 
 ### addChannelFunction
 Create a channel function
@@ -441,9 +572,13 @@ ritc.addChannelFunction({
 }, context)
 ```
 
-#### Parameters
-* channel_id (string) **required** - Id of Channel
-* Channel Function Object (object) **required**
+#### Input
+* input `object`
+  * channel_id **required** `string`: Id of Channel
+  * Channel Function Object **required** [Function7](#function7)
+
+#### Output
+* output [FunctionResponse](#functionresponse)
 
 ### getChannelFunction
 Get channel function information
@@ -456,9 +591,14 @@ ritc.getChannelFunction({
 }, context)
 ```
 
-#### Parameters
-* channel_id (string) **required** - Id of Channel
-* function_id (string) **required** - Id of Channel Function
+#### Input
+* input `object`
+  * channel_id **required** `string`: Id of Channel
+  * function_id **required** `string`: Id of Channel Function
+
+#### Output
+* output `array`
+  * items [FunctionResponse](#functionresponse)
 
 ### addOrganization
 Create an org
@@ -472,8 +612,13 @@ ritc.addOrganization({
 }, context)
 ```
 
-#### Parameters
-* Org Object (object) **required**
+#### Input
+* input `object`
+  * Org Object **required** [Org](#org)
+
+#### Output
+* output `array`
+  * items [OrgResponse](#orgresponse)
 
 ### getMyOrganization
 Get org information
@@ -483,8 +628,12 @@ Get org information
 ritc.getMyOrganization(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [OrgResponse](#orgresponse)
 
 ### listRules
 List rules
@@ -494,8 +643,12 @@ List rules
 ritc.listRules(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [RuleShortResponse](#ruleshortresponse)
 
 ### addRule
 Create a new rule
@@ -507,8 +660,12 @@ ritc.addRule({
 }, context)
 ```
 
-#### Parameters
-* Rule Object (object) **required**
+#### Input
+* input `object`
+  * Rule Object **required** [Rule](#rule)
+
+#### Output
+* output [RuleFullResponse](#rulefullresponse)
 
 ### removeRule
 Delete a rule
@@ -520,8 +677,12 @@ ritc.removeRule({
 }, context)
 ```
 
-#### Parameters
-* rule_id (string) **required** - Id of rule
+#### Input
+* input `object`
+  * rule_id **required** `string`: Id of rule
+
+#### Output
+*Output schema unknown*
 
 ### getRule
 Get a rule
@@ -533,8 +694,13 @@ ritc.getRule({
 }, context)
 ```
 
-#### Parameters
-* rule_id (string) **required** - Id of rule
+#### Input
+* input `object`
+  * rule_id **required** `string`: Id of rule
+
+#### Output
+* output `array`
+  * items [RuleFullResponse](#rulefullresponse)
 
 ### updateRule
 Update information about a specific rule
@@ -547,9 +713,13 @@ ritc.updateRule({
 }, context)
 ```
 
-#### Parameters
-* rule_id (string) **required** - Id of user
-* Rule Object (object) **required**
+#### Input
+* input `object`
+  * rule_id **required** `string`: Id of user
+  * Rule Object **required** [Rule](#rule)
+
+#### Output
+* output [RuleFullResponse](#rulefullresponse)
 
 ### runRule
 Run a rule
@@ -561,9 +731,13 @@ ritc.runRule({
 }, context)
 ```
 
-#### Parameters
-* rule_id (string) **required** - Id of rule
-* initial_data (object)
+#### Input
+* input `object`
+  * rule_id **required** `string`: Id of rule
+  * initial_data `object`
+
+#### Output
+* output `object`
 
 ### listTriggers
 Triggers in an app
@@ -573,8 +747,12 @@ Triggers in an app
 ritc.listTriggers(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [TriggerShortResponse](#triggershortresponse)
 
 ### addTrigger
 Create a new trigger in an app
@@ -590,8 +768,12 @@ ritc.addTrigger({
 }, context)
 ```
 
-#### Parameters
-* Trigger Object (object) **required**
+#### Input
+* input `object`
+  * Trigger Object **required** [Trigger54](#trigger54)
+
+#### Output
+* output [TriggerShortResponse](#triggershortresponse)
 
 ### removeTrigger
 Delete a trigger
@@ -603,8 +785,12 @@ ritc.removeTrigger({
 }, context)
 ```
 
-#### Parameters
-* trigger_id (string) **required** - Id of Trigger
+#### Input
+* input `object`
+  * trigger_id **required** `string`: Id of Trigger
+
+#### Output
+*Output schema unknown*
 
 ### getTrigger
 Get a trigger
@@ -616,8 +802,13 @@ ritc.getTrigger({
 }, context)
 ```
 
-#### Parameters
-* trigger_id (string) **required** - Id of Trigger
+#### Input
+* input `object`
+  * trigger_id **required** `string`: Id of Trigger
+
+#### Output
+* output `array`
+  * items [TriggerFullResponse](#triggerfullresponse)
 
 ### updateTrigger
 Update a trigger
@@ -634,9 +825,13 @@ ritc.updateTrigger({
 }, context)
 ```
 
-#### Parameters
-* trigger_id (string) **required** - Id of user
-* Trigger Object (object) **required**
+#### Input
+* input `object`
+  * trigger_id **required** `string`: Id of user
+  * Trigger Object **required** [Trigger54](#trigger54)
+
+#### Output
+* output [TriggerShortResponse](#triggershortresponse)
 
 ### listAppUsers
 Users
@@ -646,8 +841,12 @@ Users
 ritc.listAppUsers(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [AppUserResponse](#appuserresponse)
 
 ### addAppUser
 Create a new App User
@@ -659,8 +858,12 @@ ritc.addAppUser({
 }, context)
 ```
 
-#### Parameters
-* App User Object (object) **required**
+#### Input
+* input `object`
+  * App User Object **required** [AppUser](#appuser)
+
+#### Output
+* output [AppUserResponse](#appuserresponse)
 
 ### listAdminUsers
 Admin users
@@ -670,8 +873,12 @@ Admin users
 ritc.listAdminUsers(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [AdminUserResponse](#adminuserresponse)
 
 ### addAdminUser
 Create a new admin user
@@ -683,8 +890,12 @@ ritc.addAdminUser({
 }, context)
 ```
 
-#### Parameters
-* Admin_User Object (object) **required**
+#### Input
+* input `object`
+  * Admin_User Object **required** [AdminUser](#adminuser)
+
+#### Output
+* output [AdminUserResponse](#adminuserresponse)
 
 ### removeAdminUser
 Remove an admin user
@@ -696,8 +907,12 @@ ritc.removeAdminUser({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of Admin_User
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of Admin_User
+
+#### Output
+*Output schema unknown*
 
 ### getAdminUser
 Get an admin user
@@ -709,8 +924,13 @@ ritc.getAdminUser({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of Admin_User
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of Admin_User
+
+#### Output
+* output `array`
+  * items [AdminUserResponse](#adminuserresponse)
 
 ### updateAdminUser
 Update information about an admin user
@@ -723,9 +943,13 @@ ritc.updateAdminUser({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of user
-* Admin_User Object (object) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of user
+  * Admin_User Object **required** [AdminUser](#adminuser)
+
+#### Output
+* output [AdminUserResponse](#adminuserresponse)
 
 ### authenticateAppUserForChannel
 Authenticate a user for a channel
@@ -738,9 +962,14 @@ ritc.authenticateAppUserForChannel({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of User
-* channel_id (string) **required** - Id of Channel
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of User
+  * channel_id **required** `string`: Id of Channel
+
+#### Output
+* output `array`
+  * items [AuthorizeUrlResponse](#authorizeurlresponse)
 
 ### removeAppUser
 Remove a user
@@ -752,8 +981,12 @@ ritc.removeAppUser({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of user
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of user
+
+#### Output
+*Output schema unknown*
 
 ### getAppUser
 Get an App User
@@ -765,8 +998,13 @@ ritc.getAppUser({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of App User
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of App User
+
+#### Output
+* output `array`
+  * items [AppUserResponse](#appuserresponse)
 
 ### updateAppUser
 Update information about an App User
@@ -779,9 +1017,13 @@ ritc.updateAppUser({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of user
-* App User Object (object) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of user
+  * App User Object **required** [AppUser](#appuser)
+
+#### Output
+* output [AppUserResponse](#appuserresponse)
 
 ### listAppUserChannels
 Channels available to a User
@@ -793,8 +1035,13 @@ ritc.listAppUserChannels({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of user
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of user
+
+#### Output
+* output `array`
+  * items [UserChannel](#userchannel)
 
 ### addAppUserToChannel
 Assign a channel to a user
@@ -807,9 +1054,13 @@ ritc.addAppUserToChannel({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of user
-* channel_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of user
+  * channel_id **required** `string`
+
+#### Output
+* output [UserChannel](#userchannel)
 
 ### removeAppUserFromChannel
 Remove a user channel assignment
@@ -822,9 +1073,13 @@ ritc.removeAppUserFromChannel({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of User
-* channel_id (string) **required** - Id of Channel
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of User
+  * channel_id **required** `string`: Id of Channel
+
+#### Output
+*Output schema unknown*
 
 ### getAppUserChannel
 Get a user channel
@@ -837,9 +1092,14 @@ ritc.getAppUserChannel({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of User
-* channel_id (string) **required** - Id of Channel
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of User
+  * channel_id **required** `string`: Id of Channel
+
+#### Output
+* output `array`
+  * items [UserChannel](#userchannel)
 
 ### listAppUserRules
 Rules for a User
@@ -851,8 +1111,13 @@ ritc.listAppUserRules({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of user
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of user
+
+#### Output
+* output `array`
+  * items [RuleShortResponse](#ruleshortresponse)
 
 ### removeAppUserFromRule
 Remove a rule user
@@ -865,9 +1130,13 @@ ritc.removeAppUserFromRule({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of User
-* rule_id (string) **required** - Id of Rule
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of User
+  * rule_id **required** `string`: Id of Rule
+
+#### Output
+*Output schema unknown*
 
 ### getAppUserRule
 Get a user
@@ -880,9 +1149,14 @@ ritc.getAppUserRule({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of User
-* rule_id (string) **required** - Id of Rule
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of User
+  * rule_id **required** `string`: Id of Rule
+
+#### Output
+* output `array`
+  * items [RuleFullResponse](#rulefullresponse)
 
 ### addAppUserToRule
 Assign a user to a rule
@@ -895,9 +1169,13 @@ ritc.addAppUserToRule({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of User
-* rule_id (string) **required** - Id of Rule
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of User
+  * rule_id **required** `string`: Id of Rule
+
+#### Output
+* output [RuleShortResponse](#ruleshortresponse)
 
 ### runRuleForAppUser
 Run rule for a user
@@ -910,7 +1188,346 @@ ritc.runRuleForAppUser({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required** - Id of User
-* rule_id (string) **required** - Id of Rule
+#### Input
+* input `object`
+  * user_id **required** `string`: Id of User
+  * rule_id **required** `string`: Id of Rule
+
+#### Output
+* output `object`
+
+
+
+## Definitions
+
+### Action
+* Action `object`
+  * channelId `string`
+  * createdDate `string`: The date the rule was created
+  * description `string`
+  * functionId `string`
+  * id `string`
+  * modifiedDate `string`: The date the rule was modified
+  * name `string`
+  * status [Status](#status)
+
+### Action59
+* Action59 `object`
+  * channelId **required** `integer`: Id of channel used by action
+  * codes `object`: Object containing named Javascript code sets
+  * desc `string`: Action description
+  * functionId **required** `string`: Hash id of channel function used by action
+  * name **required** `string`: Action name
+  * parameters `object`: Object containing channel-defined action parameters
+
+### ActionFullResponse
+* Action_Full_Response `object`
+  * channelId `integer`
+  * codes `object`
+  * createdDate `string`: The date the action was created
+  * description `string`: Action description
+  * functionId `string`
+  * id `integer`
+  * modifiedDate `string`: The date the action was modified
+  * name `string`: Action name
+  * parameters `object`
+  * status [Status](#status)
+
+### ActionShortResponse
+* Action_Short_Response `object`
+  * channelId `string`
+  * createdDate `string`: The date the action was created
+  * description `string`: Action description
+  * functionId `string`
+  * id `string`
+  * modifiedDate `string`: The date the action was modified
+  * name `string`: Action name
+  * status [Status](#status)
+
+### AdminUser
+* Admin_User `object`
+  * email `string`: Admin User email address
+  * password `string`: Admin User password
+  * type [Type41](#type41)
+
+### AdminUserResponse
+* Admin_User_Response `object`
+  * createdDate `string`: The date the admin user was created
+  * email `string`: Admin User email address
+  * id `integer`
+  * modifiedDate `string`: The date the admin user was modified
+  * name `string`: Admin User name
+  * status [Status](#status)
+
+### ApiType
+* ApiType `string` (values: Internal, REST, SDK)
+
+### App
+* App `object`
+  * desc `string`: App description
+  * name `string`: App name
+
+### AppChannelResponse
+* App_Channel_Response `object`
+  * channelId `integer`: Channel Id
+  * createdDate `string`: The date the user was created
+  * id `integer`
+  * status [Status](#status)
+  * userId `integer`: Id of App User assigned to Channel
+
+### AppExternalCredentials
+* App_External_Credentials `object`
+  * authType [AuthType](#authtype)
+  * channel_id `string`
+  * credentials `object`
+  * name `string`: App external credentials api name
+
+### AppExternalCredentialsResponse
+* App_External_Credentials_Response `object`
+  * authType [AuthType](#authtype)
+  * channel_id `string`
+  * credentials `object`
+  * id `string`
+  * name `string`: App external credentials api name
+
+### AppResponse
+* App_Response `object`
+  * apiKey `string`: App ApiKey
+  * createdDate `string`: The date the app was created
+  * description `string`: App description
+  * id `string`
+  * modifiedDate `string`: The date the app was modified
+  * name `string`: App name
+  * status [Status](#status)
+
+### AppUser
+* App_User `object`
+  * config `object`: Object containing user-defined app user configuration
+  * name `string`: Display name of App User
+  * password `string`: App User password
+
+### AppUserResponse
+* App_User_Response `object`
+  * createdDate `string`: The date the user was created
+  * description `string`: Description of App User
+  * id `string`: Id of App User
+  * modifiedDate `string`: The date the user was modified
+  * name `string`: Display name of App User
+  * status [Status](#status)
+
+### AuthType
+* AuthType `string` (values: apikey, basic, none, oauth2)
+
+### AuthorizeUrlResponse
+* Authorize_Url_Response `object`
+  * url `string`
+
+### Channel
+* Channel `object`
+  * description `string`: Channel description
+  * functions `array`
+    * items [Function](#function)
+  * id `string`: Id of channel
+  * name `string`: Channel name
+  * type `object`: Type of channel. Choices are 'public' or 'private'. Private channels are only viewable within an account, while public channels are viewable to everyone in the system
+
+### ChannelResponse
+* Channel_Response `object`
+  * description `string`: Channel description
+  * functions `array`
+    * items [Function5](#function5)
+  * id `string`: Id of channel
+  * name `string`: Channel name
+  * type `object`: Type of channel. Choices are 'public' or 'private'. Private channels are only viewable within an account, while public channels are viewable to everyone
+
+### Error
+* Error `object`
+  * code `integer`
+  * fields `string`
+  * message `string`
+
+### Function
+* Function `object`
+  * id `string`
+  * name `string`: Function name
+  * parameters `array`
+    * items [Parameter](#parameter)
+  * type [Type](#type)
+
+### Function5
+* Function5 `object`
+  * description `string`: Function description
+  * id `string`
+  * name `string`: Function name
+  * type [Type](#type)
+
+### Function7
+* Function7 `object`
+  * apiType [ApiType](#apitype)
+  * desc `string`: Function description
+  * endpoint `string`: Function endpoint
+  * httpMethod [HttpMethod](#httpmethod)
+  * name `string`: Function name
+  * requestParameters `array`
+    * items [RequestParameter](#requestparameter)
+  * responseFormat [ResponseFormat](#responseformat)
+  * type [Type](#type)
+
+### FunctionResponse
+* Function_Response `object`
+  * apiType [ApiType](#apitype)
+  * description `string`: Function description
+  * endpoint `string`: Function endpoint
+  * httpMethod [HttpMethod](#httpmethod)
+  * id `string`
+  * name `string`: Function name
+  * requestParameters `array`
+    * items [RequestParameter](#requestparameter)
+  * responseFormat [ResponseFormat](#responseformat)
+  * type [Type](#type)
+
+### HttpMethod
+* HttpMethod `string` (values: DELETE, GET, PATCH, POST)
+
+### Org
+* Org `object`
+  * desc `string`: Org description
+  * name **required** `string`: Org name
+  * type `string`: Org type
+
+### OrgResponse
+* Org_Response `object`
+  * createdDate `string`: The date the org was created
+  * id `string`
+  * modifiedDate `string`: The date the org was modified
+  * name `string`: Org name
+  * plan [Plan](#plan)
+  * planCat `object`
+  * status `string`: Org name
+  * type `object`
+
+### Parameter
+* Parameter `object`
+  * key **required** `string`
+  * value **required** `string`
+
+### Plan
+* Plan `string` (values: free, basic)
+
+### RequestParameter
+* RequestParameter `object`
+  * description `string`
+  * fieldType `string`
+  * label `string`
+  * name `string`
+  * schema [Schema](#schema)
+
+### ResponseFormat
+* ResponseFormat `string` (values: Html, Json, Text, Xml)
+
+### Rule
+* Rule `object`
+  * actionIds `string`: Rule description
+  * description `string`: Rule description
+  * name `string`: Rule name
+  * status [Status](#status)
+  * triggerIds `string`: Rule description
+
+### RuleFullResponse
+* Rule_Full_Response `object`
+  * actions `array`
+    * items [Action](#action)
+  * createdDate `string`: The date the rule was created
+  * description `string`: Rule description
+  * id `integer`: Rule Id
+  * modifiedDate `string`: The date the rule was modified
+  * name `string`: Rule name
+  * status [Status](#status)
+  * triggers `array`
+    * items [Trigger](#trigger)
+
+### RuleResults
+* Rule_Results `object`
+  * id `string`
+  * name `string`: Name of rule results
+  * type [Type](#type)
+
+### RuleShortResponse
+* Rule_Short_Response `object`
+  * createdDate `string`: The date the rule was created
+  * description `string`: Rule description
+  * id `integer`: Rule Id
+  * modifiedDate `string`: The date the rule was modified
+  * name `string`: Rule name
+  * status [Status](#status)
+
+### Schema
+* Schema `object`
+  * datatype `object`
+  * default `string`
+  * expose `object`
+  * required `object`
+  * style [Style](#style)
+
+### Status
+* Status `string` (values: active, inactive)
+
+### Style
+* Style `string` (values: postbody, query, template)
+
+### Trigger
+* Trigger `object`
+  * channelId `string`
+  * createdDate `string`: The date the rule was created
+  * description `string`
+  * functionId `string`
+  * id `string`
+  * modifiedDate `string`: The date the rule was modified
+  * name `string`
+  * status [Status](#status)
+
+### Trigger54
+* Trigger54 `object`
+  * channelId **required** `integer`: Id of channel used by trigger
+  * codes `object`: Object containing named Javascript code sets
+  * desc `string`: Trigger description
+  * functionId **required** `string`: Hash id of channel function used by trigger
+  * name **required** `string`: Trigger name
+  * parameters `object`: Object containing channel-defined trigger parameters
+
+### TriggerFullResponse
+* Trigger_Full_Response `object`
+  * channelId `integer`
+  * codes `object`
+  * createdDate `string`: The date the trigger was created
+  * description `string`: Trigger description
+  * functionId `string`
+  * id `integer`
+  * modifiedDate `string`: The date the trigger was modified
+  * name `string`: Trigger name
+  * parameters `object`
+  * status [Status](#status)
+
+### TriggerShortResponse
+* Trigger_Short_Response `object`
+  * channelId `integer`
+  * createdDate `string`: The date the trigger was created
+  * description `string`: Trigger description
+  * functionId `string`
+  * id `integer`
+  * modifiedDate `string`: The date the trigger was modified
+  * name `string`: Trigger name
+  * status [Status](#status)
+
+### Type
+* Type `string` (values: action, trigger)
+
+### Type41
+* Type41 `string` (values: admin, guest)
+
+### UserChannel
+* User_Channel `object`
+  * channelId `integer`
+  * userId `integer`
+
 

@@ -4,11 +4,9 @@ Client library for rss.nytimes.com
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/nytimes_rss
+npm install --save @datafire/nytimes_rss
 ```
-
 ```js
-let datafire = require('datafire');
 let nytimes_rss = require('@datafire/nytimes_rss').create();
 
 nytimes_rss.homePage({}).then(data => {
@@ -19,7 +17,9 @@ nytimes_rss.homePage({}).then(data => {
 ## Description
 
 
+
 ## Actions
+
 ### homePage
 NYT > Home Page
 
@@ -28,8 +28,11 @@ NYT > Home Page
 nytimes_rss.homePage(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Feed](#feed)
 
 ### world
 NYT > World
@@ -39,8 +42,11 @@ NYT > World
 nytimes_rss.world(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Feed](#feed)
 
 ### business
 NYT > Business Day
@@ -50,8 +56,11 @@ NYT > Business Day
 nytimes_rss.business(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Feed](#feed)
 
 ### sports
 NYT > Sports
@@ -61,8 +70,11 @@ NYT > Sports
 nytimes_rss.sports(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Feed](#feed)
 
 ### science
 NYT > Science
@@ -72,6 +84,14 @@ NYT > Science
 nytimes_rss.science(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
+#### Output
+* output [Feed](#feed)
+
+
+
+## Definitions
+
+** No definitions **

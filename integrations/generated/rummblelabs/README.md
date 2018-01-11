@@ -4,11 +4,9 @@ Client library for Seldon
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/rummblelabs
+npm install --save @datafire/rummblelabs
 ```
-
 ```js
-let datafire = require('datafire');
 let rummblelabs = require('@datafire/rummblelabs').create();
 
 rummblelabs.getUsers({}).then(data => {
@@ -17,9 +15,11 @@ rummblelabs.getUsers({}).then(data => {
 ```
 
 ## Description
+
 Seldon is an Open Predictive Platform that currently allows item recommendations and general predictive models to be deployed based on structured historical data.
 
 ## Actions
+
 ### postAction
 post new action between a user and an item
 
@@ -30,9 +30,13 @@ rummblelabs.postAction({
 }, context)
 ```
 
-#### Parameters
-* oauth_token (string) - oauth token
-* body (undefined) **required**
+#### Input
+* input `object`
+  * oauth_token `string`: oauth token
+  * body **required** [Action](#action)
+
+#### Output
+*Output schema unknown*
 
 ### getItems
 get items
@@ -42,13 +46,17 @@ get items
 rummblelabs.getItems({}, context)
 ```
 
-#### Parameters
-* oauth_token (string) - oauth token
-* full (boolean) - get all attributes for item
-* name (string) - keywords to match
-* dimension (integer) - limit items to a particular dimension
-* type (integer) - limit items to a particular type
-* limit (integer) - limit number of items returned
+#### Input
+* input `object`
+  * oauth_token `string`: oauth token
+  * full `boolean`: get all attributes for item
+  * name `string`: keywords to match
+  * dimension `integer`: limit items to a particular dimension
+  * type `integer`: limit items to a particular type
+  * limit `integer`: limit number of items returned
+
+#### Output
+*Output schema unknown*
 
 ### postItem
 post new item
@@ -60,9 +68,13 @@ rummblelabs.postItem({
 }, context)
 ```
 
-#### Parameters
-* oauth_token (string) - oauth token
-* body (undefined) **required**
+#### Input
+* input `object`
+  * oauth_token `string`: oauth token
+  * body **required** [Item](#item)
+
+#### Output
+*Output schema unknown*
 
 ### putItem
 update item
@@ -74,9 +86,13 @@ rummblelabs.putItem({
 }, context)
 ```
 
-#### Parameters
-* oauth_token (string) - oauth token
-* body (undefined) **required**
+#### Input
+* input `object`
+  * oauth_token `string`: oauth token
+  * body **required** [Item](#item)
+
+#### Output
+*Output schema unknown*
 
 ### getItemTypes
 get item type
@@ -86,8 +102,12 @@ get item type
 rummblelabs.getItemTypes({}, context)
 ```
 
-#### Parameters
-* oauth_token (string) - oauth token
+#### Input
+* input `object`
+  * oauth_token `string`: oauth token
+
+#### Output
+*Output schema unknown*
 
 ### getItem
 get item
@@ -99,10 +119,14 @@ rummblelabs.getItem({
 }, context)
 ```
 
-#### Parameters
-* oauth_token (string) - oauth token
-* itemId (string) **required** - the item id to get
-* full (boolean) - get all attributes for item
+#### Input
+* input `object`
+  * oauth_token `string`: oauth token
+  * itemId **required** `string`: the item id to get
+  * full `boolean`: get all attributes for item
+
+#### Output
+*Output schema unknown*
 
 ### addAction
 Add a user interaction
@@ -118,13 +142,17 @@ rummblelabs.addAction({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (string) **required** - consumer key
-* user (string) **required** - user id
-* item (string) **required** - item id
-* type (string) **required** - type
-* jsonpCallback (string) **required** - JSONP callback
-* timestamp (integer) - time
+#### Input
+* input `object`
+  * consumer_key **required** `string`: consumer key
+  * user **required** `string`: user id
+  * item **required** `string`: item id
+  * type **required** `string`: type
+  * jsonpCallback **required** `string`: JSONP callback
+  * timestamp `integer`: time
+
+#### Output
+*Output schema unknown*
 
 ### getRecommendation
 Get recommendations for a user
@@ -138,15 +166,19 @@ rummblelabs.getRecommendation({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (string) **required** - consumer key
-* user (string) **required** - user id
-* item (string) - currently viewed item id
-* limit (integer) - max number of recommendations to return
-* dimension (integer) - get recommendations for a particular item dimension (e.g., just sports articles)
-* attributes (string) - the fields to return
-* algorithms (string) - override default algorithms with specified algorithms
-* jsonpCallback (string) **required** - JSONP callback
+#### Input
+* input `object`
+  * consumer_key **required** `string`: consumer key
+  * user **required** `string`: user id
+  * item `string`: currently viewed item id
+  * limit `integer`: max number of recommendations to return
+  * dimension `integer`: get recommendations for a particular item dimension (e.g., just sports articles)
+  * attributes `string`: the fields to return
+  * algorithms `string`: override default algorithms with specified algorithms
+  * jsonpCallback **required** `string`: JSONP callback
+
+#### Output
+*Output schema unknown*
 
 ### getToken
 get token
@@ -159,9 +191,13 @@ rummblelabs.getToken({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (string) **required** - consumer key
-* consumer_secret (string) **required** - consumer secret
+#### Input
+* input `object`
+  * consumer_key **required** `string`: consumer key
+  * consumer_secret **required** `string`: consumer secret
+
+#### Output
+*Output schema unknown*
 
 ### getUsers
 get users
@@ -171,11 +207,15 @@ get users
 rummblelabs.getUsers({}, context)
 ```
 
-#### Parameters
-* oauth_token (string) - oauth token
-* full (boolean) - get all attributes for user
-* name (string) - keywords to match
-* limit (integer) - limit number of users returned
+#### Input
+* input `object`
+  * oauth_token `string`: oauth token
+  * full `boolean`: get all attributes for user
+  * name `string`: keywords to match
+  * limit `integer`: limit number of users returned
+
+#### Output
+*Output schema unknown*
 
 ### postUser
 post new user
@@ -187,9 +227,13 @@ rummblelabs.postUser({
 }, context)
 ```
 
-#### Parameters
-* oauth_token (string) - oauth token
-* body (undefined) **required**
+#### Input
+* input `object`
+  * oauth_token `string`: oauth token
+  * body **required** [User](#user)
+
+#### Output
+*Output schema unknown*
 
 ### updateUser
 update user
@@ -201,9 +245,13 @@ rummblelabs.updateUser({
 }, context)
 ```
 
-#### Parameters
-* oauth_token (string) - oauth token
-* body (undefined) **required**
+#### Input
+* input `object`
+  * oauth_token `string`: oauth token
+  * body **required** [User](#user)
+
+#### Output
+*Output schema unknown*
 
 ### getUser
 get a user
@@ -215,10 +263,14 @@ rummblelabs.getUser({
 }, context)
 ```
 
-#### Parameters
-* oauth_token (string) - oauth token
-* userId (string) **required** - the user id to get
-* full (boolean) - get all attributes for user
+#### Input
+* input `object`
+  * oauth_token `string`: oauth token
+  * userId **required** `string`: the user id to get
+  * full `boolean`: get all attributes for user
+
+#### Output
+*Output schema unknown*
 
 ### getUserActions
 get a user's recent actions
@@ -230,11 +282,15 @@ rummblelabs.getUserActions({
 }, context)
 ```
 
-#### Parameters
-* oauth_token (string) - oauth token
-* userId (string) **required** - the user id to get
-* full (boolean) - get all attributes for user
-* limit (integer) - limit number of actions returned
+#### Input
+* input `object`
+  * oauth_token `string`: oauth token
+  * userId **required** `string`: the user id to get
+  * full `boolean`: get all attributes for user
+  * limit `integer`: limit number of actions returned
+
+#### Output
+*Output schema unknown*
 
 ### getUserRecommendations
 get recommendations for a user
@@ -246,11 +302,45 @@ rummblelabs.getUserRecommendations({
 }, context)
 ```
 
-#### Parameters
-* oauth_token (string) - oauth token
-* userId (string) **required** - the user id to get
-* full (boolean) - get all attributes for user
-* limit (integer) - limit number of actions returned
-* dimension (integer) - get recommendations for a particular item dimension (e.g., just sports articles)
-* algorithms (string) - override default algorithms with specified algorithms
+#### Input
+* input `object`
+  * oauth_token `string`: oauth token
+  * userId **required** `string`: the user id to get
+  * full `boolean`: get all attributes for user
+  * limit `integer`: limit number of actions returned
+  * dimension `integer`: get recommendations for a particular item dimension (e.g., just sports articles)
+  * algorithms `string`: override default algorithms with specified algorithms
+
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+### Action
+* Action `object`
+  * item **required** `string`
+  * type **required** `integer`: action type
+  * user **required** `string`
+  * value `number`: action value (e.g. a rating)
+
+### AttributesName
+* AttributesName `object`
+  * attrName1 `string`
+  * attrName2 `string`
+
+### Item
+* Item `object`
+  * attributesName [AttributesName](#attributesname)
+  * id **required** `string`
+  * type `integer`: type of item
+
+### User
+* User `object`
+  * active `boolean`: whether user is active
+  * attributesName [AttributesName](#attributesname)
+  * id **required** `string`
+  * username `string`: name of user
+
 

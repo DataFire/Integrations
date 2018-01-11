@@ -4,14 +4,12 @@ Client library for Twilio
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/twilio
+npm install --save @datafire/twilio
 ```
-
 ```js
-let datafire = require('datafire');
 let twilio = require('@datafire/twilio').create({
   username: "",
-  password: "",
+  password: ""
 });
 
 twilio.Accounts.AccountSid.Applications.ApplicationSid.json.delete({}).then(data => {
@@ -20,10 +18,12 @@ twilio.Accounts.AccountSid.Applications.ApplicationSid.json.delete({}).then(data
 ```
 
 ## Description
+
 Enabling phones, VoIP, and messaging to be embedded into web, desktop, and mobile software.
 
 
 ## Actions
+
 ### Accounts.AccountSid.Applications.ApplicationSid.json.delete
 Delete this application.
 
@@ -35,9 +35,13 @@ twilio.Accounts.AccountSid.Applications.ApplicationSid.json.delete({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* ApplicationSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * ApplicationSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.Applications.ApplicationSid.json.get
 Get application instance resource.
@@ -50,9 +54,13 @@ twilio.Accounts.AccountSid.Applications.ApplicationSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* ApplicationSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * ApplicationSid **required** `string`
+
+#### Output
+* output [application](#application)
 
 ### Accounts.AccountSid.Applications.ApplicationSid.json.post
 Tries to update the application's properties, and returns the updated
@@ -68,9 +76,13 @@ twilio.Accounts.AccountSid.Applications.ApplicationSid.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* ApplicationSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * ApplicationSid **required** `string`
+
+#### Output
+* output [application](#application)
 
 ### Accounts.AccountSid.Applications.json.get
 Returns a list of Application resource representations, each representing
@@ -84,8 +96,12 @@ twilio.Accounts.AccountSid.Applications.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [applications](#applications)
 
 ### Accounts.AccountSid.Applications.json.post
 Creates a new application within your account.
@@ -97,8 +113,12 @@ twilio.Accounts.AccountSid.Applications.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.AuthorizedConnectApps.ConnectAppSid.json.get
 Get the properties of the authorized application.
@@ -111,9 +131,13 @@ twilio.Accounts.AccountSid.AuthorizedConnectApps.ConnectAppSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* ConnectAppSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * ConnectAppSid **required** `string`
+
+#### Output
+* output [authApp](#authapp)
 
 ### Accounts.AccountSid.AuthorizedConnectApps.json.get
 Returns a list of Connect App resource representations, each representing a
@@ -128,8 +152,12 @@ twilio.Accounts.AccountSid.AuthorizedConnectApps.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [authApps](#authapps)
 
 ### Accounts.AccountSid.AvailablePhoneNumbers.IsoCountryCode.Local.json.get
 Returns a list of local AvailablePhoneNumber resource representations
@@ -145,9 +173,13 @@ twilio.Accounts.AccountSid.AvailablePhoneNumbers.IsoCountryCode.Local.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IsoCountryCode (string) **required** - ISO 3166-1 alpha-2.
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IsoCountryCode **required** `string`: ISO 3166-1 alpha-2.
+
+#### Output
+* output [availablePhoneNumbers](#availablephonenumbers)
 
 ### Accounts.AccountSid.AvailablePhoneNumbers.IsoCountryCode.Mobile.json.get
 Returns a list of mobile AvailablePhoneNumber resource representations that match the specified filters, each representing a phone number that is currently available for provisioning within your account.
@@ -160,9 +192,13 @@ twilio.Accounts.AccountSid.AvailablePhoneNumbers.IsoCountryCode.Mobile.json.get(
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IsoCountryCode (string) **required** - ISO 3166-1 alpha-2.
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IsoCountryCode **required** `string`: ISO 3166-1 alpha-2.
+
+#### Output
+* output [phoneMobileNumbers](#phonemobilenumbers)
 
 ### Accounts.AccountSid.AvailablePhoneNumbers.IsoCountryCode.TollFree.json.get
 Returns a list of toll-free AvailablePhoneNumber elements that match the
@@ -179,9 +215,13 @@ twilio.Accounts.AccountSid.AvailablePhoneNumbers.IsoCountryCode.TollFree.json.ge
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IsoCountryCode (string) **required** - ISO 3166-1 alpha-2.
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IsoCountryCode **required** `string`: ISO 3166-1 alpha-2.
+
+#### Output
+* output [phoneTollFreeNumbers](#phonetollfreenumbers)
 
 ### Accounts.AccountSid.AvailablePhoneNumbers.json.get
 Returns a list of all AvailablePhoneNumber subresources for your account by ISO Country. For full information about our phone number support, see our Phone Number CSV (http://www.twilio.com/resources/rates/international-phone-number-rates.csv).
@@ -193,8 +233,12 @@ twilio.Accounts.AccountSid.AvailablePhoneNumbers.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [availablePhoneNumbers](#availablephonenumbers)
 
 ### Accounts.AccountSid.Calls.CallSid.Notifications.json.get
 Returns a list of notifications generated for an account. The list includes
@@ -209,9 +253,13 @@ twilio.Accounts.AccountSid.Calls.CallSid.Notifications.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* CallSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * CallSid **required** `string`
+
+#### Output
+* output [notifications](#notifications)
 
 ### Accounts.AccountSid.Calls.CallSid.Recordings.json.get
 Returns a list of Recording resource representations, each representing a
@@ -226,9 +274,13 @@ twilio.Accounts.AccountSid.Calls.CallSid.Recordings.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* CallSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * CallSid **required** `string`
+
+#### Output
+* output [recordings](#recordings)
 
 ### Accounts.AccountSid.Calls.CallSid.json.get
 Returns the single Call resource identified by {CallSid}.
@@ -241,9 +293,13 @@ twilio.Accounts.AccountSid.Calls.CallSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* CallSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * CallSid **required** `string`
+
+#### Output
+* output [callInstance](#callinstance)
 
 ### Accounts.AccountSid.Calls.CallSid.json.post
 Modify a phone call.
@@ -256,9 +312,13 @@ twilio.Accounts.AccountSid.Calls.CallSid.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* CallSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * CallSid **required** `string`
+
+#### Output
+* output [callInstance](#callinstance)
 
 ### Accounts.AccountSid.Calls.json.get
 Returns a list of phone calls made to and from the account identified by {AccountSid}.
@@ -270,8 +330,12 @@ twilio.Accounts.AccountSid.Calls.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [calls](#calls)
 
 ### Accounts.AccountSid.Calls.json.post
 To make a call, make an HTTP POST request. Initiate a new phone call.
@@ -283,8 +347,12 @@ twilio.Accounts.AccountSid.Calls.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.Conferences.ConferenceSid.Participants.CallSid.json.delete
 Kick this participant from the conference.
@@ -298,10 +366,14 @@ twilio.Accounts.AccountSid.Conferences.ConferenceSid.Participants.CallSid.json.d
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* ConferenceSid (string) **required**
-* CallSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * ConferenceSid **required** `string`
+  * CallSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.Conferences.ConferenceSid.Participants.CallSid.json.get
 Returns a representation of this participant.
@@ -315,10 +387,14 @@ twilio.Accounts.AccountSid.Conferences.ConferenceSid.Participants.CallSid.json.g
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* ConferenceSid (string) **required**
-* CallSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * ConferenceSid **required** `string`
+  * CallSid **required** `string`
+
+#### Output
+* output [participant](#participant)
 
 ### Accounts.AccountSid.Conferences.ConferenceSid.Participants.CallSid.json.post
 Updates the status of a participant.
@@ -332,10 +408,14 @@ twilio.Accounts.AccountSid.Conferences.ConferenceSid.Participants.CallSid.json.p
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* ConferenceSid (string) **required**
-* CallSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * ConferenceSid **required** `string`
+  * CallSid **required** `string`
+
+#### Output
+* output [participant](#participant)
 
 ### Accounts.AccountSid.Conferences.ConferenceSid.Participants.json.get
 Returns the list of participants in the conference identified by
@@ -350,9 +430,13 @@ twilio.Accounts.AccountSid.Conferences.ConferenceSid.Participants.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* ConferenceSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * ConferenceSid **required** `string`
+
+#### Output
+* output [participants](#participants)
 
 ### Accounts.AccountSid.Conferences.ConferenceSid.json.get
 Returns a representation of the conference identified by {ConferenceSid}.
@@ -366,9 +450,13 @@ twilio.Accounts.AccountSid.Conferences.ConferenceSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* ConferenceSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * ConferenceSid **required** `string`
+
+#### Output
+* output [conference](#conference)
 
 ### Accounts.AccountSid.Conferences.json.get
 Returns a list of conferences within an account. The list includes paging
@@ -382,8 +470,12 @@ twilio.Accounts.AccountSid.Conferences.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [conferences](#conferences)
 
 ### Accounts.AccountSid.ConnectApps.ConnectAppSid.json.get
 Get the properties of a Connect App.
@@ -396,9 +488,13 @@ twilio.Accounts.AccountSid.ConnectApps.ConnectAppSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* ConnectAppSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * ConnectAppSid **required** `string`
+
+#### Output
+* output [connectApp](#connectapp)
 
 ### Accounts.AccountSid.ConnectApps.ConnectAppSid.json.post
 Tries to update the Connect App's properties, and returns the updated
@@ -414,9 +510,13 @@ twilio.Accounts.AccountSid.ConnectApps.ConnectAppSid.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* ConnectAppSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * ConnectAppSid **required** `string`
+
+#### Output
+* output [connectApp](#connectapp)
 
 ### Accounts.AccountSid.ConnectApps.json.get
 Returns a list of Connect App resource representations, each representing
@@ -430,8 +530,12 @@ twilio.Accounts.AccountSid.ConnectApps.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [connectApps](#connectapps)
 
 ### Accounts.AccountSid.IncomingPhoneNumbers.Local.json.get
 Returns a list of local <IncomingPhoneNumber> elements, each representing a local (not toll-free) phone number given to your account, under an <IncomingPhoneNumbers> list element that includes paging information. Works exactly the same as the IncomingPhoneNumber resource, but filters out toll-free numbers.
@@ -443,8 +547,12 @@ twilio.Accounts.AccountSid.IncomingPhoneNumbers.Local.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.IncomingPhoneNumbers.Local.json.post
 Adds a new phone number to your account. If a phone number is found for your request, Twilio will add it to your account and bill you for the first month's cost of the phone number. 
@@ -456,8 +564,12 @@ twilio.Accounts.AccountSid.IncomingPhoneNumbers.Local.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.IncomingPhoneNumbers.Mobile.json.get
 Returns a list of local <IncomingPhoneNumber> elements, each representing a mobile phone number given to your account, under an <IncomingPhoneNumbers> list element that includes paging information. Works exactly the same as the IncomingPhoneNumber resource, but filters out local and toll free numbers.
@@ -469,8 +581,12 @@ twilio.Accounts.AccountSid.IncomingPhoneNumbers.Mobile.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.IncomingPhoneNumbers.Mobile.json.post
 Adds a new phone number to your account. If a phone number is found for your request, Twilio will add it to your account and bill you for the first month's cost of the phone number.
@@ -482,8 +598,12 @@ twilio.Accounts.AccountSid.IncomingPhoneNumbers.Mobile.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.IncomingPhoneNumbers.TollFree.json.get
 Returns a list of local <IncomingPhoneNumber> elements, each representing a toll-free phone number given to your account, under an <IncomingPhoneNumbers> list element that includes paging information. Works exactly the same as the IncomingPhoneNumber resource, but filters out all numbers that aren't toll-free.
@@ -495,8 +615,12 @@ twilio.Accounts.AccountSid.IncomingPhoneNumbers.TollFree.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.IncomingPhoneNumbers.TollFree.json.post
 Adds a new phone number to your account. If a phone number is found for your request, Twilio will add it to your account and bill you for the first month's cost of the phone number. 
@@ -508,8 +632,12 @@ twilio.Accounts.AccountSid.IncomingPhoneNumbers.TollFree.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.delete
 Release this phone number from your account. Twilio will no longer answer
@@ -527,9 +655,13 @@ twilio.Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.dele
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IncomingPhoneNumberSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IncomingPhoneNumberSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.get
 Get info about incoming call's phone number.
@@ -542,9 +674,13 @@ twilio.Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.get(
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IncomingPhoneNumberSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IncomingPhoneNumberSid **required** `string`
+
+#### Output
+* output [incomingCall](#incomingcall)
 
 ### Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.post
 Tries to update the incoming phone number's properties, and returns the
@@ -560,9 +696,13 @@ twilio.Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.post
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IncomingPhoneNumberSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IncomingPhoneNumberSid **required** `string`
+
+#### Output
+* output [incomingCall](#incomingcall)
 
 ### Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.put
 Tries to update the incoming phone number's properties, and returns the
@@ -578,9 +718,13 @@ twilio.Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.put(
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IncomingPhoneNumberSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IncomingPhoneNumberSid **required** `string`
+
+#### Output
+* output [incomingCall](#incomingcall)
 
 ### Accounts.AccountSid.IncomingPhoneNumbers.json.get
 Returns a list of IncomingPhoneNumber resource representations, each
@@ -595,8 +739,12 @@ twilio.Accounts.AccountSid.IncomingPhoneNumbers.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [incomingCalls](#incomingcalls)
 
 ### Accounts.AccountSid.IncomingPhoneNumbers.json.post
 Purchases a new phone number for your account. If a phone number is found
@@ -613,8 +761,12 @@ twilio.Accounts.AccountSid.IncomingPhoneNumbers.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.Messages.MessageSid.Media.MediaSid.json.get
 Without an extension, the media is returned using the mime-type provided when the media was generated.
@@ -628,10 +780,14 @@ twilio.Accounts.AccountSid.Messages.MessageSid.Media.MediaSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* MessageSid (string) **required**
-* MediaSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * MessageSid **required** `string`
+  * MediaSid **required** `string`
+
+#### Output
+* output [media](#media)
 
 ### Accounts.AccountSid.Messages.MessageSid.Media.json.get
 Returns a list of media associated with your message.
@@ -644,9 +800,13 @@ twilio.Accounts.AccountSid.Messages.MessageSid.Media.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* MessageSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * MessageSid **required** `string`
+
+#### Output
+* output [mediaList](#medialist)
 
 ### Accounts.AccountSid.Messages.MessageSid.json.get
 Returns a single message specified by the provided {MessageSid}.
@@ -660,9 +820,13 @@ twilio.Accounts.AccountSid.Messages.MessageSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* MessageSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * MessageSid **required** `string`
+
+#### Output
+* output [message](#message)
 
 ### Accounts.AccountSid.Messages.json.get
 Returns a list of messages associated with your account. The list includes paging information.
@@ -674,8 +838,12 @@ twilio.Accounts.AccountSid.Messages.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [messages](#messages)
 
 ### Accounts.AccountSid.Messages.json.post
 To send a new outgoing message, make an HTTP POST to your Messages list resource URI
@@ -688,13 +856,17 @@ twilio.Accounts.AccountSid.Messages.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* To (string) **required** - The destination phone number. Format with a '+' and country code e.g., +16175551212 (E.164 format).
-* From (string) - A Twilio phone number (in E.164 format) or alphanumeric sender ID enabled for the type of message you wish to send. Phone numbers or short codes purchased from Twilio work here. You cannot (for example) spoof messages from your own cell phone number.
-* MessagingServiceSid (string) - The 34 character unique id of the Messaging Service you want to associate with this Message. Set this parameter to use the Messaging Service Settings and Copilot Features you have configured. When only this parameter is set, Twilio will use your enabled Copilot Features to select the From phone number for delivery.
-* Body (string) - The text of the message you want to send, limited to 1600 characters.
-* MediaUrl (string) - The URL of the media you wish to send out with the message. gif , png and jpeg content is currently supported and will be formatted correctly on the recipient's device. Other types are also accepted by the API. The media size limit is 5MB. If you wish to send more than one image in the message body, please provide multiple MediaUrls values in the POST request. You may include up to 10 MediaUrls per message.
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * To **required** `string`: The destination phone number. Format with a '+' and country code e.g., +16175551212 (E.164 format).
+  * From `string`: A Twilio phone number (in E.164 format) or alphanumeric sender ID enabled for the type of message you wish to send. Phone numbers or short codes purchased from Twilio work here. You cannot (for example) spoof messages from your own cell phone number.
+  * MessagingServiceSid `string`: The 34 character unique id of the Messaging Service you want to associate with this Message. Set this parameter to use the Messaging Service Settings and Copilot Features you have configured. When only this parameter is set, Twilio will use your enabled Copilot Features to select the From phone number for delivery.
+  * Body `string`: The text of the message you want to send, limited to 1600 characters.
+  * MediaUrl `string`: The URL of the media you wish to send out with the message. gif , png and jpeg content is currently supported and will be formatted correctly on the recipient's device. Other types are also accepted by the API. The media size limit is 5MB. If you wish to send more than one image in the message body, please provide multiple MediaUrls values in the POST request. You may include up to 10 MediaUrls per message.
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.Notifications.NotificationSid.json.delete
 Deletes the notification identified by {NotificationSid} from an account's log.
@@ -708,9 +880,13 @@ twilio.Accounts.AccountSid.Notifications.NotificationSid.json.delete({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* NotificationSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * NotificationSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.Notifications.NotificationSid.json.get
 Get a notification entry.
@@ -723,9 +899,13 @@ twilio.Accounts.AccountSid.Notifications.NotificationSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* NotificationSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * NotificationSid **required** `string`
+
+#### Output
+* output [notification](#notification)
 
 ### Accounts.AccountSid.Notifications.json.get
 Returns a list of notifications generated for an account. The list includes
@@ -739,8 +919,12 @@ twilio.Accounts.AccountSid.Notifications.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [notifications](#notifications)
 
 ### Accounts.AccountSid.OutgoingCallerIds.OutgoingCallerIdSid.json.delete
 Deletes the caller ID from the account. Returns an HTTP 204 response if
@@ -755,9 +939,13 @@ twilio.Accounts.AccountSid.OutgoingCallerIds.OutgoingCallerIdSid.json.delete({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* OutgoingCallerIdSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * OutgoingCallerIdSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.OutgoingCallerIds.OutgoingCallerIdSid.json.get
 Get the set of an account's verified phone numbers.
@@ -770,9 +958,13 @@ twilio.Accounts.AccountSid.OutgoingCallerIds.OutgoingCallerIdSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* OutgoingCallerIdSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * OutgoingCallerIdSid **required** `string`
+
+#### Output
+* output [outgoingCallerId](#outgoingcallerid)
 
 ### Accounts.AccountSid.OutgoingCallerIds.OutgoingCallerIdSid.json.post
 Updates the caller id, and returns the updated resource if successful.
@@ -785,9 +977,13 @@ twilio.Accounts.AccountSid.OutgoingCallerIds.OutgoingCallerIdSid.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* OutgoingCallerIdSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * OutgoingCallerIdSid **required** `string`
+
+#### Output
+* output [outgoingCallerId](#outgoingcallerid)
 
 ### Accounts.AccountSid.OutgoingCallerIds.OutgoingCallerIdSid.json.put
 Updates the caller id, and returns the updated resource if successful.
@@ -800,9 +996,13 @@ twilio.Accounts.AccountSid.OutgoingCallerIds.OutgoingCallerIdSid.json.put({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* OutgoingCallerIdSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * OutgoingCallerIdSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.OutgoingCallerIds.json.get
 Returns a list of OutgoingCallerId resource representations, each representing
@@ -816,8 +1016,12 @@ twilio.Accounts.AccountSid.OutgoingCallerIds.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [outCallerIds](#outcallerids)
 
 ### Accounts.AccountSid.OutgoingCallerIds.json.post
 Adds a new CallerID to your account.
@@ -829,8 +1033,12 @@ twilio.Accounts.AccountSid.OutgoingCallerIds.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.Queues.QueueSid.Members.Front.json.get
 Get a front member.
@@ -843,9 +1051,13 @@ twilio.Accounts.AccountSid.Queues.QueueSid.Members.Front.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* QueueSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * QueueSid **required** `string`
+
+#### Output
+* output [member](#member)
 
 ### Accounts.AccountSid.Queues.QueueSid.Members.Front.json.post
 Posting a URL and Method to a Queue instance will dequeue a member from a
@@ -861,9 +1073,13 @@ twilio.Accounts.AccountSid.Queues.QueueSid.Members.Front.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* QueueSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * QueueSid **required** `string`
+
+#### Output
+* output [member](#member)
 
 ### Accounts.AccountSid.Queues.QueueSid.Members.CallSid.json.get
 Get a specific member.
@@ -877,10 +1093,14 @@ twilio.Accounts.AccountSid.Queues.QueueSid.Members.CallSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* QueueSid (string) **required**
-* CallSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * QueueSid **required** `string`
+  * CallSid **required** `string`
+
+#### Output
+* output [member](#member)
 
 ### Accounts.AccountSid.Queues.QueueSid.Members.CallSid.json.post
 Posting a URL and Method to a Queue instance will dequeue a member from a
@@ -899,10 +1119,14 @@ twilio.Accounts.AccountSid.Queues.QueueSid.Members.CallSid.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* QueueSid (string) **required**
-* CallSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * QueueSid **required** `string`
+  * CallSid **required** `string`
+
+#### Output
+* output [member](#member)
 
 ### Accounts.AccountSid.Queues.QueueSid.Members.json.get
 Returns the list of members in the queue identified by {QueueSid}.
@@ -915,9 +1139,13 @@ twilio.Accounts.AccountSid.Queues.QueueSid.Members.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* QueueSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * QueueSid **required** `string`
+
+#### Output
+* output [members](#members)
 
 ### Accounts.AccountSid.Queues.QueueSid.json.delete
 The DELETE method allows you to remove a Queue. Only empty queues are
@@ -932,9 +1160,13 @@ twilio.Accounts.AccountSid.Queues.QueueSid.json.delete({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* QueueSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * QueueSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.Queues.QueueSid.json.get
 Get resource's individual Queue instance.
@@ -948,9 +1180,13 @@ twilio.Accounts.AccountSid.Queues.QueueSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* QueueSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * QueueSid **required** `string`
+
+#### Output
+* output [queue](#queue)
 
 ### Accounts.AccountSid.Queues.QueueSid.json.post
 This POST request allows you to change the FriendlyName or MaxSize.
@@ -964,9 +1200,13 @@ twilio.Accounts.AccountSid.Queues.QueueSid.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* QueueSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * QueueSid **required** `string`
+
+#### Output
+* output [queue](#queue)
 
 ### Accounts.AccountSid.Queues.json.get
 Returns a list of queues within an account. The list includes paging
@@ -980,8 +1220,12 @@ twilio.Accounts.AccountSid.Queues.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [queues](#queues)
 
 ### Accounts.AccountSid.Queues.json.post
 Create a new Queue resource.
@@ -994,8 +1238,12 @@ twilio.Accounts.AccountSid.Queues.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.Recordings.RecordingSid.Transcriptions.json.get
 Returns a set of Transcription resource representations that includes paging
@@ -1010,9 +1258,13 @@ twilio.Accounts.AccountSid.Recordings.RecordingSid.Transcriptions.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* RecordingSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * RecordingSid **required** `string`
+
+#### Output
+* output [transcriptions](#transcriptions)
 
 ### Accounts.AccountSid.Recordings.RecordingSid.json.delete
 Deletes a recording  from your account.
@@ -1025,9 +1277,13 @@ twilio.Accounts.AccountSid.Recordings.RecordingSid.json.delete({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* RecordingSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * RecordingSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.Recordings.RecordingSid.json.get
 Returns one of several representations:
@@ -1046,9 +1302,13 @@ twilio.Accounts.AccountSid.Recordings.RecordingSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* RecordingSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * RecordingSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.Recordings.json.get
 Returns a list of Recording resource representations, each representing a
@@ -1062,8 +1322,12 @@ twilio.Accounts.AccountSid.Recordings.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [recordings](#recordings)
 
 ### Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.CredentialSid.json.delete
 Remove a Credential from a CredentialList.
@@ -1077,10 +1341,14 @@ twilio.Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.CredentialSid.j
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* CLSid (string) **required**
-* CredentialSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * CLSid **required** `string`
+  * CredentialSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.CredentialSid.json.get
 Get a specific Credential in a list. Though a password is stored for each username in your list, the password is not returned to protect your password. If you cannot remember your password, you will need to POST to this resource to update it.
@@ -1094,10 +1362,14 @@ twilio.Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.CredentialSid.j
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* CLSid (string) **required**
-* CredentialSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * CLSid **required** `string`
+  * CredentialSid **required** `string`
+
+#### Output
+* output [credential](#credential)
 
 ### Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.CredentialSid.json.post
 Change the password of a Credential record.
@@ -1114,10 +1386,14 @@ twilio.Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.CredentialSid.j
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* CLSid (string) **required**
-* CredentialSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * CLSid **required** `string`
+  * CredentialSid **required** `string`
+
+#### Output
+* output [credential](#credential)
 
 ### Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.json.get
 Get the list of Credentials in a CredentialList. The passwords for the Credentials are intentionally not returned so as to protect them.
@@ -1130,9 +1406,13 @@ twilio.Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* CLSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * CLSid **required** `string`
+
+#### Output
+* output [credentials](#credentials)
 
 ### Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.json.post
 Add a Credential to the CredentialList.
@@ -1148,9 +1428,13 @@ twilio.Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* CLSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * CLSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.CredentialLists.CLSid.json.delete
 Delete a CredentialList from your account. It can only be deleted if no domains are mapped to it. If you attempt to delete one that is mapped to a domain, you will receive an error.
@@ -1163,9 +1447,13 @@ twilio.Accounts.AccountSid.SIP.CredentialLists.CLSid.json.delete({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* CLSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * CLSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.CredentialLists.CLSid.json.get
 Get a credential list instance resource
@@ -1178,9 +1466,13 @@ twilio.Accounts.AccountSid.SIP.CredentialLists.CLSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* CLSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * CLSid **required** `string`
+
+#### Output
+* output [credentialList](#credentiallist)
 
 ### Accounts.AccountSid.SIP.CredentialLists.CLSid.json.post
 Change the FriendlyName of the list
@@ -1193,9 +1485,13 @@ twilio.Accounts.AccountSid.SIP.CredentialLists.CLSid.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* CLSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * CLSid **required** `string`
+
+#### Output
+* output [credentialList](#credentiallist)
 
 ### Accounts.AccountSid.SIP.CredentialLists.json.get
 Gets a list of Credential Lists for an account
@@ -1207,8 +1503,12 @@ twilio.Accounts.AccountSid.SIP.CredentialLists.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [credentialLists](#credentiallists)
 
 ### Accounts.AccountSid.SIP.CredentialLists.json.post
 Create a new Credential List.
@@ -1220,8 +1520,12 @@ twilio.Accounts.AccountSid.SIP.CredentialLists.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.Domains.SipDomainSid.CredentialListMappings.CLSid.json.delete
 Remove a CredentialListMapping from a domain
@@ -1235,10 +1539,14 @@ twilio.Accounts.AccountSid.SIP.Domains.SipDomainSid.CredentialListMappings.CLSid
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* SipDomainSid (string) **required**
-* CLSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * SipDomainSid **required** `string`
+  * CLSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.Domains.SipDomainSid.CredentialListMappings.json.get
 Get the user lists mapped to this domain.
@@ -1251,9 +1559,13 @@ twilio.Accounts.AccountSid.SIP.Domains.SipDomainSid.CredentialListMappings.json.
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* SipDomainSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * SipDomainSid **required** `string`
+
+#### Output
+* output [credentialListMappings](#credentiallistmappings)
 
 ### Accounts.AccountSid.SIP.Domains.SipDomainSid.CredentialListMappings.json.post
 Map a CredentialList to the domain.
@@ -1266,9 +1578,13 @@ twilio.Accounts.AccountSid.SIP.Domains.SipDomainSid.CredentialListMappings.json.
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* SipDomainSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * SipDomainSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.ALSid.json.delete
 Remove a mapping from this domain.
@@ -1282,10 +1598,14 @@ twilio.Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* SipDomainSid (string) **required**
-* ALSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * SipDomainSid **required** `string`
+  * ALSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.ALSid.json.get
 Return a specific IpAccessControlListMapping instance by Sid.
@@ -1299,10 +1619,14 @@ twilio.Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* SipDomainSid (string) **required**
-* ALSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * SipDomainSid **required** `string`
+  * ALSid **required** `string`
+
+#### Output
+* output [ipAccessControlListMapping](#ipaccesscontrollistmapping)
 
 ### Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.json.get
 Return the IpAccessControlListMappings that are associated to this domain.
@@ -1315,9 +1639,13 @@ twilio.Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* SipDomainSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * SipDomainSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.json.post
 Map an IpAccessControlList to this domain.
@@ -1330,9 +1658,13 @@ twilio.Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* SipDomainSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * SipDomainSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.Domains.SipDomainSid.json.delete
 Delete a domain. If you have created subdomains of a domain, you will not be able to delete the domain until you first delete all subdomains of it.
@@ -1345,9 +1677,13 @@ twilio.Accounts.AccountSid.SIP.Domains.SipDomainSid.json.delete({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* SipDomainSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * SipDomainSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.Domains.SipDomainSid.json.get
 Return a specific instance by Sid.
@@ -1360,9 +1696,13 @@ twilio.Accounts.AccountSid.SIP.Domains.SipDomainSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* SipDomainSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * SipDomainSid **required** `string`
+
+#### Output
+* output [domain](#domain)
 
 ### Accounts.AccountSid.SIP.Domains.SipDomainSid.json.post
 Update the attributes of a domain.
@@ -1375,9 +1715,13 @@ twilio.Accounts.AccountSid.SIP.Domains.SipDomainSid.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* SipDomainSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * SipDomainSid **required** `string`
+
+#### Output
+* output [domain](#domain)
 
 ### Accounts.AccountSid.SIP.Domains.json.get
 Returns a paged list of the domains for an account.
@@ -1389,8 +1733,12 @@ twilio.Accounts.AccountSid.SIP.Domains.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [domains](#domains)
 
 ### Accounts.AccountSid.SIP.Domains.json.post
 Creates a new Domain and returns its instance resource. You must pick a unique domain name that ends in ".sip.twilio.com".
@@ -1404,8 +1752,12 @@ twilio.Accounts.AccountSid.SIP.Domains.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAddresses.IpAddressSid.json.delete
 Deletes an IP address entry from the list.
@@ -1419,10 +1771,14 @@ twilio.Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAdd
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IpAccessControlListSid (string) **required**
-* IpAddressSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IpAccessControlListSid **required** `string`
+  * IpAddressSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAddresses.IpAddressSid.json.get
 Return a single IP Address resource.
@@ -1436,10 +1792,14 @@ twilio.Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAdd
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IpAccessControlListSid (string) **required**
-* IpAddressSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IpAccessControlListSid **required** `string`
+  * IpAddressSid **required** `string`
+
+#### Output
+* output [ipAddress](#ipaddress)
 
 ### Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAddresses.IpAddressSid.json.post
 Change the description or IP address of a given IpAddress instance resource
@@ -1453,10 +1813,14 @@ twilio.Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAdd
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IpAccessControlListSid (string) **required**
-* IpAddressSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IpAccessControlListSid **required** `string`
+  * IpAddressSid **required** `string`
+
+#### Output
+* output [ipAddress](#ipaddress)
 
 ### Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAddresses.json.get
 List the IP Addresses contained in this list.
@@ -1469,9 +1833,13 @@ twilio.Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAdd
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IpAccessControlListSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IpAccessControlListSid **required** `string`
+
+#### Output
+* output [ipAddresses](#ipaddresses)
 
 ### Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAddresses.json.post
 Add an IP Address to the list with a description.
@@ -1484,9 +1852,13 @@ twilio.Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAdd
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IpAccessControlListSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IpAccessControlListSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.json.delete
 Delete an IpAccessControlList from your account. It can only be deleted if no domains are mapped to it. If you attempt to delete one that is mapped to a domain, you will receive an error.
@@ -1499,9 +1871,13 @@ twilio.Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.json.
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IpAccessControlListSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IpAccessControlListSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.json.get
 Return a specific IpAccessControlList resource.
@@ -1514,9 +1890,13 @@ twilio.Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.json.
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IpAccessControlListSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IpAccessControlListSid **required** `string`
+
+#### Output
+* output [ipAccessControlListMapping](#ipaccesscontrollistmapping)
 
 ### Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.json.post
 Rename an IpAccessControlList.
@@ -1529,9 +1909,13 @@ twilio.Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.json.
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* IpAccessControlListSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * IpAccessControlListSid **required** `string`
+
+#### Output
+* output [ipAccessControlListMapping](#ipaccesscontrollistmapping)
 
 ### Accounts.AccountSid.SIP.IpAccessControlLists.json.get
 Return a paged list of all IpAccessControlLists under this account.
@@ -1543,8 +1927,12 @@ twilio.Accounts.AccountSid.SIP.IpAccessControlLists.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.SIP.IpAccessControlLists.json.post
 Create a new IpAccessControlList resource.
@@ -1559,8 +1947,12 @@ twilio.Accounts.AccountSid.SIP.IpAccessControlLists.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [ipAccessControlListMapping](#ipaccesscontrollistmapping)
 
 ### Accounts.AccountSid.SMS.ShortCodes.ShortCodeSid.json.get
 Get a single message.
@@ -1573,9 +1965,13 @@ twilio.Accounts.AccountSid.SMS.ShortCodes.ShortCodeSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* ShortCodeSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * ShortCodeSid **required** `string`
+
+#### Output
+* output [shortCode](#shortcode)
 
 ### Accounts.AccountSid.SMS.ShortCodes.ShortCodeSid.json.post
 Tries to update the shortcode's properties, and returns the updated
@@ -1590,9 +1986,13 @@ twilio.Accounts.AccountSid.SMS.ShortCodes.ShortCodeSid.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* ShortCodeSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * ShortCodeSid **required** `string`
+
+#### Output
+* output [shortCode](#shortcode)
 
 ### Accounts.AccountSid.SMS.ShortCodes.json.get
 Returns a list of ShortCode resource representations, each representing a
@@ -1606,8 +2006,12 @@ twilio.Accounts.AccountSid.SMS.ShortCodes.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [shortCodes](#shortcodes)
 
 ### Accounts.AccountSid.Transcriptions.TranscriptionSid.json.delete
 Deletes a transcription from your account.
@@ -1620,9 +2024,13 @@ twilio.Accounts.AccountSid.Transcriptions.TranscriptionSid.json.delete({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* TranscriptionSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * TranscriptionSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.Transcriptions.TranscriptionSid.json.get
 Returns a single Transcription resource representation identified by the
@@ -1637,9 +2045,13 @@ twilio.Accounts.AccountSid.Transcriptions.TranscriptionSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* TranscriptionSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * TranscriptionSid **required** `string`
+
+#### Output
+* output [transcription](#transcription)
 
 ### Accounts.AccountSid.Transcriptions.json.get
 Returns a set of Transcription resource representations that includes paging
@@ -1653,8 +2065,12 @@ twilio.Accounts.AccountSid.Transcriptions.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [transcriptions](#transcriptions)
 
 ### Accounts.AccountSid.Usage.Records.Subresource.json.get
 Returns UsageRecords for all usage categories for a specified period.
@@ -1668,9 +2084,13 @@ twilio.Accounts.AccountSid.Usage.Records.Subresource.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* Subresource (string) **required** - |Subresource|Description|
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * Subresource **required** `string` (values: Daily, Monthly, Yearly, AllTime, Today, Yesterday, ThisMonth, LastMonth): |Subresource|Description|
+
+#### Output
+* output [usageRecords](#usagerecords)
 
 ### Accounts.AccountSid.Usage.Records.json.get
 Returns UsageRecords for all usage categories. The list includes paging
@@ -1688,8 +2108,12 @@ twilio.Accounts.AccountSid.Usage.Records.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [usageRecords](#usagerecords)
 
 ### Accounts.AccountSid.Usage.Triggers.UsageTriggerSid.json.delete
 Delete this UsageTrigger.
@@ -1702,9 +2126,13 @@ twilio.Accounts.AccountSid.Usage.Triggers.UsageTriggerSid.json.delete({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* UsageTriggerSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * UsageTriggerSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.Usage.Triggers.UsageTriggerSid.json.get
 Returns a repesentation of the UsageTrigger.
@@ -1717,9 +2145,13 @@ twilio.Accounts.AccountSid.Usage.Triggers.UsageTriggerSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* UsageTriggerSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * UsageTriggerSid **required** `string`
+
+#### Output
+* output [usageTrigger](#usagetrigger)
 
 ### Accounts.AccountSid.Usage.Triggers.UsageTriggerSid.json.post
 Tries to update the UsageTrigger's properties, and returns the updated
@@ -1734,9 +2166,13 @@ twilio.Accounts.AccountSid.Usage.Triggers.UsageTriggerSid.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
-* UsageTriggerSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+  * UsageTriggerSid **required** `string`
+
+#### Output
+* output [usageTrigger](#usagetrigger)
 
 ### Accounts.AccountSid.Usage.Triggers.json.get
 Returns a list of UsageTrigger resource representations. The list includes
@@ -1753,8 +2189,12 @@ twilio.Accounts.AccountSid.Usage.Triggers.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+* output [usageTriggers](#usagetriggers)
 
 ### Accounts.AccountSid.Usage.Triggers.json.post
 Creates a new UsageTrigger. Each account can create up to 1,000 UsageTriggers.
@@ -1769,8 +2209,12 @@ twilio.Accounts.AccountSid.Usage.Triggers.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required**
+#### Input
+* input `object`
+  * AccountSid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Accounts.AccountSid.json.get
 Returns a representation of an account.
@@ -1782,8 +2226,12 @@ twilio.Accounts.AccountSid.json.get({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required** - A 34 character string that uniquely identifies this account.
+#### Input
+* input `object`
+  * AccountSid **required** `string`: A 34 character string that uniquely identifies this account.
+
+#### Output
+* output [account](#account)
 
 ### Accounts.AccountSid.json.post
 Allows you to modify the properties of an account.
@@ -1795,8 +2243,12 @@ twilio.Accounts.AccountSid.json.post({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required** - A 34 character string that uniquely identifies this account.
+#### Input
+* input `object`
+  * AccountSid **required** `string`: A 34 character string that uniquely identifies this account.
+
+#### Output
+* output [account](#account)
 
 ### Accounts.AccountSid.json.put
 Allows you to modify the properties of an account.
@@ -1808,8 +2260,12 @@ twilio.Accounts.AccountSid.json.put({
 }, context)
 ```
 
-#### Parameters
-* AccountSid (string) **required** - A 34 character string that uniquely identifies this account.
+#### Input
+* input `object`
+  * AccountSid **required** `string`: A 34 character string that uniquely identifies this account.
+
+#### Output
+* output [account](#account)
 
 ### Accounts.json.get
 Retrieve a list of the Account resources belonging to the account used to make the
@@ -1821,8 +2277,11 @@ API request. This list will include that Account as well.
 twilio.Accounts.json.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [accounts](#accounts)
 
 ### Accounts.json.post
 Create a new Account instance resource as a subaccount of the one used to make the request. See
@@ -1834,6 +2293,14 @@ Creating Subaccounts for more information.
 twilio.Accounts.json.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

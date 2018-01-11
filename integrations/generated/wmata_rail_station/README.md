@@ -4,14 +4,12 @@ Client library for Rail Station Information
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/wmata_rail_station
+npm install --save @datafire/wmata_rail_station
 ```
-
 ```js
-let datafire = require('datafire');
 let wmata_rail_station = require('@datafire/wmata_rail_station').create({
   apiKeyHeader: "",
-  apiKeyQuery: "",
+  apiKeyQuery: ""
 });
 
 wmata_rail_station.json.jStations.get({}).then(data => {
@@ -20,9 +18,11 @@ wmata_rail_station.json.jStations.get({}).then(data => {
 ```
 
 ## Description
+
 Rail line and station information, including locations, fares, times, and parking.
 
 ## Actions
+
 ### Lines.get
 <h4 class="text-primary">Description</h4>
 
@@ -109,8 +109,11 @@ station.</td>
 wmata_rail_station.Lines.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### Path.get
 <h4 class="text-primary">Description</h4>
@@ -193,9 +196,13 @@ wmata_rail_station.Path.get({
 }, context)
 ```
 
-#### Parameters
-* FromStationCode (string) **required** - Station code for the origin station.  Use the Station List method to return a list of all station codes.
-* ToStationCode (string) **required** - Station code for the origin station.  Use the Station List method to return a list of all station codes.
+#### Input
+* input `object`
+  * FromStationCode **required** `string` (values: N06): Station code for the origin station.  Use the Station List method to return a list of all station codes.
+  * ToStationCode **required** `string` (values: G05): Station code for the origin station.  Use the Station List method to return a list of all station codes.
+
+#### Output
+*Output schema unknown*
 
 ### SrcStationToDstStationInfo.get
 <h4 class="text-primary">Description</h4>
@@ -307,9 +314,13 @@ people with disabilities</a>.
 wmata_rail_station.SrcStationToDstStationInfo.get({}, context)
 ```
 
-#### Parameters
-* FromStationCode (string) - Station code for the origin station.  Use the Station List method to return a list of all station codes.
-* ToStationCode (string) - Station code for the destination station.  Use the Station List method to return a list of all station codes.
+#### Input
+* input `object`
+  * FromStationCode `string` (values: E10): Station code for the origin station.  Use the Station List method to return a list of all station codes.
+  * ToStationCode `string` (values: J03): Station code for the destination station.  Use the Station List method to return a list of all station codes.
+
+#### Output
+*Output schema unknown*
 
 ### StationEntrances.get
 <h4 class="text-primary">Description</h4>
@@ -402,10 +413,14 @@ station code.</td>
 wmata_rail_station.StationEntrances.get({}, context)
 ```
 
-#### Parameters
-* Lat (number) - Center point Latitude, required if Longitude and Radius are specified.
-* Lon (number) - Center point Longitude, required if Latitude and Radius are specified.
-* Radius (number) - Radius (meters) to include in the search area, required if Latitude and Longitude are specified.
+#### Input
+* input `object`
+  * Lat `number` (values: 38.8978168): Center point Latitude, required if Longitude and Radius are specified.
+  * Lon `number` (values: -77.0404246): Center point Longitude, required if Latitude and Radius are specified.
+  * Radius `number` (values: 500): Radius (meters) to include in the search area, required if Latitude and Longitude are specified.
+
+#### Output
+*Output schema unknown*
 
 ### StationInfo.get
 <h4 class="text-primary">Description</h4>
@@ -540,8 +555,12 @@ wmata_rail_station.StationInfo.get({
 }, context)
 ```
 
-#### Parameters
-* StationCode (string) **required** - Station code.  Use the Station List method to return a list of all station codes.
+#### Input
+* input `object`
+  * StationCode **required** `string` (values: A01): Station code.  Use the Station List method to return a list of all station codes.
+
+#### Output
+*Output schema unknown*
 
 ### StationParking.get
 <h4 class="text-primary">Description</h4>
@@ -683,8 +702,12 @@ short-term spots are available.</td>
 wmata_rail_station.StationParking.get({}, context)
 ```
 
-#### Parameters
-* StationCode (string) - Station code.  Use the Station List method to return a list of all station codes.
+#### Input
+* input `object`
+  * StationCode `string` (values: E08, F06): Station code.  Use the Station List method to return a list of all station codes.
+
+#### Output
+*Output schema unknown*
 
 ### StationTimes.get
 <h4 class="text-primary">Description</h4>
@@ -835,8 +858,12 @@ other rail-related APIs to retrieve data about a station.</td>
 wmata_rail_station.StationTimes.get({}, context)
 ```
 
-#### Parameters
-* StationCode (string) - Station code.  Use the Station List method to return a list of all station codes.
+#### Input
+* input `object`
+  * StationCode `string` (values: E10): Station code.  Use the Station List method to return a list of all station codes.
+
+#### Output
+*Output schema unknown*
 
 ### Stations.get
 <h4 class="text-primary">Description</h4>
@@ -987,8 +1014,12 @@ use.</td>
 wmata_rail_station.Stations.get({}, context)
 ```
 
-#### Parameters
-* LineCode (string) - Two-letter line code abbreviation:
+#### Input
+* input `object`
+  * LineCode `string` (values: RD, YL, GR, BL, OR, SV): Two-letter line code abbreviation:
+
+#### Output
+*Output schema unknown*
 
 ### json.jLines.get
 <h4 class="text-primary">Description</h4>
@@ -1076,8 +1107,11 @@ station.</td>
 wmata_rail_station.json.jLines.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### json.jPath.get
 <h4 class="text-primary">Description</h4>
@@ -1160,9 +1194,13 @@ wmata_rail_station.json.jPath.get({
 }, context)
 ```
 
-#### Parameters
-* FromStationCode (string) **required** - Station code for the origin station.  Use the Station List method to return a list of all station codes.
-* ToStationCode (string) **required** - Station code for the destination station.  Use the Station List method to return a list of all station codes.
+#### Input
+* input `object`
+  * FromStationCode **required** `string` (values: N06): Station code for the origin station.  Use the Station List method to return a list of all station codes.
+  * ToStationCode **required** `string` (values: G05): Station code for the destination station.  Use the Station List method to return a list of all station codes.
+
+#### Output
+*Output schema unknown*
 
 ### json.jSrcStationToDstStationInfo.get
 <h4 class="text-primary">Description</h4>
@@ -1275,9 +1313,13 @@ people with disabilities</a>.
 wmata_rail_station.json.jSrcStationToDstStationInfo.get({}, context)
 ```
 
-#### Parameters
-* FromStationCode (string) - Station code for the origin station.  Use the Station List method to return a list of all station codes.
-* ToStationCode (string) - Station code for the destination station.  Use the Station List method to return a list of all station codes.
+#### Input
+* input `object`
+  * FromStationCode `string` (values: E10): Station code for the origin station.  Use the Station List method to return a list of all station codes.
+  * ToStationCode `string` (values: J03): Station code for the destination station.  Use the Station List method to return a list of all station codes.
+
+#### Output
+*Output schema unknown*
 
 ### json.jStationEntrances.get
 <h4 class="text-primary">Description</h4>
@@ -1370,10 +1412,14 @@ station code.</td>
 wmata_rail_station.json.jStationEntrances.get({}, context)
 ```
 
-#### Parameters
-* Lat (number) - Center point Latitude, required if Longitude and Radius are specified.
-* Lon (number) - Center point Longitude, required if Latitude and Radius are specified.
-* Radius (number) - Radius (meters) to include in the search area, required if Latitude and Longitude are specified.
+#### Input
+* input `object`
+  * Lat `number` (values: 38.8978168): Center point Latitude, required if Longitude and Radius are specified.
+  * Lon `number` (values: -77.0404246): Center point Longitude, required if Latitude and Radius are specified.
+  * Radius `number` (values: 500): Radius (meters) to include in the search area, required if Latitude and Longitude are specified.
+
+#### Output
+*Output schema unknown*
 
 ### json.jStationInfo.get
 <h4 class="text-primary">Description</h4>
@@ -1508,8 +1554,12 @@ wmata_rail_station.json.jStationInfo.get({
 }, context)
 ```
 
-#### Parameters
-* StationCode (string) **required** - Station code.  Use the Station List method to return a list of all station codes.
+#### Input
+* input `object`
+  * StationCode **required** `string` (values: A01): Station code.  Use the Station List method to return a list of all station codes.
+
+#### Output
+*Output schema unknown*
 
 ### json.jStationParking.get
 <h4 class="text-primary">Description</h4>
@@ -1651,8 +1701,12 @@ short-term spots are available.</td>
 wmata_rail_station.json.jStationParking.get({}, context)
 ```
 
-#### Parameters
-* StationCode (string) - Station code.  Use the Station List method to return a list of all station codes.
+#### Input
+* input `object`
+  * StationCode `string` (values: E08, F06): Station code.  Use the Station List method to return a list of all station codes.
+
+#### Output
+*Output schema unknown*
 
 ### json.jStationTimes.get
 <h4 class="text-primary">Description</h4>
@@ -1803,8 +1857,12 @@ other rail-related APIs to retrieve data about a station.</td>
 wmata_rail_station.json.jStationTimes.get({}, context)
 ```
 
-#### Parameters
-* StationCode (string) - Station code.  Use the Station List method to return a list of all station codes.
+#### Input
+* input `object`
+  * StationCode `string` (values: E10): Station code.  Use the Station List method to return a list of all station codes.
+
+#### Output
+*Output schema unknown*
 
 ### json.jStations.get
 <h4 class="text-primary">Description</h4>
@@ -1955,6 +2013,15 @@ use.</td>
 wmata_rail_station.json.jStations.get({}, context)
 ```
 
-#### Parameters
-* LineCode (string) - Two-letter line code abbreviation:
+#### Input
+* input `object`
+  * LineCode `string` (values: RD, YL, GR, BL, OR, SV): Two-letter line code abbreviation:
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

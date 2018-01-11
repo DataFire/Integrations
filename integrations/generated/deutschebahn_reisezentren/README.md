@@ -4,11 +4,9 @@ Client library for Reisezentren
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/deutschebahn_reisezentren
+npm install --save @datafire/deutschebahn_reisezentren
 ```
-
 ```js
-let datafire = require('datafire');
 let deutschebahn_reisezentren = require('@datafire/deutschebahn_reisezentren').create();
 
 deutschebahn_reisezentren.reisezentren.get({}).then(data => {
@@ -17,9 +15,11 @@ deutschebahn_reisezentren.reisezentren.get({}).then(data => {
 ```
 
 ## Description
+
 This REST-API enables you to query information about travel centers in Germany.
 
 ## Actions
+
 ### reisezentren.get
 Get all station infos
 
@@ -28,8 +28,12 @@ Get all station infos
 deutschebahn_reisezentren.reisezentren.get({}, context)
 ```
 
-#### Parameters
-* name (string) - A station name or part of it
+#### Input
+* input `object`
+  * name `string`: A station name or part of it
+
+#### Output
+* output [TravelCenterList](#travelcenterlist)
 
 ### reisezentren.loc.lat.lon.get
 Get information about a station near a location
@@ -42,9 +46,13 @@ deutschebahn_reisezentren.reisezentren.loc.lat.lon.get({
 }, context)
 ```
 
-#### Parameters
-* lat (number) **required** - Latitude
-* lon (number) **required** - Longitude
+#### Input
+* input `object`
+  * lat **required** `number`: Latitude
+  * lon **required** `number`: Longitude
+
+#### Output
+* output [TravelCenter](#travelcenter)
 
 ### reisezentren.id.get
 Get information about a specific station
@@ -56,6 +64,47 @@ deutschebahn_reisezentren.reisezentren.id.get({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - Station id
+#### Input
+* input `object`
+  * id **required** `string`: Station id
+
+#### Output
+* output [TravelCenter](#travelcenter)
+
+
+
+## Definitions
+
+### Error
+* Error `object`
+  * code `integer`
+  * message `string`
+
+### OpeningTime
+* OpeningTime `array`
+  * items `string`
+
+### TravelCenter
+* TravelCenter `object`
+  * address `string`: Street address of travel center
+  * city `string`: City of travel center
+  * id `integer`: Identifying number
+  * lat `number`: Latitude of travel center location
+  * lon `number`: Longitude of travel center location
+  * name `string`: Name of travel center
+  * openingTimes `object`: Opening times of the travel center, ordered by week day
+    * fri [OpeningTime](#openingtime)
+    * mon [OpeningTime](#openingtime)
+    * sat [OpeningTime](#openingtime)
+    * sun [OpeningTime](#openingtime)
+    * thu [OpeningTime](#openingtime)
+    * tue [OpeningTime](#openingtime)
+    * wed [OpeningTime](#openingtime)
+  * postCode `string`: Post code of travel center
+  * type `string` (values: Reisezentrum, Mobility Center): Type of travel center
+
+### TravelCenterList
+* TravelCenterList `array`
+  * items [TravelCenter](#travelcenter)
+
 

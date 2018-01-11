@@ -4,14 +4,12 @@ Client library for Bus Route and Stop Methods
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/wmata_bus_route
+npm install --save @datafire/wmata_bus_route
 ```
-
 ```js
-let datafire = require('datafire');
 let wmata_bus_route = require('@datafire/wmata_bus_route').create({
   apiKeyHeader: "",
-  apiKeyQuery: "",
+  apiKeyQuery: ""
 });
 
 wmata_bus_route.json.jStops.get({}).then(data => {
@@ -20,9 +18,11 @@ wmata_bus_route.json.jStops.get({}).then(data => {
 ```
 
 ## Description
+
 Bus stop information, route and schedule data, and bus positions.
 
 ## Actions
+
 ### BusPositions.get
 <h4 class="text-primary">Description</h4>
 
@@ -158,11 +158,15 @@ bus itself.</td>
 wmata_bus_route.BusPositions.get({}, context)
 ```
 
-#### Parameters
-* RouteID (string) - Bus route, e.g.: B30, 10A.
-* Lat (string) - Center point Latitude, required if Longitude and Radius are specified.
-* Lon (string) - Center point Longitude, required if Latitude and Radius are specified.
-* Radius (string) - Radius (meters) to include in the search area, required if Latitude and Longitude are specified.
+#### Input
+* input `object`
+  * RouteID `string` (values: B30): Bus route, e.g.: B30, 10A.
+  * Lat `string`: Center point Latitude, required if Longitude and Radius are specified.
+  * Lon `string`: Center point Longitude, required if Latitude and Radius are specified.
+  * Radius `string`: Radius (meters) to include in the search area, required if Latitude and Longitude are specified.
+
+#### Output
+*Output schema unknown*
 
 ### RouteDetails.get
 <h4 class="text-primary">Description</h4>
@@ -281,9 +285,13 @@ wmata_bus_route.RouteDetails.get({
 }, context)
 ```
 
-#### Parameters
-* RouteID (string) **required** - Bus route variant, e.g.: B30, 10A, 10Av1.
-* Date (string) - Date in YYYY-MM-DD format for which to retrieve route and stop information.  Defaults to today's date unless specified.
+#### Input
+* input `object`
+  * RouteID **required** `string` (values: B30): Bus route variant, e.g.: B30, 10A, 10Av1.
+  * Date `string`: Date in YYYY-MM-DD format for which to retrieve route and stop information.  Defaults to today's date unless specified.
+
+#### Output
+*Output schema unknown*
 
 ### RouteSchedule.get
 <h4 class="text-primary">Description</h4>
@@ -441,10 +449,14 @@ wmata_bus_route.RouteSchedule.get({
 }, context)
 ```
 
-#### Parameters
-* RouteID (string) **required** - Bus route variant, e.g.: B30, 10A, 10Av1.
-* Date (string) - Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified.
-* IncludingVariations (boolean) - Whether or not to include variations.  For example, if B30 is specified, include all variations such as B30v1, B30v2, etc.
+#### Input
+* input `object`
+  * RouteID **required** `string` (values: B30): Bus route variant, e.g.: B30, 10A, 10Av1.
+  * Date `string`: Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified.
+  * IncludingVariations `boolean` (values: false, true): Whether or not to include variations.  For example, if B30 is specified, include all variations such as B30v1, B30v2, etc.
+
+#### Output
+*Output schema unknown*
 
 ### Routes.get
 <h4 class="text-primary">Description</h4>
@@ -508,8 +520,11 @@ various other bus-related methods.</td>
 wmata_bus_route.Routes.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### StopSchedule.get
 <h4 class="text-primary">Description</h4>
@@ -669,9 +684,13 @@ wmata_bus_route.StopSchedule.get({
 }, context)
 ```
 
-#### Parameters
-* StopID (string) **required** - 7-digit regional stop ID.
-* Date (string) - Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified.
+#### Input
+* input `object`
+  * StopID **required** `string` (values: 3002578): 7-digit regional stop ID.
+  * Date `string`: Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified.
+
+#### Output
+*Output schema unknown*
 
 ### Stops.get
 <h4 class="text-primary">Description</h4>
@@ -748,10 +767,14 @@ methods. If unavailable, the StopID will be 0 or NULL.</td>
 wmata_bus_route.Stops.get({}, context)
 ```
 
-#### Parameters
-* Lat (string) - Center point Latitude, required if Longitude and Radius are specified.
-* Lon (string) - Center point Longitude, required if Latitude and Radius are specified.
-* Radius (string) - Radius (feet) to include in the search area, required if Latitude and Longitude are specified.
+#### Input
+* input `object`
+  * Lat `string` (values: 38.878586): Center point Latitude, required if Longitude and Radius are specified.
+  * Lon `string` (values: -76.989626): Center point Longitude, required if Latitude and Radius are specified.
+  * Radius `string` (values: 500): Radius (feet) to include in the search area, required if Latitude and Longitude are specified.
+
+#### Output
+*Output schema unknown*
 
 ### json.jBusPositions.get
 <h4 class="text-primary">Description</h4>
@@ -888,11 +911,15 @@ bus itself.</td>
 wmata_bus_route.json.jBusPositions.get({}, context)
 ```
 
-#### Parameters
-* RouteID (string) - Base bus route, e.g.: B30, 10A.
-* Lat (number) - Center point Latitude, required if Longitude and Radius are specified.
-* Lon (number) - Center point Longitude, required if Latitude and Radius are specified.
-* Radius (number) - Radius (meters) to include in the search area, required if Latitude and Longitude are specified.
+#### Input
+* input `object`
+  * RouteID `string` (values: B30): Base bus route, e.g.: B30, 10A.
+  * Lat `number`: Center point Latitude, required if Longitude and Radius are specified.
+  * Lon `number`: Center point Longitude, required if Latitude and Radius are specified.
+  * Radius `number`: Radius (meters) to include in the search area, required if Latitude and Longitude are specified.
+
+#### Output
+*Output schema unknown*
 
 ### json.jRouteDetails.get
 <h4 class="text-primary">Description</h4>
@@ -1067,9 +1094,13 @@ wmata_bus_route.json.jRouteDetails.get({
 }, context)
 ```
 
-#### Parameters
-* RouteID (string) **required** - Bus route variant, e.g.: B30, 10A, 10Av1.
-* Date (string) - Date in YYYY-MM-DD format for which to retrieve route and stop information.  Defaults to today's date unless specified.
+#### Input
+* input `object`
+  * RouteID **required** `string` (values: B30): Bus route variant, e.g.: B30, 10A, 10Av1.
+  * Date `string`: Date in YYYY-MM-DD format for which to retrieve route and stop information.  Defaults to today's date unless specified.
+
+#### Output
+*Output schema unknown*
 
 ### json.jRouteSchedule.get
 <h4 class="text-primary">Description</h4>
@@ -1227,10 +1258,14 @@ wmata_bus_route.json.jRouteSchedule.get({
 }, context)
 ```
 
-#### Parameters
-* RouteID (string) **required** - Bus route variant, e.g.: B30, 10A, 10Av1, etc.
-* Date (string) - Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified.
-* IncludingVariations (boolean) - Whether or not to include variations if a base route is specified in RouteID.  For example, if B30 is specified and IncludingVariations is set to true, data for all variations of B30 such as B30v1, B30v2, etc. will be returned.
+#### Input
+* input `object`
+  * RouteID **required** `string` (values: B30): Bus route variant, e.g.: B30, 10A, 10Av1, etc.
+  * Date `string`: Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified.
+  * IncludingVariations `boolean` (values: false, true): Whether or not to include variations if a base route is specified in RouteID.  For example, if B30 is specified and IncludingVariations is set to true, data for all variations of B30 such as B30v1, B30v2, etc. will be returned.
+
+#### Output
+*Output schema unknown*
 
 ### json.jRoutes.get
 <h4 class="text-primary">Description</h4>
@@ -1293,8 +1328,11 @@ various other bus-related methods.</td>
 wmata_bus_route.json.jRoutes.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### json.jStopSchedule.get
 <h4 class="text-primary">Description</h4>
@@ -1454,9 +1492,13 @@ wmata_bus_route.json.jStopSchedule.get({
 }, context)
 ```
 
-#### Parameters
-* StopID (string) **required** - 7-digit regional stop ID.
-* Date (string) - Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified.
+#### Input
+* input `object`
+  * StopID **required** `string` (values: 3002578): 7-digit regional stop ID.
+  * Date `string`: Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified.
+
+#### Output
+*Output schema unknown*
 
 ### json.jStops.get
 <h4 class="text-primary">Description</h4>
@@ -1533,8 +1575,17 @@ methods. If unavailable, the StopID will be 0 or NULL.</td>
 wmata_bus_route.json.jStops.get({}, context)
 ```
 
-#### Parameters
-* Lat (number) - Center point Latitude, required if Longitude and Radius are specified.
-* Lon (number) - Center point Longitude, required if Latitude and Radius are specified.
-* Radius (number) - Radius (meters) to include in the search area, required if Latitude and Longitude are specified.
+#### Input
+* input `object`
+  * Lat `number` (values: 38.878586): Center point Latitude, required if Longitude and Radius are specified.
+  * Lon `number` (values: -76.989626): Center point Longitude, required if Latitude and Radius are specified.
+  * Radius `number` (values: 500): Radius (meters) to include in the search area, required if Latitude and Longitude are specified.
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

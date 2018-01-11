@@ -4,11 +4,9 @@ Client library for Youphoric
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/youphoric
+npm install --save @datafire/youphoric
 ```
-
 ```js
-let datafire = require('datafire');
 let youphoric = require('@datafire/youphoric').create();
 
 youphoric.register.php_.get({}).then(data => {
@@ -17,9 +15,11 @@ youphoric.register.php_.get({}).then(data => {
 ```
 
 ## Description
+
 Youphoric SMS API allows you to create and launch SMS-based apps quickly to reach Smart subscribers in the Philippines. 
 
 ## Actions
+
 ### register.php_.get
 
 
@@ -36,20 +36,23 @@ youphoric.register.php_.get({
 }, context)
 ```
 
-#### Parameters
-* client (string) **required**
-* FirstName (string) **required** - First Name
-* LastName (string) **required** - Last Name
-* MiddleName (string) - Middle Name
-* Street (string) - Street
-* Barangay (string) - Barangay
-* CityTown (string) - City or Town
-* Province (string) - Province
-* ZipCode (string) - Zip or Postal Code
-* username (string) **required** - Username
-* password (undefined) **required** - Password
-* email (string) **required** - Email
-* contactno (string) **required** - Mobile or Telephone
+#### Input
+* input `object`
+  * client **required** `string`
+  * FirstName **required** `string`: First Name
+  * LastName **required** `string`: Last Name
+  * MiddleName `string`: Middle Name
+  * Street `string`: Street
+  * Barangay `string`: Barangay
+  * CityTown `string`: City or Town
+  * Province `string`: Province
+  * ZipCode `string`: Zip or Postal Code
+  * username **required** `string`: Username
+  * email **required** `string`: Email
+  * contactno **required** `string`: Mobile or Telephone
+
+#### Output
+*Output schema unknown*
 
 ### mt.php_.post
 
@@ -63,8 +66,17 @@ youphoric.mt.php_.post({
 }, context)
 ```
 
-#### Parameters
-* from (string) **required** - Characters limit 11
-* to (string) **required** - Mobile Number.
-* text (string) **required** - Text Message
+#### Input
+* input `object`
+  * from **required** `string`: Characters limit 11
+  * to **required** `string`: Mobile Number.
+  * text **required** `string`: Text Message
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

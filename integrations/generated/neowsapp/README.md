@@ -4,11 +4,9 @@ Client library for NeoWs - (Near Earth Object Web Service)
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/neowsapp
+npm install --save @datafire/neowsapp
 ```
-
 ```js
-let datafire = require('datafire');
 let neowsapp = require('@datafire/neowsapp').create();
 
 neowsapp.browseNearEarthObjects({}).then(data => {
@@ -17,6 +15,7 @@ neowsapp.browseNearEarthObjects({}).then(data => {
 ```
 
 ## Description
+
 A web service for near earth objects. All the data is from the  <a href="http://neo.jpl.nasa.gov/" target="_blank">NASA JPL Asteroid team</a>. 
 
  
@@ -28,6 +27,7 @@ NeoWs is proud to power AsteroidTracker on <a href="https://itunes.apple.com/us/
 Follow us on <a href="https://twitter.com/AsteroidTracker" target="_blank">Twitter</a>
 
 ## Actions
+
 ### retrieveNearEarthObjectFeed
 Get a list of Near Earth Objects within a date range, The max range in one query is 7 days
 
@@ -38,10 +38,14 @@ neowsapp.retrieveNearEarthObjectFeed({
 }, context)
 ```
 
-#### Parameters
-* start_date (string) - Start of date range search, format: yyyy-MM-dd - (ex: 2015-04-28)
-* end_date (string) **required** - End of date range search, format: yyyy-MM-dd - (ex: 2015-04-28). If left off search will extends 7 days from start_date
-* detailed (boolean) - detailed
+#### Input
+* input `object`
+  * start_date `string`: Start of date range search, format: yyyy-MM-dd - (ex: 2015-04-28)
+  * end_date **required** `string`: End of date range search, format: yyyy-MM-dd - (ex: 2015-04-28). If left off search will extends 7 days from start_date
+  * detailed `boolean`: detailed
+
+#### Output
+* output [NearEarthObjectList](#nearearthobjectlist)
 
 ### retrieveNEOFeedToday
 Get a list of Near Earth Objects for today
@@ -51,8 +55,12 @@ Get a list of Near Earth Objects for today
 neowsapp.retrieveNEOFeedToday({}, context)
 ```
 
-#### Parameters
-* detailed (boolean) - detailed
+#### Input
+* input `object`
+  * detailed `boolean`: detailed
+
+#### Output
+* output [NearEarthObjectList](#nearearthobjectlist)
 
 ### browseNearEarthObjects
 Retieve a paginated list of Near Earth Objects
@@ -62,9 +70,13 @@ Retieve a paginated list of Near Earth Objects
 neowsapp.browseNearEarthObjects({}, context)
 ```
 
-#### Parameters
-* page (integer) - page
-* size (integer) - size
+#### Input
+* input `object`
+  * page `integer`: page
+  * size `integer`: size
+
+#### Output
+* output [NearEarthObject](#nearearthobject)
 
 ### retrieveNearEarthObjectById
 Retieve a Near Earth Objects with a given id
@@ -76,8 +88,12 @@ neowsapp.retrieveNearEarthObjectById({
 }, context)
 ```
 
-#### Parameters
-* asteroid_id (string) **required** - ID of Near Earth Object - (ex: 3729835)
+#### Input
+* input `object`
+  * asteroid_id **required** `string`: ID of Near Earth Object - (ex: 3729835)
+
+#### Output
+* output [NearEarthObject](#nearearthobject)
 
 ### retrieveCurrentNeoStatistics
 retrieveCurrentNeoStatistics
@@ -87,6 +103,14 @@ retrieveCurrentNeoStatistics
 neowsapp.retrieveCurrentNeoStatistics(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
+#### Output
+* output [Statistics](#statistics)
+
+
+
+## Definitions
+
+** No definitions **

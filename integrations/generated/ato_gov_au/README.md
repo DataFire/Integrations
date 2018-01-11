@@ -4,11 +4,9 @@ Client library for Business Registries
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/ato_gov_au
+npm install --save @datafire/ato_gov_au
 ```
-
 ```js
-let datafire = require('datafire');
 let ato_gov_au = require('@datafire/ato_gov_au').create();
 
 ato_gov_au.business_names.get({}).then(data => {
@@ -17,6 +15,7 @@ ato_gov_au.business_names.get({}).then(data => {
 ```
 
 ## Description
+
 # Introduction
 The Business Registries API is built on HTTP. The API is RESTful. It has predictable resource URIs.
 
@@ -109,6 +108,7 @@ The Business Registries API supports API Key authentication.
 
 
 ## Actions
+
 ### business_names.get
 Retrieve a list of business names
 
@@ -120,8 +120,13 @@ ato_gov_au.business_names.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [business-name](#business-name)
 
 ### classifications.address_types.get
 Retrieve a list of address types
@@ -133,8 +138,13 @@ ato_gov_au.classifications.address_types.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [address-type](#address-type)
 
 ### classifications.business_name_lifecycle_states.get
 Retrieve a list of business name lifecycle states
@@ -146,8 +156,13 @@ ato_gov_au.classifications.business_name_lifecycle_states.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [business-name-lifecycle-state](#business-name-lifecycle-state)
 
 ### classifications.electronic_address_types.get
 Retrieve a list of electronic address types
@@ -159,8 +174,13 @@ ato_gov_au.classifications.electronic_address_types.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [electronic-address-type](#electronic-address-type)
 
 ### classifications.genders.get
 Retrieve a list of genders
@@ -172,8 +192,13 @@ ato_gov_au.classifications.genders.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [gender](#gender)
 
 ### classifications.legal_entity_types.get
 Retrieve a list of legal entity types
@@ -185,8 +210,13 @@ ato_gov_au.classifications.legal_entity_types.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [legal-entity-type](#legal-entity-type)
 
 ### classifications.license_lifecycle_states.get
 Retrieve a list of license lifecycle states
@@ -198,8 +228,13 @@ ato_gov_au.classifications.license_lifecycle_states.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [license-lifecycle-state](#license-lifecycle-state)
 
 ### classifications.license_types.get
 Retrieve a list of license types
@@ -211,8 +246,13 @@ ato_gov_au.classifications.license_types.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [license-type](#license-type)
 
 ### classifications.name_directions.get
 Retrieve a list of name directions
@@ -224,8 +264,13 @@ ato_gov_au.classifications.name_directions.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [name-direction](#name-direction)
 
 ### classifications.name_prefixes.get
 Retrieve a list of name prefixes
@@ -237,8 +282,13 @@ ato_gov_au.classifications.name_prefixes.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [name-prefix](#name-prefix)
 
 ### classifications.name_types.get
 Retrieve a list of name types
@@ -250,8 +300,13 @@ ato_gov_au.classifications.name_types.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [name-type](#name-type)
 
 ### classifications.registered_identifier_types.get
 Retrieve a list of registered identifier types
@@ -263,8 +318,13 @@ ato_gov_au.classifications.registered_identifier_types.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [registered-identifier-type](#registered-identifier-type)
 
 ### classifications.roles.get
 Retrieve a list of roles
@@ -276,8 +336,13 @@ ato_gov_au.classifications.roles.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [role](#role)
 
 ### individuals.get
 Retrieve a list of individuals
@@ -290,10 +355,15 @@ ato_gov_au.individuals.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* dateOfBirth (string) - The individual's date of birth, for example, `1979-01-13` (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format).
-* placeOfBirth (string) - The individual's place of birth, for example, `Tamworth`.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * dateOfBirth `string`: The individual's date of birth, for example, `1979-01-13` (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format).
+  * placeOfBirth `string`: The individual's place of birth, for example, `Tamworth`.
+
+#### Output
+* output `array`
+  * items [individual](#individual)
 
 ### individuals.post
 Create an individual
@@ -310,9 +380,13 @@ ato_gov_au.individuals.post({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* body (object) **required** - The Individual resource.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * body **required** [individual](#individual)
+
+#### Output
+* output [individual](#individual)
 
 ### individuals.partyId.delete
 Delete an individual with the specified identifier
@@ -326,9 +400,13 @@ ato_gov_au.individuals.partyId.delete({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+*Output schema unknown*
 
 ### individuals.partyId.get
 Retrieve an individual with the specified identifier
@@ -342,9 +420,13 @@ ato_gov_au.individuals.partyId.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [individual](#individual)
 
 ### individuals.partyId.put
 Update an individual
@@ -362,10 +444,14 @@ ato_gov_au.individuals.partyId.put({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Individual resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * body **required** [individual](#individual)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [individual](#individual)
 
 ### individuals.partyId.addresses.get
 Retrieve a list of addresses
@@ -378,9 +464,14 @@ ato_gov_au.individuals.partyId.addresses.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output `array`
+  * items [address](#address)
 
 ### individuals.partyId.addresses.post
 Create an address
@@ -395,10 +486,14 @@ ato_gov_au.individuals.partyId.addresses.post({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Address resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * body **required** [address](#address)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [address](#address)
 
 ### individuals.partyId.addresses.addressId.delete
 Delete an address
@@ -413,10 +508,14 @@ ato_gov_au.individuals.partyId.addresses.addressId.delete({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* addressId (string) **required** - The address identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * addressId **required** `string`: The address identifier.
+
+#### Output
+*Output schema unknown*
 
 ### individuals.partyId.addresses.addressId.get
 Retrieve an address
@@ -431,10 +530,14 @@ ato_gov_au.individuals.partyId.addresses.addressId.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* addressId (string) **required** - The address identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * addressId **required** `string`: The address identifier.
+
+#### Output
+* output [address](#address)
 
 ### individuals.partyId.addresses.addressId.put
 Update an address
@@ -450,11 +553,15 @@ ato_gov_au.individuals.partyId.addresses.addressId.put({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Address resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* addressId (string) **required** - The address identifier.
+#### Input
+* input `object`
+  * body **required** [address](#address)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * addressId **required** `string`: The address identifier.
+
+#### Output
+* output [address](#address)
 
 ### individuals.partyId.business_names.get
 Retrieve a list of business names
@@ -467,9 +574,14 @@ ato_gov_au.individuals.partyId.business_names.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output `array`
+  * items [business-name](#business-name)
 
 ### individuals.partyId.business_names.post
 Create a business name
@@ -484,10 +596,14 @@ ato_gov_au.individuals.partyId.business_names.post({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Business Name resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * body **required** [business-name](#business-name)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [business-name](#business-name)
 
 ### individuals.partyId.business_names.productId.delete
 Delete a business name
@@ -502,10 +618,14 @@ ato_gov_au.individuals.partyId.business_names.productId.delete({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* productId (string) **required** - The product identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * productId **required** `string`: The product identifier.
+
+#### Output
+*Output schema unknown*
 
 ### individuals.partyId.business_names.productId.get
 Retrieve a business name
@@ -520,10 +640,14 @@ ato_gov_au.individuals.partyId.business_names.productId.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* productId (string) **required** - The product identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * productId **required** `string`: The product identifier.
+
+#### Output
+* output [business-name](#business-name)
 
 ### individuals.partyId.business_names.productId.put
 Update a business name
@@ -539,11 +663,15 @@ ato_gov_au.individuals.partyId.business_names.productId.put({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Business Name resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* productId (string) **required** - The product identifier.
+#### Input
+* input `object`
+  * body **required** [business-name](#business-name)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * productId **required** `string`: The product identifier.
+
+#### Output
+* output [business-name](#business-name)
 
 ### individuals.partyId.electronic_addresses.get
 Retrieve a list of electronic addresses
@@ -556,9 +684,14 @@ ato_gov_au.individuals.partyId.electronic_addresses.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output `array`
+  * items [electronic-address](#electronic-address)
 
 ### individuals.partyId.electronic_addresses.post
 Create an electronic address
@@ -573,10 +706,14 @@ ato_gov_au.individuals.partyId.electronic_addresses.post({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Electronic Address resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * body **required** [electronic-address](#electronic-address)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [electronic-address](#electronic-address)
 
 ### individuals.partyId.electronic_addresses.addressId.delete
 Delete an electronic address
@@ -591,10 +728,14 @@ ato_gov_au.individuals.partyId.electronic_addresses.addressId.delete({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* addressId (string) **required** - The address identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * addressId **required** `string`: The address identifier.
+
+#### Output
+*Output schema unknown*
 
 ### individuals.partyId.electronic_addresses.addressId.get
 Retrieve an electronic address
@@ -609,10 +750,14 @@ ato_gov_au.individuals.partyId.electronic_addresses.addressId.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* addressId (string) **required** - The address identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * addressId **required** `string`: The address identifier.
+
+#### Output
+* output [electronic-address](#electronic-address)
 
 ### individuals.partyId.electronic_addresses.addressId.put
 Update an electronic address
@@ -628,11 +773,15 @@ ato_gov_au.individuals.partyId.electronic_addresses.addressId.put({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Electronic Address resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* addressId (string) **required** - The address identifier.
+#### Input
+* input `object`
+  * body **required** [electronic-address](#electronic-address)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * addressId **required** `string`: The address identifier.
+
+#### Output
+* output [electronic-address](#electronic-address)
 
 ### individuals.partyId.licenses.get
 Retrieve a list of licenses
@@ -645,9 +794,14 @@ ato_gov_au.individuals.partyId.licenses.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output `array`
+  * items [license](#license)
 
 ### individuals.partyId.licenses.post
 Create a license
@@ -662,10 +816,14 @@ ato_gov_au.individuals.partyId.licenses.post({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The License resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * body **required** [license](#license)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [license](#license)
 
 ### individuals.partyId.licenses.productId.delete
 Delete a license
@@ -680,10 +838,14 @@ ato_gov_au.individuals.partyId.licenses.productId.delete({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* productId (string) **required** - The product identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * productId **required** `string`: The product identifier.
+
+#### Output
+*Output schema unknown*
 
 ### individuals.partyId.licenses.productId.get
 Retrieve a license
@@ -698,10 +860,14 @@ ato_gov_au.individuals.partyId.licenses.productId.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* productId (string) **required** - The product identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * productId **required** `string`: The product identifier.
+
+#### Output
+* output [license](#license)
 
 ### individuals.partyId.licenses.productId.put
 Update a license
@@ -717,11 +883,15 @@ ato_gov_au.individuals.partyId.licenses.productId.put({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The License resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* productId (string) **required** - The product identifier.
+#### Input
+* input `object`
+  * body **required** [license](#license)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * productId **required** `string`: The product identifier.
+
+#### Output
+* output [license](#license)
 
 ### individuals.partyId.roles.get
 Retrieve a list of roles
@@ -734,9 +904,14 @@ ato_gov_au.individuals.partyId.roles.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output `array`
+  * items [party-role](#party-role)
 
 ### individuals.partyId.roles.post
 Create a role
@@ -754,10 +929,14 @@ ato_gov_au.individuals.partyId.roles.post({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Party Role resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * body **required** [party-role](#party-role)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [party-role](#party-role)
 
 ### individuals.partyId.roles.roleId.delete
 Delete a role
@@ -772,10 +951,14 @@ ato_gov_au.individuals.partyId.roles.roleId.delete({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* roleId (string) **required** - The role identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * roleId **required** `string`: The role identifier.
+
+#### Output
+*Output schema unknown*
 
 ### individuals.partyId.roles.roleId.get
 Retrieve a role
@@ -790,10 +973,14 @@ ato_gov_au.individuals.partyId.roles.roleId.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* roleId (string) **required** - The role identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * roleId **required** `string`: The role identifier.
+
+#### Output
+* output [party-role](#party-role)
 
 ### individuals.partyId.roles.roleId.put
 Update a role
@@ -812,11 +999,15 @@ ato_gov_au.individuals.partyId.roles.roleId.put({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Party Role resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* roleId (string) **required** - The role identifier.
+#### Input
+* input `object`
+  * body **required** [party-role](#party-role)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * roleId **required** `string`: The role identifier.
+
+#### Output
+* output [party-role](#party-role)
 
 ### licenses.get
 Retrieve a list of licenses
@@ -829,8 +1020,13 @@ ato_gov_au.licenses.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+
+#### Output
+* output `array`
+  * items [license](#license)
 
 ### organisations.get
 Retrieve a list of organisations
@@ -843,10 +1039,15 @@ ato_gov_au.organisations.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* registeredIdentifier (string) - The registered identifier, for example, `ACN` or `ABN`.
-* identifier (string) - The identifier, for example, `123456789`.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * registeredIdentifier `string`: The registered identifier, for example, `ACN` or `ABN`.
+  * identifier `string`: The identifier, for example, `123456789`.
+
+#### Output
+* output `array`
+  * items [organisation](#organisation)
 
 ### organisations.post
 Create an organisation
@@ -863,9 +1064,13 @@ ato_gov_au.organisations.post({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* body (object) **required** - The Organisation resource.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * body **required** [organisation](#organisation)
+
+#### Output
+* output [organisation](#organisation)
 
 ### organisations.partyId.delete
 Delete an organisation with the specified identifier
@@ -879,9 +1084,13 @@ ato_gov_au.organisations.partyId.delete({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+*Output schema unknown*
 
 ### organisations.partyId.get
 Retrieve an organisation with the specified identifier
@@ -895,9 +1104,13 @@ ato_gov_au.organisations.partyId.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [organisation](#organisation)
 
 ### organisations.partyId.put
 Update an organisation
@@ -915,10 +1128,14 @@ ato_gov_au.organisations.partyId.put({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Organisation resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * body **required** [organisation](#organisation)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [organisation](#organisation)
 
 ### organisations.partyId.addresses.get
 Retrieve a list of addresses
@@ -931,9 +1148,14 @@ ato_gov_au.organisations.partyId.addresses.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output `array`
+  * items [address](#address)
 
 ### organisations.partyId.addresses.post
 Create an address
@@ -948,10 +1170,14 @@ ato_gov_au.organisations.partyId.addresses.post({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Address resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * body **required** [address](#address)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [address](#address)
 
 ### organisations.partyId.addresses.addressId.delete
 Delete an address
@@ -966,10 +1192,14 @@ ato_gov_au.organisations.partyId.addresses.addressId.delete({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* addressId (string) **required** - The address identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * addressId **required** `string`: The address identifier.
+
+#### Output
+*Output schema unknown*
 
 ### organisations.partyId.addresses.addressId.get
 Retrieve an address
@@ -984,10 +1214,14 @@ ato_gov_au.organisations.partyId.addresses.addressId.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* addressId (string) **required** - The address identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * addressId **required** `string`: The address identifier.
+
+#### Output
+* output [address](#address)
 
 ### organisations.partyId.addresses.addressId.put
 Update an address
@@ -1003,11 +1237,15 @@ ato_gov_au.organisations.partyId.addresses.addressId.put({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Address resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* addressId (string) **required** - The address identifier.
+#### Input
+* input `object`
+  * body **required** [address](#address)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * addressId **required** `string`: The address identifier.
+
+#### Output
+* output [address](#address)
 
 ### organisations.partyId.business_names.get
 Retrieve a list of business names
@@ -1020,9 +1258,14 @@ ato_gov_au.organisations.partyId.business_names.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output `array`
+  * items [business-name](#business-name)
 
 ### organisations.partyId.business_names.post
 Create a business name
@@ -1037,10 +1280,14 @@ ato_gov_au.organisations.partyId.business_names.post({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Business Name resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * body **required** [business-name](#business-name)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [business-name](#business-name)
 
 ### organisations.partyId.business_names.productId.delete
 Delete a business name
@@ -1055,10 +1302,14 @@ ato_gov_au.organisations.partyId.business_names.productId.delete({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* productId (string) **required** - The product identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * productId **required** `string`: The product identifier.
+
+#### Output
+*Output schema unknown*
 
 ### organisations.partyId.business_names.productId.get
 Retrieve a business name
@@ -1073,10 +1324,14 @@ ato_gov_au.organisations.partyId.business_names.productId.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* productId (string) **required** - The product identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * productId **required** `string`: The product identifier.
+
+#### Output
+* output [business-name](#business-name)
 
 ### organisations.partyId.business_names.productId.put
 Update a business name
@@ -1092,11 +1347,15 @@ ato_gov_au.organisations.partyId.business_names.productId.put({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Business Name resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* productId (string) **required** - The product identifier.
+#### Input
+* input `object`
+  * body **required** [business-name](#business-name)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * productId **required** `string`: The product identifier.
+
+#### Output
+* output [business-name](#business-name)
 
 ### organisations.partyId.electronic_addresses.get
 Retrieve a list of electronic addresses
@@ -1109,9 +1368,14 @@ ato_gov_au.organisations.partyId.electronic_addresses.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output `array`
+  * items [electronic-address](#electronic-address)
 
 ### organisations.partyId.electronic_addresses.post
 Create an electronic address
@@ -1126,10 +1390,14 @@ ato_gov_au.organisations.partyId.electronic_addresses.post({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Electronic Address resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * body **required** [electronic-address](#electronic-address)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [electronic-address](#electronic-address)
 
 ### organisations.partyId.electronic_addresses.addressId.delete
 Delete an electronic address
@@ -1144,10 +1412,14 @@ ato_gov_au.organisations.partyId.electronic_addresses.addressId.delete({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* addressId (string) **required** - The address identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * addressId **required** `string`: The address identifier.
+
+#### Output
+*Output schema unknown*
 
 ### organisations.partyId.electronic_addresses.addressId.get
 Retrieve an electronic address
@@ -1162,10 +1434,14 @@ ato_gov_au.organisations.partyId.electronic_addresses.addressId.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* addressId (string) **required** - The address identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * addressId **required** `string`: The address identifier.
+
+#### Output
+* output [electronic-address](#electronic-address)
 
 ### organisations.partyId.electronic_addresses.addressId.put
 Update an electronic address
@@ -1181,11 +1457,15 @@ ato_gov_au.organisations.partyId.electronic_addresses.addressId.put({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Electronic Address resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* addressId (string) **required** - The address identifier.
+#### Input
+* input `object`
+  * body **required** [electronic-address](#electronic-address)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * addressId **required** `string`: The address identifier.
+
+#### Output
+* output [electronic-address](#electronic-address)
 
 ### organisations.partyId.licenses.get
 Retrieve a list of licenses
@@ -1198,9 +1478,14 @@ ato_gov_au.organisations.partyId.licenses.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output `array`
+  * items [license](#license)
 
 ### organisations.partyId.licenses.post
 Create a license
@@ -1215,10 +1500,14 @@ ato_gov_au.organisations.partyId.licenses.post({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The License resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * body **required** [license](#license)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [license](#license)
 
 ### organisations.partyId.licenses.productId.delete
 Delete a license
@@ -1233,10 +1522,14 @@ ato_gov_au.organisations.partyId.licenses.productId.delete({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* productId (string) **required** - The product identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * productId **required** `string`: The product identifier.
+
+#### Output
+*Output schema unknown*
 
 ### organisations.partyId.licenses.productId.get
 Retrieve a license
@@ -1251,10 +1544,14 @@ ato_gov_au.organisations.partyId.licenses.productId.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* productId (string) **required** - The product identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * productId **required** `string`: The product identifier.
+
+#### Output
+* output [license](#license)
 
 ### organisations.partyId.licenses.productId.put
 Update a license
@@ -1270,11 +1567,15 @@ ato_gov_au.organisations.partyId.licenses.productId.put({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The License resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* productId (string) **required** - The product identifier.
+#### Input
+* input `object`
+  * body **required** [license](#license)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * productId **required** `string`: The product identifier.
+
+#### Output
+* output [license](#license)
 
 ### organisations.partyId.roles.get
 Retrieve a list of roles
@@ -1287,9 +1588,14 @@ ato_gov_au.organisations.partyId.roles.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output `array`
+  * items [party-role](#party-role)
 
 ### organisations.partyId.roles.post
 Create a role
@@ -1307,10 +1613,14 @@ ato_gov_au.organisations.partyId.roles.post({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Party Role resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
+#### Input
+* input `object`
+  * body **required** [party-role](#party-role)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+
+#### Output
+* output [party-role](#party-role)
 
 ### organisations.partyId.roles.roleId.delete
 Delete a role
@@ -1325,10 +1635,14 @@ ato_gov_au.organisations.partyId.roles.roleId.delete({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* roleId (string) **required** - The role identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * roleId **required** `string`: The role identifier.
+
+#### Output
+*Output schema unknown*
 
 ### organisations.partyId.roles.roleId.get
 Retrieve a role
@@ -1343,10 +1657,14 @@ ato_gov_au.organisations.partyId.roles.roleId.get({
 }, context)
 ```
 
-#### Parameters
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* roleId (string) **required** - The role identifier.
+#### Input
+* input `object`
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * roleId **required** `string`: The role identifier.
+
+#### Output
+* output [party-role](#party-role)
 
 ### organisations.partyId.roles.roleId.put
 Update a role
@@ -1365,9 +1683,231 @@ ato_gov_au.organisations.partyId.roles.roleId.put({
 }, context)
 ```
 
-#### Parameters
-* body (object) **required** - The Party Role resource.
-* apiKey (string) **required** - The API key.
-* partyId (string) **required** - The party identifier.
-* roleId (string) **required** - The role identifier.
+#### Input
+* input `object`
+  * body **required** [party-role](#party-role)
+  * apiKey **required** `string`: The API key.
+  * partyId **required** `string`: The party identifier.
+  * roleId **required** `string`: The role identifier.
+
+#### Output
+* output [party-role](#party-role)
+
+
+
+## Definitions
+
+### address
+* address `object`: The Address resource.
+  * city `string`: The city.
+  * country `string`: The country.
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * line1 `string`: The address line 1.
+  * line2 `string`: The address line 2.
+  * line3 `string`: The address line 3.
+  * name `string`: The address name.
+  * postalCode `string`: The postal code.
+  * suburb `string`: The suburb.
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+
+### address-type
+
+
+### addressId
+
+
+### business-name
+* business-name `object`: The Business Name resource.
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * lifecycleState `string` (values: Approved, Expired, Issued, Pending Approval, Suspended): The business name's lifecycle state.
+  * name `string`: The business name.
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+
+### business-name-lifecycle-state
+
+
+### electronic-address
+* electronic-address `object`: The Electronic Address resource.
+  * areaCode `string`: The area code, for example, "02".
+  * countryPrefix `string`: The country prefix, for example, "61".
+  * electronicAddressType `string` (values: Email, Fax, Landline, Mobile, Website): The electronic address type.
+  * email `string`: The email address, for example, "robert.ferguson@ato.gov.au".
+  * extension `string`: The extension number, for example, "4453".
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * number `string`: The number, for example, "62164453".
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * url `string`: The website address, for example, "https://ato.gov.au".
+
+### electronic-address-type
+
+
+### error-details
+* error-details `object`
+  * code `string`: The error code.
+  * message `string`: The error message.
+  * target `string`: The error target.
+
+### failed-precondition
+* failed-precondition `object`
+  * code `string`: The error code.
+  * details `array`
+    * items [error-details](#error-details)
+  * message `string`: The error message.
+  * status `string`: The error status.
+
+### gender
+* gender `object`: The Gender resource.
+  * gender `string`: The gender.
+
+### individual
+* individual `object`: The Individual resource.
+  * addresses `array`
+    * items [individual-address](#individual-address)
+  * dateOfBirth **required** `string`: The individual's date of birth, for example, `1979-01-13` (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format).
+  * electronicAddresses `array`
+    * items [electronic-address](#electronic-address)
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * gender `string` (values: Female, Male, Not Applicable, Not Known): The individual's gender.
+  * names `array`
+    * items [individual-name](#individual-name)
+  * placeOfBirth **required** `string`: The individual's place of birth, for example, `Tamworth`.
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+
+### individual-address
+
+
+### individual-name
+* individual-name `object`: The Individual Name resource.
+  * direction `string` (values: left-to-right, right-to-left): The direction used to render the individual's name.
+  * familyName `string`: The individual's family name.
+  * formalSalutation `string`: The individual's formal salutation, for example, "Mr William Smith".
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * givenName `string`: The individual's given name.
+  * informalSalutation `string`: The individual's informal salutation, for example, "Bill".
+  * middleName `string`: The individual's middle name.
+  * namePrefix `string` (values: Mr, Ms): The individual's name prefix.
+  * nameSuffix `string`: The individual's name suffix, for example, "Jr" or "Sr".
+  * nameType `string` (values: Alias, Principal Name): The name type.
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+
+### invalid-argument
+* invalid-argument `object`
+  * code `string`: The error code.
+  * details `array`
+    * items [error-details](#error-details)
+  * message `string`: The error message.
+  * status `string`: The error status.
+
+### legal-entity-type
+
+
+### license
+* license `object`: The License resource.
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * licenseType `string` (values: Australian Financial Services License, License 2B): The license type.
+  * lifecycleState `string` (values: Approved, Expired, Issued, Pending Approval, Suspended): The business name's lifecycle state.
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+
+### license-lifecycle-state
+
+
+### license-type
+
+
+### name-direction
+
+
+### name-prefix
+
+
+### name-type
+
+
+### not-found
+* not-found `object`
+  * code `string`: The error code.
+  * details `array`
+    * items [error-details](#error-details)
+  * message `string`: The error message.
+  * status `string`: The error status.
+
+### organisation
+* organisation `object`: The Organisation resource.
+  * addresses `array`
+    * items [organisation-address](#organisation-address)
+  * electronicAddresses `array`
+    * items [electronic-address](#electronic-address)
+  * establishmentDate **required** `string`: The organisation's establishment date, for example, `1928-03-03` (in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format).
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * legalEntityType **required** `string` (values: Company, Partnership, Trust, Joint Venture): The organisation's legal entity type.
+  * names `array`
+    * items [organisation-name](#organisation-name)
+  * registeredIdentifiers `array`
+    * items [registered-identifier](#registered-identifier)
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+
+### organisation-address
+
+
+### organisation-name
+* organisation-name `object`: The Organisation Name resource.
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * name `string`: The organisation's name.
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+
+### party-role
+* party-role `object`: The Party Role resource.
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * partyRoleType `string` (values: Director, Employee, Member, Partner, Trustee): The party's role type.
+  * relatedPartyRoleType `string` (values: Association, Company, Employer, Organisation, Partnership, Trust): The related party's role type.
+  * relationshipType **required** `string` (values: Directorship, Employment, Membership, Partnership, Trusteeship): The relationship type.
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+
+### partyId
+
+
+### permission-denied
+* permission-denied `object`
+  * code `string`: The error code.
+  * details `array`
+    * items [error-details](#error-details)
+  * message `string`: The error message.
+  * status `string`: The error status.
+
+### registered-identifier
+* registered-identifier `object`: The Registered Identifier resource.
+  * fromDate `string`: The date and time the resource became active in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+  * identifier `string`: The registered identifier.
+  * identifierType `string` (values: ACN, ABN): The registered identifier type.
+  * toDate `string`: The date and time the resource became inactive in the format defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+
+### registered-identifier-type
+
+
+### resourceId
+* resourceId `string`: The resource ID. Defaults to UUID v4
+
+### role
+* role `object`: The Role Type resource.
+  * reciprocalRole `string`: The reciprocal role name.
+  * reciprocalRoleDescription `string`: The reciprocal role description.
+  * relationship `string`: The relationship name.
+  * role `string`: The role name.
+  * roleDescription `string`: The role description.
+
+### roleId
+
+
+### type
+* type `object`: The Type resource.
+  * description `string`: The scheme value description.
+  * name `string`: The scheme value.
+
+### unauthenticated
+* unauthenticated `object`
+  * code `string`: The error code.
+  * details [error-details](#error-details)
+  * message `string`: The error message.
+  * status `string`: The error status.
+
 

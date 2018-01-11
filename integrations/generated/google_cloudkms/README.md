@@ -4,17 +4,15 @@ Client library for Google Cloud Key Management Service (KMS)
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/google_cloudkms
+npm install --save @datafire/google_cloudkms
 ```
-
 ```js
-let datafire = require('datafire');
 let google_cloudkms = require('@datafire/google_cloudkms').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 google_cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.get({}).then(data => {
@@ -23,9 +21,11 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.get({})
 ```
 
 ## Description
+
 Manages encryption for your cloud services the same way you do on-premises. You can generate, use, rotate, and destroy AES256 encryption keys.
 
 ## Actions
+
 ### oauthCallback
 Exchange the code passed to your redirect URI for an access_token
 
@@ -36,8 +36,17 @@ google_cloudkms.oauthCallback({
 }, context)
 ```
 
-#### Parameters
-* code (string) **required**
+#### Input
+* input `object`
+  * code **required** `string`
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### oauthRefresh
 Exchange a refresh_token for an access_token
@@ -47,8 +56,16 @@ Exchange a refresh_token for an access_token
 google_cloudkms.oauthRefresh(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.get
 Returns metadata for a given CryptoKeyVersion.
@@ -60,21 +77,25 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.get({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the CryptoKeyVersion to get.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the CryptoKeyVersion to get.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [CryptoKeyVersion](#cryptokeyversion)
 
 ### projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.patch
 Update a CryptoKeyVersion's metadata.
@@ -92,23 +113,27 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.patch({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - Output only. The resource name for this CryptoKeyVersion in the format
-* updateMask (string) - Required list of fields to be updated in this request.
-* body (object) - A CryptoKeyVersion represents an individual cryptographic key, and the
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * name **required** `string`: Output only. The resource name for this CryptoKeyVersion in the format
+  * updateMask `string`: Required list of fields to be updated in this request.
+  * body [CryptoKeyVersion](#cryptokeyversion)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [CryptoKeyVersion](#cryptokeyversion)
 
 ### projects.locations.list
 Lists information about the supported locations for this service.
@@ -120,24 +145,28 @@ google_cloudkms.projects.locations.list({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The resource that owns the locations collection, if applicable.
-* pageSize (integer) - The standard list page size.
-* filter (string) - The standard list filter.
-* pageToken (string) - The standard list page token.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * name **required** `string`: The resource that owns the locations collection, if applicable.
+  * pageSize `integer`: The standard list page size.
+  * filter `string`: The standard list filter.
+  * pageToken `string`: The standard list page token.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [ListLocationsResponse](#listlocationsresponse)
 
 ### projects.locations.keyRings.cryptoKeys.decrypt
 Decrypts data that was protected by Encrypt.
@@ -149,22 +178,26 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.decrypt({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - Required. The resource name of the CryptoKey to use for decryption.
-* body (object) - Request message for KeyManagementService.Decrypt.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * name **required** `string`: Required. The resource name of the CryptoKey to use for decryption.
+  * body [DecryptRequest](#decryptrequest)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [DecryptResponse](#decryptresponse)
 
 ### projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.destroy
 Schedule a CryptoKeyVersion for destruction.
@@ -187,22 +220,26 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.destroy
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The resource name of the CryptoKeyVersion to destroy.
-* body (object) - Request message for KeyManagementService.DestroyCryptoKeyVersion.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * name **required** `string`: The resource name of the CryptoKeyVersion to destroy.
+  * body [DestroyCryptoKeyVersionRequest](#destroycryptokeyversionrequest)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [CryptoKeyVersion](#cryptokeyversion)
 
 ### projects.locations.keyRings.cryptoKeys.encrypt
 Encrypts data, so that it can only be recovered by a call to Decrypt.
@@ -214,22 +251,26 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.encrypt({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - Required. The resource name of the CryptoKey or CryptoKeyVersion
-* body (object) - Request message for KeyManagementService.Encrypt.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * name **required** `string`: Required. The resource name of the CryptoKey or CryptoKeyVersion
+  * body [EncryptRequest](#encryptrequest)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [EncryptResponse](#encryptresponse)
 
 ### projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.restore
 Restore a CryptoKeyVersion in the
@@ -247,22 +288,26 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.restore
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The resource name of the CryptoKeyVersion to restore.
-* body (object) - Request message for KeyManagementService.RestoreCryptoKeyVersion.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * name **required** `string`: The resource name of the CryptoKeyVersion to restore.
+  * body [RestoreCryptoKeyVersionRequest](#restorecryptokeyversionrequest)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [CryptoKeyVersion](#cryptokeyversion)
 
 ### projects.locations.keyRings.cryptoKeys.updatePrimaryVersion
 Update the version of a CryptoKey that will be used in Encrypt
@@ -274,22 +319,26 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.updatePrimaryVersion({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The resource name of the CryptoKey to update.
-* body (object) - Request message for KeyManagementService.UpdateCryptoKeyPrimaryVersion.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * name **required** `string`: The resource name of the CryptoKey to update.
+  * body [UpdateCryptoKeyPrimaryVersionRequest](#updatecryptokeyprimaryversionrequest)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [CryptoKey](#cryptokey)
 
 ### projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.list
 Lists CryptoKeyVersions.
@@ -301,23 +350,27 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.list({
 }, context)
 ```
 
-#### Parameters
-* parent (string) **required** - Required. The resource name of the CryptoKey to list, in the format
-* pageToken (string) - Optional pagination token, returned earlier via
-* pageSize (integer) - Optional limit on the number of CryptoKeyVersions to
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * parent **required** `string`: Required. The resource name of the CryptoKey to list, in the format
+  * pageToken `string`: Optional pagination token, returned earlier via
+  * pageSize `integer`: Optional limit on the number of CryptoKeyVersions to
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [ListCryptoKeyVersionsResponse](#listcryptokeyversionsresponse)
 
 ### projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.create
 Create a new CryptoKeyVersion in a CryptoKey.
@@ -333,22 +386,26 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.create(
 }, context)
 ```
 
-#### Parameters
-* parent (string) **required** - Required. The name of the CryptoKey associated with
-* body (object) - A CryptoKeyVersion represents an individual cryptographic key, and the
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * parent **required** `string`: Required. The name of the CryptoKey associated with
+  * body [CryptoKeyVersion](#cryptokeyversion)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [CryptoKeyVersion](#cryptokeyversion)
 
 ### projects.locations.keyRings.cryptoKeys.list
 Lists CryptoKeys.
@@ -360,23 +417,27 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.list({
 }, context)
 ```
 
-#### Parameters
-* parent (string) **required** - Required. The resource name of the KeyRing to list, in the format
-* pageToken (string) - Optional pagination token, returned earlier via
-* pageSize (integer) - Optional limit on the number of CryptoKeys to include in the
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * parent **required** `string`: Required. The resource name of the KeyRing to list, in the format
+  * pageToken `string`: Optional pagination token, returned earlier via
+  * pageSize `integer`: Optional limit on the number of CryptoKeys to include in the
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [ListCryptoKeysResponse](#listcryptokeysresponse)
 
 ### projects.locations.keyRings.cryptoKeys.create
 Create a new CryptoKey within a KeyRing.
@@ -390,23 +451,27 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.create({
 }, context)
 ```
 
-#### Parameters
-* parent (string) **required** - Required. The name of the KeyRing associated with the
-* cryptoKeyId (string) - Required. It must be unique within a KeyRing and match the regular
-* body (object) - A CryptoKey represents a logical key that can be used for cryptographic
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * parent **required** `string`: Required. The name of the KeyRing associated with the
+  * cryptoKeyId `string`: Required. It must be unique within a KeyRing and match the regular
+  * body [CryptoKey](#cryptokey)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [CryptoKey](#cryptokey)
 
 ### projects.locations.keyRings.list
 Lists KeyRings.
@@ -418,23 +483,27 @@ google_cloudkms.projects.locations.keyRings.list({
 }, context)
 ```
 
-#### Parameters
-* parent (string) **required** - Required. The resource name of the location associated with the
-* pageToken (string) - Optional pagination token, returned earlier via
-* pageSize (integer) - Optional limit on the number of KeyRings to include in the
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * parent **required** `string`: Required. The resource name of the location associated with the
+  * pageToken `string`: Optional pagination token, returned earlier via
+  * pageSize `integer`: Optional limit on the number of KeyRings to include in the
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [ListKeyRingsResponse](#listkeyringsresponse)
 
 ### projects.locations.keyRings.create
 Create a new KeyRing in a given Project and Location.
@@ -446,23 +515,27 @@ google_cloudkms.projects.locations.keyRings.create({
 }, context)
 ```
 
-#### Parameters
-* parent (string) **required** - Required. The resource name of the location associated with the
-* keyRingId (string) - Required. It must be unique within a location and match the regular
-* body (object) - A KeyRing is a toplevel logical grouping of CryptoKeys.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * parent **required** `string`: Required. The resource name of the location associated with the
+  * keyRingId `string`: Required. It must be unique within a location and match the regular
+  * body [KeyRing](#keyring)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [KeyRing](#keyring)
 
 ### projects.locations.keyRings.cryptoKeys.getIamPolicy
 Gets the access control policy for a resource.
@@ -476,21 +549,25 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.getIamPolicy({
 }, context)
 ```
 
-#### Parameters
-* resource (string) **required** - REQUIRED: The resource for which the policy is being requested.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * resource **required** `string`: REQUIRED: The resource for which the policy is being requested.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [Policy](#policy)
 
 ### projects.locations.keyRings.cryptoKeys.setIamPolicy
 Sets the access control policy on the specified resource. Replaces any
@@ -503,22 +580,26 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.setIamPolicy({
 }, context)
 ```
 
-#### Parameters
-* resource (string) **required** - REQUIRED: The resource for which the policy is being specified.
-* body (object) - Request message for `SetIamPolicy` method.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * resource **required** `string`: REQUIRED: The resource for which the policy is being specified.
+  * body [SetIamPolicyRequest](#setiampolicyrequest)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [Policy](#policy)
 
 ### projects.locations.keyRings.cryptoKeys.testIamPermissions
 Returns permissions that a caller has on the specified resource.
@@ -536,20 +617,168 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.testIamPermissions({
 }, context)
 ```
 
-#### Parameters
-* resource (string) **required** - REQUIRED: The resource for which the policy detail is being requested.
-* body (object) - Request message for `TestIamPermissions` method.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * resource **required** `string`: REQUIRED: The resource for which the policy detail is being requested.
+  * body [TestIamPermissionsRequest](#testiampermissionsrequest)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [TestIamPermissionsResponse](#testiampermissionsresponse)
+
+
+
+## Definitions
+
+### AuditConfig
+* AuditConfig `object`: Specifies the audit configuration for a service.
+  * auditLogConfigs `array`: The configuration for logging of each type of permission.
+    * items [AuditLogConfig](#auditlogconfig)
+  * exemptedMembers `array`
+    * items `string`
+  * service `string`: Specifies a service that will be enabled for audit logging.
+
+### AuditLogConfig
+* AuditLogConfig `object`: Provides the configuration for logging a type of permissions.
+  * exemptedMembers `array`: Specifies the identities that do not cause logging for this type of
+    * items `string`
+  * logType `string` (values: LOG_TYPE_UNSPECIFIED, ADMIN_READ, DATA_WRITE, DATA_READ): The log type that this config enables.
+
+### Binding
+* Binding `object`: Associates `members` with a `role`.
+  * condition [Expr](#expr)
+  * members `array`: Specifies the identities requesting access for a Cloud Platform resource.
+    * items `string`
+  * role `string`: Role that is assigned to `members`.
+
+### CryptoKey
+* CryptoKey `object`: A CryptoKey represents a logical key that can be used for cryptographic
+  * createTime `string`: Output only. The time at which this CryptoKey was created.
+  * labels `object`: Labels with user defined metadata.
+  * name `string`: Output only. The resource name for this CryptoKey in the format
+  * nextRotationTime `string`: At next_rotation_time, the Key Management Service will automatically:
+  * primary [CryptoKeyVersion](#cryptokeyversion)
+  * purpose `string` (values: CRYPTO_KEY_PURPOSE_UNSPECIFIED, ENCRYPT_DECRYPT): The immutable purpose of this CryptoKey. Currently, the only acceptable
+  * rotationPeriod `string`: next_rotation_time will be advanced by this period when the service
+
+### CryptoKeyVersion
+* CryptoKeyVersion `object`: A CryptoKeyVersion represents an individual cryptographic key, and the
+  * createTime `string`: Output only. The time at which this CryptoKeyVersion was created.
+  * destroyEventTime `string`: Output only. The time this CryptoKeyVersion's key material was
+  * destroyTime `string`: Output only. The time this CryptoKeyVersion's key material is scheduled
+  * name `string`: Output only. The resource name for this CryptoKeyVersion in the format
+  * state `string` (values: CRYPTO_KEY_VERSION_STATE_UNSPECIFIED, ENABLED, DISABLED, DESTROYED, DESTROY_SCHEDULED): The current state of the CryptoKeyVersion.
+
+### DecryptRequest
+* DecryptRequest `object`: Request message for KeyManagementService.Decrypt.
+  * additionalAuthenticatedData `string`: Optional data that must match the data originally supplied in
+  * ciphertext `string`: Required. The encrypted data originally returned in
+
+### DecryptResponse
+* DecryptResponse `object`: Response message for KeyManagementService.Decrypt.
+  * plaintext `string`: The decrypted data originally supplied in EncryptRequest.plaintext.
+
+### DestroyCryptoKeyVersionRequest
+* DestroyCryptoKeyVersionRequest `object`: Request message for KeyManagementService.DestroyCryptoKeyVersion.
+
+### EncryptRequest
+* EncryptRequest `object`: Request message for KeyManagementService.Encrypt.
+  * additionalAuthenticatedData `string`: Optional data that, if specified, must also be provided during decryption
+  * plaintext `string`: Required. The data to encrypt. Must be no larger than 64KiB.
+
+### EncryptResponse
+* EncryptResponse `object`: Response message for KeyManagementService.Encrypt.
+  * ciphertext `string`: The encrypted data.
+  * name `string`: The resource name of the CryptoKeyVersion used in encryption.
+
+### Expr
+* Expr `object`: Represents an expression text. Example:
+  * description `string`: An optional description of the expression. This is a longer text which
+  * expression `string`: Textual representation of an expression in
+  * location `string`: An optional string indicating the location of the expression for error
+  * title `string`: An optional title for the expression, i.e. a short string describing
+
+### KeyRing
+* KeyRing `object`: A KeyRing is a toplevel logical grouping of CryptoKeys.
+  * createTime `string`: Output only. The time at which this KeyRing was created.
+  * name `string`: Output only. The resource name for the KeyRing in the format
+
+### ListCryptoKeyVersionsResponse
+* ListCryptoKeyVersionsResponse `object`: Response message for KeyManagementService.ListCryptoKeyVersions.
+  * cryptoKeyVersions `array`: The list of CryptoKeyVersions.
+    * items [CryptoKeyVersion](#cryptokeyversion)
+  * nextPageToken `string`: A token to retrieve next page of results. Pass this value in
+  * totalSize `integer`: The total number of CryptoKeyVersions that matched the
+
+### ListCryptoKeysResponse
+* ListCryptoKeysResponse `object`: Response message for KeyManagementService.ListCryptoKeys.
+  * cryptoKeys `array`: The list of CryptoKeys.
+    * items [CryptoKey](#cryptokey)
+  * nextPageToken `string`: A token to retrieve next page of results. Pass this value in
+  * totalSize `integer`: The total number of CryptoKeys that matched the query.
+
+### ListKeyRingsResponse
+* ListKeyRingsResponse `object`: Response message for KeyManagementService.ListKeyRings.
+  * keyRings `array`: The list of KeyRings.
+    * items [KeyRing](#keyring)
+  * nextPageToken `string`: A token to retrieve next page of results. Pass this value in
+  * totalSize `integer`: The total number of KeyRings that matched the query.
+
+### ListLocationsResponse
+* ListLocationsResponse `object`: The response message for Locations.ListLocations.
+  * locations `array`: A list of locations that matches the specified filter in the request.
+    * items [Location](#location)
+  * nextPageToken `string`: The standard List next-page token.
+
+### Location
+* Location `object`: A resource that represents Google Cloud Platform location.
+  * labels `object`: Cross-service attributes for the location. For example
+  * locationId `string`: The canonical id for this location. For example: `"us-east1"`.
+  * metadata `object`: Service-specific metadata. For example the available capacity at the given
+  * name `string`: Resource name for the location, which may vary between implementations.
+
+### Policy
+* Policy `object`: Defines an Identity and Access Management (IAM) policy. It is used to
+  * auditConfigs `array`: Specifies cloud audit logging configuration for this policy.
+    * items [AuditConfig](#auditconfig)
+  * bindings `array`: Associates a list of `members` to a `role`.
+    * items [Binding](#binding)
+  * etag `string`: `etag` is used for optimistic concurrency control as a way to help
+  * iamOwned `boolean`
+  * version `integer`: Version of the `Policy`. The default version is 0.
+
+### RestoreCryptoKeyVersionRequest
+* RestoreCryptoKeyVersionRequest `object`: Request message for KeyManagementService.RestoreCryptoKeyVersion.
+
+### SetIamPolicyRequest
+* SetIamPolicyRequest `object`: Request message for `SetIamPolicy` method.
+  * policy [Policy](#policy)
+  * updateMask `string`: OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
+
+### TestIamPermissionsRequest
+* TestIamPermissionsRequest `object`: Request message for `TestIamPermissions` method.
+  * permissions `array`: The set of permissions to check for the `resource`. Permissions with
+    * items `string`
+
+### TestIamPermissionsResponse
+* TestIamPermissionsResponse `object`: Response message for `TestIamPermissions` method.
+  * permissions `array`: A subset of `TestPermissionsRequest.permissions` that the caller is
+    * items `string`
+
+### UpdateCryptoKeyPrimaryVersionRequest
+* UpdateCryptoKeyPrimaryVersionRequest `object`: Request message for KeyManagementService.UpdateCryptoKeyPrimaryVersion.
+  * cryptoKeyVersionId `string`: The id of the child CryptoKeyVersion to use as primary.
+
 

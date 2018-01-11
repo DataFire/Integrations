@@ -4,11 +4,9 @@ Client library for Europeana
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/europeana_eu
+npm install --save @datafire/europeana_eu
 ```
-
 ```js
-let datafire = require('datafire');
 let europeana_eu = require('@datafire/europeana_eu').create();
 
 europeana_eu.listProviders({}).then(data => {
@@ -17,9 +15,11 @@ europeana_eu.listProviders({}).then(data => {
 ```
 
 ## Description
+
 This Swagger API console provides an overview of an interface to the Europeana REST API. You can build and test anything from the simplest search to a complex query using facetList such as dates, geotags and permissions. For more help and information, head to our comprehensive <a href="http://labs.europeana.eu/api/">online documentation</a>.
 
 ## Actions
+
 ### getDataset
 get information about a specific dataset
 
@@ -30,10 +30,14 @@ europeana_eu.getDataset({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - id
-* wskey (string) - wskey
-* callback (string) - callback
+#### Input
+* input `object`
+  * id **required** `string`: id
+  * wskey `string`: wskey
+  * callback `string`: callback
+
+#### Output
+* output [ModelAndView](#modelandview)
 
 ### listDatasets
 get the list of Europeana datasets
@@ -43,14 +47,18 @@ get the list of Europeana datasets
 europeana_eu.listDatasets({}, context)
 ```
 
-#### Parameters
-* wskey (string) - wskey
-* callback (string) - callback
-* edmDatasetName (string) - edmDatasetName
-* countryCode (string) - countryCode
-* status (string) - status
-* offset (string) - offset
-* pagesize (string) - pagesize
+#### Input
+* input `object`
+  * wskey `string`: wskey
+  * callback `string`: callback
+  * edmDatasetName `string`: edmDatasetName
+  * countryCode `string`: countryCode
+  * status `string`: status
+  * offset `string`: offset
+  * pagesize `string`: pagesize
+
+#### Output
+* output [ModelAndView](#modelandview)
 
 ### openSearch
 basic search function following the OpenSearch specification
@@ -62,10 +70,14 @@ europeana_eu.openSearch({
 }, context)
 ```
 
-#### Parameters
-* searchTerms (string) **required** - searchTerms
-* startIndex (integer) - startIndex
-* count (integer) - count
+#### Input
+* input `object`
+  * searchTerms **required** `string`: searchTerms
+  * startIndex `integer`: startIndex
+  * count `integer`: count
+
+#### Output
+* output [RssResponse](#rssresponse)
 
 ### getProvider
 get information about a specific Europeana provider
@@ -77,10 +89,14 @@ europeana_eu.getProvider({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - id
-* wskey (string) - wskey
-* callback (string) - callback
+#### Input
+* input `object`
+  * id **required** `string`: id
+  * wskey `string`: wskey
+  * callback `string`: callback
+
+#### Output
+* output [ModelAndView](#modelandview)
 
 ### listProviderDatasets
 get the list of datasets provided by a specific provider
@@ -92,10 +108,14 @@ europeana_eu.listProviderDatasets({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - id
-* wskey (string) - wskey
-* callback (string) - callback
+#### Input
+* input `object`
+  * id **required** `string`: id
+  * wskey `string`: wskey
+  * callback `string`: callback
+
+#### Output
+* output [ModelAndView](#modelandview)
 
 ### listProviders
 get the list of Europeana data providers
@@ -105,12 +125,16 @@ get the list of Europeana data providers
 europeana_eu.listProviders({}, context)
 ```
 
-#### Parameters
-* wskey (string) - wskey
-* callback (string) - callback
-* countryCode (string) - countryCode
-* offset (string) - offset
-* pagesize (string) - pagesize
+#### Input
+* input `object`
+  * wskey `string`: wskey
+  * callback `string`: callback
+  * countryCode `string`: countryCode
+  * offset `string`: offset
+  * pagesize `string`: pagesize
+
+#### Output
+* output [ModelAndView](#modelandview)
 
 ### getSingleRecordJson
 get a single record in JSON format
@@ -124,13 +148,17 @@ europeana_eu.getSingleRecordJson({
 }, context)
 ```
 
-#### Parameters
-* collectionId (string) **required** - collectionId
-* recordId (string) **required** - recordId
-* profile (string) - profile
-* wskey (string) **required** - wskey
-* callback (string) - callback
-* hierarchytimeout (integer) - hierarchytimeout
+#### Input
+* input `object`
+  * collectionId **required** `string`: collectionId
+  * recordId **required** `string`: recordId
+  * profile `string`: profile
+  * wskey **required** `string`: wskey
+  * callback `string`: callback
+  * hierarchytimeout `integer`: hierarchytimeout
+
+#### Output
+* output [ModelAndView](#modelandview)
 
 ### getSingleRecordJsonLD
 get single record in JSON LD format
@@ -144,12 +172,16 @@ europeana_eu.getSingleRecordJsonLD({
 }, context)
 ```
 
-#### Parameters
-* collectionId (string) **required** - collectionId
-* recordId (string) **required** - recordId
-* wskey (string) **required** - wskey
-* format (string) - format
-* callback (string) - callback
+#### Input
+* input `object`
+  * collectionId **required** `string`: collectionId
+  * recordId **required** `string`: recordId
+  * wskey **required** `string`: wskey
+  * format `string`: format
+  * callback `string`: callback
+
+#### Output
+* output [ModelAndView](#modelandview)
 
 ### getSingleRecordRDF
 get single record in RDF format)
@@ -163,10 +195,14 @@ europeana_eu.getSingleRecordRDF({
 }, context)
 ```
 
-#### Parameters
-* collectionId (string) **required** - collectionId
-* recordId (string) **required** - recordId
-* wskey (string) **required** - wskey
+#### Input
+* input `object`
+  * collectionId **required** `string`: collectionId
+  * recordId **required** `string`: recordId
+  * wskey **required** `string`: wskey
+
+#### Output
+* output [ModelAndView](#modelandview)
 
 ### searchRecords
 search for records
@@ -178,23 +214,27 @@ europeana_eu.searchRecords({
 }, context)
 ```
 
-#### Parameters
-* wskey (string) **required** - wskey
-* query (string) - query
-* qf (array) - qf
-* reusability (array) - reusability
-* profile (string) - profile
-* start (integer) - start
-* rows (integer) - rows
-* facet (array) - facet
-* sort (string) - sort
-* colourpalette (array) - colourpalette
-* thumbnail (boolean) - thumbnail
-* media (boolean) - media
-* text_fulltext (boolean) - text_fulltext
-* landingpage (boolean) - landingpage
-* cursor (string) - cursor
-* callback (string) - callback
+#### Input
+* input `object`
+  * wskey **required** `string`: wskey
+  * query `string`: query
+  * qf `array`: qf
+  * reusability `array`: reusability
+  * profile `string`: profile
+  * start `integer`: start
+  * rows `integer`: rows
+  * facet `array`: facet
+  * sort `string`: sort
+  * colourpalette `array`: colourpalette
+  * thumbnail `boolean`: thumbnail
+  * media `boolean`: media
+  * text_fulltext `boolean`: text_fulltext
+  * landingpage `boolean`: landingpage
+  * cursor `string`: cursor
+  * callback `string`: callback
+
+#### Output
+* output [ModelAndView](#modelandview)
 
 ### fieldTrip
 Google Fieldtrip formatted RSS of selected collections
@@ -206,12 +246,16 @@ europeana_eu.fieldTrip({
 }, context)
 ```
 
-#### Parameters
-* query (string) **required** - query
-* offset (integer) - offset
-* limit (integer) - limit
-* profile (string) - profile
-* language (string) - language
+#### Input
+* input `object`
+  * query **required** `string`: query
+  * offset `integer`: offset
+  * limit `integer`: limit
+  * profile `string`: profile
+  * language `string`: language
+
+#### Output
+* output [ModelAndView](#modelandview)
 
 ### suggestions
 get autocompletion recommendations for search queries
@@ -223,11 +267,15 @@ europeana_eu.suggestions({
 }, context)
 ```
 
-#### Parameters
-* query (string) **required** - query
-* rows (integer) - rows
-* phrases (boolean) - phrases
-* callback (string) - callback
+#### Input
+* input `object`
+  * query **required** `string`: query
+  * rows `integer`: rows
+  * phrases `boolean`: phrases
+  * callback `string`: callback
+
+#### Output
+* output [ModelAndView](#modelandview)
 
 ### translateQueryUsingGET
 translate a term to different languages
@@ -241,10 +289,110 @@ europeana_eu.translateQueryUsingGET({
 }, context)
 ```
 
-#### Parameters
-* term (string) **required** - term
-* languageCodes (array) **required** - languageCodes
-* wskey (string) **required** - wskey
-* profile (string) - profile
-* callback (string) - callback
+#### Input
+* input `object`
+  * term **required** `string`: term
+  * languageCodes **required** `array`: languageCodes
+  * wskey **required** `string`: wskey
+  * profile `string`: profile
+  * callback `string`: callback
+
+#### Output
+* output [ModelAndView](#modelandview)
+
+
+
+## Definitions
+
+### AtomLink
+* AtomLink `object`
+  * href `string`
+
+### Channel
+* Channel `object`
+  * atomLink [AtomLink](#atomlink)
+  * image [ChannelImage](#channelimage)
+  * items `array`
+    * items [Item](#item)
+  * itemsPerPage [Statistic](#statistic)
+  * query [Query](#query)
+  * startIndex [Statistic](#statistic)
+  * totalResults [Statistic](#statistic)
+
+### ChannelImage
+
+
+### Enclosure
+* Enclosure `object`
+  * url `string`
+
+### Item
+* Item `object`
+  * dcCreator `string`
+  * dcTermsHasPart `array`
+    * items `string`
+  * dcTermsIsPartOf `array`
+    * items `string`
+  * description `string`
+  * enclosure [Enclosure](#enclosure)
+  * enrichmentAgentLabel `array`
+    * items `string`
+  * enrichmentAgentTerm `array`
+    * items `string`
+  * enrichmentConceptLabel `array`
+    * items `string`
+  * enrichmentConceptTerm `array`
+    * items `string`
+  * enrichmentPeriodBegin `string`
+  * enrichmentPeriodEnd `string`
+  * enrichmentPeriodLabel `array`
+    * items `string`
+  * enrichmentPeriodTerm `array`
+    * items `string`
+  * enrichmentPlaceLabel `array`
+    * items `string`
+  * enrichmentPlaceLatitude `number`
+  * enrichmentPlaceLongitude `number`
+  * enrichmentPlaceTerm `array`
+    * items `string`
+  * europeanaDataProvider `string`
+  * europeanaLanguage `string`
+  * europeanaProvider `string`
+  * europeanaRights `array`
+    * items `string`
+  * europeanaType `string`
+  * europeanaYear `string`
+  * guid `string`
+  * link `string`
+  * title `string`
+
+### ModelAndView
+* ModelAndView `object`
+  * empty `boolean`
+  * model `object`
+  * modelMap `object`
+  * reference `boolean`
+  * view [View](#view)
+  * viewName `string`
+
+### ModelMap
+* ModelMap `object`
+
+### Query
+* Query `object`
+  * searchTerms `string`
+  * startPage `integer`
+
+### RssResponse
+* RssResponse `object`
+  * channel [Channel](#channel)
+
+### Statistic
+* Statistic `object`
+  * value `integer`
+
+### View
+* View `object`
+  * contentType `string`
+
 

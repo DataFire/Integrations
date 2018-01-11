@@ -4,17 +4,15 @@ Client library for Product Hunt
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/producthunt
+npm install --save @datafire/producthunt
 ```
-
 ```js
-let datafire = require('datafire');
 let producthunt = require('@datafire/producthunt').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 producthunt.categories.category.posts.get({}).then(data => {
@@ -25,7 +23,9 @@ producthunt.categories.category.posts.get({}).then(data => {
 ## Description
 
 
+
 ## Actions
+
 ### oauthCallback
 Exchange the code passed to your redirect URI for an access_token
 
@@ -36,8 +36,17 @@ producthunt.oauthCallback({
 }, context)
 ```
 
-#### Parameters
-* code (string) **required**
+#### Input
+* input `object`
+  * code **required** `string`
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### oauthRefresh
 Exchange a refresh_token for an access_token
@@ -47,8 +56,16 @@ Exchange a refresh_token for an access_token
 producthunt.oauthRefresh(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### users.username.get
 
@@ -58,8 +75,12 @@ producthunt.oauthRefresh(null, context)
 producthunt.users.username.get({}, context)
 ```
 
-#### Parameters
-* username (string)
+#### Input
+* input `object`
+  * username `string`
+
+#### Output
+*Output schema unknown*
 
 ### categories.category.posts.get
 
@@ -69,7 +90,16 @@ producthunt.users.username.get({}, context)
 producthunt.categories.category.posts.get({}, context)
 ```
 
-#### Parameters
-* category (string)
-* days_ago (string)
+#### Input
+* input `object`
+  * category `string`
+  * days_ago `string`
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

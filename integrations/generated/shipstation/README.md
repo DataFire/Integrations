@@ -4,11 +4,9 @@ Client library for ShipStation Developer Portal
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/shipstation
+npm install --save @datafire/shipstation
 ```
-
 ```js
-let datafire = require('datafire');
 let shipstation = require('@datafire/shipstation').create();
 
 shipstation.accounts.listtags.get({}).then(data => {
@@ -17,6 +15,7 @@ shipstation.accounts.listtags.get({}).then(data => {
 ```
 
 ## Description
+
 # Integrating with ShipStation
 
 ShipStation strives to streamline shipping for online sellers, no matter where they sell their products online. We are continuously adding new marketplaces, shopping carts, and integration tools, because we know the e-commerce space is growing. 
@@ -162,6 +161,7 @@ yyyy-mm-dd hh:mm:ss (24 hour notation). Example - ``2016-11-29 23:59:59``
 The time zone represented in all API responses is PST/PDT. Similarly, ShipStation asks that you make all time zone convertions and submit any dateTime requests in PST/PDT.
 
 ## Actions
+
 ### accounts.listtags.get
 Lists all tags defined for this account.
 
@@ -170,8 +170,11 @@ Lists all tags defined for this account.
 shipstation.accounts.listtags.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### accounts.registeraccount.post
 Creates a new ShipStation account and generates an apiKey and apiSecret to be used by the newly created account. PLEASE NOTE: This endpoint does not require API key and API Secret credentials.  The Authorization header can be left off. Use of this specific endpoint requires approval, and is meant only for direct partners of ShipStation. This is the only endpoint to require approval. All other endpoints listed in this document can be accessed by submitting proper authorization credentials in the header of the request. To become a direct partner of ShipStation, or to request more information on becoming a direct partner, we recommend reaching out to our Partners and Integrations team here: https://info.shipstation.com/become-a-partner-api-and-custom-store-integrations
@@ -198,8 +201,11 @@ Name               |Data Type          |Description
 shipstation.accounts.registeraccount.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### carriers.get
 Lists all shipping providers connected to this account.
@@ -209,8 +215,11 @@ Lists all shipping providers connected to this account.
 shipstation.carriers.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### carriers.addfunds.post
 Adds funds to a carrier account using the payment information on file. The body of this request should specify the following attributes:
@@ -225,8 +234,11 @@ Name               |Data Type          |Description
 shipstation.carriers.addfunds.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### carriers.getcarrier_carrierCode_carrierCode.get
 Retrieves the shipping carrier account details for the specified carrierCode. Use this method to determine a carrier's account balance.
@@ -238,8 +250,12 @@ shipstation.carriers.getcarrier_carrierCode_carrierCode.get({
 }, context)
 ```
 
-#### Parameters
-* carrierCode (string) **required** - The code for the carrier account to retrieve.
+#### Input
+* input `object`
+  * carrierCode **required** `string`: The code for the carrier account to retrieve.
+
+#### Output
+*Output schema unknown*
 
 ### carriers.listpackages_carrierCode_carrierCode.get
 Retrieves a list of packages for the specified carrier
@@ -251,8 +267,12 @@ shipstation.carriers.listpackages_carrierCode_carrierCode.get({
 }, context)
 ```
 
-#### Parameters
-* carrierCode (string) **required** - The carrier's code
+#### Input
+* input `object`
+  * carrierCode **required** `string`: The carrier's code
+
+#### Output
+*Output schema unknown*
 
 ### carriers.listservices_carrierCode_carrierCode.get
 Retrieves the list of available shipping services provided by the specified carrier
@@ -264,8 +284,12 @@ shipstation.carriers.listservices_carrierCode_carrierCode.get({
 }, context)
 ```
 
-#### Parameters
-* carrierCode (string) **required** - The carrier's code
+#### Input
+* input `object`
+  * carrierCode **required** `string`: The carrier's code
+
+#### Output
+*Output schema unknown*
 
 ### customers.customerId.get
 Get Customer
@@ -277,8 +301,12 @@ shipstation.customers.customerId.get({
 }, context)
 ```
 
-#### Parameters
-* customerId (number) **required** - The system generated identifier for the Customer.
+#### Input
+* input `object`
+  * customerId **required** `number`: The system generated identifier for the Customer.
+
+#### Output
+*Output schema unknown*
 
 ### customers_stateCode_stateCode_countryCode_countryCode_tagId_tagId_marketplaceId_marketplaceId_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get
 Obtains a list of customers that match the specified criteria.
@@ -297,15 +325,19 @@ shipstation.customers_stateCode_stateCode_countryCode_countryCode_tagId_tagId_ma
 }, context)
 ```
 
-#### Parameters
-* stateCode (string) **required** - Returns customers that reside in the specified stateCode.
-* countryCode (string) **required** - Returns customers that reside in the specified countryCode.
-* marketplaceId (number) **required** - Returns customers that purchased items from the specified marketplaceId.
-* tagId (number) **required** - Returns customers that have been tagged with the specified tagId.
-* sortBy (string) **required** - Sorts the order of the response based off the specified value.
-* sortDir (string) **required** - Sets the direction of the sort order.
-* page (number) **required** - Page number.
-* pageSize (number) **required** - Requested page size. Max value is 500.
+#### Input
+* input `object`
+  * stateCode **required** `string`: Returns customers that reside in the specified stateCode.
+  * countryCode **required** `string`: Returns customers that reside in the specified countryCode.
+  * marketplaceId **required** `number`: Returns customers that purchased items from the specified marketplaceId.
+  * tagId **required** `number`: Returns customers that have been tagged with the specified tagId.
+  * sortBy **required** `string` (values: Name, ModifyDate, CreateDate): Sorts the order of the response based off the specified value.
+  * sortDir **required** `string` (values: ASC, DESC): Sets the direction of the sort order.
+  * page **required** `number`: Page number.
+  * pageSize **required** `number`: Requested page size. Max value is 500.
+
+#### Output
+*Output schema unknown*
 
 ### fulfillments.get
 List Fulfillments w/o parameters
@@ -315,8 +347,11 @@ List Fulfillments w/o parameters
 shipstation.fulfillments.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### fulfillments_fulfillmentId_fulfillmentId_orderId_orderId_orderNumber_orderNumber_trackingNumber_trackingNumber_recipientName_recipientName_createDateStart_createDateStart_createDateEnd_createDateEnd_shipDateStart_shipDateStart_shipDateEnd_shipDateEnd_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get
 Obtains a list of fulfillments that match the specified criteria.  Please note the following:
@@ -362,20 +397,24 @@ shipstation.fulfillments_fulfillmentId_fulfillmentId_orderId_orderId_orderNumber
 }, context)
 ```
 
-#### Parameters
-* fulfillmentId (number) **required** - Returns the fulfillment with the specified fulfillment ID.
-* orderId (number) **required** - Returns fulfillments whose orders have the specified order ID.
-* orderNumber (string) **required** - Returns fulfillments whose orders have the specified order number.
-* trackingNumber (string) **required** - Returns fulfillments with the specified tracking number.
-* recipientName (string) **required** - Returns fulfillments shipped to the specified recipient name.
-* createDateStart (string) **required** - Returns fulfillments created on or after the specified ``createDate``
-* createDateEnd (string) **required** - Returns fulfillments created on or before the specified ``createDate``
-* shipDateStart (string) **required** - Returns fulfillments with the ``shipDate`` on or after the specified date
-* shipDateEnd (string) **required** - Returns fulfillments with the ``shipDate`` on or before the specified date
-* sortBy (string) **required** - Sort the responses by a set value.  The response will be sorted based off the ascending dates (oldest to most current.)  If left empty, the response will be sorted by ascending ``createDate``.
-* sortDir (string) **required** - Sets the direction of the sort order.
-* page (number) **required** - page number.
-* pageSize (number) **required** - page size.
+#### Input
+* input `object`
+  * fulfillmentId **required** `number`: Returns the fulfillment with the specified fulfillment ID.
+  * orderId **required** `number`: Returns fulfillments whose orders have the specified order ID.
+  * orderNumber **required** `string`: Returns fulfillments whose orders have the specified order number.
+  * trackingNumber **required** `string`: Returns fulfillments with the specified tracking number.
+  * recipientName **required** `string`: Returns fulfillments shipped to the specified recipient name.
+  * createDateStart **required** `string`: Returns fulfillments created on or after the specified ``createDate``
+  * createDateEnd **required** `string`: Returns fulfillments created on or before the specified ``createDate``
+  * shipDateStart **required** `string`: Returns fulfillments with the ``shipDate`` on or after the specified date
+  * shipDateEnd **required** `string`: Returns fulfillments with the ``shipDate`` on or before the specified date
+  * sortBy **required** `string` (values: ShipDate, CreateDate): Sort the responses by a set value.  The response will be sorted based off the ascending dates (oldest to most current.)  If left empty, the response will be sorted by ascending ``createDate``.
+  * sortDir **required** `string` (values: ASC, DESC): Sets the direction of the sort order.
+  * page **required** `number`: page number.
+  * pageSize **required** `number`: page size.
+
+#### Output
+*Output schema unknown*
 
 ### orders.get
 List Orders w/o parameters
@@ -385,8 +424,11 @@ List Orders w/o parameters
 shipstation.orders.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### orders.addtag.post
 Adds a tag to an order.  The body of this request should specify the following attributes:
@@ -401,8 +443,11 @@ Name               |Data Type          |Description
 shipstation.orders.addtag.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### orders.assignuser.post
 Assigns a user to an order.  The body of this request should specify the following attributes:
@@ -417,8 +462,11 @@ Name               |Data Type          |Description
 shipstation.orders.assignuser.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### orders.createlabelfororder.post
 Creates a shipping label for a given order.  The ``labelData`` field returned in the response is a base64 encoded PDF value. Simply decode and save the output as a PDF file to retrieve a printable label.  The body of this request should specify the following attributes:
@@ -442,8 +490,11 @@ Name               |Data Type          |Description
 shipstation.orders.createlabelfororder.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### orders.createorder.post
 If the ``orderKey`` is specified, the method becomes idempotent and the existing order with that key will be updated. Note: Only orders in an open status in ShipStation (``awaiting_payment``,``awaiting_shipment``, and ``on_hold``) can be updated through this method. ``cancelled`` and ``shipped`` are locked from modification through the API.  The body of this request should specify an [**Order**](https://www.shipstation.com/developer-api/#/reference/model-order) object:
@@ -486,8 +537,11 @@ Name               |Data Type          |Description
 shipstation.orders.createorder.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### orders.createorders.post
 This endpoint can be used to create or update multiple orders in one request. If the ``orderKey`` is specified in an order, the existing order with that key will be updated. Note: Only orders in an open status in ShipStation (``awaiting_payment``,``awaiting_shipment``, and ``on_hold``) can be updated through this method. ``cancelled`` and ``shipped`` are locked from modification through the API.
@@ -501,8 +555,11 @@ Order, required | An array of [**Order**](http://www.shipstation.com/developer-a
 shipstation.orders.createorders.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### orders.holduntil.post
 This method will change the status of the given order to On Hold until the date specified, when the status will automatically change to Awaiting Shipment.
@@ -519,8 +576,11 @@ Name               |Data Type          |Description
 shipstation.orders.holduntil.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### orders.listbytag_orderStatus_orderStatus_tagId_tagId_page_page_pageSize_pageSize.get
 Lists all orders that match the specified status and tag ID.
@@ -544,11 +604,15 @@ shipstation.orders.listbytag_orderStatus_orderStatus_tagId_tagId_page_page_pageS
 }, context)
 ```
 
-#### Parameters
-* orderStatus (string) **required** - The order's status.
-* tagId (number) **required** - ID of the tag. Call Accounts/ListTags to obtain a list of tags for this account.
-* page (string) **required** - Page number
-* pageSize (string) **required** - Requested page size. Max value is 500.
+#### Input
+* input `object`
+  * orderStatus **required** `string` (values: awaiting_payment, awaiting_shipment, pending_fulfillment, shipped, on_hold, cancelled): The order's status.
+  * tagId **required** `number`: ID of the tag. Call Accounts/ListTags to obtain a list of tags for this account.
+  * page **required** `string`: Page number
+  * pageSize **required** `string`: Requested page size. Max value is 500.
+
+#### Output
+*Output schema unknown*
 
 ### orders.markasshipped.post
 Marks an order as shipped without creating a label in ShipStation. The body of this request has the following attributes:
@@ -567,8 +631,11 @@ Name               |Data Type          |Description
 shipstation.orders.markasshipped.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### orders.removetag.post
 Removes a tag from the specified order.  The body of this request has the following attributes:
@@ -583,8 +650,11 @@ Name               |Data Type          |Description
 shipstation.orders.removetag.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### orders.restorefromhold.post
 This method will change the status of the given order from On Hold to Awaiting Shipment. This endpoint is used when a holdUntil Date is attached to an order.
@@ -600,8 +670,11 @@ Name               |Data Type          |Description
 shipstation.orders.restorefromhold.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### orders.unassignuser.post
 Unassigns a user from an order.  The body of this request should specify the following attributes:
@@ -615,8 +688,11 @@ Name               |Data Type          |Description
 shipstation.orders.unassignuser.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### orders.orderId.delete
 Removes order from ShipStation's UI. Note this is a "soft" delete action so the order will still exist in the database, but will be set to ``inactive``
@@ -628,8 +704,12 @@ shipstation.orders.orderId.delete({
 }, context)
 ```
 
-#### Parameters
-* orderId (string) **required** - The system generated identifier for the order.
+#### Input
+* input `object`
+  * orderId **required** `string`: The system generated identifier for the order.
+
+#### Output
+*Output schema unknown*
 
 ### orders.orderId.get
 Retrieves a single order from the database.
@@ -641,8 +721,12 @@ shipstation.orders.orderId.get({
 }, context)
 ```
 
-#### Parameters
-* orderId (string) **required** - The system generated identifier for the order.
+#### Input
+* input `object`
+  * orderId **required** `string`: The system generated identifier for the order.
+
+#### Output
+*Output schema unknown*
 
 ### orders_customerName_customerName_itemKeyword_itemKeyword_createDateStart_createDateStart_createDateEnd_createDateEnd_modifyDateStart_modifyDateStart_modifyDateEnd_modifyDateEnd_orderDateStart_orderDateStart_orderDateEnd_orderDateEnd_orderNumber_orderNumber_orderStatus_orderStatus_paymentDateStart_paymentDateStart_paymentDateEnd_paymentDateEnd_storeId_storeId_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get
 Obtains a list of orders that match the specified criteria.  All of the available filters are optional.  They do not need to be included in the URL.  If you do include them, here's what the URL may look like:
@@ -692,24 +776,28 @@ shipstation.orders_customerName_customerName_itemKeyword_itemKeyword_createDateS
 }, context)
 ```
 
-#### Parameters
-* customerName (string) **required** - Returns orders that match the specified name.
-* itemKeyword (string) **required** - Returns orders that contain items that match the specified keyword. Fields searched are Sku, Description, and Options
-* createDateStart (string) **required** - Returns orders that were created in ShipStation after the specified date
-* createDateEnd (string) **required** - Returns orders that were created in ShipStation before the specified date
-* modifyDateStart (string) **required** - Returns orders that were modified after the specified date
-* modifyDateEnd (string) **required** - Returns orders that were modified before the specified date
-* orderDateStart (string) **required** - Returns orders greater than the specified date
-* orderDateEnd (string) **required** - Returns orders less than or equal to the specified date
-* orderNumber (string) **required** - Filter by order number, performs a "starts with" search.
-* orderStatus (string) **required** - Filter by order status.  If left empty, orders of all statuses are returned.
-* paymentDateStart (string) **required** - Returns orders that were paid after the specified date
-* paymentDateEnd (string) **required** - Returns orders that were paid before the specified date
-* storeId (number) **required** - Filters orders to a single store. Call List Stores to obtain a list of store Ids.
-* sortBy (string) **required** - Sort the responses by a set value.  The response will be sorted based off the ascending dates (oldest to most current.)  If left empty, the response will be sorted by ascending ``orderId``.
-* sortDir (string) **required** - Sets the direction of the sort order.
-* page (string) **required** - Page number
-* pageSize (string) **required** - Requested page size. Max value is 500.
+#### Input
+* input `object`
+  * customerName **required** `string`: Returns orders that match the specified name.
+  * itemKeyword **required** `string`: Returns orders that contain items that match the specified keyword. Fields searched are Sku, Description, and Options
+  * createDateStart **required** `string`: Returns orders that were created in ShipStation after the specified date
+  * createDateEnd **required** `string`: Returns orders that were created in ShipStation before the specified date
+  * modifyDateStart **required** `string`: Returns orders that were modified after the specified date
+  * modifyDateEnd **required** `string`: Returns orders that were modified before the specified date
+  * orderDateStart **required** `string`: Returns orders greater than the specified date
+  * orderDateEnd **required** `string`: Returns orders less than or equal to the specified date
+  * orderNumber **required** `string`: Filter by order number, performs a "starts with" search.
+  * orderStatus **required** `string` (values: awaiting_payment, awaiting_shipment, pending_fulfillment, shipped, on_hold, cancelled): Filter by order status.  If left empty, orders of all statuses are returned.
+  * paymentDateStart **required** `string`: Returns orders that were paid after the specified date
+  * paymentDateEnd **required** `string`: Returns orders that were paid before the specified date
+  * storeId **required** `number`: Filters orders to a single store. Call List Stores to obtain a list of store Ids.
+  * sortBy **required** `string` (values: OrderDate, ModifyDate, CreateDate): Sort the responses by a set value.  The response will be sorted based off the ascending dates (oldest to most current.)  If left empty, the response will be sorted by ascending ``orderId``.
+  * sortDir **required** `string` (values: ASC, DESC): Sets the direction of the sort order.
+  * page **required** `string`: Page number
+  * pageSize **required** `string`: Requested page size. Max value is 500.
+
+#### Output
+*Output schema unknown*
 
 ### products.get
 List Products w/o parameters
@@ -719,8 +807,11 @@ List Products w/o parameters
 shipstation.products.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### products.productId.get
 Get Product
@@ -732,8 +823,12 @@ shipstation.products.productId.get({
 }, context)
 ```
 
-#### Parameters
-* productId (number) **required** - The system generated identifier for the Product.
+#### Input
+* input `object`
+  * productId **required** `number`: The system generated identifier for the Product.
+
+#### Output
+*Output schema unknown*
 
 ### products.productId.put
 Updates an existing product. This call does not currently support partial updates. The entire resource must be provided in the body of the request.
@@ -745,8 +840,12 @@ shipstation.products.productId.put({
 }, context)
 ```
 
-#### Parameters
-* productId (number) **required** - The system generated identifier for the Product.
+#### Input
+* input `object`
+  * productId **required** `number`: The system generated identifier for the Product.
+
+#### Output
+*Output schema unknown*
 
 ### products_sku_sku_name_name_productCategoryId_productCategoryId_productTypeId_productTypeId_tagId_tagId_startDate_startDate_endDate_endDate_showInactive_showInactive_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get
 Obtains a list of products that match the specified criteria.  All of the available filters are optional.  They do not need to be included in the URL.  If you do include them, here's what the URL may look like:
@@ -786,19 +885,23 @@ shipstation.products_sku_sku_name_name_productCategoryId_productCategoryId_produ
 }, context)
 ```
 
-#### Parameters
-* sku (string) **required** - Returns products that match the specified SKU.
-* name (string) **required** - Returns products that match the specified product name.
-* productCategoryId (string) **required** - Returns products that match the specified productCategoryId.
-* productTypeId (string) **required** - Returns products that match the specified productTypeId.
-* tagId (string) **required** - Returns products that match the specified tagId.
-* startDate (string) **required** - Returns products that were created after the specified date.
-* endDate (string) **required** - Returns products that were created before the specified date.
-* sortBy (string) **required** - Sorts the order of the response based off the specified value.
-* sortDir (string) **required** - Sets the direction of the sort order.
-* page (string) **required** - Page number.
-* pageSize (string) **required** - Requested page size. Max value is 500.
-* showInactive (string) **required** - Specifies whether the list should include inactive products.
+#### Input
+* input `object`
+  * sku **required** `string`: Returns products that match the specified SKU.
+  * name **required** `string`: Returns products that match the specified product name.
+  * productCategoryId **required** `string`: Returns products that match the specified productCategoryId.
+  * productTypeId **required** `string`: Returns products that match the specified productTypeId.
+  * tagId **required** `string`: Returns products that match the specified tagId.
+  * startDate **required** `string`: Returns products that were created after the specified date.
+  * endDate **required** `string`: Returns products that were created before the specified date.
+  * sortBy **required** `string` (values: SKU, ModifyDate, CreateDate): Sorts the order of the response based off the specified value.
+  * sortDir **required** `string` (values: ASC, DESC): Sets the direction of the sort order.
+  * page **required** `string`: Page number.
+  * pageSize **required** `string`: Requested page size. Max value is 500.
+  * showInactive **required** `string`: Specifies whether the list should include inactive products.
+
+#### Output
+*Output schema unknown*
 
 ### shipments.get
 List Shipments w/o parameters
@@ -808,8 +911,11 @@ List Shipments w/o parameters
 shipstation.shipments.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### shipments.createlabel.post
 Creates a shipping label.  The ``labelData`` field returned in the response is a base64 encoded PDF value. Simply decode and save the output as a PDF file to retrieve a printable label.  The body of this request has the following attributes:
@@ -835,8 +941,11 @@ Name               |Data Type          |Description
 shipstation.shipments.createlabel.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### shipments.getrates.post
 Retrieves shipping rates for the specified shipping details.  The body of this request should specify the following attributes:
@@ -861,8 +970,11 @@ Name               |Data Type          |Description
 shipstation.shipments.getrates.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### shipments.voidlabel.post
 Voids the specified label by shipmentId.  The body of this request should specify the following attributes:
@@ -876,8 +988,11 @@ Name               |Data Type          |Description
 shipstation.shipments.voidlabel.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### shipments_recipientName_recipientName_recipientCountryCode_recipientCountryCode_orderNumber_orderNumber_orderId_orderId_carrierCode_carrierCode_serviceCode_serviceCode_trackingNumber_trackingNumber_createDateStart_createDateStart_createDateEnd_createDateEnd_shipDateStart_shipDateStart_shipDateEnd_shipDateEnd_voidDateStart_voidDateStart_voidDateEnd_voidDateEnd_includeShipmentItems_includeShipmentItems_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get
 Obtains a list of shipments that match the specified criteria.  Please note the following:
@@ -935,25 +1050,29 @@ shipstation.shipments_recipientName_recipientName_recipientCountryCode_recipient
 }, context)
 ```
 
-#### Parameters
-* recipientName (string) **required** - Returns shipments shipped to the specified recipient name.
-* recipientCountryCode (string) **required** - Returns shipments shipped to the specified country code.
-* orderNumber (string) **required** - Returns shipments whose orders have the specified order number.
-* orderId (number) **required** - Returns shipments whose orders have the specified order ID.
-* carrierCode (string) **required** - Returns shipments shipped with the specified carrier.
-* serviceCode (string) **required** - Returns shipments shipped with the specified shipping service.
-* trackingNumber (string) **required** - Returns shipments with the specified tracking number.
-* createDateStart (string) **required** - Returns shipments created on or after the specified ``createDate``
-* createDateEnd (string) **required** - Returns shipments created on or before the specified ``createDate``
-* shipDateStart (string) **required** - Returns shipments with the ``shipDate`` on or after the specified date
-* shipDateEnd (string) **required** - Returns shipments with the ``shipDate`` on or before the specified date
-* voidDateStart (string) **required** - Returns shipments voided on or after the specified date
-* voidDateEnd (string) **required** - Returns shipments voided on or before the specified date
-* includeShipmentItems (boolean) **required** - Specifies whether to include shipment items with results Default value: false.
-* sortBy (string) **required** - Sort the responses by a set value.  The response will be sorted based off the ascending dates (oldest to most current.)  If left empty, the response will be sorted by ascending ``createDate``.
-* sortDir (string) **required** - Sets the direction of the sort order.
-* page (number) **required** - page number.
-* pageSize (number) **required** - page size.
+#### Input
+* input `object`
+  * recipientName **required** `string`: Returns shipments shipped to the specified recipient name.
+  * recipientCountryCode **required** `string`: Returns shipments shipped to the specified country code.
+  * orderNumber **required** `string`: Returns shipments whose orders have the specified order number.
+  * orderId **required** `number`: Returns shipments whose orders have the specified order ID.
+  * carrierCode **required** `string`: Returns shipments shipped with the specified carrier.
+  * serviceCode **required** `string`: Returns shipments shipped with the specified shipping service.
+  * trackingNumber **required** `string`: Returns shipments with the specified tracking number.
+  * createDateStart **required** `string`: Returns shipments created on or after the specified ``createDate``
+  * createDateEnd **required** `string`: Returns shipments created on or before the specified ``createDate``
+  * shipDateStart **required** `string`: Returns shipments with the ``shipDate`` on or after the specified date
+  * shipDateEnd **required** `string`: Returns shipments with the ``shipDate`` on or before the specified date
+  * voidDateStart **required** `string`: Returns shipments voided on or after the specified date
+  * voidDateEnd **required** `string`: Returns shipments voided on or before the specified date
+  * includeShipmentItems **required** `boolean`: Specifies whether to include shipment items with results Default value: false.
+  * sortBy **required** `string` (values: ShipDate, CreateDate): Sort the responses by a set value.  The response will be sorted based off the ascending dates (oldest to most current.)  If left empty, the response will be sorted by ascending ``createDate``.
+  * sortDir **required** `string` (values: ASC, DESC): Sets the direction of the sort order.
+  * page **required** `number`: page number.
+  * pageSize **required** `number`: page size.
+
+#### Output
+*Output schema unknown*
 
 ### stores.deactivate.post
 Deactivates the specified store.
@@ -969,8 +1088,11 @@ Name               |Data Type          |Description
 shipstation.stores.deactivate.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### stores.getrefreshstatus_storeId_storeId.get
 Retrieves the refresh status of a given store.
@@ -982,8 +1104,12 @@ shipstation.stores.getrefreshstatus_storeId_storeId.get({
 }, context)
 ```
 
-#### Parameters
-* storeId (number) **required** - Specifies the store whose status will be retrieved.
+#### Input
+* input `object`
+  * storeId **required** `number`: Specifies the store whose status will be retrieved.
+
+#### Output
+*Output schema unknown*
 
 ### stores.marketplaces.get
 Lists the marketplaces that can be integrated with ShipStation.
@@ -993,8 +1119,11 @@ Lists the marketplaces that can be integrated with ShipStation.
 shipstation.stores.marketplaces.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### stores.reactivate.post
 Reactivates the specified store. Note: stores are active by default
@@ -1010,8 +1139,11 @@ Name               |Data Type          |Description
 shipstation.stores.reactivate.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### stores.refreshstore_storeId_storeId_refreshDate_refreshDate.post
 Initiates a store refresh.
@@ -1024,9 +1156,13 @@ shipstation.stores.refreshstore_storeId_storeId_refreshDate_refreshDate.post({
 }, context)
 ```
 
-#### Parameters
-* storeId (number) **required** - Specifies the store which will get refreshed.  If the storeId is not specified, a store refresh will be initiated for all refreshable stores on that account.
-* refreshDate (string) **required** - Specifies the starting date for new order imports.  If the refreshDate is not specified, ShipStation will use the last recorded refreshDate for that store.
+#### Input
+* input `object`
+  * storeId **required** `number`: Specifies the store which will get refreshed.  If the storeId is not specified, a store refresh will be initiated for all refreshable stores on that account.
+  * refreshDate **required** `string`: Specifies the starting date for new order imports.  If the refreshDate is not specified, ShipStation will use the last recorded refreshDate for that store.
+
+#### Output
+*Output schema unknown*
 
 ### stores.storeId.get
 Get Store
@@ -1038,8 +1174,12 @@ shipstation.stores.storeId.get({
 }, context)
 ```
 
-#### Parameters
-* storeId (number) **required** - A unique ID generated by ShipStation and assigned to each store.
+#### Input
+* input `object`
+  * storeId **required** `number`: A unique ID generated by ShipStation and assigned to each store.
+
+#### Output
+*Output schema unknown*
 
 ### stores.storeId.put
 Updates an existing store. This call does not currently support partial updates. The entire resource must be provided in the body of the request.
@@ -1051,9 +1191,13 @@ shipstation.stores.storeId.put({
 }, context)
 ```
 
-#### Parameters
-* storeId (number) **required** - A unique ID generated by ShipStation and assigned to each store.
-* body (undefined)
+#### Input
+* input `object`
+  * storeId **required** `number`: A unique ID generated by ShipStation and assigned to each store.
+  * body [Get_Update_StoreModel](#get_update_storemodel)
+
+#### Output
+*Output schema unknown*
 
 ### stores_showInactive_showInactive_marketplaceId_marketplaceId.get
 Retrieve the list of installed stores on the account.
@@ -1066,9 +1210,13 @@ shipstation.stores_showInactive_showInactive_marketplaceId_marketplaceId.get({
 }, context)
 ```
 
-#### Parameters
-* showInactive (boolean) **required** - Determines whether inactive stores will be returned in the list of stores.
-* marketplaceId (number) **required** - Returns stores of this marketplace type.
+#### Input
+* input `object`
+  * showInactive **required** `boolean`: Determines whether inactive stores will be returned in the list of stores.
+  * marketplaceId **required** `number`: Returns stores of this marketplace type.
+
+#### Output
+*Output schema unknown*
 
 ### users_showInactive_showInactive.get
 List Users
@@ -1080,8 +1228,12 @@ shipstation.users_showInactive_showInactive.get({
 }, context)
 ```
 
-#### Parameters
-* showInactive (boolean) **required** - Determines whether inactive users will be returned in the response.
+#### Input
+* input `object`
+  * showInactive **required** `boolean`: Determines whether inactive users will be returned in the response.
+
+#### Output
+*Output schema unknown*
 
 ### warehouses.get
 Retrieves a list of your Ship From Locations (formerly known as warehouses).
@@ -1091,8 +1243,11 @@ Retrieves a list of your Ship From Locations (formerly known as warehouses).
 shipstation.warehouses.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### warehouses.createwarehouse.post
 Adds a Ship From Location (formerly known as warehouse) to your account.  The body of this request should specify the following attributes:
@@ -1109,8 +1264,11 @@ Name               |Data Type          |Description
 shipstation.warehouses.createwarehouse.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### warehouses.warehouseId.get
 Returns a list of active Ship From Locations (formerly known as warehouses) on the ShipStation account. Warehouses are now called "Ship From Locations" in the UI.
@@ -1122,8 +1280,12 @@ shipstation.warehouses.warehouseId.get({
 }, context)
 ```
 
-#### Parameters
-* warehouseId (number) **required** - A unique ID generated by ShipStation and assigned to each Ship From Location (formerly known as warehouse).
+#### Input
+* input `object`
+  * warehouseId **required** `number`: A unique ID generated by ShipStation and assigned to each Ship From Location (formerly known as warehouse).
+
+#### Output
+*Output schema unknown*
 
 ### warehouses.warehouseId.put
 Updates an existing Ship From Location (formerly known as warehouse). This call does not currently support partial updates. The entire resource must be provided in the body of the request. If a "returnAddress" object is not specified, your "originAddress" will be used as your "returnAddress".
@@ -1135,9 +1297,13 @@ shipstation.warehouses.warehouseId.put({
 }, context)
 ```
 
-#### Parameters
-* warehouseId (number) **required** - A unique ID generated by ShipStation and assigned to each Ship From Location (formerly known as warehouse).
-* body (undefined)
+#### Input
+* input `object`
+  * warehouseId **required** `number`: A unique ID generated by ShipStation and assigned to each Ship From Location (formerly known as warehouse).
+  * body [Get_Update_WarehouseModel](#get_update_warehousemodel)
+
+#### Output
+*Output schema unknown*
 
 ### webhooks.get
 Retrieves a list of registered webhooks for the account
@@ -1147,8 +1313,11 @@ Retrieves a list of registered webhooks for the account
 shipstation.webhooks.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### webhooks.subscribe.post
 Subscribes to a specific type of webhook. If a ``store_id`` is passed in, the webhooks will only be triggered for that specific ``store_id``.
@@ -1170,8 +1339,11 @@ Name               |Data Type          |Description
 shipstation.webhooks.subscribe.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### webhooks.webhookId.delete
 Unsubscribes from a certain webhook.
@@ -1183,6 +1355,225 @@ shipstation.webhooks.webhookId.delete({
 }, context)
 ```
 
-#### Parameters
-* webhookId (number) **required** - A unique ID generated by ShipStation and assigned to each webhook.
+#### Input
+* input `object`
+  * webhookId **required** `number`: A unique ID generated by ShipStation and assigned to each webhook.
+
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+### Add_Funds
+
+
+### Add_FundsModel
+
+
+### Add_Tag_to_Order
+
+
+### Assign_User_to_Order
+
+
+### Create/Update_Multiple_Orders
+
+
+### Create/Update_Order
+
+
+### Create_Label_for_Order
+
+
+### Create_Shipment_Label
+
+
+### Create_Warehouse
+
+
+### Customer
+
+
+### CustomerModel
+
+
+### Deactivate_Store
+
+
+### Get/Delete_Order
+
+
+### Get/Delete_OrderModel
+
+
+### Get/Update_Store
+
+
+### Get/Update_StoreModel
+
+
+### Get/Update_Warehouse
+
+
+### Get/Update_WarehouseModel
+
+
+### Get/Update_a_Product
+
+
+### Get/Update_a_ProductModel
+
+
+### Get_Carrier
+
+
+### Get_CarrierModel
+
+
+### Get_Delete_Order
+
+
+### Get_Delete_OrderModel
+
+
+### Get_Rates
+
+
+### Get_Store_Refresh_Status
+
+
+### Get_Update_Store
+
+
+### Get_Update_StoreModel
+
+
+### Get_Update_Warehouse
+
+
+### Get_Update_WarehouseModel
+
+
+### Get_Update_a_Product
+
+
+### Get_Update_a_ProductModel
+
+
+### Hold_Order_Until
+
+
+### List_Carriers
+
+
+### List_CarriersModel
+
+
+### List_Customers
+
+
+### List_CustomersModel
+
+
+### List_Fulfillments
+
+
+### List_FulfillmentsModel
+
+
+### List_Marketplaces
+
+
+### List_Orders
+
+
+### List_OrdersModel
+
+
+### List_Orders_by_Tag
+
+
+### List_Packages
+
+
+### List_PackagesModel
+
+
+### List_Products
+
+
+### List_ProductsModel
+
+
+### List_Services
+
+
+### List_ServicesModel
+
+
+### List_Shipments
+
+
+### List_ShipmentsModel
+
+
+### List_Stores
+
+
+### List_Tags
+
+
+### List_TagsModel
+
+
+### List_Users
+
+
+### List_UsersModel
+
+
+### List_Warehouses
+
+
+### List_Webhooks
+
+
+### Mark_an_Order_as_Shipped
+
+
+### Reactivate_Store
+
+
+### Refresh_Store
+
+
+### Register_Account
+
+
+### Register_AccountModel
+
+
+### Remove_Tag_from_Order
+
+
+### Restore_Order_from_On_Hold
+
+
+### Subscribe_to_Webhook
+
+
+### Subscribe_to_WebhookModel
+
+
+### Unassign_User_from_Order
+
+
+### Unsubscribe_to_Webhook
+
+
+### Void_Label
+
+
 

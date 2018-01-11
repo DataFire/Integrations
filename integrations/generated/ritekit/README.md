@@ -4,11 +4,9 @@ Client library for RiteKit
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/ritekit
+npm install --save @datafire/ritekit
 ```
-
 ```js
-let datafire = require('datafire');
 let ritekit = require('@datafire/ritekit').create();
 
 ritekit.v1.search.trending.get({}).then(data => {
@@ -17,6 +15,7 @@ ritekit.v1.search.trending.get({}).then(data => {
 ```
 
 ## Description
+
 RiteKit API is based on REST principles.
 
 Authentication uses standard OAuth 2.0 process
@@ -114,6 +113,7 @@ POST   https://ritekit.com/oauth/token
     }
 
 ## Actions
+
 ### v1.emoji.auto_emojify.get
 Returns text of the post with emoji added
 
@@ -124,8 +124,12 @@ ritekit.v1.emoji.auto_emojify.get({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - Text of the post
+#### Input
+* input `object`
+  * text **required** `string`: Text of the post
+
+#### Output
+*Output schema unknown*
 
 ### v1.emoji.suggestions.get
 Returns list of emoji suggestions for a given text of the post
@@ -137,8 +141,12 @@ ritekit.v1.emoji.suggestions.get({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - Text of the post
+#### Input
+* input `object`
+  * text **required** `string`: Text of the post
+
+#### Output
+*Output schema unknown*
 
 ### v1.images.logo.get
 Returns a company logo based on website domain.
@@ -150,8 +158,12 @@ ritekit.v1.images.logo.get({
 }, context)
 ```
 
-#### Parameters
-* domain (string) **required** - URL of the company
+#### Input
+* input `object`
+  * domain **required** `string`: URL of the company
+
+#### Output
+*Output schema unknown*
 
 ### v1.images.quote.get
 Returns URL of an image created from text according to given style parameters
@@ -177,22 +189,26 @@ ritekit.v1.images.quote.get({
 }, context)
 ```
 
-#### Parameters
-* quote (string) **required** - Text of the quote
-* author (string) **required** - Name of the author/source
-* fontSize (integer) **required** - Font size for the quote (author font size is calculated automatically)
-* quoteFont (string) **required** - Font-family used for quote text
-* quoteFontColor (string) **required** - Font color of the quote text
-* authorFont (string) **required** - Font-family used for author name
-* authorFontColor (string) **required** - Font color of the author
-* enableHighlight (integer) **required** - Enable highlight on quote text
-* highlightColor (string) **required** - Color used for highlight
-* bgType (string) **required** - Background type (gradient/solid)
-* backgroundColor (string) **required** - Background color for solid background type
-* gradientType (string) **required** - Type of gradient background (linear/radial)
-* gradientColor1 (string) **required** - First color for gradient background type
-* gradientColor2 (string) **required** - Second color for gradient background type
-* brandLogo (string) **required** - URL of the brand logo
+#### Input
+* input `object`
+  * quote **required** `string`: Text of the quote
+  * author **required** `string`: Name of the author/source
+  * fontSize **required** `integer`: Font size for the quote (author font size is calculated automatically)
+  * quoteFont **required** `string`: Font-family used for quote text
+  * quoteFontColor **required** `string`: Font color of the quote text
+  * authorFont **required** `string`: Font-family used for author name
+  * authorFontColor **required** `string`: Font color of the author
+  * enableHighlight **required** `integer`: Enable highlight on quote text
+  * highlightColor **required** `string`: Color used for highlight
+  * bgType **required** `string`: Background type (gradient/solid)
+  * backgroundColor **required** `string`: Background color for solid background type
+  * gradientType **required** `string`: Type of gradient background (linear/radial)
+  * gradientColor1 **required** `string`: First color for gradient background type
+  * gradientColor2 **required** `string`: Second color for gradient background type
+  * brandLogo **required** `string`: URL of the brand logo
+
+#### Output
+*Output schema unknown*
 
 ### v1.influencers.hashtag.hashtag.get
 Returns list of Twitter influencers for a given hashtag
@@ -204,8 +220,12 @@ ritekit.v1.influencers.hashtag.hashtag.get({
 }, context)
 ```
 
-#### Parameters
-* hashtag (string) **required** - Hashtag without # mark
+#### Input
+* input `object`
+  * hashtag **required** `string`: Hashtag without # mark
+
+#### Output
+*Output schema unknown*
 
 ### v1.link.cta.get
 Returns list of available CTA for current user. Requires each user to authenticate with RiteKit
@@ -215,8 +235,11 @@ Returns list of available CTA for current user. Requires each user to authentica
 ritekit.v1.link.cta.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### v1.link.short_link.get
 Returns a shorten link with a given CTA.
@@ -229,9 +252,13 @@ ritekit.v1.link.short_link.get({
 }, context)
 ```
 
-#### Parameters
-* url (string) **required** - URL
-* cta (integer) **required** - cta id
+#### Input
+* input `object`
+  * url **required** `string`: URL
+  * cta **required** `integer`: cta id
+
+#### Output
+*Output schema unknown*
 
 ### v1.search.trending.get
 Returns list of hashtags currently trending on Twitter
@@ -241,9 +268,13 @@ Returns list of hashtags currently trending on Twitter
 ritekit.v1.search.trending.get({}, context)
 ```
 
-#### Parameters
-* green (boolean) - Restrict results only to green hashtags. Hides overused (red) hashtags.
-* latin (boolean) - Restrict results only to hashtags with latin characters
+#### Input
+* input `object`
+  * green `boolean`: Restrict results only to green hashtags. Hides overused (red) hashtags.
+  * latin `boolean`: Restrict results only to hashtags with latin characters
+
+#### Output
+*Output schema unknown*
 
 ### v1.stats.auto_hashtag_post_post.get
 Returns auto-hashtagged text of the post.
@@ -255,8 +286,12 @@ ritekit.v1.stats.auto_hashtag_post_post.get({
 }, context)
 ```
 
-#### Parameters
-* post (string) **required** - Text of the post
+#### Input
+* input `object`
+  * post **required** `string`: Text of the post
+
+#### Output
+*Output schema unknown*
 
 ### v1.stats.hashtag_suggestions.topic.get
 Returns list of hashtag suggestions and their real-time stats for a given topic
@@ -268,8 +303,12 @@ ritekit.v1.stats.hashtag_suggestions.topic.get({
 }, context)
 ```
 
-#### Parameters
-* topic (string) **required** - Topic
+#### Input
+* input `object`
+  * topic **required** `string`: Topic
+
+#### Output
+*Output schema unknown*
 
 ### v1.stats.history.hashtag.get
 Returns historical stats for a given hashtag from the last 30 days
@@ -281,8 +320,12 @@ ritekit.v1.stats.history.hashtag.get({
 }, context)
 ```
 
-#### Parameters
-* hashtag (string) **required** - Hashtag without # mark
+#### Input
+* input `object`
+  * hashtag **required** `string`: Hashtag without # mark
+
+#### Output
+*Output schema unknown*
 
 ### v1.stats.multiple_hashtags.get
 Returns real-time stats for up to 100 hashtags (updated hourly).
@@ -294,6 +337,30 @@ ritekit.v1.stats.multiple_hashtags.get({
 }, context)
 ```
 
-#### Parameters
-* tags (array) **required** - Hashtag(s) without # mark
+#### Input
+* input `object`
+  * tags **required** `array`: Hashtag(s) without # mark
+
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+### Emojis
+
+
+### Hashtags
+
+
+### Images
+
+
+### Influencers
+
+
+### Link_shortening
+
+
 

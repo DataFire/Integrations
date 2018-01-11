@@ -4,11 +4,9 @@ Client library for Bitbucket
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/bitbucket
+npm install --save @datafire/bitbucket
 ```
-
 ```js
-let datafire = require('datafire');
 let bitbucket = require('@datafire/bitbucket').create({
   api_key: "",
   username: "",
@@ -17,7 +15,7 @@ let bitbucket = require('@datafire/bitbucket').create({
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 bitbucket.teams.get({}).then(data => {
@@ -26,9 +24,11 @@ bitbucket.teams.get({}).then(data => {
 ```
 
 ## Description
+
 Code against the Bitbucket API to automate simple tasks, embed Bitbucket data into your own site, build mobile or desktop apps, or even add custom UI add-ons into Bitbucket itself using the Connect framework.
 
 ## Actions
+
 ### oauthCallback
 Exchange the code passed to your redirect URI for an access_token
 
@@ -39,8 +39,17 @@ bitbucket.oauthCallback({
 }, context)
 ```
 
-#### Parameters
-* code (string) **required**
+#### Input
+* input `object`
+  * code **required** `string`
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### oauthRefresh
 Exchange a refresh_token for an access_token
@@ -50,8 +59,16 @@ Exchange a refresh_token for an access_token
 bitbucket.oauthRefresh(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### addon.delete
 
@@ -61,8 +78,11 @@ bitbucket.oauthRefresh(null, context)
 bitbucket.addon.delete(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [error](#error)
 
 ### addon.put
 
@@ -72,8 +92,11 @@ bitbucket.addon.delete(null, context)
 bitbucket.addon.put(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [error](#error)
 
 ### addon.linkers.get
 
@@ -83,8 +106,11 @@ bitbucket.addon.put(null, context)
 bitbucket.addon.linkers.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [error](#error)
 
 ### addon.linkers.linker_key.get
 
@@ -96,8 +122,12 @@ bitbucket.addon.linkers.linker_key.get({
 }, context)
 ```
 
-#### Parameters
-* linker_key (string) **required**
+#### Input
+* input `object`
+  * linker_key **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### addon.linkers.linker_key.values.delete
 
@@ -109,8 +139,12 @@ bitbucket.addon.linkers.linker_key.values.delete({
 }, context)
 ```
 
-#### Parameters
-* linker_key (string) **required**
+#### Input
+* input `object`
+  * linker_key **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### addon.linkers.linker_key.values.get
 
@@ -122,8 +156,12 @@ bitbucket.addon.linkers.linker_key.values.get({
 }, context)
 ```
 
-#### Parameters
-* linker_key (string) **required**
+#### Input
+* input `object`
+  * linker_key **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### addon.linkers.linker_key.values.post
 
@@ -135,8 +173,12 @@ bitbucket.addon.linkers.linker_key.values.post({
 }, context)
 ```
 
-#### Parameters
-* linker_key (string) **required**
+#### Input
+* input `object`
+  * linker_key **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### addon.linkers.linker_key.values.put
 
@@ -148,8 +190,12 @@ bitbucket.addon.linkers.linker_key.values.put({
 }, context)
 ```
 
-#### Parameters
-* linker_key (string) **required**
+#### Input
+* input `object`
+  * linker_key **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### addon.linkers.linker_key.values.delete
 
@@ -161,8 +207,12 @@ bitbucket.addon.linkers.linker_key.values.delete({
 }, context)
 ```
 
-#### Parameters
-* linker_key (string) **required**
+#### Input
+* input `object`
+  * linker_key **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### addon.linkers.linker_key.values.get
 
@@ -174,8 +224,12 @@ bitbucket.addon.linkers.linker_key.values.get({
 }, context)
 ```
 
-#### Parameters
-* linker_key (string) **required**
+#### Input
+* input `object`
+  * linker_key **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### hook_events.get
 Returns the webhook resource or subject types on which webhooks can
@@ -223,8 +277,11 @@ $ curl https://api.bitbucket.org/2.0/hook_events
 bitbucket.hook_events.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [subject_types](#subject_types)
 
 ### hook_events.subject_type.get
 Returns a paginated list of all valid webhook events for the
@@ -274,8 +331,12 @@ bitbucket.hook_events.subject_type.get({
 }, context)
 ```
 
-#### Parameters
-* subject_type (string) **required**
+#### Input
+* input `object`
+  * subject_type **required** `string`
+
+#### Output
+* output [paginated_hook_events](#paginated_hook_events)
 
 ### repositories.get
 Returns a paginated list of all public repositories.
@@ -288,8 +349,12 @@ This endpoint also supports filtering and sorting of the results. See
 bitbucket.repositories.get({}, context)
 ```
 
-#### Parameters
-* after (string) - Filter the results to include only repositories create on or
+#### Input
+* input `object`
+  * after `string`: Filter the results to include only repositories create on or
+
+#### Output
+* output [paginated_repositories](#paginated_repositories)
 
 ### repositories.username.get
 Returns a paginated list of all repositories owned by the specified
@@ -311,9 +376,13 @@ bitbucket.repositories.username.get({
 }, context)
 ```
 
-#### Parameters
-* role (string) - 
-* username (string) **required**
+#### Input
+* input `object`
+  * role `string` (values: admin, contributor, member, owner): 
+  * username **required** `string`
+
+#### Output
+* output [paginated_repositories](#paginated_repositories)
 
 ### repositories.username.repo_slug.delete
 Deletes the repository. This is an irreversible operation.
@@ -328,9 +397,13 @@ bitbucket.repositories.username.repo_slug.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### repositories.username.repo_slug.get
 Returns the object describing this repository.
@@ -343,9 +416,13 @@ bitbucket.repositories.username.repo_slug.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [repository](#repository)
 
 ### repositories.username.repo_slug.post
 Creates a new repository.
@@ -389,10 +466,14 @@ bitbucket.repositories.username.repo_slug.post({
 }, context)
 ```
 
-#### Parameters
-* _body (undefined)
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * _body [repository](#repository)
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [repository](#repository)
 
 ### repositories.username.repo_slug.put
 Since this endpoint can be used to both update and to create a
@@ -421,10 +502,14 @@ bitbucket.repositories.username.repo_slug.put({
 }, context)
 ```
 
-#### Parameters
-* _body (undefined)
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * _body [repository](#repository)
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [repository](#repository)
 
 ### repositories.username.repo_slug.branch_restrictions.get
 Returns a paginated list of all branch restrictions on the
@@ -438,9 +523,13 @@ bitbucket.repositories.username.repo_slug.branch_restrictions.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [paginated_branchrestrictions](#paginated_branchrestrictions)
 
 ### repositories.username.repo_slug.branch_restrictions.post
 Creates a new branch restriction rule for a repository.
@@ -479,10 +568,14 @@ bitbucket.repositories.username.repo_slug.branch_restrictions.post({
 }, context)
 ```
 
-#### Parameters
-* _body (undefined) **required**
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * _body **required** [branchrestriction](#branchrestriction)
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [branchrestriction](#branchrestriction)
 
 ### repositories.username.repo_slug.branch_restrictions.id.delete
 Deletes an existing branch restriction rule.
@@ -496,10 +589,14 @@ bitbucket.repositories.username.repo_slug.branch_restrictions.id.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### repositories.username.repo_slug.branch_restrictions.id.get
 Returns a specific branch restriction rule.
@@ -513,10 +610,14 @@ bitbucket.repositories.username.repo_slug.branch_restrictions.id.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [branchrestriction](#branchrestriction)
 
 ### repositories.username.repo_slug.branch_restrictions.id.put
 Updates an existing branch restriction rule.
@@ -535,11 +636,15 @@ bitbucket.repositories.username.repo_slug.branch_restrictions.id.put({
 }, context)
 ```
 
-#### Parameters
-* _body (undefined) **required**
-* username (string) **required**
-* id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * _body **required** [branchrestriction](#branchrestriction)
+  * username **required** `string`
+  * id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [branchrestriction](#branchrestriction)
 
 ### repositories.username.repo_slug.commit.node.approve.delete
 Redact the authenticated user's approval of the specified commit.
@@ -558,10 +663,14 @@ bitbucket.repositories.username.repo_slug.commit.node.approve.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* node (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * node **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### repositories.username.repo_slug.commit.node.approve.post
 Approve the specified commit as the authenticated user.
@@ -580,10 +689,14 @@ bitbucket.repositories.username.repo_slug.commit.node.approve.post({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* node (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * node **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [participant](#participant)
 
 ### repositories.username.repo_slug.commit.node.statuses.get
 Returns all statuses (e.g. build results) for a specific commit.
@@ -597,10 +710,14 @@ bitbucket.repositories.username.repo_slug.commit.node.statuses.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* node (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * node **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [paginated_commitstatuses](#paginated_commitstatuses)
 
 ### repositories.username.repo_slug.commit.node.statuses.build.post
 Creates a new build status against the specified commit.
@@ -626,10 +743,14 @@ bitbucket.repositories.username.repo_slug.commit.node.statuses.build.post({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* node (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * node **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [commitstatus](#commitstatus)
 
 ### repositories.username.repo_slug.commit.node.statuses.build.key.get
 Returns the specified build status for a commit.
@@ -644,11 +765,15 @@ bitbucket.repositories.username.repo_slug.commit.node.statuses.build.key.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* node (string) **required**
-* key (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * node **required** `string`
+  * key **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [commitstatus](#commitstatus)
 
 ### repositories.username.repo_slug.commit.node.statuses.build.key.put
 Used to update the current status of a build status object on the
@@ -675,12 +800,16 @@ bitbucket.repositories.username.repo_slug.commit.node.statuses.build.key.put({
 }, context)
 ```
 
-#### Parameters
-* _body (undefined)
-* username (string) **required**
-* node (string) **required**
-* key (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * _body [commitstatus](#commitstatus)
+  * username **required** `string`
+  * node **required** `string`
+  * key **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [commitstatus](#commitstatus)
 
 ### repositories.username.repo_slug.commit.revision.get
 Returns the specified commit.
@@ -694,10 +823,14 @@ bitbucket.repositories.username.repo_slug.commit.revision.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* revision (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * revision **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [commit](#commit)
 
 ### repositories.username.repo_slug.commit.sha.comments.get
 Returns the commit's comments.
@@ -716,10 +849,14 @@ bitbucket.repositories.username.repo_slug.commit.sha.comments.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* sha (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * sha **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.commit.sha.comments.comment_id.get
 Returns the specified commit comment.
@@ -734,11 +871,15 @@ bitbucket.repositories.username.repo_slug.commit.sha.comments.comment_id.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* sha (string) **required**
-* comment_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * sha **required** `string`
+  * comment_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.commits.get
 These are the repository's commits. They are paginated and returned
@@ -787,9 +928,13 @@ bitbucket.repositories.username.repo_slug.commits.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.commits.post
 Identical to `GET /repositories/{username}/{repo_slug}/commits`,
@@ -806,9 +951,13 @@ bitbucket.repositories.username.repo_slug.commits.post({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.commits.revision.get
 These are the repository's commits. They are paginated and returned
@@ -858,10 +1007,14 @@ bitbucket.repositories.username.repo_slug.commits.revision.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* revision (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * revision **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.commits.revision.post
 Identical to `GET /repositories/{username}/{repo_slug}/commits`,
@@ -879,10 +1032,14 @@ bitbucket.repositories.username.repo_slug.commits.revision.post({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* revision (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * revision **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.components.get
 Returns the components that have been defined in the issue tracker.
@@ -898,9 +1055,13 @@ bitbucket.repositories.username.repo_slug.components.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [paginated_components](#paginated_components)
 
 ### repositories.username.repo_slug.components.component_id.get
 Returns the specified issue tracker component object.
@@ -914,10 +1075,14 @@ bitbucket.repositories.username.repo_slug.components.component_id.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* component_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * component_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [component](#component)
 
 ### repositories.username.repo_slug.default_reviewers.get
 Returns the repository's default reviewers.
@@ -933,9 +1098,13 @@ bitbucket.repositories.username.repo_slug.default_reviewers.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### repositories.username.repo_slug.default_reviewers.target_username.delete
 Removes a default reviewer from the repository.
@@ -949,10 +1118,14 @@ bitbucket.repositories.username.repo_slug.default_reviewers.target_username.dele
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* target_username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * target_username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.default_reviewers.target_username.get
 Returns the specified reviewer.
@@ -970,10 +1143,14 @@ bitbucket.repositories.username.repo_slug.default_reviewers.target_username.get(
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* target_username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * target_username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.default_reviewers.target_username.put
 Adds the specified user to the repository's list of default
@@ -990,10 +1167,14 @@ bitbucket.repositories.username.repo_slug.default_reviewers.target_username.put(
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* target_username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * target_username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.diff.spec.get
 Produces a raw, git-style diff for either a single commit (diffed
@@ -1030,12 +1211,16 @@ bitbucket.repositories.username.repo_slug.diff.spec.get({
 }, context)
 ```
 
-#### Parameters
-* context (integer) - Generate diffs with <n> lines of context instead of the usual three
-* path (string) - Limit the diff to a single file
-* username (string) **required**
-* spec (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * context `integer`: Generate diffs with <n> lines of context instead of the usual three
+  * path `string`: Limit the diff to a single file
+  * username **required** `string`
+  * spec **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### repositories.username.repo_slug.downloads.get
 Returns a list of download links associated with the repository.
@@ -1048,9 +1233,13 @@ bitbucket.repositories.username.repo_slug.downloads.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.downloads.post
 Upload new download artifacts.
@@ -1072,9 +1261,13 @@ bitbucket.repositories.username.repo_slug.downloads.post({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.downloads.filename.delete
 Deletes the specified download artifact from the repository.
@@ -1088,10 +1281,14 @@ bitbucket.repositories.username.repo_slug.downloads.filename.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* filename (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * filename **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.downloads.filename.get
 Return a redirect to the contents of a download artifact.
@@ -1111,10 +1308,14 @@ bitbucket.repositories.username.repo_slug.downloads.filename.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* filename (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * filename **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.forks.get
 Returns a paginated list of all the forks of the specified
@@ -1128,9 +1329,13 @@ bitbucket.repositories.username.repo_slug.forks.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [paginated_repositories](#paginated_repositories)
 
 ### repositories.username.repo_slug.hooks.get
 Returns a paginated list of webhooks installed on this repository.
@@ -1143,9 +1348,13 @@ bitbucket.repositories.username.repo_slug.hooks.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [paginated_webhook_subscriptions](#paginated_webhook_subscriptions)
 
 ### repositories.username.repo_slug.hooks.post
 Creates a new webhook on the specified repository.
@@ -1181,9 +1390,13 @@ bitbucket.repositories.username.repo_slug.hooks.post({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [webhook_subscription](#webhook_subscription)
 
 ### repositories.username.repo_slug.hooks.uid.delete
 Deletes the specified webhook subscription from the given
@@ -1198,10 +1411,14 @@ bitbucket.repositories.username.repo_slug.hooks.uid.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* uid (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * uid **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### repositories.username.repo_slug.hooks.uid.get
 Returns the webhook with the specified id installed on the specified
@@ -1216,10 +1433,14 @@ bitbucket.repositories.username.repo_slug.hooks.uid.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* uid (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * uid **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [webhook_subscription](#webhook_subscription)
 
 ### repositories.username.repo_slug.hooks.uid.put
 Updates the specified webhook subscription.
@@ -1240,10 +1461,14 @@ bitbucket.repositories.username.repo_slug.hooks.uid.put({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* uid (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * uid **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [webhook_subscription](#webhook_subscription)
 
 ### repositories.username.repo_slug.issues.get
 Returns the issues in the issue tracker.
@@ -1256,9 +1481,13 @@ bitbucket.repositories.username.repo_slug.issues.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [paginated_issues](#paginated_issues)
 
 ### repositories.username.repo_slug.issues.post
 Creates a new issue.
@@ -1278,10 +1507,14 @@ bitbucket.repositories.username.repo_slug.issues.post({
 }, context)
 ```
 
-#### Parameters
-* _body (undefined) **required**
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * _body **required** [issue](#issue)
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [issue](#issue)
 
 ### repositories.username.repo_slug.issues.issue_id.delete
 Deletes the specified issue. This requires write access to the
@@ -1296,10 +1529,14 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [issue](#issue)
 
 ### repositories.username.repo_slug.issues.issue_id.get
 Returns the specified issue.
@@ -1313,10 +1550,14 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [issue](#issue)
 
 ### repositories.username.repo_slug.issues.issue_id.attachments.get
 Returns all attachments for this issue.
@@ -1335,10 +1576,14 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.attachments.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [paginated_issue_attachments](#paginated_issue_attachments)
 
 ### repositories.username.repo_slug.issues.issue_id.attachments.post
 Upload new issue attachments.
@@ -1358,10 +1603,14 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.attachments.post({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### repositories.username.repo_slug.issues.issue_id.attachments.path.delete
 Deletes an attachment.
@@ -1376,11 +1625,15 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.attachments.path.delet
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* path (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * path **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### repositories.username.repo_slug.issues.issue_id.attachments.path.get
 Returns the contents of the specified file attachment.
@@ -1402,11 +1655,15 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.attachments.path.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* path (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * path **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### repositories.username.repo_slug.issues.issue_id.comments.get
 Returns all comments that were made on the specified issue.
@@ -1423,10 +1680,14 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.comments.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.issues.issue_id.comments.comment_id.get
 Returns the specified issue comment object.
@@ -1441,11 +1702,15 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.comments.comment_id.ge
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* comment_id (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * comment_id **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.issues.issue_id.vote.delete
 Retract your vote.
@@ -1459,10 +1724,14 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.vote.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.issues.issue_id.vote.get
 Check whether the authenticated user has voted for this issue.
@@ -1478,10 +1747,14 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.vote.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.issues.issue_id.vote.put
 Vote for this issue.
@@ -1498,10 +1771,14 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.vote.put({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.issues.issue_id.watch.delete
 Stop watching this issue.
@@ -1515,10 +1792,14 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.watch.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.issues.issue_id.watch.get
 Indicated whether or not the authenticated user is watching this
@@ -1533,10 +1814,14 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.watch.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.issues.issue_id.watch.put
 Start watching this issue.
@@ -1553,10 +1838,14 @@ bitbucket.repositories.username.repo_slug.issues.issue_id.watch.put({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* issue_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * issue_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.milestones.get
 Returns the milestones that have been defined in the issue tracker.
@@ -1572,9 +1861,13 @@ bitbucket.repositories.username.repo_slug.milestones.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [paginated_milestones](#paginated_milestones)
 
 ### repositories.username.repo_slug.milestones.milestone_id.get
 Returns the specified issue tracker milestone object.
@@ -1588,10 +1881,14 @@ bitbucket.repositories.username.repo_slug.milestones.milestone_id.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* milestone_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * milestone_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [milestone](#milestone)
 
 ### repositories.username.repo_slug.patch.spec.get
 Produces a raw patch for a single commit (diffed against its first
@@ -1622,10 +1919,14 @@ bitbucket.repositories.username.repo_slug.patch.spec.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* spec (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * spec **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### getPipelinesForRepository
 Find pipelines
@@ -1638,9 +1939,13 @@ bitbucket.getPipelinesForRepository({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+
+#### Output
+* output [paginated_pipelines](#paginated_pipelines)
 
 ### createPipelineForRepository
 Endpoint to create and initiate a pipeline. 
@@ -1757,10 +2062,14 @@ bitbucket.createPipelineForRepository({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* _body (undefined) **required**
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * _body **required** [pipeline](#pipeline)
+
+#### Output
+* output [pipeline](#pipeline)
 
 ### getPipelineForRepository
 Retrieve a specified pipeline
@@ -1774,10 +2083,14 @@ bitbucket.getPipelineForRepository({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* pipeline_uuid (string) **required** - The pipeline UUID.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * pipeline_uuid **required** `string`: The pipeline UUID.
+
+#### Output
+* output [pipeline](#pipeline)
 
 ### getPipelineStepsForRepository
 Find steps for the given pipeline.
@@ -1791,10 +2104,14 @@ bitbucket.getPipelineStepsForRepository({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* pipeline_uuid (string) **required** - The UUID of the pipeline.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * pipeline_uuid **required** `string`: The UUID of the pipeline.
+
+#### Output
+* output [paginated_pipeline_steps](#paginated_pipeline_steps)
 
 ### getPipelineStepForRepository
 Retrieve a given step of a pipeline.
@@ -1809,11 +2126,15 @@ bitbucket.getPipelineStepForRepository({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* pipeline_uuid (string) **required** - The UUID of the pipeline.
-* step_uuid (string) **required** - The UUID of the step.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * pipeline_uuid **required** `string`: The UUID of the pipeline.
+  * step_uuid **required** `string`: The UUID of the step.
+
+#### Output
+* output [pipeline_step](#pipeline_step)
 
 ### getPipelineStepLogForRepository
 Retrieve the log file for a given step of a pipeline.
@@ -1830,11 +2151,15 @@ bitbucket.getPipelineStepLogForRepository({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* pipeline_uuid (string) **required** - The UUID of the pipeline.
-* step_uuid (string) **required** - The UUID of the step.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * pipeline_uuid **required** `string`: The UUID of the pipeline.
+  * step_uuid **required** `string`: The UUID of the step.
+
+#### Output
+*Output schema unknown*
 
 ### stopPipeline
 Signal the stop of a pipeline and all of its steps that not have completed yet.
@@ -1848,10 +2173,14 @@ bitbucket.stopPipeline({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* pipeline_uuid (string) **required** - The UUID of the pipeline.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * pipeline_uuid **required** `string`: The UUID of the pipeline.
+
+#### Output
+*Output schema unknown*
 
 ### getRepositoryPipelineConfig
 Retrieve the repository pipelines configuration.
@@ -1864,9 +2193,13 @@ bitbucket.getRepositoryPipelineConfig({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+
+#### Output
+* output [pipelines_config](#pipelines_config)
 
 ### updateRepositoryPipelineConfig
 Update the pipelines configuration for a repository.
@@ -1880,10 +2213,14 @@ bitbucket.updateRepositoryPipelineConfig({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* _body (undefined) **required**
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * _body **required** [pipelines_config](#pipelines_config)
+
+#### Output
+* output [pipelines_config](#pipelines_config)
 
 ### deleteRepositoryPipelineKeyPair
 Delete the repository SSH key pair.
@@ -1896,9 +2233,13 @@ bitbucket.deleteRepositoryPipelineKeyPair({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+
+#### Output
+*Output schema unknown*
 
 ### getRepositoryPipelineSshKeyPair
 Retrieve the repository SSH key pair excluding the SSH private key. The private key is a write only field and will never be exposed in the logs or the REST API.
@@ -1911,9 +2252,13 @@ bitbucket.getRepositoryPipelineSshKeyPair({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+
+#### Output
+* output [pipeline_ssh_key_pair](#pipeline_ssh_key_pair)
 
 ### updateRepositoryPipelineKeyPair
 Create or update the repository SSH key pair. The private key will be set as a default SSH identity in your build container.
@@ -1927,10 +2272,14 @@ bitbucket.updateRepositoryPipelineKeyPair({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* _body (undefined) **required**
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * _body **required** [pipeline_ssh_key_pair](#pipeline_ssh_key_pair)
+
+#### Output
+* output [pipeline_ssh_key_pair](#pipeline_ssh_key_pair)
 
 ### getRepositoryPipelineKnownHosts
 Find repository level known hosts.
@@ -1943,9 +2292,13 @@ bitbucket.getRepositoryPipelineKnownHosts({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+
+#### Output
+* output [paginated_pipeline_known_hosts](#paginated_pipeline_known_hosts)
 
 ### createRepositoryPipelineKnownHost
 Create a repository level known host.
@@ -1959,10 +2312,14 @@ bitbucket.createRepositoryPipelineKnownHost({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* _body (undefined) **required**
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * _body **required** [pipeline_known_host](#pipeline_known_host)
+
+#### Output
+* output [pipeline_known_host](#pipeline_known_host)
 
 ### deleteRepositoryPipelineKnownHost
 Delete a repository level known host.
@@ -1976,10 +2333,14 @@ bitbucket.deleteRepositoryPipelineKnownHost({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* known_host_uuid (string) **required** - The UUID of the known host to delete.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * known_host_uuid **required** `string`: The UUID of the known host to delete.
+
+#### Output
+*Output schema unknown*
 
 ### getRepositoryPipelineKnownHost
 Retrieve a repository level known host.
@@ -1993,10 +2354,14 @@ bitbucket.getRepositoryPipelineKnownHost({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* known_host_uuid (string) **required** - The UUID of the known host to retrieve.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * known_host_uuid **required** `string`: The UUID of the known host to retrieve.
+
+#### Output
+* output [pipeline_known_host](#pipeline_known_host)
 
 ### updateRepositoryPipelineKnownHost
 Update a repository level known host.
@@ -2011,11 +2376,15 @@ bitbucket.updateRepositoryPipelineKnownHost({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* known_host_uuid (string) **required** - The UUID of the known host to update.
-* _body (undefined) **required**
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * known_host_uuid **required** `string`: The UUID of the known host to update.
+  * _body **required** [pipeline_known_host](#pipeline_known_host)
+
+#### Output
+* output [pipeline_known_host](#pipeline_known_host)
 
 ### getRepositoryPipelineVariables
 Find repository level variables.
@@ -2028,9 +2397,13 @@ bitbucket.getRepositoryPipelineVariables({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+
+#### Output
+* output [paginated_pipeline_variables](#paginated_pipeline_variables)
 
 ### createRepositoryPipelineVariable
 Create a repository level variable.
@@ -2044,10 +2417,14 @@ bitbucket.createRepositoryPipelineVariable({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* _body (undefined) **required**
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * _body **required** [pipeline_variable](#pipeline_variable)
+
+#### Output
+* output [pipeline_variable](#pipeline_variable)
 
 ### deleteRepositoryPipelineVariable
 Delete a repository level variable.
@@ -2061,10 +2438,14 @@ bitbucket.deleteRepositoryPipelineVariable({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* variable_uuid (string) **required** - The UUID of the variable to delete.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * variable_uuid **required** `string`: The UUID of the variable to delete.
+
+#### Output
+*Output schema unknown*
 
 ### getRepositoryPipelineVariable
 Retrieve a repository level variable.
@@ -2078,10 +2459,14 @@ bitbucket.getRepositoryPipelineVariable({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* variable_uuid (string) **required** - The UUID of the variable to retrieve.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * variable_uuid **required** `string`: The UUID of the variable to retrieve.
+
+#### Output
+* output [pipeline_variable](#pipeline_variable)
 
 ### updateRepositoryPipelineVariable
 Update a repository level variable.
@@ -2096,11 +2481,15 @@ bitbucket.updateRepositoryPipelineVariable({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* repo_slug (string) **required** - The repository.
-* variable_uuid (string) **required** - The UUID of the variable to update.
-* _body (undefined) **required**
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * repo_slug **required** `string`: The repository.
+  * variable_uuid **required** `string`: The UUID of the variable to update.
+  * _body **required** [pipeline_variable](#pipeline_variable)
+
+#### Output
+* output [pipeline_variable](#pipeline_variable)
 
 ### repositories.username.repo_slug.pullrequests.get
 Returns a paginated list of all pull requests on the specified
@@ -2120,10 +2509,14 @@ bitbucket.repositories.username.repo_slug.pullrequests.get({
 }, context)
 ```
 
-#### Parameters
-* state (string) - Only return pull requests that are in this state. This parameter can be repeated.
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * state `string` (values: MERGED, SUPERSEDED, OPEN, DECLINED): Only return pull requests that are in this state. This parameter can be repeated.
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [paginated_pullrequests](#paginated_pullrequests)
 
 ### repositories.username.repo_slug.pullrequests.post
 Creates a new pull request.
@@ -2136,10 +2529,14 @@ bitbucket.repositories.username.repo_slug.pullrequests.post({
 }, context)
 ```
 
-#### Parameters
-* _body (undefined)
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * _body [pullrequest](#pullrequest)
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [pullrequest](#pullrequest)
 
 ### repositories.username.repo_slug.pullrequests.activity.get
 Returns a paginated list of the pull request's activity log.
@@ -2155,9 +2552,13 @@ bitbucket.repositories.username.repo_slug.pullrequests.activity.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### repositories.username.repo_slug.pullrequests.pull_request_id.get
 Returns the specified pull request.
@@ -2171,10 +2572,14 @@ bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* pull_request_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * pull_request_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [pullrequest](#pullrequest)
 
 ### repositories.username.repo_slug.pullrequests.pull_request_id.put
 Mutates the specified pull request.
@@ -2192,11 +2597,15 @@ bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.put({
 }, context)
 ```
 
-#### Parameters
-* _body (undefined)
-* username (string) **required**
-* pull_request_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * _body [pullrequest](#pullrequest)
+  * username **required** `string`
+  * pull_request_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [pullrequest](#pullrequest)
 
 ### repositories.username.repo_slug.pullrequests.pull_request_id.activity.get
 Returns a paginated list of the pull request's activity log.
@@ -2213,10 +2622,14 @@ bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.activity.
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* pull_request_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * pull_request_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### repositories.username.repo_slug.pullrequests.pull_request_id.approve.delete
 Redact the authenticated user's approval of the specified pull
@@ -2231,10 +2644,14 @@ bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.approve.d
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* pull_request_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * pull_request_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.pullrequests.pull_request_id.approve.post
 Approve the specified pull request as the authenticated user.
@@ -2248,10 +2665,14 @@ bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.approve.p
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* pull_request_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * pull_request_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.pullrequests.pull_request_id.comments.get
 Returns a paginated list of the pull request's comments.
@@ -2274,10 +2695,14 @@ bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.comments.
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* pull_request_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * pull_request_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.pullrequests.pull_request_id.comments.comment_id.get
 Returns a specific pull request comment.
@@ -2292,11 +2717,15 @@ bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.comments.
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* pull_request_id (string) **required**
-* comment_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * pull_request_id **required** `string`
+  * comment_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.pullrequests.pull_request_id.commits.get
 Returns a paginated list of the pull request's commits.
@@ -2313,10 +2742,14 @@ bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.commits.g
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* pull_request_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * pull_request_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.pullrequests.pull_request_id.decline.post
 Declines the pull request.
@@ -2330,10 +2763,14 @@ bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.decline.p
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* pull_request_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * pull_request_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [pullrequest](#pullrequest)
 
 ### repositories.username.repo_slug.pullrequests.pull_request_id.diff.get
 
@@ -2347,10 +2784,14 @@ bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.diff.get(
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* pull_request_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * pull_request_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.pullrequests.pull_request_id.merge.post
 Merges the pull request.
@@ -2364,11 +2805,15 @@ bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.merge.pos
 }, context)
 ```
 
-#### Parameters
-* _body (object) - The metadata that describes a pull request merge.
-* username (string) **required**
-* pull_request_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * _body [pullrequest_merge_parameters](#pullrequest_merge_parameters)
+  * username **required** `string`
+  * pull_request_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [pullrequest](#pullrequest)
 
 ### repositories.username.repo_slug.pullrequests.pull_request_id.patch.get
 
@@ -2382,10 +2827,14 @@ bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.patch.get
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* pull_request_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * pull_request_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.pullrequests.pull_request_id.statuses.get
 Returns all statuses (e.g. build results) for the given pull
@@ -2400,10 +2849,14 @@ bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.statuses.
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* pull_request_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * pull_request_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [paginated_commitstatuses](#paginated_commitstatuses)
 
 ### repositories.username.repo_slug.refs.get
 
@@ -2416,9 +2869,13 @@ bitbucket.repositories.username.repo_slug.refs.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.refs.branches.get
 
@@ -2431,9 +2888,13 @@ bitbucket.repositories.username.repo_slug.refs.branches.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.refs.branches.name.get
 
@@ -2447,10 +2908,14 @@ bitbucket.repositories.username.repo_slug.refs.branches.name.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* name (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * name **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.refs.tags.get
 
@@ -2463,9 +2928,13 @@ bitbucket.repositories.username.repo_slug.refs.tags.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - 
-* repo_slug (string) **required** - 
+#### Input
+* input `object`
+  * username **required** `string`: 
+  * repo_slug **required** `string`: 
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.refs.tags.post
 Creates a new tag in the specified repository.
@@ -2497,10 +2966,14 @@ bitbucket.repositories.username.repo_slug.refs.tags.post({
 }, context)
 ```
 
-#### Parameters
-* _body (object) **required** - A tag object, representing a tag in a repository.
-* username (string) **required** - 
-* repo_slug (string) **required** - 
+#### Input
+* input `object`
+  * _body **required** [tag](#tag)
+  * username **required** `string`: 
+  * repo_slug **required** `string`: 
+
+#### Output
+* output [tag](#tag)
 
 ### repositories.username.repo_slug.refs.tags.name.get
 
@@ -2514,10 +2987,14 @@ bitbucket.repositories.username.repo_slug.refs.tags.name.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* name (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * name **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### repositories.username.repo_slug.src.node.path.get
 
@@ -2532,12 +3009,16 @@ bitbucket.repositories.username.repo_slug.src.node.path.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) - Instead of returning the file's contents, return the (json) meta data for it.
-* username (string) **required**
-* node (string) **required**
-* path (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * format `string` (values: meta): Instead of returning the file's contents, return the (json) meta data for it.
+  * username **required** `string`
+  * node **required** `string`
+  * path **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### repositories.username.repo_slug.versions.get
 Returns the versions that have been defined in the issue tracker.
@@ -2553,9 +3034,13 @@ bitbucket.repositories.username.repo_slug.versions.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [paginated_versions](#paginated_versions)
 
 ### repositories.username.repo_slug.versions.version_id.get
 Returns the specified issue tracker version object.
@@ -2569,10 +3054,14 @@ bitbucket.repositories.username.repo_slug.versions.version_id.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* version_id (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * version_id **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [version](#version)
 
 ### repositories.username.repo_slug.watchers.get
 Returns a paginated list of all the watchers on the specified
@@ -2586,9 +3075,13 @@ bitbucket.repositories.username.repo_slug.watchers.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* repo_slug (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * repo_slug **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### snippets.get
 Returns all snippets. Like pull requests, repositories and teams, the
@@ -2620,8 +3113,12 @@ possible to include the file contents.
 bitbucket.snippets.get({}, context)
 ```
 
-#### Parameters
-* role (string) - Filter down the result based on the authenticated user's role (`owner`, `contributor`, or `member`).
+#### Input
+* input `object`
+  * role `string` (values: owner, contributor, member): Filter down the result based on the authenticated user's role (`owner`, `contributor`, or `member`).
+
+#### Output
+* output [paginated_snippets](#paginated_snippets)
 
 ### snippets.post
 Creates a new snippet under the authenticated user's account.
@@ -2782,8 +3279,12 @@ bitbucket.snippets.post({
 }, context)
 ```
 
-#### Parameters
-* _body (undefined) **required**
+#### Input
+* input `object`
+  * _body **required** [snippet](#snippet)
+
+#### Output
+* output [snippet](#snippet)
 
 ### snippets.username.get
 Identical to `/snippets`, except that the result is further filtered
@@ -2797,9 +3298,13 @@ bitbucket.snippets.username.get({
 }, context)
 ```
 
-#### Parameters
-* role (string) - Filter down the result based on the authenticated user's role (`owner`, `contributor`, or `member`).
-* username (string) **required**
+#### Input
+* input `object`
+  * role `string` (values: owner, contributor, member): Filter down the result based on the authenticated user's role (`owner`, `contributor`, or `member`).
+  * username **required** `string`
+
+#### Output
+* output [paginated_snippets](#paginated_snippets)
 
 ### snippets.username.post
 Identical to `/snippets`, except that the new snippet will be
@@ -2813,9 +3318,13 @@ bitbucket.snippets.username.post({
 }, context)
 ```
 
-#### Parameters
-* _body (undefined) **required**
-* username (string) **required**
+#### Input
+* input `object`
+  * _body **required** [snippet](#snippet)
+  * username **required** `string`
+
+#### Output
+* output [snippet](#snippet)
 
 ### snippets.username.encoded_id.delete
 Deletes a snippet and returns an empty response.
@@ -2828,9 +3337,13 @@ bitbucket.snippets.username.encoded_id.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### snippets.username.encoded_id.get
 Retrieves a single snippet.
@@ -3026,9 +3539,13 @@ bitbucket.snippets.username.encoded_id.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+* output [snippet](#snippet)
 
 ### snippets.username.encoded_id.put
 Used to update a snippet. Use this to add and delete files and to
@@ -3238,9 +3755,13 @@ bitbucket.snippets.username.encoded_id.put({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+* output [snippet](#snippet)
 
 ### snippets.username.encoded_id.comments.get
 Used to retrieve a paginated list of all comments for a specific
@@ -3259,9 +3780,13 @@ bitbucket.snippets.username.encoded_id.comments.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+* output [paginated_snippet_comments](#paginated_snippet_comments)
 
 ### snippets.username.encoded_id.comments.post
 Creates a new comment.
@@ -3279,10 +3804,14 @@ bitbucket.snippets.username.encoded_id.comments.post({
 }, context)
 ```
 
-#### Parameters
-* _body (undefined) **required**
-* username (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * _body **required** [snippet](#snippet)
+  * username **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+* output [snippet](#snippet)
 
 ### snippets.username.encoded_id.comments.comment_id.delete
 Deletes a snippet comment.
@@ -3298,10 +3827,14 @@ bitbucket.snippets.username.encoded_id.comments.comment_id.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* comment_id (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * comment_id **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### snippets.username.encoded_id.comments.comment_id.get
 Returns the specific snippet comment.
@@ -3315,10 +3848,14 @@ bitbucket.snippets.username.encoded_id.comments.comment_id.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* comment_id (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * comment_id **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+* output [snippet_comment](#snippet_comment)
 
 ### snippets.username.encoded_id.comments.comment_id.put
 Updates a comment.
@@ -3334,10 +3871,14 @@ bitbucket.snippets.username.encoded_id.comments.comment_id.put({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* comment_id (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * comment_id **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### snippets.username.encoded_id.commits.get
 Returns the changes (commits) made on this snippet.
@@ -3350,9 +3891,13 @@ bitbucket.snippets.username.encoded_id.commits.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+* output [paginated_snippet_commit](#paginated_snippet_commit)
 
 ### snippets.username.encoded_id.commits.revision.get
 
@@ -3366,10 +3911,14 @@ bitbucket.snippets.username.encoded_id.commits.revision.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* encoded_id (string) **required**
-* revision (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * encoded_id **required** `string`
+  * revision **required** `string`
+
+#### Output
+* output [snippet_commit](#snippet_commit)
 
 ### snippets.username.encoded_id.watch.delete
 Used to stop watching a specific snippet. Returns 204 (No Content)
@@ -3383,9 +3932,13 @@ bitbucket.snippets.username.encoded_id.watch.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+* output [paginated_users](#paginated_users)
 
 ### snippets.username.encoded_id.watch.get
 Used to check if the current user is watching a specific snippet.
@@ -3403,9 +3956,13 @@ bitbucket.snippets.username.encoded_id.watch.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+* output [paginated_users](#paginated_users)
 
 ### snippets.username.encoded_id.watch.put
 Used to start watching a specific snippet. Returns 204 (No Content).
@@ -3418,9 +3975,13 @@ bitbucket.snippets.username.encoded_id.watch.put({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+* output [paginated_users](#paginated_users)
 
 ### snippets.username.encoded_id.watchers.get
 Returns a paginated list of all users watching a specific snippet.
@@ -3433,9 +3994,13 @@ bitbucket.snippets.username.encoded_id.watchers.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+* output [paginated_users](#paginated_users)
 
 ### snippets.username.encoded_id.node_id.delete
 Deletes the snippet.
@@ -3456,10 +4021,14 @@ bitbucket.snippets.username.encoded_id.node_id.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* node_id (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * node_id **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### snippets.username.encoded_id.node_id.get
 Identical to `GET /snippets/encoded_id`, except that this endpoint
@@ -3481,10 +4050,14 @@ bitbucket.snippets.username.encoded_id.node_id.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* node_id (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * node_id **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+* output [snippet](#snippet)
 
 ### snippets.username.encoded_id.node_id.put
 Identical to `UPDATE /snippets/encoded_id`, except that this endpoint
@@ -3511,10 +4084,14 @@ bitbucket.snippets.username.encoded_id.node_id.put({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* node_id (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * node_id **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+* output [snippet](#snippet)
 
 ### snippets.username.encoded_id.node_id.files.path.get
 Retrieves the raw contents of a specific file in the snippet. The
@@ -3537,11 +4114,15 @@ bitbucket.snippets.username.encoded_id.node_id.files.path.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* path (string) **required**
-* node_id (string) **required**
-* encoded_id (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * path **required** `string`
+  * node_id **required** `string`
+  * encoded_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### snippets.username.encoded_id.revision.diff.get
 Returns the diff of the specified commit against its first parent.
@@ -3573,11 +4154,15 @@ bitbucket.snippets.username.encoded_id.revision.diff.get({
 }, context)
 ```
 
-#### Parameters
-* path (string) - When used, only one the diff of the specified file will be returned.
-* username (string) **required**
-* encoded_id (string) **required**
-* revision (string) **required**
+#### Input
+* input `object`
+  * path `string`: When used, only one the diff of the specified file will be returned.
+  * username **required** `string`
+  * encoded_id **required** `string`
+  * revision **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### snippets.username.encoded_id.revision.patch.get
 Returns the patch of the specified commit against its first
@@ -3610,10 +4195,14 @@ bitbucket.snippets.username.encoded_id.revision.patch.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* encoded_id (string) **required**
-* revision (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * encoded_id **required** `string`
+  * revision **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teams.get
 Returns all the teams that the authenticated user is associated
@@ -3624,8 +4213,12 @@ with.
 bitbucket.teams.get({}, context)
 ```
 
-#### Parameters
-* role (string) - 
+#### Input
+* input `object`
+  * role `string` (values: admin, contributor, member): 
+
+#### Output
+* output [paginated_teams](#paginated_teams)
 
 ### teams.owner.projects.get
 
@@ -3637,8 +4230,12 @@ bitbucket.teams.owner.projects.get({
 }, context)
 ```
 
-#### Parameters
-* owner (string) **required** - The team which owns the project. This can either be the `username` of
+#### Input
+* input `object`
+  * owner **required** `string`: The team which owns the project. This can either be the `username` of
+
+#### Output
+* output [paginated_projects](#paginated_projects)
 
 ### teams.owner.projects.post
 Creates a new project.
@@ -3704,9 +4301,13 @@ bitbucket.teams.owner.projects.post({
 }, context)
 ```
 
-#### Parameters
-* _body (undefined) **required**
-* owner (string) **required** - The team which owns the project. This can either be the `username` of
+#### Input
+* input `object`
+  * _body **required** [project](#project)
+  * owner **required** `string`: The team which owns the project. This can either be the `username` of
+
+#### Output
+* output [project](#project)
 
 ### teams.owner.projects.project_key.delete
 
@@ -3719,9 +4320,13 @@ bitbucket.teams.owner.projects.project_key.delete({
 }, context)
 ```
 
-#### Parameters
-* owner (string) **required** - The team which owns the project. This can either be the `username` of
-* project_key (string) **required** - The project in question. This can either be the actual `key` assigned
+#### Input
+* input `object`
+  * owner **required** `string`: The team which owns the project. This can either be the `username` of
+  * project_key **required** `string`: The project in question. This can either be the actual `key` assigned
+
+#### Output
+*Output schema unknown*
 
 ### teams.owner.projects.project_key.get
 
@@ -3734,9 +4339,13 @@ bitbucket.teams.owner.projects.project_key.get({
 }, context)
 ```
 
-#### Parameters
-* owner (string) **required** - The team which owns the project. This can either be the `username` of
-* project_key (string) **required** - The project in question. This can either be the actual `key` assigned
+#### Input
+* input `object`
+  * owner **required** `string`: The team which owns the project. This can either be the `username` of
+  * project_key **required** `string`: The project in question. This can either be the actual `key` assigned
+
+#### Output
+* output [project](#project)
 
 ### teams.owner.projects.project_key.put
 Since this endpoint can be used to both update and to create a
@@ -3771,10 +4380,14 @@ bitbucket.teams.owner.projects.project_key.put({
 }, context)
 ```
 
-#### Parameters
-* _body (undefined) **required**
-* owner (string) **required** - The team which owns the project. This can either be the `username` of
-* project_key (string) **required** - The project in question. This can either be the actual `key` assigned
+#### Input
+* input `object`
+  * _body **required** [project](#project)
+  * owner **required** `string`: The team which owns the project. This can either be the `username` of
+  * project_key **required** `string`: The project in question. This can either be the actual `key` assigned
+
+#### Output
+* output [project](#project)
 
 ### teams.username.get
 Gets the public information associated with a team.
@@ -3789,8 +4402,12 @@ bitbucket.teams.username.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+* output [team](#team)
 
 ### teams.username.followers.get
 Returns the list of accounts that are following this team.
@@ -3802,8 +4419,12 @@ bitbucket.teams.username.followers.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+* output [paginated_users](#paginated_users)
 
 ### teams.username.following.get
 Returns the list of accounts this team is following.
@@ -3815,8 +4436,12 @@ bitbucket.teams.username.following.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+* output [paginated_users](#paginated_users)
 
 ### teams.username.hooks.get
 Returns a paginated list of webhooks installed on this team.
@@ -3828,8 +4453,12 @@ bitbucket.teams.username.hooks.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+* output [paginated_webhook_subscriptions](#paginated_webhook_subscriptions)
 
 ### teams.username.hooks.post
 Creates a new webhook on the specified team.
@@ -3846,8 +4475,12 @@ bitbucket.teams.username.hooks.post({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+* output [webhook_subscription](#webhook_subscription)
 
 ### teams.username.hooks.uid.delete
 Deletes the specified webhook subscription from the given team
@@ -3861,9 +4494,13 @@ bitbucket.teams.username.hooks.uid.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* uid (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * uid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### teams.username.hooks.uid.get
 Returns the webhook with the specified id installed on the given
@@ -3877,9 +4514,13 @@ bitbucket.teams.username.hooks.uid.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* uid (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * uid **required** `string`
+
+#### Output
+* output [webhook_subscription](#webhook_subscription)
 
 ### teams.username.hooks.uid.put
 Updates the specified webhook subscription.
@@ -3899,9 +4540,13 @@ bitbucket.teams.username.hooks.uid.put({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* uid (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * uid **required** `string`
+
+#### Output
+* output [webhook_subscription](#webhook_subscription)
 
 ### teams.username.members.get
 All members of a team.
@@ -3920,8 +4565,12 @@ bitbucket.teams.username.members.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+* output [user](#user)
 
 ### getPipelineVariablesForTeam
 Find account level variables.
@@ -3933,8 +4582,12 @@ bitbucket.getPipelineVariablesForTeam({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+
+#### Output
+* output [paginated_pipeline_variables](#paginated_pipeline_variables)
 
 ### createPipelineVariableForTeam
 Create an account level variable.
@@ -3946,9 +4599,13 @@ bitbucket.createPipelineVariableForTeam({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* _body (undefined)
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * _body [pipeline_variable](#pipeline_variable)
+
+#### Output
+* output [pipeline_variable](#pipeline_variable)
 
 ### deletePipelineVariableForTeam
 Delete a team level variable.
@@ -3961,9 +4618,13 @@ bitbucket.deletePipelineVariableForTeam({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* variable_uuid (string) **required** - The UUID of the variable to delete.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * variable_uuid **required** `string`: The UUID of the variable to delete.
+
+#### Output
+*Output schema unknown*
 
 ### getPipelineVariableForTeam
 Retrieve a team level variable.
@@ -3976,9 +4637,13 @@ bitbucket.getPipelineVariableForTeam({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* variable_uuid (string) **required** - The UUID of the variable to retrieve.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * variable_uuid **required** `string`: The UUID of the variable to retrieve.
+
+#### Output
+* output [pipeline_variable](#pipeline_variable)
 
 ### updatePipelineVariableForTeam
 Update a team level variable.
@@ -3992,10 +4657,14 @@ bitbucket.updatePipelineVariableForTeam({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* variable_uuid (string) **required** - The UUID of the variable.
-* _body (undefined) **required**
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * variable_uuid **required** `string`: The UUID of the variable.
+  * _body **required** [pipeline_variable](#pipeline_variable)
+
+#### Output
+* output [pipeline_variable](#pipeline_variable)
 
 ### teams.username.repositories.get
 All repositories owned by a user/team. This includes private
@@ -4009,8 +4678,12 @@ bitbucket.teams.username.repositories.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### user.get
 Returns the currently logged in user.
@@ -4020,8 +4693,11 @@ Returns the currently logged in user.
 bitbucket.user.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [user](#user)
 
 ### user.emails.get
 Returns all the authenticated user's email addresses. Both
@@ -4032,8 +4708,11 @@ confirmed and unconfirmed.
 bitbucket.user.emails.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [error](#error)
 
 ### user.emails.email.get
 Returns details about a specific one of the authenticated user's
@@ -4049,8 +4728,12 @@ bitbucket.user.emails.email.get({
 }, context)
 ```
 
-#### Parameters
-* email (string) **required**
+#### Input
+* input `object`
+  * email **required** `string`
+
+#### Output
+* output [error](#error)
 
 ### users.username.get
 Gets the public information associated with a user account.
@@ -4065,8 +4748,12 @@ bitbucket.users.username.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+* output [user](#user)
 
 ### users.username.followers.get
 Returns the list of accounts that are following this team.
@@ -4078,8 +4765,12 @@ bitbucket.users.username.followers.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+* output [paginated_users](#paginated_users)
 
 ### users.username.following.get
 Returns the list of accounts this user is following.
@@ -4091,8 +4782,12 @@ bitbucket.users.username.following.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+* output [paginated_users](#paginated_users)
 
 ### users.username.hooks.get
 Returns a paginated list of webhooks installed on this user account.
@@ -4104,8 +4799,12 @@ bitbucket.users.username.hooks.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+* output [paginated_webhook_subscriptions](#paginated_webhook_subscriptions)
 
 ### users.username.hooks.post
 Creates a new webhook on the specified user account.
@@ -4123,8 +4822,12 @@ bitbucket.users.username.hooks.post({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+* output [webhook_subscription](#webhook_subscription)
 
 ### users.username.hooks.uid.delete
 Deletes the specified webhook subscription from the given user
@@ -4138,9 +4841,13 @@ bitbucket.users.username.hooks.uid.delete({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* uid (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * uid **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.username.hooks.uid.get
 Returns the webhook with the specified id installed on the given
@@ -4154,9 +4861,13 @@ bitbucket.users.username.hooks.uid.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* uid (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * uid **required** `string`
+
+#### Output
+* output [webhook_subscription](#webhook_subscription)
 
 ### users.username.hooks.uid.put
 Updates the specified webhook subscription.
@@ -4176,9 +4887,13 @@ bitbucket.users.username.hooks.uid.put({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* uid (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * uid **required** `string`
+
+#### Output
+* output [webhook_subscription](#webhook_subscription)
 
 ### getPipelineVariablesForUser
 Find user level variables.
@@ -4190,8 +4905,12 @@ bitbucket.getPipelineVariablesForUser({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+
+#### Output
+* output [paginated_pipeline_variables](#paginated_pipeline_variables)
 
 ### createPipelineVariableForUser
 Create a user level variable.
@@ -4203,9 +4922,13 @@ bitbucket.createPipelineVariableForUser({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* _body (undefined)
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * _body [pipeline_variable](#pipeline_variable)
+
+#### Output
+* output [pipeline_variable](#pipeline_variable)
 
 ### deletePipelineVariableForUser
 Delete an account level variable.
@@ -4218,9 +4941,13 @@ bitbucket.deletePipelineVariableForUser({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* variable_uuid (string) **required** - The UUID of the variable to delete.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * variable_uuid **required** `string`: The UUID of the variable to delete.
+
+#### Output
+*Output schema unknown*
 
 ### getPipelineVariableForUser
 Retrieve a user level variable.
@@ -4233,9 +4960,13 @@ bitbucket.getPipelineVariableForUser({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* variable_uuid (string) **required** - The UUID of the variable to retrieve.
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * variable_uuid **required** `string`: The UUID of the variable to retrieve.
+
+#### Output
+* output [pipeline_variable](#pipeline_variable)
 
 ### updatePipelineVariableForUser
 Update a user level variable.
@@ -4249,10 +4980,14 @@ bitbucket.updatePipelineVariableForUser({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The account.
-* variable_uuid (string) **required** - The UUID of the variable.
-* _body (undefined) **required**
+#### Input
+* input `object`
+  * username **required** `string`: The account.
+  * variable_uuid **required** `string`: The UUID of the variable.
+  * _body **required** [pipeline_variable](#pipeline_variable)
+
+#### Output
+* output [pipeline_variable](#pipeline_variable)
 
 ### users.username.repositories.get
 All repositories owned by a user/team. This includes private
@@ -4266,6 +5001,481 @@ bitbucket.users.username.repositories.get({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+* output [error](#error)
+
+
+
+## Definitions
+
+### account
+
+
+### author
+
+
+### base_commit
+
+
+### branchrestriction
+
+
+### commit
+
+
+### commitstatus
+
+
+### component
+
+
+### error
+* error `object`: Base type for most resource objects. It defines the common `type` element that identifies an object's type. It also identifies the element as Swagger's `discriminator`.
+  * error `object`
+    * data `object`: Optional structured data that is endpoint-specific.
+    * detail `string`
+    * message **required** `string`
+  * type **required** `string`
+
+### group
+
+
+### hook_event
+* hook_event `object`: An event, associated with a resource or subject type.
+  * category `string`: The category this event belongs to.
+  * description `string`: More detailed description of the webhook event type.
+  * event `string` (values: pullrequest:unapproved, issue:comment_created, pullrequest:approved, repo:created, repo:deleted, repo:imported, pullrequest:comment_updated, issue:updated, project:updated, pullrequest:comment_created, repo:commit_status_updated, pullrequest:updated, issue:created, repo:fork, pullrequest:comment_deleted, repo:commit_status_created, repo:updated, pullrequest:rejected, pullrequest:fulfilled, repo:push, pullrequest:created, repo:transfer, repo:commit_comment_created): The event identifier.
+  * label `string`: Summary of the webhook event type.
+
+### issue
+
+
+### issue_attachment
+
+
+### milestone
+
+
+### object
+* object `object`: Base type for most resource objects. It defines the common `type` element that identifies an object's type. It also identifies the element as Swagger's `discriminator`.
+  * type **required** `string`
+
+### page
+* page `object`
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+
+### paginated_branchrestrictions
+* paginated_branchrestrictions `object`: A paginated list of branch restriction rules.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [branchrestriction](#branchrestriction)
+
+### paginated_commitstatuses
+* paginated_commitstatuses `object`: A paginated list of commit status objects.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [commitstatus](#commitstatus)
+
+### paginated_components
+* paginated_components `object`: A paginated list of issue tracker components.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [component](#component)
+
+### paginated_hook_events
+* paginated_hook_events `object`: A paginated list of webhook types available to subscribe on.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [hook_event](#hook_event)
+
+### paginated_issue_attachments
+* paginated_issue_attachments `object`: A paginated list of issue attachments.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [issue_attachment](#issue_attachment)
+
+### paginated_issues
+* paginated_issues `object`: A paginated list of issues.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [issue](#issue)
+
+### paginated_milestones
+* paginated_milestones `object`: A paginated list of issue tracker milestones.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [milestone](#milestone)
+
+### paginated_pipeline_known_hosts
+* paginated_pipeline_known_hosts `object`: A paged list of known hosts.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`: The values of the current page.
+    * items [pipeline_known_host](#pipeline_known_host)
+
+### paginated_pipeline_steps
+* paginated_pipeline_steps `object`: A paged list of pipeline steps.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`: The values of the current page.
+    * items [pipeline_step](#pipeline_step)
+
+### paginated_pipeline_variables
+* paginated_pipeline_variables `object`: A paged list of variables.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`: The values of the current page.
+    * items [pipeline_variable](#pipeline_variable)
+
+### paginated_pipelines
+* paginated_pipelines `object`: A paged list of pipelines
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`: The values of the current page.
+    * items [pipeline](#pipeline)
+
+### paginated_projects
+* paginated_projects `object`: A paginated list of projects
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [project](#project)
+
+### paginated_pullrequests
+* paginated_pullrequests `object`: A paginated list of pullrequests.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [pullrequest](#pullrequest)
+
+### paginated_repositories
+* paginated_repositories `object`: A paginated list of repositories.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [repository](#repository)
+
+### paginated_snippet_comments
+* paginated_snippet_comments `object`: A paginated list of snippet comments.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [snippet_comment](#snippet_comment)
+
+### paginated_snippet_commit
+* paginated_snippet_commit `object`: A paginated list of snippet commits.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [snippet_commit](#snippet_commit)
+
+### paginated_snippets
+* paginated_snippets `object`: A paginated list of snippets.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [snippet](#snippet)
+
+### paginated_teams
+* paginated_teams `object`: A paginated list of teams.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [team](#team)
+
+### paginated_users
+* paginated_users `object`: A paginated list of users.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [user](#user)
+
+### paginated_versions
+* paginated_versions `object`: A paginated list of issue tracker versions.
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [version](#version)
+
+### paginated_webhook_subscriptions
+* paginated_webhook_subscriptions `object`: A paginated list of webhook subscriptions
+  * next `string`: Link to the next page if it exists. The last page of a collection does not have this value. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * page `integer`: Page number of the current results. This is an optional element that is not provided in all responses.
+  * pagelen `integer`: Current number of objects on the existing page. The default value is 10 with 100 being the maximum allowed value. Individual APIs may enforce different values.
+  * previous `string`: Link to previous page if it exists. A collections first page does not have this value. This is an optional element that is not provided in all responses. Some result sets strictly support forward navigation and never provide previous links. Clients must anticipate that backwards navigation is not always available. Use this link to navigate the result set and refrain from constructing your own URLs.
+  * size `integer`: Total number of objects in the response. This is an optional element that is not provided in all responses, as it can be expensive to compute.
+  * values `array`
+    * items [webhook_subscription](#webhook_subscription)
+
+### participant
+
+
+### pipeline
+
+
+### pipeline_command
+* pipeline_command `object`: An executable pipeline command.
+  * command `string`: The executable command.
+  * log_range [pipeline_log_range](#pipeline_log_range)
+  * name `string`: The name of the command.
+
+### pipeline_commit_target
+
+
+### pipeline_error
+
+
+### pipeline_image
+* pipeline_image `object`: The definition of a Docker image that can be used for a Bitbucket Pipelines step execution context.
+  * email `string`: The email needed to authenticate with the Docker registry. Only required when using a private Docker image.
+  * name `string`: The name of the image. If the image is hosted on DockerHub the short name can be used, otherwise the fully qualified name is required here.
+  * password `string`: The password needed to authenticate with the Docker registry. Only required when using a private Docker image.
+  * username `string`: The username needed to authenticate with the Docker registry. Only required when using a private Docker image.
+
+### pipeline_known_host
+
+
+### pipeline_log_range
+* pipeline_log_range `object`: A reference to a range of bytes in a log file (does not contain the actual bytes).
+  * first_byte_position `integer`: The position of the first byte of the range in the log.
+  * last_byte_position `integer`: The position of the last byte of the range in the log.
+
+### pipeline_ref_target
+
+
+### pipeline_selector
+
+
+### pipeline_ssh_key_pair
+
+
+### pipeline_ssh_public_key
+
+
+### pipeline_state
+
+
+### pipeline_state_completed
+
+
+### pipeline_state_completed_error
+
+
+### pipeline_state_completed_failed
+
+
+### pipeline_state_completed_result
+
+
+### pipeline_state_completed_stopped
+
+
+### pipeline_state_completed_successful
+
+
+### pipeline_state_in_progress
+
+
+### pipeline_state_pending
+
+
+### pipeline_step
+
+
+### pipeline_step_error
+
+
+### pipeline_step_state
+
+
+### pipeline_step_state_completed
+
+
+### pipeline_step_state_completed_error
+
+
+### pipeline_step_state_completed_failed
+
+
+### pipeline_step_state_completed_result
+
+
+### pipeline_step_state_completed_stopped
+
+
+### pipeline_step_state_completed_successful
+
+
+### pipeline_step_state_in_progress
+
+
+### pipeline_step_state_pending
+
+
+### pipeline_target
+
+
+### pipeline_trigger
+
+
+### pipeline_trigger_manual
+
+
+### pipeline_trigger_push
+
+
+### pipeline_variable
+
+
+### pipelines_config
+
+
+### project
+
+
+### pullrequest
+
+
+### pullrequest_endpoint
+* pullrequest_endpoint `object`
+  * branch `object`
+    * name `string`
+  * commit `object`
+    * hash `string`
+  * repository [repository](#repository)
+
+### pullrequest_merge_parameters
+* pullrequest_merge_parameters `object`: The metadata that describes a pull request merge.
+  * close_source_branch `boolean`: Whether the source branch should be deleted. If this is not provided, we fallback to the value used when the pull request was created, which defaults to False
+  * merge_strategy `string` (values: merge_commit, squash): The merge strategy that will be used to merge the pull request.
+  * message `string`: The commit message that will be used on the resulting commit.
+  * type **required** `string`
+
+### repository
+
+
+### snippet
+
+
+### snippet_comment
+
+
+### snippet_commit
+
+
+### subject_types
+* subject_types `object`: The mapping of resource/subject types pointing to their individual event types.
+  * repository `object`
+    * events `object`
+      * href `string`
+  * team `object`
+    * events `object`
+      * href `string`
+  * user `object`
+    * events `object`
+      * href `string`
+
+### tag
+* tag `object`: A tag object, representing a tag in a repository.
+  * date `string`: The date that the tag was created, if available
+  * links `object`
+    * commits `object`
+      * href `string`
+    * html `object`
+      * href `string`
+    * self `object`
+      * href `string`
+  * message `string`: The message associated with the tag, if available.
+  * name `string`: The name of the tag.
+  * tagger [author](#author)
+  * target [commit](#commit)
+  * type **required** `string`
+
+### team
+
+
+### user
+
+
+### version
+
+
+### webhook_subscription
+
+
 

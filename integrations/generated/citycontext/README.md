@@ -4,13 +4,11 @@ Client library for City Context
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/citycontext
+npm install --save @datafire/citycontext
 ```
-
 ```js
-let datafire = require('datafire');
 let citycontext = require('@datafire/citycontext').create({
-  user_key: "",
+  user_key: ""
 });
 
 citycontext.byPoint({}).then(data => {
@@ -19,9 +17,11 @@ citycontext.byPoint({}).then(data => {
 ```
 
 ## Description
+
 City Context provides a straightforward API to access UK Open Data: crime statistics, schools, demographics and more.
 
 ## Actions
+
 ### byPoint
 Query by coordinates (SRID 4326 - decimal degrees)
 
@@ -33,11 +33,15 @@ citycontext.byPoint({
 }, context)
 ```
 
-#### Parameters
-* lat (number) **required** - Latitude
-* lon (number) **required** - Longitude
-* school_search_radius (integer) - Search radius for schools, in metres, between 100 and 4000
-* park_search_radius (integer) - Search radius for parks, in metres, between 100 and 2000
+#### Input
+* input `object`
+  * lat **required** `number`: Latitude
+  * lon **required** `number`: Longitude
+  * school_search_radius `integer`: Search radius for schools, in metres, between 100 and 4000
+  * park_search_radius `integer`: Search radius for parks, in metres, between 100 and 2000
+
+#### Output
+* output [PointInfo](#pointinfo)
 
 ### byPostcode
 Query by postcode
@@ -49,10 +53,14 @@ citycontext.byPostcode({
 }, context)
 ```
 
-#### Parameters
-* postcode (string) **required** - Postcode
-* school_search_radius (integer) - Search radius for schools, in metres, between 100 and 4000
-* park_search_radius (integer) - Search radius for parks, in metres, between 100 and 2000
+#### Input
+* input `object`
+  * postcode **required** `string`: Postcode
+  * school_search_radius `integer`: Search radius for schools, in metres, between 100 and 4000
+  * park_search_radius `integer`: Search radius for parks, in metres, between 100 and 2000
+
+#### Output
+* output [PointInfo](#pointinfo)
 
 ### usage
 Get usage in current month
@@ -62,6 +70,14 @@ Get usage in current month
 citycontext.usage(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
+#### Output
+* output [Usage](#usage)
+
+
+
+## Definitions
+
+** No definitions **

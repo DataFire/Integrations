@@ -4,11 +4,9 @@ Client library for DocuSign
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/docusign
+npm install --save @datafire/docusign
 ```
-
 ```js
-let datafire = require('datafire');
 let docusign = require('@datafire/docusign').create();
 
 docusign.LoginInformation_GetLoginInformation({}).then(data => {
@@ -17,9 +15,11 @@ docusign.LoginInformation_GetLoginInformation({}).then(data => {
 ```
 
 ## Description
+
 The DocuSign REST API provides you with a powerful, convenient, and simple Web services API for interacting with DocuSign.
 
 ## Actions
+
 ### ServiceInformation_GetServiceInformation
 Retrieves the available REST API versions.
 
@@ -33,8 +33,11 @@ You do not need an integrator key to view the REST API versions and resources.
 docusign.ServiceInformation_GetServiceInformation(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Services](#services)
 
 ### ServiceInformation_GetResourceInformation
 Retrieves the base resources available for the DocuSign REST APIs.
@@ -52,8 +55,11 @@ Example: https://demo.docusign.net/restapi/help lists the REST API operations on
 docusign.ServiceInformation_GetResourceInformation(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Resources](#resources)
 
 ### Accounts_PostAccounts
 Creates new DocuSign accounts.
@@ -271,9 +277,13 @@ list that can contain the following settings:
 docusign.Accounts_PostAccounts({}, context)
 ```
 
-#### Parameters
-* preview_billing_plan (string) - When set to **true**, creates the account using a preview billing plan.
-* newAccountDefinition (object)
+#### Input
+* input `object`
+  * preview_billing_plan `string`: When set to **true**, creates the account using a preview billing plan.
+  * newAccountDefinition [newAccountDefinition](#newaccountdefinition)
+
+#### Output
+* output [newAccountSummary](#newaccountsummary)
 
 ### Accounts_GetProvisioning
 Retrieves the account provisioning information for the account.
@@ -283,8 +293,11 @@ Retrieves the account provisioning information for the account.
 docusign.Accounts_GetProvisioning(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [provisioningInformation](#provisioninginformation)
 
 ### Accounts_DeleteAccount
 This closes the specified account. You must be an account admin to close your account. Once closed, an account must be reopened by DocuSign.
@@ -296,8 +309,12 @@ docusign.Accounts_DeleteAccount({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+*Output schema unknown*
 
 ### Accounts_GetAccount
 Retrieves the account information for the specified account.
@@ -312,9 +329,13 @@ docusign.Accounts_GetAccount({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* include_account_settings (string) - When set to **true**, includes the account settings for the account in the response.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * include_account_settings `string`: When set to **true**, includes the account settings for the account in the response.
+
+#### Output
+* output [Accounts](#accounts)
 
 ### BillingCharges_GetAccountBillingCharges
 Retrieves the list of recurring and usage charges for the account. This can be used to determine the charge structure and usage of charge plan items. 
@@ -328,9 +349,13 @@ docusign.BillingCharges_GetAccountBillingCharges({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* include_charges (string) - Specifies which billing charges to return.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * include_charges `string`: Specifies which billing charges to return.
+
+#### Output
+* output [billingChargeResponse](#billingchargeresponse)
 
 ### BillingInvoices_GetBillingInvoices
 Retrieves a list of invoices for the account. If the from date or to date queries are not specified, the response returns invoices for the last 365 days.
@@ -344,10 +369,14 @@ docusign.BillingInvoices_GetBillingInvoices({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* from_date (string) - Specifies the date/time of the earliest invoice in the account to retrieve.
-* to_date (string) - Specifies the date/time of the latest invoice in the account to retrieve.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * from_date `string`: Specifies the date/time of the earliest invoice in the account to retrieve.
+  * to_date `string`: Specifies the date/time of the latest invoice in the account to retrieve.
+
+#### Output
+* output [billingInvoicesResponse](#billinginvoicesresponse)
 
 ### BillingInvoices_GetBillingInvoice
 Retrieves the specified invoice. 
@@ -393,9 +422,13 @@ docusign.BillingInvoices_GetBillingInvoice({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* invoiceId (string) **required**
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * invoiceId **required** `string`
+
+#### Output
+* output [Invoices](#invoices)
 
 ### BillingInvoices_GetBillingInvoicesPastDue
 Returns a list past due invoices for the account and notes if payment can be made through the REST API. 
@@ -409,8 +442,12 @@ docusign.BillingInvoices_GetBillingInvoicesPastDue({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [billingInvoicesSummary](#billinginvoicessummary)
 
 ### BillingPayments_GetPaymentList
 Retrieves a list containing information about one or more payments. If the from date or to date queries are not used, the response returns payment information for the last 365 days. 
@@ -424,10 +461,14 @@ docusign.BillingPayments_GetPaymentList({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* from_date (string) - Specifies the date/time of the earliest payment in the account to retrieve.
-* to_date (string) - Specifies the date/time of the latest payment in the account to retrieve.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * from_date `string`: Specifies the date/time of the earliest payment in the account to retrieve.
+  * to_date `string`: Specifies the date/time of the latest payment in the account to retrieve.
+
+#### Output
+* output [billingPaymentsResponse](#billingpaymentsresponse)
 
 ### BillingPayments_PostPayment
 Posts a payment to a past due invoice. 
@@ -445,9 +486,13 @@ docusign.BillingPayments_PostPayment({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* billingPaymentRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * billingPaymentRequest [billingPaymentRequest](#billingpaymentrequest)
+
+#### Output
+* output [billingPaymentResponse](#billingpaymentresponse)
 
 ### BillingPayments_GetPayment
 Retrieves the information for a specified payment. 
@@ -462,9 +507,13 @@ docusign.BillingPayments_GetPayment({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* paymentId (string) **required**
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * paymentId **required** `string`
+
+#### Output
+* output [Payments](#payments)
 
 ### BillingPlan_GetBillingPlan
 Retrieves the billing plan information for the specified account, including the current billing plan, successor plans, billing address, and billing credit card.
@@ -484,11 +533,15 @@ docusign.BillingPlan_GetBillingPlan({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* include_credit_card_information (string) - When set to **true**, excludes credit card information from the response.
-* include_metadata (string) - When set to **true**, the `canUpgrade` and `renewalStatus` properities are included the response and an array of `supportedCountries` property is added to the `billingAddress` information. 
-* include_successor_plans (string) - When set to **true**, excludes successor information from the response.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * include_credit_card_information `string`: When set to **true**, excludes credit card information from the response.
+  * include_metadata `string`: When set to **true**, the `canUpgrade` and `renewalStatus` properities are included the response and an array of `supportedCountries` property is added to the `billingAddress` information. 
+  * include_successor_plans `string`: When set to **true**, excludes successor information from the response.
+
+#### Output
+* output [BillingPlans](#billingplans)
 
 ### BillingPlan_PutBillingPlan
 Updates the billing plan information, billing address, and credit card information for the specified account.
@@ -500,10 +553,14 @@ docusign.BillingPlan_PutBillingPlan({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* preview_billing_plan (string) - When set to **true**, updates the account using a preview billing plan.
-* billingPlanInformation (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * preview_billing_plan `string`: When set to **true**, updates the account using a preview billing plan.
+  * billingPlanInformation [billingPlanInformation](#billingplaninformation)
+
+#### Output
+* output [billingPlanUpdateResponse](#billingplanupdateresponse)
 
 ### BillingPlan_GetCreditCardInfo
 Get metadata for a given credit card.
@@ -515,8 +572,12 @@ docusign.BillingPlan_GetCreditCardInfo({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [creditCardInformation](#creditcardinformation)
 
 ### PurchasedEnvelopes_PutPurchasedEnvelopes
 Reserved: At this time, this endpoint is limited to DocuSign internal use only. Completes the purchase of envelopes for your account. The actual purchase is done as part of an internal workflow interaction with an envelope vendor.
@@ -528,9 +589,13 @@ docusign.PurchasedEnvelopes_PutPurchasedEnvelopes({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* purchasedEnvelopesInformation (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * purchasedEnvelopesInformation [purchasedEnvelopesInformation](#purchasedenvelopesinformation)
+
+#### Output
+*Output schema unknown*
 
 ### Brands_DeleteBrands
 Deletes one or more brand profiles from an account. The Account Branding feature (accountSettings properties `canSelfBrandSend` and `canSelfBrandSend`) must be set to **true** to use this call.
@@ -542,9 +607,13 @@ docusign.Brands_DeleteBrands({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* brandsRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * brandsRequest [brandsRequest](#brandsrequest)
+
+#### Output
+* output [AccountBrands](#accountbrands)
 
 ### Brands_GetBrands
 Retrieves the list of brand profiles associated with the account and the default brand profiles. The Account Branding feature (accountSettings properties `canSelfBrandSend` and `canSelfBrandSend`)  must be set to **true** for the account to use this call.
@@ -556,10 +625,14 @@ docusign.Brands_GetBrands({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* exclude_distributor_brand (string) - When set to **true**, excludes distributor brand information from the response set.
-* include_logos (string) - When set to **true**, returns the logos associated with the brand.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * exclude_distributor_brand `string`: When set to **true**, excludes distributor brand information from the response set.
+  * include_logos `string`: When set to **true**, returns the logos associated with the brand.
+
+#### Output
+* output [AccountBrands](#accountbrands)
 
 ### Brands_PostBrands
 Creates one or more brand profile files for the account. The Account Branding feature (accountSettings properties `canSelfBrandSend` and `canSelfBrandSig`) must be set to **true** for the account to use this call.
@@ -575,9 +648,13 @@ docusign.Brands_PostBrands({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* brand (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * brand [brand](#brand)
+
+#### Output
+* output [AccountBrands](#accountbrands)
 
 ### Brand_DeleteBrand
 Removes a brand.
@@ -590,9 +667,13 @@ docusign.Brand_DeleteBrand({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* brandId (string) **required** - The unique identifier of a brand.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * brandId **required** `string`: The unique identifier of a brand.
+
+#### Output
+*Output schema unknown*
 
 ### Brand_GetBrand
 Get information for a specific brand.
@@ -605,11 +686,15 @@ docusign.Brand_GetBrand({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* brandId (string) **required** - The unique identifier of a brand.
-* include_external_references (string)
-* include_logos (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * brandId **required** `string`: The unique identifier of a brand.
+  * include_external_references `string`
+  * include_logos `string`
+
+#### Output
+* output [brand](#brand)
 
 ### Brand_PutBrand
 Updates an existing brand.
@@ -622,10 +707,14 @@ docusign.Brand_PutBrand({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* brandId (string) **required** - The unique identifier of a brand.
-* brand (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * brandId **required** `string`: The unique identifier of a brand.
+  * brand [brand](#brand)
+
+#### Output
+* output [brand](#brand)
 
 ### BrandExport_GetBrandExportFile
 Export a specific brand.
@@ -638,9 +727,13 @@ docusign.BrandExport_GetBrandExportFile({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* brandId (string) **required** - The unique identifier of a brand.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * brandId **required** `string`: The unique identifier of a brand.
+
+#### Output
+*Output schema unknown*
 
 ### BrandLogo_DeleteBrandLogo
 Delete one branding logo.
@@ -654,10 +747,14 @@ docusign.BrandLogo_DeleteBrandLogo({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* brandId (string) **required** - The unique identifier of a brand.
-* logoType (string) **required** - One of **Primary**, **Secondary** or **Email**.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * brandId **required** `string`: The unique identifier of a brand.
+  * logoType **required** `string`: One of **Primary**, **Secondary** or **Email**.
+
+#### Output
+*Output schema unknown*
 
 ### BrandLogo_GetBrandLogo
 Obtains the specified image for a brand.
@@ -671,10 +768,14 @@ docusign.BrandLogo_GetBrandLogo({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* brandId (string) **required** - The unique identifier of a brand.
-* logoType (string) **required** - One of **Primary**, **Secondary** or **Email**.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * brandId **required** `string`: The unique identifier of a brand.
+  * logoType **required** `string`: One of **Primary**, **Secondary** or **Email**.
+
+#### Output
+*Output schema unknown*
 
 ### BrandLogo_PutBrandLogo
 Put one branding logo.
@@ -688,10 +789,14 @@ docusign.BrandLogo_PutBrandLogo({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* brandId (string) **required** - The unique identifier of a brand.
-* logoType (string) **required** - One of **Primary**, **Secondary** or **Email**.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * brandId **required** `string`: The unique identifier of a brand.
+  * logoType **required** `string`: One of **Primary**, **Secondary** or **Email**.
+
+#### Output
+*Output schema unknown*
 
 ### BrandResources_GetBrandResourcesList
 Returns the specified account's list of branding resources (metadata).
@@ -704,9 +809,13 @@ docusign.BrandResources_GetBrandResourcesList({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* brandId (string) **required** - The unique identifier of a brand.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * brandId **required** `string`: The unique identifier of a brand.
+
+#### Output
+* output [brandResourcesList](#brandresourceslist)
 
 ### BrandResources_GetBrandResources
 Returns the specified branding resource file.
@@ -720,12 +829,16 @@ docusign.BrandResources_GetBrandResources({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* brandId (string) **required** - The unique identifier of a brand.
-* resourceContentType (string) **required**
-* langcode (string)
-* return_master (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * brandId **required** `string`: The unique identifier of a brand.
+  * resourceContentType **required** `string`
+  * langcode `string`
+  * return_master `string`
+
+#### Output
+*Output schema unknown*
 
 ### BrandResources_PutBrandResources
 Uploads a branding resource file.
@@ -739,10 +852,14 @@ docusign.BrandResources_PutBrandResources({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* brandId (string) **required** - The unique identifier of a brand.
-* resourceContentType (string) **required**
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * brandId **required** `string`: The unique identifier of a brand.
+  * resourceContentType **required** `string`
+
+#### Output
+* output [brandResources](#brandresources)
 
 ### BulkEnvelopes_GetEnvelopesBulk
 Retrieves status information about all the bulk recipient batches. A bulk recipient batch is the set of envelopes sent from a single bulk recipient file. The response includes general information about each bulk recipient batch. 
@@ -756,11 +873,15 @@ docusign.BulkEnvelopes_GetEnvelopesBulk({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* count (string) - The number of results to return. This can be 1 to 20.
-* include (string) - Specifies which entries are included in the response. Multiple entries can be included by using commas in the query string (example: ?include="failed,queued") 
-* start_position (string) - The position of the bulk envelope items in the response. This is used for repeated calls, when the number of bulk envelopes returned is too large for one return. The default value is 0.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * count `string`: The number of results to return. This can be 1 to 20.
+  * include `string`: Specifies which entries are included in the response. Multiple entries can be included by using commas in the query string (example: ?include="failed,queued") 
+  * start_position `string`: The position of the bulk envelope items in the response. This is used for repeated calls, when the number of bulk envelopes returned is too large for one return. The default value is 0.
+
+#### Output
+* output [BulkEnvelopes](#bulkenvelopes)
 
 ### BulkEnvelopes_GetBulkEnvelopesBatchId
 Retrieves the status information of a single bulk recipient batch. A bulk recipient batch is the set of envelopes sent from a single bulk recipient file. 
@@ -773,12 +894,16 @@ docusign.BulkEnvelopes_GetBulkEnvelopesBatchId({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* batchId (string) **required**
-* count (string) - Specifies the number of entries to return.
-* include (string) - Specifies which entries are included in the response. Multiple entries can be included by using commas in the query string (example: ?include="failed,queued") 
-* start_position (string) - Specifies the location in the list of envelopes from which to start.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * batchId **required** `string`
+  * count `string`: Specifies the number of entries to return.
+  * include `string`: Specifies which entries are included in the response. Multiple entries can be included by using commas in the query string (example: ?include="failed,queued") 
+  * start_position `string`: Specifies the location in the list of envelopes from which to start.
+
+#### Output
+* output [bulkEnvelopeStatus](#bulkenvelopestatus)
 
 ### CaptiveRecipients_DeleteCaptiveRecipientsPart
 Deletes the signature for one or more captive recipient records; it is primarily used for testing. This provides a way to reset the signature associated with a client user ID so that a new signature can be created the next time the client user ID is used.
@@ -791,10 +916,14 @@ docusign.CaptiveRecipients_DeleteCaptiveRecipientsPart({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* recipientPart (string) **required**
-* captiveRecipientInformation (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * recipientPart **required** `string`
+  * captiveRecipientInformation [captiveRecipientInformation](#captiverecipientinformation)
+
+#### Output
+* output [captiveRecipientInformation](#captiverecipientinformation)
 
 ### ChunkedUploads_PostChunkedUploads
 Initiate a new ChunkedUpload.
@@ -806,9 +935,13 @@ docusign.ChunkedUploads_PostChunkedUploads({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* chunkedUploadRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * chunkedUploadRequest [chunkedUploadRequest](#chunkeduploadrequest)
+
+#### Output
+* output [ChunkedUploads](#chunkeduploads)
 
 ### ChunkedUploads_DeleteChunkedUpload
 Delete an existing ChunkedUpload.
@@ -821,9 +954,13 @@ docusign.ChunkedUploads_DeleteChunkedUpload({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* chunkedUploadId (string) **required**
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * chunkedUploadId **required** `string`
+
+#### Output
+* output [ChunkedUploads](#chunkeduploads)
 
 ### ChunkedUploads_GetChunkedUpload
 Retrieves the current metadata of a ChunkedUpload.
@@ -836,10 +973,14 @@ docusign.ChunkedUploads_GetChunkedUpload({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* chunkedUploadId (string) **required**
-* include (string) - A comma-separated list of additional template attributes to include in the response. Valid values are: recipients, folders, documents, custom_fields, and notifications.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * chunkedUploadId **required** `string`
+  * include `string`: A comma-separated list of additional template attributes to include in the response. Valid values are: recipients, folders, documents, custom_fields, and notifications.
+
+#### Output
+* output [ChunkedUploads](#chunkeduploads)
 
 ### ChunkedUploads_PutChunkedUploads
 Integrity-Check and Commit a ChunkedUpload, readying it for use elsewhere.
@@ -852,10 +993,14 @@ docusign.ChunkedUploads_PutChunkedUploads({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* chunkedUploadId (string) **required**
-* action (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * chunkedUploadId **required** `string`
+  * action `string`
+
+#### Output
+* output [ChunkedUploads](#chunkeduploads)
 
 ### ChunkedUploads_PutChunkedUploadPart
 Add a chunk, a chunk 'part', to an existing ChunkedUpload.
@@ -869,11 +1014,15 @@ docusign.ChunkedUploads_PutChunkedUploadPart({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* chunkedUploadId (string) **required**
-* chunkedUploadPartSeq (string) **required**
-* chunkedUploadRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * chunkedUploadId **required** `string`
+  * chunkedUploadPartSeq **required** `string`
+  * chunkedUploadRequest [chunkedUploadRequest](#chunkeduploadrequest)
+
+#### Output
+* output [ChunkedUploads](#chunkeduploads)
 
 ### Connect_GetConnectConfigs
 Retrieves all the DocuSign Custom Connect definitions for the specified account.
@@ -887,8 +1036,12 @@ docusign.Connect_GetConnectConfigs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [connectConfigResults](#connectconfigresults)
 
 ### Connect_PostConnectConfiguration
 Creates a DocuSign Custom Connect definition for your account. DocuSign Connect enables the sending of real-time data updates to external applications. These updates are generated by user transactions as the envelope progresses through actions to completion. The Connect Service provides updated information about the status of these transactions and returns updates that include the actual content of document form fields. Be aware that, these updates might or might not include the document itself. For more information about Connect, see the [ML:DocuSign Connect Service Guide].
@@ -902,9 +1055,13 @@ docusign.Connect_PostConnectConfiguration({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* ConnectConfigurations (object) - Connect configurations
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * ConnectConfigurations [ConnectConfigurations](#connectconfigurations)
+
+#### Output
+* output [ConnectConfigurations](#connectconfigurations)
 
 ### Connect_PutConnectConfiguration
 Updates the specified DocuSign Connect configuration in your account.
@@ -918,9 +1075,13 @@ docusign.Connect_PutConnectConfiguration({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* ConnectConfigurations (object) - Connect configurations
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * ConnectConfigurations [ConnectConfigurations](#connectconfigurations)
+
+#### Output
+* output [ConnectConfigurations](#connectconfigurations)
 
 ### ConnectPublish_PutConnectRetry
 Republishes Connect information for the  specified set of envelopes. The primary use is to republish Connect post failures by including envelope IDs for the envelopes that failed to post in the request. The list of envelope IDs that failed to post correctly can be retrieved by calling to [ML:GetConnectLog] retrieve the failure log.
@@ -932,9 +1093,13 @@ docusign.ConnectPublish_PutConnectRetry({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* connectFailureFilter (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * connectFailureFilter [connectFailureFilter](#connectfailurefilter)
+
+#### Output
+* output [connectFailureResults](#connectfailureresults)
 
 ### ConnectPublish_PutConnectRetryByEnvelope
 Republishes Connect information for the specified envelope.
@@ -947,9 +1112,13 @@ docusign.ConnectPublish_PutConnectRetryByEnvelope({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+
+#### Output
+* output [connectFailureResults](#connectfailureresults)
 
 ### ConnectFailures_GetConnectLogs
 Retrieves the Connect Failure Log information. It can be used to determine which envelopes failed to post, so a republish request can be created.
@@ -961,10 +1130,14 @@ docusign.ConnectFailures_GetConnectLogs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* from_date (string) - Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created.
-* to_date (string) - End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * from_date `string`: Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created.
+  * to_date `string`: End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date.
+
+#### Output
+* output [ConnectEvents](#connectevents)
 
 ### ConnectFailures_DeleteConnectFailureLog
 Deletes the Connect failure log information for the specified entry.
@@ -977,9 +1150,13 @@ docusign.ConnectFailures_DeleteConnectFailureLog({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* failureId (string) **required** - The ID of the failed connect log entry.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * failureId **required** `string`: The ID of the failed connect log entry.
+
+#### Output
+*Output schema unknown*
 
 ### ConnectLog_DeleteConnectLogs
 Retrieves a list of connect log entries for your account.
@@ -993,8 +1170,12 @@ docusign.ConnectLog_DeleteConnectLogs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+*Output schema unknown*
 
 ### ConnectLog_GetConnectLogs
 Retrieves a list of connect log entries for your account.
@@ -1008,10 +1189,14 @@ docusign.ConnectLog_GetConnectLogs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* from_date (string) - Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created.
-* to_date (string) - End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * from_date `string`: Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created.
+  * to_date `string`: End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date.
+
+#### Output
+* output [ConnectEvents](#connectevents)
 
 ### ConnectLog_DeleteConnectLog
 Deletes a specified entry from the Connect Log.
@@ -1025,9 +1210,13 @@ docusign.ConnectLog_DeleteConnectLog({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* logId (string) **required** - The ID of the connect log entry
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * logId **required** `string`: The ID of the connect log entry
+
+#### Output
+*Output schema unknown*
 
 ### ConnectLog_GetConnectLog
 Retrieves the specified Connect log entry for your account.
@@ -1042,10 +1231,14 @@ docusign.ConnectLog_GetConnectLog({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* logId (string) **required** - The ID of the connect log entry
-* additional_info (string) - When true, the connectDebugLog information is included in the response.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * logId **required** `string`: The ID of the connect log entry
+  * additional_info `string`: When true, the connectDebugLog information is included in the response.
+
+#### Output
+* output [connectLog](#connectlog)
 
 ### Connect_DeleteConnectConfig
 Deletes the specified DocuSign Connect configuration.
@@ -1063,9 +1256,13 @@ docusign.Connect_DeleteConnectConfig({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* connectId (string) **required** - The ID of the custom Connect configuration being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * connectId **required** `string`: The ID of the custom Connect configuration being accessed.
+
+#### Output
+*Output schema unknown*
 
 ### Connect_GetConnectConfig
 Retrieves the information for the specified DocuSign Connect configuration.
@@ -1081,9 +1278,13 @@ docusign.Connect_GetConnectConfig({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* connectId (string) **required** - The ID of the custom Connect configuration being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * connectId **required** `string`: The ID of the custom Connect configuration being accessed.
+
+#### Output
+* output [connectConfigResults](#connectconfigresults)
 
 ### Connect_GetConnectUsers
 Returns users from the configured Connect service.
@@ -1096,15 +1297,19 @@ docusign.Connect_GetConnectUsers({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* connectId (string) **required** - The ID of the custom Connect configuration being accessed.
-* count (string) - Optional. Number of items to return.
-* email_substring (string) - Filters the returned user records by the email address or a sub-string of email address.
-* list_included_users (string)
-* start_position (string) - The position within the total result set from which to start returning values. The value **thumbnail** may be used to return the page image.
-* status (string) - Filters the results by user status.
-* user_name_substring (string) - Filters the user records returned by the user name or a sub-string of user name.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * connectId **required** `string`: The ID of the custom Connect configuration being accessed.
+  * count `string`: Optional. Number of items to return.
+  * email_substring `string`: Filters the returned user records by the email address or a sub-string of email address.
+  * list_included_users `string`
+  * start_position `string`: The position within the total result set from which to start returning values. The value **thumbnail** may be used to return the page image.
+  * status `string`: Filters the results by user status.
+  * user_name_substring `string`: Filters the user records returned by the user name or a sub-string of user name.
+
+#### Output
+* output [integratedUserInfoList](#integrateduserinfolist)
 
 ### ConsumerDisclosure_GetConsumerDisclosure
 Retrieves the Electronic Record and Signature Disclosure, with HTML formatting, associated with the account. You can use an optional query string to set the language for the disclosure.
@@ -1116,9 +1321,13 @@ docusign.ConsumerDisclosure_GetConsumerDisclosure({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* langCode (string) - Specifies the language used in the response. The supported languages, with the language value shown in parenthesis, are: Arabic (ar), Bulgarian (bg), Czech (cs), Chinese Simplified (zh_CN), Chinese Traditional (zh_TW), Croatian (hr), Danish (da), Dutch (nl), English US (en), English UK (en_GB), Estonian (et), Farsi (fa), Finnish (fi), French (fr), French Canada (fr_CA), German (de), Greek (el), Hebrew (he), Hindi (hi), Hungarian (hu), Bahasa Indonesia (id), Italian (it), Japanese (ja), Korean (ko), Latvian (lv), Lithuanian (lt), Bahasa Melayu (ms), Norwegian (no), Polish (pl), Portuguese (pt), Portuguese Brazil (pt_BR), Romanian (ro), Russian (ru), Serbian (sr), Slovak (sk), Slovenian (sl), Spanish (es),Spanish Latin America (es_MX), Swedish (sv), Thai (th), Turkish (tr), Ukrainian (uk), and Vietnamese (vi).
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * langCode `string`: Specifies the language used in the response. The supported languages, with the language value shown in parenthesis, are: Arabic (ar), Bulgarian (bg), Czech (cs), Chinese Simplified (zh_CN), Chinese Traditional (zh_TW), Croatian (hr), Danish (da), Dutch (nl), English US (en), English UK (en_GB), Estonian (et), Farsi (fa), Finnish (fi), French (fr), French Canada (fr_CA), German (de), Greek (el), Hebrew (he), Hindi (hi), Hungarian (hu), Bahasa Indonesia (id), Italian (it), Japanese (ja), Korean (ko), Latvian (lv), Lithuanian (lt), Bahasa Melayu (ms), Norwegian (no), Polish (pl), Portuguese (pt), Portuguese Brazil (pt_BR), Romanian (ro), Russian (ru), Serbian (sr), Slovak (sk), Slovenian (sl), Spanish (es),Spanish Latin America (es_MX), Swedish (sv), Thai (th), Turkish (tr), Ukrainian (uk), and Vietnamese (vi).
+
+#### Output
+* output [AccountConsumerDisclosures](#accountconsumerdisclosures)
 
 ### ConsumerDisclosure_GetConsumerDisclosureLangCode
 Retrieves the Electronic Record and Signature Disclosure, with HTML formatting, for the requested envelope recipient. This might be different than the current account disclosure depending on account settings, such as branding, and when the account disclosure was last updated. An optional query string can be included to return the language for the disclosure.  
@@ -1131,9 +1340,13 @@ docusign.ConsumerDisclosure_GetConsumerDisclosureLangCode({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* langCode (string) **required** - The simple type enumeration the language used in the response. The supported languages, with the language value shown in parenthesis, are:Arabic (ar), Bulgarian (bg), Czech (cs), Chinese Simplified (zh_CN), Chinese Traditional (zh_TW), Croatian (hr), Danish (da), Dutch (nl), English US (en), English UK (en_GB), Estonian (et), Farsi (fa), Finnish (fi), French (fr), French Canada (fr_CA), German (de), Greek (el), Hebrew (he), Hindi (hi), Hungarian (hu), Bahasa Indonesia (id), Italian (it), Japanese (ja), Korean (ko), Latvian (lv), Lithuanian (lt), Bahasa Melayu (ms), Norwegian (no), Polish (pl), Portuguese (pt), Portuguese Brazil (pt_BR), Romanian (ro), Russian (ru), Serbian (sr), Slovak (sk), Slovenian (sl), Spanish (es),Spanish Latin America (es_MX), Swedish (sv), Thai (th), Turkish (tr), Ukrainian (uk) and Vietnamese (vi). Additionally, the value can be set to "browser" to automatically detect the browser language being used by the viewer and display the disclosure in that language.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * langCode **required** `string`: The simple type enumeration the language used in the response. The supported languages, with the language value shown in parenthesis, are:Arabic (ar), Bulgarian (bg), Czech (cs), Chinese Simplified (zh_CN), Chinese Traditional (zh_TW), Croatian (hr), Danish (da), Dutch (nl), English US (en), English UK (en_GB), Estonian (et), Farsi (fa), Finnish (fi), French (fr), French Canada (fr_CA), German (de), Greek (el), Hebrew (he), Hindi (hi), Hungarian (hu), Bahasa Indonesia (id), Italian (it), Japanese (ja), Korean (ko), Latvian (lv), Lithuanian (lt), Bahasa Melayu (ms), Norwegian (no), Polish (pl), Portuguese (pt), Portuguese Brazil (pt_BR), Romanian (ro), Russian (ru), Serbian (sr), Slovak (sk), Slovenian (sl), Spanish (es),Spanish Latin America (es_MX), Swedish (sv), Thai (th), Turkish (tr), Ukrainian (uk) and Vietnamese (vi). Additionally, the value can be set to "browser" to automatically detect the browser language being used by the viewer and display the disclosure in that language.
+
+#### Output
+* output [AccountConsumerDisclosures](#accountconsumerdisclosures)
 
 ### ConsumerDisclosure_PutConsumerDisclosure
 Update Consumer Disclosure.
@@ -1146,11 +1359,15 @@ docusign.ConsumerDisclosure_PutConsumerDisclosure({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* langCode (string) **required** - The simple type enumeration the language used in the response. The supported languages, with the language value shown in parenthesis, are:Arabic (ar), Bulgarian (bg), Czech (cs), Chinese Simplified (zh_CN), Chinese Traditional (zh_TW), Croatian (hr), Danish (da), Dutch (nl), English US (en), English UK (en_GB), Estonian (et), Farsi (fa), Finnish (fi), French (fr), French Canada (fr_CA), German (de), Greek (el), Hebrew (he), Hindi (hi), Hungarian (hu), Bahasa Indonesia (id), Italian (it), Japanese (ja), Korean (ko), Latvian (lv), Lithuanian (lt), Bahasa Melayu (ms), Norwegian (no), Polish (pl), Portuguese (pt), Portuguese Brazil (pt_BR), Romanian (ro), Russian (ru), Serbian (sr), Slovak (sk), Slovenian (sl), Spanish (es),Spanish Latin America (es_MX), Swedish (sv), Thai (th), Turkish (tr), Ukrainian (uk) and Vietnamese (vi). Additionally, the value can be set to "browser" to automatically detect the browser language being used by the viewer and display the disclosure in that language.
-* include_metadata (string) - Reserved for DocuSign.
-* EnvelopeConsumerDisclosures (object) - Envelope consumer disclosures
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * langCode **required** `string`: The simple type enumeration the language used in the response. The supported languages, with the language value shown in parenthesis, are:Arabic (ar), Bulgarian (bg), Czech (cs), Chinese Simplified (zh_CN), Chinese Traditional (zh_TW), Croatian (hr), Danish (da), Dutch (nl), English US (en), English UK (en_GB), Estonian (et), Farsi (fa), Finnish (fi), French (fr), French Canada (fr_CA), German (de), Greek (el), Hebrew (he), Hindi (hi), Hungarian (hu), Bahasa Indonesia (id), Italian (it), Japanese (ja), Korean (ko), Latvian (lv), Lithuanian (lt), Bahasa Melayu (ms), Norwegian (no), Polish (pl), Portuguese (pt), Portuguese Brazil (pt_BR), Romanian (ro), Russian (ru), Serbian (sr), Slovak (sk), Slovenian (sl), Spanish (es),Spanish Latin America (es_MX), Swedish (sv), Thai (th), Turkish (tr), Ukrainian (uk) and Vietnamese (vi). Additionally, the value can be set to "browser" to automatically detect the browser language being used by the viewer and display the disclosure in that language.
+  * include_metadata `string`: Reserved for DocuSign.
+  * EnvelopeConsumerDisclosures [EnvelopeConsumerDisclosures](#envelopeconsumerdisclosures)
+
+#### Output
+* output [EnvelopeConsumerDisclosures](#envelopeconsumerdisclosures)
 
 ### Contacts_DeleteContacts
 Delete contacts associated with an account for the DocuSign service.
@@ -1162,9 +1379,13 @@ docusign.Contacts_DeleteContacts({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* contactModRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * contactModRequest [contactModRequest](#contactmodrequest)
+
+#### Output
+* output [contactUpdateResponse](#contactupdateresponse)
 
 ### Contacts_PostContacts
 Imports multiple new contacts into the contacts collection from CSV, JSON, or XML (based on content type).
@@ -1176,9 +1397,13 @@ docusign.Contacts_PostContacts({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* contactModRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * contactModRequest [contactModRequest](#contactmodrequest)
+
+#### Output
+* output [contactUpdateResponse](#contactupdateresponse)
 
 ### Contacts_PutContacts
 Replaces contacts associated with an account for the DocuSign service.
@@ -1190,9 +1415,13 @@ docusign.Contacts_PutContacts({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* contactModRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * contactModRequest [contactModRequest](#contactmodrequest)
+
+#### Output
+* output [contactUpdateResponse](#contactupdateresponse)
 
 ### Contacts_DeleteContactWithId
 Replaces a particular contact associated with an account for the DocuSign service.
@@ -1205,9 +1434,13 @@ docusign.Contacts_DeleteContactWithId({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* contactId (string) **required** - The unique identifier of a person in the contacts address book.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * contactId **required** `string`: The unique identifier of a person in the contacts address book.
+
+#### Output
+* output [contactUpdateResponse](#contactupdateresponse)
 
 ### Contacts_GetContactById
 Gets a particular contact associated with the user's account.
@@ -1220,10 +1453,14 @@ docusign.Contacts_GetContactById({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* contactId (string) **required** - The unique identifier of a person in the contacts address book.
-* cloud_provider (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * contactId **required** `string`: The unique identifier of a person in the contacts address book.
+  * cloud_provider `string`
+
+#### Output
+* output [contactGetResponse](#contactgetresponse)
 
 ### AccountCustomFields_GetAccountCustomFields
 Retrieves a list of envelope custom fields associated with the account. You can use these fields in the envelopes for your account to record information about the envelope, help search for envelopes and track information. The envelope custom fields are shown in the Envelope Settings section when a user is creating an envelope in the DocuSign member console. The envelope custom fields are not seen by the envelope recipients.
@@ -1237,8 +1474,12 @@ docusign.AccountCustomFields_GetAccountCustomFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [AccountCustomFields](#accountcustomfields)
 
 ### AccountCustomFields_PostAccountCustomFields
 Creates an acount custom field.
@@ -1250,10 +1491,14 @@ docusign.AccountCustomFields_PostAccountCustomFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* apply_to_templates (string)
-* customField (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * apply_to_templates `string`
+  * customField [customField](#customfield)
+
+#### Output
+* output [AccountCustomFields](#accountcustomfields)
 
 ### AccountCustomFields_DeleteAccountCustomFields
 Delete an existing account custom field.
@@ -1266,10 +1511,14 @@ docusign.AccountCustomFields_DeleteAccountCustomFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* customFieldId (string) **required**
-* apply_to_templates (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * customFieldId **required** `string`
+  * apply_to_templates `string`
+
+#### Output
+*Output schema unknown*
 
 ### AccountCustomFields_PutAccountCustomFields
 Updates an existing account custom field.
@@ -1282,11 +1531,15 @@ docusign.AccountCustomFields_PutAccountCustomFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* customFieldId (string) **required**
-* apply_to_templates (string)
-* customField (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * customFieldId **required** `string`
+  * apply_to_templates `string`
+  * customField [customField](#customfield)
+
+#### Output
+* output [AccountCustomFields](#accountcustomfields)
 
 ### EMortgage_PostTransactions
 Starts a new eMortgage Transaction
@@ -1298,9 +1551,13 @@ docusign.EMortgage_PostTransactions({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* EMortgageTransactions (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * EMortgageTransactions [EMortgageTransactions](#emortgagetransactions)
+
+#### Output
+* output [postTransactionsResponse](#posttransactionsresponse)
 
 ### Envelopes_GetEnvelopes
 Retrieves a list of envelopes that match your request. 
@@ -1383,33 +1640,37 @@ docusign.Envelopes_GetEnvelopes({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* ac_status (string) - Specifies the Authoritative Copy Status for the envelopes. The possible values are: Unknown, Original, Transferred, AuthoritativeCopy, AuthoritativeCopyExportPending, AuthoritativeCopyExported, DepositPending, Deposited, DepositedEO, or DepositFailed.
-* block (string) - Reserved for DocuSign.
-* count (string) - Optional. Number of items to return.
-* custom_field (string) - Optional. Specifies a envelope custom field name and value searched for in the envelopes. Format: `custom_envelope_field_name=desired_value`
-* email (string) - Limit results to envelopes
-* envelope_ids (string) - Comma separated list of `envelopeId` values.
-* exclude (string) - Reserved for DocuSign.
-* folder_ids (string) - Reserved for DocuSign.
-* folder_types (string) - Reserved for DocuSign.
-* from_date (string) - Specifies the date and time
-* from_to_status (string) - The status value checked for in the `from_date` to `to_date` time period. 
-* include (string) - Reserved for DocuSign.
-* include_purge_information (string)
-* intersecting_folder_ids (string) - Reserved for DocuSign.
-* order (string) - Reserved for DocuSign.
-* order_by (string) - Reserved for DocuSign.
-* powerformids (string) - Reserved for DocuSign.
-* search_text (string) - Reserved for DocuSign.
-* start_position (string) - Reserved for DocuSign.
-* status (string) - A comma-separated list of current envelope statuses to included in the response. Possible values are:
-* to_date (string) - Specifies the date and time
-* transaction_ids (string) - A comma-separated list of envelope transaction IDs.
-* user_filter (string) - Reserved for DocuSign.
-* user_id (string) - Reserved for DocuSign.
-* user_name (string) - Limit results to envelopes
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * ac_status `string`: Specifies the Authoritative Copy Status for the envelopes. The possible values are: Unknown, Original, Transferred, AuthoritativeCopy, AuthoritativeCopyExportPending, AuthoritativeCopyExported, DepositPending, Deposited, DepositedEO, or DepositFailed.
+  * block `string`: Reserved for DocuSign.
+  * count `string`: Optional. Number of items to return.
+  * custom_field `string`: Optional. Specifies a envelope custom field name and value searched for in the envelopes. Format: `custom_envelope_field_name=desired_value`
+  * email `string`: Limit results to envelopes
+  * envelope_ids `string`: Comma separated list of `envelopeId` values.
+  * exclude `string`: Reserved for DocuSign.
+  * folder_ids `string`: Reserved for DocuSign.
+  * folder_types `string`: Reserved for DocuSign.
+  * from_date `string`: Specifies the date and time
+  * from_to_status `string`: The status value checked for in the `from_date` to `to_date` time period. 
+  * include `string`: Reserved for DocuSign.
+  * include_purge_information `string`
+  * intersecting_folder_ids `string`: Reserved for DocuSign.
+  * order `string`: Reserved for DocuSign.
+  * order_by `string`: Reserved for DocuSign.
+  * powerformids `string`: Reserved for DocuSign.
+  * search_text `string`: Reserved for DocuSign.
+  * start_position `string`: Reserved for DocuSign.
+  * status `string`: A comma-separated list of current envelope statuses to included in the response. Possible values are:
+  * to_date `string`: Specifies the date and time
+  * transaction_ids `string`: A comma-separated list of envelope transaction IDs.
+  * user_filter `string`: Reserved for DocuSign.
+  * user_id `string`: Reserved for DocuSign.
+  * user_name `string`: Limit results to envelopes
+
+#### Output
+* output [envelopesInformation](#envelopesinformation)
 
 ### Envelopes_PostEnvelopes
 Creates and sends an envelope or creates a draft envelope.
@@ -2072,12 +2333,16 @@ docusign.Envelopes_PostEnvelopes({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* cdse_mode (string) - Reserved for DocuSign.
-* completed_documents_only (string) - Reserved for DocuSign.
-* merge_roles_on_draft (string) - When set to **true**, template roles will be merged, and empty recipients will be removed. This parameter applies when you create a draft envelope with multiple templates. (To create a draft envelope, the `status` field is set to `created`.)
-* envelopeDefinition (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * cdse_mode `string`: Reserved for DocuSign.
+  * completed_documents_only `string`: Reserved for DocuSign.
+  * merge_roles_on_draft `string`: When set to **true**, template roles will be merged, and empty recipients will be removed. This parameter applies when you create a draft envelope with multiple templates. (To create a draft envelope, the `status` field is set to `created`.)
+  * envelopeDefinition [envelopeDefinition](#envelopedefinition)
+
+#### Output
+* output [envelopeSummary](#envelopesummary)
 
 ### Envelopes_PutStatus
 Retrieves the envelope status for the specified envelopes.
@@ -2089,13 +2354,17 @@ docusign.Envelopes_PutStatus({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* email (string) - Reserved for DocuSign.
-* from_date (string) - The date/time setting that specifies when the request begins checking for status changes for envelopes in the account.
-* start_position (string) - Reserved for DocuSign.
-* to_date (string) - Optional date/time setting
-* envelopeIdsRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * email `string`: Reserved for DocuSign.
+  * from_date `string`: The date/time setting that specifies when the request begins checking for status changes for envelopes in the account.
+  * start_position `string`: Reserved for DocuSign.
+  * to_date `string`: Optional date/time setting
+  * envelopeIdsRequest [envelopeIdsRequest](#envelopeidsrequest)
+
+#### Output
+* output [envelopesInformation](#envelopesinformation)
 
 ### Envelopes_GetEnvelope
 Retrieves the overall status for the specified envelope.
@@ -2108,11 +2377,15 @@ docusign.Envelopes_GetEnvelope({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* advanced_update (string) - When true, envelope information can be added or modified.
-* include (string) - Reserved for DocuSign.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * advanced_update `string`: When true, envelope information can be added or modified.
+  * include `string`: Reserved for DocuSign.
+
+#### Output
+* output [Envelopes](#envelopes)
 
 ### Envelopes_PutEnvelope
 The Put Envelopes endpoint provides the following functionality:
@@ -2149,12 +2422,16 @@ docusign.Envelopes_PutEnvelope({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* advanced_update (string) - When set to **true**, allows the caller to update recipients, tabs, custom fields, notification, email settings and other envelope attributes.
-* resend_envelope (string) - When set to **true**, sends the specified envelope again.
-* Envelopes (object) - Envelope creation, management
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * advanced_update `string`: When set to **true**, allows the caller to update recipients, tabs, custom fields, notification, email settings and other envelope attributes.
+  * resend_envelope `string`: When set to **true**, sends the specified envelope again.
+  * Envelopes [Envelopes](#envelopes)
+
+#### Output
+* output [envelopeUpdateSummary](#envelopeupdatesummary)
 
 ### Attachments_DeleteAttachments
 Delete one or more attachments from a DRAFT envelope.
@@ -2167,10 +2444,14 @@ docusign.Attachments_DeleteAttachments({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* envelopeAttachmentsRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * envelopeAttachmentsRequest [envelopeAttachmentsRequest](#envelopeattachmentsrequest)
+
+#### Output
+* output [envelopeAttachmentsResult](#envelopeattachmentsresult)
 
 ### Attachments_GetAttachments
 Returns a list of attachments associated with the specified envelope
@@ -2183,9 +2464,13 @@ docusign.Attachments_GetAttachments({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+
+#### Output
+* output [envelopeAttachmentsResult](#envelopeattachmentsresult)
 
 ### Attachments_PutAttachments
 Add one or more attachments to a DRAFT or IN-PROCESS envelope.
@@ -2198,10 +2483,14 @@ docusign.Attachments_PutAttachments({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* envelopeAttachmentsRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * envelopeAttachmentsRequest [envelopeAttachmentsRequest](#envelopeattachmentsrequest)
+
+#### Output
+* output [envelopeAttachmentsResult](#envelopeattachmentsresult)
 
 ### Attachments_GetAttachment
 Retrieves an attachment from the envelope.
@@ -2215,10 +2504,14 @@ docusign.Attachments_GetAttachment({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* attachmentId (string) **required**
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * attachmentId **required** `string`
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+
+#### Output
+*Output schema unknown*
 
 ### Attachments_PutAttachment
 Add an attachment to a DRAFT or IN-PROCESS envelope.
@@ -2232,11 +2525,15 @@ docusign.Attachments_PutAttachment({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* attachmentId (string) **required**
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* attachment (object) - Contains information about an attachment.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * attachmentId **required** `string`
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * attachment [attachment](#attachment)
+
+#### Output
+* output [envelopeAttachmentsResult](#envelopeattachmentsresult)
 
 ### AuditEvents_GetAuditEvents
 Gets the envelope audit events for the specified envelope.
@@ -2249,9 +2546,13 @@ docusign.AuditEvents_GetAuditEvents({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+
+#### Output
+* output [envelopeAuditEventResponse](#envelopeauditeventresponse)
 
 ### CustomFields_DeleteCustomFields
 Deletes envelope custom fields for draft and in-process envelopes.
@@ -2264,10 +2565,14 @@ docusign.CustomFields_DeleteCustomFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* EnvelopeCustomFields (object) - Envelope custom fields
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * EnvelopeCustomFields [EnvelopeCustomFields](#envelopecustomfields)
+
+#### Output
+* output [EnvelopeCustomFields](#envelopecustomfields)
 
 ### CustomFields_GetCustomFields
 Retrieves the custom field information for the specified envelope. You can use these fields in the envelopes for your account to record information about the envelope, help search for envelopes, and track information. The envelope custom fields are shown in the Envelope Settings section when a user is creating an envelope in the DocuSign member console. The envelope custom fields are not seen by the envelope recipients.
@@ -2282,9 +2587,13 @@ docusign.CustomFields_GetCustomFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+
+#### Output
+* output [customFieldsEnvelope](#customfieldsenvelope)
 
 ### CustomFields_PostCustomFields
 Updates the envelope custom fields for draft and in-process envelopes.
@@ -2299,10 +2608,14 @@ docusign.CustomFields_PostCustomFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* EnvelopeCustomFields (object) - Envelope custom fields
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * EnvelopeCustomFields [EnvelopeCustomFields](#envelopecustomfields)
+
+#### Output
+* output [EnvelopeCustomFields](#envelopecustomfields)
 
 ### CustomFields_PutCustomFields
 Updates the envelope custom fields in draft and in-process envelopes.
@@ -2318,10 +2631,14 @@ docusign.CustomFields_PutCustomFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* EnvelopeCustomFields (object) - Envelope custom fields
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * EnvelopeCustomFields [EnvelopeCustomFields](#envelopecustomfields)
+
+#### Output
+* output [EnvelopeCustomFields](#envelopecustomfields)
 
 ### Documents_DeleteDocuments
 Deletes one or more documents from an existing draft envelope.
@@ -2334,10 +2651,14 @@ docusign.Documents_DeleteDocuments({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* envelopeDefinition (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * envelopeDefinition [envelopeDefinition](#envelopedefinition)
+
+#### Output
+* output [EnvelopeDocuments](#envelopedocuments)
 
 ### Documents_GetDocuments
 Retrieves a list of documents associated with the specified envelope.
@@ -2350,10 +2671,14 @@ docusign.Documents_GetDocuments({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* include_metadata (string) - Reserved for DocuSign.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * include_metadata `string`: Reserved for DocuSign.
+
+#### Output
+* output [EnvelopeDocuments](#envelopedocuments)
 
 ### Documents_PutDocuments
 Adds one or more documents to an existing envelope document.
@@ -2366,11 +2691,15 @@ docusign.Documents_PutDocuments({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* apply_document_fields (string) - When **true**, document fields
-* envelopeDefinition (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * apply_document_fields `string`: When **true**, document fields
+  * envelopeDefinition [envelopeDefinition](#envelopedefinition)
+
+#### Output
+* output [EnvelopeDocuments](#envelopedocuments)
 
 ### Documents_GetDocument
 Retrieves the specified document from the envelope. If the account has the Highlight Data Changes feature enabled, there is an option to request that any changes in the envelope be highlighted.
@@ -2392,17 +2721,21 @@ docusign.Documents_GetDocument({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* certificate (string) - When set to **false**, the envelope signing certificate is removed from the download.
-* encoding (string)
-* encrypt (string) - When set to **true**, the PDF bytes returned in the response are encrypted for all the key managers configured on your DocuSign account. The documents can be decrypted with the KeyManager Decrypt Document API.
-* language (string) - Specifies the language for the Certificate of Completion in the response. The supported languages, with the language value shown in parenthesis, are: Chinese Simplified (zh_CN), , Chinese Traditional (zh_TW), Dutch (nl), English US (en), French (fr), German (de), Italian (it), Japanese (ja), Korean (ko), Portuguese (pt), Portuguese (Brazil) (pt_BR), Russian (ru), Spanish (es). 
-* recipient_id (string)
-* show_changes (string) - When set to **true**, any changed fields for the returned PDF are highlighted in yellow and optional signatures or initials outlined in red. 
-* watermark (string) - When set to **true**, the account has the watermark feature enabled, and the envelope is not complete, the watermark for the account is added to the PDF documents. This option can remove the watermark. 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * certificate `string`: When set to **false**, the envelope signing certificate is removed from the download.
+  * encoding `string`
+  * encrypt `string`: When set to **true**, the PDF bytes returned in the response are encrypted for all the key managers configured on your DocuSign account. The documents can be decrypted with the KeyManager Decrypt Document API.
+  * language `string`: Specifies the language for the Certificate of Completion in the response. The supported languages, with the language value shown in parenthesis, are: Chinese Simplified (zh_CN), , Chinese Traditional (zh_TW), Dutch (nl), English US (en), French (fr), German (de), Italian (it), Japanese (ja), Korean (ko), Portuguese (pt), Portuguese (Brazil) (pt_BR), Russian (ru), Spanish (es). 
+  * recipient_id `string`
+  * show_changes `string`: When set to **true**, any changed fields for the returned PDF are highlighted in yellow and optional signatures or initials outlined in red. 
+  * watermark `string`: When set to **true**, the account has the watermark feature enabled, and the envelope is not complete, the watermark for the account is added to the PDF documents. This option can remove the watermark. 
+
+#### Output
+* output `file`
 
 ### Documents_PutDocument
 Adds a document to an existing draft envelope.
@@ -2416,11 +2749,15 @@ docusign.Documents_PutDocument({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* apply_document_fields (string) - When **true**, document fields
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * apply_document_fields `string`: When **true**, document fields
+
+#### Output
+*Output schema unknown*
 
 ### DocumentFields_DeleteDocumentFields
 Deletes custom document fields from an existing envelope document.
@@ -2434,11 +2771,15 @@ docusign.DocumentFields_DeleteDocumentFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* EnvelopeDocumentFields (object) - Envelope document fields
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * EnvelopeDocumentFields [EnvelopeDocumentFields](#envelopedocumentfields)
+
+#### Output
+* output [EnvelopeDocumentFields](#envelopedocumentfields)
 
 ### DocumentFields_GetDocumentFields
 Retrieves the custom document field information from an existing envelope document.
@@ -2452,10 +2793,14 @@ docusign.DocumentFields_GetDocumentFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+
+#### Output
+* output [EnvelopeDocumentFields](#envelopedocumentfields)
 
 ### DocumentFields_PostDocumentFields
 Creates custom document fields in an existing envelope document.
@@ -2469,11 +2814,15 @@ docusign.DocumentFields_PostDocumentFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* EnvelopeDocumentFields (object) - Envelope document fields
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * EnvelopeDocumentFields [EnvelopeDocumentFields](#envelopedocumentfields)
+
+#### Output
+* output [EnvelopeDocumentFields](#envelopedocumentfields)
 
 ### DocumentFields_PutDocumentFields
 Updates existing custom document fields in an existing envelope document.
@@ -2487,11 +2836,15 @@ docusign.DocumentFields_PutDocumentFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* EnvelopeDocumentFields (object) - Envelope document fields
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * EnvelopeDocumentFields [EnvelopeDocumentFields](#envelopedocumentfields)
+
+#### Output
+* output [EnvelopeDocumentFields](#envelopedocumentfields)
 
 ### Pages_GetPageImages
 Returns document page image(s) based on input.
@@ -2505,17 +2858,21 @@ docusign.Pages_GetPageImages({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* count (string) - The maximum number of results to be returned by this request.
-* dpi (string) - Number of dots per inch for the resulting image. The default if not used is 94. The range is 1-310.
-* max_height (string) - Sets the maximum height (in pixels) of the returned image.
-* max_width (string) - Sets the maximum width (in pixels) of the returned image.
-* nocache (string)
-* show_changes (string)
-* start_position (string) - The position within the total result set from which to start returning values. The value **thumbnail** may be used to return the page image.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * count `string`: The maximum number of results to be returned by this request.
+  * dpi `string`: Number of dots per inch for the resulting image. The default if not used is 94. The range is 1-310.
+  * max_height `string`: Sets the maximum height (in pixels) of the returned image.
+  * max_width `string`: Sets the maximum width (in pixels) of the returned image.
+  * nocache `string`
+  * show_changes `string`
+  * start_position `string`: The position within the total result set from which to start returning values. The value **thumbnail** may be used to return the page image.
+
+#### Output
+* output [pageImages](#pageimages)
 
 ### Pages_DeletePage
 Deletes a page from a document in an envelope based on the page number.
@@ -2530,11 +2887,15 @@ docusign.Pages_DeletePage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* pageNumber (string) **required** - The page number being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * pageNumber **required** `string`: The page number being accessed.
+
+#### Output
+*Output schema unknown*
 
 ### Pages_GetPageImage
 Retrieves a page image for display from the specified envelope.
@@ -2549,15 +2910,19 @@ docusign.Pages_GetPageImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* pageNumber (string) **required** - The page number being accessed.
-* dpi (string) - Sets the dpi for the image.
-* max_height (string) - Sets the maximum height for the page image in pixels. The dpi is recalculated based on this setting.
-* max_width (string) - Sets the maximum width for the page image in pixels. The dpi is recalculated based on this setting.
-* show_changes (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * pageNumber **required** `string`: The page number being accessed.
+  * dpi `string`: Sets the dpi for the image.
+  * max_height `string`: Sets the maximum height for the page image in pixels. The dpi is recalculated based on this setting.
+  * max_width `string`: Sets the maximum width for the page image in pixels. The dpi is recalculated based on this setting.
+  * show_changes `string`
+
+#### Output
+* output `file`
 
 ### Pages_PutPageImage
 Rotates page image from an envelope for display. The page image can be rotated to the left or right.
@@ -2572,12 +2937,16 @@ docusign.Pages_PutPageImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* pageNumber (string) **required** - The page number being accessed.
-* pageRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * pageNumber **required** `string`: The page number being accessed.
+  * pageRequest [pageRequest](#pagerequest)
+
+#### Output
+*Output schema unknown*
 
 ### Tabs_GetPageTabs
 Returns tabs on the specified page.
@@ -2592,11 +2961,15 @@ docusign.Tabs_GetPageTabs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* pageNumber (string) **required** - The page number being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * pageNumber **required** `string`: The page number being accessed.
+
+#### Output
+* output [EnvelopeDocumentTabs](#envelopedocumenttabs)
 
 ### Tabs_GetDocumentTabs
 Returns tabs on the document.
@@ -2610,11 +2983,15 @@ docusign.Tabs_GetDocumentTabs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* page_numbers (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * page_numbers `string`
+
+#### Output
+* output [EnvelopeDocumentTabs](#envelopedocumenttabs)
 
 ### Templates_GetDocumentTemplates
 Retrieves the templates associated with a document in the specified envelope.
@@ -2628,11 +3005,15 @@ docusign.Templates_GetDocumentTemplates({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* include (string) - A comma-separated list
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * include `string`: A comma-separated list
+
+#### Output
+* output [EnvelopeTemplates](#envelopetemplates)
 
 ### Templates_PostDocumentTemplates
 Adds templates to a document in the specified envelope.
@@ -2646,11 +3027,15 @@ docusign.Templates_PostDocumentTemplates({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* documentTemplateList (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * documentTemplateList [documentTemplateList](#documenttemplatelist)
+
+#### Output
+* output [documentTemplateList](#documenttemplatelist)
 
 ### Templates_DeleteDocumentTemplates
 Deletes the specified template from a document in an existing envelope.
@@ -2665,11 +3050,15 @@ docusign.Templates_DeleteDocumentTemplates({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* templateId (string) **required** - The ID of the template being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * templateId **required** `string`: The ID of the template being accessed.
+
+#### Output
+*Output schema unknown*
 
 ### EmailSettings_DeleteEmailSettings
 Deletes all existing email override settings for the envelope. If you want to delete an individual email override setting, use the PUT and set the value to an empty string. Note that deleting email settings will only affect email communications that occur after the deletion and the normal account email settings are used for future email communications.
@@ -2682,9 +3071,13 @@ docusign.EmailSettings_DeleteEmailSettings({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+
+#### Output
+* output [EnvelopeEmailSettings](#envelopeemailsettings)
 
 ### EmailSettings_GetEmailSettings
 Retrieves the email override settings for the specified envelope.
@@ -2697,9 +3090,13 @@ docusign.EmailSettings_GetEmailSettings({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+
+#### Output
+* output [EnvelopeEmailSettings](#envelopeemailsettings)
 
 ### EmailSettings_PostEmailSettings
 Adds email override settings, changing the email address to reply to an email address, name, or the BCC for email archive information, for the envelope. Note that adding email settings will only affect email communications that occur after the addition was made.
@@ -2714,10 +3111,14 @@ docusign.EmailSettings_PostEmailSettings({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* EnvelopeEmailSettings (object) - Envelope email settings
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * EnvelopeEmailSettings [EnvelopeEmailSettings](#envelopeemailsettings)
+
+#### Output
+* output [EnvelopeEmailSettings](#envelopeemailsettings)
 
 ### EmailSettings_PutEmailSettings
 Updates the existing email override settings for the specified envelope. Note that modifying email settings will only affect email communications that occur after the modification was made.
@@ -2732,10 +3133,14 @@ docusign.EmailSettings_PutEmailSettings({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* EnvelopeEmailSettings (object) - Envelope email settings
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * EnvelopeEmailSettings [EnvelopeEmailSettings](#envelopeemailsettings)
+
+#### Output
+* output [EnvelopeEmailSettings](#envelopeemailsettings)
 
 ### FormData_GetFormData
 Returns envelope form data for an existing envelope.
@@ -2748,9 +3153,13 @@ docusign.FormData_GetFormData({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+
+#### Output
+* output [EnvelopeFormData](#envelopeformdata)
 
 ### Lock_DeleteEnvelopeLock
 Deletes the lock from the specified envelope. The `X-DocuSign-Edit` header must be included in the request.
@@ -2763,9 +3172,13 @@ docusign.Lock_DeleteEnvelopeLock({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+
+#### Output
+* output [EnvelopeLocks](#envelopelocks)
 
 ### Lock_GetEnvelopeLock
 Retrieves general information about the envelope lock.
@@ -2780,9 +3193,13 @@ docusign.Lock_GetEnvelopeLock({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+
+#### Output
+* output [EnvelopeLocks](#envelopelocks)
 
 ### Lock_PostEnvelopeLock
 Locks the specified envelope, and sets the time until the lock expires, to prevent other users or recipients from accessing and changing the envelope.
@@ -2797,10 +3214,14 @@ docusign.Lock_PostEnvelopeLock({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* lockRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * lockRequest [lockRequest](#lockrequest)
+
+#### Output
+* output [EnvelopeLocks](#envelopelocks)
 
 ### Lock_PutEnvelopeLock
 Updates the lock duration time or update the `lockedByApp` property information for the specified envelope. The user and integrator key must match the user specified by the `lockByUser` property and integrator key information and the `X-DocuSign-Edit` header must be included or an error will be generated.
@@ -2813,10 +3234,14 @@ docusign.Lock_PutEnvelopeLock({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* lockRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * lockRequest [lockRequest](#lockrequest)
+
+#### Output
+* output [EnvelopeLocks](#envelopelocks)
 
 ### Notification_GetEnvelopesEnvelopeIdNotification
 Retrieves the envelope notification, reminders and expirations, information for an existing envelope.
@@ -2829,9 +3254,13 @@ docusign.Notification_GetEnvelopesEnvelopeIdNotification({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+
+#### Output
+* output [notification](#notification)
 
 ### Notification_PutEnvelopesEnvelopeIdNotification
 Sets envelope notification (Reminders/Expirations) structure for an existing envelope.
@@ -2844,10 +3273,14 @@ docusign.Notification_PutEnvelopesEnvelopeIdNotification({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* envelopeNotificationRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * envelopeNotificationRequest [envelopeNotificationRequest](#envelopenotificationrequest)
+
+#### Output
+* output [notification](#notification)
 
 ### Recipients_DeleteRecipients
 Deletes one or more recipients from a draft or sent envelope. Recipients to be deleted are listed in the request, with the `recipientId` being used as the key for deleting recipients.
@@ -2862,10 +3295,14 @@ docusign.Recipients_DeleteRecipients({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* EnvelopeRecipients (object) - Envelope recipients
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * EnvelopeRecipients [EnvelopeRecipients](#enveloperecipients)
+
+#### Output
+* output [EnvelopeRecipients](#enveloperecipients)
 
 ### Recipients_GetRecipients
 Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list. 
@@ -2880,13 +3317,17 @@ docusign.Recipients_GetRecipients({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* include_anchor_tab_locations (string) -  When set to **true** and `include_tabs` is set to **true**, all tabs with anchor tab properties are included in the response. 
-* include_extended (string) -  When set to **true**, the extended properties are included in the response. 
-* include_metadata (string) - Reserved for DocuSign.
-* include_tabs (string) - When set to **true**, the tab information associated with the recipient is included in the response.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * include_anchor_tab_locations `string`:  When set to **true** and `include_tabs` is set to **true**, all tabs with anchor tab properties are included in the response. 
+  * include_extended `string`:  When set to **true**, the extended properties are included in the response. 
+  * include_metadata `string`: Reserved for DocuSign.
+  * include_tabs `string`: When set to **true**, the tab information associated with the recipient is included in the response.
+
+#### Output
+* output [EnvelopeRecipients](#enveloperecipients)
 
 ### Recipients_PostRecipients
 Adds one or more recipients to an envelope.
@@ -2901,11 +3342,15 @@ docusign.Recipients_PostRecipients({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* resend_envelope (string) - When set to **true**, resends the   envelope if the new recipient's routing order is before or the same as the envelope's next recipient.
-* EnvelopeRecipients (object) - Envelope recipients
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * resend_envelope `string`: When set to **true**, resends the   envelope if the new recipient's routing order is before or the same as the envelope's next recipient.
+  * EnvelopeRecipients [EnvelopeRecipients](#enveloperecipients)
+
+#### Output
+* output [EnvelopeRecipients](#enveloperecipients)
 
 ### Recipients_PutRecipients
 Updates recipients in a draft envelope or corrects recipient information for an in process envelope. 
@@ -2924,11 +3369,15 @@ docusign.Recipients_PutRecipients({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* resend_envelope (string) - When set to **true**, resends the   envelope if the new recipient's routing order is before or the same as the envelope's next recipient.
-* EnvelopeRecipients (object) - Envelope recipients
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * resend_envelope `string`: When set to **true**, resends the   envelope if the new recipient's routing order is before or the same as the envelope's next recipient.
+  * EnvelopeRecipients [EnvelopeRecipients](#enveloperecipients)
+
+#### Output
+* output [recipientsUpdateSummary](#recipientsupdatesummary)
 
 ### Recipients_PutRecipientsDocumentVisibility
 Updates document visibility for the recipients
@@ -2941,10 +3390,14 @@ docusign.Recipients_PutRecipientsDocumentVisibility({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* EnvelopeDocumentVisibility (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * EnvelopeDocumentVisibility [EnvelopeDocumentVisibility](#envelopedocumentvisibility)
+
+#### Output
+* output [EnvelopeDocumentVisibility](#envelopedocumentvisibility)
 
 ### Recipients_DeleteRecipient
 Deletes a recipient from a `draft` or `sent` envelope.
@@ -2960,10 +3413,14 @@ docusign.Recipients_DeleteRecipient({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+
+#### Output
+* output [EnvelopeRecipients](#enveloperecipients)
 
 ### Recipients_DeleteBulkRecipientsFile
 Deletes the bulk recipient file from an envelope. This cannot be used if the envelope has been sent.
@@ -2979,10 +3436,14 @@ docusign.Recipients_DeleteBulkRecipientsFile({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+
+#### Output
+* output [bulkRecipientsUpdateResponse](#bulkrecipientsupdateresponse)
 
 ### Recipients_GetBulkRecipients
 Retrieves the bulk recipient file information from an envelope that has a bulk recipient.
@@ -2996,12 +3457,16 @@ docusign.Recipients_GetBulkRecipients({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* include_tabs (string) - If **true**
-* start_position (string) - Reserved for DocuSign.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * include_tabs `string`: If **true**
+  * start_position `string`: Reserved for DocuSign.
+
+#### Output
+* output [EnvelopeBulkRecipients](#envelopebulkrecipients)
 
 ### Recipients_PutBulkRecipients
 Updates the bulk recipients in a draft envelope using a file upload. The Content-Type supported for uploading a bulk recipient file is CSV (text/csv).
@@ -3017,11 +3482,15 @@ docusign.Recipients_PutBulkRecipients({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* bulkRecipientsRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * bulkRecipientsRequest [bulkRecipientsRequest](#bulkrecipientsrequest)
+
+#### Output
+* output [bulkRecipientsSummaryResponse](#bulkrecipientssummaryresponse)
 
 ### ConsumerDisclosure_GetConsumerDisclosureEnvelopeIdRecipientId
 Retrieves the Electronic Record and Signature Disclosure, with html formatting, associated with the account. You can use an optional query string to set the language for the disclosure.
@@ -3035,11 +3504,15 @@ docusign.ConsumerDisclosure_GetConsumerDisclosureEnvelopeIdRecipientId({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* langCode (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * langCode `string`
+
+#### Output
+* output [EnvelopeConsumerDisclosures](#envelopeconsumerdisclosures)
 
 ### ConsumerDisclosure_GetConsumerDisclosureEnvelopeIdRecipientIdLangCode
 Reserved: Retrieves the Electronic Record and Signature Disclosure, with HTML formatting, associated with the account.
@@ -3054,12 +3527,16 @@ docusign.ConsumerDisclosure_GetConsumerDisclosureEnvelopeIdRecipientIdLangCode({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* langCode (string) **required** - The simple type enumeration the language used in the response. The supported languages, with the language value shown in parenthesis, are:Arabic (ar), Bulgarian (bg), Czech (cs), Chinese Simplified (zh_CN), Chinese Traditional (zh_TW), Croatian (hr), Danish (da), Dutch (nl), English US (en), English UK (en_GB), Estonian (et), Farsi (fa), Finnish (fi), French (fr), French Canada (fr_CA), German (de), Greek (el), Hebrew (he), Hindi (hi), Hungarian (hu), Bahasa Indonesia (id), Italian (it), Japanese (ja), Korean (ko), Latvian (lv), Lithuanian (lt), Bahasa Melayu (ms), Norwegian (no), Polish (pl), Portuguese (pt), Portuguese Brazil (pt_BR), Romanian (ro), Russian (ru), Serbian (sr), Slovak (sk), Slovenian (sl), Spanish (es),Spanish Latin America (es_MX), Swedish (sv), Thai (th), Turkish (tr), Ukrainian (uk) and Vietnamese (vi). Additionally, the value can be set to "browser" to automatically detect the browser language being used by the viewer and display the disclosure in that language.
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* langCode_query (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * langCode **required** `string`: The simple type enumeration the language used in the response. The supported languages, with the language value shown in parenthesis, are:Arabic (ar), Bulgarian (bg), Czech (cs), Chinese Simplified (zh_CN), Chinese Traditional (zh_TW), Croatian (hr), Danish (da), Dutch (nl), English US (en), English UK (en_GB), Estonian (et), Farsi (fa), Finnish (fi), French (fr), French Canada (fr_CA), German (de), Greek (el), Hebrew (he), Hindi (hi), Hungarian (hu), Bahasa Indonesia (id), Italian (it), Japanese (ja), Korean (ko), Latvian (lv), Lithuanian (lt), Bahasa Melayu (ms), Norwegian (no), Polish (pl), Portuguese (pt), Portuguese Brazil (pt_BR), Romanian (ro), Russian (ru), Serbian (sr), Slovak (sk), Slovenian (sl), Spanish (es),Spanish Latin America (es_MX), Swedish (sv), Thai (th), Turkish (tr), Ukrainian (uk) and Vietnamese (vi). Additionally, the value can be set to "browser" to automatically detect the browser language being used by the viewer and display the disclosure in that language.
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * langCode_query `string`
+
+#### Output
+* output [EnvelopeConsumerDisclosures](#envelopeconsumerdisclosures)
 
 ### Recipients_GetRecipientDocumentVisibility
 Returns document visibility for the recipients
@@ -3073,10 +3550,14 @@ docusign.Recipients_GetRecipientDocumentVisibility({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+
+#### Output
+* output [EnvelopeDocumentVisibility](#envelopedocumentvisibility)
 
 ### Recipients_PutRecipientDocumentVisibility
 Updates document visibility for the recipients
@@ -3090,11 +3571,15 @@ docusign.Recipients_PutRecipientDocumentVisibility({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* EnvelopeDocumentVisibility (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * EnvelopeDocumentVisibility [EnvelopeDocumentVisibility](#envelopedocumentvisibility)
+
+#### Output
+* output [EnvelopeDocumentVisibility](#envelopedocumentvisibility)
 
 ### Recipients_GetRecipientInitialsImage
 Retrieves the initials image for the specified user. The image is returned in the same format as it was uploaded. In the request you can specify if the chrome (the added line and identifier around the initial image) is returned with the image.
@@ -3116,11 +3601,15 @@ docusign.Recipients_GetRecipientInitialsImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* include_chrome (string) - The added line and identifier around the initial image. Note: Older envelopes might only have chromed images. If getting the non-chromed image fails, try getting the chromed image.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * include_chrome `string`: The added line and identifier around the initial image. Note: Older envelopes might only have chromed images. If getting the non-chromed image fails, try getting the chromed image.
+
+#### Output
+* output `file`
 
 ### Recipients_PutRecipientInitialsImage
 Updates the initials image for a signer that does not have a DocuSign account. The supported image formats for this file are: gif, png, jpeg, and bmp. The file size must be less than 200K.
@@ -3136,10 +3625,14 @@ docusign.Recipients_PutRecipientInitialsImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+
+#### Output
+*Output schema unknown*
 
 ### Recipients_GetRecipientSignature
 Retrieves signature information for a signer or sign-in-person recipient.
@@ -3153,10 +3646,14 @@ docusign.Recipients_GetRecipientSignature({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+
+#### Output
+* output [UserSignatures](#usersignatures)
 
 ### Recipients_GetRecipientSignatureImage
 Retrieves the specified user signature image. The image is returned in the same format as uploaded. In the request you can specify if the chrome (the added line and identifier around the initial image) is returned with the image.
@@ -3178,11 +3675,15 @@ docusign.Recipients_GetRecipientSignatureImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* include_chrome (string) - When set to **true**, indicates the chromed version of the signature image should be retrieved.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * include_chrome `string`: When set to **true**, indicates the chromed version of the signature image should be retrieved.
+
+#### Output
+* output `file`
 
 ### Recipients_PutRecipientSignatureImage
 Updates the signature image for an accountless signer. The supported image formats for this file are: gif, png, jpeg, and bmp. The file size must be less than 200K.
@@ -3198,10 +3699,14 @@ docusign.Recipients_PutRecipientSignatureImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+
+#### Output
+*Output schema unknown*
 
 ### Recipients_DeleteRecipientTabs
 Deletes one or more tabs associated with a recipient in a draft envelope.
@@ -3215,11 +3720,15 @@ docusign.Recipients_DeleteRecipientTabs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* EnvelopeRecipientTabs (object) - Envelope tabs
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * EnvelopeRecipientTabs [EnvelopeRecipientTabs](#enveloperecipienttabs)
+
+#### Output
+* output [EnvelopeRecipientTabs](#enveloperecipienttabs)
 
 ### Recipients_GetRecipientTabs
 Retrieves information about the tabs associated with a recipient in a draft envelope.
@@ -3233,12 +3742,16 @@ docusign.Recipients_GetRecipientTabs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* include_anchor_tab_locations (string) - When set to **true**, all tabs with anchor tab properties are included in the response. 
-* include_metadata (string) - Reserved for DocuSign.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * include_anchor_tab_locations `string`: When set to **true**, all tabs with anchor tab properties are included in the response. 
+  * include_metadata `string`: Reserved for DocuSign.
+
+#### Output
+* output [EnvelopeRecipientTabs](#enveloperecipienttabs)
 
 ### Recipients_PostRecipientTabs
 Adds one or more tabs for a recipient.
@@ -3252,11 +3765,15 @@ docusign.Recipients_PostRecipientTabs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* EnvelopeRecipientTabs (object) - Envelope tabs
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * EnvelopeRecipientTabs [EnvelopeRecipientTabs](#enveloperecipienttabs)
+
+#### Output
+* output [EnvelopeRecipientTabs](#enveloperecipienttabs)
 
 ### Recipients_PutRecipientTabs
 Updates one or more tabs for a recipient in a draft envelope.
@@ -3270,11 +3787,15 @@ docusign.Recipients_PutRecipientTabs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* EnvelopeRecipientTabs (object) - Envelope tabs
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * EnvelopeRecipientTabs [EnvelopeRecipientTabs](#enveloperecipienttabs)
+
+#### Output
+* output [EnvelopeRecipientTabs](#enveloperecipienttabs)
 
 ### Templates_GetEnvelopeTemplates
 This returns a list of the server-side templates, their name and ID, used in an envelope.
@@ -3288,10 +3809,14 @@ docusign.Templates_GetEnvelopeTemplates({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* include (string) - The possible values are:  matching_applied - This returns template matching information for the template.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * include `string`: The possible values are:  matching_applied - This returns template matching information for the template.
+
+#### Output
+* output [EnvelopeTemplates](#envelopetemplates)
 
 ### Templates_PostEnvelopeTemplates
 Adds templates to the specified envelope.
@@ -3304,10 +3829,14 @@ docusign.Templates_PostEnvelopeTemplates({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* documentTemplateList (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * documentTemplateList [documentTemplateList](#documenttemplatelist)
+
+#### Output
+* output [documentTemplateList](#documenttemplatelist)
 
 ### Views_PostEnvelopeCorrectView
 Returns a URL that allows you to embed the envelope correction view of the DocuSign UI in your applications.
@@ -3322,10 +3851,14 @@ docusign.Views_PostEnvelopeCorrectView({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* correctViewRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * correctViewRequest [correctViewRequest](#correctviewrequest)
+
+#### Output
+* output [EnvelopeViews](#envelopeviews)
 
 ### Views_PostEnvelopeEditView
 Returns a URL that allows you to embed the edit view of the DocuSign UI in your applications. This is a one-time use login token that allows the user to be placed into the DocuSign editing view. 
@@ -3342,10 +3875,14 @@ docusign.Views_PostEnvelopeEditView({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* returnUrlRequest (object) - The request body for the EnvelopeViews: createSender method.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * returnUrlRequest [returnUrlRequest](#returnurlrequest)
+
+#### Output
+* output [EnvelopeViews](#envelopeviews)
 
 ### Views_PostEnvelopeRecipientView
 Returns a URL that enables you to embed the recipient view of the DocuSign UI in your applications. If the recipient is a signer, then the view will provide the signing ceremony.
@@ -3377,10 +3914,14 @@ docusign.Views_PostEnvelopeRecipientView({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* recipientViewRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * recipientViewRequest [recipientViewRequest](#recipientviewrequest)
+
+#### Output
+* output [EnvelopeViews](#envelopeviews)
 
 ### Views_PostEnvelopeSenderView
 Returns a URL that enables you to embed the sender view of the DocuSign UI in your applications. 
@@ -3408,10 +3949,14 @@ docusign.Views_PostEnvelopeSenderView({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* envelopeId (string) **required** - The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
-* returnUrlRequest (object) - The request body for the EnvelopeViews: createSender method.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * envelopeId **required** `string`: The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec 
+  * returnUrlRequest [returnUrlRequest](#returnurlrequest)
+
+#### Output
+* output [EnvelopeViews](#envelopeviews)
 
 ### Folders_GetFolders
 Retrieves a list of the folders for the account, including the folder hierarchy. You can specify whether to return just the template folder or template folder and normal folders by setting the `template` query string parameter.
@@ -3423,13 +3968,17 @@ docusign.Folders_GetFolders({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* include (string) - Reserved for DocuSign.
-* include_items (string)
-* start_position (string) - Reserved for DocuSign.
-* template (string) - Specifies the items that are returned. Valid values are: 
-* user_filter (string) - Reserved for DocuSign.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * include `string`: Reserved for DocuSign.
+  * include_items `string`
+  * start_position `string`: Reserved for DocuSign.
+  * template `string`: Specifies the items that are returned. Valid values are: 
+  * user_filter `string`: Reserved for DocuSign.
+
+#### Output
+* output [Folders](#folders)
 
 ### Folders_GetFolderItems
 Retrieves a list of the envelopes in the specified folder. You can narrow the query by specifying search criteria in the query string parameters.
@@ -3442,17 +3991,21 @@ docusign.Folders_GetFolderItems({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* folderId (string) **required** - The ID of the folder being accessed.
-* from_date (string) -  Only return items on or after this date. If no value is provided, the default search is the previous 30 days. 
-* include_items (string)
-* owner_email (string) -  The email of the folder owner. 
-* owner_name (string) -  The name of the folder owner. 
-* search_text (string) -  The search text used to search the items of the envelope. The search looks at recipient names and emails, envelope custom fields, sender name, and subject. 
-* start_position (string) - The position of the folder items to return. This is used for repeated calls, when the number of envelopes returned is too much for one return (calls return 100 envelopes at a time). The default value is 0.
-* status (string) - The current status of the envelope. If no value is provided, the default search is all/any status.
-* to_date (string) - Only return items up to this date. If no value is provided, the default search is to the current date.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * folderId **required** `string`: The ID of the folder being accessed.
+  * from_date `string`:  Only return items on or after this date. If no value is provided, the default search is the previous 30 days. 
+  * include_items `string`
+  * owner_email `string`:  The email of the folder owner. 
+  * owner_name `string`:  The name of the folder owner. 
+  * search_text `string`:  The search text used to search the items of the envelope. The search looks at recipient names and emails, envelope custom fields, sender name, and subject. 
+  * start_position `string`: The position of the folder items to return. This is used for repeated calls, when the number of envelopes returned is too much for one return (calls return 100 envelopes at a time). The default value is 0.
+  * status `string`: The current status of the envelope. If no value is provided, the default search is all/any status.
+  * to_date `string`: Only return items up to this date. If no value is provided, the default search is to the current date.
+
+#### Output
+* output [folderItemsResponse](#folderitemsresponse)
 
 ### Folders_PutFolderById
 Moves an envelope from its current folder to the specified folder.
@@ -3467,10 +4020,14 @@ docusign.Folders_PutFolderById({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* folderId (string) **required** - The ID of the folder being accessed.
-* foldersRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * folderId **required** `string`: The ID of the folder being accessed.
+  * foldersRequest [foldersRequest](#foldersrequest)
+
+#### Output
+* output [Folders](#folders)
 
 ### Groups_DeleteGroups
 Deletes an existing user group.
@@ -3482,9 +4039,13 @@ docusign.Groups_DeleteGroups({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* Groups (object) - Group information
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * Groups [Groups](#groups)
+
+#### Output
+* output [Groups](#groups)
 
 ### Groups_GetGroups
 Retrieves information about groups associated with the account.
@@ -3496,13 +4057,17 @@ docusign.Groups_GetGroups({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* count (string) - Number of records to return. The number must be greater than 1 and less than or equal to 100.
-* group_name (string) - Filters the groups returned by the group name or a sub-string of group name.
-* group_type (string)
-* search_text (string)
-* start_position (string) - Starting value for the list.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * count `string`: Number of records to return. The number must be greater than 1 and less than or equal to 100.
+  * group_name `string`: Filters the groups returned by the group name or a sub-string of group name.
+  * group_type `string`
+  * search_text `string`
+  * start_position `string`: Starting value for the list.
+
+#### Output
+* output [Groups](#groups)
 
 ### Groups_PostGroups
 Creates one or more groups for the account.
@@ -3516,9 +4081,13 @@ docusign.Groups_PostGroups({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* Groups (object) - Group information
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * Groups [Groups](#groups)
+
+#### Output
+* output [Groups](#groups)
 
 ### Groups_PutGroups
 Updates the group name and modifies, or sets, the permission profile for the group.
@@ -3530,9 +4099,13 @@ docusign.Groups_PutGroups({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* Groups (object) - Group information
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * Groups [Groups](#groups)
+
+#### Output
+* output [Groups](#groups)
 
 ### Brands_DeleteGroupBrands
 Deletes brand information from the requested group.
@@ -3545,10 +4118,14 @@ docusign.Brands_DeleteGroupBrands({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* groupId (string) **required** - The ID of the group being accessed.
-* brandsRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * groupId **required** `string`: The ID of the group being accessed.
+  * brandsRequest [brandsRequest](#brandsrequest)
+
+#### Output
+* output [GroupBrands](#groupbrands)
 
 ### Brands_GetGroupBrands
 Retrieves information about the brands associated with the requested group.
@@ -3561,9 +4138,13 @@ docusign.Brands_GetGroupBrands({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* groupId (string) **required** - The ID of the group being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * groupId **required** `string`: The ID of the group being accessed.
+
+#### Output
+* output [GroupBrands](#groupbrands)
 
 ### Brands_PutGroupBrands
 Adds group brand ID information to a group.
@@ -3576,10 +4157,14 @@ docusign.Brands_PutGroupBrands({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* groupId (string) **required** - The ID of the group being accessed.
-* brandsRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * groupId **required** `string`: The ID of the group being accessed.
+  * brandsRequest [brandsRequest](#brandsrequest)
+
+#### Output
+* output [GroupBrands](#groupbrands)
 
 ### Groups_DeleteGroupUsers
 Deletes one or more users from a group.
@@ -3593,10 +4178,14 @@ docusign.Groups_DeleteGroupUsers({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* groupId (string) **required** - The ID of the group being accessed.
-* userInfoList (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * groupId **required** `string`: The ID of the group being accessed.
+  * userInfoList [userInfoList](#userinfolist)
+
+#### Output
+* output [GroupUsers](#groupusers)
 
 ### Groups_GetGroupUsers
 Retrieves a list of users in a group.
@@ -3609,11 +4198,15 @@ docusign.Groups_GetGroupUsers({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* groupId (string) **required** - The ID of the group being accessed.
-* count (string) - Number of records to return. The number must be greater than 1 and less than or equal to 100. 
-* start_position (string) - Starting value for the list.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * groupId **required** `string`: The ID of the group being accessed.
+  * count `string`: Number of records to return. The number must be greater than 1 and less than or equal to 100. 
+  * start_position `string`: Starting value for the list.
+
+#### Output
+* output [GroupUsers](#groupusers)
 
 ### Groups_PutGroupUsers
 Adds one or more users to an existing group.
@@ -3626,10 +4219,14 @@ docusign.Groups_PutGroupUsers({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* groupId (string) **required** - The ID of the group being accessed.
-* userInfoList (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * groupId **required** `string`: The ID of the group being accessed.
+  * userInfoList [userInfoList](#userinfolist)
+
+#### Output
+* output [GroupUsers](#groupusers)
 
 ### PaymentGatewayAccounts_GetAllPaymentGatewayAccounts
 List payment gateway account information
@@ -3641,8 +4238,12 @@ docusign.PaymentGatewayAccounts_GetAllPaymentGatewayAccounts({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [paymentGatewayAccountsInfo](#paymentgatewayaccountsinfo)
 
 ### PermissionProfiles_GetPermissionProfiles
 Retrieves a list of Permission Profiles. Permission Profiles are a standard set of user permissions that you can apply to individual users or users in a Group. This makes it easier to manage user permissions for a large number of users, without having to change permissions on a user-by-user basis.
@@ -3656,9 +4257,13 @@ docusign.PermissionProfiles_GetPermissionProfiles({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* include (string) - Reserved for DocuSign.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * include `string`: Reserved for DocuSign.
+
+#### Output
+* output [permissionProfileInformation](#permissionprofileinformation)
 
 ### PermissionProfiles_PostPermissionProfiles
 Creates a new permission profile in the specified account.
@@ -3670,10 +4275,14 @@ docusign.PermissionProfiles_PostPermissionProfiles({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* include (string) - A comma-separated list of additional template attributes to include in the response. Valid values are: recipients, folders, documents, custom_fields, and notifications.
-* AccountPermissionProfiles (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * include `string`: A comma-separated list of additional template attributes to include in the response. Valid values are: recipients, folders, documents, custom_fields, and notifications.
+  * AccountPermissionProfiles [AccountPermissionProfiles](#accountpermissionprofiles)
+
+#### Output
+* output [AccountPermissionProfiles](#accountpermissionprofiles)
 
 ### PermissionProfiles_DeletePermissionProfiles
 Deletes a permissions profile within the specified account.
@@ -3686,9 +4295,13 @@ docusign.PermissionProfiles_DeletePermissionProfiles({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* permissionProfileId (string) **required**
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * permissionProfileId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### PermissionProfiles_GetPermissionProfile
 Returns a permissions profile in the specified account.
@@ -3701,10 +4314,14 @@ docusign.PermissionProfiles_GetPermissionProfile({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* permissionProfileId (string) **required**
-* include (string) - A comma-separated list of additional template attributes to include in the response. Valid values are: recipients, folders, documents, custom_fields, and notifications.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * permissionProfileId **required** `string`
+  * include `string`: A comma-separated list of additional template attributes to include in the response. Valid values are: recipients, folders, documents, custom_fields, and notifications.
+
+#### Output
+* output [AccountPermissionProfiles](#accountpermissionprofiles)
 
 ### PermissionProfiles_PutPermissionProfiles
 Updates a permission profile within the specified account.
@@ -3717,11 +4334,15 @@ docusign.PermissionProfiles_PutPermissionProfiles({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* permissionProfileId (string) **required**
-* include (string) - A comma-separated list of additional template attributes to include in the response. Valid values are: recipients, folders, documents, custom_fields, and notifications.
-* AccountPermissionProfiles (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * permissionProfileId **required** `string`
+  * include `string`: A comma-separated list of additional template attributes to include in the response. Valid values are: recipients, folders, documents, custom_fields, and notifications.
+  * AccountPermissionProfiles [AccountPermissionProfiles](#accountpermissionprofiles)
+
+#### Output
+* output [AccountPermissionProfiles](#accountpermissionprofiles)
 
 ### PowerForms_DeletePowerFormsList
 Deletes one or more PowerForms
@@ -3733,9 +4354,13 @@ docusign.PowerForms_DeletePowerFormsList({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* powerFormsRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * powerFormsRequest [powerFormsRequest](#powerformsrequest)
+
+#### Output
+* output [powerFormsResponse](#powerformsresponse)
 
 ### PowerForms_GetPowerFormsList
 Returns the list of PowerForms available to the user.
@@ -3747,12 +4372,16 @@ docusign.PowerForms_GetPowerFormsList({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* from_date (string) - Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created.
-* order (string) - An optional value that sets the direction order used to sort the item list. 
-* order_by (string) - An optional value that sets the file attribute used to sort the item list. 
-* to_date (string) - End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * from_date `string`: Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created.
+  * order `string`: An optional value that sets the direction order used to sort the item list. 
+  * order_by `string`: An optional value that sets the file attribute used to sort the item list. 
+  * to_date `string`: End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date.
+
+#### Output
+* output [powerFormsResponse](#powerformsresponse)
 
 ### PowerForms_PostPowerForm
 Creates a new PowerForm.
@@ -3764,9 +4393,13 @@ docusign.PowerForms_PostPowerForm({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* PowerForms (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * PowerForms [PowerForms](#powerforms)
+
+#### Output
+* output [PowerForms](#powerforms)
 
 ### PowerForms_GetPowerFormsSenders
 Returns the list of PowerForms available to the user.
@@ -3778,9 +4411,13 @@ docusign.PowerForms_GetPowerFormsSenders({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* start_position (string) - The position within the total result set from which to start returning values. The value **thumbnail** may be used to return the page image.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * start_position `string`: The position within the total result set from which to start returning values. The value **thumbnail** may be used to return the page image.
+
+#### Output
+* output [powerFormSendersResponse](#powerformsendersresponse)
 
 ### PowerForms_DeletePowerForm
 Delete a PowerForm.
@@ -3793,9 +4430,13 @@ docusign.PowerForms_DeletePowerForm({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* powerFormId (string) **required**
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * powerFormId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### PowerForms_GetPowerForm
 Returns a single PowerForm.
@@ -3808,9 +4449,13 @@ docusign.PowerForms_GetPowerForm({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* powerFormId (string) **required**
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * powerFormId **required** `string`
+
+#### Output
+* output [PowerForms](#powerforms)
 
 ### PowerForms_PutPowerForm
 Creates a new PowerForm.
@@ -3823,10 +4468,14 @@ docusign.PowerForms_PutPowerForm({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* powerFormId (string) **required**
-* PowerForms (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * powerFormId **required** `string`
+  * PowerForms [PowerForms](#powerforms)
+
+#### Output
+* output [PowerForms](#powerforms)
 
 ### PowerForms_GetPowerFormFormData
 Returns the form data associated with the usage of a PowerForm.
@@ -3839,11 +4488,15 @@ docusign.PowerForms_GetPowerFormFormData({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* powerFormId (string) **required**
-* from_date (string) - Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created.
-* to_date (string) - End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * powerFormId **required** `string`
+  * from_date `string`: Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created.
+  * to_date `string`: End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date.
+
+#### Output
+* output [powerFormsFormDataResponse](#powerformsformdataresponse)
 
 ### RecipientNames_GetRecipientNames
 Retrieves a list of recipients in the specified account that are associated with a email address supplied in the query string.
@@ -3855,9 +4508,13 @@ docusign.RecipientNames_GetRecipientNames({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* email (string) - The email address for the user
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * email `string`: The email address for the user
+
+#### Output
+* output [recipientNamesResponse](#recipientnamesresponse)
 
 ### SearchFolders_GetSearchFolderContents
 Retrieves a list of envelopes that match the criteria specified in the query.
@@ -3872,17 +4529,21 @@ docusign.SearchFolders_GetSearchFolderContents({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* searchFolderId (string) **required** - Specifies the envelope group that is searched by the request. These are logical groupings, not actual folder names. Valid values are: drafts, awaiting_my_signature, completed, out_for_signature.
-* all (string) - Specifies that all envelopes that match the criteria are returned.
-* count (string) - Specifies the number of records returned in the cache. The number must be greater than 0 and less than or equal to 100.
-* from_date (string) - Specifies the start of the date range to return. If no value is provided, the default search is the previous 30 days.
-* include_recipients (string) - When set to **true**, the recipient information is returned in the response.
-* order (string) - Specifies the order in which the list is returned. Valid values are: `asc` for ascending order, and `desc` for descending order.
-* order_by (string) - Specifies the property used to sort the list. Valid values are: `action_required`, `created`, `completed`, `sent`, `signer_list`, `status`, or `subject`.
-* start_position (string) - Specifies the the starting location in the result set of the items that are returned.
-* to_date (string) - Specifies the end of the date range to return.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * searchFolderId **required** `string`: Specifies the envelope group that is searched by the request. These are logical groupings, not actual folder names. Valid values are: drafts, awaiting_my_signature, completed, out_for_signature.
+  * all `string`: Specifies that all envelopes that match the criteria are returned.
+  * count `string`: Specifies the number of records returned in the cache. The number must be greater than 0 and less than or equal to 100.
+  * from_date `string`: Specifies the start of the date range to return. If no value is provided, the default search is the previous 30 days.
+  * include_recipients `string`: When set to **true**, the recipient information is returned in the response.
+  * order `string`: Specifies the order in which the list is returned. Valid values are: `asc` for ascending order, and `desc` for descending order.
+  * order_by `string`: Specifies the property used to sort the list. Valid values are: `action_required`, `created`, `completed`, `sent`, `signer_list`, `status`, or `subject`.
+  * start_position `string`: Specifies the the starting location in the result set of the items that are returned.
+  * to_date `string`: Specifies the end of the date range to return.
+
+#### Output
+* output [folderItemResponse](#folderitemresponse)
 
 ### Settings_GetSettings
 Retrieves the account settings information for the specified account.
@@ -3894,8 +4555,12 @@ docusign.Settings_GetSettings({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [accountSettingsInformation](#accountsettingsinformation)
 
 ### Settings_PutSettings
 Updates the account settings for the specified account.
@@ -3907,9 +4572,13 @@ docusign.Settings_PutSettings({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* accountSettingsInformation (object) - Contains account settings information.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * accountSettingsInformation [accountSettingsInformation](#accountsettingsinformation)
+
+#### Output
+*Output schema unknown*
 
 ### ENoteConfiguration_DeleteENoteConfiguration
 Deletes configuration information for the eNote eOriginal integration.
@@ -3921,8 +4590,12 @@ docusign.ENoteConfiguration_DeleteENoteConfiguration({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+*Output schema unknown*
 
 ### ENoteConfiguration_GetENoteConfiguration
 Returns the configuration information for the eNote eOriginal integration.
@@ -3934,8 +4607,12 @@ docusign.ENoteConfiguration_GetENoteConfiguration({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [ENoteConfigurations](#enoteconfigurations)
 
 ### ENoteConfiguration_PutENoteConfiguration
 Updates configuration information for the eNote eOriginal integration.
@@ -3947,9 +4624,13 @@ docusign.ENoteConfiguration_PutENoteConfiguration({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* ENoteConfigurations (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * ENoteConfigurations [ENoteConfigurations](#enoteconfigurations)
+
+#### Output
+* output [ENoteConfigurations](#enoteconfigurations)
 
 ### AccountPasswordRules_GetAccountPasswordRules
 Get the password rules
@@ -3961,8 +4642,12 @@ docusign.AccountPasswordRules_GetAccountPasswordRules({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [AccountPasswordRules](#accountpasswordrules)
 
 ### AccountPasswordRules_PutAccountPasswordRules
 Update the password rules
@@ -3974,9 +4659,13 @@ docusign.AccountPasswordRules_PutAccountPasswordRules({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* AccountPasswordRules (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * AccountPasswordRules [AccountPasswordRules](#accountpasswordrules)
+
+#### Output
+* output [AccountPasswordRules](#accountpasswordrules)
 
 ### TabSettings_GetTabSettings
 Returns tab settings list for specified account
@@ -3988,8 +4677,12 @@ docusign.TabSettings_GetTabSettings({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [AccountTabSettings](#accounttabsettings)
 
 ### TabSettings_PutSettings
 Modifies tab settings for specified account
@@ -4001,9 +4694,13 @@ docusign.TabSettings_PutSettings({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* AccountTabSettings (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * AccountTabSettings [AccountTabSettings](#accounttabsettings)
+
+#### Output
+* output [AccountTabSettings](#accounttabsettings)
 
 ### SharedAccess_GetSharedAccess
 Reserved: Retrieves shared item status for one or more users and types of items.
@@ -4017,16 +4714,20 @@ docusign.SharedAccess_GetSharedAccess({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* count (string) - Specifies maximum number of results included in the response. If no value is specified, this defaults to 1000.
-* envelopes_not_shared_user_status (string)
-* folder_ids (string) - A comma separated list of folder ID GUIDs.
-* item_type (string) - Reserved:
-* search_text (string) - This can be used to filter user names in the response. The wild-card '*' (asterisk) can be used around the string.
-* shared (string) - Reserved:
-* start_position (string) - Reserved:
-* user_ids (string) - Reserved:
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * count `string`: Specifies maximum number of results included in the response. If no value is specified, this defaults to 1000.
+  * envelopes_not_shared_user_status `string`
+  * folder_ids `string`: A comma separated list of folder ID GUIDs.
+  * item_type `string`: Reserved:
+  * search_text `string`: This can be used to filter user names in the response. The wild-card '*' (asterisk) can be used around the string.
+  * shared `string`: Reserved:
+  * start_position `string`: Reserved:
+  * user_ids `string`: Reserved:
+
+#### Output
+* output [accountSharedAccess](#accountsharedaccess)
 
 ### SharedAccess_PutSharedAccess
 Reserved: Sets the shared access information for one or more users.
@@ -4038,11 +4739,15 @@ docusign.SharedAccess_PutSharedAccess({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* item_type (string)
-* user_ids (string)
-* accountSharedAccess (object) - Contains shared access information.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * item_type `string`
+  * user_ids `string`
+  * accountSharedAccess [accountSharedAccess](#accountsharedaccess)
+
+#### Output
+* output [accountSharedAccess](#accountsharedaccess)
 
 ### AccountSignatureProviders_GetSignatureProviders
 Returns Account available signature providers for specified account.
@@ -4054,8 +4759,12 @@ docusign.AccountSignatureProviders_GetSignatureProviders({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [AccountSignatureProviders](#accountsignatureproviders)
 
 ### SigningGroups_DeleteSigningGroups
 Deletes one or more signing groups in the specified account.
@@ -4067,9 +4776,13 @@ docusign.SigningGroups_DeleteSigningGroups({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* signingGroupInformation (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * signingGroupInformation [signingGroupInformation](#signinggroupinformation)
+
+#### Output
+* output [signingGroupInformation](#signinggroupinformation)
 
 ### SigningGroups_GetSigningGroups
 Retrieves a list of all signing groups in the specified account.
@@ -4081,10 +4794,14 @@ docusign.SigningGroups_GetSigningGroups({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* group_type (string)
-* include_users (string) - When set to **true**, the response includes the signing group members. 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * group_type `string`
+  * include_users `string`: When set to **true**, the response includes the signing group members. 
+
+#### Output
+* output [signingGroupInformation](#signinggroupinformation)
 
 ### SigningGroups_PostSigningGroups
 Creates one or more signing groups. 
@@ -4102,9 +4819,13 @@ docusign.SigningGroups_PostSigningGroups({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* signingGroupInformation (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * signingGroupInformation [signingGroupInformation](#signinggroupinformation)
+
+#### Output
+* output [signingGroupInformation](#signinggroupinformation)
 
 ### SigningGroups_PutSigningGroups
 Updates the name of one or more existing signing groups. 
@@ -4116,9 +4837,13 @@ docusign.SigningGroups_PutSigningGroups({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* signingGroupInformation (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * signingGroupInformation [signingGroupInformation](#signinggroupinformation)
+
+#### Output
+* output [signingGroupInformation](#signinggroupinformation)
 
 ### SigningGroups_GetSigningGroup
 Retrieves information, including group member information, for the specified signing group. 
@@ -4131,9 +4856,13 @@ docusign.SigningGroups_GetSigningGroup({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* signingGroupId (string) **required**
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * signingGroupId **required** `string`
+
+#### Output
+* output [SigningGroups](#signinggroups)
 
 ### SigningGroups_PutSigningGroup
 Updates signing group name and member information. You can also add new members to the signing group. A signing group can have a maximum of 50 members. 
@@ -4146,10 +4875,14 @@ docusign.SigningGroups_PutSigningGroup({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* signingGroupId (string) **required**
-* SigningGroups (object) - Signing groups
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * signingGroupId **required** `string`
+  * SigningGroups [SigningGroups](#signinggroups)
+
+#### Output
+* output [SigningGroups](#signinggroups)
 
 ### SigningGroups_DeleteSigningGroupUsers
 Deletes  one or more members from the specified signing group. 
@@ -4162,10 +4895,14 @@ docusign.SigningGroups_DeleteSigningGroupUsers({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* signingGroupId (string) **required**
-* SigningGroupUsers (object) - Signing groups' users
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * signingGroupId **required** `string`
+  * SigningGroupUsers [SigningGroupUsers](#signinggroupusers)
+
+#### Output
+* output [SigningGroupUsers](#signinggroupusers)
 
 ### SigningGroups_GetSigningGroupUsers
 Retrieves the list of members in the specified Signing Group.
@@ -4178,9 +4915,13 @@ docusign.SigningGroups_GetSigningGroupUsers({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* signingGroupId (string) **required**
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * signingGroupId **required** `string`
+
+#### Output
+* output [SigningGroupUsers](#signinggroupusers)
 
 ### SigningGroups_PutSigningGroupUsers
 Adds one or more new members to a signing group. A signing group can have a maximum of 50 members. 
@@ -4193,10 +4934,14 @@ docusign.SigningGroups_PutSigningGroupUsers({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* signingGroupId (string) **required**
-* SigningGroupUsers (object) - Signing groups' users
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * signingGroupId **required** `string`
+  * SigningGroupUsers [SigningGroupUsers](#signinggroupusers)
+
+#### Output
+* output [SigningGroupUsers](#signinggroupusers)
 
 ### SupportedLanguages_GetSupportedLanguages
 List supported languages for the recipient language setting
@@ -4208,8 +4953,12 @@ docusign.SupportedLanguages_GetSupportedLanguages({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [supportedLanguages](#supportedlanguages)
 
 ### Tabs_GetTabDefinitions
 Retrieves a list of all tabs associated with the account.
@@ -4221,9 +4970,13 @@ docusign.Tabs_GetTabDefinitions({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* custom_tab_only (string) - When set to **true**, only custom tabs are returned in the response. 
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * custom_tab_only `string`: When set to **true**, only custom tabs are returned in the response. 
+
+#### Output
+* output [tabMetadataList](#tabmetadatalist)
 
 ### Tabs_PostTabDefinitions
 Creates a tab with pre-defined properties, such as a text tab with a certain font type and validation pattern. Users can access the custom tabs when sending documents through the DocuSign web application.
@@ -4237,9 +4990,13 @@ docusign.Tabs_PostTabDefinitions({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* CustomTabs (object) - Custom tabs
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * CustomTabs [CustomTabs](#customtabs)
+
+#### Output
+* output [CustomTabs](#customtabs)
 
 ### Tab_DeleteCustomTab
 Deletes the custom from the specified account.
@@ -4252,9 +5009,13 @@ docusign.Tab_DeleteCustomTab({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* customTabId (string) **required**
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * customTabId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### Tab_GetCustomTab
 Retrieves information about the requested custom tab on the specified account.
@@ -4267,9 +5028,13 @@ docusign.Tab_GetCustomTab({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* customTabId (string) **required**
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * customTabId **required** `string`
+
+#### Output
+* output [CustomTabs](#customtabs)
 
 ### Tab_PutCustomTab
 Updates the information in a custom tab for the specified account.
@@ -4282,10 +5047,14 @@ docusign.Tab_PutCustomTab({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* customTabId (string) **required**
-* CustomTabs (object) - Custom tabs
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * customTabId **required** `string`
+  * CustomTabs [CustomTabs](#customtabs)
+
+#### Output
+* output [CustomTabs](#customtabs)
 
 ### Templates_GetTemplates
 Retrieves the list of templates for the specified account. The request can be limited to a specific folder.
@@ -4297,25 +5066,29 @@ docusign.Templates_GetTemplates({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* count (string) - Number of records to return in the cache.
-* folder (string) - The query value can be a folder name or folder ID. The response will only return templates in the specified folder.
-* folder_ids (string) - A comma separated list of folder ID GUIDs.
-* folder_types (string)
-* from_date (string) - Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created.
-* include (string) - A comma-separated list
-* order (string) - Sets the direction order used to sort the list. Valid values are: -asc = ascending sort order (a to z)  -desc = descending sort order (z to a)
-* order_by (string) - Sets the file attribute used to sort the list. Valid values are:  -name: template name  -modified: date/time template was last modified.  -used: date/time the template was last used.
-* search_text (string) - The search text used to search the names of templates.
-* shared (string)
-* shared_by_me (string) - If true, the response only includes templates shared by the user. If false, the response only returns template not shared by the user. If not specified, the response is not affected.
-* start_position (string) - The starting index for the first template shown in the response. This must be greater than or equal to 0 (zero).
-* to_date (string) - End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date.
-* used_from_date (string) - Start of the search date range. Only returns templates used or edited on or after this date/time. If no value is specified, there is no limit on the earliest date used.
-* used_to_date (string) - End of the search date range. Only returns templates used or edited up to this date/time. If no value is provided, this defaults to the current date.
-* user_filter (string) - Sets if the templates shown in the response Valid values are:  -owned_by_me: only shows templates the user owns.  -shared_with_me: only shows templates that are shared with the user.  -all: shows all templates owned or shared with the user.
-* user_id (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * count `string`: Number of records to return in the cache.
+  * folder `string`: The query value can be a folder name or folder ID. The response will only return templates in the specified folder.
+  * folder_ids `string`: A comma separated list of folder ID GUIDs.
+  * folder_types `string`
+  * from_date `string`: Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created.
+  * include `string`: A comma-separated list
+  * order `string`: Sets the direction order used to sort the list. Valid values are: -asc = ascending sort order (a to z)  -desc = descending sort order (z to a)
+  * order_by `string`: Sets the file attribute used to sort the list. Valid values are:  -name: template name  -modified: date/time template was last modified.  -used: date/time the template was last used.
+  * search_text `string`: The search text used to search the names of templates.
+  * shared `string`
+  * shared_by_me `string`: If true, the response only includes templates shared by the user. If false, the response only returns template not shared by the user. If not specified, the response is not affected.
+  * start_position `string`: The starting index for the first template shown in the response. This must be greater than or equal to 0 (zero).
+  * to_date `string`: End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date.
+  * used_from_date `string`: Start of the search date range. Only returns templates used or edited on or after this date/time. If no value is specified, there is no limit on the earliest date used.
+  * used_to_date `string`: End of the search date range. Only returns templates used or edited up to this date/time. If no value is provided, this defaults to the current date.
+  * user_filter `string`: Sets if the templates shown in the response Valid values are:  -owned_by_me: only shows templates the user owns.  -shared_with_me: only shows templates that are shared with the user.  -all: shows all templates owned or shared with the user.
+  * user_id `string`
+
+#### Output
+* output [envelopeTemplateResults](#envelopetemplateresults)
 
 ### Templates_PostTemplates
 Creates a template definition using a multipart request.
@@ -4357,9 +5130,13 @@ docusign.Templates_PostTemplates({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* Templates (object) - Template management
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * Templates [Templates](#templates)
+
+#### Output
+* output [templateSummary](#templatesummary)
 
 ### Templates_GetTemplate
 Retrieves the definition of the specified template.
@@ -4372,10 +5149,14 @@ docusign.Templates_GetTemplate({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* include (string) - A comma-separated list of additional template attributes to include in the response. Valid values are: recipients, folders, documents, custom_fields, and notifications.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * include `string`: A comma-separated list of additional template attributes to include in the response. Valid values are: recipients, folders, documents, custom_fields, and notifications.
+
+#### Output
+* output [Templates](#templates)
 
 ### Templates_PutTemplate
 Updates an existing template.
@@ -4388,10 +5169,14 @@ docusign.Templates_PutTemplate({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* Templates (object) - Template management
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * Templates [Templates](#templates)
+
+#### Output
+* output [templateUpdateSummary](#templateupdatesummary)
 
 ### CustomFields_DeleteTemplateCustomFields
 Deletes envelope custom fields in a template.
@@ -4404,10 +5189,14 @@ docusign.CustomFields_DeleteTemplateCustomFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* templateCustomFields (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * templateCustomFields [templateCustomFields](#templatecustomfields)
+
+#### Output
+* output [TemplateCustomFields](#templatecustomfields)
 
 ### CustomFields_GetTemplateCustomFields
 Retrieves the custom document field information from an existing template.
@@ -4420,9 +5209,13 @@ docusign.CustomFields_GetTemplateCustomFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+
+#### Output
+* output [TemplateCustomFields](#templatecustomfields)
 
 ### CustomFields_PostTemplateCustomFields
 Creates custom document fields in an existing template document.
@@ -4435,10 +5228,14 @@ docusign.CustomFields_PostTemplateCustomFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* templateCustomFields (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * templateCustomFields [templateCustomFields](#templatecustomfields)
+
+#### Output
+* output [TemplateCustomFields](#templatecustomfields)
 
 ### CustomFields_PutTemplateCustomFields
 Updates the custom fields in a template.
@@ -4453,10 +5250,14 @@ docusign.CustomFields_PutTemplateCustomFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* templateCustomFields (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * templateCustomFields [templateCustomFields](#templatecustomfields)
+
+#### Output
+* output [TemplateCustomFields](#templatecustomfields)
 
 ### Documents_DeleteTemplateDocuments
 Deletes one or more documents from an existing template.
@@ -4469,10 +5270,14 @@ docusign.Documents_DeleteTemplateDocuments({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* envelopeDefinition (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * envelopeDefinition [envelopeDefinition](#envelopedefinition)
+
+#### Output
+* output [TemplateDocuments](#templatedocuments)
 
 ### Documents_GetTemplateDocuments
 Retrieves a list of documents associated with the specified template.
@@ -4485,9 +5290,13 @@ docusign.Documents_GetTemplateDocuments({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+
+#### Output
+* output [TemplateDocuments](#templatedocuments)
 
 ### Documents_PutTemplateDocuments
 Adds one or more documents to an existing template document.
@@ -4500,11 +5309,15 @@ docusign.Documents_PutTemplateDocuments({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* apply_document_fields (string) - When **true**, document fields
-* envelopeDefinition (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * apply_document_fields `string`: When **true**, document fields
+  * envelopeDefinition [envelopeDefinition](#envelopedefinition)
+
+#### Output
+* output [TemplateDocuments](#templatedocuments)
 
 ### Documents_GetTemplateDocument
 Retrieves one or more PDF documents from the specified template.
@@ -4520,12 +5333,16 @@ docusign.Documents_GetTemplateDocument({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* templateId (string) **required** - The ID of the template being accessed.
-* encrypt (string)
-* show_changes (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * encrypt `string`
+  * show_changes `string`
+
+#### Output
+* output `file`
 
 ### Documents_PutTemplateDocument
 Adds the specified document to an existing template document.
@@ -4539,13 +5356,17 @@ docusign.Documents_PutTemplateDocument({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* templateId (string) **required** - The ID of the template being accessed.
-* apply_document_fields (string) - When **true**, document fields
-* is_envelope_definition (string)
-* envelopeDefinition (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * apply_document_fields `string`: When **true**, document fields
+  * is_envelope_definition `string`
+  * envelopeDefinition [envelopeDefinition](#envelopedefinition)
+
+#### Output
+* output [envelopeDocument](#envelopedocument)
 
 ### DocumentFields_DeleteTemplateDocumentFields
 Deletes custom document fields from an existing template document.
@@ -4559,11 +5380,15 @@ docusign.DocumentFields_DeleteTemplateDocumentFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* templateId (string) **required** - The ID of the template being accessed.
-* TemplateDocumentFields (object) - Template document fields
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * TemplateDocumentFields [TemplateDocumentFields](#templatedocumentfields)
+
+#### Output
+* output [TemplateDocumentFields](#templatedocumentfields)
 
 ### DocumentFields_GetTemplateDocumentFields
 Retrieves the custom document fields for an existing template document.
@@ -4577,10 +5402,14 @@ docusign.DocumentFields_GetTemplateDocumentFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* templateId (string) **required** - The ID of the template being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * templateId **required** `string`: The ID of the template being accessed.
+
+#### Output
+* output [TemplateDocumentFields](#templatedocumentfields)
 
 ### DocumentFields_PostTemplateDocumentFields
 Creates custom document fields in an existing template document.
@@ -4594,11 +5423,15 @@ docusign.DocumentFields_PostTemplateDocumentFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* templateId (string) **required** - The ID of the template being accessed.
-* TemplateDocumentFields (object) - Template document fields
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * TemplateDocumentFields [TemplateDocumentFields](#templatedocumentfields)
+
+#### Output
+* output [TemplateDocumentFields](#templatedocumentfields)
 
 ### DocumentFields_PutTemplateDocumentFields
 Updates existing custom document fields in an existing template document.
@@ -4612,11 +5445,15 @@ docusign.DocumentFields_PutTemplateDocumentFields({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* templateId (string) **required** - The ID of the template being accessed.
-* TemplateDocumentFields (object) - Template document fields
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * TemplateDocumentFields [TemplateDocumentFields](#templatedocumentfields)
+
+#### Output
+* output [TemplateDocumentFields](#templatedocumentfields)
 
 ### Pages_GetTemplatePageImages
 Returns document page image(s) based on input.
@@ -4630,17 +5467,21 @@ docusign.Pages_GetTemplatePageImages({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* templateId (string) **required** - The ID of the template being accessed.
-* count (string) - The maximum number of results to be returned by this request.
-* dpi (string) - Number of dots per inch for the resulting image. The default if not used is 94. The range is 1-310.
-* max_height (string) - Sets the maximum height (in pixels) of the returned image.
-* max_width (string) - Sets the maximum width (in pixels) of the returned image.
-* nocache (string)
-* show_changes (string)
-* start_position (string) - The position within the total result set from which to start returning values. The value **thumbnail** may be used to return the page image.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * count `string`: The maximum number of results to be returned by this request.
+  * dpi `string`: Number of dots per inch for the resulting image. The default if not used is 94. The range is 1-310.
+  * max_height `string`: Sets the maximum height (in pixels) of the returned image.
+  * max_width `string`: Sets the maximum width (in pixels) of the returned image.
+  * nocache `string`
+  * show_changes `string`
+  * start_position `string`: The position within the total result set from which to start returning values. The value **thumbnail** may be used to return the page image.
+
+#### Output
+* output [pageImages](#pageimages)
 
 ### Pages_DeleteTemplatePage
 Deletes a page from a document in a template based on the page number.
@@ -4655,12 +5496,16 @@ docusign.Pages_DeleteTemplatePage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* pageNumber (string) **required** - The page number being accessed.
-* templateId (string) **required** - The ID of the template being accessed.
-* pageRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * pageNumber **required** `string`: The page number being accessed.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * pageRequest [pageRequest](#pagerequest)
+
+#### Output
+*Output schema unknown*
 
 ### Pages_GetTemplatePageImage
 Retrieves a page image for display from the specified template.
@@ -4675,15 +5520,19 @@ docusign.Pages_GetTemplatePageImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* pageNumber (string) **required** - The page number being accessed.
-* templateId (string) **required** - The ID of the template being accessed.
-* dpi (string) - Number of dots per inch for the resulting image. The default if not used is 94. The range is 1-310.
-* max_height (string) - Sets the maximum height (in pixels) of the returned image.
-* max_width (string) - Sets the maximum width (in pixels) of the returned image.
-* show_changes (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * pageNumber **required** `string`: The page number being accessed.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * dpi `string`: Number of dots per inch for the resulting image. The default if not used is 94. The range is 1-310.
+  * max_height `string`: Sets the maximum height (in pixels) of the returned image.
+  * max_width `string`: Sets the maximum width (in pixels) of the returned image.
+  * show_changes `string`
+
+#### Output
+* output `file`
 
 ### Pages_PutTemplatePageImage
 Rotates page image from a template for display. The page image can be rotated to the left or right.
@@ -4698,12 +5547,16 @@ docusign.Pages_PutTemplatePageImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* pageNumber (string) **required** - The page number being accessed.
-* templateId (string) **required** - The ID of the template being accessed.
-* pageRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * pageNumber **required** `string`: The page number being accessed.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * pageRequest [pageRequest](#pagerequest)
+
+#### Output
+*Output schema unknown*
 
 ### Tabs_GetTemplatePageTabs
 Returns tabs on the specified page.
@@ -4718,11 +5571,15 @@ docusign.Tabs_GetTemplatePageTabs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* pageNumber (string) **required** - The page number being accessed.
-* templateId (string) **required** - The ID of the template being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * pageNumber **required** `string`: The page number being accessed.
+  * templateId **required** `string`: The ID of the template being accessed.
+
+#### Output
+* output [TemplateDocumentTabs](#templatedocumenttabs)
 
 ### Tabs_GetTemplateDocumentTabs
 Returns tabs on the document.
@@ -4736,11 +5593,15 @@ docusign.Tabs_GetTemplateDocumentTabs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* documentId (string) **required** - The ID of the document being accessed.
-* templateId (string) **required** - The ID of the template being accessed.
-* page_numbers (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * documentId **required** `string`: The ID of the document being accessed.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * page_numbers `string`
+
+#### Output
+* output [TemplateDocumentTabs](#templatedocumenttabs)
 
 ### Lock_DeleteTemplateLock
 Deletes the lock from the specified template. The `X-DocuSign-Edit` header must be included in the request.
@@ -4753,10 +5614,14 @@ docusign.Lock_DeleteTemplateLock({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* lockRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * lockRequest [lockRequest](#lockrequest)
+
+#### Output
+* output [TemplateLocks](#templatelocks)
 
 ### Lock_GetTemplateLock
 Retrieves general information about the template lock.
@@ -4771,9 +5636,13 @@ docusign.Lock_GetTemplateLock({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+
+#### Output
+* output [TemplateLocks](#templatelocks)
 
 ### Lock_PostTemplateLock
 Locks the specified template, and sets the time until the lock expires, to prevent other users or recipients from accessing and changing the template.
@@ -4788,10 +5657,14 @@ docusign.Lock_PostTemplateLock({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* lockRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * lockRequest [lockRequest](#lockrequest)
+
+#### Output
+* output [TemplateLocks](#templatelocks)
 
 ### Lock_PutTemplateLock
 Updates the lock duration time or update the `lockedByApp` property information for the specified template. The user and integrator key must match the user specified by the `lockByUser` property and integrator key information and the `X-DocuSign-Edit` header must be included or an error will be generated.
@@ -4804,10 +5677,14 @@ docusign.Lock_PutTemplateLock({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* lockRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * lockRequest [lockRequest](#lockrequest)
+
+#### Output
+* output [TemplateLocks](#templatelocks)
 
 ### Notification_GetTemplatesTemplateIdNotification
 Retrieves the envelope notification, reminders and expirations, information for an existing template.
@@ -4820,9 +5697,13 @@ docusign.Notification_GetTemplatesTemplateIdNotification({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+
+#### Output
+* output [notification](#notification)
 
 ### Notification_PutTemplatesTemplateIdNotification
 Updates the notification structure for an existing template. Use this endpoint to set reminder and expiration notifications.
@@ -4835,10 +5716,14 @@ docusign.Notification_PutTemplatesTemplateIdNotification({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* templateNotificationRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * templateNotificationRequest [templateNotificationRequest](#templatenotificationrequest)
+
+#### Output
+* output [notification](#notification)
 
 ### Recipients_DeleteTemplateRecipients
 Deletes one or more recipients from a template. Recipients to be deleted are listed in the request, with the `recipientId` being used as the key for deleting recipients.
@@ -4851,10 +5736,14 @@ docusign.Recipients_DeleteTemplateRecipients({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* templateRecipients (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * templateRecipients [templateRecipients](#templaterecipients)
+
+#### Output
+* output [TemplateRecipients](#templaterecipients)
 
 ### Recipients_GetTemplateRecipients
 Retrieves the information for all recipients in the specified template.
@@ -4867,12 +5756,16 @@ docusign.Recipients_GetTemplateRecipients({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* include_anchor_tab_locations (string) -  When set to **true** and `include_tabs` is set to **true**, all tabs with anchor tab properties are included in the response. 
-* include_extended (string) -  When set to **true**, the extended properties are included in the response. 
-* include_tabs (string) - When set to **true**, the tab information associated with the recipient is included in the response.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * include_anchor_tab_locations `string`:  When set to **true** and `include_tabs` is set to **true**, all tabs with anchor tab properties are included in the response. 
+  * include_extended `string`:  When set to **true**, the extended properties are included in the response. 
+  * include_tabs `string`: When set to **true**, the tab information associated with the recipient is included in the response.
+
+#### Output
+* output [TemplateRecipients](#templaterecipients)
 
 ### Recipients_PostTemplateRecipients
 Adds one or more recipients to a template.
@@ -4885,11 +5778,15 @@ docusign.Recipients_PostTemplateRecipients({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* resend_envelope (string) - When set to **true**, resends the   envelope if the new recipient's routing order is before or the same as the envelope's next recipient.
-* templateRecipients (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * resend_envelope `string`: When set to **true**, resends the   envelope if the new recipient's routing order is before or the same as the envelope's next recipient.
+  * templateRecipients [templateRecipients](#templaterecipients)
+
+#### Output
+* output [TemplateRecipients](#templaterecipients)
 
 ### Recipients_PutTemplateRecipients
 Updates recipients in a template. 
@@ -4904,11 +5801,15 @@ docusign.Recipients_PutTemplateRecipients({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* resend_envelope (string) - When set to **true**, resends the   envelope if the new recipient's routing order is before or the same as the envelope's next recipient.
-* templateRecipients (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * resend_envelope `string`: When set to **true**, resends the   envelope if the new recipient's routing order is before or the same as the envelope's next recipient.
+  * templateRecipients [templateRecipients](#templaterecipients)
+
+#### Output
+* output [recipientsUpdateSummary](#recipientsupdatesummary)
 
 ### Recipients_PutTemplateRecipientsDocumentVisibility
 Updates document visibility for the recipients
@@ -4921,10 +5822,14 @@ docusign.Recipients_PutTemplateRecipientsDocumentVisibility({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* TemplateDocumentVisibility (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * TemplateDocumentVisibility [TemplateDocumentVisibility](#templatedocumentvisibility)
+
+#### Output
+* output [TemplateDocumentVisibility](#templatedocumentvisibility)
 
 ### Recipients_DeleteTemplateRecipient
 Deletes the specified recipient file from the specified template.
@@ -4938,11 +5843,15 @@ docusign.Recipients_DeleteTemplateRecipient({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* templateId (string) **required** - The ID of the template being accessed.
-* templateRecipients (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * templateRecipients [templateRecipients](#templaterecipients)
+
+#### Output
+* output [TemplateRecipients](#templaterecipients)
 
 ### Recipients_DeleteTemplateBulkRecipientsFile
 Deletes the bulk recipient list on a template.
@@ -4956,10 +5865,14 @@ docusign.Recipients_DeleteTemplateBulkRecipientsFile({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* templateId (string) **required** - The ID of the template being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * templateId **required** `string`: The ID of the template being accessed.
+
+#### Output
+* output [bulkRecipientsUpdateResponse](#bulkrecipientsupdateresponse)
 
 ### Recipients_GetTemplateBulkRecipients
 Retrieves the bulk recipient file information from a template that has a bulk recipient.
@@ -4973,12 +5886,16 @@ docusign.Recipients_GetTemplateBulkRecipients({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* templateId (string) **required** - The ID of the template being accessed.
-* include_tabs (string) - When set to **true**, the tab information associated with the recipient is included in the response.
-* start_position (string) - Reserved for DocuSign.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * include_tabs `string`: When set to **true**, the tab information associated with the recipient is included in the response.
+  * start_position `string`: Reserved for DocuSign.
+
+#### Output
+* output [TemplateBulkRecipients](#templatebulkrecipients)
 
 ### Recipients_PutTemplateBulkRecipients
 Updates the bulk recipients in a template using a file upload. The Content-Type supported for uploading a bulk recipient file is CSV (text/csv).
@@ -4994,11 +5911,15 @@ docusign.Recipients_PutTemplateBulkRecipients({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* templateId (string) **required** - The ID of the template being accessed.
-* bulkRecipientsRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * bulkRecipientsRequest [bulkRecipientsRequest](#bulkrecipientsrequest)
+
+#### Output
+* output [bulkRecipientsSummaryResponse](#bulkrecipientssummaryresponse)
 
 ### Recipients_GetTemplateRecipientDocumentVisibility
 Returns document visibility for the recipients
@@ -5012,10 +5933,14 @@ docusign.Recipients_GetTemplateRecipientDocumentVisibility({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* templateId (string) **required** - The ID of the template being accessed.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * templateId **required** `string`: The ID of the template being accessed.
+
+#### Output
+* output [EnvelopeDocumentVisibility](#envelopedocumentvisibility)
 
 ### Recipients_PutTemplateRecipientDocumentVisibility
 Updates document visibility for the recipients
@@ -5029,11 +5954,15 @@ docusign.Recipients_PutTemplateRecipientDocumentVisibility({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* templateId (string) **required** - The ID of the template being accessed.
-* TemplateDocumentVisibility (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * TemplateDocumentVisibility [TemplateDocumentVisibility](#templatedocumentvisibility)
+
+#### Output
+* output [TemplateDocumentVisibility](#templatedocumentvisibility)
 
 ### Recipients_DeleteTemplateRecipientTabs
 Deletes one or more tabs associated with a recipient in a template.
@@ -5047,11 +5976,15 @@ docusign.Recipients_DeleteTemplateRecipientTabs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* templateId (string) **required** - The ID of the template being accessed.
-* templateTabs (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * templateTabs [templateTabs](#templatetabs)
+
+#### Output
+* output [TemplateRecipientTabs](#templaterecipienttabs)
 
 ### Recipients_GetTemplateRecipientTabs
 Gets the tabs information for a signer or sign-in-person recipient in a template.
@@ -5065,12 +5998,16 @@ docusign.Recipients_GetTemplateRecipientTabs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* templateId (string) **required** - The ID of the template being accessed.
-* include_anchor_tab_locations (string) - When set to **true**, all tabs with anchor tab properties are included in the response. 
-* include_metadata (string) - Reserved for DocuSign.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * include_anchor_tab_locations `string`: When set to **true**, all tabs with anchor tab properties are included in the response. 
+  * include_metadata `string`: Reserved for DocuSign.
+
+#### Output
+* output [TemplateRecipientTabs](#templaterecipienttabs)
 
 ### Recipients_PostTemplateRecipientTabs
 Adds one or more tabs for a recipient.
@@ -5084,11 +6021,15 @@ docusign.Recipients_PostTemplateRecipientTabs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* templateId (string) **required** - The ID of the template being accessed.
-* templateTabs (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * templateTabs [templateTabs](#templatetabs)
+
+#### Output
+* output [TemplateRecipientTabs](#templaterecipienttabs)
 
 ### Recipients_PutTemplateRecipientTabs
 Updates one or more tabs for a recipient in a template.
@@ -5102,11 +6043,15 @@ docusign.Recipients_PutTemplateRecipientTabs({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* recipientId (string) **required** - The `recipientId` used when the envelope or template was created.
-* templateId (string) **required** - The ID of the template being accessed.
-* templateTabs (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * recipientId **required** `string`: The `recipientId` used when the envelope or template was created.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * templateTabs [templateTabs](#templatetabs)
+
+#### Output
+* output [TemplateRecipientTabs](#templaterecipienttabs)
 
 ### Views_PostTemplateEditView
 Provides a URL to start an edit view of the Template UI
@@ -5119,10 +6064,14 @@ docusign.Views_PostTemplateEditView({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* returnUrlRequest (object) - The request body for the EnvelopeViews: createSender method.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * returnUrlRequest [returnUrlRequest](#returnurlrequest)
+
+#### Output
+* output [TemplateViews](#templateviews)
 
 ### Templates_DeleteTemplatePart
 Removes a member group's sharing permissions for a specified template.
@@ -5136,11 +6085,15 @@ docusign.Templates_DeleteTemplatePart({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* templatePart (string) **required** - Currently, the only defined part is **groups**.
-* Groups (object) - Group information
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * templatePart **required** `string`: Currently, the only defined part is **groups**.
+  * Groups [Groups](#groups)
+
+#### Output
+* output [Groups](#groups)
 
 ### Templates_PutTemplatePart
 Shares a template with the specified members group.
@@ -5154,11 +6107,15 @@ docusign.Templates_PutTemplatePart({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* templateId (string) **required** - The ID of the template being accessed.
-* templatePart (string) **required** - Currently, the only defined part is **groups**.
-* Groups (object) - Group information
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * templateId **required** `string`: The ID of the template being accessed.
+  * templatePart **required** `string`: Currently, the only defined part is **groups**.
+  * Groups [Groups](#groups)
+
+#### Output
+* output [Groups](#groups)
 
 ### UnsupportedFileTypes_GetUnsupportedFileTypes
 Retrieves a list of file types (mime-types and file-extensions) that are not supported for upload through the DocuSign system.
@@ -5170,8 +6127,12 @@ docusign.UnsupportedFileTypes_GetUnsupportedFileTypes({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [fileTypeList](#filetypelist)
 
 ### Users_DeleteUsers
 This closes one or more user records in the account. Users are never deleted from an account, but closing a user prevents them from using account functions.
@@ -5185,9 +6146,13 @@ docusign.Users_DeleteUsers({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userInfoList (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userInfoList [userInfoList](#userinfolist)
+
+#### Output
+* output [GroupUsers](#groupusers)
 
 ### Users_GetUsers
 Retrieves the list of users for the specified account.
@@ -5201,19 +6166,23 @@ docusign.Users_GetUsers({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* additional_info (string) - When set to **true**, the full list of user information is returned for each user in the account.
-* count (string) - Number of records to return. The number must be greater than 0 and less than or equal to 100. 
-* email (string)
-* email_substring (string) - Filters the returned user records by the email address or a sub-string of email address.
-* group_id (string) - Filters user records returned by one or more group Id's.
-* include_usersettings_for_csv (string)
-* login_status (string)
-* not_group_id (string)
-* start_position (string) - Starting value for the list. 
-* status (string) - Filters the results by user status.
-* user_name_substring (string) - Filters the user records returned by the user name or a sub-string of user name.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * additional_info `string`: When set to **true**, the full list of user information is returned for each user in the account.
+  * count `string`: Number of records to return. The number must be greater than 0 and less than or equal to 100. 
+  * email `string`
+  * email_substring `string`: Filters the returned user records by the email address or a sub-string of email address.
+  * group_id `string`: Filters user records returned by one or more group Id's.
+  * include_usersettings_for_csv `string`
+  * login_status `string`
+  * not_group_id `string`
+  * start_position `string`: Starting value for the list. 
+  * status `string`: Filters the results by user status.
+  * user_name_substring `string`: Filters the user records returned by the user name or a sub-string of user name.
+
+#### Output
+* output [userInformationList](#userinformationlist)
 
 ### Users_PostUsers
 Adds new users to your account. Set the `userSettings` property in the request to specify the actions the users can perform on the account.
@@ -5225,9 +6194,13 @@ docusign.Users_PostUsers({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* newUsersDefinition (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * newUsersDefinition [newUsersDefinition](#newusersdefinition)
+
+#### Output
+* output [newUsersSummary](#newuserssummary)
 
 ### Users_PutUsers
 Change one or more user in the specified account.
@@ -5239,9 +6212,13 @@ docusign.Users_PutUsers({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userInformationList (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userInformationList [userInformationList](#userinformationlist)
+
+#### Output
+* output [userInformationList](#userinformationlist)
 
 ### User_GetUser
 Retrieves the user information for the specified user. 
@@ -5256,11 +6233,15 @@ docusign.User_GetUser({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* additional_info (string) - When set to **true**, the full list of user information is returned for each user in the account.
-* email (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * additional_info `string`: When set to **true**, the full list of user information is returned for each user in the account.
+  * email `string`
+
+#### Output
+* output [Users](#users)
 
 ### User_PutUser
 Updates the specified user information.
@@ -5273,10 +6254,14 @@ docusign.User_PutUser({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* Users (object) - User management
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * Users [Users](#users)
+
+#### Output
+* output [Users](#users)
 
 ### CloudStorage_DeleteCloudStorageProviders
 Deletes the user authentication information for one or more cloud storage providers. The next time the user tries to access the cloud storage provider, they must pass normal authentication.
@@ -5289,10 +6274,14 @@ docusign.CloudStorage_DeleteCloudStorageProviders({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* CloudStorageProviders (object) - Cloud storage providers
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * CloudStorageProviders [CloudStorageProviders](#cloudstorageproviders)
+
+#### Output
+* output [CloudStorageProviders](#cloudstorageproviders)
 
 ### CloudStorage_GetCloudStorageProviders
 Retrieves the list of cloud storage providers enabled for the account and the configuration information for the user.
@@ -5306,10 +6295,14 @@ docusign.CloudStorage_GetCloudStorageProviders({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* redirectUrl (string) -  The URL the user is redirected to after the cloud storage provider authenticates the user. Using this will append the redirectUrl to the authenticationUrl.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * redirectUrl `string`:  The URL the user is redirected to after the cloud storage provider authenticates the user. Using this will append the redirectUrl to the authenticationUrl.
+
+#### Output
+* output [CloudStorageProviders](#cloudstorageproviders)
 
 ### CloudStorage_PostCloudStorage
 Configures the redirect URL information  for one or more cloud storage providers for the specified user. The redirect URL is added to the authentication URL to complete the return route.
@@ -5322,10 +6315,14 @@ docusign.CloudStorage_PostCloudStorage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* CloudStorageProviders (object) - Cloud storage providers
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * CloudStorageProviders [CloudStorageProviders](#cloudstorageproviders)
+
+#### Output
+* output [CloudStorageProviders](#cloudstorageproviders)
 
 ### CloudStorage_DeleteCloudStorage
 Deletes the user authentication information for the specified cloud storage provider. The next time the user tries to access the cloud storage provider, they must pass normal authentication for this cloud storage provider.
@@ -5339,10 +6336,14 @@ docusign.CloudStorage_DeleteCloudStorage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* serviceId (string) **required** - The ID of the service to access. 
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * serviceId **required** `string`: The ID of the service to access. 
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+#### Output
+* output [CloudStorageProviders](#cloudstorageproviders)
 
 ### CloudStorage_GetCloudStorage
 Retrieves the list of cloud storage providers enabled for the account and the configuration information for the user.
@@ -5356,11 +6357,15 @@ docusign.CloudStorage_GetCloudStorage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* serviceId (string) **required** - The ID of the service to access. 
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* redirectUrl (string) -  The URL the user is redirected to after the cloud storage provider authenticates the user. Using this will append the redirectUrl to the authenticationUrl.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * serviceId **required** `string`: The ID of the service to access. 
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * redirectUrl `string`:  The URL the user is redirected to after the cloud storage provider authenticates the user. Using this will append the redirectUrl to the authenticationUrl.
+
+#### Output
+* output [CloudStorageProviders](#cloudstorageproviders)
 
 ### CloudStorageFolder_GetCloudStorageFolderAll
 Retrieves a list of all the items in a specified folder from the specified cloud storage provider. 
@@ -5374,16 +6379,20 @@ docusign.CloudStorageFolder_GetCloudStorageFolderAll({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* serviceId (string) **required** - The ID of the service to access. 
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* cloud_storage_folder_path (string) - A comma separated list of folder IDs included in the request. 
-* count (string) - An optional value that sets how many items are included in the response. 
-* order (string) - An optional value that sets the direction order used to sort the item list. 
-* order_by (string) - An optional value that sets the file attribute used to sort the item list. 
-* search_text (string)
-* start_position (string) - Indicates the starting point of the first item included in the response set. It uses a 0-based index. The default setting for this is 0.  
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * serviceId **required** `string`: The ID of the service to access. 
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * cloud_storage_folder_path `string`: A comma separated list of folder IDs included in the request. 
+  * count `string`: An optional value that sets how many items are included in the response. 
+  * order `string`: An optional value that sets the direction order used to sort the item list. 
+  * order_by `string`: An optional value that sets the file attribute used to sort the item list. 
+  * search_text `string`
+  * start_position `string`: Indicates the starting point of the first item included in the response set. It uses a 0-based index. The default setting for this is 0.  
+
+#### Output
+* output [CloudStorage](#cloudstorage)
 
 ### CloudStorageFolder_GetCloudStorageFolder
 Retrieves a list of all the items in all  the folders associated with the user from the specified cloud storage provider. You can limit the scope of the returned items by providing a comma separated list of folder IDs in the request.
@@ -5398,17 +6407,21 @@ docusign.CloudStorageFolder_GetCloudStorageFolder({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* folderId (string) **required** - The ID of the folder being accessed.
-* serviceId (string) **required** - The ID of the service to access. 
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* cloud_storage_folder_path (string)
-* count (string) - An optional value that sets how many items are included in the response. 
-* order (string) - An optional value that sets the direction order used to sort the item list. 
-* order_by (string) - An optional value that sets the file attribute used to sort the item list. 
-* search_text (string)
-* start_position (string) - Indicates the starting point of the first item included in the response set. It uses a 0-based index. The default setting for this is 0.  
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * folderId **required** `string`: The ID of the folder being accessed.
+  * serviceId **required** `string`: The ID of the service to access. 
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * cloud_storage_folder_path `string`
+  * count `string`: An optional value that sets how many items are included in the response. 
+  * order `string`: An optional value that sets the direction order used to sort the item list. 
+  * order_by `string`: An optional value that sets the file attribute used to sort the item list. 
+  * search_text `string`
+  * start_position `string`: Indicates the starting point of the first item included in the response set. It uses a 0-based index. The default setting for this is 0.  
+
+#### Output
+* output [CloudStorage](#cloudstorage)
 
 ### UserCustomSettings_DeleteCustomSettings
 Deletes the specified custom user settings for a single user.
@@ -5431,10 +6444,14 @@ docusign.UserCustomSettings_DeleteCustomSettings({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* UserCustomSettings (object) - Users' custom settings
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * UserCustomSettings [UserCustomSettings](#usercustomsettings)
+
+#### Output
+* output [UserCustomSettings](#usercustomsettings)
 
 ### UserCustomSettings_GetCustomSettings
 Retrieves a list of custom user settings for a single user.
@@ -5461,9 +6478,13 @@ docusign.UserCustomSettings_GetCustomSettings({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+#### Output
+* output [UserCustomSettings](#usercustomsettings)
 
 ### UserCustomSettings_PutCustomSettings
 Adds or updates custom user settings for the specified user.
@@ -5496,10 +6517,14 @@ docusign.UserCustomSettings_PutCustomSettings({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* UserCustomSettings (object) - Users' custom settings
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * UserCustomSettings [UserCustomSettings](#usercustomsettings)
+
+#### Output
+* output [UserCustomSettings](#usercustomsettings)
 
 ### UserProfile_GetProfile
 Retrieves the user profile information, the privacy settings and personal information (address, phone number, etc.) for the specified user.
@@ -5514,9 +6539,13 @@ docusign.UserProfile_GetProfile({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+#### Output
+* output [UserProfiles](#userprofiles)
 
 ### UserProfile_PutProfile
 Updates the user's detail information, profile information, privacy settings, and personal information in the user ID card.
@@ -5531,10 +6560,14 @@ docusign.UserProfile_PutProfile({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* UserProfiles (object) - Users' profiles
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * UserProfiles [UserProfiles](#userprofiles)
+
+#### Output
+*Output schema unknown*
 
 ### UserProfileImage_DeleteUserProfileImage
 Deletes the user profile image from the  specified user's profile.
@@ -5549,9 +6582,13 @@ docusign.UserProfileImage_DeleteUserProfileImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+#### Output
+*Output schema unknown*
 
 ### UserProfileImage_GetUserProfileImage
 Retrieves the user profile picture for the specified user. The image is returned in the same format as uploaded.
@@ -5568,10 +6605,14 @@ docusign.UserProfileImage_GetUserProfileImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* encoding (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * encoding `string`
+
+#### Output
+* output `file`
 
 ### UserProfileImage_PutUserProfileImage
 Updates the user profile image by uploading an image to the user profile.
@@ -5586,9 +6627,13 @@ docusign.UserProfileImage_PutUserProfileImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+#### Output
+*Output schema unknown*
 
 ### UserSettings_GetUserSettings
 Retrieves a list of the account settings and email notification information for the specified user.
@@ -5603,9 +6648,13 @@ docusign.UserSettings_GetUserSettings({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+#### Output
+* output [userSettingsInformation](#usersettingsinformation)
 
 ### UserSettings_PutUserSettings
 Updates the account settings list and email notification types for the specified user.
@@ -5618,10 +6667,14 @@ docusign.UserSettings_PutUserSettings({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* userSettingsInformation (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * userSettingsInformation [userSettingsInformation](#usersettingsinformation)
+
+#### Output
+*Output schema unknown*
 
 ### UserSignatures_GetUserSignatures
 Retrieves the signature definitions for the specified user.
@@ -5640,10 +6693,14 @@ docusign.UserSignatures_GetUserSignatures({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* stamp_type (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * stamp_type `string`
+
+#### Output
+* output [userSignaturesInformation](#usersignaturesinformation)
 
 ### UserSignatures_PostUserSignatures
 Adds a user signature image and/or user initials image to the specified user. 
@@ -5674,10 +6731,14 @@ docusign.UserSignatures_PostUserSignatures({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* userSignaturesInformation (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * userSignaturesInformation [userSignaturesInformation](#usersignaturesinformation)
+
+#### Output
+* output [userSignaturesInformation](#usersignaturesinformation)
 
 ### UserSignatures_PutUserSignature
 Adds/updates a user signature.
@@ -5690,10 +6751,14 @@ docusign.UserSignatures_PutUserSignature({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* userSignaturesInformation (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * userSignaturesInformation [userSignaturesInformation](#usersignaturesinformation)
+
+#### Output
+* output [userSignaturesInformation](#usersignaturesinformation)
 
 ### UserSignatures_DeleteUserSignature
 Removes the signature information for the user.
@@ -5713,10 +6778,14 @@ docusign.UserSignatures_DeleteUserSignature({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* signatureId (string) **required** - The ID of the signature being accessed.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * signatureId **required** `string`: The ID of the signature being accessed.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+#### Output
+*Output schema unknown*
 
 ### UserSignatures_GetUserSignature
 Retrieves the structure of a single signature with a known signature name.
@@ -5736,10 +6805,14 @@ docusign.UserSignatures_GetUserSignature({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* signatureId (string) **required** - The ID of the signature being accessed.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * signatureId **required** `string`: The ID of the signature being accessed.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+#### Output
+* output [UserSignatures](#usersignatures)
 
 ### UserSignatures_PutUserSignatureById
 Creates, or updates, the signature font and initials for the specified user. When creating a signature, you use this resource to create the signature name and then add the signature and initials images into the signature.
@@ -5761,12 +6834,16 @@ docusign.UserSignatures_PutUserSignatureById({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* signatureId (string) **required** - The ID of the signature being accessed.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* close_existing_signature (string) - When set to **true**, closes the current signature.
-* userSignatureDefinition (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * signatureId **required** `string`: The ID of the signature being accessed.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * close_existing_signature `string`: When set to **true**, closes the current signature.
+  * userSignatureDefinition [userSignatureDefinition](#usersignaturedefinition)
+
+#### Output
+* output [UserSignatures](#usersignatures)
 
 ### UserSignatures_DeleteUserSignatureImage
 Deletes the specified initials image or signature image for the specified user.
@@ -5789,11 +6866,15 @@ docusign.UserSignatures_DeleteUserSignatureImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* imageType (string) **required** - One of **signature_image** or **initials_image**.
-* signatureId (string) **required** - The ID of the signature being accessed.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * imageType **required** `string`: One of **signature_image** or **initials_image**.
+  * signatureId **required** `string`: The ID of the signature being accessed.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+#### Output
+* output [UserSignatures](#usersignatures)
 
 ### UserSignatures_GetUserSignatureImage
 Retrieves the specified initials image or signature image for the specified user. The image is returned in the same format as uploaded. In the request you can specify if the chrome (the added line and identifier around the initial image) is returned with the image.
@@ -5816,12 +6897,16 @@ docusign.UserSignatures_GetUserSignatureImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* imageType (string) **required** - One of **signature_image** or **initials_image**.
-* signatureId (string) **required** - The ID of the signature being accessed.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* include_chrome (string)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * imageType **required** `string`: One of **signature_image** or **initials_image**.
+  * signatureId **required** `string`: The ID of the signature being accessed.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * include_chrome `string`
+
+#### Output
+* output `file`
 
 ### UserSignatures_PutUserSignatureImage
 Updates the user signature image or user initials image for the specified user. The supported image formats for this file are: gif, png, jpeg, and bmp. The file must be less than 200K.
@@ -5843,11 +6928,15 @@ docusign.UserSignatures_PutUserSignatureImage({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* imageType (string) **required** - One of **signature_image** or **initials_image**.
-* signatureId (string) **required** - The ID of the signature being accessed.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * imageType **required** `string`: One of **signature_image** or **initials_image**.
+  * signatureId **required** `string`: The ID of the signature being accessed.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+#### Output
+* output [UserSignatures](#usersignatures)
 
 ### UserSocialLogin_DeleteUserSocialLogin
 Deletes a social account from a use's account.
@@ -5860,10 +6949,14 @@ docusign.UserSocialLogin_DeleteUserSocialLogin({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* UserSocialAccountLogins (object) - Users' social account logins
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * UserSocialAccountLogins [UserSocialAccountLogins](#usersocialaccountlogins)
+
+#### Output
+*Output schema unknown*
 
 ### UserSocialLogin_GetUserSocialLogin
 Retrieves a list of social accounts linked to a user's account.
@@ -5876,9 +6969,13 @@ docusign.UserSocialLogin_GetUserSocialLogin({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+
+#### Output
+* output [userSocialIdResult](#usersocialidresult)
 
 ### UserSocialLogin_PutUserSocialLogin
 Adds a new social account to a user's account.
@@ -5891,10 +6988,14 @@ docusign.UserSocialLogin_PutUserSocialLogin({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* userId (string) **required** - The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
-* UserSocialAccountLogins (object) - Users' social account logins
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * userId **required** `string`: The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+  * UserSocialAccountLogins [UserSocialAccountLogins](#usersocialaccountlogins)
+
+#### Output
+*Output schema unknown*
 
 ### Views_PostAccountConsoleView
 Returns a URL that allows you to embed the authentication view of the DocuSign UI in your applications.
@@ -5906,9 +7007,13 @@ docusign.Views_PostAccountConsoleView({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* consoleViewRequest (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * consoleViewRequest [consoleViewRequest](#consoleviewrequest)
+
+#### Output
+* output [EnvelopeViews](#envelopeviews)
 
 ### Watermark_GetWatermark
 Get watermark information.
@@ -5920,8 +7025,12 @@ docusign.Watermark_GetWatermark({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [AccountWatermarks](#accountwatermarks)
 
 ### Watermark_PutWatermark
 Update watermark information.
@@ -5933,9 +7042,13 @@ docusign.Watermark_PutWatermark({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* AccountWatermarks (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * AccountWatermarks [AccountWatermarks](#accountwatermarks)
+
+#### Output
+* output [AccountWatermarks](#accountwatermarks)
 
 ### WatermarkPreview_PutWatermarkPreview
 Get watermark preview.
@@ -5947,9 +7060,13 @@ docusign.WatermarkPreview_PutWatermarkPreview({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* AccountWatermarks (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * AccountWatermarks [AccountWatermarks](#accountwatermarks)
+
+#### Output
+* output [AccountWatermarks](#accountwatermarks)
 
 ### Workspace_GetWorkspaces
 Gets information about the Workspaces that have been created.
@@ -5961,8 +7078,12 @@ docusign.Workspace_GetWorkspaces({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+
+#### Output
+* output [workspaceList](#workspacelist)
 
 ### Workspace_PostWorkspace
 Creates a new workspace.
@@ -5974,9 +7095,13 @@ docusign.Workspace_PostWorkspace({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* Workspaces (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * Workspaces [Workspaces](#workspaces)
+
+#### Output
+* output [Workspaces](#workspaces)
 
 ### Workspace_DeleteWorkspace
 Deletes an existing workspace (logically).
@@ -5989,9 +7114,13 @@ docusign.Workspace_DeleteWorkspace({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* workspaceId (string) **required** - Specifies the workspace ID GUID.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * workspaceId **required** `string`: Specifies the workspace ID GUID.
+
+#### Output
+* output [Workspaces](#workspaces)
 
 ### Workspace_GetWorkspace
 Retrives properties about a workspace given a unique workspaceId. 
@@ -6004,9 +7133,13 @@ docusign.Workspace_GetWorkspace({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* workspaceId (string) **required** - Specifies the workspace ID GUID.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * workspaceId **required** `string`: Specifies the workspace ID GUID.
+
+#### Output
+* output [Workspaces](#workspaces)
 
 ### Workspace_PutWorkspace
 Updates information about a specific workspace.
@@ -6019,10 +7152,14 @@ docusign.Workspace_PutWorkspace({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* workspaceId (string) **required** - Specifies the workspace ID GUID.
-* Workspaces (object)
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * workspaceId **required** `string`: Specifies the workspace ID GUID.
+  * Workspaces [Workspaces](#workspaces)
+
+#### Output
+* output [Workspaces](#workspaces)
 
 ### WorkspaceFolder_DeleteWorkspaceItems
 Deletes workspace one or more specific files/folders from the given folder or root.
@@ -6036,11 +7173,15 @@ docusign.WorkspaceFolder_DeleteWorkspaceItems({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* folderId (string) **required** - The ID of the folder being accessed.
-* workspaceId (string) **required** - Specifies the workspace ID GUID.
-* workspaceItemList (object) - Provides properties that describe the items contained in a workspace.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * folderId **required** `string`: The ID of the folder being accessed.
+  * workspaceId **required** `string`: Specifies the workspace ID GUID.
+  * workspaceItemList [workspaceItemList](#workspaceitemlist)
+
+#### Output
+*Output schema unknown*
 
 ### WorkspaceFolder_GetWorkspaceFolder
 Retrieves workspace folder contents, which can include sub folders and files.
@@ -6054,17 +7195,21 @@ docusign.WorkspaceFolder_GetWorkspaceFolder({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* folderId (string) **required** - The ID of the folder being accessed.
-* workspaceId (string) **required** - Specifies the workspace ID GUID.
-* count (string) - The maximum number of results to be returned by this request.
-* include_files (string) - When set to **true**, file information is returned in the response along with folder information. The default is **false**.
-* include_sub_folders (string) - When set to **true**, information about the sub-folders of the current folder is returned. The default is **false**.
-* include_thumbnails (string) - When set to **true**, thumbnails are returned as part of the response.  The default is **false**.
-* include_user_detail (string) - Set to **true** to return extended details about the user. The default is **false**.
-* start_position (string) - The position within the total result set from which to start returning values.
-* workspace_user_id (string) - If set, then the results are filtered to those associated with the specified userId.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * folderId **required** `string`: The ID of the folder being accessed.
+  * workspaceId **required** `string`: Specifies the workspace ID GUID.
+  * count `string`: The maximum number of results to be returned by this request.
+  * include_files `string`: When set to **true**, file information is returned in the response along with folder information. The default is **false**.
+  * include_sub_folders `string`: When set to **true**, information about the sub-folders of the current folder is returned. The default is **false**.
+  * include_thumbnails `string`: When set to **true**, thumbnails are returned as part of the response.  The default is **false**.
+  * include_user_detail `string`: Set to **true** to return extended details about the user. The default is **false**.
+  * start_position `string`: The position within the total result set from which to start returning values.
+  * workspace_user_id `string`: If set, then the results are filtered to those associated with the specified userId.
+
+#### Output
+* output [workspaceFolderContents](#workspacefoldercontents)
 
 ### WorkspaceFile_PostWorkspaceFiles
 Creates a workspace file.
@@ -6078,10 +7223,14 @@ docusign.WorkspaceFile_PostWorkspaceFiles({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* folderId (string) **required** - The ID of the folder being accessed.
-* workspaceId (string) **required** - Specifies the workspace ID GUID.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * folderId **required** `string`: The ID of the folder being accessed.
+  * workspaceId **required** `string`: Specifies the workspace ID GUID.
+
+#### Output
+* output [WorkspaceItems](#workspaceitems)
 
 ### WorkspaceFile_GetWorkspaceFile
 Retrieves a workspace file (the binary).
@@ -6096,13 +7245,17 @@ docusign.WorkspaceFile_GetWorkspaceFile({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* fileId (string) **required** - Specifies the room file ID GUID.
-* folderId (string) **required** - The ID of the folder being accessed.
-* workspaceId (string) **required** - Specifies the workspace ID GUID.
-* is_download (string) - When set to **true**, the Content-Disposition header is set in the response. The value of the header provides the filename of the file. Default is **false**.
-* pdf_version (string) - When set to **true** the file returned as a PDF.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * fileId **required** `string`: Specifies the room file ID GUID.
+  * folderId **required** `string`: The ID of the folder being accessed.
+  * workspaceId **required** `string`: Specifies the workspace ID GUID.
+  * is_download `string`: When set to **true**, the Content-Disposition header is set in the response. The value of the header provides the filename of the file. Default is **false**.
+  * pdf_version `string`: When set to **true** the file returned as a PDF.
+
+#### Output
+*Output schema unknown*
 
 ### WorkspaceFile_PutWorkspaceFile
 Updates workspace item metadata for one or more specific files/folders.
@@ -6117,11 +7270,15 @@ docusign.WorkspaceFile_PutWorkspaceFile({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* fileId (string) **required** - Specifies the room file ID GUID.
-* folderId (string) **required** - The ID of the folder being accessed.
-* workspaceId (string) **required** - Specifies the workspace ID GUID.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * fileId **required** `string`: Specifies the room file ID GUID.
+  * folderId **required** `string`: The ID of the folder being accessed.
+  * workspaceId **required** `string`: Specifies the workspace ID GUID.
+
+#### Output
+* output [WorkspaceItems](#workspaceitems)
 
 ### WorkspaceFilePages_GetWorkspaceFilePages
 Retrieves a workspace file as rasterized pages.
@@ -6136,16 +7293,20 @@ docusign.WorkspaceFilePages_GetWorkspaceFilePages({
 }, context)
 ```
 
-#### Parameters
-* accountId (string) **required** - The external account number (int) or account ID Guid.
-* fileId (string) **required** - Specifies the room file ID GUID.
-* folderId (string) **required** - The ID of the folder being accessed.
-* workspaceId (string) **required** - Specifies the workspace ID GUID.
-* count (string) - The maximum number of results to be returned by this request.
-* dpi (string) - Number of dots per inch for the resulting image. The default if not used is 94. The range is 1-310.
-* max_height (string) - Sets the maximum height (in pixels) of the returned image.
-* max_width (string) - Sets the maximum width (in pixels) of the returned image.
-* start_position (string) - The position within the total result set from which to start returning values. The value **thumbnail** may be used to return the page image.
+#### Input
+* input `object`
+  * accountId **required** `string`: The external account number (int) or account ID Guid.
+  * fileId **required** `string`: Specifies the room file ID GUID.
+  * folderId **required** `string`: The ID of the folder being accessed.
+  * workspaceId **required** `string`: Specifies the workspace ID GUID.
+  * count `string`: The maximum number of results to be returned by this request.
+  * dpi `string`: Number of dots per inch for the resulting image. The default if not used is 94. The range is 1-310.
+  * max_height `string`: Sets the maximum height (in pixels) of the returned image.
+  * max_width `string`: Sets the maximum width (in pixels) of the returned image.
+  * start_position `string`: The position within the total result set from which to start returning values. The value **thumbnail** may be used to return the page image.
+
+#### Output
+* output [pageImages](#pageimages)
 
 ### BillingPlans_GetBillingPlans
 Retrieves a list of the billing plans associated with a distributor.
@@ -6155,8 +7316,11 @@ Retrieves a list of the billing plans associated with a distributor.
 docusign.BillingPlans_GetBillingPlans(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [billingPlansResponse](#billingplansresponse)
 
 ### BillingPlans_GetBillingPlan
 Retrieves the billing plan details for the specified billing plan ID.
@@ -6168,8 +7332,12 @@ docusign.BillingPlans_GetBillingPlan({
 }, context)
 ```
 
-#### Parameters
-* billingPlanId (string) **required** - The ID of the billing plan being accessed.
+#### Input
+* input `object`
+  * billingPlanId **required** `string`: The ID of the billing plan being accessed.
+
+#### Output
+* output [billingPlanResponse](#billingplanresponse)
 
 ### PasswordRules_GetPasswordRules
 Get membership account password rules
@@ -6179,8 +7347,11 @@ Get membership account password rules
 docusign.PasswordRules_GetPasswordRules(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [userPasswordRules](#userpasswordrules)
 
 ### APIRequestLog_DeleteRequestLogs
 Deletes the request log files.
@@ -6190,8 +7361,11 @@ Deletes the request log files.
 docusign.APIRequestLog_DeleteRequestLogs(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### APIRequestLog_GetRequestLogs
 Retrieves a list of log entries as a JSON or xml object or as a zip file containing the entries.
@@ -6205,8 +7379,12 @@ If the Accept header is set to `application/json` or `application/xml`, the resp
 docusign.APIRequestLog_GetRequestLogs({}, context)
 ```
 
-#### Parameters
-* encoding (string)
+#### Input
+* input `object`
+  * encoding `string`
+
+#### Output
+* output [apiRequestLogsResult](#apirequestlogsresult)
 
 ### APIRequestLog_GetRequestLog
 Retrieves information for a single log entry.
@@ -6224,8 +7402,12 @@ docusign.APIRequestLog_GetRequestLog({
 }, context)
 ```
 
-#### Parameters
-* requestLogId (string) **required**
+#### Input
+* input `object`
+  * requestLogId **required** `string`
+
+#### Output
+* output `file`
 
 ### APIRequestLog_GetRequestLogSettings
 Retrieves the current API request logging setting for the user and remaining log entries.
@@ -6238,8 +7420,11 @@ The response includes the current API request logging setting for the user, alon
 docusign.APIRequestLog_GetRequestLogSettings(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [RequestLogs](#requestlogs)
 
 ### APIRequestLog_PutRequestLogSettings
 Enables or disables API request logging for troubleshooting.
@@ -6258,8 +7443,12 @@ Private information, such as passwords and integrator key information, which is 
 docusign.APIRequestLog_PutRequestLogSettings({}, context)
 ```
 
-#### Parameters
-* RequestLogs (object) - Request logs
+#### Input
+* input `object`
+  * RequestLogs [RequestLogs](#requestlogs)
+
+#### Output
+* output [RequestLogs](#requestlogs)
 
 ### LoginInformation_GetLoginInformation
 Retrieves account information for the authenticated user. Since the API is sessionless, this method does not actually log you in. 
@@ -6292,11 +7481,15 @@ If this method returns successfully, then you also know that the user has succes
 docusign.LoginInformation_GetLoginInformation({}, context)
 ```
 
-#### Parameters
-* api_password (string) - Reserved for DocuSign.
-* embed_account_id_guid (string)
-* include_account_id_guid (string) - When set to **true**, shows the account ID GUID in the response.
-* login_settings (string) - Determines whether login settings are returned in the response.
+#### Input
+* input `object`
+  * api_password `string`: Reserved for DocuSign.
+  * embed_account_id_guid `string`
+  * include_account_id_guid `string`: When set to **true**, shows the account ID GUID in the response.
+  * login_settings `string`: Determines whether login settings are returned in the response.
+
+#### Output
+* output [Authentication](#authentication)
 
 ### LoginInformation_PutLoginInformation
 Updates the password for a specified user.
@@ -6308,9 +7501,13 @@ docusign.LoginInformation_PutLoginInformation({
 }, context)
 ```
 
-#### Parameters
-* loginPart (string) **required** - Currently, only the value **password** is supported.
-* userPasswordInformation (object)
+#### Input
+* input `object`
+  * loginPart **required** `string`: Currently, only the value **password** is supported.
+  * userPasswordInformation [userPasswordInformation](#userpasswordinformation)
+
+#### Output
+*Output schema unknown*
 
 ### OAuth2_PostRevoke
 **Deprecated**
@@ -6323,8 +7520,11 @@ Revokes an OAuth2 authorization server token. After the revocation is complete, 
 docusign.OAuth2_PostRevoke(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### OAuth2_PostToken
 **Deprecated**
@@ -6337,6 +7537,14 @@ Creates an OAuth2 authorization server token endpoint.
 docusign.OAuth2_PostToken(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
+#### Output
+* output [oauthAccess](#oauthaccess)
+
+
+
+## Definitions
+
+** No definitions **

@@ -4,13 +4,11 @@ Client library for Times Newswire
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/nytimes_timeswire
+npm install --save @datafire/nytimes_timeswire
 ```
-
 ```js
-let datafire = require('datafire');
 let nytimes_timeswire = require('@datafire/nytimes_timeswire').create({
-  apikey: "",
+  apikey: ""
 });
 
 nytimes_timeswire.content.json.get({}).then(data => {
@@ -19,9 +17,11 @@ nytimes_timeswire.content.json.get({}).then(data => {
 ```
 
 ## Description
+
 With the Times Newswire API, you can get links and metadata for Times articles and blog posts as soon as they are published on NYTimes.com. The Times Newswire API provides an up-to-the-minute stream of published items.
 
 ## Actions
+
 ### content.json.get
 
 
@@ -32,8 +32,17 @@ nytimes_timeswire.content.json.get({
 }, context)
 ```
 
-#### Parameters
-* url (string) **required** - The complete URL of a specific news item, URL-encoded or backslash-escaped
+#### Input
+* input `object`
+  * url **required** `string`: The complete URL of a specific news item, URL-encoded or backslash-escaped
+
+#### Output
+* output `object`
+  * copyright `string`
+  * num_results `integer`
+  * results `array`
+    * items [Article](#article)
+  * status `string`
 
 ### source.section.json.get
 
@@ -46,11 +55,20 @@ nytimes_timeswire.source.section.json.get({
 }, context)
 ```
 
-#### Parameters
-* source (string) **required** - Limits the set of items by originating source
-* section (string) **required** - Limits the set of items by one or more sections
-* limit (integer) - Limits the number of results, between 1 and 20
-* offset (integer) - Sets the starting point of the result set
+#### Input
+* input `object`
+  * source **required** `string` (values: all, nyt, iht): Limits the set of items by originating source
+  * section **required** `string`: Limits the set of items by one or more sections
+  * limit `integer`: Limits the number of results, between 1 and 20
+  * offset `integer`: Sets the starting point of the result set
+
+#### Output
+* output `object`
+  * copyright `string`
+  * num_results `integer`
+  * results `array`
+    * items [Article](#article)
+  * status `string`
 
 ### source.section.time_period.json.get
 
@@ -64,10 +82,65 @@ nytimes_timeswire.source.section.time_period.json.get({
 }, context)
 ```
 
-#### Parameters
-* source (string) **required** - Limits the set of items by originating source
-* section (string) **required** - Limits the set of items by one or more sections
-* time-period (integer) **required** - Limits the set of items by time published, integer in number of hours
-* limit (integer) - Limits the number of results, between 1 and 20
-* offset (integer) - Sets the starting point of the result set
+#### Input
+* input `object`
+  * source **required** `string` (values: all, nyt, iht): Limits the set of items by originating source
+  * section **required** `string`: Limits the set of items by one or more sections
+  * time-period **required** `integer`: Limits the set of items by time published, integer in number of hours
+  * limit `integer`: Limits the number of results, between 1 and 20
+  * offset `integer`: Sets the starting point of the result set
+
+#### Output
+* output `object`
+  * copyright `string`
+  * num_results `integer`
+  * results `array`
+    * items [Article](#article)
+  * status `string`
+
+
+
+## Definitions
+
+### Article
+* Article `object`
+  * abstract `string`
+  * blog_name `string`
+  * byline `string`
+  * created_date `string`
+  * des_facet `array`
+    * items `string`
+  * geo_facet `array`
+    * items `string`
+  * headline `string`
+  * item_type `string`
+  * kicker `string`
+  * material_type_facet `string`
+  * multimedia `array`
+    * items `object`
+      * caption `string`
+      * copyright `string`
+      * format `string`
+      * height `integer`
+      * subtype `string`
+      * type `string`
+      * url `string`
+      * width `integer`
+  * org_facet `string`
+  * per_facet `array`
+    * items `string`
+  * published_date `string`
+  * related_urls `array`
+    * items `object`
+      * suggested_link_text `string`
+      * url `string`
+  * section `string`
+  * short_url `string`
+  * source `string`
+  * subsection `string`
+  * thumbnail_standard `string`
+  * title `string`
+  * updated_date `string`
+  * url `string`
+
 

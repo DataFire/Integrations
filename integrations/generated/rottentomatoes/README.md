@@ -4,13 +4,11 @@ Client library for Rotten Tomatoes
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/rottentomatoes
+npm install --save @datafire/rottentomatoes
 ```
-
 ```js
-let datafire = require('datafire');
 let rottentomatoes = require('@datafire/rottentomatoes').create({
-  key: "",
+  key: ""
 });
 
 rottentomatoes.MoviesSearchSearch({}).then(data => {
@@ -19,9 +17,11 @@ rottentomatoes.MoviesSearchSearch({}).then(data => {
 ```
 
 ## Description
+
 Test our API services using I/O Docs.
 
 ## Actions
+
 ### ListsDirectoryTopLevelLists
 
 
@@ -30,8 +30,11 @@ Test our API services using I/O Docs.
 rottentomatoes.ListsDirectoryTopLevelLists(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### DVDListsDirectoryTopLevelLists
 
@@ -41,8 +44,11 @@ rottentomatoes.ListsDirectoryTopLevelLists(null, context)
 rottentomatoes.DVDListsDirectoryTopLevelLists(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### CurrentReleaseDVDsDVDLists
 
@@ -52,10 +58,14 @@ rottentomatoes.DVDListsDirectoryTopLevelLists(null, context)
 rottentomatoes.CurrentReleaseDVDsDVDLists({}, context)
 ```
 
-#### Parameters
-* page_limit (string) - The amount of new release dvds to show per page
-* page (string) - The selected page of current DVD releases
-* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+#### Input
+* input `object`
+  * page_limit `string`: The amount of new release dvds to show per page
+  * page `string`: The selected page of current DVD releases
+  * country `string`: Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+
+#### Output
+*Output schema unknown*
 
 ### NewReleaseDVDsDVDLists
 
@@ -65,10 +75,14 @@ rottentomatoes.CurrentReleaseDVDsDVDLists({}, context)
 rottentomatoes.NewReleaseDVDsDVDLists({}, context)
 ```
 
-#### Parameters
-* page_limit (string) - The amount of new release dvds to show per page
-* page (string) - The selected page of new release DVDs
-* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+#### Input
+* input `object`
+  * page_limit `string`: The amount of new release dvds to show per page
+  * page `string`: The selected page of new release DVDs
+  * country `string`: Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+
+#### Output
+*Output schema unknown*
 
 ### TopRentalsDVDLists
 
@@ -78,9 +92,13 @@ rottentomatoes.NewReleaseDVDsDVDLists({}, context)
 rottentomatoes.TopRentalsDVDLists({}, context)
 ```
 
-#### Parameters
-* limit (string) - Limits the number of top rentals returned
-* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+#### Input
+* input `object`
+  * limit `string`: Limits the number of top rentals returned
+  * country `string`: Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+
+#### Output
+*Output schema unknown*
 
 ### UpcomingDVDsDVDLists
 
@@ -90,10 +108,14 @@ rottentomatoes.TopRentalsDVDLists({}, context)
 rottentomatoes.UpcomingDVDsDVDLists({}, context)
 ```
 
-#### Parameters
-* page_limit (string) - The amount of upcoming dvds to show per page
-* page (string) - The selected page of upcoming DVDs
-* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+#### Input
+* input `object`
+  * page_limit `string`: The amount of upcoming dvds to show per page
+  * page `string`: The selected page of upcoming DVDs
+  * country `string`: Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+
+#### Output
+*Output schema unknown*
 
 ### MovieListsDirectoryTopLevelLists
 
@@ -103,8 +125,11 @@ rottentomatoes.UpcomingDVDsDVDLists({}, context)
 rottentomatoes.MovieListsDirectoryTopLevelLists(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### BoxOfficeMovieLists
 
@@ -114,9 +139,13 @@ rottentomatoes.MovieListsDirectoryTopLevelLists(null, context)
 rottentomatoes.BoxOfficeMovieLists({}, context)
 ```
 
-#### Parameters
-* limit (string) - Limits the number of movies returned
-* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+#### Input
+* input `object`
+  * limit `string`: Limits the number of movies returned
+  * country `string`: Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+
+#### Output
+*Output schema unknown*
 
 ### InTheatersMovieLists
 
@@ -126,10 +155,14 @@ rottentomatoes.BoxOfficeMovieLists({}, context)
 rottentomatoes.InTheatersMovieLists({}, context)
 ```
 
-#### Parameters
-* page_limit (string) - The amount of movies in theaters to show per page
-* page (string) - The selected page of in theaters movies
-* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+#### Input
+* input `object`
+  * page_limit `string`: The amount of movies in theaters to show per page
+  * page `string`: The selected page of in theaters movies
+  * country `string`: Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+
+#### Output
+*Output schema unknown*
 
 ### OpeningMoviesMovieLists
 
@@ -139,9 +172,13 @@ rottentomatoes.InTheatersMovieLists({}, context)
 rottentomatoes.OpeningMoviesMovieLists({}, context)
 ```
 
-#### Parameters
-* limit (string) - Limits the number of opening movies returned
-* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+#### Input
+* input `object`
+  * limit `string`: Limits the number of opening movies returned
+  * country `string`: Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+
+#### Output
+*Output schema unknown*
 
 ### UpcomingMoviesMovieLists
 
@@ -151,10 +188,14 @@ rottentomatoes.OpeningMoviesMovieLists({}, context)
 rottentomatoes.UpcomingMoviesMovieLists({}, context)
 ```
 
-#### Parameters
-* page_limit (string) - The amount of upcoming movies to show per page
-* page (string) - The selected page of upcoming movies
-* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+#### Input
+* input `object`
+  * page_limit `string`: The amount of upcoming movies to show per page
+  * page `string`: The selected page of upcoming movies
+  * country `string`: Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+
+#### Output
+*Output schema unknown*
 
 ### MoviesAliasDetailedInfo
 
@@ -164,9 +205,13 @@ rottentomatoes.UpcomingMoviesMovieLists({}, context)
 rottentomatoes.MoviesAliasDetailedInfo({}, context)
 ```
 
-#### Parameters
-* id (string) - Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID
-* type (string) - Only supports imdb lookup at this time
+#### Input
+* input `object`
+  * id `string`: Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID
+  * type `string`: Only supports imdb lookup at this time
+
+#### Output
+*Output schema unknown*
 
 ### MoviesSearchSearch
 
@@ -176,10 +221,14 @@ rottentomatoes.MoviesAliasDetailedInfo({}, context)
 rottentomatoes.MoviesSearchSearch({}, context)
 ```
 
-#### Parameters
-* q (string) - The plain text search query to search for a movie. Remember to URI encode this!
-* page_limit (string) - The amount of movie search results to show per page
-* page (string) - The selected page of movie search results
+#### Input
+* input `object`
+  * q `string`: The plain text search query to search for a movie. Remember to URI encode this!
+  * page_limit `string`: The amount of movie search results to show per page
+  * page `string`: The selected page of movie search results
+
+#### Output
+*Output schema unknown*
 
 ### MoviesInfoDetailedInfo
 
@@ -191,8 +240,12 @@ rottentomatoes.MoviesInfoDetailedInfo({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID
+#### Input
+* input `object`
+  * id **required** `string`: Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID
+
+#### Output
+*Output schema unknown*
 
 ### CastInfoDetailedInfo
 
@@ -204,8 +257,12 @@ rottentomatoes.CastInfoDetailedInfo({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID
+#### Input
+* input `object`
+  * id **required** `string`: Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID
+
+#### Output
+*Output schema unknown*
 
 ### MovieClipsDetailedInfo
 
@@ -217,8 +274,12 @@ rottentomatoes.MovieClipsDetailedInfo({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID
+#### Input
+* input `object`
+  * id **required** `string`: Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID
+
+#### Output
+*Output schema unknown*
 
 ### MoviesReviewsDetailedInfo
 
@@ -230,12 +291,16 @@ rottentomatoes.MoviesReviewsDetailedInfo({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID
-* review_type (string) - 3 different review types are possible: 'all', 'top_critic' and 'dvd'. 'top_critic' shows all the Rotten Tomatoes designated top critics. 'dvd' pulls the reviews given on the DVD of the movie. 'all' as the name implies retrieves all reviews.
-* page_limit (string) - The number of reviews to show per page
-* page (string) - The selected page of reviews
-* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+#### Input
+* input `object`
+  * id **required** `string`: Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID
+  * review_type `string`: 3 different review types are possible: 'all', 'top_critic' and 'dvd'. 'top_critic' shows all the Rotten Tomatoes designated top critics. 'dvd' pulls the reviews given on the DVD of the movie. 'all' as the name implies retrieves all reviews.
+  * page_limit `string`: The number of reviews to show per page
+  * page `string`: The selected page of reviews
+  * country `string`: Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
+
+#### Output
+*Output schema unknown*
 
 ### MoviesSimilarDetailedInfo
 
@@ -247,7 +312,16 @@ rottentomatoes.MoviesSimilarDetailedInfo({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID
-* limit (string) - Limit the number of similar movies to show
+#### Input
+* input `object`
+  * id **required** `string`: Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID
+  * limit `string`: Limit the number of similar movies to show
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

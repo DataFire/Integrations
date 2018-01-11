@@ -4,45 +4,71 @@ Client library for XKCD
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/xkcd
+npm install --save @datafire/xkcd
 ```
-
 ```js
-let datafire = require('datafire');
 let xkcd = require('@datafire/xkcd').create();
 
-xkcd.info.0.json.get({}).then(data => {
+xkcd.getLatestComic({}).then(data => {
   console.log(data);
 })
 ```
 
 ## Description
+
 Webcomic of romance, sarcasm, math, and language.
 
 ## Actions
-### info.0.json.get
+
+### getLatestComic
 Fetch current comic and metadata.
 
 
 
 ```js
-xkcd.info.0.json.get(null, context)
+xkcd.getLatestComic(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
-### comicId.info.0.json.get
+#### Output
+* output [comic](#comic)
+
+### getComic
 Fetch comics and metadata  by comic id.
 
 
 
 ```js
-xkcd.comicId.info.0.json.get({
+xkcd.getComic({
   "comicId": 0
 }, context)
 ```
 
-#### Parameters
-* comicId (number) **required**
+#### Input
+* input `object`
+  * comicId **required** `number`
+
+#### Output
+* output [comic](#comic)
+
+
+
+## Definitions
+
+### comic
+* comic `object`
+  * alt `string`
+  * day `string`
+  * img `string`
+  * link `string`
+  * month `string`
+  * news `string`
+  * num `number`
+  * safe_title `string`
+  * title `string`
+  * transcript `string`
+  * year `string`
+
 

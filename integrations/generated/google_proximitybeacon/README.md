@@ -4,17 +4,15 @@ Client library for Google Proximity Beacon
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/google_proximitybeacon
+npm install --save @datafire/google_proximitybeacon
 ```
-
 ```js
-let datafire = require('datafire');
 let google_proximitybeacon = require('@datafire/google_proximitybeacon').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 google_proximitybeacon.namespaces.list({}).then(data => {
@@ -23,9 +21,11 @@ google_proximitybeacon.namespaces.list({}).then(data => {
 ```
 
 ## Description
+
 Registers, manages, indexes, and searches beacons.
 
 ## Actions
+
 ### oauthCallback
 Exchange the code passed to your redirect URI for an access_token
 
@@ -36,8 +36,17 @@ google_proximitybeacon.oauthCallback({
 }, context)
 ```
 
-#### Parameters
-* code (string) **required**
+#### Input
+* input `object`
+  * code **required** `string`
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### oauthRefresh
 Exchange a refresh_token for an access_token
@@ -47,8 +56,16 @@ Exchange a refresh_token for an access_token
 google_proximitybeacon.oauthRefresh(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### beaconinfo.getforobserved
 Given one or more beacon observations, returns any beacon information
@@ -61,21 +78,25 @@ for the application.
 google_proximitybeacon.beaconinfo.getforobserved({}, context)
 ```
 
-#### Parameters
-* body (object) - Request for beacon and attachment information about beacons that
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * body [GetInfoForObservedBeaconsRequest](#getinfoforobservedbeaconsrequest)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GetInfoForObservedBeaconsResponse](#getinfoforobservedbeaconsresponse)
 
 ### beacons.list
 Searches the beacon registry for beacons that match the given search
@@ -91,24 +112,28 @@ permissions in the Google Developers Console project.
 google_proximitybeacon.beacons.list({}, context)
 ```
 
-#### Parameters
-* projectId (string) - The project id to list beacons under. If not present then the project
-* pageToken (string) - A pagination token obtained from a previous request to list beacons.
-* q (string) - Filter query string that supports the following field filters:
-* pageSize (integer) - The maximum number of records to return for this request, up to a
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * projectId `string`: The project id to list beacons under. If not present then the project
+  * pageToken `string`: A pagination token obtained from a previous request to list beacons.
+  * q `string`: Filter query string that supports the following field filters:
+  * pageSize `integer`: The maximum number of records to return for this request, up to a
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [ListBeaconsResponse](#listbeaconsresponse)
 
 ### beacons.register
 Registers a previously unregistered beacon given its `advertisedId`.
@@ -123,22 +148,26 @@ Google Developers Console project.
 google_proximitybeacon.beacons.register({}, context)
 ```
 
-#### Parameters
-* projectId (string) - The project id of the project the beacon will be registered to. If
-* body (object) - Details of a beacon device.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * projectId `string`: The project id of the project the beacon will be registered to. If
+  * body [Beacon](#beacon)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [Beacon](#beacon)
 
 ### getEidparams
 Gets the Proximity Beacon API's current public key and associated
@@ -154,20 +183,24 @@ Eddystone-EID beacon.
 google_proximitybeacon.getEidparams({}, context)
 ```
 
-#### Parameters
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [EphemeralIdRegistrationParams](#ephemeralidregistrationparams)
 
 ### namespaces.list
 Lists all attachment namespaces owned by your Google Developers Console
@@ -183,21 +216,25 @@ permissions in the Google Developers Console project.
 google_proximitybeacon.namespaces.list({}, context)
 ```
 
-#### Parameters
-* projectId (string) - The project id to list namespaces under.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * projectId `string`: The project id to list namespaces under.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [ListNamespacesResponse](#listnamespacesresponse)
 
 ### beacons.attachments.delete
 Deletes the specified attachment for the given beacon. Each attachment has
@@ -217,22 +254,26 @@ google_proximitybeacon.beacons.attachments.delete({
 }, context)
 ```
 
-#### Parameters
-* attachmentName (string) **required** - The attachment name (`attachmentName`) of
-* projectId (string) - The project id of the attachment to delete. If not provided, the project
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * attachmentName **required** `string`: The attachment name (`attachmentName`) of
+  * projectId `string`: The project id of the attachment to delete. If not provided, the project
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [Empty](#empty)
 
 ### beacons.delete
 Deletes the specified beacon including all diagnostics data for the beacon
@@ -250,22 +291,26 @@ google_proximitybeacon.beacons.delete({
 }, context)
 ```
 
-#### Parameters
-* beaconName (string) **required** - Beacon that should be deleted. A beacon name has the format
-* projectId (string) - The project id of the beacon to delete. If not provided, the project
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * beaconName **required** `string`: Beacon that should be deleted. A beacon name has the format
+  * projectId `string`: The project id of the beacon to delete. If not provided, the project
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [Empty](#empty)
 
 ### beacons.get
 Returns detailed information about the specified beacon.
@@ -287,22 +332,26 @@ google_proximitybeacon.beacons.get({
 }, context)
 ```
 
-#### Parameters
-* beaconName (string) **required** - Resource name of this beacon. A beacon name has the format
-* projectId (string) - The project id of the beacon to request. If the project id is not specified
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * beaconName **required** `string`: Resource name of this beacon. A beacon name has the format
+  * projectId `string`: The project id of the beacon to request. If the project id is not specified
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [Beacon](#beacon)
 
 ### beacons.update
 Updates the information about the specified beacon. **Any field that you do
@@ -324,23 +373,27 @@ google_proximitybeacon.beacons.update({
 }, context)
 ```
 
-#### Parameters
-* beaconName (string) **required** - Resource name of this beacon. A beacon name has the format
-* projectId (string) - The project id of the beacon to update. If the project id is not
-* body (object) - Details of a beacon device.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * beaconName **required** `string`: Resource name of this beacon. A beacon name has the format
+  * projectId `string`: The project id of the beacon to update. If the project id is not
+  * body [Beacon](#beacon)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [Beacon](#beacon)
 
 ### beacons.attachments.list
 Returns the attachments for the specified beacon that match the specified
@@ -362,23 +415,27 @@ google_proximitybeacon.beacons.attachments.list({
 }, context)
 ```
 
-#### Parameters
-* beaconName (string) **required** - Beacon whose attachments should be fetched. A beacon name has the
-* namespacedType (string) - Specifies the namespace and type of attachment to include in response in
-* projectId (string) - The project id to list beacon attachments under. This field can be
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * beaconName **required** `string`: Beacon whose attachments should be fetched. A beacon name has the
+  * namespacedType `string`: Specifies the namespace and type of attachment to include in response in
+  * projectId `string`: The project id to list beacon attachments under. This field can be
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [ListBeaconAttachmentsResponse](#listbeaconattachmentsresponse)
 
 ### beacons.attachments.create
 Associates the given data with the specified beacon. Attachment data must
@@ -405,23 +462,27 @@ google_proximitybeacon.beacons.attachments.create({
 }, context)
 ```
 
-#### Parameters
-* beaconName (string) **required** - Beacon on which the attachment should be created. A beacon name has the
-* projectId (string) - The project id of the project the attachment will belong to. If
-* body (object) - Project-specific data associated with a beacon.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * beaconName **required** `string`: Beacon on which the attachment should be created. A beacon name has the
+  * projectId `string`: The project id of the project the attachment will belong to. If
+  * body [BeaconAttachment](#beaconattachment)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [BeaconAttachment](#beaconattachment)
 
 ### beacons.attachments.batchDelete
 Deletes multiple attachments on a given beacon. This operation is
@@ -443,23 +504,27 @@ google_proximitybeacon.beacons.attachments.batchDelete({
 }, context)
 ```
 
-#### Parameters
-* beaconName (string) **required** - The beacon whose attachments should be deleted. A beacon name has the
-* namespacedType (string) - Specifies the namespace and type of attachments to delete in
-* projectId (string) - The project id to delete beacon attachments under. This field can be
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * beaconName **required** `string`: The beacon whose attachments should be deleted. A beacon name has the
+  * namespacedType `string`: Specifies the namespace and type of attachments to delete in
+  * projectId `string`: The project id to delete beacon attachments under. This field can be
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [DeleteAttachmentsResponse](#deleteattachmentsresponse)
 
 ### beacons.diagnostics.list
 List the diagnostics for a single beacon. You can also list diagnostics for
@@ -477,25 +542,29 @@ google_proximitybeacon.beacons.diagnostics.list({
 }, context)
 ```
 
-#### Parameters
-* alertFilter (string) - Requests only beacons that have the given alert. For example, to find
-* beaconName (string) **required** - Beacon that the diagnostics are for.
-* pageSize (integer) - Specifies the maximum number of results to return. Defaults to
-* pageToken (string) - Requests results that occur after the `page_token`, obtained from the
-* projectId (string) - Requests only diagnostic records for the given project id. If not set,
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * alertFilter `string` (values: ALERT_UNSPECIFIED, WRONG_LOCATION, LOW_BATTERY, LOW_ACTIVITY): Requests only beacons that have the given alert. For example, to find
+  * beaconName **required** `string`: Beacon that the diagnostics are for.
+  * pageSize `integer`: Specifies the maximum number of results to return. Defaults to
+  * pageToken `string`: Requests results that occur after the `page_token`, obtained from the
+  * projectId `string`: Requests only diagnostic records for the given project id. If not set,
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [ListDiagnosticsResponse](#listdiagnosticsresponse)
 
 ### beacons.activate
 Activates a beacon. A beacon that is active will return information
@@ -514,22 +583,26 @@ google_proximitybeacon.beacons.activate({
 }, context)
 ```
 
-#### Parameters
-* beaconName (string) **required** - Beacon that should be activated. A beacon name has the format
-* projectId (string) - The project id of the beacon to activate. If the project id is not
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * beaconName **required** `string`: Beacon that should be activated. A beacon name has the format
+  * projectId `string`: The project id of the beacon to activate. If the project id is not
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [Empty](#empty)
 
 ### beacons.deactivate
 Deactivates a beacon. Once deactivated, the API will not return
@@ -548,22 +621,26 @@ google_proximitybeacon.beacons.deactivate({
 }, context)
 ```
 
-#### Parameters
-* beaconName (string) **required** - Beacon that should be deactivated. A beacon name has the format
-* projectId (string) - The project id of the beacon to deactivate. If the project id is not
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * beaconName **required** `string`: Beacon that should be deactivated. A beacon name has the format
+  * projectId `string`: The project id of the beacon to deactivate. If the project id is not
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [Empty](#empty)
 
 ### beacons.decommission
 Decommissions the specified beacon in the service. This beacon will no
@@ -582,22 +659,26 @@ google_proximitybeacon.beacons.decommission({
 }, context)
 ```
 
-#### Parameters
-* beaconName (string) **required** - Beacon that should be decommissioned. A beacon name has the format
-* projectId (string) - The project id of the beacon to decommission. If the project id is not
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * beaconName **required** `string`: Beacon that should be decommissioned. A beacon name has the format
+  * projectId `string`: The project id of the beacon to decommission. If the project id is not
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [Empty](#empty)
 
 ### namespaces.update
 Updates the information about the specified namespace. Only the namespace
@@ -610,21 +691,159 @@ google_proximitybeacon.namespaces.update({
 }, context)
 ```
 
-#### Parameters
-* namespaceName (string) **required** - Resource name of this namespace. Namespaces names have the format:
-* projectId (string) - The project id of the namespace to update. If the project id is not
-* body (object) - An attachment namespace defines read and write access for all the attachments
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * namespaceName **required** `string`: Resource name of this namespace. Namespaces names have the format:
+  * projectId `string`: The project id of the namespace to update. If the project id is not
+  * body [Namespace](#namespace)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [Namespace](#namespace)
+
+
+
+## Definitions
+
+### AdvertisedId
+* AdvertisedId `object`: Defines a unique identifier of a beacon as broadcast by the device.
+  * id `string`: The actual beacon identifier, as broadcast by the beacon hardware. Must be
+  * type `string` (values: TYPE_UNSPECIFIED, EDDYSTONE, IBEACON, ALTBEACON, EDDYSTONE_EID): Specifies the identifier type.
+
+### AttachmentInfo
+* AttachmentInfo `object`: A subset of attachment information served via the
+  * data `string`: An opaque data container for client-provided data.
+  * namespacedType `string`: Specifies what kind of attachment this is. Tells a client how to
+
+### Beacon
+* Beacon `object`: Details of a beacon device.
+  * advertisedId [AdvertisedId](#advertisedid)
+  * beaconName `string`: Resource name of this beacon. A beacon name has the format
+  * description `string`: Free text used to identify and describe the beacon. Maximum length 140
+  * ephemeralIdRegistration [EphemeralIdRegistration](#ephemeralidregistration)
+  * expectedStability `string` (values: STABILITY_UNSPECIFIED, STABLE, PORTABLE, MOBILE, ROVING): Expected location stability. This is set when the beacon is registered or
+  * indoorLevel [IndoorLevel](#indoorlevel)
+  * latLng [LatLng](#latlng)
+  * placeId `string`: The [Google Places API](/places/place-id) Place ID of the place where
+  * properties `object`: Properties of the beacon device, for example battery type or firmware
+  * provisioningKey `string`: Some beacons may require a user to provide an authorization key before
+  * status `string` (values: STATUS_UNSPECIFIED, ACTIVE, DECOMMISSIONED, INACTIVE): Current status of the beacon.
+
+### BeaconAttachment
+* BeaconAttachment `object`: Project-specific data associated with a beacon.
+  * attachmentName `string`: Resource name of this attachment. Attachment names have the format:
+  * creationTimeMs `string`: The UTC time when this attachment was created, in milliseconds since the
+  * data `string`: An opaque data container for client-provided data. Must be
+  * maxDistanceMeters `number`: The distance away from the beacon at which this attachment should be
+  * namespacedType `string`: Specifies what kind of attachment this is. Tells a client how to
+
+### BeaconInfo
+* BeaconInfo `object`: A subset of beacon information served via the `beaconinfo.getforobserved`
+  * advertisedId [AdvertisedId](#advertisedid)
+  * attachments `array`: Attachments matching the type(s) requested.
+    * items [AttachmentInfo](#attachmentinfo)
+  * beaconName `string`: The name under which the beacon is registered.
+
+### Date
+* Date `object`: Represents a whole calendar date, e.g. date of birth. The time of day and
+  * day `integer`: Day of month. Must be from 1 to 31 and valid for the year and month, or 0
+  * month `integer`: Month of year. Must be from 1 to 12.
+  * year `integer`: Year of date. Must be from 1 to 9999, or 0 if specifying a date without
+
+### DeleteAttachmentsResponse
+* DeleteAttachmentsResponse `object`: Response for a request to delete attachments.
+  * numDeleted `integer`: The number of attachments that were deleted.
+
+### Diagnostics
+* Diagnostics `object`: Diagnostics for a single beacon.
+  * alerts `array`: An unordered list of Alerts that the beacon has.
+    * items `string` (values: ALERT_UNSPECIFIED, WRONG_LOCATION, LOW_BATTERY, LOW_ACTIVITY)
+  * beaconName `string`: Resource name of the beacon. For Eddystone-EID beacons, this may
+  * estimatedLowBatteryDate [Date](#date)
+
+### Empty
+* Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
+
+### EphemeralIdRegistration
+* EphemeralIdRegistration `object`: Write-only registration parameters for beacons using Eddystone-EID format.
+  * beaconEcdhPublicKey `string`: The beacon's public key used for the Elliptic curve Diffie-Hellman
+  * beaconIdentityKey `string`: The private key of the beacon. If this field is populated,
+  * initialClockValue `string`: The initial clock value of the beacon. The beacon's clock must have
+  * initialEid `string`: An initial ephemeral ID calculated using the clock value submitted as
+  * rotationPeriodExponent `integer`: Indicates the nominal period between each rotation of the beacon's
+  * serviceEcdhPublicKey `string`: The service's public key used for the Elliptic curve Diffie-Hellman
+
+### EphemeralIdRegistrationParams
+* EphemeralIdRegistrationParams `object`: Information a client needs to provision and register beacons that
+  * maxRotationPeriodExponent `integer`: Indicates the maximum rotation period supported by the service.
+  * minRotationPeriodExponent `integer`: Indicates the minimum rotation period supported by the service.
+  * serviceEcdhPublicKey `string`: The beacon service's public key for use by a beacon to derive its
+
+### GetInfoForObservedBeaconsRequest
+* GetInfoForObservedBeaconsRequest `object`: Request for beacon and attachment information about beacons that
+  * namespacedTypes `array`: Specifies what kind of attachments to include in the response.
+    * items `string`
+  * observations `array`: The beacons that the client has encountered.
+    * items [Observation](#observation)
+
+### GetInfoForObservedBeaconsResponse
+* GetInfoForObservedBeaconsResponse `object`: Information about the requested beacons, optionally including attachment
+  * beacons `array`: Public information about beacons.
+    * items [BeaconInfo](#beaconinfo)
+
+### IndoorLevel
+* IndoorLevel `object`: Indoor level, a human-readable string as returned by Google Maps APIs,
+  * name `string`: The name of this level.
+
+### LatLng
+* LatLng `object`: An object representing a latitude/longitude pair. This is expressed as a pair
+  * latitude `number`: The latitude in degrees. It must be in the range [-90.0, +90.0].
+  * longitude `number`: The longitude in degrees. It must be in the range [-180.0, +180.0].
+
+### ListBeaconAttachmentsResponse
+* ListBeaconAttachmentsResponse `object`: Response to `ListBeaconAttachments` that contains the requested attachments.
+  * attachments `array`: The attachments that corresponded to the request params.
+    * items [BeaconAttachment](#beaconattachment)
+
+### ListBeaconsResponse
+* ListBeaconsResponse `object`: Response that contains list beacon results and pagination help.
+  * beacons `array`: The beacons that matched the search criteria.
+    * items [Beacon](#beacon)
+  * nextPageToken `string`: An opaque pagination token that the client may provide in their next
+  * totalCount `string`: Estimate of the total number of beacons matched by the query. Higher
+
+### ListDiagnosticsResponse
+* ListDiagnosticsResponse `object`: Response that contains the requested diagnostics.
+  * diagnostics `array`: The diagnostics matching the given request.
+    * items [Diagnostics](#diagnostics)
+  * nextPageToken `string`: Token that can be used for pagination. Returned only if the
+
+### ListNamespacesResponse
+* ListNamespacesResponse `object`: Response to ListNamespacesRequest that contains all the project's namespaces.
+  * namespaces `array`: The attachments that corresponded to the request params.
+    * items [Namespace](#namespace)
+
+### Namespace
+* Namespace `object`: An attachment namespace defines read and write access for all the attachments
+  * namespaceName `string`: Resource name of this namespace. Namespaces names have the format:
+  * servingVisibility `string` (values: VISIBILITY_UNSPECIFIED, UNLISTED, PUBLIC): Specifies what clients may receive attachments under this namespace
+
+### Observation
+* Observation `object`: Represents one beacon observed once.
+  * advertisedId [AdvertisedId](#advertisedid)
+  * telemetry `string`: The array of telemetry bytes received from the beacon. The server is
+  * timestampMs `string`: Time when the beacon was observed.
+
 

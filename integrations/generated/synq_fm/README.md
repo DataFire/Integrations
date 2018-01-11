@@ -4,11 +4,9 @@ Client library for SYNQ Video
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/synq_fm
+npm install --save @datafire/synq_fm
 ```
-
 ```js
-let datafire = require('datafire');
 let synq_fm = require('@datafire/synq_fm').create();
 
 synq_fm.create({}).then(data => {
@@ -17,10 +15,12 @@ synq_fm.create({}).then(data => {
 ```
 
 ## Description
+
 * [Sign up for a developer API key!](https://www.synq.fm/register)
 * [SYNQ API Guide](/)
 
 ## Actions
+
 ### create
 Create a new video, optionally setting some metadata fields. You may optionally set some of the metadata associated with the video. Only fields inside the "userdata" field can be set.
 
@@ -31,9 +31,13 @@ synq_fm.create({
 }, context)
 ```
 
-#### Parameters
-* api_key (string) **required**
-* userdata (string) - Additional metadata that will be associated with the video
+#### Input
+* input `object`
+  * api_key **required** `string`
+  * userdata `string`: Additional metadata that will be associated with the video
+
+#### Output
+* output [VideoObject](#videoobject)
 
 ### details
 Return details about a video. You may optionally request that only some of the metadata fields are returned.
@@ -46,9 +50,13 @@ synq_fm.details({
 }, context)
 ```
 
-#### Parameters
-* api_key (string) **required**
-* video_id (string) **required** - ID of the video to retrieve the metadata from
+#### Input
+* input `object`
+  * api_key **required** `string`
+  * video_id **required** `string`: ID of the video to retrieve the metadata from
+
+#### Output
+* output [VideoObject](#videoobject)
 
 ### query
 Find videos matching any criteria, by running a JavaScript function over each video object. A detailed tutorial on how to use this functionality is available on the [documentation page](https://www.synq.fm/queries-video-api/).
@@ -61,9 +69,14 @@ synq_fm.query({
 }, context)
 ```
 
-#### Parameters
-* api_key (string) **required**
-* filter (string) **required** - JavaScript code to be run over each video object, to determine what should be returend.
+#### Input
+* input `object`
+  * api_key **required** `string`
+  * filter **required** `string`: JavaScript code to be run over each video object, to determine what should be returend.
+
+#### Output
+* output `array`
+  * items `object`
 
 ### stream
 Returns a stream url that you can stream to from your broadcasting software, and a playback url people can use to watch the stream.
@@ -76,9 +89,15 @@ synq_fm.stream({
 }, context)
 ```
 
-#### Parameters
-* api_key (string) **required**
-* video_id (string) **required** - The ID of the video you want to stream to. The video needs to have been previously created.
+#### Input
+* input `object`
+  * api_key **required** `string`
+  * video_id **required** `string`: The ID of the video you want to stream to. The video needs to have been previously created.
+
+#### Output
+* output `object`
+  * playback_url **required** `string`
+  * stream_url **required** `string`
 
 ### update
 Update a video's metadata through JavaScript code. Only fields inside the "userdata" object can be set.
@@ -92,10 +111,14 @@ synq_fm.update({
 }, context)
 ```
 
-#### Parameters
-* api_key (string) **required**
-* video_id (string) **required** - The ID of the video whose metadata will be updated
-* source (string) **required** - JavaScript code to execute on the video object.
+#### Input
+* input `object`
+  * api_key **required** `string`
+  * video_id **required** `string`: The ID of the video whose metadata will be updated
+  * source **required** `string`: JavaScript code to execute on the video object.
+
+#### Output
+* output [VideoObject](#videoobject)
 
 ### upload
 Return parameters needed for uploading a video file to Amazon Simple Storage Service. See http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html as well as the language-specific code-examples.
@@ -144,9 +167,13 @@ synq_fm.upload({
 }, context)
 ```
 
-#### Parameters
-* api_key (string) **required**
-* video_id (string) **required** - The ID of the video you are going to upload into. The video needs to have been previously created.
+#### Input
+* input `object`
+  * api_key **required** `string`
+  * video_id **required** `string`: The ID of the video you are going to upload into. The video needs to have been previously created.
+
+#### Output
+* output [UploadParameterObject](#uploadparameterobject)
 
 ### uploader
 Returns an embeddable url, that contains an uploader widget that allows you to easily upload any mp4. Great way to simplify the uploading process for end users.
@@ -159,8 +186,52 @@ synq_fm.uploader({
 }, context)
 ```
 
-#### Parameters
-* api_key (string) **required**
-* video_id (string) **required** - The ID of the video you are going to upload into. The video needs to have been previously created.
-* timeout (string) - How long the uploader widget works for. Anything from '30 minutes' to '2 days'.
+#### Input
+* input `object`
+  * api_key **required** `string`
+  * video_id **required** `string`: The ID of the video you are going to upload into. The video needs to have been previously created.
+  * timeout `string`: How long the uploader widget works for. Anything from '30 minutes' to '2 days'.
+
+#### Output
+* output `object`
+  * uploader_url `string`
+
+
+
+## Definitions
+
+### ErrorObject
+* ErrorObject `object`
+  * details `object`
+  * message **required** `string`
+  * name **required** `string`
+  * url **required** `string`
+
+### StreamConfigurationObject
+* StreamConfigurationObject `object`
+  * rtmp_host `string`
+  * rtmp_key `string`
+  * rtmp_port `string`
+  * rtmp_url `string`
+
+### UploadParameterObject
+* UploadParameterObject `object`
+  * AWSAccessKeyId `string`
+  * Content-Type `string`
+  * Policy `string`
+  * Signature `string`
+  * acl `string`
+  * action `string`
+  * key `string`
+
+### VideoObject
+* VideoObject `object`
+  * created_at **required** `string`
+  * input `object`
+  * outputs `object`
+  * state **required** `string`
+  * updated_at **required** `string`
+  * userdata **required** `object`
+  * video_id **required** `string`
+
 

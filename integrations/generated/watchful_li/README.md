@@ -4,11 +4,9 @@ Client library for watchful.li
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/watchful_li
+npm install --save @datafire/watchful_li
 ```
-
 ```js
-let datafire = require('datafire');
 let watchful_li = require('@datafire/watchful_li').create();
 
 watchful_li.getVersions({}).then(data => {
@@ -19,7 +17,9 @@ watchful_li.getVersions({}).then(data => {
 ## Description
 
 
+
 ## Actions
+
 ### getAudits
 Returns a list of audits
 
@@ -28,10 +28,14 @@ Returns a list of audits
 watchful_li.getAudits({}, context)
 ```
 
-#### Parameters
-* limit (integer) - Number of object to return (max 100, default 25)
-* limitstart (integer) - Start of the return (default 0)
-* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+#### Input
+* input `object`
+  * limit `integer`: Number of object to return (max 100, default 25)
+  * limitstart `integer`: Start of the return (default 0)
+  * order `string`: ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+
+#### Output
+* output [Audit](#audit)
 
 ### CreateAudits
 Create a audit
@@ -43,8 +47,12 @@ watchful_li.CreateAudits({
 }, context)
 ```
 
-#### Parameters
-* body (undefined) **required**
+#### Input
+* input `object`
+  * body **required** [Audit](#audit)
+
+#### Output
+* output [Audit](#audit)
 
 ### getFieldsAudits
 Returns a list of fields
@@ -54,8 +62,11 @@ Returns a list of fields
 watchful_li.getFieldsAudits(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `string`
 
 ### deleteAuditById
 Delete a specific audit
@@ -67,8 +78,12 @@ watchful_li.deleteAuditById({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of audit that needs to be deleted
+#### Input
+* input `object`
+  * id **required** `integer`: ID of audit that needs to be deleted
+
+#### Output
+* output `string`
 
 ### getAuditById
 Returns a audit based on ID
@@ -80,9 +95,13 @@ watchful_li.getAuditById({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of audit that needs to be fetched
-* fields (string) - Fields to return separate by comas: name,id
+#### Input
+* input `object`
+  * id **required** `integer`: ID of audit that needs to be fetched
+  * fields `string`: Fields to return separate by comas: name,id
+
+#### Output
+* output [Audit](#audit)
 
 ### getExtensions
 Returns a list Extensions
@@ -92,16 +111,20 @@ Returns a list Extensions
 watchful_li.getExtensions({}, context)
 ```
 
-#### Parameters
-* ext_name (string) - Do a 'LIKE' search, you can also use '%'
-* siteids (string) - List of sites id separated by comma
-* ext_prefix (string) - Do a 'LIKE' search, you can also use '%'. technical name of the extension com_xxxx
-* version (string) - Do a 'LIKE' search, you can also use '%'
-* vUpdate (integer) - update available for this extension
-* fields (string) - Fields to return separate by comas: name,id
-* limit (integer) - Number of object to return (max 100, default 25)
-* limitstart (integer) - Start of the return (default 0)
-* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+#### Input
+* input `object`
+  * ext_name `string`: Do a 'LIKE' search, you can also use '%'
+  * siteids `string`: List of sites id separated by comma
+  * ext_prefix `string`: Do a 'LIKE' search, you can also use '%'. technical name of the extension com_xxxx
+  * version `string`: Do a 'LIKE' search, you can also use '%'
+  * vUpdate `integer` (values: 1, 0): update available for this extension
+  * fields `string`: Fields to return separate by comas: name,id
+  * limit `integer`: Number of object to return (max 100, default 25)
+  * limitstart `integer`: Start of the return (default 0)
+  * order `string`: ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+
+#### Output
+* output [Extension](#extension)
 
 ### getFieldsExtensions
 Returns a list of fields
@@ -111,8 +134,11 @@ Returns a list of fields
 watchful_li.getFieldsExtensions(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `string`
 
 ### ignoreExtensionUpdate
 Set 'ignore updates' for a given extension / site_id
@@ -124,8 +150,12 @@ watchful_li.ignoreExtensionUpdate({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the extension
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the extension
+
+#### Output
+* output `string`
 
 ### unignoreExtensionUpdate
 Remove 'ignore updates' for a given extension
@@ -137,8 +167,12 @@ watchful_li.unignoreExtensionUpdate({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the extension
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the extension
+
+#### Output
+* output `string`
 
 ### updateExtension
 Update the extension on the remote site
@@ -150,8 +184,12 @@ watchful_li.updateExtension({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the extension
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the extension
+
+#### Output
+* output `string`
 
 ### getFeedbacks
 Returns a list of feedbacks
@@ -161,8 +199,12 @@ Returns a list of feedbacks
 watchful_li.getFeedbacks({}, context)
 ```
 
-#### Parameters
-* fields (string) - Fields to return separate by comas (es. name,id)
+#### Input
+* input `object`
+  * fields `string`: Fields to return separate by comas (es. name,id)
+
+#### Output
+* output [Feedback](#feedback)
 
 ### createFeedbacks
 Create a feedback
@@ -174,8 +216,12 @@ watchful_li.createFeedbacks({
 }, context)
 ```
 
-#### Parameters
-* body (undefined) **required**
+#### Input
+* input `object`
+  * body **required** [Feedback](#feedback)
+
+#### Output
+* output [Audit](#audit)
 
 ### getFieldsFeedbacks
 Returns a list of fields
@@ -185,8 +231,11 @@ Returns a list of fields
 watchful_li.getFieldsFeedbacks(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `string`
 
 ### logs.get
 Returns a list of logs
@@ -196,15 +245,19 @@ Returns a list of logs
 watchful_li.logs.get({}, context)
 ```
 
-#### Parameters
-* log_type (string) - Type of the log
-* log_entry (string) - Do a 'LIKE' search, you can also use '%'
-* from (string) - Logs after this date, format YYYY-MM-DD HH:MM:SS
-* to (string) - Logs before this date, format YYYY-MM-DD HH:MM:SS
-* fields (string) - Fields to return separate by comas: name,id
-* limit (integer) - Number of object to return (max 100, default 25)
-* limitstart (integer) - Start of the return (default 0)
-* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+#### Input
+* input `object`
+  * log_type `string` (values: , plugin_sends_error, curlerror, modified_file, word_not_in_homepage, file_not_exists, update_available, new_extension, deleted_extension, extension_not_saved, modified_value_files, custom): Type of the log
+  * log_entry `string`: Do a 'LIKE' search, you can also use '%'
+  * from `string`: Logs after this date, format YYYY-MM-DD HH:MM:SS
+  * to `string`: Logs before this date, format YYYY-MM-DD HH:MM:SS
+  * fields `string`: Fields to return separate by comas: name,id
+  * limit `integer`: Number of object to return (max 100, default 25)
+  * limitstart `integer`: Start of the return (default 0)
+  * order `string`: ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+
+#### Output
+* output [Log](#log)
 
 ### getExportLogs
 Returns a file contain the list of logs
@@ -216,15 +269,19 @@ watchful_li.getExportLogs({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Format of exported file (PDF or CSV)
-* site (integer) - Site id of the log
-* filter_type (string) - Type of the log
-* search (string) - Do a 'LIKE' search, you can also use '%'
-* startdate (string) - Logs after this date, format YYYY-MM-DD HH:MM:SS
-* enddate (string) - Logs before this date, format YYYY-MM-DD HH:MM:SS
-* limit (integer) - Number of object to return (max 100, default 25)
-* startid (integer) - Start of the return (default 0)
+#### Input
+* input `object`
+  * format **required** `string` (values: csv, pdf): Format of exported file (PDF or CSV)
+  * site `integer`: Site id of the log
+  * filter_type `string` (values: , plugin_sends_error, curlerror, modified_file, word_not_in_homepage, file_not_exists, update_available, new_extension, deleted_extension, extension_not_saved, modified_value_files, custom): Type of the log
+  * search `string`: Do a 'LIKE' search, you can also use '%'
+  * startdate `string`: Logs after this date, format YYYY-MM-DD HH:MM:SS
+  * enddate `string`: Logs before this date, format YYYY-MM-DD HH:MM:SS
+  * limit `integer`: Number of object to return (max 100, default 25)
+  * startid `integer`: Start of the return (default 0)
+
+#### Output
+*Output schema unknown*
 
 ### getFieldsLogs
 Returns a list of fields
@@ -234,8 +291,11 @@ Returns a list of fields
 watchful_li.getFieldsLogs(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `string`
 
 ### getTypesLogs
 Returns a list of log types
@@ -245,8 +305,11 @@ Returns a list of log types
 watchful_li.getTypesLogs(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `string`
 
 ### deleteLogById
 Delete a specific log
@@ -258,8 +321,12 @@ watchful_li.deleteLogById({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of log that needs to be deleted
+#### Input
+* input `object`
+  * id **required** `integer`: ID of log that needs to be deleted
+
+#### Output
+* output `string`
 
 ### uploadZipPackage
 Upload a ZIP package
@@ -271,8 +338,12 @@ watchful_li.uploadZipPackage({
 }, context)
 ```
 
-#### Parameters
-* file (string) **required** - ZIP package
+#### Input
+* input `object`
+  * file **required** `string`: ZIP package
+
+#### Output
+* output [Tag](#tag)
 
 ### reports.sites.id.get
 Returns a PDF report based on a site ID
@@ -284,13 +355,17 @@ watchful_li.reports.sites.id.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID that needs to be fetched
-* from (string) - Start of the report, format YYYY-MM-DD, default today-30day 
-* to (string) - End of the report, format YYYY-MM-DD, default today
-* reports (string) - Type of reports separate by comas: Ga,Logs,Uptime
-* log_type (string) - Type of the log to show in the report
-* compare (integer) - Define if you want show previous values in Google Analytics graph
+#### Input
+* input `object`
+  * id **required** `integer`: ID that needs to be fetched
+  * from `string`: Start of the report, format YYYY-MM-DD, default today-30day 
+  * to `string`: End of the report, format YYYY-MM-DD, default today
+  * reports `string`: Type of reports separate by comas: Ga,Logs,Uptime
+  * log_type `string` (values: , plugin_sends_error, curlerror, modified_file, word_not_in_homepage, file_not_exists, update_available, new_extension, deleted_extension, extension_not_saved, modified_value_files): Type of the log to show in the report
+  * compare `integer` (values: 0, 1): Define if you want show previous values in Google Analytics graph
+
+#### Output
+* output [Reports](#reports)
 
 ### reports.tags.id.get
 Returns a report based on a site ID
@@ -302,13 +377,17 @@ watchful_li.reports.tags.id.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID that needs to be fetched
-* from (string) - Start of the report, format YYYY-MM-DD, default today-30day 
-* to (string) - End of the report, format YYYY-MM-DD, default today
-* reports (string) - Type of reports separate by comas: Ga,Logs,Uptime
-* log_type (string) - Type of the log to show in the report
-* compare (integer) - Define if you want show previous values in Google Analytics graph
+#### Input
+* input `object`
+  * id **required** `integer`: ID that needs to be fetched
+  * from `string`: Start of the report, format YYYY-MM-DD, default today-30day 
+  * to `string`: End of the report, format YYYY-MM-DD, default today
+  * reports `string`: Type of reports separate by comas: Ga,Logs,Uptime
+  * log_type `string` (values: , plugin_sends_error, curlerror, modified_file, word_not_in_homepage, file_not_exists, update_available, new_extension, deleted_extension, extension_not_saved, modified_value_files): Type of the log to show in the report
+  * compare `integer` (values: 0, 1): Define if you want show previous values in Google Analytics graph
+
+#### Output
+* output [Reports](#reports)
 
 ### getSites
 Returns a list of Sites
@@ -318,22 +397,26 @@ Returns a list of Sites
 watchful_li.getSites({}, context)
 ```
 
-#### Parameters
-* siteids (string) - List of sites id separated by comma
-* name (string) - Site name. Do a 'LIKE' search, you can also use '%'
-* access_url (string) - Access URL. Do a 'LIKE' search, you can also use '%'
-* j_version (string) - Joomla version. Do a 'LIKE' search, you can also use '%'
-* ip (string) - Ip address. Do a 'LIKE' search, you can also use '%'
-* jUpdate (integer) - Joomla core update status (1: update required, 0: update not required)
-* canUpdate (integer) - canUpdate
-* published (integer) - Is published
-* error (string) - Has errors
-* nbUpdates (string)
-* up (integer) - Is online
-* fields (string) - Fields to return separated by commas (e.g. name,id)
-* limit (integer) - Number of objects to return (max 100, default 25)
-* limitstart (integer) - Start of the return (default 0)
-* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+#### Input
+* input `object`
+  * siteids `string`: List of sites id separated by comma
+  * name `string`: Site name. Do a 'LIKE' search, you can also use '%'
+  * access_url `string`: Access URL. Do a 'LIKE' search, you can also use '%'
+  * j_version `string`: Joomla version. Do a 'LIKE' search, you can also use '%'
+  * ip `string`: Ip address. Do a 'LIKE' search, you can also use '%'
+  * jUpdate `integer` (values: 1, 0): Joomla core update status (1: update required, 0: update not required)
+  * canUpdate `integer` (values: 1, 0): canUpdate
+  * published `integer` (values: 1, 0): Is published
+  * error `string`: Has errors
+  * nbUpdates `string`
+  * up `integer` (values: 1, 0): Is online
+  * fields `string`: Fields to return separated by commas (e.g. name,id)
+  * limit `integer`: Number of objects to return (max 100, default 25)
+  * limitstart `integer`: Start of the return (default 0)
+  * order `string`: ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+
+#### Output
+* output [Site](#site)
 
 ### createSite
 Create a site
@@ -345,8 +428,12 @@ watchful_li.createSite({
 }, context)
 ```
 
-#### Parameters
-* body (undefined) **required**
+#### Input
+* input `object`
+  * body **required** [PostSite](#postsite)
+
+#### Output
+* output [Site](#site)
 
 ### sites.metadata.get
 Returns a list of fields
@@ -356,8 +443,11 @@ Returns a list of fields
 watchful_li.sites.metadata.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `string`
 
 ### sites.id.delete
 Delete a specific Site
@@ -369,8 +459,12 @@ watchful_li.sites.id.delete({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of Site that needs to be deleted
+#### Input
+* input `object`
+  * id **required** `integer`: ID of Site that needs to be deleted
+
+#### Output
+* output `string`
 
 ### getSiteById
 Return a site based on ID
@@ -382,9 +476,13 @@ watchful_li.getSiteById({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID that needs to be fetched
-* fields (string) - Fields to return separate by comas: name,id
+#### Input
+* input `object`
+  * id **required** `integer`: ID that needs to be fetched
+  * fields `string`: Fields to return separate by comas: name,id
+
+#### Output
+* output [Site](#site)
 
 ### sites.id.put
 Update a site
@@ -397,9 +495,13 @@ watchful_li.sites.id.put({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website that needs to be update
-* body (undefined) **required**
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website that needs to be update
+  * body **required** [PostSite](#postsite)
+
+#### Output
+* output [Site](#site)
 
 ### getSiteAudits
 Return audits for a specific website
@@ -411,12 +513,16 @@ watchful_li.getSiteAudits({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
-* fields (string) - Fields to return separate by comas: name,id
-* limit (integer) - Number of object to return (max 100, default 25)
-* limitstart (integer) - Start of the return (default 0)
-* order (string) - ORDER by this field
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+  * fields `string`: Fields to return separate by comas: name,id
+  * limit `integer`: Number of object to return (max 100, default 25)
+  * limitstart `integer`: Start of the return (default 0)
+  * order `string`: ORDER by this field
+
+#### Output
+* output [Audits](#audits)
 
 ### createAudits
 Create an audit for the site
@@ -428,8 +534,12 @@ watchful_li.createAudits({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+* output [Audit](#audit)
 
 ### addSiteToBackupQueue
 Add the site to the backup queue
@@ -441,8 +551,12 @@ watchful_li.addSiteToBackupQueue({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+* output [Site](#site)
 
 ### getBackupProfiles
 Return backup profile
@@ -454,8 +568,12 @@ watchful_li.getBackupProfiles({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+*Output schema unknown*
 
 ### getListBackups
 List of latest backups
@@ -467,8 +585,12 @@ watchful_li.getListBackups({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+*Output schema unknown*
 
 ### startSiteBackup
 Start a remote backup for the site
@@ -480,8 +602,12 @@ watchful_li.startSiteBackup({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+* output [Site](#site)
 
 ### stepSiteBackup
 Step (continue) a remote backup for the site
@@ -493,8 +619,12 @@ watchful_li.stepSiteBackup({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+* output [Site](#site)
 
 ### sites.id.extensions.get
 Get extensions for a site
@@ -506,12 +636,16 @@ watchful_li.sites.id.extensions.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
-* fields (string) - Fields to return separate by comas: name,id
-* limit (integer) - Number of object to return (max 100, default 25)
-* limitstart (integer) - Start of the return (default 0)
-* order (string) - ORDER by this field
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+  * fields `string`: Fields to return separate by comas: name,id
+  * limit `integer`: Number of object to return (max 100, default 25)
+  * limitstart `integer`: Start of the return (default 0)
+  * order `string`: ORDER by this field
+
+#### Output
+* output [Extension](#extension)
 
 ### installExtension
 Install extension
@@ -524,9 +658,13 @@ watchful_li.installExtension({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
-* url (string) **required** - URL to install the extension from
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+  * url **required** `string`: URL to install the extension from
+
+#### Output
+*Output schema unknown*
 
 ### sites.id.logs.get
 Return logs for a specific website
@@ -538,16 +676,20 @@ watchful_li.sites.id.logs.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
-* log_entry (string) - Do a 'LIKE' search, you can also use '%'
-* log_type (string) - Type of the log
-* from (string) - Logs after this date, format YYYY-MM-DD HH:MM:SS
-* to (string) - Logs before this date, format YYYY-MM-DD HH:MM:SS
-* fields (string) - Fields to return separate by comas: name,id
-* limit (integer) - Number of object to return (max 100, default 25)
-* limitstart (integer) - Start of the return (default 0)
-* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+  * log_entry `string`: Do a 'LIKE' search, you can also use '%'
+  * log_type `string` (values: , plugin_sends_error, curlerror, modified_file, word_not_in_homepage, file_not_exists, update_available, new_extension, deleted_extension, extension_not_saved, modified_value_files): Type of the log
+  * from `string`: Logs after this date, format YYYY-MM-DD HH:MM:SS
+  * to `string`: Logs before this date, format YYYY-MM-DD HH:MM:SS
+  * fields `string`: Fields to return separate by comas: name,id
+  * limit `integer`: Number of object to return (max 100, default 25)
+  * limitstart `integer`: Start of the return (default 0)
+  * order `string`: ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+
+#### Output
+* output [Log](#log)
 
 ### CreateLog
 Create a custom log for a specific website
@@ -560,9 +702,13 @@ watchful_li.CreateLog({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
-* body (undefined) **required**
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+  * body **required** [PostLog](#postlog)
+
+#### Output
+* output [Log](#log)
 
 ### deleteMonitor
 Return boolean
@@ -574,8 +720,12 @@ watchful_li.deleteMonitor({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+* output [Monitor](#monitor)
 
 ### postMonitor
 Return boolean
@@ -587,8 +737,12 @@ watchful_li.postMonitor({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+* output [Monitor](#monitor)
 
 ### scanner
 Scan the site for malware
@@ -600,8 +754,12 @@ watchful_li.scanner({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+* output `string`
 
 ### sites.id.tags.get
 Return tags for a specific website
@@ -613,14 +771,18 @@ watchful_li.sites.id.tags.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
-* name (string) - Do a 'LIKE' search, you can also use '%'
-* type (string) - Bootstrap color of the tag
-* fields (string) - Fields to return separate by comas: name,id
-* limit (integer) - Number of object to return (max 100, default 25)
-* limitstart (integer) - Start of the return (default 0)
-* order (string) - ORDER by this field
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+  * name `string`: Do a 'LIKE' search, you can also use '%'
+  * type `string` (values: , default, success, warning, important, info, inverse): Bootstrap color of the tag
+  * fields `string`: Fields to return separate by comas: name,id
+  * limit `integer`: Number of object to return (max 100, default 25)
+  * limitstart `integer`: Start of the return (default 0)
+  * order `string`: ORDER by this field
+
+#### Output
+* output [Tag](#tag)
 
 ### postTags
 Add tags for a specific website
@@ -633,9 +795,13 @@ watchful_li.postTags({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
-* body (undefined) **required**
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+  * body **required** [Tag](#tag)
+
+#### Output
+* output [Site](#site)
 
 ### updateJoomla
 Update Joomla core on the remote site
@@ -647,8 +813,12 @@ watchful_li.updateJoomla({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+* output `string`
 
 ### getUptime
 Return uptime data
@@ -660,8 +830,12 @@ watchful_li.getUptime({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+* output [Uptime](#uptime)
 
 ### validateSite
 validate the site
@@ -673,8 +847,12 @@ watchful_li.validateSite({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+* output [Log](#log)
 
 ### validateDebugSite
 validate the site, return the debug information
@@ -686,8 +864,12 @@ watchful_li.validateDebugSite({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of the website
+#### Input
+* input `object`
+  * id **required** `integer`: ID of the website
+
+#### Output
+* output [Log](#log)
 
 ### getSsoUsers
 Returns a list of SSO Users
@@ -697,8 +879,11 @@ Returns a list of SSO Users
 watchful_li.getSsoUsers(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [SsoUsers](#ssousers)
 
 ### CreateSsoUsers
 Create a SSO User
@@ -710,8 +895,12 @@ watchful_li.CreateSsoUsers({
 }, context)
 ```
 
-#### Parameters
-* body (undefined) **required**
+#### Input
+* input `object`
+  * body **required** [SsoUsers](#ssousers)
+
+#### Output
+* output [SsoUsers](#ssousers)
 
 ### deleteSsoUserById
 Delete a specific SSO User
@@ -723,8 +912,12 @@ watchful_li.deleteSsoUserById({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of SSO User that needs to be deleted
+#### Input
+* input `object`
+  * id **required** `integer`: ID of SSO User that needs to be deleted
+
+#### Output
+* output `string`
 
 ### getSsoUsersById
 Returns a SSO User based on ID
@@ -736,9 +929,13 @@ watchful_li.getSsoUsersById({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of SSO User that needs to be fetched
-* fields (string) - Fields to return separate by comas: name,id
+#### Input
+* input `object`
+  * id **required** `integer`: ID of SSO User that needs to be fetched
+  * fields `string`: Fields to return separate by comas: name,id
+
+#### Output
+* output [SsoUsers](#ssousers)
 
 ### UpdateSsoUsers
 Update a SSO User
@@ -751,9 +948,13 @@ watchful_li.UpdateSsoUsers({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of SSO User that needs to be updated
-* body (undefined) **required**
+#### Input
+* input `object`
+  * id **required** `integer`: ID of SSO User that needs to be updated
+  * body **required** [SsoUsers](#ssousers)
+
+#### Output
+* output [SsoUsers](#ssousers)
 
 ### tags.get
 Returns a list of tags
@@ -763,13 +964,17 @@ Returns a list of tags
 watchful_li.tags.get({}, context)
 ```
 
-#### Parameters
-* name (string) - Do a 'LIKE' search, you can also use '%'
-* type (string) - Bootstrap color of the tag
-* fields (string) - Fields to return separate by comas: name,id
-* limit (integer) - Number of object to return (max 100, default 25)
-* limitstart (integer) - Start of the return (default 0)
-* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+#### Input
+* input `object`
+  * name `string`: Do a 'LIKE' search, you can also use '%'
+  * type `string` (values: , default, success, warning, important, info, inverse): Bootstrap color of the tag
+  * fields `string`: Fields to return separate by comas: name,id
+  * limit `integer`: Number of object to return (max 100, default 25)
+  * limitstart `integer`: Start of the return (default 0)
+  * order `string`: ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+
+#### Output
+* output [Tag](#tag)
 
 ### CreateTags
 Create a tag
@@ -781,8 +986,12 @@ watchful_li.CreateTags({
 }, context)
 ```
 
-#### Parameters
-* body (undefined) **required**
+#### Input
+* input `object`
+  * body **required** [Tag](#tag)
+
+#### Output
+* output [Tag](#tag)
 
 ### tags.metadata.get
 Returns a list of fields
@@ -792,8 +1001,11 @@ Returns a list of fields
 watchful_li.tags.metadata.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `string`
 
 ### tags.id.delete
 Delete a specific tag
@@ -805,8 +1017,12 @@ watchful_li.tags.id.delete({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of tag that needs to be deleted
+#### Input
+* input `object`
+  * id **required** `integer`: ID of tag that needs to be deleted
+
+#### Output
+* output `string`
 
 ### getTagById
 Returns a tag based on ID
@@ -818,9 +1034,13 @@ watchful_li.getTagById({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of tag that needs to be fetched
-* fields (string) - Fields to return separate by comas: name,id
+#### Input
+* input `object`
+  * id **required** `integer`: ID of tag that needs to be fetched
+  * fields `string`: Fields to return separate by comas: name,id
+
+#### Output
+* output [Tag](#tag)
 
 ### UpdateTag
 Update a tag
@@ -833,9 +1053,13 @@ watchful_li.UpdateTag({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of tag
-* body (undefined) **required**
+#### Input
+* input `object`
+  * id **required** `integer`: ID of tag
+  * body **required** [Tag](#tag)
+
+#### Output
+* output [Tag](#tag)
 
 ### getSitesByTags
 Returns a list of sites based with a specific tag id
@@ -847,21 +1071,25 @@ watchful_li.getSitesByTags({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of tag that needs to be fetched
-* name (string) - Do a 'LIKE' search, you can also use '%'
-* access_url (string) - Do a 'LIKE' search, you can also use '%'
-* j_version (string) - Do a 'LIKE' search, you can also use '%'
-* ip (string) - Do a 'LIKE' search, you can also use '%'
-* jUpdate (integer) - Joomla core update
-* published (integer) - is published
-* error (string) - have errors
-* nbUpdates (string)
-* up (integer) - is the website online
-* fields (string) - Fields to return separate by comas: name,id
-* limit (integer) - Number of object to return (max 100, default 25)
-* limitstart (integer) - Start of the return (default 0)
-* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+#### Input
+* input `object`
+  * id **required** `integer`: ID of tag that needs to be fetched
+  * name `string`: Do a 'LIKE' search, you can also use '%'
+  * access_url `string`: Do a 'LIKE' search, you can also use '%'
+  * j_version `string`: Do a 'LIKE' search, you can also use '%'
+  * ip `string`: Do a 'LIKE' search, you can also use '%'
+  * jUpdate `integer` (values: 1, 0): Joomla core update
+  * published `integer` (values: 1, 0): is published
+  * error `string`: have errors
+  * nbUpdates `string`
+  * up `integer` (values: 1, 0): is the website online
+  * fields `string`: Fields to return separate by comas: name,id
+  * limit `integer`: Number of object to return (max 100, default 25)
+  * limitstart `integer`: Start of the return (default 0)
+  * order `string`: ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+
+#### Output
+* output [Site](#site)
 
 ### getVersions
 Get list of versions
@@ -871,8 +1099,12 @@ Get list of versions
 watchful_li.getVersions({}, context)
 ```
 
-#### Parameters
-* fields (string) - Fields to return separate by comas: name,id
+#### Input
+* input `object`
+  * fields `string`: Fields to return separate by comas: name,id
+
+#### Output
+* output [Version](#version)
 
 ### getVersion
 Find a version by ID
@@ -884,7 +1116,130 @@ watchful_li.getVersion({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - ID of version that needs to be fetched
-* fields (string) - Fields to return separate by commas: name,id
+#### Input
+* input `object`
+  * id **required** `integer`: ID of version that needs to be fetched
+  * fields `string`: Fields to return separate by commas: name,id
+
+#### Output
+* output [Version](#version)
+
+
+
+## Definitions
+
+### Audit
+* Audit `object`
+  * id **required** `integer`: Unique identifier for the audit
+
+### Audits
+* Audits `array`
+  * items [Audit](#audit)
+
+### Extension
+* Extension `object`
+  * date `string`: Date of release
+  * ext_name `string`: Extension name
+  * idx_site **required** `integer`: Unique identifier for the site
+  * newVersion `string`: New version
+  * type **required** `string`: Datetime of the log
+  * url `string`: Author URL
+  * vUpdate `integer`: Update is available
+  * version `string`: Extension version
+
+### Feedback
+* Feedback `object`
+  * id **required** `integer`: Unique identifier for the feedback
+
+### Log
+* Log `object`
+  * Site name `string`: Name of the site / readyonly
+  * id_log **required** `integer`: Unique identifier for the log
+  * idx_site **required** `integer`: Unique identifier for the site
+  * log_date **required** `string`: Datetime of the log
+  * log_entry **required** `string`: Log information
+  * log_level **required** `integer`: Level of log
+  * log_type `string`: Type of log
+  * userid **required** `integer`: Unique identifier for the user
+
+### Monitor
+
+
+### PostLog
+* PostLog `object`
+  * log_date `string`: Datetime of the log
+  * log_entry **required** `string`: Log information
+  * log_level **required** `integer`: Level of log
+
+### PostSite
+* PostSite `object`
+  * access_url **required** `string`: URL of the site
+  * admin_url `string`: Adminsitration URL
+  * akeebaProfile `string`: Akeeba Profile
+  * backupSchedule `string`: Backup Schedule
+  * dateBackup `string`: Date backup
+  * name `string`: Friendly name for the site
+  * notes `string`: Personnal note for the site
+  * published `boolean`: Published status of site
+  * secret_word `string`: Watchful secret word
+  * tags `string`: JSON encoded array of tags for the site (e.g. [{<q>name</q>:<q>mytag</q>},{<q>name</q>:<q>anothertag</q>}])
+  * word_akeeba `string`: Akeeba backup word
+  * word_check `string`: Word checked for uptime
+
+### Reports
+
+
+### Site
+* Site `object`
+  * access_url `string`: URL of the site
+  * admin_url `string`: Adminsitration URL
+  * akeebaProfile `string`: Akeeba Profile
+  * backupSchedule `string`: Backup Schedule
+  * canBackup `boolean`: Site can be backuped
+  * canUpdate `boolean`: Site can use remote installer
+  * dateBackup `string`: Date backup
+  * date_last_check `string`: Watchful Last check
+  * error `boolean`: Error status of site
+  * ip `string`: server IP
+  * jUpdate `boolean`: ?
+  * j_version `string`: Joomla site version
+  * monitorid `boolean`: Id of the associated UptimeRobot monitor
+  * name `string`: Friendly name for the site
+  * nbUpdates `string`: Number of updates
+  * new_j_version `string`: Joomla site version
+  * notes `string`: Personnal note for the site
+  * published `boolean`: Published status of site
+  * secret_word `string`: Watchful secret word
+  * siteid **required** `integer`: Unique identifier for the site
+  * tags `array`: List of tags for this site
+
+  * up `boolean`: Site status
+  * word_akeeba `string`: Akeeba backup word
+  * word_check `string`: Word checked for uptime
+
+### SsoUsers
+* SsoUsers `object`
+  * email **required** `string`: Email of the SSO User
+  * groupid **required** `integer`: Security Joomla group ID
+  * id **required** `integer`: Unique identifier for the SSO User
+  * lastLoginDate `string`: Last login date on remote site
+  * lastLoginSite `integer`: Site Id of the last remote login
+  * name **required** `string`: Account display name
+  * password **required** `string`: Password of the SSO User
+  * userid **required** `integer`: Watchful user account
+  * username **required** `string`: Username of the SSO User
+
+### Tag
+* Tag `object`
+  * id **required** `integer`: Unique identifier for the tag
+  * name **required** `string`: Friendly name for the tag
+  * nbSites `integer`: Number of sites use this tag (required field id)
+  * type `string` (values: default, success, warning, important, info, inverse): Bootstrap color of the tag
+
+### Uptime
+
+
+### Version
+
+
 

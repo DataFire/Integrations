@@ -4,14 +4,12 @@ Client library for Real-Time Rail Predictions
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/wmata_rail_realtime
+npm install --save @datafire/wmata_rail_realtime
 ```
-
 ```js
-let datafire = require('datafire');
 let wmata_rail_realtime = require('@datafire/wmata_rail_realtime').create({
   apiKeyHeader: "",
-  apiKeyQuery: "",
+  apiKeyQuery: ""
 });
 
 wmata_rail_realtime.GetPrediction.StationCodes.get({}).then(data => {
@@ -20,9 +18,11 @@ wmata_rail_realtime.GetPrediction.StationCodes.get({}).then(data => {
 ```
 
 ## Description
+
 Real-time rail prediction methods.
 
 ## Actions
+
 ### GetPrediction.StationCodes.get
 <h4 class="text-primary">Description</h4>
 
@@ -155,8 +155,12 @@ wmata_rail_realtime.GetPrediction.StationCodes.get({
 }, context)
 ```
 
-#### Parameters
-* StationCodes (string) **required** - Comma-separated list of station codes.  For all predictions, use "All".
+#### Input
+* input `object`
+  * StationCodes **required** `string` (values: B03, All): Comma-separated list of station codes.  For all predictions, use "All".
+
+#### Output
+*Output schema unknown*
 
 ### json.GetPrediction.StationCodes.get
 <h4 class="text-primary">Description</h4>
@@ -290,6 +294,15 @@ wmata_rail_realtime.json.GetPrediction.StationCodes.get({
 }, context)
 ```
 
-#### Parameters
-* StationCodes (string) **required** - Comma-separated list of station codes.  For all predictions, use "All".
+#### Input
+* input `object`
+  * StationCodes **required** `string` (values: B03, All): Comma-separated list of station codes.  For all predictions, use "All".
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

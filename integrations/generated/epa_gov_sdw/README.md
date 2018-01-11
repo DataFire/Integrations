@@ -4,11 +4,9 @@ Client library for U.S. EPA Enforcement and Compliance History Online (ECHO) - S
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/epa_gov_sdw
+npm install --save @datafire/epa_gov_sdw
 ```
-
 ```js
-let datafire = require('datafire');
 let epa_gov_sdw = require('@datafire/epa_gov_sdw').create();
 
 epa_gov_sdw.sdw_rest_services.metadata.post({}).then(data => {
@@ -17,6 +15,7 @@ epa_gov_sdw.sdw_rest_services.metadata.post({}).then(data => {
 ```
 
 ## Description
+
 Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and Compliance Assurance for public use. ECHO provides integrated compliance and enforcement information for about 800,000 regulated facilities nationwide.
 <BR><BR>SDW Rest Services provides multiple service endpoints, each with specific capabilities, to search and retrieve data on public water systems regulated under the Safe Drinking Water Act (SDWA) .
 The returned results reflect data drawn from EPA's Federal Safe Drinking Water Information System (SDWIS) database.
@@ -36,6 +35,7 @@ Additional ECHO Resources:   <a href="https://echo.epa.gov/tools/web-services">W
 <br>
 
 ## Actions
+
 ### sdw_rest_services.get_download.get
 Based on the QID obtained from a get_systems query, return a comma separated value (CSV) file of the water systems found.
 
@@ -46,10 +46,14 @@ epa_gov_sdw.sdw_rest_services.get_download.get({
 }, context)
 ```
 
-#### Parameters
-* output (string) - Output Format Flag.  Enter one of the following keywords:
-* qid (string) **required** - Query ID Selector.  Enter the QueryID number from a previously run query.
-* qcolumns (string) - Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+#### Input
+* input `object`
+  * output `string`: Output Format Flag.  Enter one of the following keywords:
+  * qid **required** `string`: Query ID Selector.  Enter the QueryID number from a previously run query.
+  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+
+#### Output
+* output `file`
 
 ### sdw_rest_services.get_download.post
 Based on the QID obtained from a get_systems query, return a comma separated value (CSV) file of the water systems found.
@@ -61,10 +65,14 @@ epa_gov_sdw.sdw_rest_services.get_download.post({
 }, context)
 ```
 
-#### Parameters
-* output (string) - Output Format Flag.  Enter one of the following keywords:
-* qid (string) **required** - Query ID Selector.  Enter the QueryID number from a previously run query.
-* qcolumns (string) - Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+#### Input
+* input `object`
+  * output `string`: Output Format Flag.  Enter one of the following keywords:
+  * qid **required** `string`: Query ID Selector.  Enter the QueryID number from a previously run query.
+  * qcolumns `string`: Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions.
+
+#### Output
+* output `file`
 
 ### sdw_rest_services.get_qid.get
 GET_QID is passed with a query ID corresponding to a previously run get_systems query. It then returns a Systems object containing all matching water systems. The main purpose of GET_QID is for large querysets that contain multiple pages (responsesets) of output. GET_QID allows for pagination and for the selection and sorting of columns. 
@@ -76,13 +84,18 @@ epa_gov_sdw.sdw_rest_services.get_qid.get({
 }, context)
 ```
 
-#### Parameters
-* output (string) - Output Format Flag.  Enter one of the following keywords:
-* qid (string) **required** - Query ID Selector.  Enter the QueryID number from a previously run query.
-* pageno (number) - Indicates the number of the page to display. It is used only when the results are paginated.
-* callback (string) - JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
-* newsort (number) - Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.
-* descending (string) - Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.
+#### Input
+* input `object`
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * qid **required** `string`: Query ID Selector.  Enter the QueryID number from a previously run query.
+  * pageno `number`: Indicates the number of the page to display. It is used only when the results are paginated.
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+  * newsort `number`: Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.
+  * descending `string` (values: Y, N): Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [sdw2_Results](#sdw2_results)
 
 ### sdw_rest_services.get_qid.post
 GET_QID is passed with a query ID corresponding to a previously run get_systems query. It then returns a Systems object containing all matching water systems. The main purpose of GET_QID is for large querysets that contain multiple pages (responsesets) of output. GET_QID allows for pagination and for the selection and sorting of columns. 
@@ -94,13 +107,18 @@ epa_gov_sdw.sdw_rest_services.get_qid.post({
 }, context)
 ```
 
-#### Parameters
-* output (string) - Output Format Flag.  Enter one of the following keywords:
-* qid (string) **required** - Query ID Selector.  Enter the QueryID number from a previously run query.
-* pageno (number) - Indicates the number of the page to display. It is used only when the results are paginated.
-* callback (string) - JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
-* newsort (number) - Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.
-* descending (string) - Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.
+#### Input
+* input `object`
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * qid **required** `string`: Query ID Selector.  Enter the QueryID number from a previously run query.
+  * pageno `number`: Indicates the number of the page to display. It is used only when the results are paginated.
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+  * newsort `number`: Output Sort Column.  Enter the number of the column on which the data will be sorted. If unpopulated results will sort on the first column.
+  * descending `string` (values: Y, N): Output Sort Column Descending Flag.  Enter Y to column identified in the newsort parameter descending.  Enter N to use ascending sort order. Used only when newsort parameter is populated.
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [sdw2_Results](#sdw2_results)
 
 ### sdw_rest_services.get_systems.get
 Returns an array of public water systems that meet the specified search criteria.
@@ -110,53 +128,58 @@ Returns an array of public water systems that meet the specified search criteria
 epa_gov_sdw.sdw_rest_services.get_systems.get({}, context)
 ```
 
-#### Parameters
-* output (string) - Output Format Flag.  Enter one of the following keywords:
-* p_fn (string) - Facility Name Filter. Enter one or more case-insensitive facility names to filter results.  Provide multiple values as a comma-delimited list.  See p_fntype for additional modifiers.
-* p_ct (string) - Facility City Filter. Enter a single case-insensitive city name to filter results.
-* p_co (string) - Facility County Filter. Provide a single county name in combination with a state value provided via p_st.
-* p_fips (string) - FIPS Code Filter.  Enter a single 5-character Federal Information Processing Standards (FIPS) state + county value to restrict results.  E.g. to limit results to Kenosha County, Wisconsin, use 55059.
-* p_st (string) - Facility State and State-Equivalent Filter.  Provide one or more USPS postal abbreviations for states and state-equivalents to filter results.  Provide multiple values as a comma-delimited list.
-* p_zip (string) - 5-Digit ZIP Code Filter. Provide one or more 5-digit postal zip codes to filter results.  May contain multiple comma-separated values.
-* p_reg (string) - EPA Region Filter. Provide a single value of 01 thru 10 to restrict results to a single EPA region.
-* p_trb (string) - Tribe name
-* p_act (string) - Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.
-* p_qiv (string) - Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.
-* p_ico (string) - Indian Country Flag.  Enter a "Y" or "N" to restrict searches to facilities inside or outside Indian Country.
-* p_pid (string) - Nine-digit permit IDs. May contain up to 2000 comma-separated values.
-* p_owop (string) - Owner/Operator code filter.  Enter one of the following codes to filter results:
-* p_systyp (string) - Type of public water system:
-* p_swtyp (string) - Source Water Type:
-* p_popsv (string) - Estimated average daily population served by a system:
-* p_cs (string) - Current violations:
-* p_mr (string) - Monitoring and Reporting Violations (failure to conduct regular monitoring of drinking water quality or submit monitoring results in a timely fashion).
-* p_health (string) - Violations of health-based drinking water standards (maximum contaminant levels, maximum residual disinfectant levels, or treatment technique rules).
-* p_other (string) - Other violations, such as failing to issue annual consumer confidence reports or maintain required records.
-* p_pn (string) - Public Notice Violations (failure to immediately alert consumers of serious problem with drinking water).
-* p_sv (string) - Serious Violator (unresolved serious, multiple, and/or continuing violations). A value of Y will return only SDWIS systems that are Serious Violators, while a value of N will only return SDWIS Systems that are not Serious Violators.
-* p_qs (string) - Quick Search. Allows entry for city, state, and/or zip code.
-* p_sfs (string) - Single Facility Search Filter.  Provide a facility name or program system identifier to limit results.  For the all data search, the FRS registry identifier is also searched.
-* p_pswpol (string) - For CWA, pollutant names for surface water discharges. for Drinking Water, SDWIS Violation contaminant codes for unaddressed violations that have occurred in the last 3 years. May contain multiple comma-separated values.
-* p_pswvio (string) - Used in conjuction with parameters p_pswpol and p_pswparam, indicates whether search should only include pollutants with violations.
-* p_pbale (string) - Lead Action Level Exceedance.  A "Y" value will select water systems with at least 1 Lead Action Level Exceedance.
-* p_cuale (string) - Copper Action Level Exceedance.  A "Y" value will select water systems with at least 1 Copper Action Level Exceedance.
-* p_rc350v (string) - Rule code 350 violation. A "Y" value will select water systems with at least one rule code 350 violation.
-* p_pbv (string) - Lead Violations.  A "Y" value will select water systems with at least 1 Lead Violation.
-* p_cuv (string) - Copper Violation.  A "Y" value will select water systems with at least 1 Copper Violation.
-* p_lcrv (string) - Lead or Copper rule violations.  A "Y" value will select water systems with at least 1 Lead or Copper Rule Violation.
-* p_fea (string) - Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.
-* p_feay (number) - Years (1 to 5) Range.  This value is used to create a date range for Formal Enforcement Actions (FEA). Used along with p_fea (which indicates whether to look within or outside of the date range) to find FEAs within (or not within) the number of years specified.
-* p_feaa (string) - Agency associated with Formal Enforcement Actions:
-* p_iea (string) - Informal Enforcement Actions [within / not within] specified date range.  The date range is determined by parameters p_iead1 and p_iead2 or by parameter p_ieay.
-* p_ieay (number) - Years (1 to 5) Range.  This value is used to create a date range for Informal Enforcement Actions (IEA). Used along with p_iea (which indicates whether to look within or outside of the date range) to find IEAs within (or not within) the number of years specified.
-* p_ieaa (string) - Agency associated with Informal Enforcement Actions. If left blank, both agencies are included.
-* p_qis (string) - Significant Quarters in Noncompliance Limiter.  Enter one of the following codes to limit results to facilities having given quarters of noncompliance.
-* p_pfead1 (string) - Formal Enforcement Action Date Range Start.  Enter a date in MM/DD/YYYY format to set the start of the range for filtering by recent Formal Enforcement Action (FEA) taken against the facility within the last five years.
-* p_pfead2 (string) - Formal Enforcement Action Date Range End.  Enter a date in MM/DD/YYYY format to set the end of the date range for filtering by recent Formal Enforcement Action (FEA) taken against the facility within the last five years.
-* p_pfeat (string) - Formal Enforcement Action (FEA) Code Filter.  Enter one or more three-letter FEA codes to restrict results to facilities with these attributes.  Use p_fead1 and p_fead2 parameters to further restrict this filter by entering a date range.  Provide multiple codes as a comma-delimited list.
-* queryset (number) - Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.
-* responseset (number) - Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.
-* callback (string) - JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+#### Input
+* input `object`
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * p_fn `string`: Facility Name Filter. Enter one or more case-insensitive facility names to filter results.  Provide multiple values as a comma-delimited list.  See p_fntype for additional modifiers.
+  * p_ct `string`: Facility City Filter. Enter a single case-insensitive city name to filter results.
+  * p_co `string`: Facility County Filter. Provide a single county name in combination with a state value provided via p_st.
+  * p_fips `string`: FIPS Code Filter.  Enter a single 5-character Federal Information Processing Standards (FIPS) state + county value to restrict results.  E.g. to limit results to Kenosha County, Wisconsin, use 55059.
+  * p_st `string`: Facility State and State-Equivalent Filter.  Provide one or more USPS postal abbreviations for states and state-equivalents to filter results.  Provide multiple values as a comma-delimited list.
+  * p_zip `string`: 5-Digit ZIP Code Filter. Provide one or more 5-digit postal zip codes to filter results.  May contain multiple comma-separated values.
+  * p_reg `string` (values: 01, 02, 03, 04, 05, 06, 07, 08, 09, 10): EPA Region Filter. Provide a single value of 01 thru 10 to restrict results to a single EPA region.
+  * p_trb `string`: Tribe name
+  * p_act `string` (values: Y, N, A): Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.
+  * p_qiv `string` (values: 0, GT1, GT2, GT4, GT8, 12): Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.
+  * p_ico `string` (values: Y, N): Indian Country Flag.  Enter a "Y" or "N" to restrict searches to facilities inside or outside Indian Country.
+  * p_pid `string`: Nine-digit permit IDs. May contain up to 2000 comma-separated values.
+  * p_owop `string` (values: F, S, L, M, N, P): Owner/Operator code filter.  Enter one of the following codes to filter results:
+  * p_systyp `string` (values: CWS, NCWS, NTCWS, TNCWS): Type of public water system:
+  * p_swtyp `string` (values: SW, GW, GU, SWP, GWP, GUP): Source Water Type:
+  * p_popsv `string`: Estimated average daily population served by a system:
+  * p_cs `string`: Current violations:
+  * p_mr `string` (values: Y, N): Monitoring and Reporting Violations (failure to conduct regular monitoring of drinking water quality or submit monitoring results in a timely fashion).
+  * p_health `string` (values: Y, N): Violations of health-based drinking water standards (maximum contaminant levels, maximum residual disinfectant levels, or treatment technique rules).
+  * p_other `string` (values: Y, N): Other violations, such as failing to issue annual consumer confidence reports or maintain required records.
+  * p_pn `string` (values: Y, N): Public Notice Violations (failure to immediately alert consumers of serious problem with drinking water).
+  * p_sv `string` (values: Y, N): Serious Violator (unresolved serious, multiple, and/or continuing violations). A value of Y will return only SDWIS systems that are Serious Violators, while a value of N will only return SDWIS Systems that are not Serious Violators.
+  * p_qs `string`: Quick Search. Allows entry for city, state, and/or zip code.
+  * p_sfs `string`: Single Facility Search Filter.  Provide a facility name or program system identifier to limit results.  For the all data search, the FRS registry identifier is also searched.
+  * p_pswpol `string`: For CWA, pollutant names for surface water discharges. for Drinking Water, SDWIS Violation contaminant codes for unaddressed violations that have occurred in the last 3 years. May contain multiple comma-separated values.
+  * p_pswvio `string` (values: Y, N): Used in conjuction with parameters p_pswpol and p_pswparam, indicates whether search should only include pollutants with violations.
+  * p_pbale `string`: Lead Action Level Exceedance.  A "Y" value will select water systems with at least 1 Lead Action Level Exceedance.
+  * p_cuale `string`: Copper Action Level Exceedance.  A "Y" value will select water systems with at least 1 Copper Action Level Exceedance.
+  * p_rc350v `string`: Rule code 350 violation. A "Y" value will select water systems with at least one rule code 350 violation.
+  * p_pbv `string`: Lead Violations.  A "Y" value will select water systems with at least 1 Lead Violation.
+  * p_cuv `string`: Copper Violation.  A "Y" value will select water systems with at least 1 Copper Violation.
+  * p_lcrv `string`: Lead or Copper rule violations.  A "Y" value will select water systems with at least 1 Lead or Copper Rule Violation.
+  * p_fea `string` (values: W, N): Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.
+  * p_feay `number` (values: 1, 2, 3, 4, 5): Years (1 to 5) Range.  This value is used to create a date range for Formal Enforcement Actions (FEA). Used along with p_fea (which indicates whether to look within or outside of the date range) to find FEAs within (or not within) the number of years specified.
+  * p_feaa `string` (values: A, E, S): Agency associated with Formal Enforcement Actions:
+  * p_iea `string` (values: W, N): Informal Enforcement Actions [within / not within] specified date range.  The date range is determined by parameters p_iead1 and p_iead2 or by parameter p_ieay.
+  * p_ieay `number` (values: 1, 2, 3, 4, 5): Years (1 to 5) Range.  This value is used to create a date range for Informal Enforcement Actions (IEA). Used along with p_iea (which indicates whether to look within or outside of the date range) to find IEAs within (or not within) the number of years specified.
+  * p_ieaa `string` (values: E, S): Agency associated with Informal Enforcement Actions. If left blank, both agencies are included.
+  * p_qis `string` (values: Z, GE1, GT1, GE2, GT2, GE4, GT4, GE8, GT8, GE12, GT12, 12): Significant Quarters in Noncompliance Limiter.  Enter one of the following codes to limit results to facilities having given quarters of noncompliance.
+  * p_pfead1 `string`: Formal Enforcement Action Date Range Start.  Enter a date in MM/DD/YYYY format to set the start of the range for filtering by recent Formal Enforcement Action (FEA) taken against the facility within the last five years.
+  * p_pfead2 `string`: Formal Enforcement Action Date Range End.  Enter a date in MM/DD/YYYY format to set the end of the date range for filtering by recent Formal Enforcement Action (FEA) taken against the facility within the last five years.
+  * p_pfeat `string`: Formal Enforcement Action (FEA) Code Filter.  Enter one or more three-letter FEA codes to restrict results to facilities with these attributes.  Use p_fead1 and p_fead2 parameters to further restrict this filter by entering a date range.  Provide multiple codes as a comma-delimited list.
+  * queryset `number`: Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.
+  * responseset `number`: Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [sdw3_Results](#sdw3_results)
 
 ### sdw_rest_services.get_systems.post
 Returns an array of public water systems that meet the specified search criteria.
@@ -166,53 +189,58 @@ Returns an array of public water systems that meet the specified search criteria
 epa_gov_sdw.sdw_rest_services.get_systems.post({}, context)
 ```
 
-#### Parameters
-* output (string) - Output Format Flag.  Enter one of the following keywords:
-* p_fn (string) - Facility Name Filter. Enter one or more case-insensitive facility names to filter results.  Provide multiple values as a comma-delimited list.  See p_fntype for additional modifiers.
-* p_ct (string) - Facility City Filter. Enter a single case-insensitive city name to filter results.
-* p_co (string) - Facility County Filter. Provide a single county name in combination with a state value provided via p_st.
-* p_fips (string) - FIPS Code Filter.  Enter a single 5-character Federal Information Processing Standards (FIPS) state + county value to restrict results.  E.g. to limit results to Kenosha County, Wisconsin, use 55059.
-* p_st (string) - Facility State and State-Equivalent Filter.  Provide one or more USPS postal abbreviations for states and state-equivalents to filter results.  Provide multiple values as a comma-delimited list.
-* p_zip (string) - 5-Digit ZIP Code Filter. Provide one or more 5-digit postal zip codes to filter results.  May contain multiple comma-separated values.
-* p_reg (string) - EPA Region Filter. Provide a single value of 01 thru 10 to restrict results to a single EPA region.
-* p_trb (string) - Tribe name
-* p_act (string) - Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.
-* p_qiv (string) - Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.
-* p_ico (string) - Indian Country Flag.  Enter a "Y" or "N" to restrict searches to facilities inside or outside Indian Country.
-* p_pid (string) - Nine-digit permit IDs. May contain up to 2000 comma-separated values.
-* p_owop (string) - Owner/Operator code filter.  Enter one of the following codes to filter results:
-* p_systyp (string) - Type of public water system:
-* p_swtyp (string) - Source Water Type:
-* p_popsv (string) - Estimated average daily population served by a system:
-* p_cs (string) - Current violations:
-* p_mr (string) - Monitoring and Reporting Violations (failure to conduct regular monitoring of drinking water quality or submit monitoring results in a timely fashion).
-* p_health (string) - Violations of health-based drinking water standards (maximum contaminant levels, maximum residual disinfectant levels, or treatment technique rules).
-* p_other (string) - Other violations, such as failing to issue annual consumer confidence reports or maintain required records.
-* p_pn (string) - Public Notice Violations (failure to immediately alert consumers of serious problem with drinking water).
-* p_sv (string) - Serious Violator (unresolved serious, multiple, and/or continuing violations). A value of Y will return only SDWIS systems that are Serious Violators, while a value of N will only return SDWIS Systems that are not Serious Violators.
-* p_qs (string) - Quick Search. Allows entry for city, state, and/or zip code.
-* p_sfs (string) - Single Facility Search Filter.  Provide a facility name or program system identifier to limit results.  For the all data search, the FRS registry identifier is also searched.
-* p_pswpol (string) - For CWA, pollutant names for surface water discharges. for Drinking Water, SDWIS Violation contaminant codes for unaddressed violations that have occurred in the last 3 years. May contain multiple comma-separated values.
-* p_pswvio (string) - Used in conjuction with parameters p_pswpol and p_pswparam, indicates whether search should only include pollutants with violations.
-* p_pbale (string) - Lead Action Level Exceedance.  A "Y" value will select water systems with at least 1 Lead Action Level Exceedance.
-* p_cuale (string) - Copper Action Level Exceedance.  A "Y" value will select water systems with at least 1 Copper Action Level Exceedance.
-* p_rc350v (string) - Rule code 350 violation. A "Y" value will select water systems with at least one rule code 350 violation.
-* p_pbv (string) - Lead Violations.  A "Y" value will select water systems with at least 1 Lead Violation.
-* p_cuv (string) - Copper Violation.  A "Y" value will select water systems with at least 1 Copper Violation.
-* p_lcrv (string) - Lead or Copper rule violations.  A "Y" value will select water systems with at least 1 Lead or Copper Rule Violation.
-* p_fea (string) - Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.
-* p_feay (number) - Years (1 to 5) Range.  This value is used to create a date range for Formal Enforcement Actions (FEA). Used along with p_fea (which indicates whether to look within or outside of the date range) to find FEAs within (or not within) the number of years specified.
-* p_feaa (string) - Agency associated with Formal Enforcement Actions:
-* p_iea (string) - Informal Enforcement Actions [within / not within] specified date range.  The date range is determined by parameters p_iead1 and p_iead2 or by parameter p_ieay.
-* p_ieay (number) - Years (1 to 5) Range.  This value is used to create a date range for Informal Enforcement Actions (IEA). Used along with p_iea (which indicates whether to look within or outside of the date range) to find IEAs within (or not within) the number of years specified.
-* p_ieaa (string) - Agency associated with Informal Enforcement Actions. If left blank, both agencies are included.
-* p_qis (string) - Significant Quarters in Noncompliance Limiter.  Enter one of the following codes to limit results to facilities having given quarters of noncompliance.
-* p_pfead1 (string) - Formal Enforcement Action Date Range Start.  Enter a date in MM/DD/YYYY format to set the start of the range for filtering by recent Formal Enforcement Action (FEA) taken against the facility within the last five years.
-* p_pfead2 (string) - Formal Enforcement Action Date Range End.  Enter a date in MM/DD/YYYY format to set the end of the date range for filtering by recent Formal Enforcement Action (FEA) taken against the facility within the last five years.
-* p_pfeat (string) - Formal Enforcement Action (FEA) Code Filter.  Enter one or more three-letter FEA codes to restrict results to facilities with these attributes.  Use p_fead1 and p_fead2 parameters to further restrict this filter by entering a date range.  Provide multiple codes as a comma-delimited list.
-* queryset (number) - Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.
-* responseset (number) - Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.
-* callback (string) - JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+#### Input
+* input `object`
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * p_fn `string`: Facility Name Filter. Enter one or more case-insensitive facility names to filter results.  Provide multiple values as a comma-delimited list.  See p_fntype for additional modifiers.
+  * p_ct `string`: Facility City Filter. Enter a single case-insensitive city name to filter results.
+  * p_co `string`: Facility County Filter. Provide a single county name in combination with a state value provided via p_st.
+  * p_fips `string`: FIPS Code Filter.  Enter a single 5-character Federal Information Processing Standards (FIPS) state + county value to restrict results.  E.g. to limit results to Kenosha County, Wisconsin, use 55059.
+  * p_st `string`: Facility State and State-Equivalent Filter.  Provide one or more USPS postal abbreviations for states and state-equivalents to filter results.  Provide multiple values as a comma-delimited list.
+  * p_zip `string`: 5-Digit ZIP Code Filter. Provide one or more 5-digit postal zip codes to filter results.  May contain multiple comma-separated values.
+  * p_reg `string` (values: 01, 02, 03, 04, 05, 06, 07, 08, 09, 10): EPA Region Filter. Provide a single value of 01 thru 10 to restrict results to a single EPA region.
+  * p_trb `string`: Tribe name
+  * p_act `string` (values: Y, N, A): Active Permits/Facilities Flag.  Provide Y or N to filter results to facilities with active permits.
+  * p_qiv `string` (values: 0, GT1, GT2, GT4, GT8, 12): Quarters in Noncompliance Limiter.  Enter a coded value to limit results to facilities with given quarter of noncompliance.
+  * p_ico `string` (values: Y, N): Indian Country Flag.  Enter a "Y" or "N" to restrict searches to facilities inside or outside Indian Country.
+  * p_pid `string`: Nine-digit permit IDs. May contain up to 2000 comma-separated values.
+  * p_owop `string` (values: F, S, L, M, N, P): Owner/Operator code filter.  Enter one of the following codes to filter results:
+  * p_systyp `string` (values: CWS, NCWS, NTCWS, TNCWS): Type of public water system:
+  * p_swtyp `string` (values: SW, GW, GU, SWP, GWP, GUP): Source Water Type:
+  * p_popsv `string`: Estimated average daily population served by a system:
+  * p_cs `string`: Current violations:
+  * p_mr `string` (values: Y, N): Monitoring and Reporting Violations (failure to conduct regular monitoring of drinking water quality or submit monitoring results in a timely fashion).
+  * p_health `string` (values: Y, N): Violations of health-based drinking water standards (maximum contaminant levels, maximum residual disinfectant levels, or treatment technique rules).
+  * p_other `string` (values: Y, N): Other violations, such as failing to issue annual consumer confidence reports or maintain required records.
+  * p_pn `string` (values: Y, N): Public Notice Violations (failure to immediately alert consumers of serious problem with drinking water).
+  * p_sv `string` (values: Y, N): Serious Violator (unresolved serious, multiple, and/or continuing violations). A value of Y will return only SDWIS systems that are Serious Violators, while a value of N will only return SDWIS Systems that are not Serious Violators.
+  * p_qs `string`: Quick Search. Allows entry for city, state, and/or zip code.
+  * p_sfs `string`: Single Facility Search Filter.  Provide a facility name or program system identifier to limit results.  For the all data search, the FRS registry identifier is also searched.
+  * p_pswpol `string`: For CWA, pollutant names for surface water discharges. for Drinking Water, SDWIS Violation contaminant codes for unaddressed violations that have occurred in the last 3 years. May contain multiple comma-separated values.
+  * p_pswvio `string` (values: Y, N): Used in conjuction with parameters p_pswpol and p_pswparam, indicates whether search should only include pollutants with violations.
+  * p_pbale `string`: Lead Action Level Exceedance.  A "Y" value will select water systems with at least 1 Lead Action Level Exceedance.
+  * p_cuale `string`: Copper Action Level Exceedance.  A "Y" value will select water systems with at least 1 Copper Action Level Exceedance.
+  * p_rc350v `string`: Rule code 350 violation. A "Y" value will select water systems with at least one rule code 350 violation.
+  * p_pbv `string`: Lead Violations.  A "Y" value will select water systems with at least 1 Lead Violation.
+  * p_cuv `string`: Copper Violation.  A "Y" value will select water systems with at least 1 Copper Violation.
+  * p_lcrv `string`: Lead or Copper rule violations.  A "Y" value will select water systems with at least 1 Lead or Copper Rule Violation.
+  * p_fea `string` (values: W, N): Formal Enforcement Actions [within / not within] specified date range indicator. The date range is determined by parameters p_fead1 and p_fead2 or by parameter p_feay.
+  * p_feay `number` (values: 1, 2, 3, 4, 5): Years (1 to 5) Range.  This value is used to create a date range for Formal Enforcement Actions (FEA). Used along with p_fea (which indicates whether to look within or outside of the date range) to find FEAs within (or not within) the number of years specified.
+  * p_feaa `string` (values: A, E, S): Agency associated with Formal Enforcement Actions:
+  * p_iea `string` (values: W, N): Informal Enforcement Actions [within / not within] specified date range.  The date range is determined by parameters p_iead1 and p_iead2 or by parameter p_ieay.
+  * p_ieay `number` (values: 1, 2, 3, 4, 5): Years (1 to 5) Range.  This value is used to create a date range for Informal Enforcement Actions (IEA). Used along with p_iea (which indicates whether to look within or outside of the date range) to find IEAs within (or not within) the number of years specified.
+  * p_ieaa `string` (values: E, S): Agency associated with Informal Enforcement Actions. If left blank, both agencies are included.
+  * p_qis `string` (values: Z, GE1, GT1, GE2, GT2, GE4, GT4, GE8, GT8, GE12, GT12, 12): Significant Quarters in Noncompliance Limiter.  Enter one of the following codes to limit results to facilities having given quarters of noncompliance.
+  * p_pfead1 `string`: Formal Enforcement Action Date Range Start.  Enter a date in MM/DD/YYYY format to set the start of the range for filtering by recent Formal Enforcement Action (FEA) taken against the facility within the last five years.
+  * p_pfead2 `string`: Formal Enforcement Action Date Range End.  Enter a date in MM/DD/YYYY format to set the end of the date range for filtering by recent Formal Enforcement Action (FEA) taken against the facility within the last five years.
+  * p_pfeat `string`: Formal Enforcement Action (FEA) Code Filter.  Enter one or more three-letter FEA codes to restrict results to facilities with these attributes.  Use p_fead1 and p_fead2 parameters to further restrict this filter by entering a date range.  Provide multiple codes as a comma-delimited list.
+  * queryset `number`: Query Limiter.  Enter a value to limit the number of records returned for each query. Value cannot exceed 70,000.
+  * responseset `number`: Response Set Limiter. Enter a value to limit the number of records per page. Value cannot exceed 1,000.
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [sdw3_Results](#sdw3_results)
 
 ### sdw_rest_services.metadata.get
 Returns the JSON Object Name and ColumnId for usage with the qcolumns parameter for get_systems endpoint.
@@ -222,9 +250,14 @@ Returns the JSON Object Name and ColumnId for usage with the qcolumns parameter 
 epa_gov_sdw.sdw_rest_services.metadata.get({}, context)
 ```
 
-#### Parameters
-* output (string) - Output Format Flag.  Enter one of the following keywords:
-* callback (string) - JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+#### Input
+* input `object`
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [met_Results](#met_results)
 
 ### sdw_rest_services.metadata.post
 Returns the JSON Object Name and ColumnId for usage with the qcolumns parameter for get_systems endpoint.
@@ -234,7 +267,120 @@ Returns the JSON Object Name and ColumnId for usage with the qcolumns parameter 
 epa_gov_sdw.sdw_rest_services.metadata.post({}, context)
 ```
 
-#### Parameters
-* output (string) - Output Format Flag.  Enter one of the following keywords:
-* callback (string) - JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+#### Input
+* input `object`
+  * output `string` (values: JSONP, JSON, XML): Output Format Flag.  Enter one of the following keywords:
+  * callback `string`: JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+
+#### Output
+* output `object`: Root Object
+  * Results **required** [met_Results](#met_results)
+
+
+
+## Definitions
+
+### met_Results
+* met_Results `object`: Results Object
+  * Message **required** `string`: Field to record messages (typically performance-related) about packet processing
+  * ResultColumns `array`
+    * items [met_ResultsColumns](#met_resultscolumns)
+
+### met_ResultsColumns
+* met_ResultsColumns `object`: Results Column Object
+  * ColumnID **required** `string`
+  * ColumnName **required** `string`
+  * DataLength **required** `string`: Data length for EPA program database column.
+  * DataType **required** `string`: Data type for EPA program database column.
+  * Description **required** `string`: A description of the category of Supplemental Environment Project (SEP) for a settlement.
+  * ObjectName **required** `string`
+
+### sdw2_Results
+* sdw2_Results `object`: Results Object
+  * Message **required** `string`: Field to record messages (typically performance-related) about packet processing
+  * PageNo **required** `string`: The number of pages of results returned
+  * QueryID **required** `string`: Sequential number assigned to entire search result
+  * QueryRows **required** `string`: Number of query results returned
+  * SDWSearchResults `array`
+    * items [sdw3_SDWSearchResults](#sdw3_sdwsearchresults)
+
+### sdw3_Results
+* sdw3_Results `object`: Results Object
+  * CVRows **required** `string`: Summary count of the number of CWA facilities or SDWA public drinking water systems with current violations.
+  * FEARows **required** `string`: Summary count of the number of facilities with a formal enforcement action in the past five years
+  * INSPRows **required** `string`: Number of facilities with insp_5yr_flag populated (CWP_DATE_LAST_INSPECTION)
+  * IndianCountryRows **required** `string`: Number of facilities with tribal_flag populated
+  * InfFEARows **required** `string`: Number of facilities with infea_5yr_flag populated (INFORMAL_ENF_ACT_COUNT > 0)
+  * Message **required** `string`: Field to record messages (typically performance-related) about packet processing
+  * PageNo **required** `string`: The number of pages of results returned
+  * QueryID **required** `string`: Sequential number assigned to entire search result
+  * QueryRows **required** `string`: Number of query results returned
+  * SDWSearchResults `array`
+    * items [sdw3_SDWSearchResults](#sdw3_sdwsearchresults)
+  * SVRows **required** `string`: Number of facilities with curr_sv_flag populated (CWP_STATUS = "Significant Violation")
+  * V3Rows **required** `string`: Number of facilities having one or more quarters in non-compliance (QNC) in the last three years
+  * Version **required** `string`: Version of the SDWA system service
+
+### sdw3_SDWSearchResults
+* sdw3_SDWSearchResults `object`: Safe Drinking Water Search Results Object
+  * ACT **required** `string`: Activity status code:
+  * ActivityDesc **required** `string`: Description of activity status code (ACT), e.g., active, inactive.
+  * CT **required** `string`: County
+  * CTY **required** `string`: City
+  * CuALEIn5Yr **required** `string`
+  * CuViolIn5Yr **required** `string`
+  * FEA **required** `string`: Number of formal enforcement responses during the past 5 years (20 most recent quarters) as of the last quarterly refresh.  Formal enforcement actions compel a PWS to take specific actions by specific dates to return to compliance
+  * FIPS **required** `string`: Five-character Federal Information Processing Standards (FIPS) value: 2-character state || 3-character county
+  * HealthFlag **required** `string`: Indicates whether system has violations of health-based drinking water standards
+  * ICO **required** `string`: Indicates whether the system is located in Indian Country
+  * IEA **required** `string`: Number of informal enforcement responses during the past 5 years (20 most recent quarters) as of the last quarterly refresh.  Informal enforcement actions do not specify actions and deadlines for returning to compliance
+  * MRFlag **required** `string`: Indicates whether system has monitoring and reporting violations
+  * NewVioFlag **required** `string`
+  * OtherFlag **required** `string`: Indicates whether system has other violations, such as failing to issue annual consumer confidence reports or maintain required records
+  * Owner **required** `string`: Owner/Operator:
+  * OwnerDesc **required** `string`: Description of Owner code
+  * PNFlag **required** `string`: Indicates whether system has Public Notice Violations (failure to immediately alert consumers of serious problem with drinking water)
+  * PWSId **required** `string`: Unique identifying code for a public water system, consisting of a two-letter state or region code, followed by seven digits
+  * PbALEIn5Yr **required** `string`
+  * PbCuViolIn5Yr **required** `string`
+  * PbViolIn5Yr **required** `string`
+  * PopulationServed **required** `string`: Estimated average daily population served by a system
+  * QNC **required** `string`: Number of quarters the system was in violation over the past three years (12 most recent quarters)
+  * QuartersInSNC **required** `string`
+  * RC350ViolIn5Yr **required** `string`
+  * REG **required** `string`: EPA Region number where the system is located. Values range from 01 to 10.
+  * RulesVio3YrCnt **required** `string`
+  * RulesVioCurrCnt **required** `string`
+  * SDW3yrComplianceQtrsStatus **required** `string`: Quarterly compliance status for the most recent 12 quarters. Each letter indicates the compliance status for the corresponding quarter
+  * SDWContaminantsInCurViol **required** `string`
+  * SDWContaminantsInViol3Yr **required** `string`: The contaminant name and code in violation of a SDWA regulation in the past three years
+  * SDWDateLastFEA **required** `string`
+  * SDWDateLastFEAEPA **required** `string`
+  * SDWDateLastFEAState **required** `string`
+  * SDWDateLastIEA **required** `string`
+  * SDWDateLastIEAEPA **required** `string`
+  * SDWDateLastIEAState **required** `string`
+  * SSNC **required** `string`: Current compliance status
+  * ST **required** `string`: Two-letter state abbreviation
+  * SearchedContaminantsLastValues `string`
+  * SeriousViolator **required** `string`: Indicates whether system is a Serious Violator (has unresolved serious, multiple, and/or continuing violations that is designated as a priority candidate for formal enforcement)
+  * SourceWaterDesc **required** `string`: Description of SourceWaterType code
+  * SourceWaterType **required** `string`: Source Water Type:
+  * SystemName **required** `string`: Name of the system regulated under the Safe Drinking Water Act (SDWA)
+  * SystemType **required** `string`: Type of public water system:
+  * SystemTypeDesc **required** `string`: The type of public water system (PWS) and description of corresponding SystemType code. A public water system is a system for the provision to the public of piped water for human consumption, which has at least 15 service connections or regularly serves a
+  * Tribes `array`
+    * items [sdw3_Tribes](#sdw3_tribes)
+  * VioPointsAccrued **required** `string`: Sum of all violation points for violations reported during the past five years (20 most recent quarters), as of the last quarterly refresh
+  * VioPointsFEANotCorrected **required** `string`: Sum of violation points accrued during past five years (20 most recent quarters) that are under formal enforcement but not yet returned to compliance, as of the last quarterly refresh
+  * VioPointsRTCwFEA **required** `string`: Sum of violation points during past 5 years (20 most recent quarters) that received formal enforcement and returned to compliance, as of the last quarterly refresh
+  * VioPointsRTCwoFEA **required** `string`: Sum of violation points during past 5 years (20 most recent quarters) that did not receive formal enforcement but did return to compliance, as of the last quarterly refresh
+  * VioPointsRemaining **required** `string`: Sum of violation points that were not returned to compliance as of the last quarterly refresh.  Includes points that have received formal enforcement but have not returned to compliance
+  * ZIP **required** `string`: ZIP code
+
+### sdw3_Tribes
+* sdw3_Tribes `object`: Tribes Object
+  * TribalCode **required** `string`: Tribe code
+  * TribalName **required** `string`: Tribe Name
+
 

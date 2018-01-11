@@ -4,11 +4,9 @@ Client library for Auckland Museum
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/aucklandmuseum
+npm install --save @datafire/aucklandmuseum
 ```
-
 ```js
-let datafire = require('datafire');
 let aucklandmuseum = require('@datafire/aucklandmuseum').create();
 
 aucklandmuseum.id.media.path.get({}).then(data => {
@@ -17,10 +15,12 @@ aucklandmuseum.id.media.path.get({}).then(data => {
 ```
 
 ## Description
+
 This is technical documentation for the Auckland Museum API
 
 
 ## Actions
+
 ### id.media.path.get
 Gets `media` at a given path
 
@@ -32,9 +32,13 @@ aucklandmuseum.id.media.path.get({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The media `identifier`
-* rendering (string) - The desired media `rendering`
+#### Input
+* input `object`
+  * path **required** `string`: The media `identifier`
+  * rendering `string`: The desired media `rendering`
+
+#### Output
+*Output schema unknown*
 
 ### id.identifier.get
 Gets information about a `subject` identified by the `identifier`.
@@ -52,8 +56,12 @@ aucklandmuseum.id.identifier.get({
 }, context)
 ```
 
-#### Parameters
-* identifier (string) **required** - The identifier path of the `subject` you're looking for
+#### Input
+* input `object`
+  * identifier **required** `string`: The identifier path of the `subject` you're looking for
+
+#### Output
+*Output schema unknown*
 
 ### search.index.operation.get
 Use this endpoint to perform simple search queries for finding information and subjects you may be interested in
@@ -74,10 +82,14 @@ aucklandmuseum.search.index.operation.get({
 }, context)
 ```
 
-#### Parameters
-* index (string) **required** - search index name
-* operation (string) **required** - One of the supported elasticsearch operations like `_search` or `_suggest`
-* q (string) - One of the supported elasticsearch query parameter values for key `q`
+#### Input
+* input `object`
+  * index **required** `string`: search index name
+  * operation **required** `string`: One of the supported elasticsearch operations like `_search` or `_suggest`
+  * q `string`: One of the supported elasticsearch query parameter values for key `q`
+
+#### Output
+*Output schema unknown*
 
 ### search.index.operation.post
 Searches performed via this endpoint run against an [Elastic](www.elastic.co) server. This endpoint mirrors the Elastic search API documented [here](https://www.elastic.co/guide/en/elasticsearch/reference/1.5/search-search.html)
@@ -95,10 +107,14 @@ aucklandmuseum.search.index.operation.post({
 }, context)
 ```
 
-#### Parameters
-* index (string) **required** - search index name
-* operation (string) **required** - One of the supported elasticsearch operations like `_search` or `_suggest`
-* body (object)
+#### Input
+* input `object`
+  * index **required** `string`: search index name
+  * operation **required** `string`: One of the supported elasticsearch operations like `_search` or `_suggest`
+  * body `object`
+
+#### Output
+*Output schema unknown*
 
 ### sparql.get
 You can execute your [SPARQL](http://www.w3.org/TR/rdf-sparql-query/) queries against this endpoint.
@@ -116,10 +132,14 @@ aucklandmuseum.sparql.get({
 }, context)
 ```
 
-#### Parameters
-* query (string) **required** - sparql query
-* callback (string) - The [JSON-P](http://json-p.org/) callback parameter
-* infer (boolean) - Whether to get inferred results in the response
+#### Input
+* input `object`
+  * query **required** `string`: sparql query
+  * callback `string`: The [JSON-P](http://json-p.org/) callback parameter
+  * infer `boolean`: Whether to get inferred results in the response
+
+#### Output
+* output `object`
 
 ### sparql.post
 You can execute your [SPARQL](http://www.w3.org/TR/rdf-sparql-query/) queries against this endpoint.
@@ -134,7 +154,16 @@ aucklandmuseum.sparql.post({
 }, context)
 ```
 
-#### Parameters
-* query (string) **required** - sparql query
-* infer (boolean) - Whether to get inferred results in the response
+#### Input
+* input `object`
+  * query **required** `string`: sparql query
+  * infer `boolean`: Whether to get inferred results in the response
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

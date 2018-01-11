@@ -4,13 +4,11 @@ Client library for CORE API v2
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/core_ac_uk
+npm install --save @datafire/core_ac_uk
 ```
-
 ```js
-let datafire = require('datafire');
 let core_ac_uk = require('@datafire/core_ac_uk').create({
-  apiKey: "",
+  apiKey: ""
 });
 
 core_ac_uk.getArticleByCoreIdBatch({}).then(data => {
@@ -19,6 +17,7 @@ core_ac_uk.getArticleByCoreIdBatch({}).then(data => {
 ```
 
 ## Description
+
 <p style="text-align: justify;">You can use the CORE API to access the 
     resources harvested and enriched by CORE. If you encounter any problems with the API, please <a href="/contact">report them to us</a>.</p>
 
@@ -67,6 +66,7 @@ core_ac_uk.getArticleByCoreIdBatch({}).then(data => {
 <h2>API methods</h2>
 
 ## Actions
+
 ### getArticleByCoreIdBatch
 Method accepts a JSON array of CORE IDs and retrieves a list of articles. The response array is ordered based on the order of the IDs in the request array.
 
@@ -77,15 +77,21 @@ core_ac_uk.getArticleByCoreIdBatch({
 }, context)
 ```
 
-#### Parameters
-* body (array) **required**
-* metadata (boolean) - Whether to retrieve the full article metadata or only the IDs. The default value is true
-* fulltext (boolean) - Whether to retrieve fulltexts of the articles. The default value is false
-* citations (boolean) - Whether to retrieve citations found in the articles. The default value is false
-* similar (boolean) - Whether to retrieve lists of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time
-* duplicate (boolean) - Whether to retrieve CORE IDs of different versions of the articles. The default value is false
-* urls (boolean) - Whether to retrieve lists of URLs of the article fulltexts. The default value is false
-* faithfulMetadata (boolean) - Returns the records raw XML metadata from the original repository. The default value is false
+#### Input
+* input `object`
+  * body **required** `array`
+    * items `integer`
+  * metadata `boolean`: Whether to retrieve the full article metadata or only the IDs. The default value is true
+  * fulltext `boolean`: Whether to retrieve fulltexts of the articles. The default value is false
+  * citations `boolean`: Whether to retrieve citations found in the articles. The default value is false
+  * similar `boolean`: Whether to retrieve lists of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time
+  * duplicate `boolean`: Whether to retrieve CORE IDs of different versions of the articles. The default value is false
+  * urls `boolean`: Whether to retrieve lists of URLs of the article fulltexts. The default value is false
+  * faithfulMetadata `boolean`: Returns the records raw XML metadata from the original repository. The default value is false
+
+#### Output
+* output `array`
+  * items [ArticleResponse](#articleresponse)
 
 ### getArticleByCoreId
 Method will retrieve an article based on given CORE ID.
@@ -97,15 +103,19 @@ core_ac_uk.getArticleByCoreId({
 }, context)
 ```
 
-#### Parameters
-* coreId (integer) **required** - CORE ID of the article that needs to be fetched.
-* metadata (boolean) - Whether to retrieve the full article metadata or only the ID. The default value is true.
-* fulltext (boolean) - Whether to retrieve full text of the article. The default value is false
-* citations (boolean) - Whether to retrieve citations found in the article. The default value is false
-* similar (boolean) - Whether to retrieve a list of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time
-* duplicate (boolean) - Whether to retrieve a list of CORE IDs of different versions of the article. The default value is false
-* urls (boolean) - Whether to retrieve a list of URLs from which the article can be downloaded. This can include links to PDFs as well as HTML pages. The default value is false
-* faithfulMetadata (boolean) - Returns the records raw XML metadata from the original repository. The default value is false
+#### Input
+* input `object`
+  * coreId **required** `integer`: CORE ID of the article that needs to be fetched.
+  * metadata `boolean`: Whether to retrieve the full article metadata or only the ID. The default value is true.
+  * fulltext `boolean`: Whether to retrieve full text of the article. The default value is false
+  * citations `boolean`: Whether to retrieve citations found in the article. The default value is false
+  * similar `boolean`: Whether to retrieve a list of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time
+  * duplicate `boolean`: Whether to retrieve a list of CORE IDs of different versions of the article. The default value is false
+  * urls `boolean`: Whether to retrieve a list of URLs from which the article can be downloaded. This can include links to PDFs as well as HTML pages. The default value is false
+  * faithfulMetadata `boolean`: Returns the records raw XML metadata from the original repository. The default value is false
+
+#### Output
+* output [ArticleResponse](#articleresponse)
 
 ### getArticlePdfByCoreId
 Method will retrieve an article based on given CORE ID.
@@ -117,8 +127,12 @@ core_ac_uk.getArticlePdfByCoreId({
 }, context)
 ```
 
-#### Parameters
-* coreId (string) **required** - ID of article history that needs to be fetched
+#### Input
+* input `object`
+  * coreId **required** `string`: ID of article history that needs to be fetched
+
+#### Output
+*Output schema unknown*
 
 ### getArticleHistoryByCoreId
 Method accepts a single CORE ID and returns a list of all historical versions of the article, which are stored in CORE database. The results are ordered from the newest one to the oldest one.
@@ -130,10 +144,14 @@ core_ac_uk.getArticleHistoryByCoreId({
 }, context)
 ```
 
-#### Parameters
-* coreId (string) **required** - CORE ID of the article which history should be fetched
-* page (integer) - Which page of the history results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).
-* pageSize (integer) - The number of results to return per page. Can be any number between 10 and 100, default is 10.
+#### Input
+* input `object`
+  * coreId **required** `string`: CORE ID of the article which history should be fetched
+  * page `integer`: Which page of the history results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).
+  * pageSize `integer`: The number of results to return per page. Can be any number between 10 and 100, default is 10.
+
+#### Output
+* output [ArticleHistoryResponse](#articlehistoryresponse)
 
 ### searchArticlesBatch
 Method accepts a JSON array of search queries and parameters. It then searches through all articles and returns a JSON array of search results for each of the queries. Method searches through all article fields (title, authors, subjects, identifiers, etc.).
@@ -145,15 +163,21 @@ core_ac_uk.searchArticlesBatch({
 }, context)
 ```
 
-#### Parameters
-* body (array) **required**
-* metadata (boolean) - Whether to retrieve the full article metadata or only the ID. The default value is true.
-* fulltext (boolean) - Whether to retrieve full text of the article. The default value is false
-* citations (boolean) - Whether to retrieve citations found in the article. The default value is false
-* similar (boolean) - Whether to retrieve a list of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time
-* duplicate (boolean) - Whether to retrieve a list of CORE IDs of different versions of the article. The default value is false
-* urls (boolean) - Whether to retrieve a list of URLs from which the article can be downloaded. This can include links to PDFs as well as HTML pages. The default value is false
-* faithfulMetadata (boolean) - Whether to retrieve the raw XML metadata of the article. The default value is false
+#### Input
+* input `object`
+  * body **required** `array`
+    * items [SearchRequest](#searchrequest)
+  * metadata `boolean`: Whether to retrieve the full article metadata or only the ID. The default value is true.
+  * fulltext `boolean`: Whether to retrieve full text of the article. The default value is false
+  * citations `boolean`: Whether to retrieve citations found in the article. The default value is false
+  * similar `boolean`: Whether to retrieve a list of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time
+  * duplicate `boolean`: Whether to retrieve a list of CORE IDs of different versions of the article. The default value is false
+  * urls `boolean`: Whether to retrieve a list of URLs from which the article can be downloaded. This can include links to PDFs as well as HTML pages. The default value is false
+  * faithfulMetadata `boolean`: Whether to retrieve the raw XML metadata of the article. The default value is false
+
+#### Output
+* output `array`
+  * items [ArticleSearchResponse](#articlesearchresponse)
 
 ### searchArticles
 Searches through all articles and returns a JSON array with search results. Method searches through all article fields.
@@ -165,17 +189,21 @@ core_ac_uk.searchArticles({
 }, context)
 ```
 
-#### Parameters
-* query (integer) **required** - The search query
-* page (integer) - Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).
-* pageSize (integer) - The number of results to return per page. Can be any number between 10 and 100, default is 10.
-* metadata (boolean) - Whether to retrieve the full article metadata or only the ID. The default value is true.
-* fulltext (boolean) - Whether to retrieve full text of the article. The default value is false
-* citations (boolean) - Whether to retrieve citations found in the article. The default value is false
-* similar (boolean) - Whether to retrieve a list of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time
-* duplicate (boolean) - Whether to retrieve a list of CORE IDs of different versions of the article. The default value is false
-* urls (boolean) - Whether to retrieve a list of URLs from which the article can be downloaded. This can include links to PDFs as well as HTML pages. The default value is false
-* faithfulMetadata (boolean) - Returns the records raw XML metadata from the original repository. The default value is false
+#### Input
+* input `object`
+  * query **required** `integer`: The search query
+  * page `integer`: Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).
+  * pageSize `integer`: The number of results to return per page. Can be any number between 10 and 100, default is 10.
+  * metadata `boolean`: Whether to retrieve the full article metadata or only the ID. The default value is true.
+  * fulltext `boolean`: Whether to retrieve full text of the article. The default value is false
+  * citations `boolean`: Whether to retrieve citations found in the article. The default value is false
+  * similar `boolean`: Whether to retrieve a list of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time
+  * duplicate `boolean`: Whether to retrieve a list of CORE IDs of different versions of the article. The default value is false
+  * urls `boolean`: Whether to retrieve a list of URLs from which the article can be downloaded. This can include links to PDFs as well as HTML pages. The default value is false
+  * faithfulMetadata `boolean`: Returns the records raw XML metadata from the original repository. The default value is false
+
+#### Output
+* output [ArticleSearchResponse](#articlesearchresponse)
 
 ### similarArticles
 Method accepts a text and retrieves a JSON array of articles which are similar to the given text. The response array is ordered based on similarity score, starting from the most similar.
@@ -187,16 +215,20 @@ core_ac_uk.similarArticles({
 }, context)
 ```
 
-#### Parameters
-* body (undefined) **required**
-* limit (integer) - How many similar articles to retrieve at most. Can be any number betwen 1 and 100, default is 10
-* metadata (boolean) - Whether to retrieve the full article metadata or only the IDs of the similar articles. The default value is true
-* fulltext (boolean) - Whether to retrieve fulltexts of the similar articles. The default value is false
-* citations (boolean) - Whether to retrieve citations found in the articles. The default value is false
-* similar (boolean) - Whether to retrieve lists of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time
-* duplicate (boolean) - Whether to retrieve CORE IDs of different versions of the articles. The default value is false
-* urls (boolean) - Whether to retrieve lists of URLs of the article fulltexts. The default value is false
-* faithfulMetadata (boolean) - Whether to retrieve the raw XML metadata of the articles. The default value is false
+#### Input
+* input `object`
+  * body **required** [SimilarRequest](#similarrequest)
+  * limit `integer`: How many similar articles to retrieve at most. Can be any number betwen 1 and 100, default is 10
+  * metadata `boolean`: Whether to retrieve the full article metadata or only the IDs of the similar articles. The default value is true
+  * fulltext `boolean`: Whether to retrieve fulltexts of the similar articles. The default value is false
+  * citations `boolean`: Whether to retrieve citations found in the articles. The default value is false
+  * similar `boolean`: Whether to retrieve lists of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time
+  * duplicate `boolean`: Whether to retrieve CORE IDs of different versions of the articles. The default value is false
+  * urls `boolean`: Whether to retrieve lists of URLs of the article fulltexts. The default value is false
+  * faithfulMetadata `boolean`: Whether to retrieve the raw XML metadata of the articles. The default value is false
+
+#### Output
+* output [ArticleSimilarResponse](#articlesimilarresponse)
 
 ### getJournalByIssnBatch
 Method accepts a JSON array of ISSNs and retrieves a list of journals.
@@ -208,8 +240,14 @@ core_ac_uk.getJournalByIssnBatch({
 }, context)
 ```
 
-#### Parameters
-* body (array) **required**
+#### Input
+* input `object`
+  * body **required** `array`
+    * items `string`
+
+#### Output
+* output `array`
+  * items [JournalResponse](#journalresponse)
 
 ### getJournalByIssn
 Returns a journal with given ISSN identifier.
@@ -221,8 +259,12 @@ core_ac_uk.getJournalByIssn({
 }, context)
 ```
 
-#### Parameters
-* issn (string) **required** - ISSN identifier of journal that needs to be fetched.
+#### Input
+* input `object`
+  * issn **required** `string`: ISSN identifier of journal that needs to be fetched.
+
+#### Output
+* output [JournalResponse](#journalresponse)
 
 ### journals.search.post
 Method accepts a JSON array of search queries and parameters. It then searches through all journals and returns a JSON array of search results for each of the queries. Method searches through all journal fields (title, identifiers, subjects, language, rights and publisher).
@@ -234,8 +276,14 @@ core_ac_uk.journals.search.post({
 }, context)
 ```
 
-#### Parameters
-* body (array) **required**
+#### Input
+* input `object`
+  * body **required** `array`
+    * items [SearchRequest](#searchrequest)
+
+#### Output
+* output `array`
+  * items [JournalResponse](#journalresponse)
 
 ### journals.search.query.get
 Searches through all journals and returns a JSON array of search results. Method searches through all journal fields (title, identifiers, subjects, language, rights and publisher).
@@ -247,10 +295,14 @@ core_ac_uk.journals.search.query.get({
 }, context)
 ```
 
-#### Parameters
-* query (string) **required** - Search query
-* page (integer) - Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).
-* pageSize (integer) - The number of results to return per page. Can be any number between 10 and 100, default is 10.
+#### Input
+* input `object`
+  * query **required** `string`: Search query
+  * page `integer`: Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).
+  * pageSize `integer`: The number of results to return per page. Can be any number between 10 and 100, default is 10.
+
+#### Output
+* output [JournalSearchResponse](#journalsearchresponse)
 
 ### getRepositoryByIdBatch
 Method accepts a JSON array of CORE repository IDs and retrieves a list of repositories. The response array is ordered based on the order of the IDs in the request array. The maximum number of IDs in request is 100.
@@ -262,8 +314,14 @@ core_ac_uk.getRepositoryByIdBatch({
 }, context)
 ```
 
-#### Parameters
-* body (array) **required**
+#### Input
+* input `object`
+  * body **required** `array`
+    * items `integer`
+
+#### Output
+* output `array`
+  * items [RepositoryResponse](#repositoryresponse)
 
 ### getRepositoryById
 Method will retrieve a repository based on given CORE repository ID.
@@ -275,8 +333,12 @@ core_ac_uk.getRepositoryById({
 }, context)
 ```
 
-#### Parameters
-* repositoryId (integer) **required** - CORE repository ID of the article that needs to be fetched.
+#### Input
+* input `object`
+  * repositoryId **required** `integer`: CORE repository ID of the article that needs to be fetched.
+
+#### Output
+* output [RepositoryResponse](#repositoryresponse)
 
 ### repositories.search.post
 Method accepts a JSON array of search queries and parameters. It then searches through all repositories and returns a JSON array of search results for each of the queries. Method searches through all repository fields.
@@ -288,8 +350,13 @@ core_ac_uk.repositories.search.post({
 }, context)
 ```
 
-#### Parameters
-* body (array) **required**
+#### Input
+* input `object`
+  * body **required** `array`
+    * items [SearchRequest](#searchrequest)
+
+#### Output
+* output [RepositorySearchResponse](#repositorysearchresponse)
 
 ### repositories.search.query.get
 Searches through all repositories and returns a JSON array with search results. Method searches through all repository fields.
@@ -301,10 +368,14 @@ core_ac_uk.repositories.search.query.get({
 }, context)
 ```
 
-#### Parameters
-* query (string) **required** - The search query
-* page (integer) - Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).
-* pageSize (integer) - The number of results to return per page. Can be any number between 10 and 100, default is 10.
+#### Input
+* input `object`
+  * query **required** `string`: The search query
+  * page `integer`: Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).
+  * pageSize `integer`: The number of results to return per page. Can be any number between 10 and 100, default is 10.
+
+#### Output
+* output [RepositorySearchResponse](#repositorysearchresponse)
 
 ### search.post
 Method accepts a JSON array of search queries. It searches through all resources and returns a JSON array with search results for each of the queries. Method searches through all resources and all fields. The results are ordered by relevance score and contain type of the relevant resource and its ID. Furthermore, the responses are oredered based on the order of the request items. The metadata of each resource need to be obtained through an appropriate method.
@@ -316,8 +387,14 @@ core_ac_uk.search.post({
 }, context)
 ```
 
-#### Parameters
-* body (array) **required**
+#### Input
+* input `object`
+  * body **required** `array`
+    * items [SearchRequest](#searchrequest)
+
+#### Output
+* output `array`
+  * items [SearchAllResponse](#searchallresponse)
 
 ### search.query.get
 Searches through all resources and returns a JSON array with search results. Method searches through all resources and all fields. The results are ordered by relevance score and contain type of the relevant resource and its ID. The metadata of each resource need to be obtained through an appropriate method.
@@ -329,8 +406,188 @@ core_ac_uk.search.query.get({
 }, context)
 ```
 
-#### Parameters
-* query (string) **required** - The search query
-* page (integer) - Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).
-* pageSize (integer) - The number of results to return per page. Can be any number between 10 and 100, default is 10.
+#### Input
+* input `object`
+  * query **required** `string`: The search query
+  * page `integer`: Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).
+  * pageSize `integer`: The number of results to return per page. Can be any number between 10 and 100, default is 10.
+
+#### Output
+* output [SearchAllResponse](#searchallresponse)
+
+
+
+## Definitions
+
+### Article
+* Article `object`
+  * authors `array`: List of article authors
+    * items `string`
+  * citations `array`: Citations found in the article
+    * items [Citation](#citation)
+  * contributors `array`: List of article contributors
+    * items `string`
+  * datePublished `string`: Date article published
+  * description `string`: The abstract
+  * doi `string`: The DOI of the article
+  * fulltext `string`: Article full text
+  * fulltextIdentifier `string`: The URL to the fulltext
+  * fulltextUrls `array`: URLs of the fulltext version of this article
+    * items `string`
+  * id **required** `integer`: Article ID
+  * identifiers `array`: List of document identifiers
+    * items `string`
+  * journals `array`: List of journals this article belongs to
+    * items [ArticleJournal](#articlejournal)
+  * language [Language](#language)
+  * oai `string`: The OAI of the article
+  * publisher `string`: Publisher of the article
+  * rawRecordXml [RawRecordXml](#rawrecordxml)
+  * relations `array`: URLs of relating articles, etc.
+    * items `string`
+  * repositories `array`: List of repositories this article belongs to
+    * items [Repository](#repository)
+  * repositoryDocument [RepositoryDocument](#repositorydocument)
+  * similarities `array`: Similar articles
+    * items [Similar](#similar)
+  * subjects `array`: Article subjects
+    * items `string`
+  * title `string`: Article title
+  * topics `array`: Article topics
+    * items `string`
+  * types `array`: Types, e.g. conference paper, journal paper, etc.
+    * items `string`
+  * year `integer`: Year the article was published
+
+### ArticleHistoryResponse
+* ArticleHistoryResponse `object`
+  * data `array`: List of article versions
+    * items [RawRecordXml](#rawrecordxml)
+  * status **required** `string` (values: OK, Not found, Too many queries, Missing parameter, Invalid parameter, Parameter out of bounds): Operation status
+
+### ArticleJournal
+* ArticleJournal `object`
+  * identifiers `array`: List of journal identifiers
+    * items `string`
+  * title `string`: Title of the journal
+
+### ArticleResponse
+* ArticleResponse `object`
+  * data **required** [Article](#article)
+  * status **required** `string` (values: OK, Not found, Too many queries, Missing parameter, Invalid parameter, Parameter out of bounds): Operation status
+
+### ArticleSearchResponse
+* ArticleSearchResponse `object`
+  * data **required** `array`: Search results
+    * items [Article](#article)
+  * status **required** `string` (values: OK, Not found, Too many queries, Missing parameter, Invalid parameter, Parameter out of bounds): Operation status
+  * totalHits **required** `integer`: Total number of articles matching the search criteria
+
+### ArticleSimilarResponse
+* ArticleSimilarResponse `object`
+  * data **required** `array`: Similar articles
+    * items [Article](#article)
+  * status **required** `string` (values: OK, Not found, Too many queries, Missing parameter, Invalid parameter, Parameter out of bounds): Operation status
+
+### Citation
+* Citation `object`
+  * authors `string`: Authors of the article
+  * date `string`: Date the cited article was published
+  * doi `string`: Digital Object Identifier
+  * raw `string`: Citation as raw string
+  * title `string`: Title of the cited article
+
+### Journal
+* Journal `object`
+  * identifiers **required** `array`: List of journal identifiers (e.g. URL, OAI or ISSN). The type is prepended to the identifier string (e.g. 'issn:2296-0597')
+    * items `string`
+  * language `string`: Language of the journal
+  * publisher `string`: Publisher of the journal
+  * rights `string`: Copyright license of the journal
+  * subjects `array`: List of journal subjects
+    * items `string`
+  * title `string`: Journal title
+
+### JournalResponse
+* JournalResponse `object`
+  * data [Journal](#journal)
+  * status **required** `string` (values: OK, NOT_FOUND, TOO_MANY_QUERIES, MISSING_PARAMETER, INVALID_PARAMETER): Operation status
+
+### JournalSearchResponse
+* JournalSearchResponse `object`
+  * data `array`: Search results
+    * items [Journal](#journal)
+  * status **required** `string` (values: OK, NOT_FOUND, TOO_MANY_QUERIES, MISSING_PARAMETER, INVALID_PARAMETER): Operation status
+  * totalHits **required** `integer`: Total number of journals matching the search criteria
+
+### Language
+* Language `object`
+  * code `string`
+  * name `string`
+
+### RawRecordXml
+* RawRecordXml `object`
+  * datetime `string`: Timestamp when CORE harvested the metadata
+  * metadata `string`: The raw XML metadata
+
+### Repository
+* Repository `object`
+  * id `integer`: CORE repository ID
+  * name `string`: Repository name
+  * openDoarId `integer`: ID of the repository in Open DOAR
+  * repositoryLocation [RepositoryLocation](#repositorylocation)
+  * uri `string`: Repository URI
+
+### RepositoryDocument
+
+
+### RepositoryLocation
+* RepositoryLocation `object`
+  * country `string`: Country name
+  * countryCode `string`: Two letter country code
+  * id `integer`: CORE repository ID
+  * latitude `integer`
+  * longitude `integer`
+  * repositoryName `string`: Repository name
+
+### RepositoryResponse
+* RepositoryResponse `object`
+  * data [Repository](#repository)
+  * status **required** `string` (values: OK, Not found, Too many queries, Missing parameter, Invalid parameter, Parameter out of bounds): Operation status
+
+### RepositorySearchResponse
+* RepositorySearchResponse `object`
+  * data `array`: Search results
+    * items [Repository](#repository)
+  * status **required** `string` (values: OK, Not found, Too many queries, Missing parameter, Invalid parameter, Parameter out of bounds): Operation status
+  * totalHits **required** `integer`: Total number of repositories matching the search criteria
+
+### Resource
+* Resource `object`
+  * id **required** `string`: Identifier of the resource
+  * type **required** `string` (values: journal, article, repository): Type of the resource
+
+### SearchAllResponse
+* SearchAllResponse `object`
+  * data **required** `array`: List of relevant resources
+    * items [Resource](#resource)
+  * status **required** `string` (values: OK, Not found, Too many queries, Missing parameter, Invalid parameter, Parameter out of bounds): Operation status
+  * totalHits **required** `integer`: Total number of items matching the search criteria
+
+### SearchRequest
+* SearchRequest `object`
+  * page `integer`: Which page of the search results should be retrieved. Can be any number from 1 to 100, default is 1 (first page)
+  * pageSize `integer`: The number of results to return per page. Can be any number from 10 to 100, default is 10
+  * query **required** `string`: Search query
+
+### Similar
+* Similar `object`
+  * id **required** `integer`: CORE ID of the similar article
+  * score **required** `number`: Similarity score
+  * title `string`: Title of the similar article
+
+### SimilarRequest
+* SimilarRequest `object`
+  * text **required** `string`: Find Similar articles based on this string
+
 

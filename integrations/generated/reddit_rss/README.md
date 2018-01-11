@@ -4,11 +4,9 @@ Client library for www.reddit.com
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/reddit_rss
+npm install --save @datafire/reddit_rss
 ```
-
 ```js
-let datafire = require('datafire');
 let reddit_rss = require('@datafire/reddit_rss').create();
 
 reddit_rss.frontPage({}).then(data => {
@@ -19,7 +17,9 @@ reddit_rss.frontPage({}).then(data => {
 ## Description
 
 
+
 ## Actions
+
 ### frontPage
 reddit: the front page of the internet
 
@@ -28,8 +28,11 @@ reddit: the front page of the internet
 reddit_rss.frontPage(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Feed](#feed)
 
 ### subreddit
 Retrieve the RSS feed
@@ -41,6 +44,31 @@ reddit_rss.subreddit({
 }, context)
 ```
 
-#### Parameters
-* subreddit (string) **required**
+#### Input
+* input `object`
+  * subreddit **required** `string`
+
+#### Output
+* output [Feed](#feed)
+
+
+
+## Definitions
+
+### Feed
+* Feed `object`
+  * feed `object`
+    * link `string`
+    * title `string`
+    * feedUrl `string`
+    * entries `array`
+      * items `object`
+        * id `string`
+        * link `string`
+        * title `string`
+        * pubDate `string`
+        * author `string`
+        * content `string`
+        * contentSnippet `string`
+
 

@@ -4,17 +4,15 @@ Client library for Google Cloud Machine Learning Engine
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/google_ml
+npm install --save @datafire/google_ml
 ```
-
 ```js
-let datafire = require('datafire');
 let google_ml = require('@datafire/google_ml').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 google_ml.projects.models.versions.delete({}).then(data => {
@@ -23,9 +21,11 @@ google_ml.projects.models.versions.delete({}).then(data => {
 ```
 
 ## Description
+
 An API to enable creating and using machine learning models.
 
 ## Actions
+
 ### oauthCallback
 Exchange the code passed to your redirect URI for an access_token
 
@@ -36,8 +36,17 @@ google_ml.oauthCallback({
 }, context)
 ```
 
-#### Parameters
-* code (string) **required**
+#### Input
+* input `object`
+  * code **required** `string`
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### oauthRefresh
 Exchange a refresh_token for an access_token
@@ -47,8 +56,16 @@ Exchange a refresh_token for an access_token
 google_ml.oauthRefresh(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### projects.models.versions.delete
 Deletes a model version.
@@ -66,21 +83,25 @@ google_ml.projects.models.versions.delete({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - Required. The name of the version. You can get the names of all the
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * name **required** `string`: Required. The name of the version. You can get the names of all the
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleLongrunning__Operation](#googlelongrunning__operation)
 
 ### projects.jobs.get
 Describes a job.
@@ -92,21 +113,25 @@ google_ml.projects.jobs.get({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - Required. The name of the job to get the description of.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * name **required** `string`: Required. The name of the job to get the description of.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleCloudMlV1__Job](#googlecloudmlv1__job)
 
 ### projects.models.versions.patch
 Updates the specified Version resource.
@@ -120,23 +145,27 @@ google_ml.projects.models.versions.patch({
 }, context)
 ```
 
-#### Parameters
-* body (object) - Represents a version of the model.
-* name (string) **required** - Required. The name of the model.
-* updateMask (string) - Required. Specifies the path, relative to `Version`, of the field to
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * body [GoogleCloudMlV1__Version](#googlecloudmlv1__version)
+  * name **required** `string`: Required. The name of the model.
+  * updateMask `string`: Required. Specifies the path, relative to `Version`, of the field to
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleLongrunning__Operation](#googlelongrunning__operation)
 
 ### projects.operations.list
 Lists operations that match the specified filter in the request. If the
@@ -157,24 +186,28 @@ google_ml.projects.operations.list({
 }, context)
 ```
 
-#### Parameters
-* filter (string) - The standard list filter.
-* name (string) **required** - The name of the operation's parent resource.
-* pageSize (integer) - The standard list page size.
-* pageToken (string) - The standard list page token.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * filter `string`: The standard list filter.
+  * name **required** `string`: The name of the operation's parent resource.
+  * pageSize `integer`: The standard list page size.
+  * pageToken `string`: The standard list page token.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleLongrunning__ListOperationsResponse](#googlelongrunning__listoperationsresponse)
 
 ### projects.jobs.cancel
 Cancels a running job.
@@ -186,22 +219,26 @@ google_ml.projects.jobs.cancel({
 }, context)
 ```
 
-#### Parameters
-* body (object) - Request message for the CancelJob method.
-* name (string) **required** - Required. The name of the job to cancel.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * body [GoogleCloudMlV1__CancelJobRequest](#googlecloudmlv1__canceljobrequest)
+  * name **required** `string`: Required. The name of the job to cancel.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleProtobuf__Empty](#googleprotobuf__empty)
 
 ### projects.getConfig
 Get the service account information associated with your project. You need
@@ -216,21 +253,25 @@ google_ml.projects.getConfig({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - Required. The project name.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * name **required** `string`: Required. The project name.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleCloudMlV1__GetConfigResponse](#googlecloudmlv1__getconfigresponse)
 
 ### projects.predict
 Performs prediction on the data in the request.
@@ -244,22 +285,26 @@ google_ml.projects.predict({
 }, context)
 ```
 
-#### Parameters
-* body (object) - Request for predictions to be issued against a trained model.
-* name (string) **required** - Required. The resource name of a model or a version.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * body [GoogleCloudMlV1__PredictRequest](#googlecloudmlv1__predictrequest)
+  * name **required** `string`: Required. The resource name of a model or a version.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleApi__HttpBody](#googleapi__httpbody)
 
 ### projects.models.versions.setDefault
 Designates a version to be the default for the model.
@@ -278,22 +323,26 @@ google_ml.projects.models.versions.setDefault({
 }, context)
 ```
 
-#### Parameters
-* body (object) - Request message for the SetDefaultVersion request.
-* name (string) **required** - Required. The name of the version to make the default for the model. You
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * body [GoogleCloudMlV1__SetDefaultVersionRequest](#googlecloudmlv1__setdefaultversionrequest)
+  * name **required** `string`: Required. The name of the version to make the default for the model. You
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleCloudMlV1__Version](#googlecloudmlv1__version)
 
 ### projects.jobs.list
 Lists the jobs in the project.
@@ -305,24 +354,28 @@ google_ml.projects.jobs.list({
 }, context)
 ```
 
-#### Parameters
-* filter (string) - Optional. Specifies the subset of jobs to retrieve.
-* pageSize (integer) - Optional. The number of jobs to retrieve per "page" of results. If there
-* pageToken (string) - Optional. A page token to request the next page of results.
-* parent (string) **required** - Required. The name of the project for which to list jobs.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * filter `string`: Optional. Specifies the subset of jobs to retrieve.
+  * pageSize `integer`: Optional. The number of jobs to retrieve per "page" of results. If there
+  * pageToken `string`: Optional. A page token to request the next page of results.
+  * parent **required** `string`: Required. The name of the project for which to list jobs.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleCloudMlV1__ListJobsResponse](#googlecloudmlv1__listjobsresponse)
 
 ### projects.jobs.create
 Creates a training or a batch prediction job.
@@ -334,22 +387,26 @@ google_ml.projects.jobs.create({
 }, context)
 ```
 
-#### Parameters
-* body (object) - Represents a training or prediction job.
-* parent (string) **required** - Required. The project name.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * body [GoogleCloudMlV1__Job](#googlecloudmlv1__job)
+  * parent **required** `string`: Required. The project name.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleCloudMlV1__Job](#googlecloudmlv1__job)
 
 ### projects.models.list
 Lists the models in a project.
@@ -364,24 +421,28 @@ google_ml.projects.models.list({
 }, context)
 ```
 
-#### Parameters
-* filter (string) - Optional. Specifies the subset of models to retrieve.
-* pageSize (integer) - Optional. The number of models to retrieve per "page" of results. If there
-* pageToken (string) - Optional. A page token to request the next page of results.
-* parent (string) **required** - Required. The name of the project whose models are to be listed.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * filter `string`: Optional. Specifies the subset of models to retrieve.
+  * pageSize `integer`: Optional. The number of models to retrieve per "page" of results. If there
+  * pageToken `string`: Optional. A page token to request the next page of results.
+  * parent **required** `string`: Required. The name of the project whose models are to be listed.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleCloudMlV1__ListModelsResponse](#googlecloudmlv1__listmodelsresponse)
 
 ### projects.models.create
 Creates a model which will later contain one or more versions.
@@ -397,22 +458,26 @@ google_ml.projects.models.create({
 }, context)
 ```
 
-#### Parameters
-* body (object) - Represents a machine learning solution.
-* parent (string) **required** - Required. The project name.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * body [GoogleCloudMlV1__Model](#googlecloudmlv1__model)
+  * parent **required** `string`: Required. The project name.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleCloudMlV1__Model](#googlecloudmlv1__model)
 
 ### projects.models.versions.list
 Gets basic information about all the versions of a model.
@@ -428,24 +493,28 @@ google_ml.projects.models.versions.list({
 }, context)
 ```
 
-#### Parameters
-* filter (string) - Optional. Specifies the subset of versions to retrieve.
-* pageSize (integer) - Optional. The number of versions to retrieve per "page" of results. If
-* pageToken (string) - Optional. A page token to request the next page of results.
-* parent (string) **required** - Required. The name of the model for which to list the version.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * filter `string`: Optional. Specifies the subset of versions to retrieve.
+  * pageSize `integer`: Optional. The number of versions to retrieve per "page" of results. If
+  * pageToken `string`: Optional. A page token to request the next page of results.
+  * parent **required** `string`: Required. The name of the model for which to list the version.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleCloudMlV1__ListVersionsResponse](#googlecloudmlv1__listversionsresponse)
 
 ### projects.models.versions.create
 Creates a new version of a model from a trained TensorFlow model.
@@ -464,22 +533,26 @@ google_ml.projects.models.versions.create({
 }, context)
 ```
 
-#### Parameters
-* body (object) - Represents a version of the model.
-* parent (string) **required** - Required. The name of the model.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
-* callback (string) - JSONP
-* $.xgafv (string) - V1 error format.
-* alt (string) - Data format for response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* access_token (string) - OAuth access token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* bearer_token (string) - OAuth bearer token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
+#### Input
+* input `object`
+  * body [GoogleCloudMlV1__Version](#googlecloudmlv1__version)
+  * parent **required** `string`: Required. The name of the model.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * callback `string`: JSONP
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * access_token `string`: OAuth access token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * bearer_token `string`: OAuth bearer token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+
+#### Output
+* output [GoogleLongrunning__Operation](#googlelongrunning__operation)
 
 ### projects.jobs.getIamPolicy
 Gets the access control policy for a resource.
@@ -493,21 +566,25 @@ google_ml.projects.jobs.getIamPolicy({
 }, context)
 ```
 
-#### Parameters
-* resource (string) **required** - REQUIRED: The resource for which the policy is being requested.
-* $.xgafv (string) - V1 error format.
-* access_token (string) - OAuth access token.
-* alt (string) - Data format for response.
-* bearer_token (string) - OAuth bearer token.
-* callback (string) - JSONP
-* fields (string) - Selector specifying which fields to include in a partial response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* pp (boolean) - Pretty-print response.
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+#### Input
+* input `object`
+  * resource **required** `string`: REQUIRED: The resource for which the policy is being requested.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [GoogleIamV1__Policy](#googleiamv1__policy)
 
 ### projects.jobs.setIamPolicy
 Sets the access control policy on the specified resource. Replaces any
@@ -520,22 +597,26 @@ google_ml.projects.jobs.setIamPolicy({
 }, context)
 ```
 
-#### Parameters
-* body (object) - Request message for `SetIamPolicy` method.
-* resource (string) **required** - REQUIRED: The resource for which the policy is being specified.
-* $.xgafv (string) - V1 error format.
-* access_token (string) - OAuth access token.
-* alt (string) - Data format for response.
-* bearer_token (string) - OAuth bearer token.
-* callback (string) - JSONP
-* fields (string) - Selector specifying which fields to include in a partial response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* pp (boolean) - Pretty-print response.
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+#### Input
+* input `object`
+  * body [GoogleIamV1__SetIamPolicyRequest](#googleiamv1__setiampolicyrequest)
+  * resource **required** `string`: REQUIRED: The resource for which the policy is being specified.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [GoogleIamV1__Policy](#googleiamv1__policy)
 
 ### projects.jobs.testIamPermissions
 Returns permissions that a caller has on the specified resource.
@@ -553,20 +634,281 @@ google_ml.projects.jobs.testIamPermissions({
 }, context)
 ```
 
-#### Parameters
-* body (object) - Request message for `TestIamPermissions` method.
-* resource (string) **required** - REQUIRED: The resource for which the policy detail is being requested.
-* $.xgafv (string) - V1 error format.
-* access_token (string) - OAuth access token.
-* alt (string) - Data format for response.
-* bearer_token (string) - OAuth bearer token.
-* callback (string) - JSONP
-* fields (string) - Selector specifying which fields to include in a partial response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* pp (boolean) - Pretty-print response.
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+#### Input
+* input `object`
+  * body [GoogleIamV1__TestIamPermissionsRequest](#googleiamv1__testiampermissionsrequest)
+  * resource **required** `string`: REQUIRED: The resource for which the policy detail is being requested.
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * access_token `string`: OAuth access token.
+  * alt `string` (values: json, media, proto): Data format for response.
+  * bearer_token `string`: OAuth bearer token.
+  * callback `string`: JSONP
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * pp `boolean`: Pretty-print response.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+
+#### Output
+* output [GoogleIamV1__TestIamPermissionsResponse](#googleiamv1__testiampermissionsresponse)
+
+
+
+## Definitions
+
+### GoogleApi__HttpBody
+* GoogleApi__HttpBody `object`: Message that represents an arbitrary HTTP body. It should only be used for
+  * contentType `string`: The HTTP Content-Type string representing the content type of the body.
+  * data `string`: HTTP body binary data.
+  * extensions `array`: Application specific response metadata. Must be set in the first response
+    * items `object`
+
+### GoogleCloudMlV1_HyperparameterOutput_HyperparameterMetric
+* GoogleCloudMlV1_HyperparameterOutput_HyperparameterMetric `object`: An observed value of a metric.
+  * objectiveValue `number`: The objective value at this training step.
+  * trainingStep `string`: The global training step for this metric.
+
+### GoogleCloudMlV1__AutoScaling
+* GoogleCloudMlV1__AutoScaling `object`: Options for automatically scaling a model.
+  * minNodes `integer`: Optional. The minimum number of nodes to allocate for this model. These
+
+### GoogleCloudMlV1__CancelJobRequest
+* GoogleCloudMlV1__CancelJobRequest `object`: Request message for the CancelJob method.
+
+### GoogleCloudMlV1__GetConfigResponse
+* GoogleCloudMlV1__GetConfigResponse `object`: Returns service account information associated with a project.
+  * serviceAccount `string`: The service account Cloud ML uses to access resources in the project.
+  * serviceAccountProject `string`: The project number for `service_account`.
+
+### GoogleCloudMlV1__HyperparameterOutput
+* GoogleCloudMlV1__HyperparameterOutput `object`: Represents the result of a single hyperparameter tuning trial from a
+  * allMetrics `array`: All recorded object metrics for this trial. This field is not currently
+    * items [GoogleCloudMlV1_HyperparameterOutput_HyperparameterMetric](#googlecloudmlv1_hyperparameteroutput_hyperparametermetric)
+  * finalMetric [GoogleCloudMlV1_HyperparameterOutput_HyperparameterMetric](#googlecloudmlv1_hyperparameteroutput_hyperparametermetric)
+  * hyperparameters `object`: The hyperparameters given to this trial.
+  * trialId `string`: The trial id for these results.
+
+### GoogleCloudMlV1__HyperparameterSpec
+* GoogleCloudMlV1__HyperparameterSpec `object`: Represents a set of hyperparameters to optimize.
+  * goal `string` (values: GOAL_TYPE_UNSPECIFIED, MAXIMIZE, MINIMIZE): Required. The type of goal to use for tuning. Available types are
+  * hyperparameterMetricTag `string`: Optional. The Tensorflow summary tag name to use for optimizing trials. For
+  * maxParallelTrials `integer`: Optional. The number of training trials to run concurrently.
+  * maxTrials `integer`: Optional. How many training trials should be attempted to optimize
+  * params `array`: Required. The set of parameters to tune.
+    * items [GoogleCloudMlV1__ParameterSpec](#googlecloudmlv1__parameterspec)
+
+### GoogleCloudMlV1__Job
+* GoogleCloudMlV1__Job `object`: Represents a training or prediction job.
+  * createTime `string`: Output only. When the job was created.
+  * endTime `string`: Output only. When the job processing was completed.
+  * errorMessage `string`: Output only. The details of a failure or a cancellation.
+  * jobId `string`: Required. The user-specified id of the job.
+  * predictionInput [GoogleCloudMlV1__PredictionInput](#googlecloudmlv1__predictioninput)
+  * predictionOutput [GoogleCloudMlV1__PredictionOutput](#googlecloudmlv1__predictionoutput)
+  * startTime `string`: Output only. When the job processing was started.
+  * state `string` (values: STATE_UNSPECIFIED, QUEUED, PREPARING, RUNNING, SUCCEEDED, FAILED, CANCELLING, CANCELLED): Output only. The detailed state of a job.
+  * trainingInput [GoogleCloudMlV1__TrainingInput](#googlecloudmlv1__traininginput)
+  * trainingOutput [GoogleCloudMlV1__TrainingOutput](#googlecloudmlv1__trainingoutput)
+
+### GoogleCloudMlV1__ListJobsResponse
+* GoogleCloudMlV1__ListJobsResponse `object`: Response message for the ListJobs method.
+  * jobs `array`: The list of jobs.
+    * items [GoogleCloudMlV1__Job](#googlecloudmlv1__job)
+  * nextPageToken `string`: Optional. Pass this token as the `page_token` field of the request for a
+
+### GoogleCloudMlV1__ListModelsResponse
+* GoogleCloudMlV1__ListModelsResponse `object`: Response message for the ListModels method.
+  * models `array`: The list of models.
+    * items [GoogleCloudMlV1__Model](#googlecloudmlv1__model)
+  * nextPageToken `string`: Optional. Pass this token as the `page_token` field of the request for a
+
+### GoogleCloudMlV1__ListVersionsResponse
+* GoogleCloudMlV1__ListVersionsResponse `object`: Response message for the ListVersions method.
+  * nextPageToken `string`: Optional. Pass this token as the `page_token` field of the request for a
+  * versions `array`: The list of versions.
+    * items [GoogleCloudMlV1__Version](#googlecloudmlv1__version)
+
+### GoogleCloudMlV1__ManualScaling
+* GoogleCloudMlV1__ManualScaling `object`: Options for manually scaling a model.
+  * nodes `integer`: The number of nodes to allocate for this model. These nodes are always up,
+
+### GoogleCloudMlV1__Model
+* GoogleCloudMlV1__Model `object`: Represents a machine learning solution.
+  * defaultVersion [GoogleCloudMlV1__Version](#googlecloudmlv1__version)
+  * description `string`: Optional. The description specified for the model when it was created.
+  * name `string`: Required. The name specified for the model when it was created.
+  * onlinePredictionLogging `boolean`: Optional. If true, enables StackDriver Logging for online prediction.
+  * regions `array`: Optional. The list of regions where the model is going to be deployed.
+    * items `string`
+
+### GoogleCloudMlV1__OperationMetadata
+* GoogleCloudMlV1__OperationMetadata `object`: Represents the metadata of the long-running operation.
+  * createTime `string`: The time the operation was submitted.
+  * endTime `string`: The time operation processing completed.
+  * isCancellationRequested `boolean`: Indicates whether a request to cancel this operation has been made.
+  * modelName `string`: Contains the name of the model associated with the operation.
+  * operationType `string` (values: OPERATION_TYPE_UNSPECIFIED, CREATE_VERSION, DELETE_VERSION, DELETE_MODEL, UPDATE_MODEL, UPDATE_VERSION): The operation type.
+  * startTime `string`: The time operation processing started.
+  * version [GoogleCloudMlV1__Version](#googlecloudmlv1__version)
+
+### GoogleCloudMlV1__ParameterSpec
+* GoogleCloudMlV1__ParameterSpec `object`: Represents a single hyperparameter to optimize.
+  * categoricalValues `array`: Required if type is `CATEGORICAL`. The list of possible categories.
+    * items `string`
+  * discreteValues `array`: Required if type is `DISCRETE`.
+    * items `number`
+  * maxValue `number`: Required if typeis `DOUBLE` or `INTEGER`. This field
+  * minValue `number`: Required if type is `DOUBLE` or `INTEGER`. This field
+  * parameterName `string`: Required. The parameter name must be unique amongst all ParameterConfigs in
+  * scaleType `string` (values: NONE, UNIT_LINEAR_SCALE, UNIT_LOG_SCALE, UNIT_REVERSE_LOG_SCALE): Optional. How the parameter should be scaled to the hypercube.
+  * type `string` (values: PARAMETER_TYPE_UNSPECIFIED, DOUBLE, INTEGER, CATEGORICAL, DISCRETE): Required. The type of the parameter.
+
+### GoogleCloudMlV1__PredictRequest
+* GoogleCloudMlV1__PredictRequest `object`: Request for predictions to be issued against a trained model.
+  * httpBody [GoogleApi__HttpBody](#googleapi__httpbody)
+
+### GoogleCloudMlV1__PredictionInput
+* GoogleCloudMlV1__PredictionInput `object`: Represents input parameters for a prediction job.
+  * batchSize `string`: Optional. Number of records per batch, defaults to 64.
+  * dataFormat `string` (values: DATA_FORMAT_UNSPECIFIED, TEXT, TF_RECORD, TF_RECORD_GZIP): Required. The format of the input data files.
+  * inputPaths `array`: Required. The Google Cloud Storage location of the input data files.
+    * items `string`
+  * maxWorkerCount `string`: Optional. The maximum number of workers to be used for parallel processing.
+  * modelName `string`: Use this field if you want to use the default version for the specified
+  * outputPath `string`: Required. The output Google Cloud Storage location.
+  * region `string`: Required. The Google Compute Engine region to run the prediction job in.
+  * runtimeVersion `string`: Optional. The Google Cloud ML runtime version to use for this batch
+  * uri `string`: Use this field if you want to specify a Google Cloud Storage path for
+  * versionName `string`: Use this field if you want to specify a version of the model to use. The
+
+### GoogleCloudMlV1__PredictionOutput
+* GoogleCloudMlV1__PredictionOutput `object`: Represents results of a prediction job.
+  * errorCount `string`: The number of data instances which resulted in errors.
+  * nodeHours `number`: Node hours used by the batch prediction job.
+  * outputPath `string`: The output Google Cloud Storage location provided at the job creation time.
+  * predictionCount `string`: The number of generated predictions.
+
+### GoogleCloudMlV1__SetDefaultVersionRequest
+* GoogleCloudMlV1__SetDefaultVersionRequest `object`: Request message for the SetDefaultVersion request.
+
+### GoogleCloudMlV1__TrainingInput
+* GoogleCloudMlV1__TrainingInput `object`: Represents input parameters for a training job.
+  * args `array`: Optional. Command line arguments to pass to the program.
+    * items `string`
+  * hyperparameters [GoogleCloudMlV1__HyperparameterSpec](#googlecloudmlv1__hyperparameterspec)
+  * jobDir `string`: Optional. A Google Cloud Storage path in which to store training outputs
+  * masterType `string`: Optional. Specifies the type of virtual machine to use for your training
+  * packageUris `array`: Required. The Google Cloud Storage location of the packages with
+    * items `string`
+  * parameterServerCount `string`: Optional. The number of parameter server replicas to use for the training
+  * parameterServerType `string`: Optional. Specifies the type of virtual machine to use for your training
+  * pythonModule `string`: Required. The Python module name to run after installing the packages.
+  * region `string`: Required. The Google Compute Engine region to run the training job in.
+  * runtimeVersion `string`: Optional. The Google Cloud ML runtime version to use for training.  If not
+  * scaleTier `string` (values: BASIC, STANDARD_1, PREMIUM_1, BASIC_GPU, BASIC_TPU, CUSTOM): Required. Specifies the machine types, the number of replicas for workers
+  * workerCount `string`: Optional. The number of worker replicas to use for the training job. Each
+  * workerType `string`: Optional. Specifies the type of virtual machine to use for your training
+
+### GoogleCloudMlV1__TrainingOutput
+* GoogleCloudMlV1__TrainingOutput `object`: Represents results of a training job. Output only.
+  * completedTrialCount `string`: The number of hyperparameter tuning trials that completed successfully.
+  * consumedMLUnits `number`: The amount of ML units consumed by the job.
+  * isHyperparameterTuningJob `boolean`: Whether this job is a hyperparameter tuning job.
+  * trials `array`: Results for individual Hyperparameter trials.
+    * items [GoogleCloudMlV1__HyperparameterOutput](#googlecloudmlv1__hyperparameteroutput)
+
+### GoogleCloudMlV1__Version
+* GoogleCloudMlV1__Version `object`: Represents a version of the model.
+  * autoScaling [GoogleCloudMlV1__AutoScaling](#googlecloudmlv1__autoscaling)
+  * createTime `string`: Output only. The time the version was created.
+  * deploymentUri `string`: Required. The Google Cloud Storage location of the trained model used to
+  * description `string`: Optional. The description specified for the version when it was created.
+  * errorMessage `string`: Output only. The details of a failure or a cancellation.
+  * isDefault `boolean`: Output only. If true, this version will be used to handle prediction
+  * lastUseTime `string`: Output only. The time the version was last used for prediction.
+  * manualScaling [GoogleCloudMlV1__ManualScaling](#googlecloudmlv1__manualscaling)
+  * name `string`: Required.The name specified for the version when it was created.
+  * runtimeVersion `string`: Optional. The Google Cloud ML runtime version to use for this deployment.
+  * state `string` (values: UNKNOWN, READY, CREATING, FAILED, DELETING): Output only. The state of a version.
+
+### GoogleIamV1__AuditConfig
+* GoogleIamV1__AuditConfig `object`: Specifies the audit configuration for a service.
+  * auditLogConfigs `array`: The configuration for logging of each type of permission.
+    * items [GoogleIamV1__AuditLogConfig](#googleiamv1__auditlogconfig)
+  * exemptedMembers `array`
+    * items `string`
+  * service `string`: Specifies a service that will be enabled for audit logging.
+
+### GoogleIamV1__AuditLogConfig
+* GoogleIamV1__AuditLogConfig `object`: Provides the configuration for logging a type of permissions.
+  * exemptedMembers `array`: Specifies the identities that do not cause logging for this type of
+    * items `string`
+  * logType `string` (values: LOG_TYPE_UNSPECIFIED, ADMIN_READ, DATA_WRITE, DATA_READ): The log type that this config enables.
+
+### GoogleIamV1__Binding
+* GoogleIamV1__Binding `object`: Associates `members` with a `role`.
+  * condition [GoogleType__Expr](#googletype__expr)
+  * members `array`: Specifies the identities requesting access for a Cloud Platform resource.
+    * items `string`
+  * role `string`: Role that is assigned to `members`.
+
+### GoogleIamV1__Policy
+* GoogleIamV1__Policy `object`: Defines an Identity and Access Management (IAM) policy. It is used to
+  * auditConfigs `array`: Specifies cloud audit logging configuration for this policy.
+    * items [GoogleIamV1__AuditConfig](#googleiamv1__auditconfig)
+  * bindings `array`: Associates a list of `members` to a `role`.
+    * items [GoogleIamV1__Binding](#googleiamv1__binding)
+  * etag `string`: `etag` is used for optimistic concurrency control as a way to help
+  * iamOwned `boolean`
+  * version `integer`: Version of the `Policy`. The default version is 0.
+
+### GoogleIamV1__SetIamPolicyRequest
+* GoogleIamV1__SetIamPolicyRequest `object`: Request message for `SetIamPolicy` method.
+  * policy [GoogleIamV1__Policy](#googleiamv1__policy)
+  * updateMask `string`: OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
+
+### GoogleIamV1__TestIamPermissionsRequest
+* GoogleIamV1__TestIamPermissionsRequest `object`: Request message for `TestIamPermissions` method.
+  * permissions `array`: The set of permissions to check for the `resource`. Permissions with
+    * items `string`
+
+### GoogleIamV1__TestIamPermissionsResponse
+* GoogleIamV1__TestIamPermissionsResponse `object`: Response message for `TestIamPermissions` method.
+  * permissions `array`: A subset of `TestPermissionsRequest.permissions` that the caller is
+    * items `string`
+
+### GoogleLongrunning__ListOperationsResponse
+* GoogleLongrunning__ListOperationsResponse `object`: The response message for Operations.ListOperations.
+  * nextPageToken `string`: The standard List next-page token.
+  * operations `array`: A list of operations that matches the specified filter in the request.
+    * items [GoogleLongrunning__Operation](#googlelongrunning__operation)
+
+### GoogleLongrunning__Operation
+* GoogleLongrunning__Operation `object`: This resource represents a long-running operation that is the result of a
+  * done `boolean`: If the value is `false`, it means the operation is still in progress.
+  * error [GoogleRpc__Status](#googlerpc__status)
+  * metadata `object`: Service-specific metadata associated with the operation.  It typically
+  * name `string`: The server-assigned name, which is only unique within the same service that
+  * response `object`: The normal response of the operation in case of success.  If the original
+
+### GoogleProtobuf__Empty
+* GoogleProtobuf__Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
+
+### GoogleRpc__Status
+* GoogleRpc__Status `object`: The `Status` type defines a logical error model that is suitable for different
+  * code `integer`: The status code, which should be an enum value of google.rpc.Code.
+  * details `array`: A list of messages that carry the error details.  There is a common set of
+    * items `object`
+  * message `string`: A developer-facing error message, which should be in English. Any
+
+### GoogleType__Expr
+* GoogleType__Expr `object`: Represents an expression text. Example:
+  * description `string`: An optional description of the expression. This is a longer text which
+  * expression `string`: Textual representation of an expression in
+  * location `string`: An optional string indicating the location of the expression for error
+  * title `string`: An optional title for the expression, i.e. a short string describing
+
 

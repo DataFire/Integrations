@@ -4,11 +4,9 @@ Client library for PI Web API 2017 Swagger Spec
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/osisoft
+npm install --save @datafire/osisoft
 ```
-
 ```js
-let datafire = require('datafire');
 let osisoft = require('@datafire/osisoft').create();
 
 osisoft.Point_GetMultiple({}).then(data => {
@@ -17,9 +15,11 @@ osisoft.Point_GetMultiple({}).then(data => {
 ```
 
 ## Description
+
 Swagger Spec file that describes PI Web API
 
 ## Actions
+
 ### Home_Get
 Get top level links for this PI System Web API instance.
 
@@ -28,8 +28,11 @@ Get top level links for this PI System Web API instance.
 osisoft.Home_Get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Landing](#landing)
 
 ### Analysis_GetByPath
 This method returns an Analysis based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -41,9 +44,13 @@ osisoft.Analysis_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the Analysis.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the Analysis.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Analysis](#analysis)
 
 ### Analysis_Delete
 Delete an Analysis.
@@ -55,8 +62,12 @@ osisoft.Analysis_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the Analysis to delete.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the Analysis to delete.
+
+#### Output
+*Output schema unknown*
 
 ### Analysis_Get
 Retrieve an Analysis.
@@ -68,9 +79,13 @@ osisoft.Analysis_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the Analysis.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the Analysis.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Analysis](#analysis)
 
 ### Analysis_Update
 Update an Analysis.
@@ -83,9 +98,13 @@ osisoft.Analysis_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the Analysis to update.
-* analysis (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the Analysis to update.
+  * analysis **required** [Analysis](#analysis)
+
+#### Output
+*Output schema unknown*
 
 ### Analysis_GetCategories
 Get an Analysis' categories.
@@ -97,9 +116,13 @@ osisoft.Analysis_GetCategories({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the Analysis.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the Analysis.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[AnalysisCategory]](#items[analysiscategory])
 
 ### Analysis_GetSecurity
 Get the security information of the specified security item associated with the Analysis for a specified user.
@@ -112,11 +135,15 @@ osisoft.Analysis_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the Analysis for the security to be checked.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the Analysis for the security to be checked.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### Analysis_GetSecurityEntries
 Retrieve the security entries associated with the analysis based on the specified criteria. By default, all security entries for this analysis are returned.
@@ -128,10 +155,14 @@ osisoft.Analysis_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### Analysis_CreateSecurityEntry
 Create a security entry owned by the analysis.
@@ -144,10 +175,14 @@ osisoft.Analysis_CreateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis, where the security entry will be created.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis, where the security entry will be created.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### Analysis_DeleteSecurityEntry
 Delete a security entry owned by the analysis.
@@ -160,10 +195,14 @@ osisoft.Analysis_DeleteSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the analysis, where the security entry will be deleted.
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the analysis, where the security entry will be deleted.
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### Analysis_GetSecurityEntryByName
 Retrieve the security entry associated with the analysis with the specified name.
@@ -176,10 +215,14 @@ osisoft.Analysis_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the analysis.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the analysis.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### Analysis_UpdateSecurityEntry
 Update a security entry owned by the analysis.
@@ -193,11 +236,15 @@ osisoft.Analysis_UpdateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry.
-* webId (string) **required** - The ID of the analysis, where the security entry will be updated.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry.
+  * webId **required** `string`: The ID of the analysis, where the security entry will be updated.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisCategory_GetByPath
 Retrieve an analysis category by path.
@@ -209,9 +256,13 @@ osisoft.AnalysisCategory_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the target analysis category.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the target analysis category.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AnalysisCategory](#analysiscategory)
 
 ### AnalysisCategory_Delete
 Delete an analysis category.
@@ -223,8 +274,12 @@ osisoft.AnalysisCategory_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis category to delete.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis category to delete.
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisCategory_Get
 Retrieve an analysis category.
@@ -236,9 +291,13 @@ osisoft.AnalysisCategory_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis category.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis category.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AnalysisCategory](#analysiscategory)
 
 ### AnalysisCategory_Update
 Update an analysis category by replacing items in its definition.
@@ -251,9 +310,13 @@ osisoft.AnalysisCategory_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis category to update.
-* category (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis category to update.
+  * category **required** [AnalysisCategory](#analysiscategory)
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisCategory_GetSecurity
 Get the security information of the specified security item associated with the analysis category for a specified user.
@@ -266,11 +329,15 @@ osisoft.AnalysisCategory_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis category for the security to be checked.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis category for the security to be checked.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### AnalysisCategory_GetSecurityEntries
 Retrieve the security entries associated with the analysis category based on the specified criteria. By default, all security entries for this analysis category are returned.
@@ -282,10 +349,14 @@ osisoft.AnalysisCategory_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis category.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis category.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### AnalysisCategory_CreateSecurityEntry
 Create a security entry owned by the analysis category.
@@ -298,10 +369,14 @@ osisoft.AnalysisCategory_CreateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis category, where the security entry will be created.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis category, where the security entry will be created.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisCategory_DeleteSecurityEntry
 Delete a security entry owned by the analysis category.
@@ -314,10 +389,14 @@ osisoft.AnalysisCategory_DeleteSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the analysis category, where the security entry will be deleted.
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the analysis category, where the security entry will be deleted.
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisCategory_GetSecurityEntryByName
 Retrieve the security entry associated with the analysis category with the specified name.
@@ -330,10 +409,14 @@ osisoft.AnalysisCategory_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the analysis category.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the analysis category.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### AnalysisCategory_UpdateSecurityEntry
 Update a security entry owned by the analysis category.
@@ -347,11 +430,15 @@ osisoft.AnalysisCategory_UpdateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry.
-* webId (string) **required** - The ID of the analysis category, where the security entry will be updated.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry.
+  * webId **required** `string`: The ID of the analysis category, where the security entry will be updated.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisRulePlugIn_GetByPath
 This method returns an Analysis Rule Plug-in based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -363,9 +450,13 @@ osisoft.AnalysisRulePlugIn_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the Analysis Rule Plug-in.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the Analysis Rule Plug-in.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AnalysisRulePlugIn](#analysisruleplugin)
 
 ### AnalysisRulePlugIn_Get
 Retrieve an Analysis Rule Plug-in.
@@ -377,9 +468,13 @@ osisoft.AnalysisRulePlugIn_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the Analysis Rule Plug-in.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the Analysis Rule Plug-in.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AnalysisRulePlugIn](#analysisruleplugin)
 
 ### AnalysisRule_GetByPath
 This method returns an Analysis Rule based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -391,9 +486,13 @@ osisoft.AnalysisRule_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the Analysis Rule.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the Analysis Rule.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AnalysisRule](#analysisrule)
 
 ### AnalysisRule_Delete
 Delete an Analysis Rule.
@@ -405,8 +504,12 @@ osisoft.AnalysisRule_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the Analysis Rule.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the Analysis Rule.
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisRule_Get
 Retrieve an Analysis Rule.
@@ -418,9 +521,13 @@ osisoft.AnalysisRule_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the Analysis Rule.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the Analysis Rule.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AnalysisRule](#analysisrule)
 
 ### AnalysisRule_Update
 Update an Analysis Rule by replacing items in its definition.
@@ -433,9 +540,13 @@ osisoft.AnalysisRule_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the Analysis Rule.
-* analysisRule (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the Analysis Rule.
+  * analysisRule **required** [AnalysisRule](#analysisrule)
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisRule_GetAnalysisRules
 Get the child Analysis Rules of the Analysis Rule.
@@ -447,15 +558,19 @@ osisoft.AnalysisRule_GetAnalysisRules({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the parent Analysis Rule.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* nameFilter (string) - The name query string used for finding Analysis Rules. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include Analysis Rules nested further than the immediate children of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the parent Analysis Rule.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * nameFilter `string`: The name query string used for finding Analysis Rules. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include Analysis Rules nested further than the immediate children of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+
+#### Output
+* output [Items[AnalysisRule]](#items[analysisrule])
 
 ### AnalysisRule_CreateAnalysisRule
 Create a new Analysis Rule as a child of an existing Analysis Rule.
@@ -468,9 +583,13 @@ osisoft.AnalysisRule_CreateAnalysisRule({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the parent Analysis Rule, on which to create the child Analysis Rule.
-* analysisRule (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the parent Analysis Rule, on which to create the child Analysis Rule.
+  * analysisRule **required** [AnalysisRule](#analysisrule)
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisTemplate_GetByPath
 This method returns an analysis template based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -482,9 +601,13 @@ osisoft.AnalysisTemplate_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the analysis template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the analysis template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AnalysisTemplate](#analysistemplate)
 
 ### AnalysisTemplate_CreateFromAnalysis
 Create an Analysis template based upon a specified Analysis.
@@ -496,9 +619,13 @@ osisoft.AnalysisTemplate_CreateFromAnalysis({
 }, context)
 ```
 
-#### Parameters
-* analysisWebId (string) **required** - The ID of the Analysis, on which the template is created.
-* name (string) - The name for the created template, which must be unique within the database's AnalysisTemplate collection. If the name ends with an asterisk (*), then a unique name will be generated based on the supplied name. The default is the specified Analysis' name suffixed with an asterisk (*).
+#### Input
+* input `object`
+  * analysisWebId **required** `string`: The ID of the Analysis, on which the template is created.
+  * name `string`: The name for the created template, which must be unique within the database's AnalysisTemplate collection. If the name ends with an asterisk (*), then a unique name will be generated based on the supplied name. The default is the specified Analysis' name suffixed with an asterisk (*).
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisTemplate_Delete
 Deleting an analysis template will delete any anlysis which was created from it, unless the analysis is tied to a notification.
@@ -510,8 +637,12 @@ osisoft.AnalysisTemplate_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis template to update.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis template to update.
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisTemplate_Get
 Retrieve an analysis template.
@@ -523,9 +654,13 @@ osisoft.AnalysisTemplate_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AnalysisTemplate](#analysistemplate)
 
 ### AnalysisTemplate_Update
 Update an analysis template by replacing items in its definition.
@@ -538,9 +673,13 @@ osisoft.AnalysisTemplate_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis template to update.
-* template (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis template to update.
+  * template **required** [AnalysisTemplate](#analysistemplate)
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisTemplate_GetCategories
 Get an analysis template's categories.
@@ -552,9 +691,13 @@ osisoft.AnalysisTemplate_GetCategories({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[AnalysisCategory]](#items[analysiscategory])
 
 ### AnalysisTemplate_GetSecurity
 Get the security information of the specified security item associated with the analysis template for a specified user.
@@ -567,11 +710,15 @@ osisoft.AnalysisTemplate_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis template for the security to be checked.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis template for the security to be checked.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### AnalysisTemplate_GetSecurityEntries
 Retrieve the security entries associated with the analysis template based on the specified criteria. By default, all security entries for this analysis template are returned.
@@ -583,10 +730,14 @@ osisoft.AnalysisTemplate_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis template.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis template.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### AnalysisTemplate_CreateSecurityEntry
 Create a security entry owned by the analysis template.
@@ -599,10 +750,14 @@ osisoft.AnalysisTemplate_CreateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the analysis template, where the security entry will be created.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the analysis template, where the security entry will be created.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisTemplate_DeleteSecurityEntry
 Delete a security entry owned by the analysis template.
@@ -615,10 +770,14 @@ osisoft.AnalysisTemplate_DeleteSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the analysis template, where the security entry will be deleted.
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the analysis template, where the security entry will be deleted.
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### AnalysisTemplate_GetSecurityEntryByName
 Retrieve the security entry associated with the analysis template with the specified name.
@@ -631,10 +790,14 @@ osisoft.AnalysisTemplate_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the analysis template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the analysis template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### AnalysisTemplate_UpdateSecurityEntry
 Update a security entry owned by the analysis template.
@@ -648,11 +811,15 @@ osisoft.AnalysisTemplate_UpdateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry.
-* webId (string) **required** - The ID of the analysis template, where the security entry will be updated.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry.
+  * webId **required** `string`: The ID of the analysis template, where the security entry will be updated.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_GetByPath
 This method returns an asset database based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -664,9 +831,13 @@ osisoft.AssetDatabase_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the database.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the database.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AssetDatabase](#assetdatabase)
 
 ### AssetDatabase_Delete
 Delete an asset database.
@@ -678,8 +849,12 @@ osisoft.AssetDatabase_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database.
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_Get
 Retrieve an Asset Database.
@@ -691,9 +866,13 @@ osisoft.AssetDatabase_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AssetDatabase](#assetdatabase)
 
 ### AssetDatabase_Update
 Update an asset database by replacing items in its definition.
@@ -706,9 +885,13 @@ osisoft.AssetDatabase_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database.
-* database (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database.
+  * database **required** [AssetDatabase](#assetdatabase)
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_FindAnalyses
 Users can search for the analyses based on specific search parameters. If no parameters are specified in the search, the default values for each parameter will be used and will return the analyses that match the default search.
@@ -721,15 +904,19 @@ osisoft.AssetDatabase_FindAnalyses({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database to search for the analyses.
-* field (array) **required** - Specifies which of the object's properties are searched. Multiple search fields may be specified with multiple instances of the parameter. The default is 'Name'.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* query (string) - The query string used for finding analyses. The default is null.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database to search for the analyses.
+  * field **required** `array`: Specifies which of the object's properties are searched. Multiple search fields may be specified with multiple instances of the parameter. The default is 'Name'.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * query `string`: The query string used for finding analyses. The default is null.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+
+#### Output
+* output [Items[Analysis]](#items[analysis])
 
 ### AssetDatabase_GetAnalysisCategories
 Retrieve analysis categories for a given Asset Database.
@@ -741,9 +928,13 @@ osisoft.AssetDatabase_GetAnalysisCategories({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[AnalysisCategory]](#items[analysiscategory])
 
 ### AssetDatabase_CreateAnalysisCategory
 Create an analysis category at the Asset Database root.
@@ -756,9 +947,13 @@ osisoft.AssetDatabase_CreateAnalysisCategory({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database in which to create the analysis category.
-* analysisCategory (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database in which to create the analysis category.
+  * analysisCategory **required** [AnalysisCategory](#analysiscategory)
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_GetAnalysisTemplates
 Users can search for the analysis templates based on specific search parameters. If no parameters are specified in the search, the default values for each parameter will be used and will return the templates that match the default search.
@@ -771,14 +966,18 @@ osisoft.AssetDatabase_GetAnalysisTemplates({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database to search.
-* field (array) **required** - Specifies which of the object's properties are searched. Multiple search fields may be specified with multiple instances of the parameter. The default is 'Name'.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* query (string) - The query string used for finding objects. The default is no query string.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database to search.
+  * field **required** `array`: Specifies which of the object's properties are searched. Multiple search fields may be specified with multiple instances of the parameter. The default is 'Name'.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * query `string`: The query string used for finding objects. The default is no query string.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+
+#### Output
+* output [Items[AnalysisTemplate]](#items[analysistemplate])
 
 ### AssetDatabase_CreateAnalysisTemplate
 Analyses that are based on an analysis template will inherit characteristics defined in the template.
@@ -791,9 +990,13 @@ osisoft.AssetDatabase_CreateAnalysisTemplate({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database in which to create the analysis template.
-* template (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database in which to create the analysis template.
+  * template **required** [AnalysisTemplate](#analysistemplate)
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_GetAttributeCategories
 Retrieve attribute categories for a given Asset Database.
@@ -805,9 +1008,13 @@ osisoft.AssetDatabase_GetAttributeCategories({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[AttributeCategory]](#items[attributecategory])
 
 ### AssetDatabase_CreateAttributeCategory
 Create an attribute category at the Asset Database root.
@@ -820,9 +1027,13 @@ osisoft.AssetDatabase_CreateAttributeCategory({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database in which to create the attribute category.
-* attributeCategory (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database in which to create the attribute category.
+  * attributeCategory **required** [AttributeCategory](#attributecategory)
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_FindElementAttributes
 Retrieves a list of element attributes matching the specified filters from the specified asset database.
@@ -834,23 +1045,27 @@ osisoft.AssetDatabase_FindElementAttributes({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset database to use as the root of the search.
-* attributeCategory (string) - Specify that returned attributes must have this category. The default is no filter.
-* attributeDescriptionFilter (string) - The attribute description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
-* attributeNameFilter (string) - The attribute name filter string used for finding objects. The default is no filter.
-* attributeType (string) - Specify that returned attributes' value type must be this value type. The default is no filter.
-* elementCategory (string) - Specify that the owner of the returned attributes must have this category. The default is no filter.
-* elementDescriptionFilter (string) - The element description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
-* elementNameFilter (string) - The element name filter string used for finding objects. The default is no filter.
-* elementTemplate (string) - Specify that the owner of the returned attributes must have this template or a template derived from this template. The default is no filter.
-* elementType (string) - Specify that the element of the returned attributes must have this AFElementType. The default is no filter.
-* maxCount (integer) - The maximum number of objects to be returned (the page size). The default is 1000.
-* searchFullHierarchy (boolean) - Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset database to use as the root of the search.
+  * attributeCategory `string`: Specify that returned attributes must have this category. The default is no filter.
+  * attributeDescriptionFilter `string`: The attribute description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
+  * attributeNameFilter `string`: The attribute name filter string used for finding objects. The default is no filter.
+  * attributeType `string`: Specify that returned attributes' value type must be this value type. The default is no filter.
+  * elementCategory `string`: Specify that the owner of the returned attributes must have this category. The default is no filter.
+  * elementDescriptionFilter `string`: The element description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
+  * elementNameFilter `string`: The element name filter string used for finding objects. The default is no filter.
+  * elementTemplate `string`: Specify that the owner of the returned attributes must have this template or a template derived from this template. The default is no filter.
+  * elementType `string`: Specify that the element of the returned attributes must have this AFElementType. The default is no filter.
+  * maxCount `integer`: The maximum number of objects to be returned (the page size). The default is 1000.
+  * searchFullHierarchy `boolean`: Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+
+#### Output
+* output [Items[Attribute]](#items[attribute])
 
 ### AssetDatabase_GetElementCategories
 Retrieve element categories for a given Asset Database.
@@ -862,9 +1077,13 @@ osisoft.AssetDatabase_GetElementCategories({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[ElementCategory]](#items[elementcategory])
 
 ### AssetDatabase_CreateElementCategory
 Create an element category at the Asset Database root.
@@ -877,9 +1096,13 @@ osisoft.AssetDatabase_CreateElementCategory({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database in which to create the element category.
-* elementCategory (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database in which to create the element category.
+  * elementCategory **required** [ElementCategory](#elementcategory)
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_GetElements
 Users can search for the elements based on specific search parameters. If no parameters are specified in the search, the default values for each parameter will be used and will return the elements that match the default search.
@@ -891,19 +1114,23 @@ osisoft.AssetDatabase_GetElements({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database to use as the root of the search.
-* categoryName (string) - Specify that returned elements must have this category. The default is no category filter.
-* descriptionFilter (string) - Specify that returned elements must have this description. The default is no description filter.
-* elementType (string) - Specify that returned elements must have this type. The default type is 'Any'.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* nameFilter (string) - The name query string used for finding objects. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include objects nested further than the immediate children of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
-* templateName (string) - Specify that returned elements must have this template or a template derived from this template. The default is no template filter.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database to use as the root of the search.
+  * categoryName `string`: Specify that returned elements must have this category. The default is no category filter.
+  * descriptionFilter `string`: Specify that returned elements must have this description. The default is no description filter.
+  * elementType `string`: Specify that returned elements must have this type. The default type is 'Any'.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * nameFilter `string`: The name query string used for finding objects. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include objects nested further than the immediate children of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+  * templateName `string`: Specify that returned elements must have this template or a template derived from this template. The default is no template filter.
+
+#### Output
+* output [Items[Element]](#items[element])
 
 ### AssetDatabase_CreateElement
 Create a child element.
@@ -916,9 +1143,13 @@ osisoft.AssetDatabase_CreateElement({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset database on which to create the element.
-* element (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset database on which to create the element.
+  * element **required** [Element](#element)
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_GetElementTemplates
 Users can search for the element and event frame template based on specific search parameters. If no parameters are specified in the search, the default values for each parameter will be used and will return the templates that match the default search.
@@ -931,14 +1162,18 @@ osisoft.AssetDatabase_GetElementTemplates({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database to search.
-* field (array) **required** - Specifies which of the object's properties are searched. Multiple search fields may be specified with multiple instances of the parameter. The default is 'Name'.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* query (string) - The query string used for finding objects. The default is no query string.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database to search.
+  * field **required** `array`: Specifies which of the object's properties are searched. Multiple search fields may be specified with multiple instances of the parameter. The default is 'Name'.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * query `string`: The query string used for finding objects. The default is no query string.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+
+#### Output
+* output [Items[ElementTemplate]](#items[elementtemplate])
 
 ### AssetDatabase_CreateElementTemplate
 Elements and event frames that are based on an element template will inherit characteristics defined in the template.
@@ -951,9 +1186,13 @@ osisoft.AssetDatabase_CreateElementTemplate({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database in which to create the element template.
-* template (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database in which to create the element template.
+  * template **required** [ElementTemplate](#elementtemplate)
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_GetEnumerationSets
 Retrieve enumeration sets for given asset database.
@@ -965,9 +1204,13 @@ osisoft.AssetDatabase_GetEnumerationSets({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[EnumerationSet]](#items[enumerationset])
 
 ### AssetDatabase_CreateEnumerationSet
 Create an enumeration set at the Asset Database.
@@ -980,9 +1223,13 @@ osisoft.AssetDatabase_CreateEnumerationSet({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database in which to create the enumeration set.
-* enumerationSet (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database in which to create the enumeration set.
+  * enumerationSet **required** [EnumerationSet](#enumerationset)
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_FindEventFrameAttributes
 Retrieves a list of event frame attributes matching the specified filters from the specified asset database.
@@ -994,26 +1241,30 @@ osisoft.AssetDatabase_FindEventFrameAttributes({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset database to use as the root of the search.
-* attributeCategory (string) - Specify that returned attributes must have this category. The default is no filter.
-* attributeDescriptionFilter (string) - The attribute description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
-* attributeNameFilter (string) - The attribute name filter string used for finding objects. The default is no filter.
-* attributeType (string) - Specify that returned attributes' value type must be this value type. The default is no filter.
-* endTime (string) - A string representing the latest ending time for the event frames to be matched. The endTime must be greater than or equal to the startTime. The default is '*'.
-* eventFrameCategory (string) - Specify that the owner of the returned attributes must have this category. The default is no filter.
-* eventFrameDescriptionFilter (string) - The event frame description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
-* eventFrameNameFilter (string) - The event frame name filter string used for finding objects. The default is no filter.
-* eventFrameTemplate (string) - Specify that the owner of the returned attributes must have this template or a template derived from this template. The default is no filter.
-* maxCount (integer) - The maximum number of objects to be returned (the page size). The default is 1000.
-* referencedElementNameFilter (string) - The name query string which must match the name of a referenced element. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.
-* searchMode (string) - Determines how the startTime and endTime parameters are treated when searching for event frames.     The default is 'Overlapped'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
-* startTime (string) - A string representing the earliest starting time for the event frames to be matched. startTime must be less than or equal to the endTime. The default is '*-8h'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset database to use as the root of the search.
+  * attributeCategory `string`: Specify that returned attributes must have this category. The default is no filter.
+  * attributeDescriptionFilter `string`: The attribute description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
+  * attributeNameFilter `string`: The attribute name filter string used for finding objects. The default is no filter.
+  * attributeType `string`: Specify that returned attributes' value type must be this value type. The default is no filter.
+  * endTime `string`: A string representing the latest ending time for the event frames to be matched. The endTime must be greater than or equal to the startTime. The default is '*'.
+  * eventFrameCategory `string`: Specify that the owner of the returned attributes must have this category. The default is no filter.
+  * eventFrameDescriptionFilter `string`: The event frame description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
+  * eventFrameNameFilter `string`: The event frame name filter string used for finding objects. The default is no filter.
+  * eventFrameTemplate `string`: Specify that the owner of the returned attributes must have this template or a template derived from this template. The default is no filter.
+  * maxCount `integer`: The maximum number of objects to be returned (the page size). The default is 1000.
+  * referencedElementNameFilter `string`: The name query string which must match the name of a referenced element. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.
+  * searchMode `string`: Determines how the startTime and endTime parameters are treated when searching for event frames.     The default is 'Overlapped'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+  * startTime `string`: A string representing the earliest starting time for the event frames to be matched. startTime must be less than or equal to the endTime. The default is '*-8h'.
+
+#### Output
+* output [Items[Attribute]](#items[attribute])
 
 ### AssetDatabase_GetEventFrames
 Retrieve event frames based on the specified conditions. By default, returns all children of the specified root resource with a start time in the past 8 hours.
@@ -1025,25 +1276,29 @@ osisoft.AssetDatabase_GetEventFrames({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset database to use as the root of the search.
-* canBeAcknowledged (boolean) - Specify the returned event frames' canBeAcknowledged property. The default is no canBeAcknowledged filter.
-* categoryName (string) - Specify that returned event frames must have this category. The default is no category filter.
-* endTime (string) - The ending time for the search. The endTime must be greater than or equal to the startTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*' if searchMode is not one of the 'Backward*' or 'Forward*' values.
-* isAcknowledged (boolean) - Specify the returned event frames' isAcknowledged property. The default no isAcknowledged filter.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* nameFilter (string) - The name query string used for finding event frames. The default is no filter.
-* referencedElementNameFilter (string) - The name query string which must match the name of a referenced element. The default is no filter.
-* referencedElementTemplateName (string) - Specify that returned event frames must have an element in the event frame's referenced elements collection that derives from the template. Specify this parameter by name.
-* searchFullHierarchy (boolean) - Specifies whether the search should include objects nested further than the immediate children of the search root. The default is 'false'.
-* searchMode (string) - Determines how the startTime and endTime parameters are treated when searching for event frame objects to be included in the returned collection. If this parameter is one of the 'Backward*' or 'Forward*' values, none of endTime, sortField, or sortOrder may be specified. The default is 'Overlapped'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* severity (array) - Specify that returned event frames must have this severity. Multiple severity values may be specified with multiple instances of the parameter. The default is no severity filter.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name' if searchMode is not one of the 'Backward*' or 'Forward*' values.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending' if searchMode is not one of the 'Backward*' or 'Forward*' values.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
-* startTime (string) - The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.
-* templateName (string) - Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset database to use as the root of the search.
+  * canBeAcknowledged `boolean`: Specify the returned event frames' canBeAcknowledged property. The default is no canBeAcknowledged filter.
+  * categoryName `string`: Specify that returned event frames must have this category. The default is no category filter.
+  * endTime `string`: The ending time for the search. The endTime must be greater than or equal to the startTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*' if searchMode is not one of the 'Backward*' or 'Forward*' values.
+  * isAcknowledged `boolean`: Specify the returned event frames' isAcknowledged property. The default no isAcknowledged filter.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * nameFilter `string`: The name query string used for finding event frames. The default is no filter.
+  * referencedElementNameFilter `string`: The name query string which must match the name of a referenced element. The default is no filter.
+  * referencedElementTemplateName `string`: Specify that returned event frames must have an element in the event frame's referenced elements collection that derives from the template. Specify this parameter by name.
+  * searchFullHierarchy `boolean`: Specifies whether the search should include objects nested further than the immediate children of the search root. The default is 'false'.
+  * searchMode `string`: Determines how the startTime and endTime parameters are treated when searching for event frame objects to be included in the returned collection. If this parameter is one of the 'Backward*' or 'Forward*' values, none of endTime, sortField, or sortOrder may be specified. The default is 'Overlapped'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * severity `array`: Specify that returned event frames must have this severity. Multiple severity values may be specified with multiple instances of the parameter. The default is no severity filter.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name' if searchMode is not one of the 'Backward*' or 'Forward*' values.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending' if searchMode is not one of the 'Backward*' or 'Forward*' values.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+  * startTime `string`: The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.
+  * templateName `string`: Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.
+
+#### Output
+* output [Items[EventFrame]](#items[eventframe])
 
 ### AssetDatabase_CreateEventFrame
 Create an event frame.
@@ -1056,9 +1311,13 @@ osisoft.AssetDatabase_CreateEventFrame({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database on which to create the event frame.
-* eventFrame (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database on which to create the event frame.
+  * eventFrame **required** [EventFrame](#eventframe)
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_Export
 Export the asset database.
@@ -1070,11 +1329,15 @@ osisoft.AssetDatabase_Export({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database.
-* endTime (string) - The latest ending time for AFEventFrame, AFTransfer, and AFCase objects that may be part of the export. The default is '*'.
-* exportMode (array) - Indicates the type of export to perform. The default is 'StrongReferences'. Multiple export modes may be specified by using multiple instances of exportMode.
-* startTime (string) - The earliest starting time for AFEventFrame, AFTransfer, and AFCase objects that may be part of the export. The default is '*-30d'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database.
+  * endTime `string`: The latest ending time for AFEventFrame, AFTransfer, and AFCase objects that may be part of the export. The default is '*'.
+  * exportMode `array`: Indicates the type of export to perform. The default is 'StrongReferences'. Multiple export modes may be specified by using multiple instances of exportMode.
+  * startTime `string`: The earliest starting time for AFEventFrame, AFTransfer, and AFCase objects that may be part of the export. The default is '*-30d'.
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_Import
 Import an asset database.
@@ -1086,9 +1349,13 @@ osisoft.AssetDatabase_Import({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset database.
-* importMode (array) - Indicates the type of import to perform. The default is 'AllowCreate | AllowUpdate | AutoCheckIn'. Multiple import modes may be specified by using multiple instances of importMode.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset database.
+  * importMode `array`: Indicates the type of import to perform. The default is 'AllowCreate | AllowUpdate | AutoCheckIn'. Multiple import modes may be specified by using multiple instances of importMode.
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_RemoveReferencedElement
 Remove a reference to an existing element from the specified database.
@@ -1101,9 +1368,13 @@ osisoft.AssetDatabase_RemoveReferencedElement({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database which the referenced element will be removed from.
-* referencedElementWebId (array) **required** - The ID of the referenced element. Multiple referenced elements may be specified with multiple instances of the parameter.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database which the referenced element will be removed from.
+  * referencedElementWebId **required** `array`: The ID of the referenced element. Multiple referenced elements may be specified with multiple instances of the parameter.
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_GetReferencedElements
 Users can search for the referenced elements based on specific search parameters. If no parameters are specified in the search, the default values for each parameter will be used and will return the elements that match the default search.
@@ -1115,18 +1386,22 @@ osisoft.AssetDatabase_GetReferencedElements({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the resource to use as the root of the search.
-* categoryName (string) - Specify that returned elements must have this category. The default is no category filter.
-* descriptionFilter (string) - Specify that returned elements must have this description. The default is no description filter.
-* elementType (string) - Specify that returned elements must have this type. The default type is 'Any'.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* nameFilter (string) - The name query string used for finding objects. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
-* templateName (string) - Specify that returned elements must have this template or a template derived from this template. The default is no template filter.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the resource to use as the root of the search.
+  * categoryName `string`: Specify that returned elements must have this category. The default is no category filter.
+  * descriptionFilter `string`: Specify that returned elements must have this description. The default is no description filter.
+  * elementType `string`: Specify that returned elements must have this type. The default type is 'Any'.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * nameFilter `string`: The name query string used for finding objects. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+  * templateName `string`: Specify that returned elements must have this template or a template derived from this template. The default is no template filter.
+
+#### Output
+* output [Items[Element]](#items[element])
 
 ### AssetDatabase_AddReferencedElement
 Add a reference to an existing element to the specified database.
@@ -1139,10 +1414,14 @@ osisoft.AssetDatabase_AddReferencedElement({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database which the referenced element will be added to.
-* referencedElementWebId (array) **required** - The ID of the referenced element. Multiple referenced elements may be specified with multiple instances of the parameter.
-* referenceType (string) - The name of the reference type between the parent and the referenced element. This must be a "strong" reference type. The default is "parent-child".
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database which the referenced element will be added to.
+  * referencedElementWebId **required** `array`: The ID of the referenced element. Multiple referenced elements may be specified with multiple instances of the parameter.
+  * referenceType `string`: The name of the reference type between the parent and the referenced element. This must be a "strong" reference type. The default is "parent-child".
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_GetSecurity
 Get the security information of the specified security item associated with the asset database for a specified user.
@@ -1156,12 +1435,16 @@ osisoft.AssetDatabase_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset database for the security to be checked.
-* securityItem (array) **required** - The security item of the desired security information to be returned. Multiple security items may be specified with multiple instances of the parameter. If the parameter is not specified, only 'Default' security item of the security information will be returned.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset database for the security to be checked.
+  * securityItem **required** `array`: The security item of the desired security information to be returned. Multiple security items may be specified with multiple instances of the parameter. If the parameter is not specified, only 'Default' security item of the security information will be returned.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### AssetDatabase_GetSecurityEntries
 Retrieve the security entries of the specified security item associated with the asset database based on the specified criteria. By default, all security entries for this asset database are returned.
@@ -1173,11 +1456,15 @@ osisoft.AssetDatabase_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset database.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* securityItem (string) - The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset database.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * securityItem `string`: The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### AssetDatabase_CreateSecurityEntry
 Create a security entry owned by the asset database.
@@ -1190,11 +1477,15 @@ osisoft.AssetDatabase_CreateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset database where the security entry will be created.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
-* securityItem (string) - The security item of the desired security entries to be created. If the parameter is not specified, security entries of the 'Default' security item will be created.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset database where the security entry will be created.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+  * securityItem `string`: The security item of the desired security entries to be created. If the parameter is not specified, security entries of the 'Default' security item will be created.
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_DeleteSecurityEntry
 Delete a security entry owned by the asset database.
@@ -1207,11 +1498,15 @@ osisoft.AssetDatabase_DeleteSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the asset database where the security entry will be deleted.
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
-* securityItem (string) - The security item of the desired security entries to be deleted. If the parameter is not specified, security entries of the 'Default' security item will be deleted.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the asset database where the security entry will be deleted.
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+  * securityItem `string`: The security item of the desired security entries to be deleted. If the parameter is not specified, security entries of the 'Default' security item will be deleted.
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_GetSecurityEntryByName
 Retrieve the security entry of the specified security item associated with the asset database with the specified name.
@@ -1224,11 +1519,15 @@ osisoft.AssetDatabase_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the asset database.
-* securityItem (string) - The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the asset database.
+  * securityItem `string`: The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### AssetDatabase_UpdateSecurityEntry
 Update a security entry owned by the asset database.
@@ -1242,12 +1541,16 @@ osisoft.AssetDatabase_UpdateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry.
-* webId (string) **required** - The ID of the asset database where the security entry will be updated.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
-* securityItem (string) - The security item of the desired security entries to be updated. If the parameter is not specified, security entries of the 'Default' security item will be updated.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry.
+  * webId **required** `string`: The ID of the asset database where the security entry will be updated.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+  * securityItem `string`: The security item of the desired security entries to be updated. If the parameter is not specified, security entries of the 'Default' security item will be updated.
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_GetTableCategories
 Retrieve table categories for a given Asset Database.
@@ -1259,9 +1562,13 @@ osisoft.AssetDatabase_GetTableCategories({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[TableCategory]](#items[tablecategory])
 
 ### AssetDatabase_CreateTableCategory
 Create a table category on the Asset Database.
@@ -1274,9 +1581,13 @@ osisoft.AssetDatabase_CreateTableCategory({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database in which to create the table category.
-* tableCategory (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database in which to create the table category.
+  * tableCategory **required** [TableCategory](#tablecategory)
+
+#### Output
+*Output schema unknown*
 
 ### AssetDatabase_GetTables
 Retrieve tables for given Asset Database.
@@ -1288,9 +1599,13 @@ osisoft.AssetDatabase_GetTables({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[Table]](#items[table])
 
 ### AssetDatabase_CreateTable
 Create a table on the Asset Database.
@@ -1303,9 +1618,13 @@ osisoft.AssetDatabase_CreateTable({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the database in which to create the table.
-* table (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the database in which to create the table.
+  * table **required** [Table](#table)
+
+#### Output
+*Output schema unknown*
 
 ### AssetServer_List
 Retrieve a list of all Asset Servers known to this service.
@@ -1315,8 +1634,12 @@ Retrieve a list of all Asset Servers known to this service.
 osisoft.AssetServer_List({}, context)
 ```
 
-#### Parameters
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[AssetServer]](#items[assetserver])
 
 ### AssetServer_GetByName
 This method returns an asset server based on the name associated with it. Users should primarily search with the WebID when available.
@@ -1328,9 +1651,13 @@ osisoft.AssetServer_GetByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the server.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the server.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AssetServer](#assetserver)
 
 ### AssetServer_GetByPath
 This method returns an asset server based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -1342,9 +1669,13 @@ osisoft.AssetServer_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the server.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the server.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AssetServer](#assetserver)
 
 ### AssetServer_Get
 Retrieve an Asset Server.
@@ -1356,9 +1687,13 @@ osisoft.AssetServer_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the server.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the server.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AssetServer](#assetserver)
 
 ### AssetServer_GetAnalysisRulePlugIns
 Retrieve a list of all Analysis Rule Plug-in's.
@@ -1370,9 +1705,13 @@ osisoft.AssetServer_GetAnalysisRulePlugIns({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset server, where the Analysis Rule Plug-in's are installed.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset server, where the Analysis Rule Plug-in's are installed.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[AnalysisRulePlugIn]](#items[analysisruleplugin])
 
 ### AssetServer_GetDatabases
 Retrieve a list of all Asset Databases on the specified Asset Server.
@@ -1384,9 +1723,13 @@ osisoft.AssetServer_GetDatabases({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the server.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the server.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[AssetDatabase]](#items[assetdatabase])
 
 ### AssetServer_CreateAssetDatabase
 Create an asset database.
@@ -1399,9 +1742,13 @@ osisoft.AssetServer_CreateAssetDatabase({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset server on which to create the database.
-* database (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset server on which to create the database.
+  * database **required** [AssetDatabase](#assetdatabase)
+
+#### Output
+*Output schema unknown*
 
 ### AssetServer_GetSecurity
 Get the security information of the specified security item associated with the asset server for a specified user.
@@ -1415,12 +1762,16 @@ osisoft.AssetServer_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset server for the security to be checked.
-* securityItem (array) **required** - The security item of the desired security information to be returned. Multiple security items may be specified with multiple instances of the parameter. If the parameter is not specified, only 'Default' security item of the security information will be returned.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset server for the security to be checked.
+  * securityItem **required** `array`: The security item of the desired security information to be returned. Multiple security items may be specified with multiple instances of the parameter. If the parameter is not specified, only 'Default' security item of the security information will be returned.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### AssetServer_GetSecurityEntries
 Retrieve the security entries of the specified security item associated with the asset server based on the specified criteria. By default, all security entries for this asset server are returned.
@@ -1432,11 +1783,15 @@ osisoft.AssetServer_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset server.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* securityItem (string) - The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset server.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * securityItem `string`: The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### AssetServer_CreateSecurityEntry
 Create a security entry owned by the asset server.
@@ -1449,11 +1804,15 @@ osisoft.AssetServer_CreateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset server where the security entry will be created.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
-* securityItem (string) - The security item of the desired security entries to be created. If the parameter is not specified, security entries of the 'Default' security item will be created.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset server where the security entry will be created.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+  * securityItem `string`: The security item of the desired security entries to be created. If the parameter is not specified, security entries of the 'Default' security item will be created.
+
+#### Output
+*Output schema unknown*
 
 ### AssetServer_DeleteSecurityEntry
 Delete a security entry owned by the asset server.
@@ -1466,11 +1825,15 @@ osisoft.AssetServer_DeleteSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the asset server where the security entry will be deleted.
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
-* securityItem (string) - The security item of the desired security entries to be deleted. If the parameter is not specified, security entries of the 'Default' security item will be deleted.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the asset server where the security entry will be deleted.
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+  * securityItem `string`: The security item of the desired security entries to be deleted. If the parameter is not specified, security entries of the 'Default' security item will be deleted.
+
+#### Output
+*Output schema unknown*
 
 ### AssetServer_GetSecurityEntryByName
 Retrieve the security entry of the specified security item associated with the asset server with the specified name.
@@ -1483,11 +1846,15 @@ osisoft.AssetServer_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the asset server.
-* securityItem (string) - The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the asset server.
+  * securityItem `string`: The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### AssetServer_UpdateSecurityEntry
 Update a security entry owned by the asset server.
@@ -1501,12 +1868,16 @@ osisoft.AssetServer_UpdateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry.
-* webId (string) **required** - The ID of the asset server where the security entry will be updated.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
-* securityItem (string) - The security item of the desired security entries to be updated. If the parameter is not specified, security entries of the 'Default' security item will be updated.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry.
+  * webId **required** `string`: The ID of the asset server where the security entry will be updated.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+  * securityItem `string`: The security item of the desired security entries to be updated. If the parameter is not specified, security entries of the 'Default' security item will be updated.
+
+#### Output
+*Output schema unknown*
 
 ### AssetServer_GetSecurityIdentities
 Retrieve security identities based on the specified criteria. By default, all security identities in the specified Asset Server are returned.
@@ -1518,14 +1889,18 @@ osisoft.AssetServer_GetSecurityIdentities({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset server to search.
-* field (string) - Specifies which of the object's properties are searched. The default is 'Name'.
-* maxCount (integer) - The maximum number of objects to be returned. The default is 1000.
-* query (string) - The query string used for finding objects. The default is no query string.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset server to search.
+  * field `string`: Specifies which of the object's properties are searched. The default is 'Name'.
+  * maxCount `integer`: The maximum number of objects to be returned. The default is 1000.
+  * query `string`: The query string used for finding objects. The default is no query string.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+
+#### Output
+* output [Items[SecurityIdentity]](#items[securityidentity])
 
 ### AssetServer_CreateSecurityIdentity
 Create a security identity.
@@ -1538,9 +1913,13 @@ osisoft.AssetServer_CreateSecurityIdentity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset server on which to create the security identity.
-* securityIdentity (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset server on which to create the security identity.
+  * securityIdentity **required** [SecurityIdentity](#securityidentity)
+
+#### Output
+*Output schema unknown*
 
 ### AssetServer_GetSecurityIdentitiesForUser
 Retrieve security identities for a specific user.
@@ -1553,10 +1932,14 @@ osisoft.AssetServer_GetSecurityIdentitiesForUser({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the server.
-* userIdentity (string) **required** - The user identity to search for.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the server.
+  * userIdentity **required** `string`: The user identity to search for.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityIdentity]](#items[securityidentity])
 
 ### AssetServer_GetSecurityMappings
 Retrieve security mappings based on the specified criteria. By default, all security mappings in the specified Asset Server are returned.
@@ -1568,14 +1951,18 @@ osisoft.AssetServer_GetSecurityMappings({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset server to search.
-* field (string) - Specifies which of the object's properties are searched. The default is 'Name'.
-* maxCount (integer) - The maximum number of objects to be returned. The default is 1000.
-* query (string) - The query string used for finding objects. The default is no query string.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset server to search.
+  * field `string`: Specifies which of the object's properties are searched. The default is 'Name'.
+  * maxCount `integer`: The maximum number of objects to be returned. The default is 1000.
+  * query `string`: The query string used for finding objects. The default is no query string.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+
+#### Output
+* output [Items[SecurityMapping]](#items[securitymapping])
 
 ### AssetServer_CreateSecurityMapping
 Create a security mapping.
@@ -1588,9 +1975,13 @@ osisoft.AssetServer_CreateSecurityMapping({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset server on which to create the security mapping.
-* securityMapping (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset server on which to create the security mapping.
+  * securityMapping **required** [SecurityMapping](#securitymapping)
+
+#### Output
+*Output schema unknown*
 
 ### AssetServer_GetTimeRulePlugIns
 Retrieve a list of all Time Rule Plug-in's.
@@ -1602,9 +1993,13 @@ osisoft.AssetServer_GetTimeRulePlugIns({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the asset server, where the Time Rule Plug-in's are installed.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the asset server, where the Time Rule Plug-in's are installed.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[TimeRulePlugIn]](#items[timeruleplugin])
 
 ### AssetServer_GetUnitClasses
 Retrieve a list of all unit classes on the specified Asset Server.
@@ -1616,9 +2011,13 @@ osisoft.AssetServer_GetUnitClasses({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the server.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the server.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[UnitClass]](#items[unitclass])
 
 ### AssetServer_CreateUnitClass
 Create a unit class in the specified Asset Server.
@@ -1631,9 +2030,13 @@ osisoft.AssetServer_CreateUnitClass({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the server.
-* unitClass (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the server.
+  * unitClass **required** [UnitClass](#unitclass)
+
+#### Output
+*Output schema unknown*
 
 ### AttributeCategory_GetByPath
 Retrieve an attribute category by path.
@@ -1645,9 +2048,13 @@ osisoft.AttributeCategory_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the target attribute category.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the target attribute category.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AttributeCategory](#attributecategory)
 
 ### AttributeCategory_Delete
 Delete an attribute category.
@@ -1659,8 +2066,12 @@ osisoft.AttributeCategory_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute category to delete.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute category to delete.
+
+#### Output
+*Output schema unknown*
 
 ### AttributeCategory_Get
 Retrieve an attribute category.
@@ -1672,9 +2083,13 @@ osisoft.AttributeCategory_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The id of the attribute category.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The id of the attribute category.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AttributeCategory](#attributecategory)
 
 ### AttributeCategory_Update
 Update an attribute category by replacing items in its definition.
@@ -1687,9 +2102,13 @@ osisoft.AttributeCategory_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute category to update.
-* category (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute category to update.
+  * category **required** [AttributeCategory](#attributecategory)
+
+#### Output
+*Output schema unknown*
 
 ### AttributeCategory_GetSecurity
 Get the security information of the specified security item associated with the attribute category for a specified user.
@@ -1702,11 +2121,15 @@ osisoft.AttributeCategory_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute category for the security to be checked.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute category for the security to be checked.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### AttributeCategory_GetSecurityEntries
 Retrieve the security entries associated with the attribute category based on the specified criteria. By default, all security entries for this attribute category are returned.
@@ -1718,10 +2141,14 @@ osisoft.AttributeCategory_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute category.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute category.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### AttributeCategory_CreateSecurityEntry
 Create a security entry owned by the attribute category.
@@ -1734,10 +2161,14 @@ osisoft.AttributeCategory_CreateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute category where the security entry will be created.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute category where the security entry will be created.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### AttributeCategory_DeleteSecurityEntry
 Delete a security entry owned by the attribute category.
@@ -1750,10 +2181,14 @@ osisoft.AttributeCategory_DeleteSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the attribute category where the security entry will be deleted.
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the attribute category where the security entry will be deleted.
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### AttributeCategory_GetSecurityEntryByName
 Retrieve the security entry associated with the attribute category with the specified name.
@@ -1766,10 +2201,14 @@ osisoft.AttributeCategory_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the attribute category.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the attribute category.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### AttributeCategory_UpdateSecurityEntry
 Update a security entry owned by the attribute category.
@@ -1783,11 +2222,15 @@ osisoft.AttributeCategory_UpdateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry.
-* webId (string) **required** - The ID of the attribute category where the security entry will be updated.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry.
+  * webId **required** `string`: The ID of the attribute category where the security entry will be updated.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### Attribute_GetByPath
 This method returns an attribute based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -1799,9 +2242,13 @@ osisoft.Attribute_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the attribute.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the attribute.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Attribute](#attribute)
 
 ### Attribute_GetMultiple
 Retrieve multiple attributes by web id or path.
@@ -1811,12 +2258,16 @@ Retrieve multiple attributes by web id or path.
 osisoft.Attribute_GetMultiple({}, context)
 ```
 
-#### Parameters
-* asParallel (boolean) - Specifies if the retrieval processes should be run in parallel on the server. This may improve the response time for large amounts of requested attributes. The default is 'false'.
-* includeMode (string) - The include mode for the return list. The default is 'All'.
-* path (array) - The path of an attribute. Multiple attributes may be specified with multiple instances of the parameter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* webId (array) - The ID of an attribute. Multiple attributes may be specified with multiple instances of the parameter.
+#### Input
+* input `object`
+  * asParallel `boolean`: Specifies if the retrieval processes should be run in parallel on the server. This may improve the response time for large amounts of requested attributes. The default is 'false'.
+  * includeMode `string`: The include mode for the return list. The default is 'All'.
+  * path `array`: The path of an attribute. Multiple attributes may be specified with multiple instances of the parameter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * webId `array`: The ID of an attribute. Multiple attributes may be specified with multiple instances of the parameter.
+
+#### Output
+* output [Items[Item[Attribute]]](#items[item[attribute]])
 
 ### Attribute_Delete
 Delete an attribute.
@@ -1828,8 +2279,12 @@ osisoft.Attribute_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute.
+
+#### Output
+*Output schema unknown*
 
 ### Attribute_Get
 Retrieve an attribute.
@@ -1841,9 +2296,13 @@ osisoft.Attribute_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Attribute](#attribute)
 
 ### Attribute_Update
 If an attribute is based on a template, the user must make sure to update the attribute appropriately so that it does not conflict with the template's design. Once a template is applied to an attribute, it can not be changed.
@@ -1856,9 +2315,13 @@ osisoft.Attribute_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute.
-* attribute (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute.
+  * attribute **required** [Attribute](#attribute)
+
+#### Output
+*Output schema unknown*
 
 ### Attribute_GetAttributes
 Get the child attributes of the specified attribute.
@@ -1870,20 +2333,24 @@ osisoft.Attribute_GetAttributes({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the parent attribute.
-* categoryName (string) - Specify that returned attributes must have this category. The default is no category filter.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* nameFilter (string) - The name query string used for finding attributes. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showExcluded (boolean) - Specified if the search should include attributes with the Excluded property set. The default is 'false'.
-* showHidden (boolean) - Specified if the search should include attributes with the Hidden property set. The default is 'false'.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
-* templateName (string) - Specify that returned attributes must be members of this template. The default is no template filter.
-* valueType (string) - Specify that returned attributes' value type must be the given value type. The default is no value type filter.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the parent attribute.
+  * categoryName `string`: Specify that returned attributes must have this category. The default is no category filter.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * nameFilter `string`: The name query string used for finding attributes. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showExcluded `boolean`: Specified if the search should include attributes with the Excluded property set. The default is 'false'.
+  * showHidden `boolean`: Specified if the search should include attributes with the Hidden property set. The default is 'false'.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+  * templateName `string`: Specify that returned attributes must be members of this template. The default is no template filter.
+  * valueType `string`: Specify that returned attributes' value type must be the given value type. The default is no value type filter.
+
+#### Output
+* output [Items[Attribute]](#items[attribute])
 
 ### Attribute_CreateAttribute
 Create a new attribute as a child of the specified attribute.
@@ -1896,9 +2363,13 @@ osisoft.Attribute_CreateAttribute({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the parent attribute on which to create the attribute.
-* attribute (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the parent attribute on which to create the attribute.
+  * attribute **required** [Attribute](#attribute)
+
+#### Output
+*Output schema unknown*
 
 ### Attribute_GetCategories
 Get an attribute's categories.
@@ -1910,9 +2381,13 @@ osisoft.Attribute_GetCategories({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[AttributeCategory]](#items[attributecategory])
 
 ### Attribute_CreateConfig
 Create or update an attribute's DataReference configuration (Create/Update PI point for PI Point DataReference).
@@ -1924,8 +2399,12 @@ osisoft.Attribute_CreateConfig({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute.
+
+#### Output
+*Output schema unknown*
 
 ### Attribute_GetValue
 Get the attribute's value. This call is intended for use with attributes that have no data reference only. For attributes with a data reference, consult the documentation for Streams.
@@ -1937,9 +2416,13 @@ osisoft.Attribute_GetValue({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [TimedValue](#timedvalue)
 
 ### Attribute_SetValue
 Users must be aware of the value type that the attribute takes before changing the value. If a value entered by the user does not match the value type expressed in the attribute, it will not work or it will return an error. Users should also be careful of what the value type means, for instance, if a value type accepts strings and the user enters a number, the attribute will interpret it as a string of characters and not as the integer value that the user may have wanted.
@@ -1952,9 +2435,13 @@ osisoft.Attribute_SetValue({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute.
-* value (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute.
+  * value **required** [TimedValue](#timedvalue)
+
+#### Output
+*Output schema unknown*
 
 ### AttributeTemplate_GetByPath
 This method returns an attribute template based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -1966,9 +2453,13 @@ osisoft.AttributeTemplate_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the attribute template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the attribute template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AttributeTemplate](#attributetemplate)
 
 ### AttributeTemplate_Delete
 Deleting an attribute template will delete the attributes that were created based on the template
@@ -1980,8 +2471,12 @@ osisoft.AttributeTemplate_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute template.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute template.
+
+#### Output
+*Output schema unknown*
 
 ### AttributeTemplate_Get
 Retrieve an attribute template.
@@ -1993,9 +2488,13 @@ osisoft.AttributeTemplate_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AttributeTemplate](#attributetemplate)
 
 ### AttributeTemplate_Update
 Updating an attribute template will propagate changes to the attributes that were created based on the template
@@ -2008,9 +2507,13 @@ osisoft.AttributeTemplate_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute template.
-* template (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute template.
+  * template **required** [AttributeTemplate](#attributetemplate)
+
+#### Output
+*Output schema unknown*
 
 ### AttributeTemplate_GetAttributeTemplates
 Retrieve an attribute template's child attribute templates.
@@ -2022,9 +2525,13 @@ osisoft.AttributeTemplate_GetAttributeTemplates({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[AttributeTemplate]](#items[attributetemplate])
 
 ### AttributeTemplate_CreateAttributeTemplate
 Create an attribute template as a child of another attribute template.
@@ -2037,9 +2544,13 @@ osisoft.AttributeTemplate_CreateAttributeTemplate({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the parent attribute template on which to create the attribute template.
-* template (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the parent attribute template on which to create the attribute template.
+  * template **required** [AttributeTemplate](#attributetemplate)
+
+#### Output
+*Output schema unknown*
 
 ### AttributeTemplate_GetCategories
 Get an attribute template's categories.
@@ -2051,9 +2562,13 @@ osisoft.AttributeTemplate_GetCategories({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the attribute template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the attribute template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[AttributeCategory]](#items[attributecategory])
 
 ### AttributeTrait_GetByCategory
 Retrieve all attribute traits of the specified category/categories.
@@ -2065,9 +2580,13 @@ osisoft.AttributeTrait_GetByCategory({
 }, context)
 ```
 
-#### Parameters
-* category (array) **required** - The category of the attribute traits. Multiple categories may be specified with multiple instances of the parameter. If the parameter is not specified, or if its value is "all", then all attribute traits of all categories will be returned.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * category **required** `array`: The category of the attribute traits. Multiple categories may be specified with multiple instances of the parameter. If the parameter is not specified, or if its value is "all", then all attribute traits of all categories will be returned.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[AttributeTrait]](#items[attributetrait])
 
 ### AttributeTrait_Get
 Retrieve an attribute trait.
@@ -2079,9 +2598,13 @@ osisoft.AttributeTrait_Get({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name or abbreviation of the attribute trait.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name or abbreviation of the attribute trait.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [AttributeTrait](#attributetrait)
 
 ### Batch_Execute
 Execute a batch of requests against the service. As shown in the Sample Request, the input is a dictionary with IDs as keys and request objects as values. Each request object specifies the HTTP method and the resource and, optionally, the content and a list of parent IDs. The list of parent IDs specifies which other requests must complete before the given request will be executed. The example first creates an element, then gets the element by the response's Location header, then creates an attribute for the element. Note that the resource can be an absolute URL or a JsonPath that references the response to the parent request. The batch's response is a dictionary uses keys corresponding those provided in the request, with response objects containing a status code, response headers, and the response body. A request can alternatively specify a request template in place of a resource. In this case, a single JsonPath may select multiple tokens, and a separate subrequest will be made from the template for each token. The responses of these subrequests will returned as the content of a single outer response.
@@ -2093,8 +2616,12 @@ osisoft.Batch_Execute({
 }, context)
 ```
 
-#### Parameters
-* batch (object) **required**
+#### Input
+* input `object`
+  * batch **required** `object`
+
+#### Output
+* output `object`
 
 ### Calculation_GetAtIntervals
 Returns results of evaluating the expression over the time range from the start time to the end time at a defined interval.
@@ -2104,13 +2631,17 @@ Returns results of evaluating the expression over the time range from the start 
 osisoft.Calculation_GetAtIntervals({}, context)
 ```
 
-#### Parameters
-* endTime (string) - An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* expression (string) - A string containing the expression to be evaluated. The syntax for the expression generally follows the Performance Equation syntax as described in the PI Server documentation, with the exception that expressions which target AF objects use attribute names in place of tag names in the equation.
-* sampleInterval (string) - A time span specifies how often the filter expression is evaluated when computing the summary for an interval.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* startTime (string) - An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
-* webId (string) - The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.
+#### Input
+* input `object`
+  * endTime `string`: An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * expression `string`: A string containing the expression to be evaluated. The syntax for the expression generally follows the Performance Equation syntax as described in the PI Server documentation, with the exception that expressions which target AF objects use attribute names in place of tag names in the equation.
+  * sampleInterval `string`: A time span specifies how often the filter expression is evaluated when computing the summary for an interval.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * startTime `string`: An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
+  * webId `string`: The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.
+
+#### Output
+* output [TimedValues](#timedvalues)
 
 ### Calculation_GetAtRecorded
 Returns the result of evaluating the expression at each point in time over the time range from the start time to the end time where a recorded value exists for a member of the expression.
@@ -2120,12 +2651,16 @@ Returns the result of evaluating the expression at each point in time over the t
 osisoft.Calculation_GetAtRecorded({}, context)
 ```
 
-#### Parameters
-* endTime (string) - An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* expression (string) - A string containing the expression to be evaluated. The syntax for the expression generally follows the Performance Equation syntax as described in the PI Server documentation, with the exception that expressions which target AF objects use attribute names in place of tag names in the equation.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* startTime (string) - An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
-* webId (string) - The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.
+#### Input
+* input `object`
+  * endTime `string`: An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * expression `string`: A string containing the expression to be evaluated. The syntax for the expression generally follows the Performance Equation syntax as described in the PI Server documentation, with the exception that expressions which target AF objects use attribute names in place of tag names in the equation.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * startTime `string`: An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
+  * webId `string`: The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.
+
+#### Output
+* output [TimedValues](#timedvalues)
 
 ### Calculation_GetSummary
 Returns the result of evaluating the expression over the time range from the start time to the end time. The time range is first divided into a number of summary intervals. Then the calculation is performed for the specified summaries over each interval.
@@ -2135,18 +2670,22 @@ Returns the result of evaluating the expression over the time range from the sta
 osisoft.Calculation_GetSummary({}, context)
 ```
 
-#### Parameters
-* calculationBasis (string) - Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.
-* endTime (string) - An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* expression (string) - A string containing the expression to be evaluated. The syntax for the expression generally follows the Performance Equation syntax as described in the PI Server documentation, with the exception that expressions which target AF objects use attribute names in place of tag names in the equation.
-* sampleInterval (string) - A time span specifies how often the filter expression is evaluated when computing the summary for an interval, if the sampleType is 'Interval'.
-* sampleType (string) - A flag which specifies one or more summaries to compute for each interval over the time range. The default is 'ExpressionRecordedValues'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* startTime (string) - An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
-* summaryDuration (string) - The duration of each summary interval.
-* summaryType (array) - Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.
-* timeType (string) - Specifies how to calculate the timestamp for each interval. The default is 'Auto'.
-* webId (string) - The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.
+#### Input
+* input `object`
+  * calculationBasis `string`: Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.
+  * endTime `string`: An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * expression `string`: A string containing the expression to be evaluated. The syntax for the expression generally follows the Performance Equation syntax as described in the PI Server documentation, with the exception that expressions which target AF objects use attribute names in place of tag names in the equation.
+  * sampleInterval `string`: A time span specifies how often the filter expression is evaluated when computing the summary for an interval, if the sampleType is 'Interval'.
+  * sampleType `string`: A flag which specifies one or more summaries to compute for each interval over the time range. The default is 'ExpressionRecordedValues'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * startTime `string`: An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
+  * summaryDuration `string`: The duration of each summary interval.
+  * summaryType `array`: Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.
+  * timeType `string`: Specifies how to calculate the timestamp for each interval. The default is 'Auto'.
+  * webId `string`: The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.
+
+#### Output
+* output [Items[SummaryValue]](#items[summaryvalue])
 
 ### Calculation_GetAtTimes
 Returns the result of evaluating the expression at the specified timestamps.
@@ -2156,12 +2695,16 @@ Returns the result of evaluating the expression at the specified timestamps.
 osisoft.Calculation_GetAtTimes({}, context)
 ```
 
-#### Parameters
-* expression (string) - A string containing the expression to be evaluated. The syntax for the expression generally follows the Performance Equation syntax as described in the PI Server documentation, with the exception that expressions which target AF objects use attribute names in place of tag names in the equation.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* time (array) - A list of timestamps at which to calculate the expression.
-* webId (string) - The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.
+#### Input
+* input `object`
+  * expression `string`: A string containing the expression to be evaluated. The syntax for the expression generally follows the Performance Equation syntax as described in the PI Server documentation, with the exception that expressions which target AF objects use attribute names in place of tag names in the equation.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * time `array`: A list of timestamps at which to calculate the expression.
+  * webId `string`: The ID of the target object of the expression. A target object can be a Data Server, a database, an element, an event frame or an attribute. References to attributes or points are based on the target. If this parameter is not provided, the target object is set to null.
+
+#### Output
+* output [TimedValues](#timedvalues)
 
 ### Channel_Instances
 Retrieves a list of currently running channel instances.
@@ -2171,8 +2714,11 @@ Retrieves a list of currently running channel instances.
 osisoft.Channel_Instances(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### DataServer_List
 This method returns a list of all available known Data Servers that the user can connect to. Even though a server may be returned in the list, the user may not have permission to access it.
@@ -2182,8 +2728,12 @@ This method returns a list of all available known Data Servers that the user can
 osisoft.DataServer_List({}, context)
 ```
 
-#### Parameters
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[DataServer]](#items[dataserver])
 
 ### DataServer_GetByName
 This method returns a data server based on the name. Users should primarily search with the WebID when available.
@@ -2195,9 +2745,13 @@ osisoft.DataServer_GetByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the server.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the server.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [DataServer](#dataserver)
 
 ### DataServer_GetByPath
 This method returns a data server based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -2209,9 +2763,13 @@ osisoft.DataServer_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the server. Note that the path supplied to this method must be of the form '\\servername'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the server. Note that the path supplied to this method must be of the form '\\servername'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [DataServer](#dataserver)
 
 ### DataServer_Get
 Retrieve a Data Server.
@@ -2223,9 +2781,13 @@ osisoft.DataServer_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the server.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the server.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [DataServer](#dataserver)
 
 ### DataServer_GetEnumerationSets
 Retrieve enumeration sets for given Data Server.
@@ -2237,9 +2799,13 @@ osisoft.DataServer_GetEnumerationSets({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the server.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the server.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[EnumerationSet]](#items[enumerationset])
 
 ### DataServer_CreateEnumerationSet
 Create an enumeration set on the Data Server.
@@ -2252,9 +2818,13 @@ osisoft.DataServer_CreateEnumerationSet({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the server on which to create the enumeration set.
-* enumerationSet (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the server on which to create the enumeration set.
+  * enumerationSet **required** [EnumerationSet](#enumerationset)
+
+#### Output
+*Output schema unknown*
 
 ### DataServer_GetPoints
 Users can search for the data servers based on specific search parameters. If no parameters are specified in the search, the default values for each parameter will be used and will return the data servers that match the default search.
@@ -2266,12 +2836,16 @@ osisoft.DataServer_GetPoints({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the server.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* nameFilter (string) - A query string for filtering by point name. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is '0'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the server.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * nameFilter `string`: A query string for filtering by point name. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is '0'.
+
+#### Output
+* output [Items[Point]](#items[point])
 
 ### DataServer_CreatePoint
 Create a point in the specified Data Server.
@@ -2284,9 +2858,13 @@ osisoft.DataServer_CreatePoint({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the server.
-* pointDTO (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the server.
+  * pointDTO **required** [Point](#point)
+
+#### Output
+*Output schema unknown*
 
 ### ElementCategory_GetByPath
 Retrieve an element category by path.
@@ -2298,9 +2876,13 @@ osisoft.ElementCategory_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the target element category.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the target element category.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [ElementCategory](#elementcategory)
 
 ### ElementCategory_Delete
 Delete an element category.
@@ -2312,8 +2894,12 @@ osisoft.ElementCategory_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element category to delete.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element category to delete.
+
+#### Output
+*Output schema unknown*
 
 ### ElementCategory_Get
 Retrieve an element category.
@@ -2325,9 +2911,13 @@ osisoft.ElementCategory_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The id of the element category.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The id of the element category.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [ElementCategory](#elementcategory)
 
 ### ElementCategory_Update
 Update an element category by replacing items in its definition.
@@ -2340,9 +2930,13 @@ osisoft.ElementCategory_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element category to update.
-* elementCategory (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element category to update.
+  * elementCategory **required** [ElementCategory](#elementcategory)
+
+#### Output
+*Output schema unknown*
 
 ### ElementCategory_GetSecurity
 Get the security information of the specified security item associated with the element category for a specified user.
@@ -2355,11 +2949,15 @@ osisoft.ElementCategory_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element category for the security to be checked.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element category for the security to be checked.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### ElementCategory_GetSecurityEntries
 Retrieve the security entries associated with the element category based on the specified criteria. By default, all security entries for this element category are returned.
@@ -2371,10 +2969,14 @@ osisoft.ElementCategory_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element category.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element category.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### ElementCategory_CreateSecurityEntry
 Create a security entry owned by the element category.
@@ -2387,10 +2989,14 @@ osisoft.ElementCategory_CreateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element category where the security entry will be created.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element category where the security entry will be created.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### ElementCategory_DeleteSecurityEntry
 Delete a security entry owned by the element category.
@@ -2403,10 +3009,14 @@ osisoft.ElementCategory_DeleteSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the element category where the security entry will be deleted.
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the element category where the security entry will be deleted.
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### ElementCategory_GetSecurityEntryByName
 Retrieve the security entry associated with the element category with the specified name.
@@ -2419,10 +3029,14 @@ osisoft.ElementCategory_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the element category.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the element category.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### ElementCategory_UpdateSecurityEntry
 Update a security entry owned by the element category.
@@ -2436,11 +3050,15 @@ osisoft.ElementCategory_UpdateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry.
-* webId (string) **required** - The ID of the element category where the security entry will be updated.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry.
+  * webId **required** `string`: The ID of the element category where the security entry will be updated.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### Element_GetByPath
 This method returns an element based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -2452,9 +3070,13 @@ osisoft.Element_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the element.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the element.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Element](#element)
 
 ### Element_GetMultiple
 Retrieve multiple elements by web id or path.
@@ -2464,12 +3086,16 @@ Retrieve multiple elements by web id or path.
 osisoft.Element_GetMultiple({}, context)
 ```
 
-#### Parameters
-* asParallel (boolean) - Specifies if the retrieval processes should be run in parallel on the server. This may improve the response time for large amounts of requested attributes. The default is 'false'.
-* includeMode (string) - The include mode for the return list. The default is 'All'.
-* path (array) - The path of an element. Multiple elements may be specified with multiple instances of the parameter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* webId (array) - The ID of an element. Multiple elements may be specified with multiple instances of the parameter.
+#### Input
+* input `object`
+  * asParallel `boolean`: Specifies if the retrieval processes should be run in parallel on the server. This may improve the response time for large amounts of requested attributes. The default is 'false'.
+  * includeMode `string`: The include mode for the return list. The default is 'All'.
+  * path `array`: The path of an element. Multiple elements may be specified with multiple instances of the parameter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * webId `array`: The ID of an element. Multiple elements may be specified with multiple instances of the parameter.
+
+#### Output
+* output [Items[Item[Element]]](#items[item[element]])
 
 ### Element_CreateSearchByAttribute
 Create a link for a "Search Elements By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root Element. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the Elements. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.
@@ -2479,8 +3105,11 @@ Create a link for a "Search Elements By Attribute Value" operation, whose querie
 osisoft.Element_CreateSearchByAttribute(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### Element_ExecuteSearchByAttribute
 Execute a "Search Elements By Attribute Value" operation.
@@ -2492,17 +3121,21 @@ osisoft.Element_ExecuteSearchByAttribute({
 }, context)
 ```
 
-#### Parameters
-* searchId (string) **required** - The encoded search Id of the "Search Elements By Attribute Value" operation.
-* categoryName (string) - Specify that the owner of the returned attributes must have this category. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
-* descriptionFilter (string) - The element description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
-* maxCount (integer) - The maximum number of objects to be returned. The default is 1000.
-* nameFilter (string) - The name query string used for finding objects. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include objects nested further than the immediate children of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
+#### Input
+* input `object`
+  * searchId **required** `string`: The encoded search Id of the "Search Elements By Attribute Value" operation.
+  * categoryName `string`: Specify that the owner of the returned attributes must have this category. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
+  * descriptionFilter `string`: The element description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
+  * maxCount `integer`: The maximum number of objects to be returned. The default is 1000.
+  * nameFilter `string`: The name query string used for finding objects. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include objects nested further than the immediate children of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+
+#### Output
+*Output schema unknown*
 
 ### Element_Delete
 Delete an element.
@@ -2514,8 +3147,12 @@ osisoft.Element_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element.
+
+#### Output
+*Output schema unknown*
 
 ### Element_Get
 Retrieve an element.
@@ -2527,9 +3164,13 @@ osisoft.Element_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Element](#element)
 
 ### Element_Update
 Update an element by replacing items in its definition.
@@ -2542,9 +3183,13 @@ osisoft.Element_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element.
-* element (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element.
+  * element **required** [Element](#element)
+
+#### Output
+*Output schema unknown*
 
 ### Element_GetAnalyses
 Users can search for the analyses based on specific search parameters. If no parameters are specified in the search, the default values for each parameter will be used and will return the analyses that match the default search.
@@ -2556,13 +3201,17 @@ osisoft.Element_GetAnalyses({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element, which is the Target of the analyses.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element, which is the Target of the analyses.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+
+#### Output
+* output [Items[Analysis]](#items[analysis])
 
 ### Element_CreateAnalysis
 Create an Analysis.
@@ -2575,9 +3224,13 @@ osisoft.Element_CreateAnalysis({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element on which to create the Analysis.
-* analysis (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element on which to create the Analysis.
+  * analysis **required** [Analysis](#analysis)
+
+#### Output
+*Output schema unknown*
 
 ### Element_GetAttributes
 Get the attributes of the specified element.
@@ -2589,20 +3242,24 @@ osisoft.Element_GetAttributes({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element.
-* categoryName (string) - Specify that returned attributes must have this category. The default is no category filter.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* nameFilter (string) - The name query string used for finding attributes. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showExcluded (boolean) - Specified if the search should include attributes with the Excluded property set. The default is 'false'.
-* showHidden (boolean) - Specified if the search should include attributes with the Hidden property set. The default is 'false'.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
-* templateName (string) - Specify that returned attributes must be members of this template. The default is no template filter.
-* valueType (string) - Specify that returned attributes' value type must be the given value type. The default is no value type filter.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element.
+  * categoryName `string`: Specify that returned attributes must have this category. The default is no category filter.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * nameFilter `string`: The name query string used for finding attributes. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showExcluded `boolean`: Specified if the search should include attributes with the Excluded property set. The default is 'false'.
+  * showHidden `boolean`: Specified if the search should include attributes with the Hidden property set. The default is 'false'.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+  * templateName `string`: Specify that returned attributes must be members of this template. The default is no template filter.
+  * valueType `string`: Specify that returned attributes' value type must be the given value type. The default is no value type filter.
+
+#### Output
+* output [Items[Attribute]](#items[attribute])
 
 ### Element_CreateAttribute
 Create a new attribute of the specified element.
@@ -2615,9 +3272,13 @@ osisoft.Element_CreateAttribute({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element on which to create the attribute.
-* attribute (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element on which to create the attribute.
+  * attribute **required** [Attribute](#attribute)
+
+#### Output
+*Output schema unknown*
 
 ### Element_GetCategories
 Get an element's categories.
@@ -2629,9 +3290,13 @@ osisoft.Element_GetCategories({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[ElementCategory]](#items[elementcategory])
 
 ### Element_CreateConfig
 Executes the create configuration function of the data references found within the attributes of the element, and optionally, its children.
@@ -2643,9 +3308,13 @@ osisoft.Element_CreateConfig({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element.
-* includeChildElements (boolean) - If true, includes the child elements of the specified element.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element.
+  * includeChildElements `boolean`: If true, includes the child elements of the specified element.
+
+#### Output
+*Output schema unknown*
 
 ### Element_FindElementAttributes
 Retrieves a list of element attributes matching the specified filters from the specified element.
@@ -2657,23 +3326,27 @@ osisoft.Element_FindElementAttributes({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element to use as the root of the search.
-* attributeCategory (string) - Specify that returned attributes must have this category. The default is no filter.
-* attributeDescriptionFilter (string) - The attribute description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
-* attributeNameFilter (string) - The attribute name filter string used for finding objects. The default is no filter.
-* attributeType (string) - Specify that returned attributes' value type must be this value type. The default is no filter.
-* elementCategory (string) - Specify that the owner of the returned attributes must have this category. The default is no filter.
-* elementDescriptionFilter (string) - The element description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
-* elementNameFilter (string) - The element name filter string used for finding objects. The default is no filter.
-* elementTemplate (string) - Specify that the owner of the returned attributes must have this template or a template derived from this template. The default is no filter.
-* elementType (string) - Specify that the element of the returned attributes must have this AFElementType. The default is no filter.
-* maxCount (integer) - The maximum number of objects to be returned (the page size). The default is 1000.
-* searchFullHierarchy (boolean) - Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element to use as the root of the search.
+  * attributeCategory `string`: Specify that returned attributes must have this category. The default is no filter.
+  * attributeDescriptionFilter `string`: The attribute description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
+  * attributeNameFilter `string`: The attribute name filter string used for finding objects. The default is no filter.
+  * attributeType `string`: Specify that returned attributes' value type must be this value type. The default is no filter.
+  * elementCategory `string`: Specify that the owner of the returned attributes must have this category. The default is no filter.
+  * elementDescriptionFilter `string`: The element description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
+  * elementNameFilter `string`: The element name filter string used for finding objects. The default is no filter.
+  * elementTemplate `string`: Specify that the owner of the returned attributes must have this template or a template derived from this template. The default is no filter.
+  * elementType `string`: Specify that the element of the returned attributes must have this AFElementType. The default is no filter.
+  * maxCount `integer`: The maximum number of objects to be returned (the page size). The default is 1000.
+  * searchFullHierarchy `boolean`: Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+
+#### Output
+* output [Items[Attribute]](#items[attribute])
 
 ### Element_GetElements
 Users can search for the elements based on specific search parameters. If no parameters are specified in the search, the default values for each parameter will be used and will return the elements that match the default search.
@@ -2685,19 +3358,23 @@ osisoft.Element_GetElements({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element to use as the root of the search.
-* categoryName (string) - Specify that returned elements must have this category. The default is no category filter.
-* descriptionFilter (string) - Specify that returned elements must have this description. The default is no description filter.
-* elementType (string) - Specify that returned elements must have this type. The default type is 'Any'.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* nameFilter (string) - The name query string used for finding objects. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include objects nested further than the immediate children of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
-* templateName (string) - Specify that returned elements must have this template or a template derived from this template. The default is no template filter.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element to use as the root of the search.
+  * categoryName `string`: Specify that returned elements must have this category. The default is no category filter.
+  * descriptionFilter `string`: Specify that returned elements must have this description. The default is no description filter.
+  * elementType `string`: Specify that returned elements must have this type. The default type is 'Any'.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * nameFilter `string`: The name query string used for finding objects. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include objects nested further than the immediate children of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+  * templateName `string`: Specify that returned elements must have this template or a template derived from this template. The default is no template filter.
+
+#### Output
+* output [Items[Element]](#items[element])
 
 ### Element_CreateElement
 Create a child element.
@@ -2710,9 +3387,13 @@ osisoft.Element_CreateElement({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the parent element on which to create the element.
-* element (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the parent element on which to create the element.
+  * element **required** [Element](#element)
+
+#### Output
+*Output schema unknown*
 
 ### Element_GetEventFrames
 Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element with a start time in the past 8 hours.
@@ -2724,22 +3405,26 @@ osisoft.Element_GetEventFrames({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element whose related event frames are sought.
-* canBeAcknowledged (boolean) - Specify the returned event frames' canBeAcknowledged property. The default is no canBeAcknowledged filter.
-* categoryName (string) - Specify that returned event frames must have this category. The default is no category filter.
-* endTime (string) - The ending time for the search. The endTime must be greater than or equal to the startTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*' if searchMode is not one of the 'Backward*' or 'Forward*' values.
-* isAcknowledged (boolean) - Specify the returned event frames' isAcknowledged property. The default no isAcknowledged filter.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* nameFilter (string) - The name query string used for finding event frames. The default is no filter.
-* searchMode (string) - Determines how the startTime and endTime parameters are treated when searching for event frame objects to be included in the returned collection. If this parameter is one of the 'Backward*' or 'Forward*' values, none of endTime, sortField, or sortOrder may be specified. The default is 'Overlapped'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* severity (array) - Specify that returned event frames must have this severity. Multiple severity values may be specified with multiple instances of the parameter. The default is no severity filter.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name' if searchMode is not one of the 'Backward*' or 'Forward*' values.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending' if searchMode is not one of the 'Backward*' or 'Forward*' values.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
-* startTime (string) - The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.
-* templateName (string) - Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element whose related event frames are sought.
+  * canBeAcknowledged `boolean`: Specify the returned event frames' canBeAcknowledged property. The default is no canBeAcknowledged filter.
+  * categoryName `string`: Specify that returned event frames must have this category. The default is no category filter.
+  * endTime `string`: The ending time for the search. The endTime must be greater than or equal to the startTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*' if searchMode is not one of the 'Backward*' or 'Forward*' values.
+  * isAcknowledged `boolean`: Specify the returned event frames' isAcknowledged property. The default no isAcknowledged filter.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * nameFilter `string`: The name query string used for finding event frames. The default is no filter.
+  * searchMode `string`: Determines how the startTime and endTime parameters are treated when searching for event frame objects to be included in the returned collection. If this parameter is one of the 'Backward*' or 'Forward*' values, none of endTime, sortField, or sortOrder may be specified. The default is 'Overlapped'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * severity `array`: Specify that returned event frames must have this severity. Multiple severity values may be specified with multiple instances of the parameter. The default is no severity filter.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name' if searchMode is not one of the 'Backward*' or 'Forward*' values.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending' if searchMode is not one of the 'Backward*' or 'Forward*' values.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+  * startTime `string`: The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.
+  * templateName `string`: Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.
+
+#### Output
+* output [Items[EventFrame]](#items[eventframe])
 
 ### Element_RemoveReferencedElement
 Remove a reference to an existing element from the child elements collection.
@@ -2752,9 +3437,13 @@ osisoft.Element_RemoveReferencedElement({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element which the referenced element will be removed from.
-* referencedElementWebId (array) **required** - The ID of the referenced element. Multiple referenced elements may be specified with multiple instances of the parameter.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element which the referenced element will be removed from.
+  * referencedElementWebId **required** `array`: The ID of the referenced element. Multiple referenced elements may be specified with multiple instances of the parameter.
+
+#### Output
+*Output schema unknown*
 
 ### Element_GetReferencedElements
 Users can search for the referenced elements based on specific search parameters. If no parameters are specified in the search, the default values for each parameter will be used and will return the elements that match the default search.
@@ -2766,18 +3455,22 @@ osisoft.Element_GetReferencedElements({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the resource to use as the root of the search.
-* categoryName (string) - Specify that returned elements must have this category. The default is no category filter.
-* descriptionFilter (string) - Specify that returned elements must have this description. The default is no description filter.
-* elementType (string) - Specify that returned elements must have this type. The default type is 'Any'.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* nameFilter (string) - The name query string used for finding objects. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
-* templateName (string) - Specify that returned elements must have this template or a template derived from this template. The default is no template filter.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the resource to use as the root of the search.
+  * categoryName `string`: Specify that returned elements must have this category. The default is no category filter.
+  * descriptionFilter `string`: Specify that returned elements must have this description. The default is no description filter.
+  * elementType `string`: Specify that returned elements must have this type. The default type is 'Any'.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * nameFilter `string`: The name query string used for finding objects. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+  * templateName `string`: Specify that returned elements must have this template or a template derived from this template. The default is no template filter.
+
+#### Output
+* output [Items[Element]](#items[element])
 
 ### Element_AddReferencedElement
 Add a reference to an existing element to the child elements collection.
@@ -2790,10 +3483,14 @@ osisoft.Element_AddReferencedElement({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element which the referenced element will be added to.
-* referencedElementWebId (array) **required** - The ID of the referenced element. Multiple referenced elements may be specified with multiple instances of the parameter.
-* referenceType (string) - The name of the reference type between the parent and the referenced element. The default is "parent-child".
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element which the referenced element will be added to.
+  * referencedElementWebId **required** `array`: The ID of the referenced element. Multiple referenced elements may be specified with multiple instances of the parameter.
+  * referenceType `string`: The name of the reference type between the parent and the referenced element. The default is "parent-child".
+
+#### Output
+*Output schema unknown*
 
 ### Element_GetSecurity
 Get the security information of the specified security item associated with the element for a specified user.
@@ -2806,11 +3503,15 @@ osisoft.Element_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element for the security to be checked.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element for the security to be checked.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### Element_GetSecurityEntries
 Retrieve the security entries associated with the element based on the specified criteria. By default, all security entries for this element are returned.
@@ -2822,10 +3523,14 @@ osisoft.Element_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### Element_CreateSecurityEntry
 Create a security entry owned by the element.
@@ -2838,10 +3543,14 @@ osisoft.Element_CreateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element where the security entry will be created.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element where the security entry will be created.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### Element_DeleteSecurityEntry
 Delete a security entry owned by the element.
@@ -2854,10 +3563,14 @@ osisoft.Element_DeleteSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the element where the security entry will be deleted.
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the element where the security entry will be deleted.
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### Element_GetSecurityEntryByName
 Retrieve the security entry associated with the element with the specified name.
@@ -2870,10 +3583,14 @@ osisoft.Element_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the element.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the element.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### Element_UpdateSecurityEntry
 Update a security entry owned by the element.
@@ -2887,11 +3604,15 @@ osisoft.Element_UpdateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry.
-* webId (string) **required** - The ID of the element where the security entry will be updated.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry.
+  * webId **required** `string`: The ID of the element where the security entry will be updated.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### ElementTemplate_GetByPath
 This method returns an element template based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -2903,9 +3624,13 @@ osisoft.ElementTemplate_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the element template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the element template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [ElementTemplate](#elementtemplate)
 
 ### ElementTemplate_Delete
 Deleting an element template will delete all associated templated data from elements which were created from it.
@@ -2917,8 +3642,12 @@ osisoft.ElementTemplate_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element template to update.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element template to update.
+
+#### Output
+*Output schema unknown*
 
 ### ElementTemplate_Get
 Retrieve an element template.
@@ -2930,9 +3659,13 @@ osisoft.ElementTemplate_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [ElementTemplate](#elementtemplate)
 
 ### ElementTemplate_Update
 Updating the InstanceType property of an element template will not affect any elements that have already been created from this template; it will only affect any future elements created from this template. All other changes will be propagated to elements based on this template.
@@ -2945,9 +3678,13 @@ osisoft.ElementTemplate_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element template to update.
-* template (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element template to update.
+  * template **required** [ElementTemplate](#elementtemplate)
+
+#### Output
+*Output schema unknown*
 
 ### ElementTemplate_GetAnalysisTemplates
 Get analysis templates for an element template.
@@ -2959,9 +3696,13 @@ osisoft.ElementTemplate_GetAnalysisTemplates({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[AnalysisTemplate]](#items[analysistemplate])
 
 ### ElementTemplate_GetAttributeTemplates
 Get child attribute templates for an element template.
@@ -2973,10 +3714,14 @@ osisoft.ElementTemplate_GetAttributeTemplates({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showInherited (boolean) - Specifies if the result should include attribute templates inherited from base element templates. The default is 'false'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showInherited `boolean`: Specifies if the result should include attribute templates inherited from base element templates. The default is 'false'.
+
+#### Output
+* output [Items[AttributeTemplate]](#items[attributetemplate])
 
 ### ElementTemplate_CreateAttributeTemplate
 Create an attribute template.
@@ -2989,9 +3734,13 @@ osisoft.ElementTemplate_CreateAttributeTemplate({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element template on which to create the attribute template.
-* template (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element template on which to create the attribute template.
+  * template **required** [AttributeTemplate](#attributetemplate)
+
+#### Output
+*Output schema unknown*
 
 ### ElementTemplate_GetCategories
 Get an element template's categories.
@@ -3003,10 +3752,14 @@ osisoft.ElementTemplate_GetCategories({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showInherited (boolean) - Specifies if the result should include categories inherited from base element templates. The default is 'false'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showInherited `boolean`: Specifies if the result should include categories inherited from base element templates. The default is 'false'.
+
+#### Output
+* output [Items[ElementCategory]](#items[elementcategory])
 
 ### ElementTemplate_GetSecurity
 Get the security information of the specified security item associated with the element template for a specified user.
@@ -3019,11 +3772,15 @@ osisoft.ElementTemplate_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element template for the security to be checked.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element template for the security to be checked.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### ElementTemplate_GetSecurityEntries
 Retrieve the security entries associated with the element template based on the specified criteria. By default, all security entries for this element template are returned.
@@ -3035,10 +3792,14 @@ osisoft.ElementTemplate_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element template.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element template.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### ElementTemplate_CreateSecurityEntry
 Create a security entry owned by the element template.
@@ -3051,10 +3812,14 @@ osisoft.ElementTemplate_CreateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the element template where the security entry will be created.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the element template where the security entry will be created.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### ElementTemplate_DeleteSecurityEntry
 Delete a security entry owned by the element template.
@@ -3067,10 +3832,14 @@ osisoft.ElementTemplate_DeleteSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the element template where the security entry will be deleted.
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the element template where the security entry will be deleted.
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### ElementTemplate_GetSecurityEntryByName
 Retrieve the security entry associated with the element template with the specified name.
@@ -3083,10 +3852,14 @@ osisoft.ElementTemplate_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the element template.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the element template.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### ElementTemplate_UpdateSecurityEntry
 Update a security entry owned by the element template.
@@ -3100,11 +3873,15 @@ osisoft.ElementTemplate_UpdateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry.
-* webId (string) **required** - The ID of the element template where the security entry will be updated.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry.
+  * webId **required** `string`: The ID of the element template where the security entry will be updated.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### EnumerationSet_GetByPath
 This method returns an enumeration set based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -3116,9 +3893,13 @@ osisoft.EnumerationSet_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the target enumeration set.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the target enumeration set.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [EnumerationSet](#enumerationset)
 
 ### EnumerationSet_Delete
 Delete an enumeration set.
@@ -3130,8 +3911,12 @@ osisoft.EnumerationSet_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the enumeration set to delete.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the enumeration set to delete.
+
+#### Output
+*Output schema unknown*
 
 ### EnumerationSet_Get
 Retrieve an enumeration set.
@@ -3143,9 +3928,13 @@ osisoft.EnumerationSet_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the enumeration set.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the enumeration set.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [EnumerationSet](#enumerationset)
 
 ### EnumerationSet_Update
 Update an enumeration set by replacing items in its definition.
@@ -3158,9 +3947,13 @@ osisoft.EnumerationSet_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the enumeration set to update.
-* enumerationSet (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the enumeration set to update.
+  * enumerationSet **required** [EnumerationSet](#enumerationset)
+
+#### Output
+*Output schema unknown*
 
 ### EnumerationSet_GetValues
 Retrieve an enumeration set's values.
@@ -3172,9 +3965,13 @@ osisoft.EnumerationSet_GetValues({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the enumeration set.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the enumeration set.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[EnumerationValue]](#items[enumerationvalue])
 
 ### EnumerationSet_CreateValue
 Create an enumeration value for a enumeration set.
@@ -3187,9 +3984,13 @@ osisoft.EnumerationSet_CreateValue({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the enumeration set on which to create the enumeration value.
-* enumerationValue (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the enumeration set on which to create the enumeration value.
+  * enumerationValue **required** [EnumerationValue](#enumerationvalue)
+
+#### Output
+*Output schema unknown*
 
 ### EnumerationSet_GetSecurity
 Get the security information of the specified security item associated with the enumeration set for a specified user.
@@ -3202,11 +4003,15 @@ osisoft.EnumerationSet_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the enumeration set for the security to be checked.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the enumeration set for the security to be checked.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### EnumerationSet_GetSecurityEntries
 Retrieve the security entries associated with the enumeration set based on the specified criteria. By default, all security entries for this enumeration set are returned.
@@ -3218,10 +4023,14 @@ osisoft.EnumerationSet_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the enumeration set.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the enumeration set.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### EnumerationSet_CreateSecurityEntry
 Create a security entry owned by the enumeration set.
@@ -3234,10 +4043,14 @@ osisoft.EnumerationSet_CreateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the enumeration set where the security entry will be created.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the enumeration set where the security entry will be created.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### EnumerationSet_DeleteSecurityEntry
 Delete a security entry owned by the enumeration set.
@@ -3250,10 +4063,14 @@ osisoft.EnumerationSet_DeleteSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the enumeration set where the security entry will be deleted.
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the enumeration set where the security entry will be deleted.
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### EnumerationSet_GetSecurityEntryByName
 Retrieve the security entry associated with the enumeration set with the specified name.
@@ -3266,10 +4083,14 @@ osisoft.EnumerationSet_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the enumeration set.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the enumeration set.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### EnumerationSet_UpdateSecurityEntry
 Update a security entry owned by the enumeration set.
@@ -3283,11 +4104,15 @@ osisoft.EnumerationSet_UpdateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry.
-* webId (string) **required** - The ID of the enumeration set where the security entry will be updated.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry.
+  * webId **required** `string`: The ID of the enumeration set where the security entry will be updated.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### EnumerationValue_GetByPath
 This method returns a enumeration value based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -3299,9 +4124,13 @@ osisoft.EnumerationValue_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the target enumeration value.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the target enumeration value.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [EnumerationValue](#enumerationvalue)
 
 ### EnumerationValue_DeleteEnumerationValue
 Deleting a value will remove it from the enumeration set along with any value references within the PI Web API system.
@@ -3313,8 +4142,12 @@ osisoft.EnumerationValue_DeleteEnumerationValue({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the enumeration value.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the enumeration value.
+
+#### Output
+*Output schema unknown*
 
 ### EnumerationValue_Get
 Retrieve an enumeration value mapping
@@ -3326,9 +4159,13 @@ osisoft.EnumerationValue_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the enumeration value.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the enumeration value.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [EnumerationValue](#enumerationvalue)
 
 ### EnumerationValue_UpdateEnumerationValue
 Update an enumeration value by replacing items in its definition.
@@ -3341,9 +4178,13 @@ osisoft.EnumerationValue_UpdateEnumerationValue({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the enumeration value to update.
-* enumerationValue (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the enumeration value to update.
+  * enumerationValue **required** [EnumerationValue](#enumerationvalue)
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_GetByPath
 This method returns an event frame based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -3355,9 +4196,13 @@ osisoft.EventFrame_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the event frame.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the event frame.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [EventFrame](#eventframe)
 
 ### EventFrame_GetMultiple
 Retrieve multiple event frames by web ids or paths.
@@ -3367,12 +4212,16 @@ Retrieve multiple event frames by web ids or paths.
 osisoft.EventFrame_GetMultiple({}, context)
 ```
 
-#### Parameters
-* asParallel (boolean) - Specifies if the retrieval processes should be run in parallel on the server. This may improve the response time for large amounts of requested attributes. The default is 'false'.
-* includeMode (string) - The include mode for the return list. The default is 'All'.
-* path (array) - The path of an event frame. Multiple event frames may be specified with multiple instances of the parameter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* webId (array) - The ID of an event frame. Multiple event frames may be specified with multiple instances of the parameter.
+#### Input
+* input `object`
+  * asParallel `boolean`: Specifies if the retrieval processes should be run in parallel on the server. This may improve the response time for large amounts of requested attributes. The default is 'false'.
+  * includeMode `string`: The include mode for the return list. The default is 'All'.
+  * path `array`: The path of an event frame. Multiple event frames may be specified with multiple instances of the parameter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * webId `array`: The ID of an event frame. Multiple event frames may be specified with multiple instances of the parameter.
+
+#### Output
+* output [Items[Item[EventFrame]]](#items[item[eventframe]])
 
 ### EventFrame_CreateSearchByAttribute
 Create a link for a "Search EventFrames By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root EventFrame. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the EventFrames. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.
@@ -3382,8 +4231,11 @@ Create a link for a "Search EventFrames By Attribute Value" operation, whose que
 osisoft.EventFrame_CreateSearchByAttribute(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_ExecuteSearchByAttribute
 Execute a "Search EventFrames By Attribute Value" operation.
@@ -3395,22 +4247,26 @@ osisoft.EventFrame_ExecuteSearchByAttribute({
 }, context)
 ```
 
-#### Parameters
-* searchId (string) **required** - The encoded search Id of the "Search EventFrames By Attribute Value" operation.
-* canBeAcknowledged (boolean) - Specify the returned event frames' canBeAcknowledged property. The default is no canBeAcknowledged filter.
-* endTime (string) - The ending time for the search. endTime must be greater than or equal to the startTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*'.
-* isAcknowledged (boolean) - Specify the returned event frames' isAcknowledged property. The default no isAcknowledged filter.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* nameFilter (string) - The name query string used for finding event frames. The default is no filter.
-* referencedElementNameFilter (string) - The name query string which must match the name of a referenced element. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies whether the search should include objects nested further than the immediate children of the search root. The default is 'false'.
-* searchMode (string) - Determines how the startTime and endTime parameters are treated when searching for event frame objects to be included in the returned collection. The default is 'Overlapped'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* severity (array) - Specify that returned event frames must have this severity. Multiple severity values may be specified with multiple instances of the parameter. The default is no severity filter.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
-* startTime (string) - The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.
+#### Input
+* input `object`
+  * searchId **required** `string`: The encoded search Id of the "Search EventFrames By Attribute Value" operation.
+  * canBeAcknowledged `boolean`: Specify the returned event frames' canBeAcknowledged property. The default is no canBeAcknowledged filter.
+  * endTime `string`: The ending time for the search. endTime must be greater than or equal to the startTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*'.
+  * isAcknowledged `boolean`: Specify the returned event frames' isAcknowledged property. The default no isAcknowledged filter.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * nameFilter `string`: The name query string used for finding event frames. The default is no filter.
+  * referencedElementNameFilter `string`: The name query string which must match the name of a referenced element. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies whether the search should include objects nested further than the immediate children of the search root. The default is 'false'.
+  * searchMode `string`: Determines how the startTime and endTime parameters are treated when searching for event frame objects to be included in the returned collection. The default is 'Overlapped'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * severity `array`: Specify that returned event frames must have this severity. Multiple severity values may be specified with multiple instances of the parameter. The default is no severity filter.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+  * startTime `string`: The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_Delete
 Delete an event frame.
@@ -3422,8 +4278,12 @@ osisoft.EventFrame_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame to delete.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame to delete.
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_Get
 Retrieve an event frame.
@@ -3435,9 +4295,13 @@ osisoft.EventFrame_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [EventFrame](#eventframe)
 
 ### EventFrame_Update
 Update an event frame by replacing items in its definition.
@@ -3450,9 +4314,13 @@ osisoft.EventFrame_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame to update.
-* eventFrame (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame to update.
+  * eventFrame **required** [EventFrame](#eventframe)
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_Acknowledge
 Calls the EventFrame's Acknowledge method.
@@ -3464,8 +4332,12 @@ osisoft.EventFrame_Acknowledge({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame.
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_GetAnnotations
 Get an event frame's annotations.
@@ -3477,9 +4349,13 @@ osisoft.EventFrame_GetAnnotations({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the owner event frame.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the owner event frame.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[Annotation]](#items[annotation])
 
 ### EventFrame_CreateAnnotation
 Create an annotation on an event frame.
@@ -3492,9 +4368,13 @@ osisoft.EventFrame_CreateAnnotation({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the owner event frame on which to create the annotation.
-* annotation (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the owner event frame on which to create the annotation.
+  * annotation **required** [Annotation](#annotation)
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_DeleteAnnotation
 Delete an annotation on an event frame.
@@ -3507,9 +4387,13 @@ osisoft.EventFrame_DeleteAnnotation({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The Annotation identifier of the annotation to be deleted.
-* webId (string) **required** - The ID of the owner event frame of the annotation to delete.
+#### Input
+* input `object`
+  * id **required** `string`: The Annotation identifier of the annotation to be deleted.
+  * webId **required** `string`: The ID of the owner event frame of the annotation to delete.
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_GetAnnotationById
 Get a specific annotation on an event frame.
@@ -3522,10 +4406,14 @@ osisoft.EventFrame_GetAnnotationById({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The Annotation identifier of the specific annotation.
-* webId (string) **required** - The ID of the owner event frame.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * id **required** `string`: The Annotation identifier of the specific annotation.
+  * webId **required** `string`: The ID of the owner event frame.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Annotation](#annotation)
 
 ### EventFrame_UpdateAnnotation
 Update an annotation on an event frame by replacing items in its definition.
@@ -3539,10 +4427,14 @@ osisoft.EventFrame_UpdateAnnotation({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The Annotation identifier of the annotation to be updated.
-* webId (string) **required** - The ID of the owner event frame of the annotation to update.
-* annotation (object) **required**
+#### Input
+* input `object`
+  * id **required** `string`: The Annotation identifier of the annotation to be updated.
+  * webId **required** `string`: The ID of the owner event frame of the annotation to update.
+  * annotation **required** [Annotation](#annotation)
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_GetAttributes
 Get the attributes of the specified event frame.
@@ -3554,20 +4446,24 @@ osisoft.EventFrame_GetAttributes({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame.
-* categoryName (string) - Specify that returned attributes must have this category. The default is no category filter.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* nameFilter (string) - The name query string used for finding attributes. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showExcluded (boolean) - Specified if the search should include attributes with the Excluded property set. The default is 'false'.
-* showHidden (boolean) - Specified if the search should include attributes with the Hidden property set. The default is 'false'.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
-* templateName (string) - Specify that returned attributes must be members of this template. The default is no template filter.
-* valueType (string) - Specify that returned attributes' value type must be the given value type. The default is no value type filter.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame.
+  * categoryName `string`: Specify that returned attributes must have this category. The default is no category filter.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * nameFilter `string`: The name query string used for finding attributes. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showExcluded `boolean`: Specified if the search should include attributes with the Excluded property set. The default is 'false'.
+  * showHidden `boolean`: Specified if the search should include attributes with the Hidden property set. The default is 'false'.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+  * templateName `string`: Specify that returned attributes must be members of this template. The default is no template filter.
+  * valueType `string`: Specify that returned attributes' value type must be the given value type. The default is no value type filter.
+
+#### Output
+* output [Items[Attribute]](#items[attribute])
 
 ### EventFrame_CreateAttribute
 Create a new attribute of the specified event frame.
@@ -3580,9 +4476,13 @@ osisoft.EventFrame_CreateAttribute({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame on which to create the attribute.
-* attribute (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame on which to create the attribute.
+  * attribute **required** [Attribute](#attribute)
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_CaptureValues
 Calls the EventFrame's CaptureValues method.
@@ -3594,8 +4494,12 @@ osisoft.EventFrame_CaptureValues({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame.
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_GetCategories
 Get an event frame's categories.
@@ -3607,9 +4511,13 @@ osisoft.EventFrame_GetCategories({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[ElementCategory]](#items[elementcategory])
 
 ### EventFrame_CreateConfig
 Executes the create configuration function of the data references found within the attributes of the event frame, and optionally, its children.
@@ -3621,9 +4529,13 @@ osisoft.EventFrame_CreateConfig({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame.
-* includeChildElements (boolean) - If true, includes the child event frames of the specified event frame.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame.
+  * includeChildElements `boolean`: If true, includes the child event frames of the specified event frame.
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_FindEventFrameAttributes
 Retrieves a list of event frame attributes matching the specified filters from the specified event frame.
@@ -3635,26 +4547,30 @@ osisoft.EventFrame_FindEventFrameAttributes({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame to use as the root of the search.
-* attributeCategory (string) - Specify that returned attributes must have this category. The default is no filter.
-* attributeDescriptionFilter (string) - The attribute description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
-* attributeNameFilter (string) - The attribute name filter string used for finding objects. The default is no filter.
-* attributeType (string) - Specify that returned attributes' value type must be this value type. The default is no filter.
-* endTime (string) - A string representing the latest ending time for the event frames to be matched. The endTime must be greater than or equal to the startTime. The default is '*'.
-* eventFrameCategory (string) - Specify that the owner of the returned attributes must have this category. The default is no filter.
-* eventFrameDescriptionFilter (string) - The event frame description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
-* eventFrameNameFilter (string) - The event frame name filter string used for finding objects. The default is no filter.
-* eventFrameTemplate (string) - Specify that the owner of the returned attributes must have this template or a template derived from this template. The default is no filter.
-* maxCount (integer) - The maximum number of objects to be returned (the page size). The default is 1000.
-* referencedElementNameFilter (string) - The name query string which must match the name of a referenced element. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.
-* searchMode (string) - Determines how the startTime and endTime parameters are treated when searching for event frames.     The default is 'Overlapped'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
-* startTime (string) - A string representing the earliest starting time for the event frames to be matched. startTime must be less than or equal to the endTime. The default is '*-8h'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame to use as the root of the search.
+  * attributeCategory `string`: Specify that returned attributes must have this category. The default is no filter.
+  * attributeDescriptionFilter `string`: The attribute description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
+  * attributeNameFilter `string`: The attribute name filter string used for finding objects. The default is no filter.
+  * attributeType `string`: Specify that returned attributes' value type must be this value type. The default is no filter.
+  * endTime `string`: A string representing the latest ending time for the event frames to be matched. The endTime must be greater than or equal to the startTime. The default is '*'.
+  * eventFrameCategory `string`: Specify that the owner of the returned attributes must have this category. The default is no filter.
+  * eventFrameDescriptionFilter `string`: The event frame description filter string used for finding objects. Only the first 440 characters of the description will be searched. For Asset Servers older than 2.7, a 400 status code (Bad Request) will be returned if this parameter is specified. The default is no filter.
+  * eventFrameNameFilter `string`: The event frame name filter string used for finding objects. The default is no filter.
+  * eventFrameTemplate `string`: Specify that the owner of the returned attributes must have this template or a template derived from this template. The default is no filter.
+  * maxCount `integer`: The maximum number of objects to be returned (the page size). The default is 1000.
+  * referencedElementNameFilter `string`: The name query string which must match the name of a referenced element. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.
+  * searchMode `string`: Determines how the startTime and endTime parameters are treated when searching for event frames.     The default is 'Overlapped'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+  * startTime `string`: A string representing the earliest starting time for the event frames to be matched. startTime must be less than or equal to the endTime. The default is '*-8h'.
+
+#### Output
+* output [Items[Attribute]](#items[attribute])
 
 ### EventFrame_GetEventFrames
 Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame with a start time in the past 8 hours.
@@ -3666,25 +4582,29 @@ osisoft.EventFrame_GetEventFrames({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame to use as the root of the search.
-* canBeAcknowledged (boolean) - Specify the returned event frames' canBeAcknowledged property. The default is no canBeAcknowledged filter.
-* categoryName (string) - Specify that returned event frames must have this category. The default is no category filter.
-* endTime (string) - The ending time for the search. The endTime must be greater than or equal to the startTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*' if searchMode is not one of the 'Backward*' or 'Forward*' values.
-* isAcknowledged (boolean) - Specify the returned event frames' isAcknowledged property. The default no isAcknowledged filter.
-* maxCount (integer) - The maximum number of objects to be returned per call (page size). The default is 1000.
-* nameFilter (string) - The name query string used for finding event frames. The default is no filter.
-* referencedElementNameFilter (string) - The name query string which must match the name of a referenced element. The default is no filter.
-* referencedElementTemplateName (string) - Specify that returned event frames must have an element in the event frame's referenced elements collection that derives from the template. Specify this parameter by name.
-* searchFullHierarchy (boolean) - Specifies whether the search should include objects nested further than the immediate children of the search root. The default is 'false'.
-* searchMode (string) - Determines how the startTime and endTime parameters are treated when searching for event frame objects to be included in the returned collection. If this parameter is one of the 'Backward*' or 'Forward*' values, none of endTime, sortField, or sortOrder may be specified. The default is 'Overlapped'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* severity (array) - Specify that returned event frames must have this severity. Multiple severity values may be specified with multiple instances of the parameter. The default is no severity filter.
-* sortField (string) - The field or property of the object used to sort the returned collection. The default is 'Name' if searchMode is not one of the 'Backward*' or 'Forward*' values.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending' if searchMode is not one of the 'Backward*' or 'Forward*' values.
-* startIndex (integer) - The starting index (zero based) of the items to be returned. The default is 0.
-* startTime (string) - The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.
-* templateName (string) - Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame to use as the root of the search.
+  * canBeAcknowledged `boolean`: Specify the returned event frames' canBeAcknowledged property. The default is no canBeAcknowledged filter.
+  * categoryName `string`: Specify that returned event frames must have this category. The default is no category filter.
+  * endTime `string`: The ending time for the search. The endTime must be greater than or equal to the startTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*' if searchMode is not one of the 'Backward*' or 'Forward*' values.
+  * isAcknowledged `boolean`: Specify the returned event frames' isAcknowledged property. The default no isAcknowledged filter.
+  * maxCount `integer`: The maximum number of objects to be returned per call (page size). The default is 1000.
+  * nameFilter `string`: The name query string used for finding event frames. The default is no filter.
+  * referencedElementNameFilter `string`: The name query string which must match the name of a referenced element. The default is no filter.
+  * referencedElementTemplateName `string`: Specify that returned event frames must have an element in the event frame's referenced elements collection that derives from the template. Specify this parameter by name.
+  * searchFullHierarchy `boolean`: Specifies whether the search should include objects nested further than the immediate children of the search root. The default is 'false'.
+  * searchMode `string`: Determines how the startTime and endTime parameters are treated when searching for event frame objects to be included in the returned collection. If this parameter is one of the 'Backward*' or 'Forward*' values, none of endTime, sortField, or sortOrder may be specified. The default is 'Overlapped'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * severity `array`: Specify that returned event frames must have this severity. Multiple severity values may be specified with multiple instances of the parameter. The default is no severity filter.
+  * sortField `string`: The field or property of the object used to sort the returned collection. The default is 'Name' if searchMode is not one of the 'Backward*' or 'Forward*' values.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending' if searchMode is not one of the 'Backward*' or 'Forward*' values.
+  * startIndex `integer`: The starting index (zero based) of the items to be returned. The default is 0.
+  * startTime `string`: The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.
+  * templateName `string`: Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.
+
+#### Output
+* output [Items[EventFrame]](#items[eventframe])
 
 ### EventFrame_CreateEventFrame
 Create an event frame as a child of the specified event frame.
@@ -3697,9 +4617,13 @@ osisoft.EventFrame_CreateEventFrame({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the parent event frame on which to create the event frame.
-* eventFrame (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the parent event frame on which to create the event frame.
+  * eventFrame **required** [EventFrame](#eventframe)
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_GetReferencedElements
 Retrieve the event frame's referenced elements.
@@ -3711,9 +4635,13 @@ osisoft.EventFrame_GetReferencedElements({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame whose referenced elements should be retrieved.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame whose referenced elements should be retrieved.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[Element]](#items[element])
 
 ### EventFrame_GetSecurity
 Get the security information of the specified security item associated with the event frame for a specified user.
@@ -3726,11 +4654,15 @@ osisoft.EventFrame_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame for the security to be checked.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame for the security to be checked.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### EventFrame_GetSecurityEntries
 Retrieve the security entries associated with the event frame based on the specified criteria. By default, all security entries for this event frame are returned.
@@ -3742,10 +4674,14 @@ osisoft.EventFrame_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### EventFrame_CreateSecurityEntry
 Create a security entry owned by the event frame.
@@ -3758,10 +4694,14 @@ osisoft.EventFrame_CreateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the event frame where the security entry will be created.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the event frame where the security entry will be created.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_DeleteSecurityEntry
 Delete a security entry owned by the event frame.
@@ -3774,10 +4714,14 @@ osisoft.EventFrame_DeleteSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the event frame where the security entry will be deleted.
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the event frame where the security entry will be deleted.
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### EventFrame_GetSecurityEntryByName
 Retrieve the security entry associated with the event frame with the specified name.
@@ -3790,10 +4734,14 @@ osisoft.EventFrame_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the event frame.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the event frame.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### EventFrame_UpdateSecurityEntry
 Update a security entry owned by the event frame.
@@ -3807,11 +4755,15 @@ osisoft.EventFrame_UpdateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry.
-* webId (string) **required** - The ID of the event frame where the security entry will be updated.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry.
+  * webId **required** `string`: The ID of the event frame where the security entry will be updated.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### Point_GetByPath
 This method returns a PI Point based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -3823,9 +4775,13 @@ osisoft.Point_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the point.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the point.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Point](#point)
 
 ### Point_GetMultiple
 Retrieve multiple points by web id or path.
@@ -3835,12 +4791,16 @@ Retrieve multiple points by web id or path.
 osisoft.Point_GetMultiple({}, context)
 ```
 
-#### Parameters
-* asParallel (boolean) - Specifies if the retrieval processes should be run in parallel on the server. This may improve the response time for large amounts of requested points. The default is 'false'.
-* includeMode (string) - The include mode for the return list. The default is 'All'.
-* path (array) - The path of a point. Multiple points may be specified with multiple instances of the parameter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* webId (array) - The ID of a point. Multiple points may be specified with multiple instances of the parameter.
+#### Input
+* input `object`
+  * asParallel `boolean`: Specifies if the retrieval processes should be run in parallel on the server. This may improve the response time for large amounts of requested points. The default is 'false'.
+  * includeMode `string`: The include mode for the return list. The default is 'All'.
+  * path `array`: The path of a point. Multiple points may be specified with multiple instances of the parameter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * webId `array`: The ID of a point. Multiple points may be specified with multiple instances of the parameter.
+
+#### Output
+* output [Items[Item[Point]]](#items[item[point]])
 
 ### Point_Delete
 Delete a point.
@@ -3852,8 +4812,12 @@ osisoft.Point_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the point.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the point.
+
+#### Output
+*Output schema unknown*
 
 ### Point_Get
 Get a point.
@@ -3865,9 +4829,13 @@ osisoft.Point_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the point.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the point.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Point](#point)
 
 ### Point_Update
 Update a point.
@@ -3880,9 +4848,13 @@ osisoft.Point_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the point.
-* pointDTO (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the point.
+  * pointDTO **required** [Point](#point)
+
+#### Output
+*Output schema unknown*
 
 ### Point_GetAttributes
 Get point attributes.
@@ -3894,11 +4866,15 @@ osisoft.Point_GetAttributes({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the point.
-* name (array) - The name of a point attribute to be returned. Multiple attributes may be specified with multiple instances of the parameter.
-* nameFilter (string) - The filter to the names of the list of point attributes to be returned. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the point.
+  * name `array`: The name of a point attribute to be returned. Multiple attributes may be specified with multiple instances of the parameter.
+  * nameFilter `string`: The filter to the names of the list of point attributes to be returned. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[PointAttribute]](#items[pointattribute])
 
 ### Point_GetAttributeByName
 Get a point attribute by name.
@@ -3911,10 +4887,14 @@ osisoft.Point_GetAttributeByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the attribute.
-* webId (string) **required** - The ID of the point.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the attribute.
+  * webId **required** `string`: The ID of the point.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [PointAttribute](#pointattribute)
 
 ### SecurityIdentity_GetByPath
 This method returns a security identity based on the path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -3926,9 +4906,13 @@ osisoft.SecurityIdentity_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the security identity.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the security identity.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityIdentity](#securityidentity)
 
 ### SecurityIdentity_Delete
 Delete a security identity.
@@ -3940,8 +4924,12 @@ osisoft.SecurityIdentity_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the security identity.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the security identity.
+
+#### Output
+*Output schema unknown*
 
 ### SecurityIdentity_Get
 Retrieve a security identity.
@@ -3953,9 +4941,13 @@ osisoft.SecurityIdentity_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the security identity.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the security identity.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityIdentity](#securityidentity)
 
 ### SecurityIdentity_Update
 Update a security identity by replacing items in its definition.
@@ -3968,9 +4960,13 @@ osisoft.SecurityIdentity_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the security identity.
-* securityIdentity (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the security identity.
+  * securityIdentity **required** [SecurityIdentity](#securityidentity)
+
+#### Output
+*Output schema unknown*
 
 ### SecurityIdentity_GetSecurity
 Get the security information of the specified security item associated with the security identity for a specified user.
@@ -3983,11 +4979,15 @@ osisoft.SecurityIdentity_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the security identity for the security to be checked.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the security identity for the security to be checked.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### SecurityIdentity_GetSecurityEntries
 Retrieve the security entries associated with the security identity based on the specified criteria. By default, all security entries for this security identity are returned.
@@ -3999,10 +4999,14 @@ osisoft.SecurityIdentity_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the security identity.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the security identity.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### SecurityIdentity_GetSecurityEntryByName
 Retrieve the security entry associated with the security identity with the specified name.
@@ -4015,10 +5019,14 @@ osisoft.SecurityIdentity_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the security identity.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the security identity.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### SecurityIdentity_GetSecurityMappings
 Get security mappings for the specified security identity.
@@ -4030,9 +5038,13 @@ osisoft.SecurityIdentity_GetSecurityMappings({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the security identity.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the security identity.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityMapping]](#items[securitymapping])
 
 ### SecurityMapping_GetByPath
 This method returns a security mapping based on the path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -4044,9 +5056,13 @@ osisoft.SecurityMapping_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the security mapping.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the security mapping.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityMapping](#securitymapping)
 
 ### SecurityMapping_Delete
 Delete a security mapping.
@@ -4058,8 +5074,12 @@ osisoft.SecurityMapping_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the security mapping.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the security mapping.
+
+#### Output
+*Output schema unknown*
 
 ### SecurityMapping_Get
 Retrieve a security mapping.
@@ -4071,9 +5091,13 @@ osisoft.SecurityMapping_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the security mapping.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the security mapping.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityMapping](#securitymapping)
 
 ### SecurityMapping_Update
 Update a security mapping by replacing items in its definition.
@@ -4086,9 +5110,13 @@ osisoft.SecurityMapping_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the security mapping.
-* securityMapping (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the security mapping.
+  * securityMapping **required** [SecurityMapping](#securitymapping)
+
+#### Output
+*Output schema unknown*
 
 ### SecurityMapping_GetSecurity
 Get the security information of the specified security item associated with the security mapping for a specified user.
@@ -4101,11 +5129,15 @@ osisoft.SecurityMapping_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the security mapping for the security to be checked.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the security mapping for the security to be checked.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### SecurityMapping_GetSecurityEntries
 Retrieve the security entries associated with the security mapping based on the specified criteria. By default, all security entries for this security mapping are returned.
@@ -4117,10 +5149,14 @@ osisoft.SecurityMapping_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the security mapping.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the security mapping.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### SecurityMapping_GetSecurityEntryByName
 Retrieve the security entry associated with the security mapping with the specified name.
@@ -4133,10 +5169,14 @@ osisoft.SecurityMapping_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the security mapping.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the security mapping.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### Stream_GetChannel
 Opens a channel that will send messages about any value changes for the specified stream.
@@ -4148,9 +5188,13 @@ osisoft.Stream_GetChannel({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the stream.
-* includeInitialValues (boolean) - Specified if the channel should send a message with the current value of the stream after the connection is opened. The default is 'false'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the stream.
+  * includeInitialValues `boolean`: Specified if the channel should send a message with the current value of the stream after the connection is opened. The default is 'false'.
+
+#### Output
+* output [Items[StreamValues]](#items[streamvalues])
 
 ### Stream_GetEnd
 Returns the end-of-stream value of the stream.
@@ -4162,10 +5206,14 @@ osisoft.Stream_GetEnd({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the stream.
-* desiredUnits (string) - The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the stream.
+  * desiredUnits `string`: The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [TimedValue](#timedvalue)
 
 ### Stream_GetInterpolated
 Retrieves interpolated values over the specified time range at the specified sampling interval.
@@ -4177,16 +5225,20 @@ osisoft.Stream_GetInterpolated({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the stream.
-* desiredUnits (string) - The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
-* endTime (string) - An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* filterExpression (string) - An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.
-* includeFilteredValues (boolean) - Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
-* interval (string) - The sampling interval, in AFTimeSpan format.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* startTime (string) - An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the stream.
+  * desiredUnits `string`: The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
+  * endTime `string`: An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * filterExpression `string`: An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.
+  * includeFilteredValues `boolean`: Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
+  * interval `string`: The sampling interval, in AFTimeSpan format.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * startTime `string`: An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [TimedValues](#timedvalues)
 
 ### Stream_GetInterpolatedAtTimes
 Retrieves interpolated values over the specified time range at the specified sampling interval.
@@ -4198,15 +5250,19 @@ osisoft.Stream_GetInterpolatedAtTimes({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the stream.
-* desiredUnits (string) - The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
-* filterExpression (string) - An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.
-* includeFilteredValues (boolean) - Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* time (array) - The timestamp at which to retrieve an interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the stream.
+  * desiredUnits `string`: The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
+  * filterExpression `string`: An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.
+  * includeFilteredValues `boolean`: Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * time `array`: The timestamp at which to retrieve an interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [TimedValues](#timedvalues)
 
 ### Stream_GetPlot
 For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
@@ -4218,14 +5274,18 @@ osisoft.Stream_GetPlot({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the stream.
-* desiredUnits (string) - The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
-* endTime (string) - An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* intervals (integer) - The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* startTime (string) - An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the stream.
+  * desiredUnits `string`: The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
+  * endTime `string`: An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * intervals `integer`: The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * startTime `string`: An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [TimedValues](#timedvalues)
 
 ### Stream_GetRecorded
 Returned times are affected by the specified boundary type. If no values are found for the time range and conditions specified then the HTTP response will be success, with a body containing an empty array of Items. When specifying true for the includeFilteredValues parameter, consecutive filtered events are not returned. The first value that would be filtered out is returned with its time and the enumeration value "Filtered". The next value in the collection will be the next compressed value in the specified direction that passes the filter criteria - if any. When both boundaryType and a filterExpression are specified, the events returned for the boundary condition specified are passed through the filter. If the includeFilteredValues parameter is true, the boundary values will be reported at the proper timestamps with the enumeration value "Filtered" when the filter conditions are not met at the boundary time. If the includeFilteredValues parameter is false for this case, no event is returned for the boundary time.
@@ -4237,17 +5297,21 @@ osisoft.Stream_GetRecorded({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the stream.
-* boundaryType (string) - An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.
-* desiredUnits (string) - The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
-* endTime (string) - An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* filterExpression (string) - An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.
-* includeFilteredValues (boolean) - Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
-* maxCount (integer) - The maximum number of values to be returned. The default is 1000.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* startTime (string) - An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the stream.
+  * boundaryType `string`: An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.
+  * desiredUnits `string`: The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
+  * endTime `string`: An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * filterExpression `string`: An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.
+  * includeFilteredValues `boolean`: Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
+  * maxCount `integer`: The maximum number of values to be returned. The default is 1000.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * startTime `string`: An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [TimedValues](#timedvalues)
 
 ### Stream_UpdateValues
 Updates multiple values for the specified stream.
@@ -4260,11 +5324,16 @@ osisoft.Stream_UpdateValues({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the stream.
-* values (array) **required**
-* bufferOption (string) - The desired AFBufferOption. The default is 'BufferIfPossible'.
-* updateOption (string) - The desired AFUpdateOption. The default is 'Replace'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the stream.
+  * values **required** `array`
+    * items [TimedValue](#timedvalue)
+  * bufferOption `string`: The desired AFBufferOption. The default is 'BufferIfPossible'.
+  * updateOption `string`: The desired AFUpdateOption. The default is 'Replace'.
+
+#### Output
+* output [Items[Substatus]](#items[substatus])
 
 ### Stream_GetRecordedAtTime
 Returns a single recorded value based on the passed time and retrieval mode from the stream.
@@ -4277,13 +5346,17 @@ osisoft.Stream_GetRecordedAtTime({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the stream.
-* time (string) **required** - The timestamp at which the value is desired.
-* desiredUnits (string) - The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
-* retrievalMode (string) - An optional value that determines the value to return when a value doesn't exist at the exact time specified. The default is 'Auto'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the stream.
+  * time **required** `string`: The timestamp at which the value is desired.
+  * desiredUnits `string`: The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
+  * retrievalMode `string`: An optional value that determines the value to return when a value doesn't exist at the exact time specified. The default is 'Auto'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [TimedValue](#timedvalue)
 
 ### Stream_GetRecordedAtTimes
 Retrieves recorded values at the specified times.
@@ -4295,14 +5368,18 @@ osisoft.Stream_GetRecordedAtTimes({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the stream.
-* desiredUnits (string) - The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
-* retrievalMode (string) - An optional value that determines the value to return when a value doesn't exist at the exact time specified. The default is 'Auto'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* time (array) - The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the stream.
+  * desiredUnits `string`: The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
+  * retrievalMode `string`: An optional value that determines the value to return when a value doesn't exist at the exact time specified. The default is 'Auto'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * time `array`: The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [TimedValues](#timedvalues)
 
 ### Stream_GetSummary
 Count is the only summary type supported on non-numeric streams. Requesting a summary for any other type will generate an error. Time-weighted totals are computed by integrating the rate tag values over the requested time range. If some of the data are bad in the time range, the calculated total is divided by the fraction of the time period for which there are good values. This approach is equivalent to assuming that during the period of bad data, the tag takes on the average values for the entire calculation time range. The PercentGood summary may be used to determine if the calculation results are suitable for the application's purposes. For time-weighted totals, if the time unit rate of the stream cannot be determined, then the value will be totaled assuming a unit of "per day" and no unit of measure will be assigned to the value. If the measured time component of the tag is not based on a day, the user of the data must convert the totalized value to the correct units.
@@ -4314,19 +5391,23 @@ osisoft.Stream_GetSummary({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the stream.
-* calculationBasis (string) - Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.
-* endTime (string) - An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* filterExpression (string) - A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute.
-* sampleInterval (string) - When the sampleType is Interval, sampleInterval specifies how often the filter expression is evaluated when computing the summary for an interval.
-* sampleType (string) - Defines the evaluation of an expression over a time range. The default is 'ExpressionRecordedValues'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* startTime (string) - An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
-* summaryDuration (string) - The duration of each summary interval. If specified in hours, minutes, seconds, or milliseconds, the summary durations will be evenly spaced UTC time intervals. Longer interval types are interpreted using wall clock rules and are time zone dependent.
-* summaryType (array) - Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.
-* timeType (string) - Specifies how to calculate the timestamp for each interval. The default is 'Auto'.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the stream.
+  * calculationBasis `string`: Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.
+  * endTime `string`: An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * filterExpression `string`: A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute.
+  * sampleInterval `string`: When the sampleType is Interval, sampleInterval specifies how often the filter expression is evaluated when computing the summary for an interval.
+  * sampleType `string`: Defines the evaluation of an expression over a time range. The default is 'ExpressionRecordedValues'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * startTime `string`: An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
+  * summaryDuration `string`: The duration of each summary interval. If specified in hours, minutes, seconds, or milliseconds, the summary durations will be evenly spaced UTC time intervals. Longer interval types are interpreted using wall clock rules and are time zone dependent.
+  * summaryType `array`: Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.
+  * timeType `string`: Specifies how to calculate the timestamp for each interval. The default is 'Auto'.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[SummaryValue]](#items[summaryvalue])
 
 ### Stream_GetValue
 Returns the value of the stream at the specified time. By default, this is usually the current value.
@@ -4338,12 +5419,16 @@ osisoft.Stream_GetValue({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the stream.
-* desiredUnits (string) - The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* time (string) - An optional time. The default time context is determined from the owning object - for example, the time range of the event frame or transfer which holds this attribute. Otherwise, the implementation of the Data Reference determines the meaning of no context. For Points or simply configured PI Point Data References, this means the snapshot value of the PI Point on the Data Server.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the stream.
+  * desiredUnits `string`: The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * time `string`: An optional time. The default time context is determined from the owning object - for example, the time range of the event frame or transfer which holds this attribute. Otherwise, the implementation of the Data Reference determines the meaning of no context. For Points or simply configured PI Point Data References, this means the snapshot value of the PI Point on the Data Server.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [TimedValue](#timedvalue)
 
 ### Stream_UpdateValue
 Updates a value for the specified stream.
@@ -4356,11 +5441,15 @@ osisoft.Stream_UpdateValue({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the stream.
-* value (object) **required**
-* bufferOption (string) - The desired AFBufferOption. The default is 'BufferIfPossible'.
-* updateOption (string) - The desired AFUpdateOption. The default is 'Replace'. This parameter is ignored if the attribute is a configuration item.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the stream.
+  * value **required** [TimedValue](#timedvalue)
+  * bufferOption `string`: The desired AFBufferOption. The default is 'BufferIfPossible'.
+  * updateOption `string`: The desired AFUpdateOption. The default is 'Replace'. This parameter is ignored if the attribute is a configuration item.
+
+#### Output
+*Output schema unknown*
 
 ### StreamSet_GetChannelAdHoc
 Opens a channel that will send messages about any value changes for the specified streams.
@@ -4372,9 +5461,13 @@ osisoft.StreamSet_GetChannelAdHoc({
 }, context)
 ```
 
-#### Parameters
-* webId (array) **required** - The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
-* includeInitialValues (boolean) - Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.
+#### Input
+* input `object`
+  * webId **required** `array`: The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
+  * includeInitialValues `boolean`: Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.
+
+#### Output
+* output [Items[StreamValue]](#items[streamvalue])
 
 ### StreamSet_GetEndAdHoc
 Returns End Of Stream values for attributes of the specified streams
@@ -4386,9 +5479,13 @@ osisoft.StreamSet_GetEndAdHoc({
 }, context)
 ```
 
-#### Parameters
-* webId (array) **required** - The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `array`: The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[StreamValues]](#items[streamvalues])
 
 ### StreamSet_GetInterpolatedAdHoc
 Returns interpolated values of the specified streams over the specified time range at the specified sampling interval.
@@ -4400,15 +5497,19 @@ osisoft.StreamSet_GetInterpolatedAdHoc({
 }, context)
 ```
 
-#### Parameters
-* webId (array) **required** - The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.
-* endTime (string) - An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* filterExpression (string) - An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.
-* includeFilteredValues (boolean) - Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
-* interval (string) - The sampling interval, in AFTimeSpan format.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* startTime (string) - An optional start time. The default is '*-1d'.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `array`: The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.
+  * endTime `string`: An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * filterExpression `string`: An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.
+  * includeFilteredValues `boolean`: Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
+  * interval `string`: The sampling interval, in AFTimeSpan format.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * startTime `string`: An optional start time. The default is '*-1d'.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValues]](#items[streamvalues])
 
 ### StreamSet_GetInterpolatedAtTimesAdHoc
 Returns interpolated values of the specified streams at the specified times.
@@ -4421,14 +5522,18 @@ osisoft.StreamSet_GetInterpolatedAtTimesAdHoc({
 }, context)
 ```
 
-#### Parameters
-* time (array) **required** - The timestamp at which to retrieve a interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.
-* webId (array) **required** - The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.
-* filterExpression (string) - An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.
-* includeFilteredValues (boolean) - Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * time **required** `array`: The timestamp at which to retrieve a interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.
+  * webId **required** `array`: The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.
+  * filterExpression `string`: An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.
+  * includeFilteredValues `boolean`: Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValues]](#items[streamvalues])
 
 ### StreamSet_GetPlotAdHoc
 For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
@@ -4440,13 +5545,17 @@ osisoft.StreamSet_GetPlotAdHoc({
 }, context)
 ```
 
-#### Parameters
-* webId (array) **required** - The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
-* endTime (string) - An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* intervals (integer) - The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* startTime (string) - An optional start time. The default is '*-1d'.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `array`: The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
+  * endTime `string`: An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * intervals `integer`: The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * startTime `string`: An optional start time. The default is '*-1d'.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValues]](#items[streamvalues])
 
 ### StreamSet_GetRecordedAdHoc
 Returns recorded values of the specified streams.
@@ -4458,16 +5567,20 @@ osisoft.StreamSet_GetRecordedAdHoc({
 }, context)
 ```
 
-#### Parameters
-* webId (array) **required** - The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
-* boundaryType (string) - An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.
-* endTime (string) - An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* filterExpression (string) - An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.
-* includeFilteredValues (boolean) - Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
-* maxCount (integer) - The maximum number of values to be returned. The default is 1000.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* startTime (string) - An optional start time. The default is '*-1d'.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `array`: The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
+  * boundaryType `string`: An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.
+  * endTime `string`: An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * filterExpression `string`: An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.
+  * includeFilteredValues `boolean`: Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
+  * maxCount `integer`: The maximum number of values to be returned. The default is 1000.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * startTime `string`: An optional start time. The default is '*-1d'.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValues]](#items[streamvalues])
 
 ### StreamSet_UpdateValuesAdHoc
 Updates multiple values for the specified streams.
@@ -4479,10 +5592,15 @@ osisoft.StreamSet_UpdateValuesAdHoc({
 }, context)
 ```
 
-#### Parameters
-* values (array) **required**
-* bufferOption (string) - The desired AFBufferOption. The default is 'BufferIfPossible'.
-* updateOption (string) - The desired AFUpdateOption. The default is 'Replace'.
+#### Input
+* input `object`
+  * values **required** `array`
+    * items [StreamValues](#streamvalues)
+  * bufferOption `string`: The desired AFBufferOption. The default is 'BufferIfPossible'.
+  * updateOption `string`: The desired AFUpdateOption. The default is 'Replace'.
+
+#### Output
+* output [Items[Items[Substatus]]](#items[items[substatus]])
 
 ### StreamSet_GetRecordedAtTimeAdHoc
 Returns recorded values based on the passed time and retrieval mode.
@@ -4495,12 +5613,16 @@ osisoft.StreamSet_GetRecordedAtTimeAdHoc({
 }, context)
 ```
 
-#### Parameters
-* time (string) **required** - The timestamp at which the values are desired.
-* webId (array) **required** - The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
-* retrievalMode (string) - An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * time **required** `string`: The timestamp at which the values are desired.
+  * webId **required** `array`: The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
+  * retrievalMode `string`: An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValue]](#items[streamvalue])
 
 ### StreamSet_GetRecordedAtTimesAdHoc
 Returns recorded values of the specified streams at the specified times.
@@ -4513,13 +5635,17 @@ osisoft.StreamSet_GetRecordedAtTimesAdHoc({
 }, context)
 ```
 
-#### Parameters
-* time (array) **required** - The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.
-* webId (array) **required** - The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.
-* retrievalMode (string) - An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * time **required** `array`: The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.
+  * webId **required** `array`: The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.
+  * retrievalMode `string`: An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValues]](#items[streamvalues])
 
 ### StreamSet_GetSummariesAdHoc
 Returns summary values of the specified streams.
@@ -4531,19 +5657,23 @@ osisoft.StreamSet_GetSummariesAdHoc({
 }, context)
 ```
 
-#### Parameters
-* webId (array) **required** - The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
-* calculationBasis (string) - Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.
-* endTime (string) - An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* filterExpression (string) - A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute. The default is no filtering.
-* sampleInterval (string) - A time span specifies how often the filter expression is evaluated when computing the summary for an interval, if the sampleType is 'Interval'.
-* sampleType (string) - A flag which specifies one or more summaries to compute for each interval over the time range. The default is 'ExpressionRecordedValues'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* startTime (string) - An optional start time. The default is '*-1d'.
-* summaryDuration (string) - The duration of each summary interval.
-* summaryType (array) - Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.
-* timeType (string) - Specifies how to calculate the timestamp for each interval. The default is 'Auto'.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `array`: The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
+  * calculationBasis `string`: Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.
+  * endTime `string`: An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * filterExpression `string`: A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute. The default is no filtering.
+  * sampleInterval `string`: A time span specifies how often the filter expression is evaluated when computing the summary for an interval, if the sampleType is 'Interval'.
+  * sampleType `string`: A flag which specifies one or more summaries to compute for each interval over the time range. The default is 'ExpressionRecordedValues'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * startTime `string`: An optional start time. The default is '*-1d'.
+  * summaryDuration `string`: The duration of each summary interval.
+  * summaryType `array`: Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.
+  * timeType `string`: Specifies how to calculate the timestamp for each interval. The default is 'Auto'.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamSummaries]](#items[streamsummaries])
 
 ### StreamSet_GetValuesAdHoc
 Returns values of the specified streams.
@@ -4555,11 +5685,15 @@ osisoft.StreamSet_GetValuesAdHoc({
 }, context)
 ```
 
-#### Parameters
-* webId (array) **required** - The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* time (string) - An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `array`: The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * time `string`: An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValue]](#items[streamvalue])
 
 ### StreamSet_UpdateValueAdHoc
 Updates a single value for the specified streams.
@@ -4571,10 +5705,15 @@ osisoft.StreamSet_UpdateValueAdHoc({
 }, context)
 ```
 
-#### Parameters
-* values (array) **required**
-* bufferOption (string) - The desired AFBufferOption. The default is 'BufferIfPossible'.
-* updateOption (string) - The desired AFUpdateOption. The default is 'Replace'.
+#### Input
+* input `object`
+  * values **required** `array`
+    * items [StreamValues](#streamvalues)
+  * bufferOption `string`: The desired AFBufferOption. The default is 'BufferIfPossible'.
+  * updateOption `string`: The desired AFUpdateOption. The default is 'Replace'.
+
+#### Output
+* output [Items[Substatus]](#items[substatus])
 
 ### StreamSet_GetChannel
 Opens a channel that will send messages about any value changes for the attributes of an Element, Event Frame, or Attribute.
@@ -4586,15 +5725,19 @@ osisoft.StreamSet_GetChannel({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.
-* categoryName (string) - Specify that included attributes must have this category. The default is no category filter.
-* includeInitialValues (boolean) - Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.
-* nameFilter (string) - The name query string used for filtering attributes. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
-* showExcluded (boolean) - Specified if the search should include attributes with the Excluded property set. The default is 'false'.
-* showHidden (boolean) - Specified if the search should include attributes with the Hidden property set. The default is 'false'.
-* templateName (string) - Specify that included attributes must be members of this template. The default is no template filter.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.
+  * categoryName `string`: Specify that included attributes must have this category. The default is no category filter.
+  * includeInitialValues `boolean`: Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.
+  * nameFilter `string`: The name query string used for filtering attributes. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
+  * showExcluded `boolean`: Specified if the search should include attributes with the Excluded property set. The default is 'false'.
+  * showHidden `boolean`: Specified if the search should include attributes with the Hidden property set. The default is 'false'.
+  * templateName `string`: Specify that included attributes must be members of this template. The default is no template filter.
+
+#### Output
+* output [Items[StreamValue]](#items[streamvalue])
 
 ### StreamSet_GetEnd
 Returns End of stream values of the attributes for an Element, Event Frame or Attribute
@@ -4606,15 +5749,19 @@ osisoft.StreamSet_GetEnd({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.
-* categoryName (string) - Specify that included attributes must have this category. The default is no category filter.
-* nameFilter (string) - The name query string used for filtering attributes. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showExcluded (boolean) - Specified if the search should include attributes with the Excluded property set. The default is 'false'.
-* showHidden (boolean) - Specified if the search should include attributes with the Hidden property set. The default is 'false'.
-* templateName (string) - Specify that included attributes must be members of this template. The default is no template filter.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.
+  * categoryName `string`: Specify that included attributes must have this category. The default is no category filter.
+  * nameFilter `string`: The name query string used for filtering attributes. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showExcluded `boolean`: Specified if the search should include attributes with the Excluded property set. The default is 'false'.
+  * showHidden `boolean`: Specified if the search should include attributes with the Hidden property set. The default is 'false'.
+  * templateName `string`: Specify that included attributes must be members of this template. The default is no template filter.
+
+#### Output
+* output [Items[StreamValue]](#items[streamvalue])
 
 ### StreamSet_GetInterpolated
 Returns interpolated values of attributes for an element, event frame or attribute over the specified time range at the specified sampling interval.
@@ -4626,21 +5773,25 @@ osisoft.StreamSet_GetInterpolated({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
-* categoryName (string) - Specify that included attributes must have this category. The default is no category filter.
-* endTime (string) - An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* filterExpression (string) - An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.
-* includeFilteredValues (boolean) - Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
-* interval (string) - The sampling interval, in AFTimeSpan format.
-* nameFilter (string) - The name query string used for filtering attributes. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showExcluded (boolean) - Specified if the search should include attributes with the Excluded property set. The default is 'false'.
-* showHidden (boolean) - Specified if the search should include attributes with the Hidden property set. The default is 'false'.
-* startTime (string) - An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
-* templateName (string) - Specify that included attributes must be members of this template. The default is no template filter.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
+  * categoryName `string`: Specify that included attributes must have this category. The default is no category filter.
+  * endTime `string`: An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * filterExpression `string`: An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.
+  * includeFilteredValues `boolean`: Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
+  * interval `string`: The sampling interval, in AFTimeSpan format.
+  * nameFilter `string`: The name query string used for filtering attributes. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showExcluded `boolean`: Specified if the search should include attributes with the Excluded property set. The default is 'false'.
+  * showHidden `boolean`: Specified if the search should include attributes with the Hidden property set. The default is 'false'.
+  * startTime `string`: An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
+  * templateName `string`: Specify that included attributes must be members of this template. The default is no template filter.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValues]](#items[streamvalues])
 
 ### StreamSet_GetInterpolatedAtTimes
 Returns interpolated values of attributes for an element, event frame or attribute at the specified times.
@@ -4653,20 +5804,24 @@ osisoft.StreamSet_GetInterpolatedAtTimes({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
-* time (array) **required** - The timestamp at which to retrieve a interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.
-* categoryName (string) - Specify that included attributes must have this category. The default is no category filter.
-* filterExpression (string) - An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.
-* includeFilteredValues (boolean) - Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
-* nameFilter (string) - The name query string used for filtering attributes. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showExcluded (boolean) - Specified if the search should include attributes with the Excluded property set. The default is 'false'.
-* showHidden (boolean) - Specified if the search should include attributes with the Hidden property set. The default is 'false'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* templateName (string) - Specify that included attributes must be members of this template. The default is no template filter.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
+  * time **required** `array`: The timestamp at which to retrieve a interpolated value. Multiple timestamps may be specified with multiple instances of the parameter.
+  * categoryName `string`: Specify that included attributes must have this category. The default is no category filter.
+  * filterExpression `string`: An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.
+  * includeFilteredValues `boolean`: Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
+  * nameFilter `string`: The name query string used for filtering attributes. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showExcluded `boolean`: Specified if the search should include attributes with the Excluded property set. The default is 'false'.
+  * showHidden `boolean`: Specified if the search should include attributes with the Hidden property set. The default is 'false'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * templateName `string`: Specify that included attributes must be members of this template. The default is no template filter.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValues]](#items[streamvalues])
 
 ### StreamSet_GetPlot
 For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
@@ -4678,19 +5833,23 @@ osisoft.StreamSet_GetPlot({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
-* categoryName (string) - Specify that included attributes must have this category. The default is no category filter.
-* endTime (string) - An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* intervals (integer) - The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
-* nameFilter (string) - The name query string used for filtering attributes. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showExcluded (boolean) - Specified if the search should include attributes with the Excluded property set. The default is 'false'.
-* showHidden (boolean) - Specified if the search should include attributes with the Hidden property set. The default is 'false'.
-* startTime (string) - An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
-* templateName (string) - Specify that included attributes must be members of this template. The default is no template filter.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
+  * categoryName `string`: Specify that included attributes must have this category. The default is no category filter.
+  * endTime `string`: An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * intervals `integer`: The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).
+  * nameFilter `string`: The name query string used for filtering attributes. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showExcluded `boolean`: Specified if the search should include attributes with the Excluded property set. The default is 'false'.
+  * showHidden `boolean`: Specified if the search should include attributes with the Hidden property set. The default is 'false'.
+  * startTime `string`: An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
+  * templateName `string`: Specify that included attributes must be members of this template. The default is no template filter.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValues]](#items[streamvalues])
 
 ### StreamSet_GetRecorded
 Returns recorded values of the attributes for an element, event frame, or attribute.
@@ -4702,22 +5861,26 @@ osisoft.StreamSet_GetRecorded({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
-* boundaryType (string) - An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.
-* categoryName (string) - Specify that included attributes must have this category. The default is no category filter.
-* endTime (string) - An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* filterExpression (string) - An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.
-* includeFilteredValues (boolean) - Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
-* maxCount (integer) - The maximum number of values to be returned. The default is 1000.
-* nameFilter (string) - The name query string used for filtering attributes. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showExcluded (boolean) - Specified if the search should include attributes with the Excluded property set. The default is 'false'.
-* showHidden (boolean) - Specified if the search should include attributes with the Hidden property set. The default is 'false'.
-* startTime (string) - An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
-* templateName (string) - Specify that included attributes must be members of this template. The default is no template filter.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
+  * boundaryType `string`: An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.
+  * categoryName `string`: Specify that included attributes must have this category. The default is no category filter.
+  * endTime `string`: An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * filterExpression `string`: An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.
+  * includeFilteredValues `boolean`: Specify 'true' to indicate that values which fail the filter criteria are present in the returned data at the times where they occurred with a value set to a 'Filtered' enumeration value with bad status. Repeated consecutive failures are omitted.
+  * maxCount `integer`: The maximum number of values to be returned. The default is 1000.
+  * nameFilter `string`: The name query string used for filtering attributes. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showExcluded `boolean`: Specified if the search should include attributes with the Excluded property set. The default is 'false'.
+  * showHidden `boolean`: Specified if the search should include attributes with the Hidden property set. The default is 'false'.
+  * startTime `string`: An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
+  * templateName `string`: Specify that included attributes must be members of this template. The default is no template filter.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValues]](#items[streamvalues])
 
 ### StreamSet_UpdateValues
 Updates multiple values for the specified streams.
@@ -4730,11 +5893,16 @@ osisoft.StreamSet_UpdateValues({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the parent element, event frame, or attribute. Attributes specified in the body must be descendants of the specified object.
-* values (array) **required**
-* bufferOption (string) - The desired AFBufferOption. The default is 'BufferIfPossible'.
-* updateOption (string) - The desired AFUpdateOption. The default is 'Replace'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the parent element, event frame, or attribute. Attributes specified in the body must be descendants of the specified object.
+  * values **required** `array`
+    * items [StreamValues](#streamvalues)
+  * bufferOption `string`: The desired AFBufferOption. The default is 'BufferIfPossible'.
+  * updateOption `string`: The desired AFUpdateOption. The default is 'Replace'.
+
+#### Output
+* output [Items[Items[Substatus]]](#items[items[substatus]])
 
 ### StreamSet_GetRecordedAtTime
 Returns recorded values of the attributes for an element, event frame, or attribute.
@@ -4747,18 +5915,22 @@ osisoft.StreamSet_GetRecordedAtTime({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
-* time (string) **required** - The timestamp at which the values are desired.
-* categoryName (string) - Specify that included attributes must have this category. The default is no category filter.
-* nameFilter (string) - The name query string used for filtering attributes. The default is no filter.
-* retrievalMode (string) - An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.
-* searchFullHierarchy (boolean) - Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showExcluded (boolean) - Specified if the search should include attributes with the Excluded property set. The default is 'false'.
-* showHidden (boolean) - Specified if the search should include attributes with the Hidden property set. The default is 'false'.
-* templateName (string) - Specify that included attributes must be members of this template. The default is no template filter.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
+  * time **required** `string`: The timestamp at which the values are desired.
+  * categoryName `string`: Specify that included attributes must have this category. The default is no category filter.
+  * nameFilter `string`: The name query string used for filtering attributes. The default is no filter.
+  * retrievalMode `string`: An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.
+  * searchFullHierarchy `boolean`: Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showExcluded `boolean`: Specified if the search should include attributes with the Excluded property set. The default is 'false'.
+  * showHidden `boolean`: Specified if the search should include attributes with the Hidden property set. The default is 'false'.
+  * templateName `string`: Specify that included attributes must be members of this template. The default is no template filter.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValues]](#items[streamvalues])
 
 ### StreamSet_GetRecordedAtTimes
 Returns recorded values of attributes for an element, event frame or attribute at the specified times.
@@ -4771,19 +5943,23 @@ osisoft.StreamSet_GetRecordedAtTimes({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
-* time (array) **required** - The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.
-* categoryName (string) - Specify that included attributes must have this category. The default is no category filter.
-* nameFilter (string) - The name query string used for filtering attributes. The default is no filter.
-* retrievalMode (string) - An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.
-* searchFullHierarchy (boolean) - Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showExcluded (boolean) - Specified if the search should include attributes with the Excluded property set. The default is 'false'.
-* showHidden (boolean) - Specified if the search should include attributes with the Hidden property set. The default is 'false'.
-* sortOrder (string) - The order that the returned collection is sorted. The default is 'Ascending'.
-* templateName (string) - Specify that included attributes must be members of this template. The default is no template filter.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
+  * time **required** `array`: The timestamp at which to retrieve a recorded value. Multiple timestamps may be specified with multiple instances of the parameter.
+  * categoryName `string`: Specify that included attributes must have this category. The default is no category filter.
+  * nameFilter `string`: The name query string used for filtering attributes. The default is no filter.
+  * retrievalMode `string`: An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.
+  * searchFullHierarchy `boolean`: Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showExcluded `boolean`: Specified if the search should include attributes with the Excluded property set. The default is 'false'.
+  * showHidden `boolean`: Specified if the search should include attributes with the Hidden property set. The default is 'false'.
+  * sortOrder `string`: The order that the returned collection is sorted. The default is 'Ascending'.
+  * templateName `string`: Specify that included attributes must be members of this template. The default is no template filter.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValues]](#items[streamvalues])
 
 ### StreamSet_GetSummaries
 Returns summary values of the attributes for an element, event frame or attribute.
@@ -4795,25 +5971,29 @@ osisoft.StreamSet_GetSummaries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
-* calculationBasis (string) - Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.
-* categoryName (string) - Specify that included attributes must have this category. The default is no category filter.
-* endTime (string) - An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
-* filterExpression (string) - A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute. The default is no filtering.
-* nameFilter (string) - The name query string used for filtering attributes. The default is no filter.
-* sampleInterval (string) - A time span specifies how often the filter expression is evaluated when computing the summary for an interval, if the sampleType is 'Interval'.
-* sampleType (string) - A flag which specifies one or more summaries to compute for each interval over the time range. The default is 'ExpressionRecordedValues'.
-* searchFullHierarchy (boolean) - Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showExcluded (boolean) - Specified if the search should include attributes with the Excluded property set. The default is 'false'.
-* showHidden (boolean) - Specified if the search should include attributes with the Hidden property set. The default is 'false'.
-* startTime (string) - An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
-* summaryDuration (string) - The duration of each summary interval.
-* summaryType (array) - Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.
-* templateName (string) - Specify that included attributes must be members of this template. The default is no template filter.
-* timeType (string) - Specifies how to calculate the timestamp for each interval. The default is 'Auto'.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of an element, event frame or attribute, which is the base element or parent of all the stream attributes.
+  * calculationBasis `string`: Specifies the method of evaluating the data over the time range. The default is 'TimeWeighted'.
+  * categoryName `string`: Specify that included attributes must have this category. The default is no category filter.
+  * endTime `string`: An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.
+  * filterExpression `string`: A string containing a filter expression. Expression variables are relative to the attribute. Use '.' to reference the containing attribute. The default is no filtering.
+  * nameFilter `string`: The name query string used for filtering attributes. The default is no filter.
+  * sampleInterval `string`: A time span specifies how often the filter expression is evaluated when computing the summary for an interval, if the sampleType is 'Interval'.
+  * sampleType `string`: A flag which specifies one or more summaries to compute for each interval over the time range. The default is 'ExpressionRecordedValues'.
+  * searchFullHierarchy `boolean`: Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showExcluded `boolean`: Specified if the search should include attributes with the Excluded property set. The default is 'false'.
+  * showHidden `boolean`: Specified if the search should include attributes with the Hidden property set. The default is 'false'.
+  * startTime `string`: An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.
+  * summaryDuration `string`: The duration of each summary interval.
+  * summaryType `array`: Specifies the kinds of summaries to produce over the range. The default is 'Total'. Multiple summary types may be specified by using multiple instances of summaryType.
+  * templateName `string`: Specify that included attributes must be members of this template. The default is no template filter.
+  * timeType `string`: Specifies how to calculate the timestamp for each interval. The default is 'Auto'.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamSummaries]](#items[streamsummaries])
 
 ### StreamSet_GetValues
 Returns values of the attributes for an Element, Event Frame or Attribute at the specified time.
@@ -4825,17 +6005,21 @@ osisoft.StreamSet_GetValues({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.
-* categoryName (string) - Specify that included attributes must have this category. The default is no category filter.
-* nameFilter (string) - The name query string used for filtering attributes. The default is no filter.
-* searchFullHierarchy (boolean) - Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
-* showExcluded (boolean) - Specified if the search should include attributes with the Excluded property set. The default is 'false'.
-* showHidden (boolean) - Specified if the search should include attributes with the Hidden property set. The default is 'false'.
-* templateName (string) - Specify that included attributes must be members of this template. The default is no template filter.
-* time (string) - An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.
-* timeZone (string) - The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of an Element, Event Frame or Attribute, which is the base element or parent of all the stream attributes.
+  * categoryName `string`: Specify that included attributes must have this category. The default is no category filter.
+  * nameFilter `string`: The name query string used for filtering attributes. The default is no filter.
+  * searchFullHierarchy `boolean`: Specifies if the search should include attributes nested further than the immediate attributes of the searchRoot. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+  * showExcluded `boolean`: Specified if the search should include attributes with the Excluded property set. The default is 'false'.
+  * showHidden `boolean`: Specified if the search should include attributes with the Hidden property set. The default is 'false'.
+  * templateName `string`: Specify that included attributes must be members of this template. The default is no template filter.
+  * time `string`: An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.
+  * timeZone `string`: The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.
+
+#### Output
+* output [Items[StreamValue]](#items[streamvalue])
 
 ### StreamSet_UpdateValue
 Updates a single value for the specified streams.
@@ -4848,11 +6032,16 @@ osisoft.StreamSet_UpdateValue({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the parent element, event frame, or attribute. Attributes specified in the body must be descendants of the specified object.
-* values (array) **required**
-* bufferOption (string) - The desired AFBufferOption. The default is 'BufferIfPossible'.
-* updateOption (string) - The desired AFUpdateOption. The default is 'Replace'.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the parent element, event frame, or attribute. Attributes specified in the body must be descendants of the specified object.
+  * values **required** `array`
+    * items [StreamValue](#streamvalue)
+  * bufferOption `string`: The desired AFBufferOption. The default is 'BufferIfPossible'.
+  * updateOption `string`: The desired AFUpdateOption. The default is 'Replace'.
+
+#### Output
+* output [Items[Substatus]](#items[substatus])
 
 ### System_Landing
 Get system links for this PI System Web API instance.
@@ -4862,8 +6051,11 @@ Get system links for this PI System Web API instance.
 osisoft.System_Landing(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [SystemLanding](#systemlanding)
 
 ### System_CacheInstances
 Get AF cache instances currently in use by the system. These are caches from which user requests are serviced. The number of instances depends on the number of users connected to the service, the service's authentication method, and the cache instance configuration.
@@ -4873,8 +6065,11 @@ Get AF cache instances currently in use by the system. These are caches from whi
 osisoft.System_CacheInstances(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Items[CacheInstance]](#items[cacheinstance])
 
 ### Configuration_List
 Get the current system configuration.
@@ -4884,8 +6079,11 @@ Get the current system configuration.
 osisoft.Configuration_List(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
 
 ### Configuration_Delete
 Delete a configuration item.
@@ -4897,8 +6095,12 @@ osisoft.Configuration_Delete({
 }, context)
 ```
 
-#### Parameters
-* key (string) **required** - The key of the configuration item to remove.
+#### Input
+* input `object`
+  * key **required** `string`: The key of the configuration item to remove.
+
+#### Output
+*Output schema unknown*
 
 ### Configuration_Get
 Get the value of a configuration item.
@@ -4910,8 +6112,12 @@ osisoft.Configuration_Get({
 }, context)
 ```
 
-#### Parameters
-* key (string) **required** - The key of the configuration item.
+#### Input
+* input `object`
+  * key **required** `string`: The key of the configuration item.
+
+#### Output
+* output `object`
 
 ### System_Status
 Get the system uptime, the system state and the number of cache instances for this PI System Web API instance.
@@ -4921,8 +6127,11 @@ Get the system uptime, the system state and the number of cache instances for th
 osisoft.System_Status(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [SystemStatus](#systemstatus)
 
 ### System_UserInfo
 Get information about the Windows identity used to fulfill the request. This depends on the service's authentication method and the credentials passed by the client. The impersonation level of the Windows identity is included.
@@ -4932,8 +6141,11 @@ Get information about the Windows identity used to fulfill the request. This dep
 osisoft.System_UserInfo(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [UserInfo](#userinfo)
 
 ### System_Versions
 Get the current versions of the PI Web API instance and all external plugins.
@@ -4943,8 +6155,11 @@ Get the current versions of the PI Web API instance and all external plugins.
 osisoft.System_Versions(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
 
 ### TableCategory_GetByPath
 This method returns a Table Category based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -4956,9 +6171,13 @@ osisoft.TableCategory_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the target table category.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the target table category.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [TableCategory](#tablecategory)
 
 ### TableCategory_Delete
 Delete a table category.
@@ -4970,8 +6189,12 @@ osisoft.TableCategory_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table category to delete.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table category to delete.
+
+#### Output
+*Output schema unknown*
 
 ### TableCategory_Get
 Retrieve a table category.
@@ -4983,9 +6206,13 @@ osisoft.TableCategory_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The id of the table category.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The id of the table category.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [TableCategory](#tablecategory)
 
 ### TableCategory_Update
 Update a table category by replacing items in its definition.
@@ -4998,9 +6225,13 @@ osisoft.TableCategory_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table category to update.
-* tableCategory (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table category to update.
+  * tableCategory **required** [TableCategory](#tablecategory)
+
+#### Output
+*Output schema unknown*
 
 ### TableCategory_GetSecurity
 Get the security information of the specified security item associated with the table category for a specified user.
@@ -5013,11 +6244,15 @@ osisoft.TableCategory_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table category for the security to be checked.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table category for the security to be checked.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### TableCategory_GetSecurityEntries
 Retrieve the security entries associated with the table category based on the specified criteria. By default, all security entries for this table category are returned.
@@ -5029,10 +6264,14 @@ osisoft.TableCategory_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table category.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table category.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### TableCategory_CreateSecurityEntry
 Create a security entry owned by the table category.
@@ -5045,10 +6284,14 @@ osisoft.TableCategory_CreateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table category where the security entry will be created.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table category where the security entry will be created.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### TableCategory_DeleteSecurityEntry
 Delete a security entry owned by the table category.
@@ -5061,10 +6304,14 @@ osisoft.TableCategory_DeleteSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the table category where the security entry will be deleted.
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the table category where the security entry will be deleted.
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### TableCategory_GetSecurityEntryByName
 Retrieve the security entry associated with the table category with the specified name.
@@ -5077,10 +6324,14 @@ osisoft.TableCategory_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the table category.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the table category.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### TableCategory_UpdateSecurityEntry
 Update a security entry owned by the table category.
@@ -5094,11 +6345,15 @@ osisoft.TableCategory_UpdateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry.
-* webId (string) **required** - The ID of the table category where the security entry will be updated.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry.
+  * webId **required** `string`: The ID of the table category where the security entry will be updated.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### Table_GetByPath
 Retrieve a table by path.
@@ -5110,9 +6365,13 @@ osisoft.Table_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the table.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the table.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Table](#table)
 
 ### Table_Delete
 Delete a table.
@@ -5124,8 +6383,12 @@ osisoft.Table_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table to delete.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table to delete.
+
+#### Output
+*Output schema unknown*
 
 ### Table_Get
 Retrieve a table.
@@ -5137,9 +6400,13 @@ osisoft.Table_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Table](#table)
 
 ### Table_Update
 Update a table by replacing items in its definition.
@@ -5152,9 +6419,13 @@ osisoft.Table_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table to update.
-* table (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table to update.
+  * table **required** [Table](#table)
+
+#### Output
+*Output schema unknown*
 
 ### Table_GetCategories
 Get a table's categories.
@@ -5166,9 +6437,13 @@ osisoft.Table_GetCategories({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[TableCategory]](#items[tablecategory])
 
 ### Table_GetData
 Get the table's data.
@@ -5180,9 +6455,13 @@ osisoft.Table_GetData({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+*Output schema unknown*
 
 ### Table_UpdateData
 Update the table's data.
@@ -5195,9 +6474,13 @@ osisoft.Table_UpdateData({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table on which to update the data.
-* data (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table on which to update the data.
+  * data **required** [TableData](#tabledata)
+
+#### Output
+*Output schema unknown*
 
 ### Table_GetSecurity
 Get the security information of the specified security item associated with the table for a specified user.
@@ -5210,11 +6493,15 @@ osisoft.Table_GetSecurity({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table for the security to be checked.
-* userIdentity (array) **required** - The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
-* forceRefresh (boolean) - Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table for the security to be checked.
+  * userIdentity **required** `array`: The user identity for the security information to be checked. Multiple security identities may be specified with multiple instances of the parameter. If the parameter is not specified, only the current user's security rights will be returned.
+  * forceRefresh `boolean`: Indicates if the security cache should be refreshed before getting security information. The default is 'false'.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityRights]](#items[securityrights])
 
 ### Table_GetSecurityEntries
 Retrieve the security entries associated with the table based on the specified criteria. By default, all security entries for this table are returned.
@@ -5226,10 +6513,14 @@ osisoft.Table_GetSecurityEntries({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table.
-* nameFilter (string) - The name query string used for filtering security entries. The default is no filter.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table.
+  * nameFilter `string`: The name query string used for filtering security entries. The default is no filter.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Items[SecurityEntry]](#items[securityentry])
 
 ### Table_CreateSecurityEntry
 Create a security entry owned by the table.
@@ -5242,10 +6533,14 @@ osisoft.Table_CreateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the table where the security entry will be created.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the table where the security entry will be created.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### Table_DeleteSecurityEntry
 Delete a security entry owned by the table.
@@ -5258,10 +6553,14 @@ osisoft.Table_DeleteSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the table where the security entry will be deleted.
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the table where the security entry will be deleted.
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### Table_GetSecurityEntryByName
 Retrieve the security entry associated with the table with the specified name.
@@ -5274,10 +6573,14 @@ osisoft.Table_GetSecurityEntryByName({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
-* webId (string) **required** - The ID of the table.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry. For every backslash character (\) in the security entry name, replace with asterisk (*). As an example, use domain*username instead of domain\username.
+  * webId **required** `string`: The ID of the table.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [SecurityEntry](#securityentry)
 
 ### Table_UpdateSecurityEntry
 Update a security entry owned by the table.
@@ -5291,11 +6594,15 @@ osisoft.Table_UpdateSecurityEntry({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the security entry.
-* webId (string) **required** - The ID of the table where the security entry will be updated.
-* securityEntry (object) **required**
-* applyToChildren (boolean) - If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the security entry.
+  * webId **required** `string`: The ID of the table where the security entry will be updated.
+  * securityEntry **required** [SecurityEntry](#securityentry)
+  * applyToChildren `boolean`: If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.
+
+#### Output
+*Output schema unknown*
 
 ### TimeRulePlugIn_GetByPath
 This method returns a Time Rule Plug-in based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -5307,9 +6614,13 @@ osisoft.TimeRulePlugIn_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the Time Rule Plug-in.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the Time Rule Plug-in.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [TimeRulePlugIn](#timeruleplugin)
 
 ### TimeRulePlugIn_Get
 Retrieve a Time Rule Plug-in.
@@ -5321,9 +6632,13 @@ osisoft.TimeRulePlugIn_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the Time Rule Plug-in.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the Time Rule Plug-in.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [TimeRulePlugIn](#timeruleplugin)
 
 ### TimeRule_GetByPath
 This method returns a Time Rule based on the hierarchical path associated with it, and should be used when a path has been received from a separate part of the PI System for use in the PI Web API. Users should primarily search with the WebID when available.
@@ -5335,9 +6650,13 @@ osisoft.TimeRule_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the Time Rule.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the Time Rule.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [TimeRule](#timerule)
 
 ### TimeRule_Delete
 Delete a Time Rule.
@@ -5349,8 +6668,12 @@ osisoft.TimeRule_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the Time Rule.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the Time Rule.
+
+#### Output
+*Output schema unknown*
 
 ### TimeRule_Get
 Retrieve a Time Rule.
@@ -5362,9 +6685,13 @@ osisoft.TimeRule_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the Time Rule.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the Time Rule.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [TimeRule](#timerule)
 
 ### TimeRule_Update
 Update a Time Rule by replacing items in its definition.
@@ -5377,9 +6704,13 @@ osisoft.TimeRule_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the Time Rule.
-* timeRule (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the Time Rule.
+  * timeRule **required** [TimeRule](#timerule)
+
+#### Output
+*Output schema unknown*
 
 ### UnitClass_GetByPath
 Retrieve a unit class by path.
@@ -5391,9 +6722,13 @@ osisoft.UnitClass_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the unit class.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the unit class.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [UnitClass](#unitclass)
 
 ### UnitClass_Delete
 Delete a unit class.
@@ -5405,8 +6740,12 @@ osisoft.UnitClass_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the unit class.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the unit class.
+
+#### Output
+*Output schema unknown*
 
 ### UnitClass_Get
 Retrieve a unit class.
@@ -5418,9 +6757,13 @@ osisoft.UnitClass_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the unit class.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the unit class.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [UnitClass](#unitclass)
 
 ### UnitClass_Update
 Update a unit class.
@@ -5433,9 +6776,13 @@ osisoft.UnitClass_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the unit class.
-* unitClassDTO (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the unit class.
+  * unitClassDTO **required** [UnitClass](#unitclass)
+
+#### Output
+*Output schema unknown*
 
 ### UnitClass_GetCanonicalUnit
 Get the canonical unit of a unit class.
@@ -5447,9 +6794,13 @@ osisoft.UnitClass_GetCanonicalUnit({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of unit class.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of unit class.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Unit](#unit)
 
 ### UnitClass_GetUnits
 Get a list of all units belonging to the unit class.
@@ -5461,9 +6812,13 @@ osisoft.UnitClass_GetUnits({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of unit class.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of unit class.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Unit](#unit)
 
 ### UnitClass_CreateUnit
 Create a unit in the specified Unit Class.
@@ -5476,9 +6831,13 @@ osisoft.UnitClass_CreateUnit({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the server.
-* unitDTO (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the server.
+  * unitDTO **required** [Unit](#unit)
+
+#### Output
+*Output schema unknown*
 
 ### Unit_GetByPath
 Retrieve a unit by path.
@@ -5490,9 +6849,13 @@ osisoft.Unit_GetByPath({
 }, context)
 ```
 
-#### Parameters
-* path (string) **required** - The path to the unit.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * path **required** `string`: The path to the unit.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Unit](#unit)
 
 ### Unit_Delete
 Delete a unit.
@@ -5504,8 +6867,12 @@ osisoft.Unit_Delete({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the unit.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the unit.
+
+#### Output
+*Output schema unknown*
 
 ### Unit_Get
 Retrieve a unit.
@@ -5517,9 +6884,13 @@ osisoft.Unit_Get({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the unit.
-* selectedFields (string) - List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the unit.
+  * selectedFields `string`: List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.
+
+#### Output
+* output [Unit](#unit)
 
 ### Unit_Update
 Update a unit.
@@ -5532,7 +6903,1240 @@ osisoft.Unit_Update({
 }, context)
 ```
 
-#### Parameters
-* webId (string) **required** - The ID of the unit.
-* unitDTO (object) **required**
+#### Input
+* input `object`
+  * webId **required** `string`: The ID of the unit.
+  * unitDTO **required** [Unit](#unit)
+
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+### Analysis
+* Analysis `object`
+  * AnalysisRulePlugInName `string`
+  * AutoCreated `boolean`
+  * CategoryNames `array`
+    * items `string`
+  * Description `string`
+  * GroupId `integer`
+  * HasNotification `boolean`
+  * HasTarget `boolean`
+  * HasTemplate `boolean`
+  * Id `string`
+  * IsConfigured `boolean`
+  * IsTimeRuleDefinedByTemplate `boolean`
+  * Links `object`
+    * AnalysisRule `string`
+    * AnalysisRulePlugIn `string`
+    * Categories `string`
+    * Database `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * Self `string`
+    * Target `string`
+    * Template `string`
+    * TimeRule `string`
+    * TimeRulePlugIn `string`
+  * MaximumQueueSize `integer`
+  * Name `string`
+  * OutputTime `string`
+  * Path `string`
+  * Priority `string`
+  * PublishResults `boolean`
+  * Status `string`
+  * TargetWebId `string`
+  * TemplateName `string`
+  * TimeRulePlugInName `string`
+  * WebId `string`
+
+### AnalysisCategory
+* AnalysisCategory `object`
+  * Description `string`
+  * Id `string`
+  * Links `object`
+    * Database `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * Self `string`
+  * Name `string`
+  * Path `string`
+  * WebId `string`
+
+### AnalysisRule
+* AnalysisRule `object`
+  * ConfigString `string`
+  * Description `string`
+  * DisplayString `string`
+  * EditorType `string`
+  * HasChildren `boolean`
+  * Id `string`
+  * IsConfigured `boolean`
+  * IsInitializing `boolean`
+  * Links `object`
+    * Analysis `string`
+    * AnalysisRules `string`
+    * AnalysisTemplate `string`
+    * Parent `string`
+    * PlugIn `string`
+    * Self `string`
+  * Name `string`
+  * Path `string`
+  * PlugInName `string`
+  * SupportedBehaviors `array`
+    * items `string`
+  * VariableMapping `string`
+  * WebId `string`
+
+### AnalysisRulePlugIn
+* AnalysisRulePlugIn `object`
+  * AssemblyFileName `string`
+  * AssemblyID `string`
+  * AssemblyLoadProperties `array`
+    * items `string`
+  * AssemblyTime `string`
+  * CompatibilityVersion `integer`
+  * Description `string`
+  * Id `string`
+  * IsBrowsable `boolean`
+  * IsNonEditableConfig `boolean`
+  * Links `object`
+    * AssetServer `string`
+    * Self `string`
+  * LoadedAssemblyTime `string`
+  * LoadedVersion `string`
+  * Name `string`
+  * Path `string`
+  * Version `string`
+  * WebId `string`
+
+### AnalysisTemplate
+* AnalysisTemplate `object`
+  * AnalysisRulePlugInName `string`
+  * CategoryNames `array`
+    * items `string`
+  * CreateEnabled `boolean`
+  * Description `string`
+  * GroupId `integer`
+  * HasNotificationTemplate `boolean`
+  * HasTarget `boolean`
+  * Id `string`
+  * Links `object`
+    * AnalysisRule `string`
+    * AnalysisRulePlugIn `string`
+    * Categories `string`
+    * Database `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * Self `string`
+    * Target `string`
+    * TimeRule `string`
+    * TimeRulePlugIn `string`
+  * Name `string`
+  * OutputTime `string`
+  * Path `string`
+  * TargetName `string`
+  * TimeRulePlugInName `string`
+  * WebId `string`
+
+### Annotation
+* Annotation `object`
+  * CreationDate `string`
+  * Creator `string`
+  * Description `string`
+  * Id `string`
+  * Links `object`
+    * Owner `string`
+    * Self `string`
+  * Modifier `string`
+  * ModifyDate `string`
+  * Name `string`
+  * Value `object`
+
+### AssetDatabase
+* AssetDatabase `object`
+  * Description `string`
+  * ExtendedProperties `object`
+  * Id `string`
+  * Links `object`
+    * AnalysisCategories `string`
+    * AnalysisTemplates `string`
+    * AssetServer `string`
+    * AttributeCategories `string`
+    * ElementCategories `string`
+    * ElementTemplates `string`
+    * Elements `string`
+    * EnumerationSets `string`
+    * EventFrames `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * Self `string`
+    * TableCategories `string`
+    * Tables `string`
+  * Name `string`
+  * Path `string`
+  * WebId `string`
+
+### AssetServer
+* AssetServer `object`
+  * Description `string`
+  * ExtendedProperties `object`
+  * Id `string`
+  * IsConnected `boolean`
+  * Links `object`
+    * AnalysisRulePlugIns `string`
+    * Databases `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * SecurityIdentities `string`
+    * SecurityMappings `string`
+    * Self `string`
+    * TimeRulePlugIns `string`
+    * UnitClasses `string`
+  * Name `string`
+  * Path `string`
+  * ServerVersion `string`
+  * WebId `string`
+
+### Attribute
+* Attribute `object`
+  * CategoryNames `array`
+    * items `string`
+  * ConfigString `string`
+  * DataReferencePlugIn `string`
+  * DefaultUnitsName `string`
+  * Description `string`
+  * HasChildren `boolean`
+  * Id `string`
+  * IsConfigurationItem `boolean`
+  * IsExcluded `boolean`
+  * IsHidden `boolean`
+  * IsManualDataEntry `boolean`
+  * Links `object`
+    * Attributes `string`
+    * Categories `string`
+    * Element `string`
+    * EndValue `string`
+    * EnumerationSet `string`
+    * EventFrame `string`
+    * InterpolatedData `string`
+    * Parent `string`
+    * PlotData `string`
+    * Point `string`
+    * RecordedData `string`
+    * Self `string`
+    * SummaryData `string`
+    * Template `string`
+    * Trait `string`
+    * Value `string`
+  * Name `string`
+  * Path `string`
+  * Step `boolean`
+  * TraitName `string`
+  * Type `string`
+  * TypeQualifier `string`
+  * WebId `string`
+
+### AttributeCategory
+* AttributeCategory `object`
+  * Description `string`
+  * Id `string`
+  * Links `object`
+    * Database `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * Self `string`
+  * Name `string`
+  * Path `string`
+  * WebId `string`
+
+### AttributeTemplate
+* AttributeTemplate `object`
+  * CategoryNames `array`
+    * items `string`
+  * ConfigString `string`
+  * DataReferencePlugIn `string`
+  * DefaultUnitsName `string`
+  * DefaultValue `object`
+  * Description `string`
+  * HasChildren `boolean`
+  * Id `string`
+  * IsConfigurationItem `boolean`
+  * IsExcluded `boolean`
+  * IsHidden `boolean`
+  * IsManualDataEntry `boolean`
+  * Links `object`
+    * AttributeTemplates `string`
+    * Categories `string`
+    * ElementTemplate `string`
+    * Parent `string`
+    * Self `string`
+    * Trait `string`
+  * Name `string`
+  * Path `string`
+  * TraitName `string`
+  * Type `string`
+  * TypeQualifier `string`
+  * WebId `string`
+
+### AttributeTrait
+* AttributeTrait `object`
+  * Abbreviation `string`
+  * AllowChildAttributes `boolean`
+  * AllowDuplicates `boolean`
+  * IsAllowedOnRootAttribute `boolean`
+  * IsTypeInherited `boolean`
+  * IsUOMInherited `boolean`
+  * Links `object`
+    * Self `string`
+  * Name `string`
+  * RequireNumeric `boolean`
+  * RequireString `boolean`
+
+### CacheInstance
+* CacheInstance `object`
+  * Id `string`
+  * LastRefreshTime `string`
+  * ScheduledExpirationTime `string`
+  * User `string`
+  * WillRefreshAfter `string`
+
+### DataServer
+* DataServer `object`
+  * Id `string`
+  * IsConnected `boolean`
+  * Links `object`
+    * EnumerationSets `string`
+    * Points `string`
+    * Self `string`
+  * Name `string`
+  * Path `string`
+  * ServerVersion `string`
+  * WebId `string`
+
+### Element
+* Element `object`
+  * CategoryNames `array`
+    * items `string`
+  * Description `string`
+  * ExtendedProperties `object`
+  * HasChildren `boolean`
+  * Id `string`
+  * Links `object`
+    * Analyses `string`
+    * Attributes `string`
+    * Categories `string`
+    * Database `string`
+    * DefaultAttribute `string`
+    * Elements `string`
+    * EndValue `string`
+    * EventFrames `string`
+    * InterpolatedData `string`
+    * Parent `string`
+    * PlotData `string`
+    * RecordedData `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * Self `string`
+    * SummaryData `string`
+    * Template `string`
+    * Value `string`
+  * Name `string`
+  * Path `string`
+  * TemplateName `string`
+  * WebId `string`
+
+### ElementCategory
+* ElementCategory `object`
+  * Description `string`
+  * Id `string`
+  * Links `object`
+    * Database `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * Self `string`
+  * Name `string`
+  * Path `string`
+  * WebId `string`
+
+### ElementTemplate
+* ElementTemplate `object`
+  * AllowElementToExtend `boolean`
+  * BaseTemplate `string`
+  * CanBeAcknowledged `boolean`
+  * CategoryNames `array`
+    * items `string`
+  * Description `string`
+  * ExtendedProperties `object`
+  * Id `string`
+  * InstanceType `string`
+  * Links `object`
+    * AnalysisTemplates `string`
+    * AttributeTemplates `string`
+    * BaseTemplate `string`
+    * Categories `string`
+    * Database `string`
+    * DefaultAttribute `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * Self `string`
+  * Name `string`
+  * NamingPattern `string`
+  * Path `string`
+  * Severity `string`
+  * WebId `string`
+
+### EnumerationSet
+* EnumerationSet `object`
+  * Description `string`
+  * Id `string`
+  * Links `object`
+    * DataServer `string`
+    * Database `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * Self `string`
+    * Values `string`
+  * Name `string`
+  * Path `string`
+  * SerializeDescription `boolean`
+  * WebId `string`
+
+### EnumerationValue
+* EnumerationValue `object`
+  * Description `string`
+  * Id `string`
+  * Links `object`
+    * EnumerationSet `string`
+    * Self `string`
+  * Name `string`
+  * Path `string`
+  * SerializeDescription `boolean`
+  * SerializeId `boolean`
+  * SerializeLinks `boolean`
+  * SerializePath `boolean`
+  * SerializeWebId `boolean`
+  * Value `integer`
+  * WebId `string`
+
+### Errors
+* Errors `object`
+  * Errors `array`
+    * items `string`
+
+### EventFrame
+* EventFrame `object`
+  * AcknowledgedBy `string`
+  * AcknowledgedDate `string`
+  * AreValuesCaptured `boolean`
+  * CanBeAcknowledged `boolean`
+  * CategoryNames `array`
+    * items `string`
+  * Description `string`
+  * EndTime `string`
+  * ExtendedProperties `object`
+  * HasChildren `boolean`
+  * Id `string`
+  * IsAcknowledged `boolean`
+  * IsAnnotated `boolean`
+  * IsLocked `boolean`
+  * Links `object`
+    * Annotations `string`
+    * Attributes `string`
+    * Categories `string`
+    * Database `string`
+    * DefaultAttribute `string`
+    * EndValue `string`
+    * EventFrames `string`
+    * InterpolatedData `string`
+    * Parent `string`
+    * PlotData `string`
+    * PrimaryReferencedElement `string`
+    * RecordedData `string`
+    * ReferencedElements `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * Self `string`
+    * SummaryData `string`
+    * Template `string`
+    * Value `string`
+  * Name `string`
+  * Path `string`
+  * RefElementWebIds `array`
+    * items `string`
+  * Security [Security](#security)
+  * Severity `string`
+  * StartTime `string`
+  * TemplateName `string`
+  * WebId `string`
+
+### Item[Attribute]
+* Item[Attribute] `object`
+  * Exception [Errors](#errors)
+  * Identifier `string`
+  * IdentifierType `string`
+  * Object [Attribute](#attribute)
+
+### Item[Element]
+* Item[Element] `object`
+  * Exception [Errors](#errors)
+  * Identifier `string`
+  * IdentifierType `string`
+  * Object [Element](#element)
+
+### Item[EventFrame]
+* Item[EventFrame] `object`
+  * Exception [Errors](#errors)
+  * Identifier `string`
+  * IdentifierType `string`
+  * Object [EventFrame](#eventframe)
+
+### Item[Point]
+* Item[Point] `object`
+  * Exception [Errors](#errors)
+  * Identifier `string`
+  * IdentifierType `string`
+  * Object [Point](#point)
+
+### Items[AnalysisCategory]
+* Items[AnalysisCategory] `object`
+  * Items `array`
+    * items [AnalysisCategory](#analysiscategory)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[AnalysisRulePlugIn]
+* Items[AnalysisRulePlugIn] `object`
+  * Items `array`
+    * items [AnalysisRulePlugIn](#analysisruleplugin)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[AnalysisRule]
+* Items[AnalysisRule] `object`
+  * Items `array`
+    * items [AnalysisRule](#analysisrule)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[AnalysisTemplate]
+* Items[AnalysisTemplate] `object`
+  * Items `array`
+    * items [AnalysisTemplate](#analysistemplate)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[Analysis]
+* Items[Analysis] `object`
+  * Items `array`
+    * items [Analysis](#analysis)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[Annotation]
+* Items[Annotation] `object`
+  * Items `array`
+    * items [Annotation](#annotation)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[AssetDatabase]
+* Items[AssetDatabase] `object`
+  * Items `array`
+    * items [AssetDatabase](#assetdatabase)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[AssetServer]
+* Items[AssetServer] `object`
+  * Items `array`
+    * items [AssetServer](#assetserver)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[AttributeCategory]
+* Items[AttributeCategory] `object`
+  * Items `array`
+    * items [AttributeCategory](#attributecategory)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[AttributeTemplate]
+* Items[AttributeTemplate] `object`
+  * Items `array`
+    * items [AttributeTemplate](#attributetemplate)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[AttributeTrait]
+* Items[AttributeTrait] `object`
+  * Items `array`
+    * items [AttributeTrait](#attributetrait)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[Attribute]
+* Items[Attribute] `object`
+  * Items `array`
+    * items [Attribute](#attribute)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[CacheInstance]
+* Items[CacheInstance] `object`
+  * Items `array`
+    * items [CacheInstance](#cacheinstance)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[DataServer]
+* Items[DataServer] `object`
+  * Items `array`
+    * items [DataServer](#dataserver)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[ElementCategory]
+* Items[ElementCategory] `object`
+  * Items `array`
+    * items [ElementCategory](#elementcategory)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[ElementTemplate]
+* Items[ElementTemplate] `object`
+  * Items `array`
+    * items [ElementTemplate](#elementtemplate)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[Element]
+* Items[Element] `object`
+  * Items `array`
+    * items [Element](#element)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[EnumerationSet]
+* Items[EnumerationSet] `object`
+  * Items `array`
+    * items [EnumerationSet](#enumerationset)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[EnumerationValue]
+* Items[EnumerationValue] `object`
+  * Items `array`
+    * items [EnumerationValue](#enumerationvalue)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[EventFrame]
+* Items[EventFrame] `object`
+  * Items `array`
+    * items [EventFrame](#eventframe)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[Item[Attribute]]
+* Items[Item[Attribute]] `object`
+  * Items `array`
+    * items [Item[Attribute]](#item[attribute])
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[Item[Element]]
+* Items[Item[Element]] `object`
+  * Items `array`
+    * items [Item[Element]](#item[element])
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[Item[EventFrame]]
+* Items[Item[EventFrame]] `object`
+  * Items `array`
+    * items [Item[EventFrame]](#item[eventframe])
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[Item[Point]]
+* Items[Item[Point]] `object`
+  * Items `array`
+    * items [Item[Point]](#item[point])
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[Items[Substatus]]
+* Items[Items[Substatus]] `object`
+  * Items `array`
+    * items [Items[Substatus]](#items[substatus])
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[PointAttribute]
+* Items[PointAttribute] `object`
+  * Items `array`
+    * items [PointAttribute](#pointattribute)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[Point]
+* Items[Point] `object`
+  * Items `array`
+    * items [Point](#point)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[SecurityEntry]
+* Items[SecurityEntry] `object`
+  * Items `array`
+    * items [SecurityEntry](#securityentry)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[SecurityIdentity]
+* Items[SecurityIdentity] `object`
+  * Items `array`
+    * items [SecurityIdentity](#securityidentity)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[SecurityMapping]
+* Items[SecurityMapping] `object`
+  * Items `array`
+    * items [SecurityMapping](#securitymapping)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[SecurityRights]
+* Items[SecurityRights] `object`
+  * Items `array`
+    * items [SecurityRights](#securityrights)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[StreamSummaries]
+* Items[StreamSummaries] `object`
+  * Items `array`
+    * items [StreamSummaries](#streamsummaries)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[StreamValue]
+* Items[StreamValue] `object`
+  * Items `array`
+    * items [StreamValue](#streamvalue)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[StreamValues]
+* Items[StreamValues] `object`
+  * Items `array`
+    * items [StreamValues](#streamvalues)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[Substatus]
+* Items[Substatus] `object`
+  * Items `array`
+    * items [Substatus](#substatus)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[SummaryValue]
+* Items[SummaryValue] `object`
+  * Items `array`
+    * items [SummaryValue](#summaryvalue)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[TableCategory]
+* Items[TableCategory] `object`
+  * Items `array`
+    * items [TableCategory](#tablecategory)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[Table]
+* Items[Table] `object`
+  * Items `array`
+    * items [Table](#table)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[TimeRulePlugIn]
+* Items[TimeRulePlugIn] `object`
+  * Items `array`
+    * items [TimeRulePlugIn](#timeruleplugin)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Items[UnitClass]
+* Items[UnitClass] `object`
+  * Items `array`
+    * items [UnitClass](#unitclass)
+  * Links `object`
+    * First `string`
+    * Last `string`
+    * Next `string`
+    * Previous `string`
+
+### Landing
+* Landing `object`
+  * Links `object`
+    * AssetServers `string`
+    * DataServers `string`
+    * Search `string`
+    * Self `string`
+    * System `string`
+
+### Point
+* Point `object`
+  * Descriptor `string`
+  * DigitalSetName `string`
+  * EngineeringUnits `string`
+  * Future `boolean`
+  * Id `integer`
+  * Links `object`
+    * Attributes `string`
+    * DataServer `string`
+    * EndValue `string`
+    * InterpolatedData `string`
+    * PlotData `string`
+    * RecordedData `string`
+    * Self `string`
+    * SummaryData `string`
+    * Value `string`
+  * Name `string`
+  * Path `string`
+  * PointClass `string`
+  * PointType `string`
+  * Step `boolean`
+  * WebId `string`
+
+### PointAttribute
+* PointAttribute `object`
+  * Links `object`
+    * Point `string`
+    * Self `string`
+  * Name `string`
+  * Value `object`
+
+### Request
+* Request `object`
+  * Content `string`
+  * Headers `object`
+  * Method `string`
+  * Parameters `array`
+    * items `string`
+  * ParentIds `array`
+    * items `string`
+  * RequestTemplate [RequestTemplate](#requesttemplate)
+  * Resource `string`
+
+### RequestTemplate
+* RequestTemplate `object`
+  * Resource `string`
+
+### Response
+* Response `object`
+  * Content `object`
+  * Headers `object`
+  * Status `integer` (values: 100, 101, 200, 201, 202, 203, 204, 205, 206, 300, 301, 302, 303, 304, 305, 306, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 426, 500, 501, 502, 503, 504, 505)
+
+### Security
+* Security `object`
+  * CanAnnotate `boolean`
+  * CanDelete `boolean`
+  * CanExecute `boolean`
+  * CanRead `boolean`
+  * CanReadData `boolean`
+  * CanSubscribe `boolean`
+  * CanSubscribeOthers `boolean`
+  * CanWrite `boolean`
+  * CanWriteData `boolean`
+  * HasAdmin `boolean`
+  * Rights `array`
+    * items `string`
+
+### SecurityEntry
+* SecurityEntry `object`
+  * AllowRights `array`
+    * items `string`
+  * DenyRights `array`
+    * items `string`
+  * Links `object`
+    * SecurableObject `string`
+    * SecurityIdentity `string`
+    * Self `string`
+  * Name `string`
+  * SecurityIdentityName `string`
+
+### SecurityIdentity
+* SecurityIdentity `object`
+  * Description `string`
+  * Id `string`
+  * IsEnabled `boolean`
+  * Links `object`
+    * AssetServer `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * SecurityMappings `string`
+    * Self `string`
+  * Name `string`
+  * Path `string`
+  * WebId `string`
+
+### SecurityMapping
+* SecurityMapping `object`
+  * Account `string`
+  * Description `string`
+  * Id `string`
+  * Links `object`
+    * AssetServer `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * SecurityIdentity `string`
+    * Self `string`
+  * Name `string`
+  * Path `string`
+  * SecurityIdentityWebId `string`
+  * WebId `string`
+
+### SecurityRights
+* SecurityRights `object`
+  * Links `object`
+    * Owner `string`
+    * Self `string`
+  * OwnerWebId `string`
+  * SecurityItem `string`
+  * UserIdentity `string`
+
+### StreamSummaries
+* StreamSummaries `object`
+  * Items `array`
+    * items [SummaryValue](#summaryvalue)
+  * Links `object`
+    * Source `string`
+  * Name `string`
+  * Path `string`
+  * WebId `string`
+
+### StreamValue
+* StreamValue `object`
+  * Links `object`
+    * Source `string`
+  * Name `string`
+  * Path `string`
+  * Value [TimedValue](#timedvalue)
+  * WebId `string`
+
+### StreamValues
+* StreamValues `object`
+  * Items `array`
+    * items [TimedValue](#timedvalue)
+  * Links `object`
+    * Source `string`
+  * Name `string`
+  * Path `string`
+  * UnitsAbbreviation `string`
+  * WebId `string`
+
+### Substatus
+* Substatus `object`
+  * Message `string`
+  * Substatus `integer` (values: 100, 101, 200, 201, 202, 203, 204, 205, 206, 300, 301, 302, 303, 304, 305, 306, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 426, 500, 501, 502, 503, 504, 505)
+
+### SummaryValue
+* SummaryValue `object`
+  * Type `string`
+  * Value [TimedValue](#timedvalue)
+
+### SystemLanding
+* SystemLanding `object`
+  * Links `object`
+    * CacheInstances `string`
+    * Configuration `string`
+    * Self `string`
+    * Status `string`
+    * UserInfo `string`
+    * Versions `string`
+  * ProductTitle `string`
+  * ProductVersion `string`
+
+### SystemStatus
+* SystemStatus `object`
+  * CacheInstances `integer`
+  * State `string`
+  * UpTimeInMinutes `number`
+
+### Table
+* Table `object`
+  * CategoryNames `array`
+    * items `string`
+  * ConvertToLocalTime `boolean`
+  * Description `string`
+  * Id `string`
+  * Links `object`
+    * Categories `string`
+    * Data `string`
+    * Database `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * Self `string`
+  * Name `string`
+  * Path `string`
+  * TimeZone `string`
+  * WebId `string`
+
+### TableCategory
+* TableCategory `object`
+  * Description `string`
+  * Id `string`
+  * Links `object`
+    * Database `string`
+    * Security `string`
+    * SecurityEntries `string`
+    * Self `string`
+  * Name `string`
+  * Path `string`
+  * WebId `string`
+
+### TableData
+* TableData `object`
+  * Columns `object`
+  * Rows `array`
+    * items `object`
+
+### TimeRule
+* TimeRule `object`
+  * ConfigString `string`
+  * ConfigStringStored `string`
+  * Description `string`
+  * DisplayString `string`
+  * EditorType `string`
+  * Id `string`
+  * IsConfigured `boolean`
+  * IsInitializing `boolean`
+  * Links `object`
+    * Analysis `string`
+    * AnalysisTemplate `string`
+    * PlugIn `string`
+    * Self `string`
+  * MergeDuplicatedItems `boolean`
+  * Name `string`
+  * Path `string`
+  * PlugInName `string`
+  * WebId `string`
+
+### TimeRulePlugIn
+* TimeRulePlugIn `object`
+  * AssemblyFileName `string`
+  * AssemblyID `string`
+  * AssemblyLoadProperties `array`
+    * items `string`
+  * AssemblyTime `string`
+  * CompatibilityVersion `integer`
+  * Description `string`
+  * Id `string`
+  * IsBrowsable `boolean`
+  * IsNonEditableConfig `boolean`
+  * Links `object`
+    * AssetServer `string`
+    * Self `string`
+  * LoadedAssemblyTime `string`
+  * LoadedVersion `string`
+  * Name `string`
+  * Path `string`
+  * Version `string`
+  * WebId `string`
+
+### TimedValue
+* TimedValue `object`
+  * Exception [Errors](#errors)
+  * Good `boolean`
+  * Questionable `boolean`
+  * Substituted `boolean`
+  * Timestamp `string`
+  * UnitsAbbreviation `string`
+  * Value `object`
+
+### TimedValues
+* TimedValues `object`
+  * Items `array`
+    * items [TimedValue](#timedvalue)
+  * UnitsAbbreviation `string`
+
+### Unit
+* Unit `object`
+  * Abbreviation `string`
+  * Description `string`
+  * Factor `number`
+  * Id `string`
+  * Links `object`
+    * Class `string`
+    * ReferenceUnit `string`
+    * Self `string`
+  * Name `string`
+  * Offset `number`
+  * Path `string`
+  * ReferenceFactor `number`
+  * ReferenceOffset `number`
+  * ReferenceUnitAbbreviation `string`
+  * WebId `string`
+
+### UnitClass
+* UnitClass `object`
+  * CanonicalUnitAbbreviation `string`
+  * CanonicalUnitName `string`
+  * Description `string`
+  * Id `string`
+  * Links `object`
+    * AssetServer `string`
+    * CanonicalUnit `string`
+    * Self `string`
+    * Units `string`
+  * Name `string`
+  * Path `string`
+  * WebId `string`
+
+### UserInfo
+* UserInfo `object`
+  * IdentityType `string`
+  * ImpersonationLevel `string`
+  * IsAuthenticated `boolean`
+  * Name `string`
+  * SID `string`
+
+### Value
+* Value `object`
+  * Exception [Errors](#errors)
+  * Value `object`
+
+### Version
+* Version `object`
+  * Build `string`
+  * FullVersion `string`
+  * MajorMinorRevision `string`
+
 

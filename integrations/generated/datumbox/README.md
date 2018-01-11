@@ -4,13 +4,11 @@ Client library for DatumBox
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/datumbox
+npm install --save @datafire/datumbox
 ```
-
 ```js
-let datafire = require('datafire');
 let datumbox = require('@datafire/datumbox').create({
-  apiKey: "",
+  apiKey: ""
 });
 
 datumbox.AdultContentDetection({}).then(data => {
@@ -19,9 +17,11 @@ datumbox.AdultContentDetection({}).then(data => {
 ```
 
 ## Description
+
 Datumbox offers a Machine Learning platform composed of 14 classifiers and Natural Language processing functions. Functions include sentiment analysis, topic classification, readability assessment, language detection, and much more.
 
 ## Actions
+
 ### AdultContentDetection
 The Adult Content Detection function classifies the documents as adult or noadult based on their context. It can be used to detect whether a document contains content unsuitable for minors.
 
@@ -32,8 +32,12 @@ datumbox.AdultContentDetection({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+#### Input
+* input `object`
+  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+
+#### Output
+*Output schema unknown*
 
 ### CommercialDetection
 The Commercial Detection function labels the documents as commercial or non-commercial based on their keywords and expressions. It can be used to detect whether a website is commercial or not.
@@ -45,8 +49,12 @@ datumbox.CommercialDetection({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+#### Input
+* input `object`
+  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+
+#### Output
+*Output schema unknown*
 
 ### DocumentSimilarity
 The Document Similarity function estimates the degree of similarity between two documents. It can be used to detect duplicate webpages or detect plagiarism.
@@ -59,9 +67,13 @@ datumbox.DocumentSimilarity({
 }, context)
 ```
 
-#### Parameters
-* original (string) **required** - The first text. It should not contain HTML tags.
-* copy (string) **required** - The second text. It should not contain HTML tags.
+#### Input
+* input `object`
+  * original **required** `string`: The first text. It should not contain HTML tags.
+  * copy **required** `string`: The second text. It should not contain HTML tags.
+
+#### Output
+*Output schema unknown*
 
 ### EducationalDetection
 The Educational Detection function classifies the documents as educational or non-educational based on their context. It can be used to detect whether a website is educational or not.
@@ -73,8 +85,12 @@ datumbox.EducationalDetection({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+#### Input
+* input `object`
+  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+
+#### Output
+*Output schema unknown*
 
 ### GenderDetection
 The Gender Detection function identifies if a particular document is written-by or targets-to a man or a woman based on the context, the words and the idioms found in the text.
@@ -86,8 +102,12 @@ datumbox.GenderDetection({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+#### Input
+* input `object`
+  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+
+#### Output
+*Output schema unknown*
 
 ### KeywordExtraction
 The Keyword Extraction function enables you to extract from an arbitrary document all the keywords and word-combinations along with their occurrences in the text.
@@ -100,9 +120,13 @@ datumbox.KeywordExtraction({
 }, context)
 ```
 
-#### Parameters
-* n (integer) **required** - The number of keyword combinations (n-grams) that you wish to extract.
-* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+#### Input
+* input `object`
+  * n **required** `integer`: The number of keyword combinations (n-grams) that you wish to extract.
+  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+
+#### Output
+*Output schema unknown*
 
 ### LanguageDetection
 The Language Detection function identifies the natural language of the given document based on its words and context. This classifier is able to detect 96 different languages.
@@ -114,8 +138,12 @@ datumbox.LanguageDetection({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+#### Input
+* input `object`
+  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+
+#### Output
+*Output schema unknown*
 
 ### ReadabilityAssessment
 The Readability Assessment function determines the degree of readability of a document based on its terms and idioms. The texts are classified as basic, intermediate and advanced depending their difficulty.
@@ -127,8 +155,12 @@ datumbox.ReadabilityAssessment({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+#### Input
+* input `object`
+  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+
+#### Output
+*Output schema unknown*
 
 ### SentimentAnalysis
 The Sentiment Analysis function classifies documents as positive, negative or neutral (lack of sentiment) depending on whether they express a positive, negative or neutral opinion.
@@ -140,8 +172,12 @@ datumbox.SentimentAnalysis({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+#### Input
+* input `object`
+  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+
+#### Output
+*Output schema unknown*
 
 ### SpamDetection
 The Spam Detection function labels documents as spam or nospam by taking into account their context. It can be used to filter out spam emails and comments.
@@ -153,8 +189,12 @@ datumbox.SpamDetection({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+#### Input
+* input `object`
+  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+
+#### Output
+*Output schema unknown*
 
 ### SubjectivityAnalysis
 The Subjectivity Analysis function categorizes documents as subjective or objective based on their writing style. Texts that express personal opinions are labeled as subjective and the others as objective.
@@ -166,8 +206,12 @@ datumbox.SubjectivityAnalysis({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+#### Input
+* input `object`
+  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+
+#### Output
+*Output schema unknown*
 
 ### TextExtraction
 The Text Extraction function enables you to extract the important information from a given webpage. Extracting the clear text of the documents is an important step before any other analysis.
@@ -179,8 +223,12 @@ datumbox.TextExtraction({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - The HTML source of the webpage.
+#### Input
+* input `object`
+  * text **required** `string`: The HTML source of the webpage.
+
+#### Output
+*Output schema unknown*
 
 ### TopicClassification
 The Topic Classification function assigns documents in 12 thematic categories based on their keywords, idioms and jargon. It can be used to identify the topic of the texts.
@@ -192,8 +240,12 @@ datumbox.TopicClassification({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+#### Input
+* input `object`
+  * text **required** `string`: The text that you want to analyze. It should not contain HTML tags.
+
+#### Output
+*Output schema unknown*
 
 ### TwitterSentimentAnalysis
 The Twitter Sentiment Analysis function allows you to perform Sentiment Analysis on Twitter. It classifies the tweets as positive, negative or neutral depending on their context.
@@ -205,6 +257,15 @@ datumbox.TwitterSentimentAnalysis({
 }, context)
 ```
 
-#### Parameters
-* text (string) **required** - The text of the tweet that we evaluate.
+#### Input
+* input `object`
+  * text **required** `string`: The text of the tweet that we evaluate.
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

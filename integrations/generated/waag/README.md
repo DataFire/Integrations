@@ -4,11 +4,9 @@ Client library for CitySDK Linked Data
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/waag
+npm install --save @datafire/waag
 ```
-
 ```js
-let datafire = require('datafire');
 let waag = require('@datafire/waag').create();
 
 waag.layers.get({}).then(data => {
@@ -17,9 +15,11 @@ waag.layers.get({}).then(data => {
 ```
 
 ## Description
+
 An API for the distribution and annotation of open data, for small cities and big metropolitan areas.
 
 ## Actions
+
 ### layers.get
 Return all layers
 
@@ -28,8 +28,11 @@ Return all layers
 waag.layers.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### layers.post
 Create new layer
@@ -39,8 +42,11 @@ Create new layer
 waag.layers.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.delete
 Delete a layer
@@ -52,8 +58,12 @@ waag.layers.layer.delete({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.get
 Return single layer
@@ -65,8 +75,12 @@ waag.layers.layer.get({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.patch
 Edit a layer
@@ -78,8 +92,12 @@ waag.layers.layer.patch({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.context.get
 Return JSON-LD context of single layer
@@ -91,8 +109,12 @@ waag.layers.layer.context.get({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.context.put
 Overwrite JSON-LD context of single layer
@@ -104,8 +126,12 @@ waag.layers.layer.context.put({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.fields.get
 Return all fields of single layer
@@ -117,8 +143,12 @@ waag.layers.layer.fields.get({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.fields.post
 Create new field for single layer
@@ -130,8 +160,12 @@ waag.layers.layer.fields.post({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.fields.field.delete
 Delete a single field on single layer
@@ -144,9 +178,13 @@ waag.layers.layer.fields.field.delete({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
-* field (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+  * field **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.fields.field.get
 Return single field of single layer
@@ -159,9 +197,13 @@ waag.layers.layer.fields.field.get({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
-* field (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+  * field **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.fields.field.patch
 Edit single field on single layer
@@ -174,9 +216,13 @@ waag.layers.layer.fields.field.patch({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
-* field (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+  * field **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.fields.field.put
 Overwrite single field on single layer
@@ -189,9 +235,13 @@ waag.layers.layer.fields.field.put({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
-* field (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+  * field **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.objects.delete
 Delete all objects from a single layer
@@ -203,8 +253,12 @@ waag.layers.layer.objects.delete({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.objects.get
 Return all objects with data on single layer
@@ -216,8 +270,12 @@ waag.layers.layer.objects.get({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.objects.patch
 Edit one or more objects and data on single layer
@@ -229,8 +287,12 @@ waag.layers.layer.objects.patch({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.objects.post
 Create one or more objects with data on single layer, or add data to existing objects (or a combination thereof)
@@ -242,8 +304,12 @@ waag.layers.layer.objects.post({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.objects.cdk_id.get
 Return metadata of single layer about single object, e.g. the date the data was added/modified, etc.
@@ -256,9 +322,13 @@ waag.layers.layer.objects.cdk_id.get({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
-* cdk_id (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+  * cdk_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### layers.layer.owners.get
 Return all owners associated with single layer
@@ -270,8 +340,12 @@ waag.layers.layer.owners.get({
 }, context)
 ```
 
-#### Parameters
-* layer (string) **required**
+#### Input
+* input `object`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### ngsi10.contextEntities.entity.get
 Return single context entity
@@ -283,8 +357,12 @@ waag.ngsi10.contextEntities.entity.get({
 }, context)
 ```
 
-#### Parameters
-* entity (string) **required**
+#### Input
+* input `object`
+  * entity **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### ngsi10.contextEntities.entity.attributes.put
 Update attributes for single context entity
@@ -296,8 +374,12 @@ waag.ngsi10.contextEntities.entity.attributes.put({
 }, context)
 ```
 
-#### Parameters
-* entity (string) **required**
+#### Input
+* input `object`
+  * entity **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### ngsi10.contextEntities.entity.attributes.attribute.get
 Return single context entity attribute
@@ -310,9 +392,13 @@ waag.ngsi10.contextEntities.entity.attributes.attribute.get({
 }, context)
 ```
 
-#### Parameters
-* entity (string) **required**
-* attribute (string) **required**
+#### Input
+* input `object`
+  * entity **required** `string`
+  * attribute **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### ngsi10.contextEntityTypes.cetype.get
 Return objects of particular type
@@ -324,8 +410,12 @@ waag.ngsi10.contextEntityTypes.cetype.get({
 }, context)
 ```
 
-#### Parameters
-* cetype (string) **required**
+#### Input
+* input `object`
+  * cetype **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### ngsi10.contextEntityTypes.cetype.attributes.attribute.get
 Return objects of particular type
@@ -338,9 +428,13 @@ waag.ngsi10.contextEntityTypes.cetype.attributes.attribute.get({
 }, context)
 ```
 
-#### Parameters
-* cetype (string) **required**
-* attribute (string) **required**
+#### Input
+* input `object`
+  * cetype **required** `string`
+  * attribute **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### ngsi10.queryContext.post
 Query context broker for contextElements
@@ -350,8 +444,11 @@ Query context broker for contextElements
 waag.ngsi10.queryContext.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### ngsi10.subscribeContext.post
 Create a new context subscription
@@ -361,8 +458,11 @@ Create a new context subscription
 waag.ngsi10.subscribeContext.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### ngsi10.unsubscribeContext.post
 Delete a context subscription
@@ -372,8 +472,11 @@ Delete a context subscription
 waag.ngsi10.unsubscribeContext.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### ngsi10.updateContext.post
 Add or update NGSI contextElements
@@ -383,8 +486,11 @@ Add or update NGSI contextElements
 waag.ngsi10.updateContext.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### ngsi10.updateContextSubscription.post
 Update/edit a context subscription
@@ -394,8 +500,11 @@ Update/edit a context subscription
 waag.ngsi10.updateContextSubscription.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### objects.get
 Return all objects
@@ -405,8 +514,11 @@ Return all objects
 waag.objects.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### objects.cdk_id.delete
 Delete a single object
@@ -418,8 +530,12 @@ waag.objects.cdk_id.delete({
 }, context)
 ```
 
-#### Parameters
-* cdk_id (string) **required**
+#### Input
+* input `object`
+  * cdk_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### objects.cdk_id.get
 Get a single object
@@ -431,8 +547,12 @@ waag.objects.cdk_id.get({
 }, context)
 ```
 
-#### Parameters
-* cdk_id (string) **required**
+#### Input
+* input `object`
+  * cdk_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### objects.cdk_id.patch
 Edit a single object
@@ -444,8 +564,12 @@ waag.objects.cdk_id.patch({
 }, context)
 ```
 
-#### Parameters
-* cdk_id (string) **required**
+#### Input
+* input `object`
+  * cdk_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### objects.cdk_id.layers.get
 Get all layers that contain data of single object
@@ -457,8 +581,12 @@ waag.objects.cdk_id.layers.get({
 }, context)
 ```
 
-#### Parameters
-* cdk_id (string) **required**
+#### Input
+* input `object`
+  * cdk_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### objects.cdk_id.layers.layer.delete
 Remove data on layer from single object
@@ -471,9 +599,13 @@ waag.objects.cdk_id.layers.layer.delete({
 }, context)
 ```
 
-#### Parameters
-* cdk_id (string) **required**
-* layer (string) **required**
+#### Input
+* input `object`
+  * cdk_id **required** `string`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### objects.cdk_id.layers.layer.get
 Return all data on single layer of single object
@@ -486,9 +618,13 @@ waag.objects.cdk_id.layers.layer.get({
 }, context)
 ```
 
-#### Parameters
-* cdk_id (string) **required**
-* layer (string) **required**
+#### Input
+* input `object`
+  * cdk_id **required** `string`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### objects.cdk_id.layers.layer.patch
 Update data on layer to single object
@@ -501,9 +637,13 @@ waag.objects.cdk_id.layers.layer.patch({
 }, context)
 ```
 
-#### Parameters
-* cdk_id (string) **required**
-* layer (string) **required**
+#### Input
+* input `object`
+  * cdk_id **required** `string`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### objects.cdk_id.layers.layer.post
 Add data on layer to single object
@@ -516,9 +656,13 @@ waag.objects.cdk_id.layers.layer.post({
 }, context)
 ```
 
-#### Parameters
-* cdk_id (string) **required**
-* layer (string) **required**
+#### Input
+* input `object`
+  * cdk_id **required** `string`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### objects.cdk_id.layers.layer.put
 Overwrite data on layer to single object
@@ -531,9 +675,13 @@ waag.objects.cdk_id.layers.layer.put({
 }, context)
 ```
 
-#### Parameters
-* cdk_id (string) **required**
-* layer (string) **required**
+#### Input
+* input `object`
+  * cdk_id **required** `string`
+  * layer **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### owners.get
 Return all owners
@@ -543,8 +691,11 @@ Return all owners
 waag.owners.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### owners.post
 Create new owner
@@ -554,8 +705,11 @@ Create new owner
 waag.owners.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### owners.owner.delete
 Delete owner - and all layers and data belonging to this owner
@@ -567,8 +721,12 @@ waag.owners.owner.delete({
 }, context)
 ```
 
-#### Parameters
-* owner (string) **required**
+#### Input
+* input `object`
+  * owner **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### owners.owner.get
 Get a single owner
@@ -580,8 +738,12 @@ waag.owners.owner.get({
 }, context)
 ```
 
-#### Parameters
-* owner (string) **required**
+#### Input
+* input `object`
+  * owner **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### owners.owner.patch
 Edit an owner
@@ -593,8 +755,12 @@ waag.owners.owner.patch({
 }, context)
 ```
 
-#### Parameters
-* owner (string) **required**
+#### Input
+* input `object`
+  * owner **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### owners.owner.layers.get
 Return all layers belonging to a single owner
@@ -606,8 +772,12 @@ waag.owners.owner.layers.get({
 }, context)
 ```
 
-#### Parameters
-* owner (string) **required**
+#### Input
+* input `object`
+  * owner **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### session.delete
 Close session
@@ -617,8 +787,11 @@ Close session
 waag.session.delete(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### session.get
 Return a session key
@@ -631,7 +804,16 @@ waag.session.get({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - Login name.
-* password (string) **required** - Login password.
+#### Input
+* input `object`
+  * name **required** `string`: Login name.
+  * password **required** `string`: Login password.
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

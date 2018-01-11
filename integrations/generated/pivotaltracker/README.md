@@ -4,11 +4,9 @@ Client library for Pivotal Tracker
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/pivotaltracker
+npm install --save @datafire/pivotaltracker
 ```
-
 ```js
-let datafire = require('datafire');
 let pivotaltracker = require('@datafire/pivotaltracker').create();
 
 pivotaltracker.activities.get({}).then(data => {
@@ -17,9 +15,11 @@ pivotaltracker.activities.get({}).then(data => {
 ```
 
 ## Description
+
 Access and manipulate agile project management data including projects, stories and tasks.
 
 ## Actions
+
 ### tokens.active.get
 Returns an API token associated with the user. This method requires HTTP Basic authentication.
 
@@ -28,8 +28,11 @@ Returns an API token associated with the user. This method requires HTTP Basic a
 pivotaltracker.tokens.active.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### tokens.active.post
 Returns an API token associated with the user.
@@ -42,9 +45,13 @@ pivotaltracker.tokens.active.post({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - The user's name.
-* password (string) **required** - The user's password.
+#### Input
+* input `object`
+  * username **required** `string`: The user's name.
+  * password **required** `string`: The user's password.
+
+#### Output
+*Output schema unknown*
 
 ### activities.get
 Retrieves the recent activity of all your projects.
@@ -54,10 +61,14 @@ Retrieves the recent activity of all your projects.
 pivotaltracker.activities.get({}, context)
 ```
 
-#### Parameters
-* limit (integer) - Limits the number of activity feed items. Note the default value is 10, and there is a upper cap of 100
-* occurred_since_date (string) - Restricts the activity feed to only those items that occurred after a supplied date (example format: 2009/12/18 21:00:00 UTC)
-* newer_than_version (string) - Restricts the activity feed to only those items that have a greater than supplied version
+#### Input
+* input `object`
+  * limit `integer`: Limits the number of activity feed items. Note the default value is 10, and there is a upper cap of 100
+  * occurred_since_date `string`: Restricts the activity feed to only those items that occurred after a supplied date (example format: 2009/12/18 21:00:00 UTC)
+  * newer_than_version `string`: Restricts the activity feed to only those items that have a greater than supplied version
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.activities.get
 Retrieves the recent activity of a specific project.
@@ -69,10 +80,14 @@ pivotaltracker.projects.PROJECT_ID.activities.get({
 }, context)
 ```
 
-#### Parameters
-* limit (integer) - Limits the number of activity feed items. Note the default value is 10, and there is a upper cap of 100
-* occurred_since_date (string) - Restricts the activity feed to only those items that occurred after a supplied date (example format: 2009/12/18 21:00:00 UTC)
-* PROJECT_ID (string) **required** - The ID of the project to retrieve the activity for
+#### Input
+* input `object`
+  * limit `integer`: Limits the number of activity feed items. Note the default value is 10, and there is a upper cap of 100
+  * occurred_since_date `string`: Restricts the activity feed to only those items that occurred after a supplied date (example format: 2009/12/18 21:00:00 UTC)
+  * PROJECT_ID **required** `string`: The ID of the project to retrieve the activity for
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.get
 Retrieves information about a project.
@@ -84,8 +99,12 @@ pivotaltracker.projects.PROJECT_ID.get({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project to retrieve
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project to retrieve
+
+#### Output
+*Output schema unknown*
 
 ### projects.get
 Retrieves all of the user's projects.
@@ -95,8 +114,11 @@ Retrieves all of the user's projects.
 pivotaltracker.projects.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### projects.post
 Adds a new project.
@@ -106,8 +128,11 @@ Adds a new project.
 pivotaltracker.projects.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.memberships.get
 Retrieves all memberships for a project.
@@ -119,8 +144,12 @@ pivotaltracker.projects.PROJECT_ID.memberships.get({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.memberships.post
 Adds a new membership to a project.
@@ -132,8 +161,12 @@ pivotaltracker.projects.PROJECT_ID.memberships.post({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.memberships.MEMBERSHIP_ID.get
 Retrieves information about a single membership.
@@ -146,9 +179,13 @@ pivotaltracker.projects.PROJECT_ID.memberships.MEMBERSHIP_ID.get({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
-* MEMBERSHIP_ID (string) **required** - The ID of the membership
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+  * MEMBERSHIP_ID **required** `string`: The ID of the membership
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.memberships.MEMBERSHIP_ID.delete
 Removes a membership from a project
@@ -161,9 +198,13 @@ pivotaltracker.projects.PROJECT_ID.memberships.MEMBERSHIP_ID.delete({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
-* MEMBERSHIP_ID (string) **required** - The ID of the membership
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+  * MEMBERSHIP_ID **required** `string`: The ID of the membership
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.iterations.get
 Retrieves all iterations, with stories.
@@ -175,8 +216,12 @@ pivotaltracker.projects.PROJECT_ID.iterations.get({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.iterations.done.get
 Retrieves iterations from the "done" group, with stories.
@@ -188,10 +233,14 @@ pivotaltracker.projects.PROJECT_ID.iterations.done.get({
 }, context)
 ```
 
-#### Parameters
-* offset (integer) - Controls the number of iterations to skip from the beginning of the result.
-* limit (integer) - Controls the maximum number of iterations returned.
-* PROJECT_ID (string) **required** - The ID of the project
+#### Input
+* input `object`
+  * offset `integer`: Controls the number of iterations to skip from the beginning of the result.
+  * limit `integer`: Controls the maximum number of iterations returned.
+  * PROJECT_ID **required** `string`: The ID of the project
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.iterations.current.get
 Retrieves iterations from the "current" group, with stories.
@@ -203,8 +252,12 @@ pivotaltracker.projects.PROJECT_ID.iterations.current.get({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.iterations.backlog.get
 Retrieves iterations from the "backlog" group, with stories.
@@ -216,10 +269,14 @@ pivotaltracker.projects.PROJECT_ID.iterations.backlog.get({
 }, context)
 ```
 
-#### Parameters
-* offset (integer) - Controls the number of iterations to skip from the beginning of the result.
-* limit (integer) - Controls the maximum number of iterations returned.
-* PROJECT_ID (string) **required** - The ID of the project
+#### Input
+* input `object`
+  * offset `integer`: Controls the number of iterations to skip from the beginning of the result.
+  * limit `integer`: Controls the maximum number of iterations returned.
+  * PROJECT_ID **required** `string`: The ID of the project
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.iterations.current_backlog.get
 Retrieves iterations from the "current" and "backlog" groups, with stories.
@@ -231,10 +288,14 @@ pivotaltracker.projects.PROJECT_ID.iterations.current_backlog.get({
 }, context)
 ```
 
-#### Parameters
-* offset (integer) - Controls the number of iterations to skip from the beginning of the result.
-* limit (integer) - Controls the maximum number of iterations returned.
-* PROJECT_ID (string) **required** - The ID of the project
+#### Input
+* input `object`
+  * offset `integer`: Controls the number of iterations to skip from the beginning of the result.
+  * limit `integer`: Controls the maximum number of iterations returned.
+  * PROJECT_ID **required** `string`: The ID of the project
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.STORY_ID.get
 Retrieves information about a single story.
@@ -247,9 +308,13 @@ pivotaltracker.projects.PROJECT_ID.stories.STORY_ID.get({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
-* STORY_ID (string) **required** - The ID of the story
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+  * STORY_ID **required** `string`: The ID of the story
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.STORY_ID.put
 Updates a story
@@ -262,9 +327,13 @@ pivotaltracker.projects.PROJECT_ID.stories.STORY_ID.put({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
-* STORY_ID (string) **required** - The ID of the story
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+  * STORY_ID **required** `string`: The ID of the story
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.STORY_ID.delete
 Deletes a story
@@ -277,9 +346,13 @@ pivotaltracker.projects.PROJECT_ID.stories.STORY_ID.delete({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
-* STORY_ID (string) **required** - The ID of the story
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+  * STORY_ID **required** `string`: The ID of the story
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.get
 Retrieves all stories for a project, or those matching filter(s)
@@ -291,11 +364,15 @@ pivotaltracker.projects.PROJECT_ID.stories.get({
 }, context)
 ```
 
-#### Parameters
-* filter (string) - A filter for the returned stories to match. See the API documentation for more details.
-* offset (integer) - Controls the number of stories to skip from the beginning of the result.
-* limit (integer) - Controls the maximum number of stories returned.
-* PROJECT_ID (string) **required** - The ID of the project
+#### Input
+* input `object`
+  * filter `string`: A filter for the returned stories to match. See the API documentation for more details.
+  * offset `integer`: Controls the number of stories to skip from the beginning of the result.
+  * limit `integer`: Controls the maximum number of stories returned.
+  * PROJECT_ID **required** `string`: The ID of the project
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.post
 Adds a new story
@@ -307,8 +384,12 @@ pivotaltracker.projects.PROJECT_ID.stories.post({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.STORY_ID.notes.put
 Adds a note (comment)
@@ -321,9 +402,13 @@ pivotaltracker.projects.PROJECT_ID.stories.STORY_ID.notes.put({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
-* STORY_ID (string) **required** - The ID of the story
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+  * STORY_ID **required** `string`: The ID of the story
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.deliver_all_finished.post
 Takes all finished stories and marks them as delivered. This could be used to automate a demo deploy process. The updated stories are returned as the result.
@@ -335,8 +420,12 @@ pivotaltracker.projects.PROJECT_ID.stories.deliver_all_finished.post({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.STORY_ID.moves.post
 Moves a story before or after another story. The moved story is returned in the response.
@@ -349,9 +438,13 @@ pivotaltracker.projects.PROJECT_ID.stories.STORY_ID.moves.post({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
-* STORY_ID (string) **required** - The ID of the story
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+  * STORY_ID **required** `string`: The ID of the story
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.get
 Returns information about a single task
@@ -365,10 +458,14 @@ pivotaltracker.projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.get({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
-* STORY_ID (string) **required** - The ID of the story
-* TASK_ID (string) **required** - The ID of the task
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+  * STORY_ID **required** `string`: The ID of the story
+  * TASK_ID **required** `string`: The ID of the task
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.put
 Updates a task
@@ -382,10 +479,14 @@ pivotaltracker.projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.put({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
-* STORY_ID (string) **required** - The ID of the story
-* TASK_ID (string) **required** - The ID of the task
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+  * STORY_ID **required** `string`: The ID of the story
+  * TASK_ID **required** `string`: The ID of the task
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.delete
 Deletes a task
@@ -399,10 +500,14 @@ pivotaltracker.projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.delete({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
-* STORY_ID (string) **required** - The ID of the story
-* TASK_ID (string) **required** - The ID of the task
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+  * STORY_ID **required** `string`: The ID of the story
+  * TASK_ID **required** `string`: The ID of the task
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.STORY_ID.tasks.get
 Returns all tasks for a story
@@ -415,9 +520,13 @@ pivotaltracker.projects.PROJECT_ID.stories.STORY_ID.tasks.get({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
-* STORY_ID (string) **required** - The ID of the story
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+  * STORY_ID **required** `string`: The ID of the story
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.STORY_ID.tasks.post
 Adds a task to a story
@@ -430,9 +539,13 @@ pivotaltracker.projects.PROJECT_ID.stories.STORY_ID.tasks.post({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
-* STORY_ID (string) **required** - The ID of the story
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+  * STORY_ID **required** `string`: The ID of the story
+
+#### Output
+*Output schema unknown*
 
 ### projects.PROJECT_ID.stories.STORY_ID.attachments.post
 Uploads an attachment to a story.
@@ -445,9 +558,13 @@ pivotaltracker.projects.PROJECT_ID.stories.STORY_ID.attachments.post({
 }, context)
 ```
 
-#### Parameters
-* PROJECT_ID (string) **required** - The ID of the project
-* STORY_ID (string) **required** - The ID of the story
+#### Input
+* input `object`
+  * PROJECT_ID **required** `string`: The ID of the project
+  * STORY_ID **required** `string`: The ID of the story
+
+#### Output
+*Output schema unknown*
 
 ### source_commits.post
 Allows integration with post-commit hooks of Source Control Management (SCM) systems such as Subversion, Git, etc.
@@ -457,6 +574,14 @@ Allows integration with post-commit hooks of Source Control Management (SCM) sys
 pivotaltracker.source_commits.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

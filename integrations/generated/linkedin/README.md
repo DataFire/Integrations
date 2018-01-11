@@ -4,17 +4,15 @@ Client library for LinkedIn
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/linkedin
+npm install --save @datafire/linkedin
 ```
-
 ```js
-let datafire = require('datafire');
 let linkedin = require('@datafire/linkedin').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 linkedin.companies.get({}).then(data => {
@@ -23,9 +21,11 @@ linkedin.companies.get({}).then(data => {
 ```
 
 ## Description
+
 Bring user profiles and professional networks to your apps.
 
 ## Actions
+
 ### oauthCallback
 Exchange the code passed to your redirect URI for an access_token
 
@@ -36,8 +36,17 @@ linkedin.oauthCallback({
 }, context)
 ```
 
-#### Parameters
-* code (string) **required**
+#### Input
+* input `object`
+  * code **required** `string`
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### oauthRefresh
 Exchange a refresh_token for an access_token
@@ -47,8 +56,16 @@ Exchange a refresh_token for an access_token
 linkedin.oauthRefresh(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### companies.id.updates.key_update_key.update_comments_as_company.post
 
@@ -63,11 +80,15 @@ linkedin.companies.id.updates.key_update_key.update_comments_as_company.post({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* update-key (string) **required** - The unique company update identifier.
-* Content-Type (string) **required** - The content type.
-* x-li-format (string) **required** - The content type.
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * update-key **required** `string`: The unique company update identifier.
+  * Content-Type **required** `string`: The content type.
+  * x-li-format **required** `string`: The content type.
+
+#### Output
+*Output schema unknown*
 
 ### people._.get
 
@@ -77,9 +98,13 @@ linkedin.companies.id.updates.key_update_key.update_comments_as_company.post({
 linkedin.people._.get({}, context)
 ```
 
-#### Parameters
-* Accept-Language (string) - Some members have profiles in multiple languages. To specify the language you prefer, set the values to a comma separated list of locales ordered from highest to lowest preference. For example, if your preferred order is Spanish, then English (American), and finally Italian, your header should be: Accept-Language: es-ES, en-US, it-IT. At present, we will always return data if possible. So, if you specify just one locale, but the member hasn't localized her profile for that locale, we will return data in her primary language. We support any language the member has specified. For example, for Simplified Chinese, use zh-CN. However, the six most popular languages are: en-US, fr-FR, de-DE, it-IT, pt-BR and es-ES.
-* format (string)
+#### Input
+* input `object`
+  * Accept-Language `string`: Some members have profiles in multiple languages. To specify the language you prefer, set the values to a comma separated list of locales ordered from highest to lowest preference. For example, if your preferred order is Spanish, then English (American), and finally Italian, your header should be: Accept-Language: es-ES, en-US, it-IT. At present, we will always return data if possible. So, if you specify just one locale, but the member hasn't localized her profile for that locale, we will return data in her primary language. We support any language the member has specified. For example, for Simplified Chinese, use zh-CN. However, the six most popular languages are: en-US, fr-FR, de-DE, it-IT, pt-BR and es-ES.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### people._id_num_connections_picture_url_.get
 
@@ -89,8 +114,12 @@ linkedin.people._.get({}, context)
 linkedin.people._id_num_connections_picture_url_.get({}, context)
 ```
 
-#### Parameters
-* format (string)
+#### Input
+* input `object`
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### people._.shares.post
 
@@ -103,10 +132,14 @@ linkedin.people._.shares.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - The content type.
-* x-li-format (string) **required** - The content type.
-* format (string)
+#### Input
+* input `object`
+  * Content-Type **required** `string`: The content type.
+  * x-li-format **required** `string`: The content type.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.id.is_company_share_enabled.get
 
@@ -118,9 +151,13 @@ linkedin.companies.id.is_company_share_enabled.get({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* format (string)
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.id.relation_to_viewer.is_company_share_enabled.get
 
@@ -132,9 +169,13 @@ linkedin.companies.id.relation_to_viewer.is_company_share_enabled.get({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* format (string)
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.get
 
@@ -144,10 +185,14 @@ linkedin.companies.id.relation_to_viewer.is_company_share_enabled.get({
 linkedin.companies.get({}, context)
 ```
 
-#### Parameters
-* start (integer) - The offset value for paginating company results by.
-* count (integer) - Maximum number of companies to return.
-* format (string)
+#### Input
+* input `object`
+  * start `integer`: The offset value for paginating company results by.
+  * count `integer`: Maximum number of companies to return.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.id.get
 
@@ -159,9 +204,13 @@ linkedin.companies.id.get({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* format (string)
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.id_id_name_ticker_description_.get
 
@@ -173,9 +222,13 @@ linkedin.companies.id_id_name_ticker_description_.get({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* format (string)
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.id.updates.get
 
@@ -187,12 +240,16 @@ linkedin.companies.id.updates.get({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* event-type (integer) - The offset value for paginating update results by.
-* start (integer) - The offset value for paginating update results by.
-* count (integer) - Maximum number of updates to return.
-* format (string)
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * event-type `integer`: The offset value for paginating update results by.
+  * start `integer`: The offset value for paginating update results by.
+  * count `integer`: Maximum number of updates to return.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.id.updates.key_update_key.get
 
@@ -205,10 +262,14 @@ linkedin.companies.id.updates.key_update_key.get({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* update-key (string) **required** - The unique company update identifier.
-* format (string)
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * update-key **required** `string`: The unique company update identifier.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.id.updates.key_update_key.update_comments.get
 
@@ -221,10 +282,14 @@ linkedin.companies.id.updates.key_update_key.update_comments.get({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* update-key (string) **required** - The unique company update identifier.
-* format (string)
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * update-key **required** `string`: The unique company update identifier.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.id.updates.key_update_key.likes.get
 
@@ -237,10 +302,14 @@ linkedin.companies.id.updates.key_update_key.likes.get({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* update-key (string) **required** - The unique company update identifier.
-* format (string)
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * update-key **required** `string`: The unique company update identifier.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.id.shares.post
 
@@ -254,11 +323,15 @@ linkedin.companies.id.shares.post({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* Content-Type (string) **required** - The content type.
-* x-li-format (string) **required** - The content type.
-* format (string)
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * Content-Type **required** `string`: The content type.
+  * x-li-format **required** `string`: The content type.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.id.num_followers.get
 
@@ -270,14 +343,18 @@ linkedin.companies.id.num_followers.get({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* geos (string) - Segment by a particular geographic area.
-* companySizes (string) - Segment by a particular company size targeting code.
-* jobFunc (string) - Segment by member job function targeting code.
-* industries (string) - Segment by member industry.
-* seniorities (string) - Segment by member seniority level targeting code.
-* format (string)
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * geos `string`: Segment by a particular geographic area.
+  * companySizes `string`: Segment by a particular company size targeting code.
+  * jobFunc `string`: Segment by member job function targeting code.
+  * industries `string`: Segment by member industry.
+  * seniorities `string`: Segment by member seniority level targeting code.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.id.historical_follow_statistics.get
 
@@ -291,12 +368,16 @@ linkedin.companies.id.historical_follow_statistics.get({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* time-granularity (string) **required** - Granularity of statistics. Supported values are:
-* start-timestamp (string) **required** - Starting timestamp of when the stats search should begin (milliseconds since epoch)
-* end-timestamp (string) - Ending timestamp of when the stats search should end (milliseconds since epoch). The current time will be used if parameter not set.
-* format (string)
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * time-granularity **required** `string`: Granularity of statistics. Supported values are:
+  * start-timestamp **required** `string`: Starting timestamp of when the stats search should begin (milliseconds since epoch)
+  * end-timestamp `string`: Ending timestamp of when the stats search should end (milliseconds since epoch). The current time will be used if parameter not set.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.id.historical_status_update_statistics.get
 
@@ -310,13 +391,17 @@ linkedin.companies.id.historical_status_update_statistics.get({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* time-granularity (string) **required** - Granularity of statistics. Supported values are:
-* start-timestamp (string) **required** - Starting timestamp of when the stats search should begin (milliseconds since epoch)
-* end-timestamp (string) - Ending timestamp of when the stats search should end (milliseconds since epoch). The current time will be used if parameter not set.
-* update-key (string) - Optionally provide an update key value to return statistics for a specific company update.
-* format (string)
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * time-granularity **required** `string`: Granularity of statistics. Supported values are:
+  * start-timestamp **required** `string`: Starting timestamp of when the stats search should begin (milliseconds since epoch)
+  * end-timestamp `string`: Ending timestamp of when the stats search should end (milliseconds since epoch). The current time will be used if parameter not set.
+  * update-key `string`: Optionally provide an update key value to return statistics for a specific company update.
+  * format `string`
+
+#### Output
+*Output schema unknown*
 
 ### companies.id.company_statistics.get
 
@@ -328,7 +413,16 @@ linkedin.companies.id.company_statistics.get({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required** - The unique internal numeric company identifier.
-* format (string)
+#### Input
+* input `object`
+  * id **required** `string`: The unique internal numeric company identifier.
+  * format `string`
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

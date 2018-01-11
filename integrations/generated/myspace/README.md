@@ -4,11 +4,9 @@ Client library for MySpace
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/myspace
+npm install --save @datafire/myspace
 ```
-
 ```js
-let datafire = require('datafire');
 let myspace = require('@datafire/myspace').create();
 
 myspace.1.0.activities._supportedFields.get({}).then(data => {
@@ -17,9 +15,11 @@ myspace.1.0.activities._supportedFields.get({}).then(data => {
 ```
 
 ## Description
+
 Create apps and games within the MySpace platform. Monetize through advertising and virtual goods.
 
 ## Actions
+
 ### 1.0.statusmoodcomments.personId._self.statusId.post
 Posts a comment to a status.
 
@@ -33,18 +33,22 @@ myspace.1.0.statusmoodcomments.personId._self.statusId.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* personId (string) **required** - The person's identifier.
-* statusId (string) **required** - Specifies which status or mood to post a comment for.
-* selector (string) **required** - Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* filterBy (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterOp (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterValue (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * personId **required** `string`: The person's identifier.
+  * statusId **required** `string`: Specifies which status or mood to post a comment for.
+  * selector **required** `string` (values: @self, @all, @friends): Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * filterBy `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterOp `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterValue `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.statusmood.personId.selector.friendId.history.get
 Returns History Friend.
@@ -58,17 +62,21 @@ myspace.1.0.statusmood.personId.selector.friendId.history.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* friendId (string) **required** - Is the same as {personId}, but for the person's friend.
-* selector (string) **required** - Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* filterBy (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterOp (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterValue (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * friendId **required** `string`: Is the same as {personId}, but for the person's friend.
+  * selector **required** `string` (values: @self, @all, @friends): Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * filterBy `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterOp `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterValue `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.statusmood.personId.selector.friendId.get
 Returns a status for Friend.
@@ -82,17 +90,21 @@ myspace.1.0.statusmood.personId.selector.friendId.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* friendId (string) **required** - Is the same as {personId}, but for the person's friend.
-* selector (string) **required** - Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* filterBy (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterOp (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterValue (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * friendId **required** `string`: Is the same as {personId}, but for the person's friend.
+  * selector **required** `string` (values: @self, @all, @friends): Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * filterBy `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterOp `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterValue `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.statusmood.personId.selector.history.get
 Returns History User.
@@ -105,16 +117,20 @@ myspace.1.0.statusmood.personId.selector.history.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* selector (string) **required** - Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* filterBy (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterOp (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterValue (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * selector **required** `string` (values: @self, @all, @friends): Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * filterBy `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterOp `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterValue `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.statusmood.personId.selector.put
 Updates a status for User.
@@ -128,17 +144,21 @@ myspace.1.0.statusmood.personId.selector.put({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* personId (string) **required** - The person's identifier.
-* selector (string) **required** - Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* filterBy (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterOp (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterValue (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * personId **required** `string`: The person's identifier.
+  * selector **required** `string` (values: @self, @all, @friends): Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * filterBy `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterOp `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterValue `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.statusmood.personId.selector.get
 Returns a status for User.
@@ -151,16 +171,20 @@ myspace.1.0.statusmood.personId.selector.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* selector (string) **required** - Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* filterBy (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterOp (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterValue (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * selector **required** `string` (values: @self, @all, @friends): Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * filterBy `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterOp `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterValue `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.statusmood.personId._supportedMood.moodId.put
 Updates a mood.
@@ -174,17 +198,21 @@ myspace.1.0.statusmood.personId._supportedMood.moodId.put({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* personId (string) **required** - The person's identifier.
-* moodId (integer) **required** - The integer value of the specific mood that you want to retrieve data for.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* filterBy (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterOp (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterValue (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * personId **required** `string`: The person's identifier.
+  * moodId **required** `integer`: The integer value of the specific mood that you want to retrieve data for.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * filterBy `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterOp `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterValue `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.statusmood.personId._supportedMood.moodId.get
 Retrieves a mood.
@@ -197,16 +225,20 @@ myspace.1.0.statusmood.personId._supportedMood.moodId.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* moodId (integer) **required** - The integer value of the specific mood that you want to retrieve data for.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* filterBy (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterOp (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterValue (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * moodId **required** `integer`: The integer value of the specific mood that you want to retrieve data for.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * filterBy `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterOp `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterValue `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.statusmood.personId._supportedMood.post
 Adds a mood.
@@ -219,16 +251,20 @@ myspace.1.0.statusmood.personId._supportedMood.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* personId (string) **required** - The person's identifier.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* filterBy (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterOp (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterValue (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * personId **required** `string`: The person's identifier.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * filterBy `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterOp `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterValue `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.statusmood.personId._supportedMood.get
 Retrieves all supported moods.
@@ -240,15 +276,19 @@ myspace.1.0.statusmood.personId._supportedMood.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* filterBy (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterOp (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* filterValue (string) - See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * filterBy `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterOp `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * filterValue `string`: See: http://wiki.developer.myspace.com/index.php?title=Status_and_Mood_API#Filtering_Results
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.mediaitemcomments.personId._self.albumId.mediaItemId.get
 Retrieves item comments from a specified album.
@@ -262,15 +302,19 @@ myspace.1.0.mediaitemcomments.personId._self.albumId.mediaItemId.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* albumId (string) **required** - Indicates which single album from the group identified by {selector} should be returned.
-* mediaItemId (string) **required** - Indicates which single media item from the album identified by {albumId} should be returned.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold fields are always returned.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * albumId **required** `string`: Indicates which single album from the group identified by {selector} should be returned.
+  * mediaItemId **required** `string`: Indicates which single media item from the album identified by {albumId} should be returned.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold fields are always returned.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.mediaItems.personId._videos._supportedcategories.categoryId.get
 Retrieves videos for Category.
@@ -283,14 +327,18 @@ myspace.1.0.mediaItems.personId._videos._supportedcategories.categoryId.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* categoryId (string) **required** - Indicates the video category about which you want to retrieve data.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold fields are always returned.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * categoryId **required** `string`: Indicates the video category about which you want to retrieve data.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold fields are always returned.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.mediaItems.personId._videos._supportedcategories.get
 Retrieves supported categories.
@@ -302,13 +350,17 @@ myspace.1.0.mediaItems.personId._videos._supportedcategories.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold fields are always returned.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold fields are always returned.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.mediaItems.personId._self._videos.mediaItemId.put
 Updates an video.
@@ -322,15 +374,19 @@ myspace.1.0.mediaItems.personId._self._videos.mediaItemId.put({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* personId (string) **required** - The person's identifier.
-* mediaItemId (string) **required** - Indicates which single media item should be returned.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold fields are always returned.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * personId **required** `string`: The person's identifier.
+  * mediaItemId **required** `string`: Indicates which single media item should be returned.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold fields are always returned.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.mediaItems.personId._self._videos.mediaItemId.get
 Retrieves a video.
@@ -343,14 +399,18 @@ myspace.1.0.mediaItems.personId._self._videos.mediaItemId.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* mediaItemId (string) **required** - Indicates which single media item should be returned.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold fields are always returned.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * mediaItemId **required** `string`: Indicates which single media item should be returned.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold fields are always returned.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.mediaItems.personId._self._videos.post
 Adds videos from a specified album.
@@ -363,14 +423,18 @@ myspace.1.0.mediaItems.personId._self._videos.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* personId (string) **required** - The person's identifier.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold fields are always returned.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * personId **required** `string`: The person's identifier.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold fields are always returned.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.mediaItems.personId._self._videos.get
 Retrieves all the videos.
@@ -382,13 +446,17 @@ myspace.1.0.mediaItems.personId._self._videos.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold fields are always returned.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold fields are always returned.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.mediaItems.personId._self.albumId.mediaItemId.put
 Updates an item from a specified album.
@@ -403,16 +471,20 @@ myspace.1.0.mediaItems.personId._self.albumId.mediaItemId.put({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* personId (string) **required** - The person's identifier.
-* albumId (string) **required** - Indicates which single album from the group identified by {selector} should be returned.
-* mediaItemId (string) **required** - Indicates which single media item from the album identified by {albumId} should be returned.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold fields are always returned.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * personId **required** `string`: The person's identifier.
+  * albumId **required** `string`: Indicates which single album from the group identified by {selector} should be returned.
+  * mediaItemId **required** `string`: Indicates which single media item from the album identified by {albumId} should be returned.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold fields are always returned.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.mediaItems.personId._self.albumId.mediaItemId.get
 Retrieves an item from a specified album.
@@ -426,15 +498,19 @@ myspace.1.0.mediaItems.personId._self.albumId.mediaItemId.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* albumId (string) **required** - Indicates which single album from the group identified by {selector} should be returned.
-* mediaItemId (string) **required** - Indicates which single media item from the album identified by {albumId} should be returned.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold fields are always returned.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * albumId **required** `string`: Indicates which single album from the group identified by {selector} should be returned.
+  * mediaItemId **required** `string`: Indicates which single media item from the album identified by {albumId} should be returned.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold fields are always returned.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.mediaItems.personId._self.albumId.post
 Adds items from a specified album.
@@ -448,15 +524,19 @@ myspace.1.0.mediaItems.personId._self.albumId.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* personId (string) **required** - The person's identifier.
-* albumId (string) **required** - Indicates which single album from the group identified by {selector} should be returned.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold fields are always returned.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * personId **required** `string`: The person's identifier.
+  * albumId **required** `string`: Indicates which single album from the group identified by {selector} should be returned.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold fields are always returned.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.mediaItems.personId._self.albumId.get
 Retrieves items from a specified album.
@@ -469,14 +549,18 @@ myspace.1.0.mediaItems.personId._self.albumId.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* albumId (string) **required** - Indicates which single album from the group identified by {selector} should be returned.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold fields are always returned.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * albumId **required** `string`: Indicates which single album from the group identified by {selector} should be returned.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold fields are always returned.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.mediaItems._supportedFields.get
 Retrieves all supported fields.
@@ -486,12 +570,16 @@ Retrieves all supported fields.
 myspace.1.0.mediaItems._supportedFields.get({}, context)
 ```
 
-#### Parameters
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold fields are always returned.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold fields are always returned.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### stream.subscription._all.delete
 Deletes all subscriptions.
@@ -501,8 +589,12 @@ Deletes all subscriptions.
 myspace.stream.subscription._all.delete({}, context)
 ```
 
-#### Parameters
-* format (string) - Determines the format of the response.
+#### Input
+* input `object`
+  * format `string` (values: json, xml): Determines the format of the response.
+
+#### Output
+*Output schema unknown*
 
 ### stream.subscription._all.get
 Retrieves all subscriptions.
@@ -512,8 +604,12 @@ Retrieves all subscriptions.
 myspace.stream.subscription._all.get({}, context)
 ```
 
-#### Parameters
-* format (string) - Determines the format of the response.
+#### Input
+* input `object`
+  * format `string` (values: json, xml): Determines the format of the response.
+
+#### Output
+*Output schema unknown*
 
 ### stream.subscription.subscriptionId.delete
 Deletes a subscription.
@@ -525,9 +621,13 @@ myspace.stream.subscription.subscriptionId.delete({
 }, context)
 ```
 
-#### Parameters
-* subscriptionId (integer) **required** - The subscription's identifier.
-* format (string) - Determines the format of the response.
+#### Input
+* input `object`
+  * subscriptionId **required** `integer`: The subscription's identifier.
+  * format `string` (values: json, xml): Determines the format of the response.
+
+#### Output
+*Output schema unknown*
 
 ### stream.subscription.subscriptionId.put
 Updates a subscription.
@@ -540,10 +640,14 @@ myspace.stream.subscription.subscriptionId.put({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* subscriptionId (integer) **required** - The subscription's identifier.
-* format (string) - Determines the format of the response.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * subscriptionId **required** `integer`: The subscription's identifier.
+  * format `string` (values: json, xml): Determines the format of the response.
+
+#### Output
+*Output schema unknown*
 
 ### stream.subscription.subscriptionId.get
 Retrieves a subscription.
@@ -555,9 +659,13 @@ myspace.stream.subscription.subscriptionId.get({
 }, context)
 ```
 
-#### Parameters
-* subscriptionId (integer) **required** - The subscription's identifier.
-* format (string) - Determines the format of the response.
+#### Input
+* input `object`
+  * subscriptionId **required** `integer`: The subscription's identifier.
+  * format `string` (values: json, xml): Determines the format of the response.
+
+#### Output
+*Output schema unknown*
 
 ### stream.subscription.post
 Creates a subscription.
@@ -569,9 +677,13 @@ myspace.stream.subscription.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* format (string) - Determines the format of the response.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * format `string` (values: json, xml): Determines the format of the response.
+
+#### Output
+*Output schema unknown*
 
 ### opensearch.videos.get
 Returns search results for videos.
@@ -583,14 +695,18 @@ myspace.opensearch.videos.get({
 }, context)
 ```
 
-#### Parameters
-* searchTerms (string) **required** - Free form search terms or query words
-* count (integer) - Number of items to return.
-* culture (string) - The culture context of the search. Default is en-us.
-* format (string) - Determines the format of the response.
-* startPage (integer) - Which page to start at for the results.
-* tag (integer) - Determine if searching on tags, as opposed to contents. To enable tag search, set to 1.
-* videoMode (integer) - Search for specific video types. Two allowed values are videoMode=1 (music videos) or videoMode=2 (official).
+#### Input
+* input `object`
+  * searchTerms **required** `string`: Free form search terms or query words
+  * count `integer`: Number of items to return.
+  * culture `string`: The culture context of the search. Default is en-us.
+  * format `string` (values: json): Determines the format of the response.
+  * startPage `integer`: Which page to start at for the results.
+  * tag `integer`: Determine if searching on tags, as opposed to contents. To enable tag search, set to 1.
+  * videoMode `integer` (values: 1, 2): Search for specific video types. Two allowed values are videoMode=1 (music videos) or videoMode=2 (official).
+
+#### Output
+*Output schema unknown*
 
 ### opensearch.images.get
 Returns search results for images.
@@ -602,14 +718,18 @@ myspace.opensearch.images.get({
 }, context)
 ```
 
-#### Parameters
-* searchTerms (string) **required** - Free form search terms or query words
-* count (integer) - Number of items to return.
-* culture (string) - The culture context of the search. Default is en-us.
-* format (string) - Determines the format of the response.
-* sortBy (string) - How to sort the images. Default is all.
-* sortOrder (string) - Indicates whether to sort ascending or descending. Default is descending.
-* startPage (integer) - Which page to start at for the results.
+#### Input
+* input `object`
+  * searchTerms **required** `string`: Free form search terms or query words
+  * count `integer`: Number of items to return.
+  * culture `string`: The culture context of the search. Default is en-us.
+  * format `string` (values: json, xml): Determines the format of the response.
+  * sortBy `string`: How to sort the images. Default is all.
+  * sortOrder `string`: Indicates whether to sort ascending or descending. Default is descending.
+  * startPage `integer`: Which page to start at for the results.
+
+#### Output
+*Output schema unknown*
 
 ### opensearch.people.get
 Returns search results for people.
@@ -621,22 +741,26 @@ myspace.opensearch.people.get({
 }, context)
 ```
 
-#### Parameters
-* searchTerms (string) **required** - Free form search terms or query words
-* count (integer) - Number of items to return.
-* countryCode (string) - Country code to search with. Can be used instead of culture.
-* culture (string) - The culture context of the search. Default is en-us.
-* distance (integer) - Distance away from location to return results. Default is in miles, but depending on culture specified, it can be in kilometers.
-* format (string) - Determines the format of the response.
-* gender (string) - The gender to filter on. Default is both.
-* hasPhoto (string) - Filter for only those who have a photo. Default those with or without a photo.
-* latitude (integer) - Geographic latitude. Required to be combined with longitude and not combined with location field.
-* location (string) - The location field, such as city, state and/or country.
-* longitude (integer) - Geographic longitude. Required to be combined with latitude and not combined with location field.
-* minAge (integer) - Minimum age for returned people. Same functionality as the MySpace website search.
-* maxAge (integer) - Maximum age for returned people. Same functionality as the MySpace website search.
-* searchBy (string) - Which field the search should go through. Default is all of the fields. (yomi is only available to ja-jp culture).
-* startPage (integer) - Which page to start at for the results.
+#### Input
+* input `object`
+  * searchTerms **required** `string`: Free form search terms or query words
+  * count `integer`: Number of items to return.
+  * countryCode `string`: Country code to search with. Can be used instead of culture.
+  * culture `string`: The culture context of the search. Default is en-us.
+  * distance `integer`: Distance away from location to return results. Default is in miles, but depending on culture specified, it can be in kilometers.
+  * format `string` (values: json, xml): Determines the format of the response.
+  * gender `string`: The gender to filter on. Default is both.
+  * hasPhoto `string`: Filter for only those who have a photo. Default those with or without a photo.
+  * latitude `integer`: Geographic latitude. Required to be combined with longitude and not combined with location field.
+  * location `string`: The location field, such as city, state and/or country.
+  * longitude `integer`: Geographic longitude. Required to be combined with latitude and not combined with location field.
+  * minAge `integer`: Minimum age for returned people. Same functionality as the MySpace website search.
+  * maxAge `integer`: Maximum age for returned people. Same functionality as the MySpace website search.
+  * searchBy `string`: Which field the search should go through. Default is all of the fields. (yomi is only available to ja-jp culture).
+  * startPage `integer`: Which page to start at for the results.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.profilecomments.personId._self.get
 Retrieves profile comments.
@@ -648,8 +772,12 @@ myspace.1.0.profilecomments.personId._self.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.people.personId.selector.friendId.get
 Retrieves friend data.
@@ -663,17 +791,21 @@ myspace.1.0.people.personId.selector.friendId.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* selector (string) **required** - Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
-* friendId (string) **required** - Is the same as {personId}, but for the person's friend.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold are default values.
-* filterBy (string) - @friends, hasapp, @topfriends, @toponlinefriends,	networkpresence.
-* filterOp (string) - contains, equals
-* filterValue (string) - <userId>, online, true|false 
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * selector **required** `string` (values: @self, @all, @friends, groupId): Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
+  * friendId **required** `string`: Is the same as {personId}, but for the person's friend.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold are default values.
+  * filterBy `string`: @friends, hasapp, @topfriends, @toponlinefriends,	networkpresence.
+  * filterOp `string`: contains, equals
+  * filterValue `string`: <userId>, online, true|false 
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.people.personId.selector.get
 Retrieves user data.
@@ -686,16 +818,20 @@ myspace.1.0.people.personId.selector.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* selector (string) **required** - Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold are default values.
-* filterBy (string) - @friends, hasapp, @topfriends, @toponlinefriends,	networkpresence.
-* filterOp (string) - contains, equals
-* filterValue (string) - <userId>, online, true|false 
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * selector **required** `string` (values: @self, @all, @friends, groupId): Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold are default values.
+  * filterBy `string`: @friends, hasapp, @topfriends, @toponlinefriends,	networkpresence.
+  * filterOp `string`: contains, equals
+  * filterValue `string`: <userId>, online, true|false 
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.people._supportedFields.get
 Retrieves all supported fields.
@@ -705,11 +841,15 @@ Retrieves all supported fields.
 myspace.1.0.people._supportedFields.get({}, context)
 ```
 
-#### Parameters
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold are default values.
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold are default values.
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.appdata.personId.selector.appId.delete
 Deletes a specified user's application data.
@@ -723,12 +863,16 @@ myspace.1.0.appdata.personId.selector.appId.delete({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* selector (string) **required** - Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
-* appId (string) **required** - The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair.
-* fields (string) - The fields correspond to keys in the application data. One uses fields to only retrieve specific keys. If the request omits fields, all application data per user will be returned.
-* format (string) - Determines the format of the response.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * selector **required** `string` (values: @self, @all, @friends, groupId): Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
+  * appId **required** `string`: The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair.
+  * fields `string`: The fields correspond to keys in the application data. One uses fields to only retrieve specific keys. If the request omits fields, all application data per user will be returned.
+  * format `string` (values: json, xml): Determines the format of the response.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.appdata.personId.selector.appId.post
 Adds or updates a specified user's application data.
@@ -743,13 +887,17 @@ myspace.1.0.appdata.personId.selector.appId.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* personId (string) **required** - The person's identifier.
-* selector (string) **required** - Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
-* appId (string) **required** - The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair.
-* fields (string) - The fields correspond to keys in the application data. One uses fields to only retrieve specific keys. If the request omits fields, all application data per user will be returned.
-* format (string) - Determines the format of the response.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * personId **required** `string`: The person's identifier.
+  * selector **required** `string` (values: @self, @all, @friends, groupId): Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
+  * appId **required** `string`: The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair.
+  * fields `string`: The fields correspond to keys in the application data. One uses fields to only retrieve specific keys. If the request omits fields, all application data per user will be returned.
+  * format `string` (values: json, xml): Determines the format of the response.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.appdata.personId.selector.appId.get
 Retrieves all application data for a specified user.
@@ -763,12 +911,16 @@ myspace.1.0.appdata.personId.selector.appId.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* selector (string) **required** - Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
-* appId (string) **required** - The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair.
-* fields (string) - The fields correspond to keys in the application data. One uses fields to only retrieve specific keys. If the request omits fields, all application data per user will be returned.
-* format (string) - Determines the format of the response.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * selector **required** `string` (values: @self, @all, @friends, groupId): Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
+  * appId **required** `string`: The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair.
+  * fields `string`: The fields correspond to keys in the application data. One uses fields to only retrieve specific keys. If the request omits fields, all application data per user will be returned.
+  * format `string` (values: json, xml): Determines the format of the response.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.notifications.personId._self.post
 Sends notification.
@@ -781,9 +933,13 @@ myspace.1.0.notifications.personId._self.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* personId (string) **required** - The person's identifier.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * personId **required** `string`: The person's identifier.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.groups.personId.get
 Retrieves the current user's groups.
@@ -795,13 +951,17 @@ myspace.1.0.groups.personId.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported: id and title.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported: id and title.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.groups._supportedFields.get
 Retrieves all supported fields.
@@ -811,12 +971,16 @@ Retrieves all supported fields.
 myspace.1.0.groups._supportedFields.get({}, context)
 ```
 
-#### Parameters
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported: id and title.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported: id and title.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.albums.personId._self.albumId.put
 Update an Album.
@@ -830,10 +994,14 @@ myspace.1.0.albums.personId._self.albumId.put({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* personId (string) **required** - The person's identifier.
-* albumId (string) **required** - Indicates which single album should be returned.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * personId **required** `string`: The person's identifier.
+  * albumId **required** `string`: Indicates which single album should be returned.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.albums.personId._self.albumId.get
 Retrieves an album.
@@ -846,9 +1014,13 @@ myspace.1.0.albums.personId._self.albumId.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* albumId (string) **required** - Indicates which single album should be returned.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * albumId **required** `string`: Indicates which single album should be returned.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.albums.personId._self.post
 Adding an Album.
@@ -861,9 +1033,13 @@ myspace.1.0.albums.personId._self.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* personId (string) **required** - The person's identifier.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * personId **required** `string`: The person's identifier.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.albums.personId._self.get
 Retrieves the current user's albums.
@@ -875,13 +1051,17 @@ myspace.1.0.albums.personId._self.get({
 }, context)
 ```
 
-#### Parameters
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold are default values.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
-* personId (string) **required** - The person's identifier.
+#### Input
+* input `object`
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold are default values.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+  * personId **required** `string`: The person's identifier.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.albums._supportedFields.get
 Retrieves all supported fields.
@@ -891,12 +1071,16 @@ Retrieves all supported fields.
 myspace.1.0.albums._supportedFields.get({}, context)
 ```
 
-#### Parameters
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported. Bold are default values.
-* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+#### Input
+* input `object`
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported. Bold are default values.
+  * msPrivacyLevel `string` (values: me, friendsonly, everyone): MySpace specific field. May be one of the following values:
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.activities.personId.selector.appId.get
 Retrieves activities created by an application.
@@ -910,15 +1094,19 @@ myspace.1.0.activities.personId.selector.appId.get({
 }, context)
 ```
 
-#### Parameters
-* personId (string) **required** - The person's identifier.
-* selector (string) **required** - Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
-* appId (string) **required** - The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair.
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
-* updatedSince (string) - Indicates the date before which no activities should be returned.
+#### Input
+* input `object`
+  * personId **required** `string`: The person's identifier.
+  * selector **required** `string` (values: @self, @all, @friends): Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
+  * appId **required** `string`: The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair.
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+  * updatedSince `string`: Indicates the date before which no activities should be returned.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.activities._supportedObjectTypes.get
 Retrieves all supported object types.
@@ -928,12 +1116,16 @@ Retrieves all supported object types.
 myspace.1.0.activities._supportedObjectTypes.get({}, context)
 ```
 
-#### Parameters
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
-* updatedSince (string) - Indicates the date before which no activities should be returned.
+#### Input
+* input `object`
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+  * updatedSince `string`: Indicates the date before which no activities should be returned.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.activities._supportedVerbs.get
 Retrieves all supported verbs.
@@ -943,12 +1135,16 @@ Retrieves all supported verbs.
 myspace.1.0.activities._supportedVerbs.get({}, context)
 ```
 
-#### Parameters
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
-* updatedSince (string) - Indicates the date before which no activities should be returned.
+#### Input
+* input `object`
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+  * updatedSince `string`: Indicates the date before which no activities should be returned.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.activities._supportedFields.get
 Retrieves all supported fields.
@@ -958,12 +1154,16 @@ Retrieves all supported fields.
 myspace.1.0.activities._supportedFields.get({}, context)
 ```
 
-#### Parameters
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
-* updatedSince (string) - Indicates the date before which no activities should be returned.
+#### Input
+* input `object`
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+  * updatedSince `string`: Indicates the date before which no activities should be returned.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.activities.personId._self.post
 Creates an activity for the user.
@@ -976,9 +1176,13 @@ myspace.1.0.activities.personId._self.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - Specifies Content Type.
-* personId (string) **required** - The person's identifier.
+#### Input
+* input `object`
+  * Content-Type **required** `string`: Specifies Content Type.
+  * personId **required** `string`: The person's identifier.
+
+#### Output
+*Output schema unknown*
 
 ### 1.0.activities.personId.selector.get
 Retrieves all activities for the user or for the friends of the viewer.
@@ -991,12 +1195,21 @@ myspace.1.0.activities.personId.selector.get({
 }, context)
 ```
 
-#### Parameters
-* count (string) - Only returns the nearest multiple of 3 compared to the original value.
-* fields (string) - The following field names are supported.
-* format (string) - Determines the format of the response.
-* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
-* updatedSince (string) - Indicates the date before which no activities should be returned.
-* personId (string) **required** - The person's identifier.
-* selector (string) **required** - Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
+#### Input
+* input `object`
+  * count `string`: Only returns the nearest multiple of 3 compared to the original value.
+  * fields `string`: The following field names are supported.
+  * format `string` (values: json, xml): Determines the format of the response.
+  * startIndex `string`: Indicates the index of the first item to retrieve from the query set.
+  * updatedSince `string`: Indicates the date before which no activities should be returned.
+  * personId **required** `string`: The person's identifier.
+  * selector **required** `string` (values: @self, @all, @friends): Indicates which set of individuals to query for activities. @friends and @all currently can be used interchangeably.
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

@@ -4,17 +4,15 @@ Client library for Google Cloud Runtime Configuration
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/google_runtimeconfig
+npm install --save @datafire/google_runtimeconfig
 ```
-
 ```js
-let datafire = require('datafire');
 let google_runtimeconfig = require('@datafire/google_runtimeconfig').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 google_runtimeconfig.operations.delete({}).then(data => {
@@ -23,9 +21,11 @@ google_runtimeconfig.operations.delete({}).then(data => {
 ```
 
 ## Description
+
 The Runtime Configurator allows you to dynamically configure and expose variables through Google Cloud Platform. In addition, you can also set Watchers and Waiters that will watch for changes to your data and return based on certain conditions.
 
 ## Actions
+
 ### oauthCallback
 Exchange the code passed to your redirect URI for an access_token
 
@@ -36,8 +36,17 @@ google_runtimeconfig.oauthCallback({
 }, context)
 ```
 
-#### Parameters
-* code (string) **required**
+#### Input
+* input `object`
+  * code **required** `string`
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### oauthRefresh
 Exchange a refresh_token for an access_token
@@ -47,8 +56,16 @@ Exchange a refresh_token for an access_token
 google_runtimeconfig.oauthRefresh(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### operations.delete
 Deletes a long-running operation. This method indicates that the client is
@@ -63,21 +80,25 @@ google_runtimeconfig.operations.delete({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the operation resource to be deleted.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* $.xgafv (string) - V1 error format.
-* callback (string) - JSONP
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the operation resource to be deleted.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * callback `string`: JSONP
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [Empty](#empty)
 
 ### operations.list
 Lists operations that match the specified filter in the request. If the
@@ -98,24 +119,28 @@ google_runtimeconfig.operations.list({
 }, context)
 ```
 
-#### Parameters
-* filter (string) - The standard list filter.
-* name (string) **required** - The name of the operation's parent resource.
-* pageSize (integer) - The standard list page size.
-* pageToken (string) - The standard list page token.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* $.xgafv (string) - V1 error format.
-* callback (string) - JSONP
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * filter `string`: The standard list filter.
+  * name **required** `string`: The name of the operation's parent resource.
+  * pageSize `integer`: The standard list page size.
+  * pageToken `string`: The standard list page token.
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * callback `string`: JSONP
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [ListOperationsResponse](#listoperationsresponse)
 
 ### operations.cancel
 Starts asynchronous cancellation on a long-running operation.  The server
@@ -136,20 +161,56 @@ google_runtimeconfig.operations.cancel({
 }, context)
 ```
 
-#### Parameters
-* name (string) **required** - The name of the operation resource to be cancelled.
-* body (object) - The request message for Operations.CancelOperation.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* fields (string) - Selector specifying which fields to include in a partial response.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* $.xgafv (string) - V1 error format.
-* callback (string) - JSONP
-* alt (string) - Data format for response.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
+#### Input
+* input `object`
+  * name **required** `string`: The name of the operation resource to be cancelled.
+  * body [CancelOperationRequest](#canceloperationrequest)
+  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
+  * $.xgafv `string` (values: 1, 2): V1 error format.
+  * callback `string`: JSONP
+  * alt `string` (values: json, media, proto): Data format for response.
+  * access_token `string`: OAuth access token.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+  * pp `boolean`: Pretty-print response.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * bearer_token `string`: OAuth bearer token.
+
+#### Output
+* output [Empty](#empty)
+
+
+
+## Definitions
+
+### CancelOperationRequest
+* CancelOperationRequest `object`: The request message for Operations.CancelOperation.
+
+### Empty
+* Empty `object`: A generic empty message that you can re-use to avoid defining duplicated
+
+### ListOperationsResponse
+* ListOperationsResponse `object`: The response message for Operations.ListOperations.
+  * nextPageToken `string`: The standard List next-page token.
+  * operations `array`: A list of operations that matches the specified filter in the request.
+    * items [Operation](#operation)
+
+### Operation
+* Operation `object`: This resource represents a long-running operation that is the result of a
+  * done `boolean`: If the value is `false`, it means the operation is still in progress.
+  * error [Status](#status)
+  * metadata `object`: Service-specific metadata associated with the operation.  It typically
+  * name `string`: The server-assigned name, which is only unique within the same service that
+  * response `object`: The normal response of the operation in case of success.  If the original
+
+### Status
+* Status `object`: The `Status` type defines a logical error model that is suitable for different
+  * code `integer`: The status code, which should be an enum value of google.rpc.Code.
+  * details `array`: A list of messages that carry the error details.  There is a common set of
+    * items `object`
+  * message `string`: A developer-facing error message, which should be in English. Any
+
 

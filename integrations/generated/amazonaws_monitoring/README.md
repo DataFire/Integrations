@@ -4,15 +4,13 @@ Client library for Amazon CloudWatch
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/amazonaws_monitoring
+npm install --save @datafire/amazonaws_monitoring
 ```
-
 ```js
-let datafire = require('datafire');
 let amazonaws_monitoring = require('@datafire/amazonaws_monitoring').create({
   accessKeyId: "",
   secretAccessKey: "",
-  region: "",
+  region: ""
 });
 
 amazonaws_monitoring.DeleteAlarms({}).then(data => {
@@ -21,9 +19,11 @@ amazonaws_monitoring.DeleteAlarms({}).then(data => {
 ```
 
 ## Description
+
 <p>Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, which are the variables you want to measure for your resources and applications.</p> <p>CloudWatch alarms send notifications or automatically change the resources you are monitoring based on rules that you define. For example, you can monitor the CPU usage and disk reads and writes of your Amazon EC2 instances. Then, use this data to determine whether you should launch additional instances to handle increased load. You can also use this data to stop under-used instances to save money.</p> <p>In addition to monitoring the built-in metrics that come with AWS, you can monitor your own custom metrics. With CloudWatch, you gain system-wide visibility into resource utilization, application performance, and operational health.</p>
 
 ## Actions
+
 ### DeleteAlarms
 
 
@@ -34,8 +34,12 @@ amazonaws_monitoring.DeleteAlarms({
 }, context)
 ```
 
-#### Parameters
-* AlarmNames (array) **required**
+#### Input
+* input `object`
+  * AlarmNames **required** [AlarmNames](#alarmnames)
+
+#### Output
+*Output schema unknown*
 
 ### DeleteDashboards
 
@@ -45,8 +49,12 @@ amazonaws_monitoring.DeleteAlarms({
 amazonaws_monitoring.DeleteDashboards({}, context)
 ```
 
-#### Parameters
-* DashboardNames (array)
+#### Input
+* input `object`
+  * DashboardNames [DashboardNames](#dashboardnames)
+
+#### Output
+* output [DeleteDashboardsOutput](#deletedashboardsoutput)
 
 ### DescribeAlarmHistory
 
@@ -56,15 +64,19 @@ amazonaws_monitoring.DeleteDashboards({}, context)
 amazonaws_monitoring.DescribeAlarmHistory({}, context)
 ```
 
-#### Parameters
-* MaxRecords (string)
-* NextToken (string)
-* AlarmName (string)
-* EndDate (string)
-* HistoryItemType (string)
-* MaxRecords (integer)
-* NextToken (string)
-* StartDate (string)
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * NextToken `string`
+  * AlarmName [AlarmName](#alarmname)
+  * EndDate [Timestamp](#timestamp)
+  * HistoryItemType [HistoryItemType](#historyitemtype)
+  * MaxRecords [MaxRecords](#maxrecords)
+  * NextToken [NextToken](#nexttoken)
+  * StartDate [Timestamp](#timestamp)
+
+#### Output
+* output [DescribeAlarmHistoryOutput](#describealarmhistoryoutput)
 
 ### DescribeAlarms
 
@@ -74,15 +86,19 @@ amazonaws_monitoring.DescribeAlarmHistory({}, context)
 amazonaws_monitoring.DescribeAlarms({}, context)
 ```
 
-#### Parameters
-* MaxRecords (string)
-* NextToken (string)
-* ActionPrefix (string)
-* AlarmNamePrefix (string)
-* AlarmNames (array)
-* MaxRecords (integer)
-* NextToken (string)
-* StateValue (string)
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * NextToken `string`
+  * ActionPrefix [ActionPrefix](#actionprefix)
+  * AlarmNamePrefix [AlarmNamePrefix](#alarmnameprefix)
+  * AlarmNames [AlarmNames](#alarmnames)
+  * MaxRecords [MaxRecords](#maxrecords)
+  * NextToken [NextToken](#nexttoken)
+  * StateValue [StateValue](#statevalue)
+
+#### Output
+* output [DescribeAlarmsOutput](#describealarmsoutput)
 
 ### DescribeAlarmsForMetric
 
@@ -95,14 +111,18 @@ amazonaws_monitoring.DescribeAlarmsForMetric({
 }, context)
 ```
 
-#### Parameters
-* Dimensions (array)
-* ExtendedStatistic (string)
-* MetricName (string) **required**
-* Namespace (string) **required**
-* Period (integer)
-* Statistic (string)
-* Unit (string)
+#### Input
+* input `object`
+  * Dimensions [Dimensions](#dimensions)
+  * ExtendedStatistic [ExtendedStatistic](#extendedstatistic)
+  * MetricName **required** [MetricName](#metricname)
+  * Namespace **required** [Namespace](#namespace)
+  * Period [Period](#period)
+  * Statistic [Statistic](#statistic)
+  * Unit [StandardUnit](#standardunit)
+
+#### Output
+* output [DescribeAlarmsForMetricOutput](#describealarmsformetricoutput)
 
 ### DisableAlarmActions
 
@@ -114,8 +134,12 @@ amazonaws_monitoring.DisableAlarmActions({
 }, context)
 ```
 
-#### Parameters
-* AlarmNames (array) **required**
+#### Input
+* input `object`
+  * AlarmNames **required** [AlarmNames](#alarmnames)
+
+#### Output
+*Output schema unknown*
 
 ### EnableAlarmActions
 
@@ -127,8 +151,12 @@ amazonaws_monitoring.EnableAlarmActions({
 }, context)
 ```
 
-#### Parameters
-* AlarmNames (array) **required**
+#### Input
+* input `object`
+  * AlarmNames **required** [AlarmNames](#alarmnames)
+
+#### Output
+*Output schema unknown*
 
 ### GetDashboard
 
@@ -138,8 +166,12 @@ amazonaws_monitoring.EnableAlarmActions({
 amazonaws_monitoring.GetDashboard({}, context)
 ```
 
-#### Parameters
-* DashboardName (string)
+#### Input
+* input `object`
+  * DashboardName [DashboardName](#dashboardname)
+
+#### Output
+* output [GetDashboardOutput](#getdashboardoutput)
 
 ### GetMetricStatistics
 
@@ -155,16 +187,20 @@ amazonaws_monitoring.GetMetricStatistics({
 }, context)
 ```
 
-#### Parameters
-* Dimensions (array)
-* EndTime (string) **required**
-* ExtendedStatistics (array)
-* MetricName (string) **required**
-* Namespace (string) **required**
-* Period (integer) **required**
-* StartTime (string) **required**
-* Statistics (array)
-* Unit (string)
+#### Input
+* input `object`
+  * Dimensions [Dimensions](#dimensions)
+  * EndTime **required** [Timestamp](#timestamp)
+  * ExtendedStatistics [ExtendedStatistics](#extendedstatistics)
+  * MetricName **required** [MetricName](#metricname)
+  * Namespace **required** [Namespace](#namespace)
+  * Period **required** [Period](#period)
+  * StartTime **required** [Timestamp](#timestamp)
+  * Statistics [Statistics](#statistics)
+  * Unit [StandardUnit](#standardunit)
+
+#### Output
+* output [GetMetricStatisticsOutput](#getmetricstatisticsoutput)
 
 ### ListDashboards
 
@@ -174,9 +210,13 @@ amazonaws_monitoring.GetMetricStatistics({
 amazonaws_monitoring.ListDashboards({}, context)
 ```
 
-#### Parameters
-* DashboardNamePrefix (string)
-* NextToken (string)
+#### Input
+* input `object`
+  * DashboardNamePrefix [DashboardNamePrefix](#dashboardnameprefix)
+  * NextToken [NextToken](#nexttoken)
+
+#### Output
+* output [ListDashboardsOutput](#listdashboardsoutput)
 
 ### ListMetrics
 
@@ -186,12 +226,16 @@ amazonaws_monitoring.ListDashboards({}, context)
 amazonaws_monitoring.ListMetrics({}, context)
 ```
 
-#### Parameters
-* NextToken (string)
-* Dimensions (array)
-* MetricName (string)
-* Namespace (string)
-* NextToken (string)
+#### Input
+* input `object`
+  * NextToken `string`
+  * Dimensions [DimensionFilters](#dimensionfilters)
+  * MetricName [MetricName](#metricname)
+  * Namespace [Namespace](#namespace)
+  * NextToken [NextToken](#nexttoken)
+
+#### Output
+* output [ListMetricsOutput](#listmetricsoutput)
 
 ### PutDashboard
 
@@ -201,9 +245,13 @@ amazonaws_monitoring.ListMetrics({}, context)
 amazonaws_monitoring.PutDashboard({}, context)
 ```
 
-#### Parameters
-* DashboardBody (string)
-* DashboardName (string)
+#### Input
+* input `object`
+  * DashboardBody [DashboardBody](#dashboardbody)
+  * DashboardName [DashboardName](#dashboardname)
+
+#### Output
+* output [PutDashboardOutput](#putdashboardoutput)
 
 ### PutMetricAlarm
 
@@ -221,25 +269,29 @@ amazonaws_monitoring.PutMetricAlarm({
 }, context)
 ```
 
-#### Parameters
-* ActionsEnabled (boolean)
-* AlarmActions (array)
-* AlarmDescription (string)
-* AlarmName (string) **required**
-* ComparisonOperator (string) **required**
-* Dimensions (array)
-* EvaluateLowSampleCountPercentile (string)
-* EvaluationPeriods (integer) **required**
-* ExtendedStatistic (string)
-* InsufficientDataActions (array)
-* MetricName (string) **required**
-* Namespace (string) **required**
-* OKActions (array)
-* Period (integer) **required**
-* Statistic (string)
-* Threshold (number) **required**
-* TreatMissingData (string)
-* Unit (string)
+#### Input
+* input `object`
+  * ActionsEnabled [ActionsEnabled](#actionsenabled)
+  * AlarmActions [ResourceList](#resourcelist)
+  * AlarmDescription [AlarmDescription](#alarmdescription)
+  * AlarmName **required** [AlarmName](#alarmname)
+  * ComparisonOperator **required** [ComparisonOperator](#comparisonoperator)
+  * Dimensions [Dimensions](#dimensions)
+  * EvaluateLowSampleCountPercentile [EvaluateLowSampleCountPercentile](#evaluatelowsamplecountpercentile)
+  * EvaluationPeriods **required** [EvaluationPeriods](#evaluationperiods)
+  * ExtendedStatistic [ExtendedStatistic](#extendedstatistic)
+  * InsufficientDataActions [ResourceList](#resourcelist)
+  * MetricName **required** [MetricName](#metricname)
+  * Namespace **required** [Namespace](#namespace)
+  * OKActions [ResourceList](#resourcelist)
+  * Period **required** [Period](#period)
+  * Statistic [Statistic](#statistic)
+  * Threshold **required** [Threshold](#threshold)
+  * TreatMissingData [TreatMissingData](#treatmissingdata)
+  * Unit [StandardUnit](#standardunit)
+
+#### Output
+*Output schema unknown*
 
 ### PutMetricData
 
@@ -252,9 +304,13 @@ amazonaws_monitoring.PutMetricData({
 }, context)
 ```
 
-#### Parameters
-* MetricData (array) **required**
-* Namespace (string) **required**
+#### Input
+* input `object`
+  * MetricData **required** [MetricData](#metricdata)
+  * Namespace **required** [Namespace](#namespace)
+
+#### Output
+*Output schema unknown*
 
 ### SetAlarmState
 
@@ -268,9 +324,496 @@ amazonaws_monitoring.SetAlarmState({
 }, context)
 ```
 
-#### Parameters
-* AlarmName (string) **required**
-* StateReason (string) **required**
-* StateReasonData (string)
-* StateValue (string) **required**
+#### Input
+* input `object`
+  * AlarmName **required** [AlarmName](#alarmname)
+  * StateReason **required** [StateReason](#statereason)
+  * StateReasonData [StateReasonData](#statereasondata)
+  * StateValue **required** [StateValue](#statevalue)
+
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+### ActionPrefix
+* ActionPrefix `string`
+
+### ActionsEnabled
+* ActionsEnabled `boolean`
+
+### AlarmArn
+* AlarmArn `string`
+
+### AlarmDescription
+* AlarmDescription `string`
+
+### AlarmHistoryItem
+* AlarmHistoryItem `object`: Represents the history of a specific alarm.
+  * AlarmName [AlarmName](#alarmname)
+  * HistoryData [HistoryData](#historydata)
+  * HistoryItemType [HistoryItemType](#historyitemtype)
+  * HistorySummary [HistorySummary](#historysummary)
+  * Timestamp [Timestamp](#timestamp)
+
+### AlarmHistoryItems
+* AlarmHistoryItems `array`
+  * items [AlarmHistoryItem](#alarmhistoryitem)
+
+### AlarmName
+* AlarmName `string`
+
+### AlarmNamePrefix
+* AlarmNamePrefix `string`
+
+### AlarmNames
+* AlarmNames `array`
+  * items [AlarmName](#alarmname)
+
+### AwsQueryErrorMessage
+* AwsQueryErrorMessage `string`
+
+### ComparisonOperator
+* ComparisonOperator `string` (values: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanThreshold, LessThanOrEqualToThreshold)
+
+### DashboardArn
+* DashboardArn `string`
+
+### DashboardBody
+* DashboardBody `string`
+
+### DashboardEntries
+* DashboardEntries `array`
+  * items [DashboardEntry](#dashboardentry)
+
+### DashboardEntry
+* DashboardEntry `object`: Represents a specific dashboard.
+  * DashboardArn [DashboardArn](#dashboardarn)
+  * DashboardName [DashboardName](#dashboardname)
+  * LastModified [LastModified](#lastmodified)
+  * Size [Size](#size)
+
+### DashboardErrorMessage
+* DashboardErrorMessage `string`
+
+### DashboardInvalidInputError
+* DashboardInvalidInputError `object`: Some part of the dashboard data is invalid.
+  * dashboardValidationMessages [DashboardValidationMessages](#dashboardvalidationmessages)
+  * message [DashboardErrorMessage](#dashboarderrormessage)
+
+### DashboardName
+* DashboardName `string`
+
+### DashboardNamePrefix
+* DashboardNamePrefix `string`
+
+### DashboardNames
+* DashboardNames `array`
+  * items [DashboardName](#dashboardname)
+
+### DashboardNotFoundError
+* DashboardNotFoundError `object`: The specified dashboard does not exist.
+  * message [DashboardErrorMessage](#dashboarderrormessage)
+
+### DashboardValidationMessage
+* DashboardValidationMessage `object`: An error or warning for the operation.
+  * DataPath [DataPath](#datapath)
+  * Message [Message](#message)
+
+### DashboardValidationMessages
+* DashboardValidationMessages `array`
+  * items [DashboardValidationMessage](#dashboardvalidationmessage)
+
+### DataPath
+* DataPath `string`
+
+### Datapoint
+* Datapoint `object`: Encapsulates the statistical data that CloudWatch computes from metric data.
+  * Average [DatapointValue](#datapointvalue)
+  * ExtendedStatistics [DatapointValueMap](#datapointvaluemap)
+  * Maximum [DatapointValue](#datapointvalue)
+  * Minimum [DatapointValue](#datapointvalue)
+  * SampleCount [DatapointValue](#datapointvalue)
+  * Sum [DatapointValue](#datapointvalue)
+  * Timestamp [Timestamp](#timestamp)
+  * Unit [StandardUnit](#standardunit)
+
+### DatapointValue
+* DatapointValue `number`
+
+### DatapointValueMap
+* DatapointValueMap `array`
+  * items `object`
+    * key [ExtendedStatistic](#extendedstatistic)
+    * value [DatapointValue](#datapointvalue)
+
+### Datapoints
+* Datapoints `array`
+  * items [Datapoint](#datapoint)
+
+### DeleteAlarmsInput
+* DeleteAlarmsInput `object`
+  * AlarmNames **required** [AlarmNames](#alarmnames)
+
+### DeleteDashboardsInput
+* DeleteDashboardsInput `object`
+  * DashboardNames [DashboardNames](#dashboardnames)
+
+### DeleteDashboardsOutput
+* DeleteDashboardsOutput `object`
+
+### DescribeAlarmHistoryInput
+* DescribeAlarmHistoryInput `object`
+  * AlarmName [AlarmName](#alarmname)
+  * EndDate [Timestamp](#timestamp)
+  * HistoryItemType [HistoryItemType](#historyitemtype)
+  * MaxRecords [MaxRecords](#maxrecords)
+  * NextToken [NextToken](#nexttoken)
+  * StartDate [Timestamp](#timestamp)
+
+### DescribeAlarmHistoryOutput
+* DescribeAlarmHistoryOutput `object`
+  * AlarmHistoryItems [AlarmHistoryItems](#alarmhistoryitems)
+  * NextToken [NextToken](#nexttoken)
+
+### DescribeAlarmsForMetricInput
+* DescribeAlarmsForMetricInput `object`
+  * Dimensions [Dimensions](#dimensions)
+  * ExtendedStatistic [ExtendedStatistic](#extendedstatistic)
+  * MetricName **required** [MetricName](#metricname)
+  * Namespace **required** [Namespace](#namespace)
+  * Period [Period](#period)
+  * Statistic [Statistic](#statistic)
+  * Unit [StandardUnit](#standardunit)
+
+### DescribeAlarmsForMetricOutput
+* DescribeAlarmsForMetricOutput `object`
+  * MetricAlarms [MetricAlarms](#metricalarms)
+
+### DescribeAlarmsInput
+* DescribeAlarmsInput `object`
+  * ActionPrefix [ActionPrefix](#actionprefix)
+  * AlarmNamePrefix [AlarmNamePrefix](#alarmnameprefix)
+  * AlarmNames [AlarmNames](#alarmnames)
+  * MaxRecords [MaxRecords](#maxrecords)
+  * NextToken [NextToken](#nexttoken)
+  * StateValue [StateValue](#statevalue)
+
+### DescribeAlarmsOutput
+* DescribeAlarmsOutput `object`
+  * MetricAlarms [MetricAlarms](#metricalarms)
+  * NextToken [NextToken](#nexttoken)
+
+### Dimension
+* Dimension `object`: Expands the identity of a metric.
+  * Name **required** [DimensionName](#dimensionname)
+  * Value **required** [DimensionValue](#dimensionvalue)
+
+### DimensionFilter
+* DimensionFilter `object`: Represents filters for a dimension.
+  * Name **required** [DimensionName](#dimensionname)
+  * Value [DimensionValue](#dimensionvalue)
+
+### DimensionFilters
+* DimensionFilters `array`
+  * items [DimensionFilter](#dimensionfilter)
+
+### DimensionName
+* DimensionName `string`
+
+### DimensionValue
+* DimensionValue `string`
+
+### Dimensions
+* Dimensions `array`
+  * items [Dimension](#dimension)
+
+### DisableAlarmActionsInput
+* DisableAlarmActionsInput `object`
+  * AlarmNames **required** [AlarmNames](#alarmnames)
+
+### EnableAlarmActionsInput
+* EnableAlarmActionsInput `object`
+  * AlarmNames **required** [AlarmNames](#alarmnames)
+
+### ErrorMessage
+* ErrorMessage `string`
+
+### EvaluateLowSampleCountPercentile
+* EvaluateLowSampleCountPercentile `string`
+
+### EvaluationPeriods
+* EvaluationPeriods `integer`
+
+### ExtendedStatistic
+* ExtendedStatistic `string`
+
+### ExtendedStatistics
+* ExtendedStatistics `array`
+  * items [ExtendedStatistic](#extendedstatistic)
+
+### FaultDescription
+* FaultDescription `string`
+
+### GetDashboardInput
+* GetDashboardInput `object`
+  * DashboardName [DashboardName](#dashboardname)
+
+### GetDashboardOutput
+* GetDashboardOutput `object`
+  * DashboardArn [DashboardArn](#dashboardarn)
+  * DashboardBody [DashboardBody](#dashboardbody)
+  * DashboardName [DashboardName](#dashboardname)
+
+### GetMetricStatisticsInput
+* GetMetricStatisticsInput `object`
+  * Dimensions [Dimensions](#dimensions)
+  * EndTime **required** [Timestamp](#timestamp)
+  * ExtendedStatistics [ExtendedStatistics](#extendedstatistics)
+  * MetricName **required** [MetricName](#metricname)
+  * Namespace **required** [Namespace](#namespace)
+  * Period **required** [Period](#period)
+  * StartTime **required** [Timestamp](#timestamp)
+  * Statistics [Statistics](#statistics)
+  * Unit [StandardUnit](#standardunit)
+
+### GetMetricStatisticsOutput
+* GetMetricStatisticsOutput `object`
+  * Datapoints [Datapoints](#datapoints)
+  * Label [MetricLabel](#metriclabel)
+
+### HistoryData
+* HistoryData `string`
+
+### HistoryItemType
+* HistoryItemType `string` (values: ConfigurationUpdate, StateUpdate, Action)
+
+### HistorySummary
+* HistorySummary `string`
+
+### InternalServiceFault
+* InternalServiceFault `object`: Request processing has failed due to some unknown error, exception, or failure.
+  * Message [FaultDescription](#faultdescription)
+
+### InvalidFormatFault
+* InvalidFormatFault `object`: Data was not syntactically valid JSON.
+  * message [ErrorMessage](#errormessage)
+
+### InvalidNextToken
+* InvalidNextToken `object`: The next token specified is invalid.
+  * message [ErrorMessage](#errormessage)
+
+### InvalidParameterCombinationException
+* InvalidParameterCombinationException `object`: Parameters were used together that cannot be used together.
+  * message [AwsQueryErrorMessage](#awsqueryerrormessage)
+
+### InvalidParameterValueException
+* InvalidParameterValueException `object`: The value of an input parameter is bad or out-of-range.
+  * message [AwsQueryErrorMessage](#awsqueryerrormessage)
+
+### LastModified
+* LastModified `string`
+
+### LimitExceededFault
+* LimitExceededFault `object`: The quota for alarms for this customer has already been reached.
+  * message [ErrorMessage](#errormessage)
+
+### ListDashboardsInput
+* ListDashboardsInput `object`
+  * DashboardNamePrefix [DashboardNamePrefix](#dashboardnameprefix)
+  * NextToken [NextToken](#nexttoken)
+
+### ListDashboardsOutput
+* ListDashboardsOutput `object`
+  * DashboardEntries [DashboardEntries](#dashboardentries)
+  * NextToken [NextToken](#nexttoken)
+
+### ListMetricsInput
+* ListMetricsInput `object`
+  * Dimensions [DimensionFilters](#dimensionfilters)
+  * MetricName [MetricName](#metricname)
+  * Namespace [Namespace](#namespace)
+  * NextToken [NextToken](#nexttoken)
+
+### ListMetricsOutput
+* ListMetricsOutput `object`
+  * Metrics [Metrics](#metrics)
+  * NextToken [NextToken](#nexttoken)
+
+### MaxRecords
+* MaxRecords `integer`
+
+### Message
+* Message `string`
+
+### Metric
+* Metric `object`: Represents a specific metric.
+  * Dimensions [Dimensions](#dimensions)
+  * MetricName [MetricName](#metricname)
+  * Namespace [Namespace](#namespace)
+
+### MetricAlarm
+* MetricAlarm `object`: Represents an alarm.
+  * ActionsEnabled [ActionsEnabled](#actionsenabled)
+  * AlarmActions [ResourceList](#resourcelist)
+  * AlarmArn [AlarmArn](#alarmarn)
+  * AlarmConfigurationUpdatedTimestamp [Timestamp](#timestamp)
+  * AlarmDescription [AlarmDescription](#alarmdescription)
+  * AlarmName [AlarmName](#alarmname)
+  * ComparisonOperator [ComparisonOperator](#comparisonoperator)
+  * Dimensions [Dimensions](#dimensions)
+  * EvaluateLowSampleCountPercentile [EvaluateLowSampleCountPercentile](#evaluatelowsamplecountpercentile)
+  * EvaluationPeriods [EvaluationPeriods](#evaluationperiods)
+  * ExtendedStatistic [ExtendedStatistic](#extendedstatistic)
+  * InsufficientDataActions [ResourceList](#resourcelist)
+  * MetricName [MetricName](#metricname)
+  * Namespace [Namespace](#namespace)
+  * OKActions [ResourceList](#resourcelist)
+  * Period [Period](#period)
+  * StateReason [StateReason](#statereason)
+  * StateReasonData [StateReasonData](#statereasondata)
+  * StateUpdatedTimestamp [Timestamp](#timestamp)
+  * StateValue [StateValue](#statevalue)
+  * Statistic [Statistic](#statistic)
+  * Threshold [Threshold](#threshold)
+  * TreatMissingData [TreatMissingData](#treatmissingdata)
+  * Unit [StandardUnit](#standardunit)
+
+### MetricAlarms
+* MetricAlarms `array`
+  * items [MetricAlarm](#metricalarm)
+
+### MetricData
+* MetricData `array`
+  * items [MetricDatum](#metricdatum)
+
+### MetricDatum
+* MetricDatum `object`: Encapsulates the information sent to either create a metric or add new values to be aggregated into an existing metric.
+  * Dimensions [Dimensions](#dimensions)
+  * MetricName **required** [MetricName](#metricname)
+  * StatisticValues [StatisticSet](#statisticset)
+  * StorageResolution [StorageResolution](#storageresolution)
+  * Timestamp [Timestamp](#timestamp)
+  * Unit [StandardUnit](#standardunit)
+  * Value [DatapointValue](#datapointvalue)
+
+### MetricLabel
+* MetricLabel `string`
+
+### MetricName
+* MetricName `string`
+
+### Metrics
+* Metrics `array`
+  * items [Metric](#metric)
+
+### MissingRequiredParameterException
+* MissingRequiredParameterException `object`: An input parameter that is required is missing.
+  * message [AwsQueryErrorMessage](#awsqueryerrormessage)
+
+### Namespace
+* Namespace `string`
+
+### NextToken
+* NextToken `string`
+
+### Period
+* Period `integer`
+
+### PutDashboardInput
+* PutDashboardInput `object`
+  * DashboardBody [DashboardBody](#dashboardbody)
+  * DashboardName [DashboardName](#dashboardname)
+
+### PutDashboardOutput
+* PutDashboardOutput `object`
+  * DashboardValidationMessages [DashboardValidationMessages](#dashboardvalidationmessages)
+
+### PutMetricAlarmInput
+* PutMetricAlarmInput `object`
+  * ActionsEnabled [ActionsEnabled](#actionsenabled)
+  * AlarmActions [ResourceList](#resourcelist)
+  * AlarmDescription [AlarmDescription](#alarmdescription)
+  * AlarmName **required** [AlarmName](#alarmname)
+  * ComparisonOperator **required** [ComparisonOperator](#comparisonoperator)
+  * Dimensions [Dimensions](#dimensions)
+  * EvaluateLowSampleCountPercentile [EvaluateLowSampleCountPercentile](#evaluatelowsamplecountpercentile)
+  * EvaluationPeriods **required** [EvaluationPeriods](#evaluationperiods)
+  * ExtendedStatistic [ExtendedStatistic](#extendedstatistic)
+  * InsufficientDataActions [ResourceList](#resourcelist)
+  * MetricName **required** [MetricName](#metricname)
+  * Namespace **required** [Namespace](#namespace)
+  * OKActions [ResourceList](#resourcelist)
+  * Period **required** [Period](#period)
+  * Statistic [Statistic](#statistic)
+  * Threshold **required** [Threshold](#threshold)
+  * TreatMissingData [TreatMissingData](#treatmissingdata)
+  * Unit [StandardUnit](#standardunit)
+
+### PutMetricDataInput
+* PutMetricDataInput `object`
+  * MetricData **required** [MetricData](#metricdata)
+  * Namespace **required** [Namespace](#namespace)
+
+### ResourceList
+* ResourceList `array`
+  * items [ResourceName](#resourcename)
+
+### ResourceName
+* ResourceName `string`
+
+### ResourceNotFound
+* ResourceNotFound `object`: The named resource does not exist.
+  * message [ErrorMessage](#errormessage)
+
+### SetAlarmStateInput
+* SetAlarmStateInput `object`
+  * AlarmName **required** [AlarmName](#alarmname)
+  * StateReason **required** [StateReason](#statereason)
+  * StateReasonData [StateReasonData](#statereasondata)
+  * StateValue **required** [StateValue](#statevalue)
+
+### Size
+* Size `integer`
+
+### StandardUnit
+* StandardUnit `string` (values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, None)
+
+### StateReason
+* StateReason `string`
+
+### StateReasonData
+* StateReasonData `string`
+
+### StateValue
+* StateValue `string` (values: OK, ALARM, INSUFFICIENT_DATA)
+
+### Statistic
+* Statistic `string` (values: SampleCount, Average, Sum, Minimum, Maximum)
+
+### StatisticSet
+* StatisticSet `object`: Represents a set of statistics that describes a specific metric. 
+  * Maximum **required** [DatapointValue](#datapointvalue)
+  * Minimum **required** [DatapointValue](#datapointvalue)
+  * SampleCount **required** [DatapointValue](#datapointvalue)
+  * Sum **required** [DatapointValue](#datapointvalue)
+
+### Statistics
+* Statistics `array`
+  * items [Statistic](#statistic)
+
+### StorageResolution
+* StorageResolution `integer`
+
+### Threshold
+* Threshold `number`
+
+### Timestamp
+* Timestamp `string`
+
+### TreatMissingData
+* TreatMissingData `string`
+
 

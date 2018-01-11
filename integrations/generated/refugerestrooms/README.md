@@ -4,11 +4,9 @@ Client library for Refuge Restrooms
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/refugerestrooms
+npm install --save @datafire/refugerestrooms
 ```
-
 ```js
-let datafire = require('datafire');
 let refugerestrooms = require('@datafire/refugerestrooms').create();
 
 refugerestrooms.v1.restrooms.json.get({}).then(data => {
@@ -17,9 +15,11 @@ refugerestrooms.v1.restrooms.json.get({}).then(data => {
 ```
 
 ## Description
+
 REFUGE is a web application that seeks to provide safe restroom access for transgender, intersex, and gender nonconforming individuals.
 
 ## Actions
+
 ### v1.restrooms.json.get
 Get all restroom records ordered by date descending.
 
@@ -28,12 +28,16 @@ Get all restroom records ordered by date descending.
 refugerestrooms.v1.restrooms.json.get({}, context)
 ```
 
-#### Parameters
-* page (integer) - Page offset to fetch.
-* per_page (integer) - Number of results to return per page.
-* offset (integer) - Pad a number of results.
-* ada (boolean) - Only return restrooms that are ADA accessible.
-* unisex (boolean) - Only return restrooms that are unisex.
+#### Input
+* input `object`
+  * page `integer`: Page offset to fetch.
+  * per_page `integer`: Number of results to return per page.
+  * offset `integer`: Pad a number of results.
+  * ada `boolean`: Only return restrooms that are ADA accessible.
+  * unisex `boolean`: Only return restrooms that are unisex.
+
+#### Output
+*Output schema unknown*
 
 ### v1.restrooms.by_date.json.get
 Search for restroom records updated or created on or after a given date
@@ -47,16 +51,20 @@ refugerestrooms.v1.restrooms.by_date.json.get({
 }, context)
 ```
 
-#### Parameters
-* page (integer) - Page offset to fetch.
-* per_page (integer) - Number of results to return per page.
-* offset (integer) - Pad a number of results.
-* ada (boolean) - Only return restrooms that are ADA accessible.
-* unisex (boolean) - Only return restrooms that are unisex.
-* updated (boolean) - Return restroom records updated (rather than created) since given date
-* day (integer) **required** - Day
-* month (integer) **required** - Month
-* year (integer) **required** - Year
+#### Input
+* input `object`
+  * page `integer`: Page offset to fetch.
+  * per_page `integer`: Number of results to return per page.
+  * offset `integer`: Pad a number of results.
+  * ada `boolean`: Only return restrooms that are ADA accessible.
+  * unisex `boolean`: Only return restrooms that are unisex.
+  * updated `boolean`: Return restroom records updated (rather than created) since given date
+  * day **required** `integer`: Day
+  * month **required** `integer`: Month
+  * year **required** `integer`: Year
+
+#### Output
+*Output schema unknown*
 
 ### v1.restrooms.by_location.json.get
 Search by location.
@@ -69,14 +77,18 @@ refugerestrooms.v1.restrooms.by_location.json.get({
 }, context)
 ```
 
-#### Parameters
-* page (integer) - Page offset to fetch.
-* per_page (integer) - Number of results to return per page.
-* offset (integer) - Pad a number of results.
-* ada (boolean) - Only return restrooms that are ADA accessible.
-* unisex (boolean) - Only return restrooms that are unisex.
-* lat (number) **required** - latitude
-* lng (number) **required** - longitude
+#### Input
+* input `object`
+  * page `integer`: Page offset to fetch.
+  * per_page `integer`: Number of results to return per page.
+  * offset `integer`: Pad a number of results.
+  * ada `boolean`: Only return restrooms that are ADA accessible.
+  * unisex `boolean`: Only return restrooms that are unisex.
+  * lat **required** `number`: latitude
+  * lng **required** `number`: longitude
+
+#### Output
+*Output schema unknown*
 
 ### v1.restrooms.search.json.get
 Perform full-text search of restroom records.
@@ -88,11 +100,20 @@ refugerestrooms.v1.restrooms.search.json.get({
 }, context)
 ```
 
-#### Parameters
-* page (integer) - Page offset to fetch.
-* per_page (integer) - Number of results to return per page.
-* offset (integer) - Pad a number of results.
-* ada (boolean) - Only return restrooms that are ADA accessible.
-* unisex (boolean) - Only return restrooms that are unisex.
-* query (string) **required** - Your search query.
+#### Input
+* input `object`
+  * page `integer`: Page offset to fetch.
+  * per_page `integer`: Number of results to return per page.
+  * offset `integer`: Pad a number of results.
+  * ada `boolean`: Only return restrooms that are ADA accessible.
+  * unisex `boolean`: Only return restrooms that are unisex.
+  * query **required** `string`: Your search query.
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

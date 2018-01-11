@@ -4,11 +4,9 @@ Client library for Postmark
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/postmark
+npm install --save @datafire/postmark
 ```
-
 ```js
-let datafire = require('datafire');
 let postmark = require('@datafire/postmark').create();
 
 postmark.email.post({}).then(data => {
@@ -17,9 +15,11 @@ postmark.email.post({}).then(data => {
 ```
 
 ## Description
+
 Send emails, retrieve bounces and start accepting inbound emails, all via an easy-to-use HTTP API.
 
 ## Actions
+
 ### email.post
 Sends e-mails. Currently Postmark supports JSON message format. The mail message format is:
 
@@ -93,9 +93,13 @@ postmark.email.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
-* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+#### Input
+* input `object`
+  * Content-Type **required** `string` (values: application/json, text/json, text/x-json): The content type of the request. Must be set to application/json, text/json, or text/x-json.
+  * Accept **required** `string` (values: application/json, text/json, text/x-json): The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+
+#### Output
+*Output schema unknown*
 
 ### email.batch.post
 While Postmark is focused on transactional email, we understand that developers with higher volumes or processing time constraints need to send their messages in batches. To facilitate this we provide a batching endpoint that permits you to send up to 500 well-formed Postmark messages in a single API call.
@@ -135,9 +139,13 @@ postmark.email.batch.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
-* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+#### Input
+* input `object`
+  * Content-Type **required** `string` (values: application/json, text/json, text/x-json): The content type of the request. Must be set to application/json, text/json, or text/x-json.
+  * Accept **required** `string` (values: application/json, text/json, text/x-json): The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+
+#### Output
+*Output schema unknown*
 
 ### deliverystats.get
 Returns a summary of inactive emails and bounces by type.
@@ -150,9 +158,13 @@ postmark.deliverystats.get({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
-* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+#### Input
+* input `object`
+  * Content-Type **required** `string` (values: application/json, text/json, text/x-json): The content type of the request. Must be set to application/json, text/json, or text/x-json.
+  * Accept **required** `string` (values: application/json, text/json, text/x-json): The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+
+#### Output
+*Output schema unknown*
 
 ### bounces.get
 Fetches a portion of bounces according to the specified input criteria. Supported filters: type, inactive, email like, tag. Paging: page_size (count), page_start (offset). Bounces are sorted by BouncedAt in a descending order.
@@ -167,15 +179,19 @@ postmark.bounces.get({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
-* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
-* type (string) - Filter by bounce type. Supported types are:
-* inactive (string) - Filter by active/inactive status. Note that we have three options here: true, false, and null (no value). To get all bounces no matter if they are active or inactive, do not pass a value.
-* emailFilter (string) - Return only bounces whose recipient address contains the provided string.
-* tag (string) - Filter by tag.
-* count (integer) **required** - The number of bounces to retrieve. A page has 25 bounces. To know how much your bounces are, you need to request a portion first, usually the first page, and the service will return the count in the TotalCount property in the response.
-* offset (integer) **required** - The offset from where to start retrieving bounces. Starts at 0.
+#### Input
+* input `object`
+  * Content-Type **required** `string` (values: application/json, text/json, text/x-json): The content type of the request. Must be set to application/json, text/json, or text/x-json.
+  * Accept **required** `string` (values: application/json, text/json, text/x-json): The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+  * type `string` (values: HardBounce, Transient, Unsubscribe, Subscribe, AutoResponder, AddressChange, DnsError, SpamNotification, OpenRelayTest, Unknown, SoftBounce, VirusNotification, ChallengeVerification, BadEmailAddress, SpamComplaint, ManuallyDeactivated, Unconfirmed, Blocked): Filter by bounce type. Supported types are:
+  * inactive `string` (values: true, false, ): Filter by active/inactive status. Note that we have three options here: true, false, and null (no value). To get all bounces no matter if they are active or inactive, do not pass a value.
+  * emailFilter `string`: Return only bounces whose recipient address contains the provided string.
+  * tag `string`: Filter by tag.
+  * count **required** `integer`: The number of bounces to retrieve. A page has 25 bounces. To know how much your bounces are, you need to request a portion first, usually the first page, and the service will return the count in the TotalCount property in the response.
+  * offset **required** `integer`: The offset from where to start retrieving bounces. Starts at 0.
+
+#### Output
+*Output schema unknown*
 
 ### bounces.bounceID.get
 Gets details about a single bounce. Note that the bounce ID is a numeric value that you typically obtain after a getting a list of bounces.
@@ -189,10 +205,14 @@ postmark.bounces.bounceID.get({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
-* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
-* bounceID (integer) **required** - A bounce ID.
+#### Input
+* input `object`
+  * Content-Type **required** `string` (values: application/json, text/json, text/x-json): The content type of the request. Must be set to application/json, text/json, or text/x-json.
+  * Accept **required** `string` (values: application/json, text/json, text/x-json): The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+  * bounceID **required** `integer`: A bounce ID.
+
+#### Output
+*Output schema unknown*
 
 ### bounces.bounceID.dump.get
 Returns the raw source of the bounce we accepted. If Postmark does not have a dump for that bounce, it will return an empty string.
@@ -206,10 +226,14 @@ postmark.bounces.bounceID.dump.get({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
-* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
-* bounceID (integer) **required** - A bounce ID.
+#### Input
+* input `object`
+  * Content-Type **required** `string` (values: application/json, text/json, text/x-json): The content type of the request. Must be set to application/json, text/json, or text/x-json.
+  * Accept **required** `string` (values: application/json, text/json, text/x-json): The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+  * bounceID **required** `integer`: A bounce ID.
+
+#### Output
+*Output schema unknown*
 
 ### bounces.tags.get
 Returns a list of tags used for the current server.
@@ -222,9 +246,13 @@ postmark.bounces.tags.get({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
-* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+#### Input
+* input `object`
+  * Content-Type **required** `string` (values: application/json, text/json, text/x-json): The content type of the request. Must be set to application/json, text/json, or text/x-json.
+  * Accept **required** `string` (values: application/json, text/json, text/x-json): The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+
+#### Output
+*Output schema unknown*
 
 ### bounces.bounceID.activate.put
 Activates a deactivated bounce. Note that you do not need to send anything in the request body.
@@ -238,10 +266,14 @@ postmark.bounces.bounceID.activate.put({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
-* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
-* bounceID (integer) **required** - A bounce ID.
+#### Input
+* input `object`
+  * Content-Type **required** `string` (values: application/json, text/json, text/x-json): The content type of the request. Must be set to application/json, text/json, or text/x-json.
+  * Accept **required** `string` (values: application/json, text/json, text/x-json): The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+  * bounceID **required** `integer`: A bounce ID.
+
+#### Output
+*Output schema unknown*
 
 ### server.get
 Gets the server details and figures out your unique InboundHash where you can forward your email. This can be found in the web app in your server's Credentials tab or via the API.
@@ -254,9 +286,13 @@ postmark.server.get({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
-* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+#### Input
+* input `object`
+  * Content-Type **required** `string` (values: application/json, text/json, text/x-json): The content type of the request. Must be set to application/json, text/json, or text/x-json.
+  * Accept **required** `string` (values: application/json, text/json, text/x-json): The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+
+#### Output
+*Output schema unknown*
 
 ### server.post
 Sets the URL where we should send JSON data. In order for your application receive the emails that we parse, you will need to tell Postmark where to send the JSON data for each inbound email it processes, which is done via an HTTP POST to a URL of your choice. You can set this URL in the Settings page for your Postmark server in the web app, or using the InboundHookUrl field in the API. It also lets you choose a domain that you would like to listen on for incoming email to be processed by Postmark. We recommend a separate subdomain, like inbound.yourdomain.com. Each server can listen to one unique domain, so make sure to set the X-Postmark-Server-Token to the correct server token in the API call below.
@@ -269,7 +305,16 @@ postmark.server.post({
 }, context)
 ```
 
-#### Parameters
-* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
-* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+#### Input
+* input `object`
+  * Content-Type **required** `string` (values: application/json, text/json, text/x-json): The content type of the request. Must be set to application/json, text/json, or text/x-json.
+  * Accept **required** `string` (values: application/json, text/json, text/x-json): The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

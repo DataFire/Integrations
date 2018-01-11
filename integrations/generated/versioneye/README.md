@@ -4,11 +4,9 @@ Client library for Available API endpoints
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/versioneye
+npm install --save @datafire/versioneye
 ```
-
 ```js
-let datafire = require('datafire');
 let versioneye = require('@datafire/versioneye').create();
 
 versioneye.getProjects({}).then(data => {
@@ -17,9 +15,11 @@ versioneye.getProjects({}).then(data => {
 ```
 
 ## Description
+
 VersionEye is a cross-platform search engine for free/libre/open source software libraries.
 
 ## Actions
+
 ### getGithub
 
 This endpoint shows all imported repositories from your Github account.
@@ -37,13 +37,17 @@ to update your account with the current meta data from GitHub.
 versioneye.getGithub({}, context)
 ```
 
-#### Parameters
-* lang (string) - Filter by language
-* private (boolean) - Filter by visibility
-* org_name (string) - Filter by name of organization
-* org_type (string) - Filter by type of organization
-* page (string) - Number of page
-* only_imported (boolean) - Show only imported repositories
+#### Input
+* input `object`
+  * lang `string`: Filter by language
+  * private `boolean`: Filter by visibility
+  * org_name `string`: Filter by name of organization
+  * org_type `string`: Filter by type of organization
+  * page `string`: Number of page
+  * only_imported `boolean`: Show only imported repositories
+
+#### Output
+*Output schema unknown*
 
 ### postGithubHookProjectId
 This endpoint is registered as service hook on GitHub. It triggers a project re-parse on each git push. 
@@ -55,8 +59,12 @@ versioneye.postGithubHookProjectId({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required** - Project ID
+#### Input
+* input `object`
+  * project_id **required** `string`: Project ID
+
+#### Output
+*Output schema unknown*
 
 ### getGithubSync
 
@@ -73,8 +81,11 @@ This endpoint works asynchronously and returns a status code. The status code is
 versioneye.getGithubSync(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### deleteGithubRepoKey
 
@@ -95,9 +106,13 @@ versioneye.deleteGithubRepoKey({
 }, context)
 ```
 
-#### Parameters
-* repo_key (string) **required** - encoded repo-key
-* branch (string) - the name of the branch
+#### Input
+* input `object`
+  * repo_key **required** `string`: encoded repo-key
+  * branch `string`: the name of the branch
+
+#### Output
+*Output schema unknown*
 
 ### getGithubRepoKey
 
@@ -118,8 +133,12 @@ versioneye.getGithubRepoKey({
 }, context)
 ```
 
-#### Parameters
-* repo_key (string) **required** - encoded repo name with optional branch info.
+#### Input
+* input `object`
+  * repo_key **required** `string`: encoded repo name with optional branch info.
+
+#### Output
+*Output schema unknown*
 
 ### postGithubRepoKey
 
@@ -140,10 +159,14 @@ versioneye.postGithubRepoKey({
 }, context)
 ```
 
-#### Parameters
-* repo_key (string) **required** - encoded repo name
-* branch (string) - the name of the branch
-* file (string) - the project file (default is Gemfile)
+#### Input
+* input `object`
+  * repo_key **required** `string`: encoded repo name
+  * branch `string`: the name of the branch
+  * file `string`: the project file (default is Gemfile)
+
+#### Output
+*Output schema unknown*
 
 ### getMe
 On Swagger, you can create session by adding additional parameter :api_key.
@@ -153,8 +176,11 @@ On Swagger, you can create session by adding additional parameter :api_key.
 versioneye.getMe(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### getMeComments
 shows comments of authorized user
@@ -164,8 +190,12 @@ shows comments of authorized user
 versioneye.getMeComments({}, context)
 ```
 
-#### Parameters
-* page (integer) - page number for pagination
+#### Input
+* input `object`
+  * page `integer`: page number for pagination
+
+#### Output
+*Output schema unknown*
 
 ### getMeFavorites
 shows the packages you are following
@@ -175,8 +205,12 @@ shows the packages you are following
 versioneye.getMeFavorites({}, context)
 ```
 
-#### Parameters
-* page (integer) - page number for pagination
+#### Input
+* input `object`
+  * page `integer`: page number for pagination
+
+#### Output
+*Output schema unknown*
 
 ### getMeNotifications
 
@@ -191,8 +225,12 @@ each new version is a new **notification** for your account.
 versioneye.getMeNotifications({}, context)
 ```
 
-#### Parameters
-* page (integer) - Specify page for paging
+#### Input
+* input `object`
+  * page `integer`: Specify page for paging
+
+#### Output
+*Output schema unknown*
 
 ### getOrganisations
 
@@ -204,8 +242,11 @@ This endpoint requires the API key from a user. The result is a set of organisat
 versioneye.getOrganisations(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### getOrganisationsOrgaNameInventory
 
@@ -219,12 +260,16 @@ versioneye.getOrganisationsOrgaNameInventory({
 }, context)
 ```
 
-#### Parameters
-* team_name (string) - Filter by team name
-* language (string) - Filter by programming language
-* project_version (string) - Filter down by project version
-* post_filter (string) - Post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'
-* orga_name (integer) **required**
+#### Input
+* input `object`
+  * team_name `string`: Filter by team name
+  * language `string`: Filter by programming language
+  * project_version `string`: Filter down by project version
+  * post_filter `string`: Post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'
+  * orga_name **required** `integer`
+
+#### Output
+*Output schema unknown*
 
 ### getOrganisationsOrgaNameInventoryDiff
 Returns the inventory diff object
@@ -236,9 +281,13 @@ versioneye.getOrganisationsOrgaNameInventoryDiff({
 }, context)
 ```
 
-#### Parameters
-* inventory_diff_id (string) - ID of the inventory diff object
-* orga_name (integer) **required**
+#### Input
+* input `object`
+  * inventory_diff_id `string`: ID of the inventory diff object
+  * orga_name **required** `integer`
+
+#### Output
+*Output schema unknown*
 
 ### postOrganisationsOrgaNameInventoryDiff
 
@@ -254,16 +303,20 @@ versioneye.postOrganisationsOrgaNameInventoryDiff({
 }, context)
 ```
 
-#### Parameters
-* f1_team_name (string) - Inventory1, filter by team name
-* f1_language (string) - Inventory1, filter by programming language
-* f1_project_version (string) - Inventory1, filter down by project version
-* f1_post_filter (string) - Inventory1, post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'
-* f2_team_name (string) - Inventory2, filter by team name
-* f2_language (string) - Inventory2, filter by programming language
-* f2_project_version (string) - Inventory2, filter down by project version
-* f2_post_filter (string) - Inventory2, post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'
-* orga_name (integer) **required**
+#### Input
+* input `object`
+  * f1_team_name `string`: Inventory1, filter by team name
+  * f1_language `string`: Inventory1, filter by programming language
+  * f1_project_version `string`: Inventory1, filter down by project version
+  * f1_post_filter `string`: Inventory1, post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'
+  * f2_team_name `string`: Inventory2, filter by team name
+  * f2_language `string`: Inventory2, filter by programming language
+  * f2_project_version `string`: Inventory2, filter down by project version
+  * f2_post_filter `string`: Inventory2, post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'
+  * orga_name **required** `integer`
+
+#### Output
+*Output schema unknown*
 
 ### getOrganisationsOrgaNameProjects
 Returns the list of projects
@@ -275,8 +328,12 @@ versioneye.getOrganisationsOrgaNameProjects({
 }, context)
 ```
 
-#### Parameters
-* orga_name (integer) **required**
+#### Input
+* input `object`
+  * orga_name **required** `integer`
+
+#### Output
+*Output schema unknown*
 
 ### getOrganisationsOrgaNameTeams
 Returns the list of teams
@@ -288,8 +345,12 @@ versioneye.getOrganisationsOrgaNameTeams({
 }, context)
 ```
 
-#### Parameters
-* orga_name (integer) **required**
+#### Input
+* input `object`
+  * orga_name **required** `integer`
+
+#### Output
+*Output schema unknown*
 
 ### getProductsSearchQ
 
@@ -306,11 +367,15 @@ versioneye.getProductsSearchQ({
 }, context)
 ```
 
-#### Parameters
-* q (string) **required** - Query string. At least 2 characters.
-* lang (string) - Filter results by programming languages;
-* g (string) - Filter by GroupID. This is Java/Maven specific
-* page (integer) - Specify page for paging
+#### Input
+* input `object`
+  * q **required** `string`: Query string. At least 2 characters.
+  * lang `string`: Filter results by programming languages;
+  * g `string`: Filter by GroupID. This is Java/Maven specific
+  * page `integer`: Specify page for paging
+
+#### Output
+*Output schema unknown*
 
 ### getProductsShaSha
 
@@ -324,8 +389,12 @@ versioneye.getProductsShaSha({
 }, context)
 ```
 
-#### Parameters
-* sha (integer) **required**
+#### Input
+* input `object`
+  * sha **required** `integer`
+
+#### Output
+*Output schema unknown*
 
 ### getProductsLangProdKey
 
@@ -348,10 +417,14 @@ versioneye.getProductsLangProdKey({
 }, context)
 ```
 
-#### Parameters
-* lang (string) **required** - "Name of programming language"
-* prod_key (string) **required** - "Encoded product key, replace all `/` and `.`
-* prod_version (string) - "Version string"
+#### Input
+* input `object`
+  * lang **required** `string`: "Name of programming language"
+  * prod_key **required** `string`: "Encoded product key, replace all `/` and `.`
+  * prod_version `string`: "Version string"
+
+#### Output
+*Output schema unknown*
 
 ### deleteProductsLangProdKeyFollow
 
@@ -374,9 +447,13 @@ versioneye.deleteProductsLangProdKeyFollow({
 }, context)
 ```
 
-#### Parameters
-* lang (string) **required** - Programming language
-* prod_key (string) **required** - Package specifier
+#### Input
+* input `object`
+  * lang **required** `string`: Programming language
+  * prod_key **required** `string`: Package specifier
+
+#### Output
+*Output schema unknown*
 
 ### getProductsLangProdKeyFollow
 
@@ -398,9 +475,13 @@ versioneye.getProductsLangProdKeyFollow({
 }, context)
 ```
 
-#### Parameters
-* lang (string) **required** - "Name of programming language"
-* prod_key (string) **required** - Package specifier
+#### Input
+* input `object`
+  * lang **required** `string`: "Name of programming language"
+  * prod_key **required** `string`: Package specifier
+
+#### Output
+*Output schema unknown*
 
 ### postProductsLangProdKeyFollow
 
@@ -421,9 +502,13 @@ versioneye.postProductsLangProdKeyFollow({
 }, context)
 ```
 
-#### Parameters
-* lang (string) **required** - Programming language
-* prod_key (string) **required** -  Package product key. 
+#### Input
+* input `object`
+  * lang **required** `string`: Programming language
+  * prod_key **required** `string`:  Package product key. 
+
+#### Output
+*Output schema unknown*
 
 ### getProductsLangProdKeyReferences
 
@@ -447,10 +532,14 @@ versioneye.getProductsLangProdKeyReferences({
 }, context)
 ```
 
-#### Parameters
-* lang (string) **required** - Language
-* prod_key (string) **required** - Product Key
-* page (integer) - Page for paging
+#### Input
+* input `object`
+  * lang **required** `string`: Language
+  * prod_key **required** `string`: Product Key
+  * page `integer`: Page for paging
+
+#### Output
+*Output schema unknown*
 
 ### getProductsLangProdKeyVersions
 
@@ -473,9 +562,13 @@ versioneye.getProductsLangProdKeyVersions({
 }, context)
 ```
 
-#### Parameters
-* lang (string) **required** - "Name of programming language"
-* prod_key (string) **required** - "Encoded product key, replace all `/` and `.`
+#### Input
+* input `object`
+  * lang **required** `string`: "Name of programming language"
+  * prod_key **required** `string`: "Encoded product key, replace all `/` and `.`
+
+#### Output
+*Output schema unknown*
 
 ### postProductsLangProdKeyProdVersionLicense
 With this endpoint users can suggest a license for an artifact.
@@ -491,13 +584,17 @@ versioneye.postProductsLangProdKeyProdVersionLicense({
 }, context)
 ```
 
-#### Parameters
-* lang (string) **required** -  programming language 
-* prod_key (string) **required** -  product key 
-* prod_version (string) **required** -  product version 
-* license_name (string) **required** -  name of the license 
-* license_source (string) **required** -  source of the license. Where did you find it? 
-* comments (string) -  you wanna say anyting important to this license? 
+#### Input
+* input `object`
+  * lang **required** `string`:  programming language 
+  * prod_key **required** `string`:  product key 
+  * prod_version **required** `string`:  product version 
+  * license_name **required** `string`:  name of the license 
+  * license_source **required** `string`:  source of the license. Where did you find it? 
+  * comments `string`:  you wanna say anyting important to this license? 
+
+#### Output
+*Output schema unknown*
 
 ### postProductsLangProdKeyProdVersionScmChanges
 
@@ -522,10 +619,14 @@ versioneye.postProductsLangProdKeyProdVersionScmChanges({
 }, context)
 ```
 
-#### Parameters
-* lang (string) **required** -  programming language 
-* prod_key (string) **required** -  product key 
-* prod_version (string) **required** -  product version 
+#### Input
+* input `object`
+  * lang **required** `string`:  programming language 
+  * prod_key **required** `string`:  product key 
+  * prod_version **required** `string`:  product version 
+
+#### Output
+*Output schema unknown*
 
 ### getProjects
 
@@ -538,9 +639,13 @@ your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_66
 versioneye.getProjects({}, context)
 ```
 
-#### Parameters
-* orga_name (string) - The name of the organisation the project is assigned to.
-* team_name (string) - The name of the team in the organisation this project is assigned to.
+#### Input
+* input `object`
+  * orga_name `string`: The name of the organisation the project is assigned to.
+  * team_name `string`: The name of the team in the organisation this project is assigned to.
+
+#### Output
+*Output schema unknown*
 
 ### postProjects
 
@@ -555,13 +660,17 @@ versioneye.postProjects({
 }, context)
 ```
 
-#### Parameters
-* upload (string) **required** - Project file - [maven.pom, Gemfile ...]
-* visibility (string) - By default 'public'. If 'public' everybody can see the project.
-* name (string) - The name of the VersionEye project. By default it is the filename.
-* orga_name (string) - The name of the organisation this project should be assigned to.
-* team_name (string) - The name of the team in the organisation this project should be assigned to.
-* temp (string) - If 'true' this project will not show up in the UI and gets removed later.
+#### Input
+* input `object`
+  * upload **required** `string`: Project file - [maven.pom, Gemfile ...]
+  * visibility `string`: By default 'public'. If 'public' everybody can see the project.
+  * name `string`: The name of the VersionEye project. By default it is the filename.
+  * orga_name `string`: The name of the organisation this project should be assigned to.
+  * team_name `string`: The name of the team in the organisation this project should be assigned to.
+  * temp `string`: If 'true' this project will not show up in the UI and gets removed later.
+
+#### Output
+*Output schema unknown*
 
 ### getProjectsGroupIdArtifactIdMergeGaChildId
 
@@ -580,10 +689,14 @@ versioneye.getProjectsGroupIdArtifactIdMergeGaChildId({
 }, context)
 ```
 
-#### Parameters
-* group_id (string) **required** - GroupId of the parent project
-* artifact_id (string) **required** - ArtifactId of the parent project
-* child_id (string) **required** - Project ID of the child
+#### Input
+* input `object`
+  * group_id **required** `string`: GroupId of the parent project
+  * artifact_id **required** `string`: ArtifactId of the parent project
+  * child_id **required** `string`: Project ID of the child
+
+#### Output
+*Output schema unknown*
 
 ### getProjectsParentIdMergeChildId
 
@@ -600,9 +713,13 @@ versioneye.getProjectsParentIdMergeChildId({
 }, context)
 ```
 
-#### Parameters
-* parent_id (string) **required** - Project ID of the parent
-* child_id (string) **required** - Project ID of the child
+#### Input
+* input `object`
+  * parent_id **required** `string`: Project ID of the parent
+  * child_id **required** `string`: Project ID of the child
+
+#### Output
+*Output schema unknown*
 
 ### getProjectsParentIdUnmergeChildId
 
@@ -620,9 +737,13 @@ versioneye.getProjectsParentIdUnmergeChildId({
 }, context)
 ```
 
-#### Parameters
-* parent_id (string) **required** - Project ID of the parent
-* child_id (string) **required** - Project ID of the child
+#### Input
+* input `object`
+  * parent_id **required** `string`: Project ID of the parent
+  * child_id **required** `string`: Project ID of the child
+
+#### Output
+*Output schema unknown*
 
 ### deleteProjectsProjectKey
 
@@ -637,8 +758,12 @@ versioneye.deleteProjectsProjectKey({
 }, context)
 ```
 
-#### Parameters
-* project_key (string) **required** - Delete project with given project ID.
+#### Input
+* input `object`
+  * project_key **required** `string`: Delete project with given project ID.
+
+#### Output
+*Output schema unknown*
 
 ### getProjectsProjectKey
  It shows detailed info of your project. 
@@ -650,8 +775,12 @@ versioneye.getProjectsProjectKey({
 }, context)
 ```
 
-#### Parameters
-* project_key (string) **required** - Project ID
+#### Input
+* input `object`
+  * project_key **required** `string`: Project ID
+
+#### Output
+*Output schema unknown*
 
 ### postProjectsProjectKey
 
@@ -667,9 +796,13 @@ versioneye.postProjectsProjectKey({
 }, context)
 ```
 
-#### Parameters
-* project_key (string) **required** - Project ID
-* project_file (string) **required** - Project file - [maven.pom, Gemfile ...]
+#### Input
+* input `object`
+  * project_key **required** `string`: Project ID
+  * project_file **required** `string`: Project file - [maven.pom, Gemfile ...]
+
+#### Output
+*Output schema unknown*
 
 ### putProjectsProjectKey
 
@@ -697,8 +830,12 @@ versioneye.putProjectsProjectKey({
 }, context)
 ```
 
-#### Parameters
-* project_key (string) **required** - Project ID
+#### Input
+* input `object`
+  * project_key **required** `string`: Project ID
+
+#### Output
+*Output schema unknown*
 
 ### getProjectsProjectKeyDependencies
 
@@ -716,8 +853,12 @@ versioneye.getProjectsProjectKeyDependencies({
 }, context)
 ```
 
-#### Parameters
-* project_key (string) **required** - Project ID or project_key
+#### Input
+* input `object`
+  * project_key **required** `string`: Project ID or project_key
+
+#### Output
+*Output schema unknown*
 
 ### getProjectsProjectKeyLicenses
 
@@ -732,8 +873,12 @@ versioneye.getProjectsProjectKeyLicenses({
 }, context)
 ```
 
-#### Parameters
-* project_key (string) **required** - Project ID or project_key
+#### Input
+* input `object`
+  * project_key **required** `string`: Project ID or project_key
+
+#### Output
+*Output schema unknown*
 
 ### getSecurity
 Security Vulnerabilities
@@ -745,12 +890,16 @@ versioneye.getSecurity({
 }, context)
 ```
 
-#### Parameters
-* language (string) **required** - Filter by programming languages
-* prod_key (string) - prod_key of the package
-* page (integer) - Specify page for paging
-* asc_sort (string) - Asc sort by value
-* desc_sort (string) - Desc sort by value
+#### Input
+* input `object`
+  * language **required** `string`: Filter by programming languages
+  * prod_key `string`: prod_key of the package
+  * page `integer`: Specify page for paging
+  * asc_sort `string`: Asc sort by value
+  * desc_sort `string`: Desc sort by value
+
+#### Output
+*Output schema unknown*
 
 ### getServicesPing
 check is the service up and running
@@ -760,8 +909,11 @@ check is the service up and running
 versioneye.getServicesPing(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### deleteSessions
 Close current session. It's very handy method when you re-generated your current API-key.
@@ -771,8 +923,11 @@ Close current session. It's very handy method when you re-generated your current
 versioneye.deleteSessions(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### getSessions
 
@@ -786,8 +941,11 @@ For othercase, it will return error message with status code 401.
 versioneye.getSessions(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### postSessions
  You need to append your api_key to request. 
@@ -799,8 +957,12 @@ versioneye.postSessions({
 }, context)
 ```
 
-#### Parameters
-* api_key (string) **required** - your personal token for API.
+#### Input
+* input `object`
+  * api_key **required** `string`: your personal token for API.
+
+#### Output
+*Output schema unknown*
 
 ### postSessionsLogin
  You need to append your api_key to request. 
@@ -813,9 +975,13 @@ versioneye.postSessionsLogin({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - email or username
-* password (string) **required** - password
+#### Input
+* input `object`
+  * username **required** `string`: email or username
+  * password **required** `string`: password
+
+#### Output
+*Output schema unknown*
 
 ### getUsersUsername
 shows profile of given user_id
@@ -827,8 +993,12 @@ versioneye.getUsersUsername({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - username
+#### Input
+* input `object`
+  * username **required** `string`: username
+
+#### Output
+*Output schema unknown*
 
 ### getUsersUsernameComments
 shows user's comments
@@ -840,9 +1010,13 @@ versioneye.getUsersUsernameComments({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - VersionEye users' nickname
-* page (integer) - pagination number
+#### Input
+* input `object`
+  * username **required** `string`: VersionEye users' nickname
+  * page `integer`: pagination number
+
+#### Output
+*Output schema unknown*
 
 ### getUsersUsernameFavorites
 shows user's favorite packages
@@ -854,7 +1028,16 @@ versioneye.getUsersUsernameFavorites({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required** - username
-* page (integer) - Pagination number
+#### Input
+* input `object`
+  * username **required** `string`: username
+  * page `integer`: Pagination number
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

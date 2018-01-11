@@ -4,13 +4,11 @@ Client library for Geneea Natural Language Processing
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/geneea
+npm install --save @datafire/geneea
 ```
-
 ```js
-let datafire = require('datafire');
 let geneea = require('@datafire/geneea').create({
-  user_key: "",
+  user_key: ""
 });
 
 geneea.topicPost({}).then(data => {
@@ -19,6 +17,7 @@ geneea.topicPost({}).then(data => {
 ```
 
 ## Description
+
 <div class="api-description">
     <h2>Authentication</h2>
     <p>For all calls, supply your API key. <a href="https://www.geneea.com/pricing">Sign up to <em>obtain the key</em></a>.</p>
@@ -103,6 +102,7 @@ geneea.topicPost({}).then(data => {
 
 
 ## Actions
+
 ### getInfo
 getInfo
 
@@ -111,8 +111,11 @@ getInfo
 geneea.getInfo(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Information_about_a_user_account.](#information_about_a_user_account.)
 
 ### correctionGet
 <br/><strong>Possible options:</strong><p class="markdown">An optional parameter <code>diacritize</code> with values <code>yes</code>, <code>no</code> or <code>auto</code> indicate whether the text diacritization will be performed. The default value is <code>auto</code>.</p>
@@ -122,12 +125,16 @@ geneea.getInfo(null, context)
 geneea.correctionGet({}, context)
 ```
 
-#### Parameters
-* text (string) - raw document text
-* url (string) - document URL
-* extractor (string) - document extractor
-* language (string) - document language
-* returnTextInfo (boolean)
+#### Input
+* input `object`
+  * text `string`: raw document text
+  * url `string`: document URL
+  * extractor `string` (values: default, article, keep-everything): document extractor
+  * language `string`: document language
+  * returnTextInfo `boolean`
+
+#### Output
+* output [Response_for_the_text_correction](#response_for_the_text_correction)
 
 ### correctionPost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre><br/><strong>Possible options:</strong><p class="markdown">An optional parameter <code>diacritize</code> with values <code>yes</code>, <code>no</code> or <code>auto</code> indicate whether the text diacritization will be performed. The default value is <code>auto</code>.</p>
@@ -137,8 +144,12 @@ geneea.correctionGet({}, context)
 geneea.correctionPost({}, context)
 ```
 
-#### Parameters
-* body (undefined) - Request encapsulation for simple API version 1
+#### Input
+* input `object`
+  * body [Request](#request)
+
+#### Output
+* output [Response_for_the_text_correction](#response_for_the_text_correction)
 
 ### entitiesGet
 entitiesGet
@@ -148,12 +159,16 @@ entitiesGet
 geneea.entitiesGet({}, context)
 ```
 
-#### Parameters
-* text (string) - raw document text
-* url (string) - document URL
-* extractor (string) - document extractor
-* language (string) - document language
-* returnTextInfo (boolean)
+#### Input
+* input `object`
+  * text `string`: raw document text
+  * url `string`: document URL
+  * extractor `string` (values: default, article, keep-everything): document extractor
+  * language `string`: document language
+  * returnTextInfo `boolean`
+
+#### Output
+* output [EntitiesResponse](#entitiesresponse)
 
 ### entitiesPost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre>
@@ -163,8 +178,12 @@ geneea.entitiesGet({}, context)
 geneea.entitiesPost({}, context)
 ```
 
-#### Parameters
-* body (undefined) - Request encapsulation for simple API version 1
+#### Input
+* input `object`
+  * body [Request](#request)
+
+#### Output
+* output [EntitiesResponse](#entitiesresponse)
 
 ### lemmatizeGet
 lemmatizeGet
@@ -174,12 +193,16 @@ lemmatizeGet
 geneea.lemmatizeGet({}, context)
 ```
 
-#### Parameters
-* text (string) - raw document text
-* url (string) - document URL
-* extractor (string) - document extractor
-* language (string) - document language
-* returnTextInfo (boolean)
+#### Input
+* input `object`
+  * text `string`: raw document text
+  * url `string`: document URL
+  * extractor `string` (values: default, article, keep-everything): document extractor
+  * language `string`: document language
+  * returnTextInfo `boolean`
+
+#### Output
+* output [LemmatizeResponse](#lemmatizeresponse)
 
 ### lemmatizePost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre>
@@ -189,8 +212,12 @@ geneea.lemmatizeGet({}, context)
 geneea.lemmatizePost({}, context)
 ```
 
-#### Parameters
-* body (undefined) - Request encapsulation for simple API version 1
+#### Input
+* input `object`
+  * body [Request](#request)
+
+#### Output
+* output [LemmatizeResponse](#lemmatizeresponse)
 
 ### sentimentGet
 sentimentGet
@@ -200,12 +227,16 @@ sentimentGet
 geneea.sentimentGet({}, context)
 ```
 
-#### Parameters
-* text (string) - raw document text
-* url (string) - document URL
-* extractor (string) - document extractor
-* language (string) - document language
-* returnTextInfo (boolean)
+#### Input
+* input `object`
+  * text `string`: raw document text
+  * url `string`: document URL
+  * extractor `string` (values: default, article, keep-everything): document extractor
+  * language `string`: document language
+  * returnTextInfo `boolean`
+
+#### Output
+* output [SentimentResponse](#sentimentresponse)
 
 ### sentimentPost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre>
@@ -215,8 +246,12 @@ geneea.sentimentGet({}, context)
 geneea.sentimentPost({}, context)
 ```
 
-#### Parameters
-* body (undefined) - Request encapsulation for simple API version 1
+#### Input
+* input `object`
+  * body [Request](#request)
+
+#### Output
+* output [SentimentResponse](#sentimentresponse)
 
 ### topicGet
 topicGet
@@ -226,12 +261,16 @@ topicGet
 geneea.topicGet({}, context)
 ```
 
-#### Parameters
-* text (string) - raw document text
-* url (string) - document URL
-* extractor (string) - document extractor
-* language (string) - document language
-* returnTextInfo (boolean)
+#### Input
+* input `object`
+  * text `string`: raw document text
+  * url `string`: document URL
+  * extractor `string` (values: default, article, keep-everything): document extractor
+  * language `string`: document language
+  * returnTextInfo `boolean`
+
+#### Output
+* output [TopicResponse](#topicresponse)
 
 ### topicPost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre>
@@ -241,6 +280,83 @@ geneea.topicGet({}, context)
 geneea.topicPost({}, context)
 ```
 
-#### Parameters
-* body (undefined) - Request encapsulation for simple API version 1
+#### Input
+* input `object`
+  * body [Request](#request)
+
+#### Output
+* output [TopicResponse](#topicresponse)
+
+
+
+## Definitions
+
+### EntitiesResponse
+* EntitiesResponse `object`: Response for the named-entity recognition
+  * entities **required** `array`: Found named entities in the document
+    * items [Entity](#entity)
+  * language **required** `string`: The used language of the document
+  * text `string`: The raw text of the document which has been analysed
+
+### Entity
+* Entity `object`: The named entity
+  * entity **required** `string`: Disambiguated and standardized form of the entity
+  * links **required** `object`: Disambiguation links for the entity, e.g. its DBpedia page
+  * sentiment `number`: Detected sentiment of the entity (value from -1.0 to 1.0)
+  * textOffset **required** `integer`: Character offset in the text (starting from 0)
+  * type **required** `string`: Detected type of the entity
+
+### Entry«string,long»
+* Entry«string,long» `object`
+  * key `integer`
+
+### Information_about_a_user_account.
+* Information_about_a_user_account. `object`
+  * remainingQuotas `array`: Remaining quotas for the user account.
+    * items [Entry«string,long»](#entry«string,long»)
+  * type `string`: Type (plan) of the user account.
+
+### Label
+* Label `object`: The topic label
+  * confidence **required** `number`: Confidence (probability) of this label
+  * label **required** `string`: The value of this label
+
+### LemmatizeResponse
+* LemmatizeResponse `object`: Response for the lemmatization
+  * language **required** `string`: The used language of the document
+  * lemmatizedText **required** `string`: Lemmatized text of the document, individual tokens are separated by a space and sentences are separated by a new-line character
+  * text `string`: The raw text of the document which has been analysed
+
+### Request
+* Request `object`: Request encapsulation for simple API version 1
+  * extractor `string` (values: default, article, keep-everything): [optional] Text extractor to be used when analyzing HTML document
+  * language `string`: [optional] The language of the document, auto-detection will be used if omitted
+  * options `object`: [optional] Additional options for the internal modules (key-value pairs)
+  * returnTextInfo `boolean`: [optional] Indicates whether to return the source text within the response object
+  * text `string`: The raw text to be analyzed, mutually exclusive with the 'url' parameter
+  * url `string`: URL of a document to be analysed, mutually exclusive with the 'text' parameter
+
+### Response_for_the_text_correction
+* Response_for_the_text_correction `object`
+  * corrected `boolean`
+  * correctedText **required** `string`: Corrected text of the document
+  * diacritized `boolean`
+  * language **required** `string`: The used language of the document
+  * text `string`: The raw text of the document which has been analysed
+
+### SentimentResponse
+* SentimentResponse `object`: Response for the sentiment analysis
+  * language **required** `string`: The used language of the document
+  * sentiment **required** `number`: Detected sentiment of the document (value from -1.0 to 1.0)
+  * text `string`: The raw text of the document which has been analysed
+
+### TopicResponse
+* TopicResponse `object`: Response for the topic detection
+  * confidence **required** `number`: Confidence for the detected topic
+  * labels **required** `array`: Probabilistic distribution over possible topic labels
+    * items [Label](#label)
+  * language **required** `string`: The used language of the document
+  * text `string`: The raw text of the document which has been analysed
+  * topic **required** `string`: Detected topic of the document
+
 

@@ -4,14 +4,12 @@ Client library for Apacta
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/apacta
+npm install --save @datafire/apacta
 ```
-
 ```js
-let datafire = require('datafire');
 let apacta = require('@datafire/apacta').create({
-  X-Auth-Token: "",
-  api_key: "",
+  "X-Auth-Token": "",
+  api_key: ""
 });
 
 apacta.wall_posts.post({}).then(data => {
@@ -20,6 +18,7 @@ apacta.wall_posts.post({}).then(data => {
 ```
 
 ## Description
+
 API for a tool to craftsmen used to register working hours, material usage and quality assurance.    
 # Endpoint
 The endpoint `https://app.apacta.com/api/v1` should be used to communicate with the API. API access is only allowed with SSL encrypted connection (https).
@@ -227,6 +226,7 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
 ```
 
 ## Actions
+
 ### cities.get
 Get list of cities supported in Apacta
 
@@ -235,8 +235,16 @@ Get list of cities supported in Apacta
 apacta.cities.get({}, context)
 ```
 
-#### Parameters
-* zip_code (string) - Used to search for a city with specific zip code
+#### Input
+* input `object`
+  * zip_code `string`: Used to search for a city with specific zip code
+
+#### Output
+* output `object`
+  * data `array`
+    * items [City](#city)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### cities.city_id.get
 Get details about one city
@@ -248,8 +256,14 @@ apacta.cities.city_id.get({
 }, context)
 ```
 
-#### Parameters
-* city_id (string) **required**
+#### Input
+* input `object`
+  * city_id **required** `string`
+
+#### Output
+* output `object`
+  * data [City](#city)
+  * success `boolean`
 
 ### clocking_records.get
 Get a list of clocking records
@@ -259,8 +273,16 @@ Get a list of clocking records
 apacta.clocking_records.get({}, context)
 ```
 
-#### Parameters
-* active (boolean) - Used to search for active clocking records
+#### Input
+* input `object`
+  * active `boolean`: Used to search for active clocking records
+
+#### Output
+* output `object`
+  * data `array`
+    * items [ClockingRecord](#clockingrecord)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### clocking_records.post
 Create clocking record for authenticated user
@@ -272,8 +294,20 @@ apacta.clocking_records.post({
 }, context)
 ```
 
-#### Parameters
-* clocking_record (object) **required**
+#### Input
+* input `object`
+  * clocking_record **required** `object`
+    * checkin_latitude `string`
+    * checkin_longitude `string`
+    * checkout_latitude `string`
+    * checkout_longitude `string`
+    * project_id `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### clocking_records.checkout.post
 Checkout active clocking record for authenticated user
@@ -283,8 +317,12 @@ Checkout active clocking record for authenticated user
 apacta.clocking_records.checkout.post(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * success `boolean`
 
 ### clocking_records.clocking_record_id.delete
 Delete a clocking record
@@ -296,8 +334,15 @@ apacta.clocking_records.clocking_record_id.delete({
 }, context)
 ```
 
-#### Parameters
-* clocking_record_id (string) **required**
+#### Input
+* input `object`
+  * clocking_record_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `string`
+  * success `boolean`
 
 ### clocking_records.clocking_record_id.get
 Details of 1 clocking_record
@@ -309,8 +354,14 @@ apacta.clocking_records.clocking_record_id.get({
 }, context)
 ```
 
-#### Parameters
-* clocking_record_id (string) **required**
+#### Input
+* input `object`
+  * clocking_record_id **required** `string`
+
+#### Output
+* output `object`
+  * data [ClockingRecord](#clockingrecord)
+  * success `boolean`
 
 ### clocking_records.clocking_record_id.put
 Edit a clocking record
@@ -322,8 +373,15 @@ apacta.clocking_records.clocking_record_id.put({
 }, context)
 ```
 
-#### Parameters
-* clocking_record_id (string) **required**
+#### Input
+* input `object`
+  * clocking_record_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### companies.get
 Get a list of companies
@@ -333,8 +391,15 @@ Get a list of companies
 apacta.companies.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items [Company](#company)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### companies.company_id.get
 Details of 1 company
@@ -346,8 +411,14 @@ apacta.companies.company_id.get({
 }, context)
 ```
 
-#### Parameters
-* company_id (string) **required**
+#### Input
+* input `object`
+  * company_id **required** `string`
+
+#### Output
+* output `object`
+  * data [Company](#company)
+  * success `boolean`
 
 ### companies.company_id.integration_feature_settings.get
 Get a list of integration feature settings
@@ -359,8 +430,16 @@ apacta.companies.company_id.integration_feature_settings.get({
 }, context)
 ```
 
-#### Parameters
-* company_id (string) **required**
+#### Input
+* input `object`
+  * company_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items [IntegrationFeatureSetting](#integrationfeaturesetting)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### companies.company_id.integration_feature_settings.integration_feature_setting_id.get
 Show details of 1 integration feature setting
@@ -373,9 +452,15 @@ apacta.companies.company_id.integration_feature_settings.integration_feature_set
 }, context)
 ```
 
-#### Parameters
-* company_id (string) **required**
-* integration_feature_setting_id (string) **required**
+#### Input
+* input `object`
+  * company_id **required** `string`
+  * integration_feature_setting_id **required** `string`
+
+#### Output
+* output `object`
+  * data [IntegrationFeatureSetting](#integrationfeaturesetting)
+  * success `boolean`
 
 ### contact_types.get
 Get list of contact types supported in Apacta
@@ -385,8 +470,16 @@ Get list of contact types supported in Apacta
 apacta.contact_types.get({}, context)
 ```
 
-#### Parameters
-* identifier (string) - Search for specific identifier value
+#### Input
+* input `object`
+  * identifier `string`: Search for specific identifier value
+
+#### Output
+* output `object`
+  * data `array`
+    * items [ContactType](#contacttype)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### contact_types.contact_type_id.get
 Get details about one contact type
@@ -398,8 +491,14 @@ apacta.contact_types.contact_type_id.get({
 }, context)
 ```
 
-#### Parameters
-* contact_type_id (string) **required**
+#### Input
+* input `object`
+  * contact_type_id **required** `string`
+
+#### Output
+* output `object`
+  * data [ContactType](#contacttype)
+  * success `boolean`
 
 ### contacts.get
 Get a list of contacts
@@ -409,13 +508,21 @@ Get a list of contacts
 apacta.contacts.get({}, context)
 ```
 
-#### Parameters
-* name (string) - Used to search for a contact with a specific name
-* cvr (string) - Search for values in CVR field
-* ean (string) - Search for values in EAN field
-* erp_id (string) - Search for values in ERP id field
-* contact_type (string) - Used to show only contacts with with one specific `ContactType`
-* city (string) - Used to show only contacts with with one specific `City`
+#### Input
+* input `object`
+  * name `string`: Used to search for a contact with a specific name
+  * cvr `string`: Search for values in CVR field
+  * ean `string`: Search for values in EAN field
+  * erp_id `string`: Search for values in ERP id field
+  * contact_type `string`: Used to show only contacts with with one specific `ContactType`
+  * city `string`: Used to show only contacts with with one specific `City`
+
+#### Output
+* output `object`
+  * data `array`
+    * items [Contact](#contact)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### contacts.post
 Add a new contact
@@ -425,8 +532,27 @@ Add a new contact
 apacta.contacts.post({}, context)
 ```
 
-#### Parameters
-* contact (object)
+#### Input
+* input `object`
+  * contact `object`
+    * address `string`: Street address
+    * city_id `string`
+    * contact_types `object`
+      * _ids `array`
+        * items `string`
+    * cvr `string`
+    * description `string`
+    * email `string`
+    * erp_id `string`: If company has integration to an ERP system, and the contacts are synchronized, this will be the ERP-systems ID of this contact
+    * name `string`
+    * phone `string`: Format like eg. `28680133` or `046158971404`
+    * website `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### contacts.contact_id.delete
 Delete a contact
@@ -438,8 +564,15 @@ apacta.contacts.contact_id.delete({
 }, context)
 ```
 
-#### Parameters
-* contact_id (string) **required**
+#### Input
+* input `object`
+  * contact_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `string`
+  * success `boolean`
 
 ### contacts.contact_id.get
 Details of 1 contact
@@ -451,8 +584,14 @@ apacta.contacts.contact_id.get({
 }, context)
 ```
 
-#### Parameters
-* contact_id (string) **required**
+#### Input
+* input `object`
+  * contact_id **required** `string`
+
+#### Output
+* output `object`
+  * data [Contact](#contact)
+  * success `boolean`
 
 ### contacts.contact_id.put
 Edit a contact
@@ -464,9 +603,28 @@ apacta.contacts.contact_id.put({
 }, context)
 ```
 
-#### Parameters
-* contact_id (string) **required**
-* contact (object)
+#### Input
+* input `object`
+  * contact_id **required** `string`
+  * contact `object`
+    * address `string`: Street address
+    * city_id `string`
+    * contact_types `object`
+      * _ids `array`
+        * items `string`
+    * cvr `string`
+    * description `string`
+    * email `string`
+    * erp_id `string`: If company has integration to an ERP system, and the contacts are synchronized, this will be the ERP-systems ID of this contact
+    * name `string`
+    * phone `string`: Format like eg. `28680133` or `046158971404`
+    * website `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### currencies.get
 Get list of currencies supported in Apacta
@@ -476,8 +634,15 @@ Get list of currencies supported in Apacta
 apacta.currencies.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items [Currency](#currency)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### currencies.currency_id.get
 Get details about one currency
@@ -489,8 +654,14 @@ apacta.currencies.currency_id.get({
 }, context)
 ```
 
-#### Parameters
-* currency_id (string) **required**
+#### Input
+* input `object`
+  * currency_id **required** `string`
+
+#### Output
+* output `object`
+  * data [Currency](#currency)
+  * success `boolean`
 
 ### employee_hours.get
 Used to retrieve details about the logged in user's hours
@@ -503,9 +674,22 @@ apacta.employee_hours.get({
 }, context)
 ```
 
-#### Parameters
-* date_from (string) **required** - Date formatted as Y-m-d (2016-06-28)
-* date_to (string) **required** - Date formatted as Y-m-d (2016-06-28)
+#### Input
+* input `object`
+  * date_from **required** `string`: Date formatted as Y-m-d (2016-06-28)
+  * date_to **required** `string`: Date formatted as Y-m-d (2016-06-28)
+
+#### Output
+* output `object`
+  * data `array`: One element per form in the period
+    * items `object`
+      * form_date `string`: Y-m-d formatted
+      * form_id `string`
+      * project_name `string`
+      * total_hours `integer`: The amount of hours in seconds
+      * working_description `string`: Trimmed at 50 characters
+      * working_description_full `string`: Full work description (if available)
+  * success `boolean`
 
 ### expense_files.get
 Show list of expense files
@@ -515,9 +699,17 @@ Show list of expense files
 apacta.expense_files.get({}, context)
 ```
 
-#### Parameters
-* created_by_id (string)
-* expense_id (string)
+#### Input
+* input `object`
+  * created_by_id `string`
+  * expense_id `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items [ExpenseFile](#expensefile)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### expense_files.post
 Add file to expense
@@ -529,9 +721,16 @@ apacta.expense_files.post({
 }, context)
 ```
 
-#### Parameters
-* file (string) **required**
-* description (string)
+#### Input
+* input `object`
+  * file **required** `string`
+  * description `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### expense_files.expense_file_id.delete
 Delete file
@@ -543,8 +742,15 @@ apacta.expense_files.expense_file_id.delete({
 }, context)
 ```
 
-#### Parameters
-* expense_file_id (string) **required**
+#### Input
+* input `object`
+  * expense_file_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `string`
+  * success `boolean`
 
 ### expense_files.expense_file_id.get
 Show file
@@ -556,8 +762,15 @@ apacta.expense_files.expense_file_id.get({
 }, context)
 ```
 
-#### Parameters
-* expense_file_id (string) **required**
+#### Input
+* input `object`
+  * expense_file_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `string`
+  * success `boolean`
 
 ### expense_files.expense_file_id.put
 Edit file
@@ -569,8 +782,14 @@ apacta.expense_files.expense_file_id.put({
 }, context)
 ```
 
-#### Parameters
-* expense_file_id (string) **required**
+#### Input
+* input `object`
+  * expense_file_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+  * success `boolean`
 
 ### expense_lines.get
 Show list of expense lines
@@ -580,10 +799,18 @@ Show list of expense lines
 apacta.expense_lines.get({}, context)
 ```
 
-#### Parameters
-* created_by_id (string)
-* currency_id (string)
-* expense_id (string)
+#### Input
+* input `object`
+  * created_by_id `string`
+  * currency_id `string`
+  * expense_id `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items [ExpenseLine](#expenseline)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### expense_lines.post
 Add line to expense
@@ -593,8 +820,21 @@ Add line to expense
 apacta.expense_lines.post({}, context)
 ```
 
-#### Parameters
-* expense_line (object)
+#### Input
+* input `object`
+  * expense_line `object`
+    * buying_price `number`
+    * currency_id `string`
+    * expense_id `string`
+    * quantity `integer`
+    * selling_price `number`
+    * text `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### expense_lines.expense_line_id.delete
 Delete expense line
@@ -606,8 +846,14 @@ apacta.expense_lines.expense_line_id.delete({
 }, context)
 ```
 
-#### Parameters
-* expense_line_id (string) **required**
+#### Input
+* input `object`
+  * expense_line_id **required** `string`
+
+#### Output
+* output `object`
+  * data [ExpenseLine](#expenseline)
+  * success `boolean`
 
 ### expense_lines.expense_line_id.get
 Show expense line
@@ -619,8 +865,14 @@ apacta.expense_lines.expense_line_id.get({
 }, context)
 ```
 
-#### Parameters
-* expense_line_id (string) **required**
+#### Input
+* input `object`
+  * expense_line_id **required** `string`
+
+#### Output
+* output `object`
+  * data [ExpenseLine](#expenseline)
+  * success `boolean`
 
 ### expense_lines.expense_line_id.put
 Edit expense line
@@ -632,8 +884,14 @@ apacta.expense_lines.expense_line_id.put({
 }, context)
 ```
 
-#### Parameters
-* expense_line_id (string) **required**
+#### Input
+* input `object`
+  * expense_line_id **required** `string`
+
+#### Output
+* output `object`
+  * data [ExpenseLine](#expenseline)
+  * success `boolean`
 
 ### expenses.get
 Show list of expenses
@@ -643,13 +901,21 @@ Show list of expenses
 apacta.expenses.get({}, context)
 ```
 
-#### Parameters
-* created_by_id (string)
-* company_id (string)
-* contact_id (string)
-* project_id (string)
-* gt_created (string) - Created after date
-* lt_created (string) - Created before date
+#### Input
+* input `object`
+  * created_by_id `string`
+  * company_id `string`
+  * contact_id `string`
+  * project_id `string`
+  * gt_created `string`: Created after date
+  * lt_created `string`: Created before date
+
+#### Output
+* output `object`
+  * data `array`
+    * items [Expense](#expense)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### expenses.post
 Add line to expense
@@ -659,8 +925,23 @@ Add line to expense
 apacta.expenses.post({}, context)
 ```
 
-#### Parameters
-* expense_line (object)
+#### Input
+* input `object`
+  * expense_line `object`
+    * contact_id `string`
+    * currency_id `string`
+    * delivery_date `string`
+    * description `string`
+    * project_id `string`
+    * reference `string`
+    * short_text `string`
+    * supplier_invoice_number `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### expenses.expense_id.delete
 Delete expense
@@ -672,8 +953,14 @@ apacta.expenses.expense_id.delete({
 }, context)
 ```
 
-#### Parameters
-* expense_id (string) **required**
+#### Input
+* input `object`
+  * expense_id **required** `string`
+
+#### Output
+* output `object`
+  * data [Expense](#expense)
+  * success `boolean`
 
 ### expenses.expense_id.get
 Show expense
@@ -685,8 +972,14 @@ apacta.expenses.expense_id.get({
 }, context)
 ```
 
-#### Parameters
-* expense_id (string) **required**
+#### Input
+* input `object`
+  * expense_id **required** `string`
+
+#### Output
+* output `object`
+  * data [Expense](#expense)
+  * success `boolean`
 
 ### expenses.expense_id.put
 Edit expense
@@ -698,8 +991,14 @@ apacta.expenses.expense_id.put({
 }, context)
 ```
 
-#### Parameters
-* expense_id (string) **required**
+#### Input
+* input `object`
+  * expense_id **required** `string`
+
+#### Output
+* output `object`
+  * data [Expense](#expense)
+  * success `boolean`
 
 ### form_field_types.get
 Get list of form field types
@@ -709,9 +1008,17 @@ Get list of form field types
 apacta.form_field_types.get({}, context)
 ```
 
-#### Parameters
-* name (string) - Used to filter on the `name` of the form_fields
-* identifier (string) - Used to filter on the `identifier` of the form_fields
+#### Input
+* input `object`
+  * name `string`: Used to filter on the `name` of the form_fields
+  * identifier `string`: Used to filter on the `identifier` of the form_fields
+
+#### Output
+* output `object`
+  * data `array`
+    * items [FormFieldType](#formfieldtype)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### form_field_types.form_field_type_id.get
 Get details about single `FormField`
@@ -723,8 +1030,14 @@ apacta.form_field_types.form_field_type_id.get({
 }, context)
 ```
 
-#### Parameters
-* form_field_type_id (string) **required**
+#### Input
+* input `object`
+  * form_field_type_id **required** `string`
+
+#### Output
+* output `object`
+  * data [FormFieldType](#formfieldtype)
+  * success `boolean`
 
 ### form_fields.post
 Add a new field to a `Form`
@@ -734,8 +1047,22 @@ Add a new field to a `Form`
 apacta.form_fields.post({}, context)
 ```
 
-#### Parameters
-* form_field (object)
+#### Input
+* input `object`
+  * form_field `object`
+    * comment `string`
+    * content_value `string`
+    * file_id `string`
+    * form_field_type_id `string`
+    * form_id `string`
+    * form_template_field_id `string`
+    * placement `integer`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### form_fields.form_field_id.get
 Get details about single `FormField`
@@ -747,8 +1074,14 @@ apacta.form_fields.form_field_id.get({
 }, context)
 ```
 
-#### Parameters
-* form_field_id (string) **required**
+#### Input
+* input `object`
+  * form_field_id **required** `string`
+
+#### Output
+* output `object`
+  * data [FormField](#formfield)
+  * success `boolean`
 
 ### form_templates.get
 Get array of form_templates for your company
@@ -758,11 +1091,19 @@ Get array of form_templates for your company
 apacta.form_templates.get({}, context)
 ```
 
-#### Parameters
-* name (string) - Used to filter on the `name` of the form_templates
-* identifier (string) - Used to filter on the `identifier` of the form_templates
-* pdf_template_identifier (string) - Used to filter on the `pdf_template_identifier` of the form_templates
-* description (string) - Used to filter on the `description` of the form_templates
+#### Input
+* input `object`
+  * name `string`: Used to filter on the `name` of the form_templates
+  * identifier `string`: Used to filter on the `identifier` of the form_templates
+  * pdf_template_identifier `string`: Used to filter on the `pdf_template_identifier` of the form_templates
+  * description `string`: Used to filter on the `description` of the form_templates
+
+#### Output
+* output `object`
+  * data `array`
+    * items [FormTemplate](#formtemplate)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### form_templates.form_template_id.get
 View one form template
@@ -774,8 +1115,14 @@ apacta.form_templates.form_template_id.get({
 }, context)
 ```
 
-#### Parameters
-* form_template_id (string) **required**
+#### Input
+* input `object`
+  * form_template_id **required** `string`
+
+#### Output
+* output `object`
+  * data [FormTemplate](#formtemplate)
+  * success `boolean`
 
 ### forms.get
 Retrieve array of forms
@@ -785,13 +1132,21 @@ Retrieve array of forms
 apacta.forms.get({}, context)
 ```
 
-#### Parameters
-* extended (string) - Used to have extended details from the forms from the `Form`'s `FormFields`
-* date_from (string) - Used in conjunction with `date_to` to only show forms within these dates - format like `2016-28-05`
-* date_to (string) - Used in conjunction with `date_from` to only show forms within these dates - format like `2016-28-30`
-* project_id (string) - Used to filter on the `project_id` of the forms
-* created_by_id (string) - Used to filter on the `created_by_id` of the forms
-* form_template_id (string) - Used to filter on the `form_template_id` of the forms
+#### Input
+* input `object`
+  * extended `string` (values: true, false): Used to have extended details from the forms from the `Form`'s `FormFields`
+  * date_from `string`: Used in conjunction with `date_to` to only show forms within these dates - format like `2016-28-05`
+  * date_to `string`: Used in conjunction with `date_from` to only show forms within these dates - format like `2016-28-30`
+  * project_id `string`: Used to filter on the `project_id` of the forms
+  * created_by_id `string`: Used to filter on the `created_by_id` of the forms
+  * form_template_id `string`: Used to filter on the `form_template_id` of the forms
+
+#### Output
+* output `object`
+  * data `array`
+    * items [Form](#form)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### forms.post
 Used to add a form into the system
@@ -801,8 +1156,17 @@ Used to add a form into the system
 apacta.forms.post({}, context)
 ```
 
-#### Parameters
-* form (object)
+#### Input
+* input `object`
+  * form `object`
+    * form_template_id **required** `string`
+    * project_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### forms.form_id.delete
 You can only delete the forms that you've submitted yourself
@@ -814,8 +1178,12 @@ apacta.forms.form_id.delete({
 }, context)
 ```
 
-#### Parameters
-* form_id (string) **required**
+#### Input
+* input `object`
+  * form_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### forms.form_id.get
 View form
@@ -827,8 +1195,14 @@ apacta.forms.form_id.get({
 }, context)
 ```
 
-#### Parameters
-* form_id (string) **required**
+#### Input
+* input `object`
+  * form_id **required** `string`
+
+#### Output
+* output `object`
+  * data [Form](#form)
+  * success `boolean`
 
 ### forms.form_id.put
 Edit a form
@@ -840,8 +1214,12 @@ apacta.forms.form_id.put({
 }, context)
 ```
 
-#### Parameters
-* form_id (string) **required**
+#### Input
+* input `object`
+  * form_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### invoice_lines.get
 View list of invoice lines
@@ -851,12 +1229,20 @@ View list of invoice lines
 apacta.invoice_lines.get({}, context)
 ```
 
-#### Parameters
-* invoice_id (string)
-* product_id (string)
-* user_id (string)
-* name (string)
-* discount_text (string)
+#### Input
+* input `object`
+  * invoice_id `string`
+  * product_id `string`
+  * user_id `string`
+  * name `string`
+  * discount_text `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items [InvoiceLine](#invoiceline)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### invoice_lines.post
 Add invoice
@@ -866,8 +1252,24 @@ Add invoice
 apacta.invoice_lines.post({}, context)
 ```
 
-#### Parameters
-* invoice_line (object)
+#### Input
+* input `object`
+  * invoice_line `object`
+    * description `string`
+    * discount_percent `integer`
+    * discount_text `string`
+    * invoice_id `string`
+    * name `string`
+    * product_id `string`
+    * quantity `integer`
+    * selling_price `number`
+    * user_id `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### invoice_lines.invoice_line_id.delete
 Delete invoice line
@@ -879,8 +1281,15 @@ apacta.invoice_lines.invoice_line_id.delete({
 }, context)
 ```
 
-#### Parameters
-* invoice_line_id (string) **required**
+#### Input
+* input `object`
+  * invoice_line_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### invoice_lines.invoice_line_id.get
 View invoice line
@@ -892,8 +1301,14 @@ apacta.invoice_lines.invoice_line_id.get({
 }, context)
 ```
 
-#### Parameters
-* invoice_line_id (string) **required**
+#### Input
+* input `object`
+  * invoice_line_id **required** `string`
+
+#### Output
+* output `object`
+  * data [InvoiceLine](#invoiceline)
+  * success `boolean`
 
 ### invoice_lines.invoice_line_id.put
 Edit invoice line
@@ -905,9 +1320,25 @@ apacta.invoice_lines.invoice_line_id.put({
 }, context)
 ```
 
-#### Parameters
-* invoice_line_id (string) **required**
-* invoice_line (object)
+#### Input
+* input `object`
+  * invoice_line_id **required** `string`
+  * invoice_line `object`
+    * description `string`
+    * discount_percent `integer`
+    * discount_text `string`
+    * invoice_id `string`
+    * name `string`
+    * product_id `string`
+    * quantity `integer`
+    * selling_price `number`
+    * user_id `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### invoices.get
 View list of invoices
@@ -917,17 +1348,25 @@ View list of invoices
 apacta.invoices.get({}, context)
 ```
 
-#### Parameters
-* contact_id (string) - Used to filter on the `contact_id` of the invoices
-* project_id (string) - Used to filter on the `project_id` of the invoices
-* invoice_number (string) - Used to filter on the `invoice_number` of the invoices
-* offer_number (string)
-* is_draft (integer)
-* is_offer (integer)
-* is_locked (integer)
-* date_from (string)
-* date_to (string)
-* issued_date (string)
+#### Input
+* input `object`
+  * contact_id `string`: Used to filter on the `contact_id` of the invoices
+  * project_id `string`: Used to filter on the `project_id` of the invoices
+  * invoice_number `string`: Used to filter on the `invoice_number` of the invoices
+  * offer_number `string`
+  * is_draft `integer` (values: 0, 1)
+  * is_offer `integer` (values: 0, 1)
+  * is_locked `integer` (values: 0, 1)
+  * date_from `string`
+  * date_to `string`
+  * issued_date `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items [Invoice](#invoice)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### invoices.post
 Add invoice
@@ -937,8 +1376,32 @@ Add invoice
 apacta.invoices.post({}, context)
 ```
 
-#### Parameters
-* invoice (object)
+#### Input
+* input `object`
+  * invoice `object`
+    * contact_id `string`
+    * date_from `string`
+    * date_to `string`
+    * erp_id `string`
+    * erp_payment_term_id `string`
+    * invoice_number `integer`
+    * is_draft `boolean`
+    * is_locked `boolean`
+    * is_offer `boolean`
+    * issued_date `string`
+    * message `string`
+    * offer_number `integer`
+    * payment_due_date `string`
+    * payment_term_id `string`
+    * project_id `string`
+    * reference `string`
+    * vat_percent `integer`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### invoices.invoice_id.delete
 Delete invoice
@@ -950,8 +1413,15 @@ apacta.invoices.invoice_id.delete({
 }, context)
 ```
 
-#### Parameters
-* invoice_id (string) **required**
+#### Input
+* input `object`
+  * invoice_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### invoices.invoice_id.get
 View invoice
@@ -963,8 +1433,14 @@ apacta.invoices.invoice_id.get({
 }, context)
 ```
 
-#### Parameters
-* invoice_id (string) **required**
+#### Input
+* input `object`
+  * invoice_id **required** `string`
+
+#### Output
+* output `object`
+  * data [Invoice](#invoice)
+  * success `boolean`
 
 ### invoices.invoice_id.put
 Edit invoice
@@ -976,9 +1452,33 @@ apacta.invoices.invoice_id.put({
 }, context)
 ```
 
-#### Parameters
-* invoice_id (string) **required**
-* invoice (object)
+#### Input
+* input `object`
+  * invoice_id **required** `string`
+  * invoice `object`
+    * contact_id `string`
+    * date_from `string`
+    * date_to `string`
+    * erp_id `string`
+    * erp_payment_term_id `string`
+    * invoice_number `integer`
+    * is_draft `boolean`
+    * is_locked `boolean`
+    * is_offer `boolean`
+    * issued_date `string`
+    * message `string`
+    * offer_number `integer`
+    * payment_due_date `string`
+    * payment_term_id `string`
+    * project_id `string`
+    * reference `string`
+    * vat_percent `integer`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### mass_messages_users.get
 View list of mass messages for specific user
@@ -988,8 +1488,16 @@ View list of mass messages for specific user
 apacta.mass_messages_users.get({}, context)
 ```
 
-#### Parameters
-* is_read (boolean) - Used to filter on the `is_read` of the mass messages
+#### Input
+* input `object`
+  * is_read `boolean`: Used to filter on the `is_read` of the mass messages
+
+#### Output
+* output `object`
+  * data `array`
+    * items [MassMessagesUser](#massmessagesuser)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### mass_messages_users.mass_messages_user_id.get
 View mass message
@@ -1001,8 +1509,14 @@ apacta.mass_messages_users.mass_messages_user_id.get({
 }, context)
 ```
 
-#### Parameters
-* mass_messages_user_id (string) **required**
+#### Input
+* input `object`
+  * mass_messages_user_id **required** `string`
+
+#### Output
+* output `object`
+  * data [MassMessagesUser](#massmessagesuser)
+  * success `boolean`
 
 ### mass_messages_users.mass_messages_user_id.put
 Edit mass message
@@ -1014,8 +1528,15 @@ apacta.mass_messages_users.mass_messages_user_id.put({
 }, context)
 ```
 
-#### Parameters
-* mass_messages_user_id (string) **required**
+#### Input
+* input `object`
+  * mass_messages_user_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### materials.get
 View list of all materials
@@ -1025,11 +1546,19 @@ View list of all materials
 apacta.materials.get({}, context)
 ```
 
-#### Parameters
-* barcode (string) - Used to filter on the `barcode` of the materials
-* name (string) - Used to filter on the `name` of the materials
-* project_id (string) - Used to find materials used in specific project by `project_id`
-* currently_rented (boolean) - Used to find currently rented materials
+#### Input
+* input `object`
+  * barcode `string`: Used to filter on the `barcode` of the materials
+  * name `string`: Used to filter on the `name` of the materials
+  * project_id `string`: Used to find materials used in specific project by `project_id`
+  * currently_rented `boolean`: Used to find currently rented materials
+
+#### Output
+* output `object`
+  * data `array`
+    * items [Material](#material)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### materials.material_id.delete
 Delete material
@@ -1041,8 +1570,15 @@ apacta.materials.material_id.delete({
 }, context)
 ```
 
-#### Parameters
-* material_id (string) **required**
+#### Input
+* input `object`
+  * material_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### materials.material_id.get
 View material
@@ -1054,8 +1590,14 @@ apacta.materials.material_id.get({
 }, context)
 ```
 
-#### Parameters
-* material_id (string) **required**
+#### Input
+* input `object`
+  * material_id **required** `string`
+
+#### Output
+* output `object`
+  * data [Material](#material)
+  * success `boolean`
 
 ### materials.material_id.put
 Edit material
@@ -1067,8 +1609,15 @@ apacta.materials.material_id.put({
 }, context)
 ```
 
-#### Parameters
-* material_id (string) **required**
+#### Input
+* input `object`
+  * material_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### materials.material_id.rentals.get
 Show list of rentals for specific material
@@ -1080,8 +1629,16 @@ apacta.materials.material_id.rentals.get({
 }, context)
 ```
 
-#### Parameters
-* material_id (string) **required**
+#### Input
+* input `object`
+  * material_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items [MaterialRental](#materialrental)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### materials.material_id.rentals.post
 Add material rental
@@ -1093,9 +1650,23 @@ apacta.materials.material_id.rentals.post({
 }, context)
 ```
 
-#### Parameters
-* material_rental (object)
-* material_id (string) **required**
+#### Input
+* input `object`
+  * material_rental `object`
+    * form_id `string`
+    * from_date `string`
+    * is_invoiced `string`
+    * material_id `string`
+    * project_id `string`
+    * quantity `number`
+    * to_date `string`
+  * material_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### materials.material_id.rentals.checkout.post
 Checkout material rental
@@ -1107,9 +1678,19 @@ apacta.materials.material_id.rentals.checkout.post({
 }, context)
 ```
 
-#### Parameters
-* material_id (string) **required**
-* material_rental (object)
+#### Input
+* input `object`
+  * material_id **required** `string`
+  * material_rental `object`
+    * form_id `string`
+    * material_rental_id `string`
+    * to_date `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### materials.material_id.rentals.material_rental_id.delete
 Delete rental for material
@@ -1122,9 +1703,15 @@ apacta.materials.material_id.rentals.material_rental_id.delete({
 }, context)
 ```
 
-#### Parameters
-* material_id (string) **required**
-* material_rental_id (string) **required**
+#### Input
+* input `object`
+  * material_id **required** `string`
+  * material_rental_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+  * success `boolean`
 
 ### materials.material_id.rentals.material_rental_id.get
 Show rental foor materi
@@ -1137,9 +1724,15 @@ apacta.materials.material_id.rentals.material_rental_id.get({
 }, context)
 ```
 
-#### Parameters
-* material_id (string) **required**
-* material_rental_id (string) **required**
+#### Input
+* input `object`
+  * material_id **required** `string`
+  * material_rental_id **required** `string`
+
+#### Output
+* output `object`
+  * data [MaterialRental](#materialrental)
+  * success `boolean`
 
 ### materials.material_id.rentals.material_rental_id.post
 Add material
@@ -1152,10 +1745,24 @@ apacta.materials.material_id.rentals.material_rental_id.post({
 }, context)
 ```
 
-#### Parameters
-* material (object)
-* material_id (string) **required**
-* material_rental_id (string) **required**
+#### Input
+* input `object`
+  * material `object`
+    * barcode `string`
+    * billing_cysle `string` (values: hourly, daily, weekly)
+    * cost_price `number`
+    * description `string`
+    * is_single_usage `boolean`
+    * name `string`
+    * selling_price `number`
+  * material_id **required** `string`
+  * material_rental_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### materials.material_id.rentals.material_rental_id.put
 Edit material rental
@@ -1168,9 +1775,15 @@ apacta.materials.material_id.rentals.material_rental_id.put({
 }, context)
 ```
 
-#### Parameters
-* material_id (string) **required**
-* material_rental_id (string) **required**
+#### Input
+* input `object`
+  * material_id **required** `string`
+  * material_rental_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+  * success `boolean`
 
 ### payment_term_types.get
 Get a list of payment term types
@@ -1180,8 +1793,15 @@ Get a list of payment term types
 apacta.payment_term_types.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items [PaymentTermType](#paymenttermtype)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### payment_term_types.payment_term_type_id.get
 Details of 1 payment term type
@@ -1193,8 +1813,14 @@ apacta.payment_term_types.payment_term_type_id.get({
 }, context)
 ```
 
-#### Parameters
-* payment_term_type_id (string) **required**
+#### Input
+* input `object`
+  * payment_term_type_id **required** `string`
+
+#### Output
+* output `object`
+  * data [PaymentTermType](#paymenttermtype)
+  * success `boolean`
 
 ### payment_terms.get
 Get a list of payment terms
@@ -1204,8 +1830,15 @@ Get a list of payment terms
 apacta.payment_terms.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items [PaymentTerm](#paymentterm)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### payment_terms.payment_term_id.get
 Details of 1 payment term
@@ -1217,8 +1850,14 @@ apacta.payment_terms.payment_term_id.get({
 }, context)
 ```
 
-#### Parameters
-* payment_term_id (string) **required**
+#### Input
+* input `object`
+  * payment_term_id **required** `string`
+
+#### Output
+* output `object`
+  * data [PaymentTerm](#paymentterm)
+  * success `boolean`
 
 ### ping.get
 Check if API is up and API key works
@@ -1228,8 +1867,12 @@ Check if API is up and API key works
 apacta.ping.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * status `string`
 
 ### products.get
 List products
@@ -1239,10 +1882,18 @@ List products
 apacta.products.get({}, context)
 ```
 
-#### Parameters
-* name (string) - Used to filter on the `name` of the products
-* product_number (string) - Used to filter on the `product_number` of the products
-* barcode (string) - Used to filter on the `barcode` of the products
+#### Input
+* input `object`
+  * name `string`: Used to filter on the `name` of the products
+  * product_number `string`: Used to filter on the `product_number` of the products
+  * barcode `string`: Used to filter on the `barcode` of the products
+
+#### Output
+* output `object`
+  * data `array`
+    * items [Product](#product)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### products.post
 Add new product
@@ -1252,8 +1903,22 @@ Add new product
 apacta.products.post({}, context)
 ```
 
-#### Parameters
-* product (object)
+#### Input
+* input `object`
+  * product `object`
+    * barcode `string`
+    * buying_price `number`
+    * description `string`
+    * erp_id `string`
+    * name **required** `string`
+    * product_number `string`
+    * selling_price `number`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### products.product_id.delete
 Delete a product
@@ -1265,8 +1930,15 @@ apacta.products.product_id.delete({
 }, context)
 ```
 
-#### Parameters
-* product_id (string) **required**
+#### Input
+* input `object`
+  * product_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `string`
+  * success `boolean`
 
 ### products.product_id.get
 View single product
@@ -1278,8 +1950,14 @@ apacta.products.product_id.get({
 }, context)
 ```
 
-#### Parameters
-* product_id (string) **required**
+#### Input
+* input `object`
+  * product_id **required** `string`
+
+#### Output
+* output `object`
+  * data [Product](#product)
+  * success `boolean`
 
 ### products.product_id.put
 Edit a product
@@ -1291,8 +1969,15 @@ apacta.products.product_id.put({
 }, context)
 ```
 
-#### Parameters
-* product_id (string) **required**
+#### Input
+* input `object`
+  * product_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### project_statuses.get
 Get list of project statuses
@@ -1302,8 +1987,15 @@ Get list of project statuses
 apacta.project_statuses.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items [ProjectStatus](#projectstatus)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### project_statuses.project_status_id.get
 Get details about one contact type
@@ -1315,8 +2007,14 @@ apacta.project_statuses.project_status_id.get({
 }, context)
 ```
 
-#### Parameters
-* project_status_id (string) **required**
+#### Input
+* input `object`
+  * project_status_id **required** `string`
+
+#### Output
+* output `object`
+  * data [ProjectStatus](#projectstatus)
+  * success `boolean`
 
 ### projects.get
 View list of projects
@@ -1326,16 +2024,24 @@ View list of projects
 apacta.projects.get({}, context)
 ```
 
-#### Parameters
-* show_all (boolean) - Unless this is set to `true` only open projects will be shown
-* contact_id (string) - Used to filter on the `contact_id` of the projects
-* project_status_id (string) - Used to filter on the `project_status_id` of the projects
-* project_status_ids (array) - Used to filter on the `project_status_id` of the projects (match any of the provided values)
-* name (string) - Used to search on the `name` of the projects
-* erp_id (string) - Used to search on the `erp_id` of the projects
-* start_time_gte (string) - Show projects with start time after than this value
-* start_time_lte (string) - Show projects with start time before this value
-* start_time_eq (string) - Show only projects with start time on specific date
+#### Input
+* input `object`
+  * show_all `boolean`: Unless this is set to `true` only open projects will be shown
+  * contact_id `string`: Used to filter on the `contact_id` of the projects
+  * project_status_id `string`: Used to filter on the `project_status_id` of the projects
+  * project_status_ids `array`: Used to filter on the `project_status_id` of the projects (match any of the provided values)
+  * name `string`: Used to search on the `name` of the projects
+  * erp_id `string`: Used to search on the `erp_id` of the projects
+  * start_time_gte `string`: Show projects with start time after than this value
+  * start_time_lte `string`: Show projects with start time before this value
+  * start_time_eq `string`: Show only projects with start time on specific date
+
+#### Output
+* output `object`
+  * data `array`
+    * items [Project](#project)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### projects.post
 Add a project
@@ -1345,8 +2051,23 @@ Add a project
 apacta.projects.post({}, context)
 ```
 
-#### Parameters
-* project (object)
+#### Input
+* input `object`
+  * project `object`
+    * contact_id `string`
+    * description `string`
+    * erp_project_id `string`
+    * erp_task_id `string`
+    * name **required** `string`
+    * project_status_id `string`
+    * start_time `string`
+    * street_name `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### projects.project_id.delete
 Delete a project
@@ -1358,8 +2079,15 @@ apacta.projects.project_id.delete({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
+#### Input
+* input `object`
+  * project_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `string`
+  * success `boolean`
 
 ### projects.project_id.get
 View specific project
@@ -1371,8 +2099,14 @@ apacta.projects.project_id.get({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
+#### Input
+* input `object`
+  * project_id **required** `string`
+
+#### Output
+* output `object`
+  * data [Project](#project)
+  * success `boolean`
 
 ### projects.project_id.put
 Edit a project
@@ -1384,9 +2118,24 @@ apacta.projects.project_id.put({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
-* project (object)
+#### Input
+* input `object`
+  * project_id **required** `string`
+  * project `object`
+    * contact_id `string`
+    * description `string`
+    * erp_project_id `string`
+    * erp_task_id `string`
+    * name **required** `string`
+    * project_status_id `string`
+    * start_time `string`
+    * street_name `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### projects.project_id.files.get
 Used to show files uploaded to a project from wall post or form
@@ -1398,8 +2147,16 @@ apacta.projects.project_id.files.get({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
+#### Input
+* input `object`
+  * project_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `string`
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### projects.project_id.files.file_id.delete
 Delete file uploaded to a project from wall post or form
@@ -1412,9 +2169,15 @@ apacta.projects.project_id.files.file_id.delete({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
-* file_id (string) **required**
+#### Input
+* input `object`
+  * project_id **required** `string`
+  * file_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+  * success `boolean`
 
 ### projects.project_id.files.file_id.get
 Show file uploaded to a project from wall post or form
@@ -1427,9 +2190,15 @@ apacta.projects.project_id.files.file_id.get({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
-* file_id (string) **required**
+#### Input
+* input `object`
+  * project_id **required** `string`
+  * file_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+  * success `boolean`
 
 ### projects.project_id.files.file_id.put
 Edit file uploaded to a project from wall post or form
@@ -1442,9 +2211,15 @@ apacta.projects.project_id.files.file_id.put({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
-* file_id (string) **required**
+#### Input
+* input `object`
+  * project_id **required** `string`
+  * file_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+  * success `boolean`
 
 ### projects.project_id.project_files.get
 Returns files belonging to the project, not uploaded from wall post or form
@@ -1456,8 +2231,16 @@ apacta.projects.project_id.project_files.get({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
+#### Input
+* input `object`
+  * project_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `string`
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### projects.project_id.project_files.post
 Add project file to projects
@@ -1470,9 +2253,16 @@ apacta.projects.project_id.project_files.post({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
-* file (string) **required**
+#### Input
+* input `object`
+  * project_id **required** `string`
+  * file **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### projects.project_id.project_files.project_file_id.delete
 Delete project file
@@ -1485,9 +2275,15 @@ apacta.projects.project_id.project_files.project_file_id.delete({
 }, context)
 ```
 
-#### Parameters
-* project_file_id (string) **required**
-* project_id (string) **required**
+#### Input
+* input `object`
+  * project_file_id **required** `string`
+  * project_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+  * success `boolean`
 
 ### projects.project_id.project_files.project_file_id.get
 Show project file
@@ -1500,9 +2296,15 @@ apacta.projects.project_id.project_files.project_file_id.get({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
-* project_file_id (string) **required**
+#### Input
+* input `object`
+  * project_id **required** `string`
+  * project_file_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+  * success `boolean`
 
 ### projects.project_id.project_files.project_file_id.put
 Edit project file
@@ -1515,9 +2317,15 @@ apacta.projects.project_id.project_files.project_file_id.put({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
-* project_file_id (string) **required**
+#### Input
+* input `object`
+  * project_id **required** `string`
+  * project_file_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+  * success `boolean`
 
 ### projects.project_id.users.get
 Show list of users added to project
@@ -1529,8 +2337,16 @@ apacta.projects.project_id.users.get({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
+#### Input
+* input `object`
+  * project_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items [User](#user)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### projects.project_id.users.post
 Add user to project
@@ -1542,9 +2358,17 @@ apacta.projects.project_id.users.post({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
-* user_id (object)
+#### Input
+* input `object`
+  * project_id **required** `string`
+  * user_id `object`
+    * user_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### projects.project_id.users.user_id.delete
 Delete user from project
@@ -1557,9 +2381,16 @@ apacta.projects.project_id.users.user_id.delete({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required**
-* project_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+  * project_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### projects.project_id.users.user_id.get
 View specific user assigned to project
@@ -1572,9 +2403,15 @@ apacta.projects.project_id.users.user_id.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required**
-* project_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+  * project_id **required** `string`
+
+#### Output
+* output `object`
+  * data [User](#user)
+  * success `boolean`
 
 ### stock_locations.get
 List stock_locations
@@ -1584,8 +2421,16 @@ List stock_locations
 apacta.stock_locations.get({}, context)
 ```
 
-#### Parameters
-* name (string) - Used to filter on the `name` of the stock_locations
+#### Input
+* input `object`
+  * name `string`: Used to filter on the `name` of the stock_locations
+
+#### Output
+* output `object`
+  * data `array`
+    * items [StockLocation](#stocklocation)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### stock_locations.post
 Add new stock_locations
@@ -1595,8 +2440,16 @@ Add new stock_locations
 apacta.stock_locations.post({}, context)
 ```
 
-#### Parameters
-* location (object)
+#### Input
+* input `object`
+  * location `object`
+    * name **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### stock_locations.location_id.delete
 Delete location
@@ -1608,8 +2461,15 @@ apacta.stock_locations.location_id.delete({
 }, context)
 ```
 
-#### Parameters
-* location_id (string) **required**
+#### Input
+* input `object`
+  * location_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### stock_locations.location_id.get
 View single location
@@ -1621,8 +2481,14 @@ apacta.stock_locations.location_id.get({
 }, context)
 ```
 
-#### Parameters
-* location_id (string) **required**
+#### Input
+* input `object`
+  * location_id **required** `string`
+
+#### Output
+* output `object`
+  * data [StockLocation](#stocklocation)
+  * success `boolean`
 
 ### stock_locations.location_id.put
 Edit location
@@ -1634,8 +2500,15 @@ apacta.stock_locations.location_id.put({
 }, context)
 ```
 
-#### Parameters
-* location_id (string) **required**
+#### Input
+* input `object`
+  * location_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### time_entries.get
 List time entries
@@ -1645,16 +2518,24 @@ List time entries
 apacta.time_entries.get({}, context)
 ```
 
-#### Parameters
-* user_id (string)
-* form_id (string)
-* project_id (string)
-* gt_from_time (string)
-* lt_from_time (string)
-* gt_to_time (string)
-* lt_to_time (string)
-* lt_sum (string)
-* gt_sum (string)
+#### Input
+* input `object`
+  * user_id `string`
+  * form_id `string`
+  * project_id `string`
+  * gt_from_time `string`
+  * lt_from_time `string`
+  * gt_to_time `string`
+  * lt_to_time `string`
+  * lt_sum `string`
+  * gt_sum `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items [TimeEntry](#timeentry)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### time_entries.post
 Add new time entry
@@ -1664,8 +2545,23 @@ Add new time entry
 apacta.time_entries.post({}, context)
 ```
 
-#### Parameters
-* time_entry (object)
+#### Input
+* input `object`
+  * time_entry `object`
+    * form_id `string`
+    * from_time `string`
+    * is_all_day `boolean`
+    * project_id `string`
+    * sum `integer`: Amount of seconds - should only be included when using is_all_day, otherwise will be calculated from from_time and to_time
+    * time_entry_type_id **required** `string`
+    * to_time `string`
+    * user_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### time_entries.time_entry_id.delete
 Delete time entry
@@ -1677,8 +2573,15 @@ apacta.time_entries.time_entry_id.delete({
 }, context)
 ```
 
-#### Parameters
-* time_entry_id (string) **required**
+#### Input
+* input `object`
+  * time_entry_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### time_entries.time_entry_id.get
 View time entry
@@ -1690,8 +2593,14 @@ apacta.time_entries.time_entry_id.get({
 }, context)
 ```
 
-#### Parameters
-* time_entry_id (string) **required**
+#### Input
+* input `object`
+  * time_entry_id **required** `string`
+
+#### Output
+* output `object`
+  * data [TimeEntry](#timeentry)
+  * success `boolean`
 
 ### time_entries.time_entry_id.put
 Edit time entry
@@ -1703,8 +2612,15 @@ apacta.time_entries.time_entry_id.put({
 }, context)
 ```
 
-#### Parameters
-* time_entry_id (string) **required**
+#### Input
+* input `object`
+  * time_entry_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### time_entry_intervals.get
 List possible time entry intervals
@@ -1714,8 +2630,15 @@ List possible time entry intervals
 apacta.time_entry_intervals.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items [TimeEntryInterval](#timeentryinterval)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### time_entry_intervals.time_entry_interval_id.get
 View time entry interval
@@ -1727,8 +2650,14 @@ apacta.time_entry_intervals.time_entry_interval_id.get({
 }, context)
 ```
 
-#### Parameters
-* time_entry_interval_id (string) **required**
+#### Input
+* input `object`
+  * time_entry_interval_id **required** `string`
+
+#### Output
+* output `object`
+  * data [TimeEntryInterval](#timeentryinterval)
+  * success `boolean`
 
 ### time_entry_types.get
 List time entries types
@@ -1738,8 +2667,15 @@ List time entries types
 apacta.time_entry_types.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items [TimeEntryType](#timeentrytype)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### time_entry_types.post
 Add new time entry type
@@ -1749,8 +2685,19 @@ Add new time entry type
 apacta.time_entry_types.post({}, context)
 ```
 
-#### Parameters
-* time_entry_type (object)
+#### Input
+* input `object`
+  * time_entry_type `object`
+    * description `string`
+    * name **required** `string`
+    * time_entry_interval_id **required** `string`
+    * time_entry_value_type_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### time_entry_types.time_entry_type_id.delete
 Delete time entry type
@@ -1762,8 +2709,15 @@ apacta.time_entry_types.time_entry_type_id.delete({
 }, context)
 ```
 
-#### Parameters
-* time_entry_type_id (string) **required**
+#### Input
+* input `object`
+  * time_entry_type_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### time_entry_types.time_entry_type_id.get
 View time entry type
@@ -1775,8 +2729,14 @@ apacta.time_entry_types.time_entry_type_id.get({
 }, context)
 ```
 
-#### Parameters
-* time_entry_type_id (string) **required**
+#### Input
+* input `object`
+  * time_entry_type_id **required** `string`
+
+#### Output
+* output `object`
+  * data [TimeEntryType](#timeentrytype)
+  * success `boolean`
 
 ### time_entry_types.time_entry_type_id.put
 Edit time entry type
@@ -1788,8 +2748,15 @@ apacta.time_entry_types.time_entry_type_id.put({
 }, context)
 ```
 
-#### Parameters
-* time_entry_type_id (string) **required**
+#### Input
+* input `object`
+  * time_entry_type_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### time_entry_unit_types.get
 List possible time entry unit types
@@ -1799,8 +2766,15 @@ List possible time entry unit types
 apacta.time_entry_unit_types.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items [TimeEntryUnitType](#timeentryunittype)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### time_entry_unit_types.time_entry_unit_type_id.get
 View time entry unit type
@@ -1812,8 +2786,14 @@ apacta.time_entry_unit_types.time_entry_unit_type_id.get({
 }, context)
 ```
 
-#### Parameters
-* time_entry_unit_type_id (string) **required**
+#### Input
+* input `object`
+  * time_entry_unit_type_id **required** `string`
+
+#### Output
+* output `object`
+  * data [TimeEntryUnitType](#timeentryunittype)
+  * success `boolean`
 
 ### time_entry_value_types.get
 List possible time entry value types
@@ -1823,8 +2803,15 @@ List possible time entry value types
 apacta.time_entry_value_types.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items [TimeEntryValueType](#timeentryvaluetype)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### time_entry_value_types.time_entry_value_type_id.get
 View time entry value type
@@ -1836,8 +2823,14 @@ apacta.time_entry_value_types.time_entry_value_type_id.get({
 }, context)
 ```
 
-#### Parameters
-* time_entry_value_type_id (string) **required**
+#### Input
+* input `object`
+  * time_entry_value_type_id **required** `string`
+
+#### Output
+* output `object`
+  * data [TimeEntryValueType](#timeentryvaluetype)
+  * success `boolean`
 
 ### users.get
 Get list of users in company
@@ -1847,11 +2840,19 @@ Get list of users in company
 apacta.users.get({}, context)
 ```
 
-#### Parameters
-* first_name (string) - Used to filter on the `first_name` of the users
-* last_name (string) - Used to filter on the `last_name` of the users
-* email (string) - Used to filter on the `email` of the users
-* stock_location_id (string) - Used to filter on the `stock_location_id` of the users
+#### Input
+* input `object`
+  * first_name `string`: Used to filter on the `first_name` of the users
+  * last_name `string`: Used to filter on the `last_name` of the users
+  * email `string`: Used to filter on the `email` of the users
+  * stock_location_id `string`: Used to filter on the `stock_location_id` of the users
+
+#### Output
+* output `object`
+  * data `array`
+    * items [User](#user)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### users.post
 Add user to company
@@ -1861,8 +2862,31 @@ Add user to company
 apacta.users.post({}, context)
 ```
 
-#### Parameters
-* user (object)
+#### Input
+* input `object`
+  * user `object`
+    * city_id `string`
+    * cost_price `number`: Cost of salaries
+    * email `string`
+    * extra_price `number`: Additional cost on this employee (pension, vacation etc.)
+    * first_name **required** `string`
+    * is_active `boolean`
+    * language_id `string`
+    * last_name `string`
+    * mobile `string`
+    * mobile_countrycode `string`
+    * password `string`
+    * phone `string`
+    * phone_countrycode `string`
+    * receive_form_mails `boolean`: If `true` the employee will receive an email receipt of every form submitted
+    * sale_price `number`: The price this employee costs per hour when working
+    * street_name `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### users.user_id.delete
 Delete user
@@ -1874,8 +2898,15 @@ apacta.users.user_id.delete({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### users.user_id.get
 View user
@@ -1887,8 +2918,14 @@ apacta.users.user_id.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+
+#### Output
+* output `object`
+  * data [User](#user)
+  * success `boolean`
 
 ### users.user_id.put
 Edit user
@@ -1900,8 +2937,15 @@ apacta.users.user_id.put({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+  * success `boolean`
 
 ### wall_comments.post
 Add wall comment
@@ -1911,8 +2955,17 @@ Add wall comment
 apacta.wall_comments.post({}, context)
 ```
 
-#### Parameters
-* wall_comment (object)
+#### Input
+* input `object`
+  * wall_comment `object`
+    * message **required** `string`
+    * wall_post_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### wall_comments.wall_comment_id.get
 View wall comment
@@ -1924,8 +2977,14 @@ apacta.wall_comments.wall_comment_id.get({
 }, context)
 ```
 
-#### Parameters
-* wall_comment_id (string) **required**
+#### Input
+* input `object`
+  * wall_comment_id **required** `string`
+
+#### Output
+* output `object`
+  * data [WallComment](#wallcomment)
+  * success `boolean`
 
 ### wall_posts.get
 View list of wall posts
@@ -1937,9 +2996,17 @@ apacta.wall_posts.get({
 }, context)
 ```
 
-#### Parameters
-* project_id (string) **required**
-* user_id (string)
+#### Input
+* input `object`
+  * project_id **required** `string`
+  * user_id `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items [WallPost](#wallpost)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
 
 ### wall_posts.post
 Add a wall post
@@ -1949,8 +3016,17 @@ Add a wall post
 apacta.wall_posts.post({}, context)
 ```
 
-#### Parameters
-* wall_post (object)
+#### Input
+* input `object`
+  * wall_post `object`
+    * message **required** `string`
+    * project_id **required** `string`
+
+#### Output
+* output `object`
+  * data `object`
+    * id `string`
+  * success `boolean`
 
 ### wall_posts.wall_post_id.get
 View wall post
@@ -1962,8 +3038,14 @@ apacta.wall_posts.wall_post_id.get({
 }, context)
 ```
 
-#### Parameters
-* wall_post_id (string) **required**
+#### Input
+* input `object`
+  * wall_post_id **required** `string`
+
+#### Output
+* output `object`
+  * data [WallPost](#wallpost)
+  * success `boolean`
 
 ### wall_posts.wall_post_id.wall_comments.get
 See wall comments to a wall post
@@ -1975,6 +3057,559 @@ apacta.wall_posts.wall_post_id.wall_comments.get({
 }, context)
 ```
 
-#### Parameters
-* wall_post_id (string) **required**
+#### Input
+* input `object`
+  * wall_post_id **required** `string`
+
+#### Output
+* output `object`
+  * data `array`
+    * items [WallComment](#wallcomment)
+  * pagination [PaginationDetails](#paginationdetails)
+  * success `boolean`
+
+
+
+## Definitions
+
+### City
+* City `object`
+  * created [created](#created)
+  * deleted [deleted](#deleted)
+  * id `string`
+  * modified [modified](#modified)
+  * name `string`
+  * zip_code `integer`
+
+### ClockingRecord
+* ClockingRecord `object`
+  * checked_in `string`
+  * checked_out `string`
+  * checkin_latitude `string`
+  * checkin_longitude `string`
+  * checkout_latitude `string`
+  * checkout_longitude `string`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * id `string`
+  * modified [modified](#modified)
+  * modified_by_id `string`
+  * project_id `string`
+  * user_id `string`
+
+### Company
+* Company `object`
+  * city_id `string`
+  * contact_person_id `string`
+  * created [created](#created)
+  * created_by_id `string`: Read-only
+  * cvr `string`
+  * deleted [deleted](#deleted)
+  * expired `string`
+  * file_id `string`
+  * id `string`
+  * invoice_email `string`
+  * language_id `string`
+  * modified [modified](#modified)
+  * name `string`
+  * next_invoice_number `integer`
+  * phone `string`: Format like eg. `28680133` or `046158971404`
+  * phone_countrycode `string`: Format like eg. `45` or `49`
+  * receive_form_mails `string`
+  * street_name `string`
+  * vat_percent `integer`
+  * website `string`
+
+### Contact
+* Contact `object`
+  * address `string`: Street address
+  * city_id `string`
+  * company_id `string`: Only filled out if this represents another company within Apacta (used for partners)
+  * created [created](#created)
+  * created_by_id `string`: Read-only
+  * cvr `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * email `string`
+  * erp_id `string`: If company has integration to an ERP system, and the contacts are synchronized, this will be the ERP-systems ID of this contact
+  * id `string`
+  * modified [modified](#modified)
+  * name `string`
+  * phone `string`: Format like eg. `28680133` or `046158971404`
+  * website `string`
+
+### ContactType
+* ContactType `object`
+  * created [created](#created)
+  * created_by_id `string`: Read-only
+  * deleted [deleted](#deleted)
+  * description `string`
+  * id `string`
+  * identifier `string` (values: client, partner, supplier): One of 3 values
+  * modified [modified](#modified)
+  * name `string`
+
+### Currency
+* Currency `object`
+  * created [created](#created)
+  * currency_sign `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * id `string`
+  * identifier `string`
+  * modified [modified](#modified)
+  * name `string`
+
+### ErrorNotFound
+* ErrorNotFound `object`
+  * data `object`
+    * code `integer`: The HTTP status code
+    * message `string`: Error message
+    * url `string`: The url from which this originated
+  * success `boolean`
+
+### ErrorValidation
+* ErrorValidation `object`
+  * data `object`
+    * code `integer`: The HTTP status code
+    * errorCount `integer`: The amount of validation errors
+    * errors `object`: Object that contains details information about which properties failed validation and what rules they failed.
+    * message `string`: Error message
+    * url `string`: The url from which this originated
+  * success `boolean`
+
+### Expense
+* Expense `object`
+  * company_id `string`: Read-only
+  * contact_id `string`
+  * created [created](#created)
+  * created_by_id `string`: Read-only
+  * currency_id `string`
+  * deleted [deleted](#deleted)
+  * delivery_date `string`
+  * description `string`
+  * id `string`: Read-only
+  * modified [modified](#modified)
+  * project_id `string`
+  * reference `string`
+  * short_text `string`
+  * supplier_invoice_number `string`
+
+### ExpenseFile
+* ExpenseFile `object`
+  * created [created](#created)
+  * created_by_id `string`: Read-only
+  * deleted [deleted](#deleted)
+  * description `string`
+  * expense_id `string`
+  * file `string`: File's name
+  * file_extension `string`
+  * file_original_name `string`
+  * file_size `string`: File size in bytes
+  * file_type `string`: File's MIME type
+  * file_url `string`: Read-only
+  * id `string`: Read-only
+  * modified [modified](#modified)
+
+### ExpenseLine
+* ExpenseLine `object`
+  * buying_price `number`
+  * created [created](#created)
+  * created_by_id `string`: Read-only
+  * currency_id `string`
+  * deleted [deleted](#deleted)
+  * expense_id `string`
+  * id `string`: Read-only
+  * modified [modified](#modified)
+  * quantity `integer`
+  * selling_price `number`
+  * text `string`
+
+### Form
+* Form `object`
+  * approved_by_id `string`
+  * company_id `string`
+  * created [created](#created)
+  * created_by_id `string`: Read-only
+  * deleted [deleted](#deleted)
+  * form_date `string`
+  * form_template_id `string`
+  * id `string`: Read-only
+  * is_draft `boolean`
+  * is_invoiced `boolean`
+  * is_shared `boolean`
+  * mass_form_id `string`
+  * modified [modified](#modified)
+  * project_id `string`
+
+### FormField
+* FormField `object`
+  * comment `string`
+  * content_value `string`
+  * created [created](#created)
+  * created_by_id `string`: Read-only
+  * deleted [deleted](#deleted)
+  * file_id `string`
+  * form_field_type_id `string`
+  * form_id `string`
+  * form_template_field_id `string`
+  * id `string`: Read-only
+  * modified [modified](#modified)
+  * placement `integer`
+
+### FormFieldType
+* FormFieldType `object`
+  * created [created](#created)
+  * created_by_id `string`: Read-only
+  * deleted [deleted](#deleted)
+  * description `string`
+  * id `string`: Read-only
+  * identifier `string`
+  * modified [modified](#modified)
+  * name `string`
+
+### FormTemplate
+* FormTemplate `object`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * form_category_id `string`
+  * form_overview_category_id `string`
+  * id `string`
+  * identifier `string`
+  * is_active `boolean`
+  * modified [modified](#modified)
+  * name `string`
+  * pdf_template_identifier `string`
+
+### IntegrationFeatureSetting
+* IntegrationFeatureSetting `object`
+  * created [created](#created)
+  * created_by_id `string`
+  * default_value `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * id `string`
+  * identifier `string`
+  * integration_feature_id `string`
+  * is_custom_setting `boolean`
+  * modified [modified](#modified)
+  * name `string`
+
+### Invoice
+* Invoice `object`
+  * company_id `string`
+  * contact_id `string`
+  * created [created](#created)
+  * created_by_id `string`
+  * currency_id `string`
+  * date_from `string`
+  * date_to `string`
+  * deleted [deleted](#deleted)
+  * erp_id `string`
+  * erp_payment_term_id `string`
+  * eu_customer `boolean`
+  * gross_payment `number`
+  * id `string`
+  * integration_id `string`
+  * invoice_number `integer`
+  * is_draft `boolean`
+  * is_locked `boolean`
+  * is_offer `boolean`
+  * issued_date `string`
+  * message `string`
+  * modified [modified](#modified)
+  * net_payment `number`
+  * offer_number `integer`
+  * payment_due_date `string`
+  * payment_term_id `string`
+  * project_id `string`
+  * reference `string`
+  * vat_percent `integer`
+
+### InvoiceLine
+* InvoiceLine `object`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * discount_percent `integer`
+  * discount_text `string`
+  * id `string`
+  * invoice_id `string`
+  * modified [modified](#modified)
+  * name `string`
+  * product_id `string`
+  * quantity `integer`
+  * selling_price `number`
+  * user_id `string`
+
+### MassMessage
+* MassMessage `object`
+  * company_id `string`
+  * content `string`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * id `string`
+  * modified [modified](#modified)
+
+### MassMessagesUser
+* MassMessagesUser `object`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * id `string`
+  * is_read `boolean`
+  * is_sent_email `boolean`
+  * mass_message [MassMessage](#massmessage)
+  * mass_message_id `string`
+  * modified [modified](#modified)
+  * modified_by_id `string`
+  * user_id `string`
+
+### Material
+* Material `object`
+  * barcode `string`
+  * billing_cycle `string`
+  * company_id `string`
+  * cost_price `number`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * id `string`
+  * is_single_usage `boolean`
+  * modified [modified](#modified)
+  * modified_by_id `string`
+  * name `string`
+  * selling_price `number`
+
+### MaterialRental
+* MaterialRental `object`
+  * amount `number`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * from_date `string`
+  * id `string`
+  * is_invoiced `string`
+  * material_id `string`
+  * modified [modified](#modified)
+  * modified_by_id `string`
+  * project_id `string`
+  * quantity `number`
+  * to_date `string`
+
+### PaginationDetails
+* PaginationDetails `object`
+  * count `integer`
+  * current_page `string`
+  * has_next_page `boolean`
+  * has_prev_page `boolean`
+  * limit `integer`
+  * page_count `string`
+
+### PaymentTerm
+* PaymentTerm `object`
+  * created [created](#created)
+  * created_by_id `string`
+  * days_of_credit `integer`
+  * deleted [deleted](#deleted)
+  * id `string`
+  * modified [modified](#modified)
+  * payment_term_type_id `string`
+
+### PaymentTermType
+* PaymentTermType `object`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * id `string`
+  * identifier `string`
+  * modified [modified](#modified)
+  * name `string`
+
+### Product
+* Product `object`
+  * barcode `string`
+  * buying_price `number`
+  * company_id `string`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * erp_id `string`
+  * id `string`
+  * modified [modified](#modified)
+  * name `string`
+  * product_number `string`
+  * selling_price `number`
+
+### Project
+* Project `object`
+  * contact_id `string`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * erp_project_id `string`
+  * erp_task_id `string`
+  * id **required** `string`
+  * modified [modified](#modified)
+  * name **required** `string`
+  * project_status_id `string`
+  * start_time `string`
+  * street_name `string`
+
+### ProjectStatus
+* ProjectStatus `object`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * id `string`
+  * identifier `string` (values: ready_for_billing, open, closed): One of 3 values
+  * modified [modified](#modified)
+  * name `string`
+
+### StockLocation
+* StockLocation `object`
+  * company_id `string`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * id `string`
+  * modified [modified](#modified)
+  * name `string`
+
+### TimeEntry
+* TimeEntry `object`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * form_id `string`
+  * from_time `string`
+  * id `string`
+  * is_all_day `boolean`
+  * modified [modified](#modified)
+  * modified_by_id `string`
+  * project_id `string`
+  * sum `integer`: Amount of seconds
+  * time_entry_type_id `string`
+  * to_time `string`
+  * user_id `string`
+
+### TimeEntryInterval
+* TimeEntryInterval `object`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * id `string`
+  * identifier `string`
+  * modified [modified](#modified)
+  * modified_by_id `string`
+  * name `string`
+
+### TimeEntryType
+* TimeEntryType `object`
+  * company_id `string`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * id `string`
+  * modified [modified](#modified)
+  * modified_by_id `string`
+  * name `string`
+  * time_entry_interval_id `string`
+  * time_entry_value_type_id `string`
+
+### TimeEntryUnitType
+* TimeEntryUnitType `object`
+  * abbreviation `string`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * id `string`
+  * identifier `string`
+  * modified [modified](#modified)
+  * modified_by_id `string`
+  * name `string`
+
+### TimeEntryValueType
+* TimeEntryValueType `object`
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * description `string`
+  * id `string`
+  * identifier `string`
+  * modified [modified](#modified)
+  * modified_by_id `string`
+  * name `string`
+  * time_entry_unit_type_id `string`
+
+### User
+* User `object`
+  * api_key `string`
+  * city_id `string`
+  * company_id `string`
+  * cost_price `number`: Cost of salaries
+  * created [created](#created)
+  * created_by_id `string`
+  * deleted [deleted](#deleted)
+  * email `string`
+  * extra_price `number`: Additional cost on this employee (pension, vacation etc.)
+  * first_name `string`
+  * full_name `string`: READ-ONLY
+  * id `string`
+  * is_active `boolean`
+  * language_id `string`
+  * last_name `string`
+  * mobile `string`
+  * mobile_countrycode `string`
+  * modified [modified](#modified)
+  * password `string`
+  * phone `string`
+  * phone_countrycode `string`
+  * receive_form_mails `boolean`: If `true` the employee will receive an email receipt of every form submitted
+  * sale_price `number`: The price this employee costs per hour when working
+  * street_name `string`
+  * website `string`
+
+### WallComment
+* WallComment `object`
+  * created [created](#created)
+  * deleted [deleted](#deleted)
+  * id `string`
+  * message `string`
+  * modified [modified](#modified)
+  * user_id `string`
+  * wall_post_id `string`
+
+### WallPost
+* WallPost `object`
+  * created [created](#created)
+  * deleted [deleted](#deleted)
+  * id `string`
+  * message `string`
+  * modified [modified](#modified)
+  * project_id `string`
+  * user_id `string`
+
+### created
+* created `string`: READ-ONLY
+
+### deleted
+* deleted `string`: READ-ONLY - only present if it's an deleted object
+
+### modified
+* modified `string`: READ-ONLY
+
 

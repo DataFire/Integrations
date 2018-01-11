@@ -4,11 +4,9 @@ Client library for WordNet APIs
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/apitore_wordnetapis
+npm install --save @datafire/apitore_wordnetapis
 ```
-
 ```js
-let datafire = require('datafire');
 let apitore_wordnetapis = require('@datafire/apitore_wordnetapis').create();
 
 apitore_wordnetapis.sensebysynsetUsingGET({}).then(data => {
@@ -17,9 +15,11 @@ apitore_wordnetapis.sensebysynsetUsingGET({}).then(data => {
 ```
 
 ## Description
+
 You can access ALL WordNet DB.<BR />[Endpoint] https://api.apitore.com/api/46
 
 ## Actions
+
 ### sensebysynsetUsingGET
 Japanese WordNet.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response">wordnet-response</a><BR />
 
@@ -31,10 +31,14 @@ apitore_wordnetapis.sensebysynsetUsingGET({
 }, context)
 ```
 
-#### Parameters
-* access_token (string) **required** - Access Token
-* synset (string) **required** - Synset
-* lang (string) - Language. [jpn:japanese,eng:english]
+#### Input
+* input `object`
+  * access_token **required** `string`: Access Token
+  * synset **required** `string`: Synset
+  * lang `string`: Language. [jpn:japanese,eng:english]
+
+#### Output
+* output [SenseResponseEntity](#senseresponseentity)
 
 ### sensebywordidUsingGET
 Japanese WordNet.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response">wordnet-response</a><BR />
@@ -47,9 +51,13 @@ apitore_wordnetapis.sensebywordidUsingGET({
 }, context)
 ```
 
-#### Parameters
-* access_token (string) **required** - Access Token
-* wordid (integer) **required** - Word ID
+#### Input
+* input `object`
+  * access_token **required** `string`: Access Token
+  * wordid **required** `integer`: Word ID
+
+#### Output
+* output [SenseResponseEntity](#senseresponseentity)
 
 ### synlinkbySynsetUsingGET
 Japanese WordNet.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response">wordnet-response</a><BR />
@@ -62,10 +70,14 @@ apitore_wordnetapis.synlinkbySynsetUsingGET({
 }, context)
 ```
 
-#### Parameters
-* access_token (string) **required** - Access Token
-* synset (string) **required** - Synset
-* link (string) - Link. You can specify several link by csv format. [also, syns, hype, inst, hypo, hasi, mero, mmem, msub, mprt, holo, hmem, hsub, hprt, attr, sim, enta, caus, dmnc, dmnu, dmnr, dmtc, dmtu, dmtr, ants]
+#### Input
+* input `object`
+  * access_token **required** `string`: Access Token
+  * synset **required** `string`: Synset
+  * link `string`: Link. You can specify several link by csv format. [also, syns, hype, inst, hypo, hasi, mero, mmem, msub, mprt, holo, hmem, hsub, hprt, attr, sim, enta, caus, dmnc, dmnu, dmnr, dmtc, dmtu, dmtr, ants]
+
+#### Output
+* output [SynlinkResponseEntity](#synlinkresponseentity)
 
 ### synsetbyNameUsingGET
 Japanese WordNet.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response">wordnet-response</a><BR />
@@ -79,10 +91,14 @@ apitore_wordnetapis.synsetbyNameUsingGET({
 }, context)
 ```
 
-#### Parameters
-* access_token (string) **required** - Access Token
-* name (string) **required** - Name
-* pos (string) **required** - Part-of-speech. [n:noun,v:verb,a:adjective,r:adverb]
+#### Input
+* input `object`
+  * access_token **required** `string`: Access Token
+  * name **required** `string`: Name
+  * pos **required** `string`: Part-of-speech. [n:noun,v:verb,a:adjective,r:adverb]
+
+#### Output
+* output [SynsetResponseEntity](#synsetresponseentity)
 
 ### synsetbysynsetUsingGET
 Japanese WordNet.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response">wordnet-response</a><BR />
@@ -95,9 +111,13 @@ apitore_wordnetapis.synsetbysynsetUsingGET({
 }, context)
 ```
 
-#### Parameters
-* access_token (string) **required** - Access Token
-* synset (string) **required** - Synset
+#### Input
+* input `object`
+  * access_token **required** `string`: Access Token
+  * synset **required** `string`: Synset
+
+#### Output
+* output [SynsetResponseEntity](#synsetresponseentity)
 
 ### synsetdefbysynsetUsingGET
 Japanese WordNet.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response">wordnet-response</a><BR />
@@ -111,10 +131,14 @@ apitore_wordnetapis.synsetdefbysynsetUsingGET({
 }, context)
 ```
 
-#### Parameters
-* access_token (string) **required** - Access Token
-* synset (string) **required** - Synset
-* lang (string) **required** - Language. [jpn:japanese,eng:english]
+#### Input
+* input `object`
+  * access_token **required** `string`: Access Token
+  * synset **required** `string`: Synset
+  * lang **required** `string`: Language. [jpn:japanese,eng:english]
+
+#### Output
+* output [SynsetDefResponseEntity](#synsetdefresponseentity)
 
 ### wordbylemmaUsingGET
 Japanese WordNet.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response">wordnet-response</a><BR />
@@ -127,10 +151,14 @@ apitore_wordnetapis.wordbylemmaUsingGET({
 }, context)
 ```
 
-#### Parameters
-* access_token (string) **required** - Access Token
-* lemma (string) **required** - Lemma
-* pos (string) - Part-of-speech. You can specify several pos by csv format. [n:noun,v:verb,a:adjective,r:adverb]
+#### Input
+* input `object`
+  * access_token **required** `string`: Access Token
+  * lemma **required** `string`: Lemma
+  * pos `string`: Part-of-speech. You can specify several pos by csv format. [n:noun,v:verb,a:adjective,r:adverb]
+
+#### Output
+* output [WordResponseEntity](#wordresponseentity)
 
 ### wordbyidUsingGET
 Japanese WordNet.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response">wordnet-response</a><BR />
@@ -143,7 +171,95 @@ apitore_wordnetapis.wordbyidUsingGET({
 }, context)
 ```
 
-#### Parameters
-* access_token (string) **required** - Access Token
-* wordid (integer) **required** - Word ID
+#### Input
+* input `object`
+  * access_token **required** `string`: Access Token
+  * wordid **required** `integer`: Word ID
+
+#### Output
+* output [WordResponseEntity](#wordresponseentity)
+
+
+
+## Definitions
+
+### SenseEntity
+* SenseEntity `object`
+  * freq **required** `integer`: Freq
+  * lang **required** `string`: Language
+  * lexid **required** `integer`: Lexicon ID
+  * rank **required** `integer`: Rank
+  * src **required** `string`: Src
+  * synset **required** `string`: Synset
+  * wordid **required** `integer`: Word ID
+
+### SenseResponseEntity
+* SenseResponseEntity `object`
+  * endTime **required** `string`: End date
+  * entries **required** `array`: Entries
+    * items [SenseEntity](#senseentity)
+  * log **required** `string`: Log message
+  * processTime **required** `string`: Process time [millisecond]
+  * startTime **required** `string`: Start date
+
+### SynlinkEntity
+* SynlinkEntity `object`
+  * link **required** `string`: Link
+  * src **required** `string`: Src
+  * synset1 **required** `string`: Synset1
+  * synset2 **required** `string`: Synset2
+
+### SynlinkResponseEntity
+* SynlinkResponseEntity `object`
+  * endTime **required** `string`: End date
+  * entries **required** `array`: Entries
+    * items [SynlinkEntity](#synlinkentity)
+  * log **required** `string`: Log message
+  * processTime **required** `string`: Process time [millisecond]
+  * startTime **required** `string`: Start date
+
+### SynsetDefResponseEntity
+* SynsetDefResponseEntity `object`
+  * def **required** `string`: Definition
+  * endTime **required** `string`: End date
+  * lang **required** `string`: Language
+  * log **required** `string`: Log message
+  * processTime **required** `string`: Process time [millisecond]
+  * sid **required** `integer`: sid
+  * startTime **required** `string`: Start date
+  * synset **required** `string`: Synset
+
+### SynsetEntity
+* SynsetEntity `object`
+  * name **required** `string`: Name
+  * pos **required** `string`: Part-of-speech
+  * src **required** `string`: Src
+  * synset **required** `string`: Synset
+
+### SynsetResponseEntity
+* SynsetResponseEntity `object`
+  * endTime **required** `string`: End date
+  * entries **required** `array`: Entries
+    * items [SynsetEntity](#synsetentity)
+  * log **required** `string`: Log message
+  * processTime **required** `string`: Process time [millisecond]
+  * startTime **required** `string`: Start date
+
+### WordEntity
+* WordEntity `object`
+  * lang **required** `string`: Language
+  * lemma **required** `string`: Lemma
+  * pos **required** `string`: Part-of-speech
+  * pron `string`: Pron
+  * wordid **required** `integer`: Word ID
+
+### WordResponseEntity
+* WordResponseEntity `object`
+  * endTime **required** `string`: End date
+  * entries **required** `array`: Entries
+    * items [WordEntity](#wordentity)
+  * log **required** `string`: Log message
+  * processTime **required** `string`: Process time [millisecond]
+  * startTime **required** `string`: Start date
+
 

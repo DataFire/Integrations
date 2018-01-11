@@ -4,14 +4,12 @@ Client library for IoE² IoT API - to create end-user applications
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/ijenko
+npm install --save @datafire/ijenko
 ```
-
 ```js
-let datafire = require('datafire');
 let ijenko = require('@datafire/ijenko').create({
-  Token in Access-Token header: "",
-  Token in query: "",
+  "Token in Access-Token header": "",
+  "Token in query": ""
 });
 
 ijenko.Me.places({}).then(data => {
@@ -22,7 +20,9 @@ ijenko.Me.places({}).then(data => {
 ## Description
 
 
+
 ## Actions
+
 ### Account.changePassword
 Set a new password for the account.
 
@@ -39,8 +39,12 @@ ijenko.Account.changePassword({
 }, context)
 ```
 
-#### Parameters
-* changePasswordInfo (object) **required**
+#### Input
+* input `object`
+  * changePasswordInfo **required** [AuthChangePassword](#authchangepassword)
+
+#### Output
+*Output schema unknown*
 
 ### Account.places
 List the *Places* of the account.
@@ -53,8 +57,12 @@ List the *Places* of the account.
 ijenko.Account.places(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [PlaceItem](#placeitem)
 
 ### Account.newPlace
 Create a new *Place*.
@@ -69,8 +77,12 @@ A *Device* (`class`: `MINT`, `address`: `0`) is automatically created and attach
 ijenko.Account.newPlace({}, context)
 ```
 
-#### Parameters
-* place (object)
+#### Input
+* input `object`
+  * place [PlaceNew](#placenew)
+
+#### Output
+* output [PlaceCreated](#placecreated)
 
 ### Account.tokens
 List the active *Tokens* on the account.
@@ -83,8 +95,12 @@ List the active *Tokens* on the account.
 ijenko.Account.tokens(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [UserTokenItem](#usertokenitem)
 
 ### Account.revokeToken
 Revoke the given *Token*.
@@ -99,8 +115,12 @@ ijenko.Account.revokeToken({
 }, context)
 ```
 
-#### Parameters
-* tokenId (string) **required** - Identifier of the token
+#### Input
+* input `object`
+  * tokenId **required** `string`: Identifier of the token
+
+#### Output
+*Output schema unknown*
 
 ### Account.users
 Get the list of *Users* of this *Account*.
@@ -110,8 +130,13 @@ Get the list of *Users* of this *Account*.
 ijenko.Account.users({}, context)
 ```
 
-#### Parameters
-* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+#### Input
+* input `object`
+  * embed-metadata `array`: Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+
+#### Output
+* output `array`
+  * items [UserItem](#useritem)
 
 ### Account.newUser
 Add a *User*.
@@ -130,8 +155,12 @@ ijenko.Account.newUser({
 }, context)
 ```
 
-#### Parameters
-* userInfo (object) **required**
+#### Input
+* input `object`
+  * userInfo **required** [UserNew](#usernew)
+
+#### Output
+* output [UserCreated](#usercreated)
 
 ### Account.deleteUser
 Delete a *User* from this *Account*, and revoke all his/her *Tokens*.
@@ -146,8 +175,12 @@ ijenko.Account.deleteUser({
 }, context)
 ```
 
-#### Parameters
-* userId (string) **required** - Unique identifier of a *User*.
+#### Input
+* input `object`
+  * userId **required** `string`: Unique identifier of a *User*.
+
+#### Output
+*Output schema unknown*
 
 ### Account.getUser
 Get information about a *User* in the same *Account*.
@@ -159,8 +192,12 @@ ijenko.Account.getUser({
 }, context)
 ```
 
-#### Parameters
-* userId (string) **required** - Unique identifier of a *User*.
+#### Input
+* input `object`
+  * userId **required** `string`: Unique identifier of a *User*.
+
+#### Output
+* output [User](#user)
 
 ### Account.patchUser
 Modify a *User*.
@@ -176,9 +213,13 @@ ijenko.Account.patchUser({
 }, context)
 ```
 
-#### Parameters
-* userPatch (object) **required**
-* userId (string) **required** - Unique identifier of a *User*.
+#### Input
+* input `object`
+  * userPatch **required** [UserPatch](#userpatch)
+  * userId **required** `string`: Unique identifier of a *User*.
+
+#### Output
+*Output schema unknown*
 
 ### User.getMetadata
 Get the metadata.
@@ -190,8 +231,12 @@ ijenko.User.getMetadata({
 }, context)
 ```
 
-#### Parameters
-* userId (string) **required** - Unique identifier of a *User*.
+#### Input
+* input `object`
+  * userId **required** `string`: Unique identifier of a *User*.
+
+#### Output
+* output [Metadata](#metadata)
 
 ### User.patchMetadata
 Modify the metadata.
@@ -206,9 +251,13 @@ ijenko.User.patchMetadata({
 }, context)
 ```
 
-#### Parameters
-* metadataPatch (object) **required**
-* userId (string) **required** - Unique identifier of a *User*.
+#### Input
+* input `object`
+  * metadataPatch **required** [MetadataPatch](#metadatapatch)
+  * userId **required** `string`: Unique identifier of a *User*.
+
+#### Output
+* output [Metadata](#metadata)
 
 ### AuthAccountLogin
 Get an access+refresh tokens pair from login and password information.
@@ -239,8 +288,12 @@ ijenko.AuthAccountLogin({
 }, context)
 ```
 
-#### Parameters
-* loginInfo (object) **required**
+#### Input
+* input `object`
+  * loginInfo **required** [AuthLogin](#authlogin)
+
+#### Output
+* output [AuthTokens](#authtokens)
 
 ### AuthRefreshToken
 Get a new *access token* using a valid *refresh token*.
@@ -259,8 +312,12 @@ ijenko.AuthRefreshToken({
 }, context)
 ```
 
-#### Parameters
-* refreshInfo (object) **required**
+#### Input
+* input `object`
+  * refreshInfo **required** [AuthRefresh](#authrefresh)
+
+#### Output
+* output [AuthTokens](#authtokens)
 
 ### AuthResetPassword
 Trigger the request of a new password.
@@ -281,8 +338,12 @@ ijenko.AuthResetPassword({
 }, context)
 ```
 
-#### Parameters
-* resetPasswordInfo (object) **required**
+#### Input
+* input `object`
+  * resetPasswordInfo **required** [AuthResetPassword](#authresetpassword)
+
+#### Output
+*Output schema unknown*
 
 ### AuthRevokeToken
 Invalidate the authentication used for the request. The access token and the refresh token will be invalid after this request.
@@ -294,8 +355,11 @@ This request is typically called to implement logout.
 ijenko.AuthRevokeToken(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### Devices.get
 Get information about a *Device*.
@@ -307,8 +371,12 @@ ijenko.Devices.get({
 }, context)
 ```
 
-#### Parameters
-* deviceId (string) **required** - Unique identifier of a *Device*.
+#### Input
+* input `object`
+  * deviceId **required** `string`: Unique identifier of a *Device*.
+
+#### Output
+* output [Device](#device)
 
 ### Devices.patch
 Modify information about a *Device*: its name.
@@ -322,9 +390,13 @@ ijenko.Devices.patch({
 }, context)
 ```
 
-#### Parameters
-* devicePatch (object) **required**
-* deviceId (string) **required** - Unique identifier of a *Device*.
+#### Input
+* input `object`
+  * devicePatch **required** [DevicePatch](#devicepatch)
+  * deviceId **required** `string`: Unique identifier of a *Device*.
+
+#### Output
+*Output schema unknown*
 
 ### Device.addFunctionality
 Add a *Functionality* to the device.
@@ -356,9 +428,13 @@ ijenko.Device.addFunctionality({
 }, context)
 ```
 
-#### Parameters
-* deviceId (string) **required** - Unique identifier of a *Device*.
-* functionalityInfo (object) **required**
+#### Input
+* input `object`
+  * deviceId **required** `string`: Unique identifier of a *Device*.
+  * functionalityInfo **required** [FunctionalityNew](#functionalitynew)
+
+#### Output
+* output [FunctionalityCreated](#functionalitycreated)
 
 ### Device.getMetadata
 Get the metadata.
@@ -370,8 +446,12 @@ ijenko.Device.getMetadata({
 }, context)
 ```
 
-#### Parameters
-* deviceId (string) **required** - Unique identifier of a *Device*.
+#### Input
+* input `object`
+  * deviceId **required** `string`: Unique identifier of a *Device*.
+
+#### Output
+* output [Metadata](#metadata)
 
 ### Device.patchMetadata
 Modify the metadata.
@@ -386,9 +466,13 @@ ijenko.Device.patchMetadata({
 }, context)
 ```
 
-#### Parameters
-* metadataPatch (object) **required**
-* deviceId (string) **required** - Unique identifier of a *Device*.
+#### Input
+* input `object`
+  * metadataPatch **required** [MetadataPatch](#metadatapatch)
+  * deviceId **required** `string`: Unique identifier of a *Device*.
+
+#### Output
+* output [Metadata](#metadata)
 
 ### Device.run
 Run an *Action* on zero, one or multiple Functionalities selected with tags.
@@ -404,11 +488,15 @@ ijenko.Device.run({
 }, context)
 ```
 
-#### Parameters
-* deviceId (string) **required** - Unique identifier of a *Device*.
-* action (string) **required** - Identifier of an *Action* inside a *Functionality*.
-* functionalities (string) **required** - Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».
-* arguments (array) **required**
+#### Input
+* input `object`
+  * deviceId **required** `string`: Unique identifier of a *Device*.
+  * action **required** `string`: Identifier of an *Action* inside a *Functionality*.
+  * functionalities **required** `string`: Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».
+  * arguments **required** [ActionArgs](#actionargs)
+
+#### Output
+* output [ActionMultiResult](#actionmultiresult)
 
 ### Device.getTags
 Get the tags of a *Device*.
@@ -420,8 +508,12 @@ ijenko.Device.getTags({
 }, context)
 ```
 
-#### Parameters
-* deviceId (string) **required** - Unique identifier of a *Device*.
+#### Input
+* input `object`
+  * deviceId **required** `string`: Unique identifier of a *Device*.
+
+#### Output
+* output [Tags](#tags)
 
 ### Device.patchTags
 Modify the tags of a *Device*.
@@ -434,9 +526,13 @@ ijenko.Device.patchTags({
 }, context)
 ```
 
-#### Parameters
-* tagsPatch (object) **required**
-* deviceId (string) **required** - Unique identifier of a *Device*.
+#### Input
+* input `object`
+  * tagsPatch **required** [TagsPatch](#tagspatch)
+  * deviceId **required** `string`: Unique identifier of a *Device*.
+
+#### Output
+* output [Tags](#tags)
 
 ### Functionalities.get
 Get the *Functionality*.
@@ -448,8 +544,12 @@ ijenko.Functionalities.get({
 }, context)
 ```
 
-#### Parameters
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+#### Input
+* input `object`
+  * functionalityId **required** `string`: Unique identifier of a *Functionality*.
+
+#### Output
+* output [Functionality](#functionality)
 
 ### Functionality.patch
 Modify information about a *Functionality*: its name.
@@ -463,9 +563,13 @@ ijenko.Functionality.patch({
 }, context)
 ```
 
-#### Parameters
-* functionalityPatch (object) **required**
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+#### Input
+* input `object`
+  * functionalityPatch **required** [FunctionalityPatch](#functionalitypatch)
+  * functionalityId **required** `string`: Unique identifier of a *Functionality*.
+
+#### Output
+*Output schema unknown*
 
 ### Functionality.values
 Get the values of multiple *Attributes* and their history.
@@ -489,12 +593,16 @@ ijenko.Functionality.values({
 }, context)
 ```
 
-#### Parameters
-* names (array) - One or multiple *Attribute* names separated by commas
-* from (string) - Beginning of the time interval.
-* to (string) - End of the interval. Default: now.
-* surround (boolean) - If true, return also one value before from and one value after to
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+#### Input
+* input `object`
+  * names `array`: One or multiple *Attribute* names separated by commas
+  * from `string`: Beginning of the time interval.
+  * to `string`: End of the interval. Default: now.
+  * surround `boolean`: If true, return also one value before from and one value after to
+  * functionalityId **required** `string`: Unique identifier of a *Functionality*.
+
+#### Output
+* output [AttributesValues](#attributesvalues)
 
 ### Functionality.value
 Get the *Attribute* value and the last time when it changed.
@@ -507,9 +615,13 @@ ijenko.Functionality.value({
 }, context)
 ```
 
-#### Parameters
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
-* attributeName (string) **required** - Identifier of an *Attribute* inside a *Functionality*.
+#### Input
+* input `object`
+  * functionalityId **required** `string`: Unique identifier of a *Functionality*.
+  * attributeName **required** `string`: Identifier of an *Attribute* inside a *Functionality*.
+
+#### Output
+* output [AttributeValue](#attributevalue)
 
 ### Functionality.set
 Modify the value of the *Attribute*.
@@ -523,10 +635,14 @@ ijenko.Functionality.set({
 }, context)
 ```
 
-#### Parameters
-* value (undefined) **required** - null/boolean/integer/number/string/object/array
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
-* attributeName (string) **required** - Identifier of an *Attribute* inside a *Functionality*.
+#### Input
+* input `object`
+  * value **required** [AnyJSON](#anyjson)
+  * functionalityId **required** `string`: Unique identifier of a *Functionality*.
+  * attributeName **required** `string`: Identifier of an *Attribute* inside a *Functionality*.
+
+#### Output
+*Output schema unknown*
 
 ### Functionality.getMetadata
 Get the metadata.
@@ -538,8 +654,12 @@ ijenko.Functionality.getMetadata({
 }, context)
 ```
 
-#### Parameters
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+#### Input
+* input `object`
+  * functionalityId **required** `string`: Unique identifier of a *Functionality*.
+
+#### Output
+* output [Metadata](#metadata)
 
 ### Functionality.patchMetadata
 Modify the metadata.
@@ -554,9 +674,13 @@ ijenko.Functionality.patchMetadata({
 }, context)
 ```
 
-#### Parameters
-* metadataPatch (object) **required**
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+#### Input
+* input `object`
+  * metadataPatch **required** [MetadataPatch](#metadatapatch)
+  * functionalityId **required** `string`: Unique identifier of a *Functionality*.
+
+#### Output
+* output [Metadata](#metadata)
 
 ### Functionality.run
 Run an action on the Functionality.
@@ -571,10 +695,14 @@ ijenko.Functionality.run({
 }, context)
 ```
 
-#### Parameters
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
-* action (string) **required** - Identifier of an *Action* inside a *Functionality*.
-* arguments (array) **required**
+#### Input
+* input `object`
+  * functionalityId **required** `string`: Unique identifier of a *Functionality*.
+  * action **required** `string`: Identifier of an *Action* inside a *Functionality*.
+  * arguments **required** [ActionArgs](#actionargs)
+
+#### Output
+* output [ActionResult](#actionresult)
 
 ### Functionality.getTags
 Get the tags of a *Functionality*.
@@ -586,8 +714,12 @@ ijenko.Functionality.getTags({
 }, context)
 ```
 
-#### Parameters
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+#### Input
+* input `object`
+  * functionalityId **required** `string`: Unique identifier of a *Functionality*.
+
+#### Output
+* output [Tags](#tags)
 
 ### Functionality.patchTags
 Modify the tags of a *Functionality*.
@@ -600,9 +732,13 @@ ijenko.Functionality.patchTags({
 }, context)
 ```
 
-#### Parameters
-* tagsPatch (object) **required**
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+#### Input
+* input `object`
+  * tagsPatch **required** [TagsPatch](#tagspatch)
+  * functionalityId **required** `string`: Unique identifier of a *Functionality*.
+
+#### Output
+* output [Tags](#tags)
 
 ### Me.get
 Get information on the authenticated *User* who does the request.
@@ -616,8 +752,11 @@ the *Account*.
 ijenko.Me.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [UserMe](#userme)
 
 ### Me.patch
 Update *User* information (locale).
@@ -630,8 +769,12 @@ ijenko.Me.patch({
 }, context)
 ```
 
-#### Parameters
-* userPatch (object) **required**
+#### Input
+* input `object`
+  * userPatch **required** [UserMePatch](#usermepatch)
+
+#### Output
+*Output schema unknown*
 
 ### Notification.delete
 Delete a *Notification*.
@@ -644,8 +787,12 @@ ijenko.Notification.delete({
 }, context)
 ```
 
-#### Parameters
-* notificationId (string) **required** - Unique identifier of a *Notification*.
+#### Input
+* input `object`
+  * notificationId **required** `string`: Unique identifier of a *Notification*.
+
+#### Output
+*Output schema unknown*
 
 ### Notifications.get
 Get information about a *Notification*.
@@ -658,8 +805,12 @@ ijenko.Notifications.get({
 }, context)
 ```
 
-#### Parameters
-* notificationId (string) **required** - Unique identifier of a *Notification*.
+#### Input
+* input `object`
+  * notificationId **required** `string`: Unique identifier of a *Notification*.
+
+#### Output
+* output [Notification](#notification)
 
 ### Notification.patch
 Modify a *Notification*.
@@ -673,9 +824,13 @@ ijenko.Notification.patch({
 }, context)
 ```
 
-#### Parameters
-* notificationPatch (object) **required**
-* notificationId (string) **required** - Unique identifier of a *Notification*.
+#### Input
+* input `object`
+  * notificationPatch **required** [NotificationPatch](#notificationpatch)
+  * notificationId **required** `string`: Unique identifier of a *Notification*.
+
+#### Output
+*Output schema unknown*
 
 ### Notification.getMetadata
 Get the metadata of the *Notification*.
@@ -687,8 +842,12 @@ ijenko.Notification.getMetadata({
 }, context)
 ```
 
-#### Parameters
-* notificationId (string) **required** - Unique identifier of a *Notification*.
+#### Input
+* input `object`
+  * notificationId **required** `string`: Unique identifier of a *Notification*.
+
+#### Output
+* output [Metadata](#metadata)
 
 ### Notification.patchMetadata
 Modify the metadata of a *Notification*.
@@ -703,9 +862,13 @@ ijenko.Notification.patchMetadata({
 }, context)
 ```
 
-#### Parameters
-* metadataPatch (object) **required**
-* notificationId (string) **required** - Unique identifier of a *Notification*.
+#### Input
+* input `object`
+  * metadataPatch **required** [MetadataPatch](#metadatapatch)
+  * notificationId **required** `string`: Unique identifier of a *Notification*.
+
+#### Output
+* output [Metadata](#metadata)
 
 ### Me.places
 List the *Places* to which the *Token* has access.
@@ -715,8 +878,13 @@ List the *Places* to which the *Token* has access.
 ijenko.Me.places({}, context)
 ```
 
-#### Parameters
-* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+#### Input
+* input `object`
+  * embed-metadata `array`: Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+
+#### Output
+* output `array`
+  * items [PlaceItem](#placeitem)
 
 ### Places.get
 Get information about a *Place*.
@@ -728,8 +896,12 @@ ijenko.Places.get({
 }, context)
 ```
 
-#### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+* output [Place](#place)
 
 ### Place.patch
 Change information about a *Place*.
@@ -745,9 +917,13 @@ ijenko.Place.patch({
 }, context)
 ```
 
-#### Parameters
-* placePatch (object) **required**
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * placePatch **required** [PlacePatch](#placepatch)
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+*Output schema unknown*
 
 ### Place.buses
 Get the list of *Buses* available on the gateway of this *Place*.
@@ -760,9 +936,14 @@ ijenko.Place.buses({
 }, context)
 ```
 
-#### Parameters
-* withPairing (boolean) - Filter out buses that have no pairing window
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * withPairing `boolean`: Filter out buses that have no pairing window
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+* output `array`
+  * items [BusItem](#busitem)
 
 ### Place.pairing
 Get the state of the pairing window of the *Bus*.
@@ -778,9 +959,13 @@ ijenko.Place.pairing({
 }, context)
 ```
 
-#### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
-* busId (string) **required** - Unique identifier of a *Bus*.
+#### Input
+* input `object`
+  * placeId **required** `string`: Unique identifier of a *Place*.
+  * busId **required** `string`: Unique identifier of a *Bus*.
+
+#### Output
+* output [BusPairing](#buspairing)
 
 ### Place.openPairing
 Open/Close the pairing window.
@@ -799,10 +984,14 @@ ijenko.Place.openPairing({
 }, context)
 ```
 
-#### Parameters
-* pairing (object) **required**
-* placeId (string) **required** - Unique identifier of a *Place*.
-* busId (string) **required** - Unique identifier of a *Bus*.
+#### Input
+* input `object`
+  * pairing **required** [BusPairing](#buspairing)
+  * placeId **required** `string`: Unique identifier of a *Place*.
+  * busId **required** `string`: Unique identifier of a *Bus*.
+
+#### Output
+* output [BusPairing](#buspairing)
 
 ### Place.devices
 Get the list of *Devices* available in this *Place*.
@@ -814,10 +1003,15 @@ ijenko.Place.devices({
 }, context)
 ```
 
-#### Parameters
-* devices (string) - Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».
-* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * devices `string`: Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».
+  * embed-metadata `array`: Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+* output `array`
+  * items [DeviceItem](#deviceitem)
 
 ### Place.Electricity.autonomy
 Compute the autonomy rate of the *Place* on a time period.
@@ -834,10 +1028,14 @@ ijenko.Place.Electricity.autonomy({
 }, context)
 ```
 
-#### Parameters
-* when (string) **required** - A time part of the time span.
-* span (string) **required** - Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * when **required** `string`: A time part of the time span.
+  * span **required** `string` (values: H, D, Wmo, Wsu, M, Y): Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+* output [ElectricityAutonomy](#electricityautonomy)
 
 ### Place.Electricity.getFlows
 Get the mapping of virtual electricity flows to functionalities.
@@ -867,9 +1065,13 @@ ijenko.Place.Electricity.getFlows({
 }, context)
 ```
 
-#### Parameters
-* flows (array) **required** - Names of the flows requested
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * flows **required** `array`: Names of the flows requested
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+* output [ElectricityFlows](#electricityflows)
 
 ### Place.Electricity.getFlowsSetup
 Get the mapping of functionalities to electricity flows.
@@ -884,8 +1086,12 @@ ijenko.Place.Electricity.getFlowsSetup({
 }, context)
 ```
 
-#### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+* output [ElectricityFlowsSetup](#electricityflowssetup)
 
 ### Place.Electricity.selfConsumption
 Compute the self-consumption rate of the *Place* on a time period.
@@ -902,10 +1108,14 @@ ijenko.Place.Electricity.selfConsumption({
 }, context)
 ```
 
-#### Parameters
-* when (string) **required** - A time part of the time span.
-* span (string) **required** - Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * when **required** `string`: A time part of the time span.
+  * span **required** `string` (values: H, D, Wmo, Wsu, M, Y): Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+* output [ElectricitySelfConsumption](#electricityselfconsumption)
 
 ### Place.functionalities
 Get the list of *Functionalities* available in this *Place*.
@@ -917,11 +1127,16 @@ ijenko.Place.functionalities({
 }, context)
 ```
 
-#### Parameters
-* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
-* placeId (string) **required** - Unique identifier of a *Place*.
-* devices (string) - Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».
-* functionalities (string) - Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».
+#### Input
+* input `object`
+  * embed-metadata `array`: Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+  * placeId **required** `string`: Unique identifier of a *Place*.
+  * devices `string`: Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».
+  * functionalities `string`: Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».
+
+#### Output
+* output `array`
+  * items [FunctionalityItem](#functionalityitem)
 
 ### Place.getMetadata
 Get the metadata.
@@ -933,8 +1148,12 @@ ijenko.Place.getMetadata({
 }, context)
 ```
 
-#### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+* output [Metadata](#metadata)
 
 ### Place.patchMetadata
 Modify the metadata.
@@ -949,9 +1168,13 @@ ijenko.Place.patchMetadata({
 }, context)
 ```
 
-#### Parameters
-* metadataPatch (object) **required**
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * metadataPatch **required** [MetadataPatch](#metadatapatch)
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+* output [Metadata](#metadata)
 
 ### Place.notifications
 Get the list of *Notifications* available in this *Place*.
@@ -963,9 +1186,14 @@ ijenko.Place.notifications({
 }, context)
 ```
 
-#### Parameters
-* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * embed-metadata `array`: Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+* output `array`
+  * items [NotificationItem](#notificationitem)
 
 ### Place.newNotification
 Create a new *Notification*.
@@ -980,9 +1208,13 @@ ijenko.Place.newNotification({
 }, context)
 ```
 
-#### Parameters
-* notification (object) **required**
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * notification **required** [NotificationNew](#notificationnew)
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+* output [NotificationCreated](#notificationcreated)
 
 ### Place.programs
 Get the list of *Programs* available in this *Place*.
@@ -994,9 +1226,14 @@ ijenko.Place.programs({
 }, context)
 ```
 
-#### Parameters
-* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * embed-metadata `array`: Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+* output `array`
+  * items [ProgramItem](#programitem)
 
 ### Place.newProgram
 Create a new *Program*.
@@ -1015,9 +1252,13 @@ ijenko.Place.newProgram({
 }, context)
 ```
 
-#### Parameters
-* programInfo (object) **required**
-* placeId (string) **required** - Unique identifier of a *Place*.
+#### Input
+* input `object`
+  * programInfo **required** [ProgramNew](#programnew)
+  * placeId **required** `string`: Unique identifier of a *Place*.
+
+#### Output
+* output [ProgramCreated](#programcreated)
 
 ### Place.run
 Run an *Action* on zero, one or multiple *Functionalities* selected with tags.
@@ -1038,12 +1279,16 @@ ijenko.Place.run({
 }, context)
 ```
 
-#### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
-* action (string) **required** - Identifier of an *Action* inside a *Functionality*.
-* devices (string) **required** - Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».
-* functionalities (string) **required** - Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».
-* arguments (array) **required**
+#### Input
+* input `object`
+  * placeId **required** `string`: Unique identifier of a *Place*.
+  * action **required** `string`: Identifier of an *Action* inside a *Functionality*.
+  * devices **required** `string`: Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».
+  * functionalities **required** `string`: Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».
+  * arguments **required** [ActionArgs](#actionargs)
+
+#### Output
+* output [ActionMultiResult](#actionmultiresult)
 
 ### Program.delete
 Delete a *Program*.
@@ -1058,8 +1303,12 @@ ijenko.Program.delete({
 }, context)
 ```
 
-#### Parameters
-* programId (string) **required** - Unique identifier of a *Program*.
+#### Input
+* input `object`
+  * programId **required** `string`: Unique identifier of a *Program*.
+
+#### Output
+*Output schema unknown*
 
 ### Programs.get
 Get information about a *Program*.
@@ -1072,8 +1321,12 @@ ijenko.Programs.get({
 }, context)
 ```
 
-#### Parameters
-* programId (string) **required** - Unique identifier of a *Program*.
+#### Input
+* input `object`
+  * programId **required** `string`: Unique identifier of a *Program*.
+
+#### Output
+* output [Program](#program)
 
 ### Program.patch
 Modify a *Program*:
@@ -1092,9 +1345,13 @@ ijenko.Program.patch({
 }, context)
 ```
 
-#### Parameters
-* programPatch (object) **required**
-* programId (string) **required** - Unique identifier of a *Program*.
+#### Input
+* input `object`
+  * programPatch **required** [ProgramPatch](#programpatch)
+  * programId **required** `string`: Unique identifier of a *Program*.
+
+#### Output
+*Output schema unknown*
 
 ### Program.log
 Get the execution history list of this *Program*.
@@ -1107,10 +1364,15 @@ ijenko.Program.log({
 }, context)
 ```
 
-#### Parameters
-* from (string) **required** - Beginning of the time interval.
-* to (string) - End of the interval. Default: now.
-* programId (string) **required** - Unique identifier of a *Program*.
+#### Input
+* input `object`
+  * from **required** `string`: Beginning of the time interval.
+  * to `string`: End of the interval. Default: now.
+  * programId **required** `string`: Unique identifier of a *Program*.
+
+#### Output
+* output `array`
+  * items [ProgramLog](#programlog)
 
 ### Program.getMetadata
 Get the metadata of the *Program*.
@@ -1122,8 +1384,12 @@ ijenko.Program.getMetadata({
 }, context)
 ```
 
-#### Parameters
-* programId (string) **required** - Unique identifier of a *Program*.
+#### Input
+* input `object`
+  * programId **required** `string`: Unique identifier of a *Program*.
+
+#### Output
+* output [Metadata](#metadata)
 
 ### Program.patchMetadata
 Modify the metadata of a *Program*.
@@ -1138,9 +1404,13 @@ ijenko.Program.patchMetadata({
 }, context)
 ```
 
-#### Parameters
-* metadataPatch (object) **required**
-* programId (string) **required** - Unique identifier of a *Program*.
+#### Input
+* input `object`
+  * metadataPatch **required** [MetadataPatch](#metadatapatch)
+  * programId **required** `string`: Unique identifier of a *Program*.
+
+#### Output
+* output [Metadata](#metadata)
 
 ### Program.run
 Launch the *Program*.
@@ -1153,6 +1423,608 @@ ijenko.Program.run({
 }, context)
 ```
 
-#### Parameters
-* programId (string) **required** - Unique identifier of a *Program*.
+#### Input
+* input `object`
+  * programId **required** `string`: Unique identifier of a *Program*.
+
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+### AccountId
+* AccountId `string`: Unique identifier of the *Account*
+
+### AccountLogin
+* AccountLogin `string`
+
+### ActionArgs
+* ActionArgs `array`
+  * items [AnyJSON](#anyjson)
+
+### ActionMultiResult
+* ActionMultiResult `array`
+  * items [ActionResult](#actionresult)
+
+### ActionName
+* ActionName `string`
+
+### ActionResult
+* ActionResult `object`
+  * functionality [FunctionalityId](#functionalityid)
+  * result `array`
+    * items [AnyJSON](#anyjson)
+  * status **required** `integer`: Return code (HTTP status code)
+
+### AnyJSON
+
+
+### AppId
+* AppId `string`
+
+### AttributeName
+* AttributeName `string`
+
+### AttributeValue
+* AttributeValue `object`
+  * value **required** [AnyJSON](#anyjson)
+  * when **required** `string`
+
+### AttributesValues
+* AttributesValues `object`: Keys are attribute ids
+
+### AuthChangePassword
+* AuthChangePassword `object`
+  * newPassword **required** [Password](#password)
+  * oldPassword **required** [Password](#password)
+
+### AuthLogin
+* AuthLogin `object`
+  * appId **required** [AppId](#appid)
+  * login **required** `string`
+  * password **required** [Password](#password)
+  * ttl `integer`: Desired maximum life-time in seconds for the refresh token
+
+### AuthRefresh
+* AuthRefresh `object`
+  * appId **required** [AppId](#appid)
+  * refreshToken **required** `string`
+
+### AuthResetPassword
+* AuthResetPassword `object`
+  * appId **required** [AppId](#appid)
+  * email [UserEmail](#useremail)
+  * login `string`
+
+### AuthTokens
+* AuthTokens `object`
+  * accessToken **required** `string`
+  * accessTokenExpires **required** `string`
+  * refreshToken **required** `string`
+  * refreshTokenExpires **required** `string`
+
+### BusId
+* BusId `string`
+
+### BusItem
+* BusItem `object`
+  * functionality **required** [FunctionalityId](#functionalityid)
+  * id **required** [BusId](#busid)
+  * protocol **required** [BusProtocol](#busprotocol)
+
+### BusPairing
+* BusPairing `object`
+  * duration `integer`: Duration of the pairing window.
+  * enabled **required** `boolean`
+
+### BusProtocol
+* BusProtocol `string`
+
+### CountryCode
+* CountryCode `string`: Country code (ISO 3166-1 alpha-2)
+
+### DefaultError
+* DefaultError `object`: Any error.
+  * code **required** `integer`
+  * message **required** `string`
+
+### Device
+* Device `object`
+  * address **required** [DeviceAddress](#deviceaddress)
+  * attributes `object`: Each key is <FunctionalityClass>@<Endpoint>
+  * class **required** [DeviceClass](#deviceclass)
+  * functionalities **required** `array`
+    * items [FunctionalityItem](#functionalityitem)
+  * isOnline **required** `boolean`
+  * manufacturer `string`
+  * metadata [Metadata](#metadata)
+  * model `string`
+  * name `string`: Name of the device. User defined.
+  * place **required** [PlaceId](#placeid)
+  * protocol [BusProtocol](#busprotocol)
+  * tags **required** `array`
+    * items [DeviceTag](#devicetag)
+
+### DeviceAddress
+* DeviceAddress `string`
+
+### DeviceClass
+* DeviceClass `string`
+
+### DeviceId
+* DeviceId `string`: Unique identifier of the *Device*
+
+### DeviceItem
+* DeviceItem `object`
+  * address **required** [DeviceAddress](#deviceaddress)
+  * class **required** [DeviceClass](#deviceclass)
+  * id **required** [DeviceId](#deviceid)
+  * isOnline **required** `boolean`
+  * metadata [MetadataSelected](#metadataselected)
+  * name `string`: Name of the *Device* as defined by the user. Can be used for user interfaces.
+  * place **required** [PlaceId](#placeid)
+  * tags **required** `array`
+    * items [DeviceTag](#devicetag)
+
+### DevicePatch
+* DevicePatch `object`
+  * name `string`: Name of the *Device* as defined by the user. Can be used for user interfaces.
+
+### DeviceTag
+* DeviceTag `string`
+
+### ElectricityAutonomy
+* ElectricityAutonomy `object`
+  * autonomy `number`: Average electricity autonomy in % (value in range [0, 1], rounded)
+  * code **required** [ElectricityStatusCode](#electricitystatuscode)
+  * from `string`
+  * message `string`: Message for cases where computation is not possible (codes 200001, 200002)
+  * to `string`
+
+### ElectricityFlow
+* ElectricityFlow `array`
+  * items [ElectricityFunctionality](#electricityfunctionality)
+
+### ElectricityFlowFormula
+* ElectricityFlowFormula `array`
+  * items [ElectricityFlowFunctionality](#electricityflowfunctionality)
+
+### ElectricityFlowFunctionality
+* ElectricityFlowFunctionality `object`
+  * class **required** [FunctionalityClass](#functionalityclass)
+  * factor **required** `integer`
+  * flow **required** [ElectricityFlowName](#electricityflowname)
+  * id **required** [FunctionalityId](#functionalityid)
+
+### ElectricityFlowName
+* ElectricityFlowName `string` (values: battery_charge, battery_discharge, battery_grid, elec_total_gen, elec_total_usage, elec_feed_in, elec_drawn, elec_local, elec_from_household, elec_to_pv, elec_usage): Name of an electricity flow
+
+### ElectricityFlows
+* ElectricityFlows `object`
+  * code **required** [ElectricityStatusCode](#electricitystatuscode)
+  * flows [ElectricityVirtualFlows](#electricityvirtualflows)
+  * message [ElectricityStatusMessage](#electricitystatusmessage)
+  * missing [ElectricityMissingFlows](#electricitymissingflows)
+
+### ElectricityFlowsSetup
+* ElectricityFlowsSetup `object`
+  * battery_charge [ElectricityFlow](#electricityflow)
+  * battery_discharge [ElectricityFlow](#electricityflow)
+  * battery_grid [ElectricityFlow](#electricityflow)
+  * elec_drawn [ElectricityFlow](#electricityflow)
+  * elec_feed_in [ElectricityFlow](#electricityflow)
+  * elec_from_household [ElectricityFlow](#electricityflow)
+  * elec_local [ElectricityFlow](#electricityflow)
+  * elec_to_pv [ElectricityFlow](#electricityflow)
+  * elec_total_gen [ElectricityFlow](#electricityflow)
+  * elec_total_usage [ElectricityFlow](#electricityflow)
+  * elec_usage [ElectricityFlow](#electricityflow)
+
+### ElectricityFunctionality
+* ElectricityFunctionality `object`
+  * class **required** [FunctionalityClass](#functionalityclass)
+  * id **required** [FunctionalityId](#functionalityid)
+
+### ElectricityMissingFlows
+* ElectricityMissingFlows `object`: List of missing flows (not available either directly or indirectly)
+  * battery_charge `boolean` (values: true)
+  * battery_discharge `boolean` (values: true)
+  * battery_grid `boolean` (values: true)
+  * elec_drawn `boolean` (values: true)
+  * elec_feed_in `boolean` (values: true)
+  * elec_from_household `boolean` (values: true)
+  * elec_local `boolean` (values: true)
+  * elec_to_pv `boolean` (values: true)
+  * elec_total_gen `boolean` (values: true)
+  * elec_total_usage `boolean` (values: true)
+  * elec_usage `boolean` (values: true)
+
+### ElectricitySelfConsumption
+* ElectricitySelfConsumption `object`
+  * code **required** [ElectricityStatusCode](#electricitystatuscode)
+  * from `string`
+  * message `string`: Message for cases where computation is not possible (codes 200001, 200002)
+  * selfConsumption `number`: Average self-consumption rate in % (value in range [0, 1], rounded)
+  * to `string`
+
+### ElectricityStatusCode
+* ElectricityStatusCode `integer` (values: 200000, 200001, 200002): Status code. 200000 means OK. Other codes indicate full or partial failure.
+
+### ElectricityStatusMessage
+* ElectricityStatusMessage `string`: Message for cases where computation is not possible (codes 200001, 200002)
+
+### ElectricityVirtualFlows
+* ElectricityVirtualFlows `object`
+  * battery_charge [ElectricityFlowFormula](#electricityflowformula)
+  * battery_discharge [ElectricityFlowFormula](#electricityflowformula)
+  * battery_grid [ElectricityFlowFormula](#electricityflowformula)
+  * elec_drawn [ElectricityFlowFormula](#electricityflowformula)
+  * elec_feed_in [ElectricityFlowFormula](#electricityflowformula)
+  * elec_from_household [ElectricityFlowFormula](#electricityflowformula)
+  * elec_local [ElectricityFlowFormula](#electricityflowformula)
+  * elec_to_pv [ElectricityFlowFormula](#electricityflowformula)
+  * elec_total_gen [ElectricityFlowFormula](#electricityflowformula)
+  * elec_total_usage [ElectricityFlowFormula](#electricityflowformula)
+  * elec_usage [ElectricityFlowFormula](#electricityflowformula)
+
+### ErrorEntity
+* ErrorEntity `object`: An error related to access to an entity (400, 403, 404, 410)
+  * code **required** `integer`
+  * message **required** `string`
+  * resource **required** [ResourceRef](#resourceref)
+
+### ErrorGatewayUnreachable
+* ErrorGatewayUnreachable `object`: The gateway of the Place is not reachable.
+  * code **required** `string` (values: 450)
+  * message **required** `string`
+
+### ErrorSubEntity
+* ErrorSubEntity `object`: An error related to access to an sub-entity (400, 403, 404, 410)
+  * code **required** `integer`
+  * message **required** `string`
+  * resource **required** `object`
+    * entity **required** `string` (values: Action, Attribute, Bus)
+    * href **required** `string`
+    * id **required** `string`
+    * parent `object`: Container resource.
+      * entity **required** `string` (values: Place, Functionality)
+      * id **required** `string`
+
+### Functionality
+* Functionality `object`
+  * actions `array`
+    * items [ActionName](#actionname)
+  * attributes **required** `array`
+    * items [AttributeName](#attributename)
+  * class **required** [FunctionalityClass](#functionalityclass)
+  * device **required** [DeviceId](#deviceid)
+  * endpoint **required** [FunctionalityEndpoint](#functionalityendpoint)
+  * metadata [Metadata](#metadata)
+  * name [FunctionalityName](#functionalityname)
+  * tags **required** `array`
+    * items [FunctionalityTag](#functionalitytag)
+
+### FunctionalityClass
+* FunctionalityClass `string`
+
+### FunctionalityCreated
+* FunctionalityCreated `object`: A resource has been created. The `resource` property gives its reference.
+  * code **required** `integer` (values: 201)
+  * message **required** `string` (values: Functionality created)
+  * resource **required** [FunctionalityResource](#functionalityresource)
+
+### FunctionalityEndpoint
+* FunctionalityEndpoint `integer`
+
+### FunctionalityId
+* FunctionalityId `string`: Unique identifier of the *Functionality*
+
+### FunctionalityItem
+* FunctionalityItem `object`
+  * class **required** [FunctionalityClass](#functionalityclass)
+  * device **required** [DeviceId](#deviceid)
+  * endpoint **required** [FunctionalityEndpoint](#functionalityendpoint)
+  * id **required** [FunctionalityId](#functionalityid)
+  * metadata [MetadataSelected](#metadataselected)
+  * name [FunctionalityName](#functionalityname)
+  * tags `array`
+    * items [FunctionalityTag](#functionalitytag)
+
+### FunctionalityName
+* FunctionalityName `string`: Free functionality name
+
+### FunctionalityNew
+* FunctionalityNew `object`
+  * class **required** [FunctionalityClass](#functionalityclass)
+  * endpoint **required** [FunctionalityEndpoint](#functionalityendpoint)
+  * metadata [Metadata](#metadata)
+  * name [FunctionalityName](#functionalityname)
+  * tags `array`
+    * items [FunctionalityTag](#functionalitytag)
+
+### FunctionalityPatch
+* FunctionalityPatch `object`
+  * name [FunctionalityName](#functionalityname)
+
+### FunctionalityResource
+* FunctionalityResource `object`
+  * entity **required** `string` (values: Functionality)
+  * href **required** `string`
+  * id **required** [FunctionalityId](#functionalityid)
+
+### FunctionalityTag
+* FunctionalityTag `string`
+
+### Locale
+* Locale `string`: Locale identifier (language, region). See https://tools.ietf.org/html/rfc5646 and https://www.iana.org/assignments/lang-subtags-templates/lang-subtags-templates.xhtml .
+
+### Metadata
+* Metadata `object`: Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.
+
+### MetadataKey
+* MetadataKey `string`
+
+### MetadataPatch
+* MetadataPatch `object`
+  * add `object`: list of pairs key/value to add/replace
+  * remove `array`: list of keys to remove
+    * items [MetadataKey](#metadatakey)
+
+### MetadataSelected
+* MetadataSelected `object`: Subset of metadata attached to the resource selected using the 'embed-metadata' parameter
+
+### Notification
+* Notification `object`
+  * data `object`
+  * metadata [Metadata](#metadata)
+  * name **required** `string`
+  * place **required** [PlaceId](#placeid)
+  * routing `string`
+
+### NotificationCreated
+* NotificationCreated `object`: A resource has been created. The `resource` property gives its reference.
+  * code **required** `integer` (values: 201)
+  * message **required** `string` (values: Notification created)
+  * resource **required** [NotificationResource](#notificationresource)
+
+### NotificationId
+* NotificationId `string`: Unique identifier of the *Notification*
+
+### NotificationItem
+* NotificationItem `object`: Notification
+  * id **required** [NotificationId](#notificationid)
+  * metadata [MetadataSelected](#metadataselected)
+  * name **required** `string`
+
+### NotificationNew
+* NotificationNew `object`
+  * data `object`
+  * metadata [Metadata](#metadata)
+  * name **required** `string`
+  * routing `string`
+
+### NotificationPatch
+* NotificationPatch `object`
+  * data `object`
+  * name `string`
+  * routing `string`
+
+### NotificationResource
+* NotificationResource `object`
+  * entity **required** `string` (values: Notification)
+  * href **required** `string`
+  * id **required** [NotificationId](#notificationid)
+
+### Password
+* Password `string`
+
+### PhoneNumber
+* PhoneNumber `string`: Phone number of the *User* in international format, for SMS notifications.
+
+### Place
+* Place `object`
+  * account [AccountId](#accountid)
+  * country **required** [CountryCode](#countrycode)
+  * metadata [Metadata](#metadata)
+  * name **required** `string`
+  * timeZone **required** [TimeZone](#timezone)
+  * zipCode **required** [ZipCode](#zipcode)
+
+### PlaceCreated
+* PlaceCreated `object`: A resource has been created. The `resource` property gives its reference.
+  * code **required** `integer` (values: 201)
+  * message **required** `string` (values: Place created)
+  * resource **required** [PlaceResource](#placeresource)
+
+### PlaceId
+* PlaceId `string`: Unique identifier of the *Place*
+
+### PlaceItem
+* PlaceItem `object`
+  * id **required** [PlaceId](#placeid)
+  * name **required** `string`
+
+### PlaceNew
+* PlaceNew `object`
+  * country **required** [CountryCode](#countrycode)
+  * metadata [Metadata](#metadata)
+  * name **required** `string`
+  * timeZone **required** [TimeZone](#timezone)
+  * zipCode **required** [ZipCode](#zipcode)
+
+### PlacePatch
+* PlacePatch `object`
+  * country [CountryCode](#countrycode)
+  * name `string`
+  * timeZone [TimeZone](#timezone)
+  * zipCode [ZipCode](#zipcode)
+
+### PlaceResource
+* PlaceResource `object`
+  * entity **required** `string` (values: Place)
+  * href **required** `string`
+  * id **required** [PlaceId](#placeid)
+
+### Program
+* Program `object`
+  * code **required** [AnyJSON](#anyjson)
+  * enabled **required** `boolean`
+  * metadata [Metadata](#metadata)
+  * name **required** `string`
+  * place [PlaceId](#placeid)
+
+### ProgramCreated
+* ProgramCreated `object`: A resource has been created. The `resource` property gives its reference.
+  * code **required** `integer` (values: 201)
+  * message **required** `string` (values: Program created)
+  * resource **required** [ProgramResource](#programresource)
+
+### ProgramId
+* ProgramId `string`: Unique identifier of the *Program*
+
+### ProgramItem
+* ProgramItem `object`
+  * enabled **required** `boolean`
+  * id **required** [ProgramId](#programid)
+  * metadata [MetadataSelected](#metadataselected)
+  * name **required** `string`
+
+### ProgramLog
+* ProgramLog `object`
+  * actions `array`
+    * items [ActionResult](#actionresult)
+  * errors `array`
+    * items `string`
+  * notifications `array`
+    * items [NotificationId](#notificationid)
+  * when **required** `string`
+
+### ProgramNew
+* ProgramNew `object`
+  * code **required** [AnyJSON](#anyjson)
+  * enabled `boolean`
+  * metadata [Metadata](#metadata)
+  * name **required** `string`
+
+### ProgramPatch
+* ProgramPatch `object`
+  * code [AnyJSON](#anyjson)
+  * enabled `boolean`
+  * name `string`
+
+### ProgramResource
+* ProgramResource `object`
+  * entity **required** `string` (values: Program)
+  * href **required** `string`
+  * id **required** [ProgramId](#programid)
+
+### ResourceRef
+* ResourceRef `object`
+  * entity **required** `string` (values: Device, Functionality, Notification, Place, Program, User, Account, AccountsBase)
+  * href **required** `string`
+  * id **required** `string`
+
+### Tag
+* Tag `string`
+
+### Tags
+* Tags `array`
+  * items [Tag](#tag)
+
+### TagsPatch
+* TagsPatch `object`
+  * add `array`: list of tags to add
+    * items [Tag](#tag)
+  * remove `array`: list of tags to remove
+    * items [Tag](#tag)
+
+### TimeZone
+* TimeZone `string`: A time zone name from the Time Zone Database at https://www.iana.org/time-zones
+
+### TokenId
+* TokenId `string`
+
+### User
+* User `object`
+  * account [AccountId](#accountid)
+  * canLogin **required** `boolean`: true if the user owning the account (can get tokens with /auth/login)
+  * email **required** [UserEmail](#useremail)
+  * locale **required** [Locale](#locale)
+  * metadata [Metadata](#metadata)
+  * name **required** `string`
+  * phoneNumber [PhoneNumber](#phonenumber)
+
+### UserCreated
+* UserCreated `object`: A resource has been created. The `resource` property gives its reference.
+  * code **required** `integer` (values: 201)
+  * message **required** `string` (values: User created)
+  * resource **required** [UserResource](#userresource)
+
+### UserEmail
+* UserEmail `string`
+
+### UserId
+* UserId `string`: Unique identifier of the *User*
+
+### UserItem
+* UserItem `object`
+  * canLogin `boolean`: true if the user owning the account (can get tokens with /auth/login)
+  * email **required** [UserEmail](#useremail)
+  * id **required** [UserId](#userid)
+  * locale **required** [Locale](#locale)
+  * metadata [MetadataSelected](#metadataselected)
+  * name **required** `string`
+  * phoneNumber [PhoneNumber](#phonenumber)
+
+### UserMe
+* UserMe `object`
+  * email **required** [UserEmail](#useremail)
+  * id **required** [UserId](#userid)
+  * locale **required** [Locale](#locale)
+  * login [AccountLogin](#accountlogin)
+  * metadata [Metadata](#metadata)
+  * name **required** `string`
+  * phoneNumber [PhoneNumber](#phonenumber)
+
+### UserMePatch
+* UserMePatch `object`
+  * locale [Locale](#locale)
+
+### UserNew
+* UserNew `object`
+  * email **required** [UserEmail](#useremail)
+  * locale **required** [Locale](#locale)
+  * metadata [Metadata](#metadata)
+  * name **required** `string`
+  * phoneNumber [PhoneNumber](#phonenumber)
+
+### UserPatch
+* UserPatch `object`
+  * email [UserEmail](#useremail)
+  * locale [Locale](#locale)
+  * name `string`
+  * phoneNumber [PhoneNumber](#phonenumber)
+
+### UserResource
+* UserResource `object`
+  * entity **required** `string` (values: User)
+  * href **required** `string`
+  * id **required** [UserId](#userid)
+
+### UserTokenItem
+* UserTokenItem `object`: Token for User API access
+  * appName **required** `string`: Application name
+  * id **required** [TokenId](#tokenid)
+  * lastUse `string`: Time of last use of the token to access the API. Updated at most every 15 minutes. If absent, the token has never been used.
+  * places `array`: List of Places to which the User has access. If absent, it means any Place of the account are allowed.
+    * items [PlaceItem](#placeitem)
+  * refreshTokenExpires `string`: If absent, infinite validity.
+  * self `boolean`: True if this token is the one used for this API request
+  * user **required** [UserItem](#useritem)
+
+### ZipCode
+* ZipCode `string`: Postal code
+
 

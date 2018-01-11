@@ -4,13 +4,11 @@ Client library for Storecove
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/storecove
+npm install --save @datafire/storecove
 ```
-
 ```js
-let datafire = require('datafire');
 let storecove = require('@datafire/storecove').create({
-  Bearer: "",
+  Bearer: ""
 });
 
 storecove.create_invoice_submission({}).then(data => {
@@ -19,9 +17,11 @@ storecove.create_invoice_submission({}).then(data => {
 ```
 
 ## Description
+
 Storecove API
 
 ## Actions
+
 ### create_invoice_submission
 Submit an invoice for delivery.
 include::examples/invoice_submissions/create_invoice_submission/tabs.adoc[]
@@ -51,8 +51,12 @@ storecove.create_invoice_submission({
 }, context)
 ```
 
-#### Parameters
-* invoice_submission (object) **required** - The invoice you want Storecove to process, with some meta-data.
+#### Input
+* input `object`
+  * invoice_submission **required** [InvoiceSubmission](#invoicesubmission)
+
+#### Output
+* output [InvoiceSubmissionResult](#invoicesubmissionresult)
 
 ### preflight_invoice_recipient
 Check whether Storecove can deliver an invoice for a list of ids.
@@ -68,8 +72,12 @@ storecove.preflight_invoice_recipient({
 }, context)
 ```
 
-#### Parameters
-* invoice_recipient_preflight (object) **required** - Identifies the invoice recipient to preflight
+#### Input
+* input `object`
+  * invoice_recipient_preflight **required** [InvoiceRecipientPreflight](#invoicerecipientpreflight)
+
+#### Output
+* output [PreflightInvoiceRecipientResult](#preflightinvoicerecipientresult)
 
 ### shop_account_requests_index
 Retrieve all active ShopAccountRequests for one of your entities.
@@ -82,8 +90,13 @@ storecove.shop_account_requests_index({
 }, context)
 ```
 
-#### Parameters
-* external_user_id (string) **required** - Filter by the external_user_id
+#### Input
+* input `object`
+  * external_user_id **required** `string`: Filter by the external_user_id
+
+#### Output
+* output `array`
+  * items [ShopAccountRequestResult](#shopaccountrequestresult)
 
 ### create_shop_account_request
 Create a new ShopAccountRequest
@@ -96,8 +109,12 @@ storecove.create_shop_account_request({
 }, context)
 ```
 
-#### Parameters
-* shop_account_request (undefined) **required**
+#### Input
+* input `object`
+  * shop_account_request **required** [ShopAccountRequestInput](#shopaccountrequestinput)
+
+#### Output
+* output [ShopAccountRequestResult](#shopaccountrequestresult)
 
 ### delete_shop_account_request
 Delete a specific ShopAccountRequest
@@ -110,8 +127,12 @@ storecove.delete_shop_account_request({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - shop_account_request id
+#### Input
+* input `object`
+  * id **required** `integer`: shop_account_request id
+
+#### Output
+*Output schema unknown*
 
 ### get_shop_account_request
 Show a specific ShopAccountRequest
@@ -124,8 +145,12 @@ storecove.get_shop_account_request({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - shop_account_request id
+#### Input
+* input `object`
+  * id **required** `integer`: shop_account_request id
+
+#### Output
+* output [ShopAccountRequestResult](#shopaccountrequestresult)
 
 ### update_shop_account_request
 Update a specific ShopAccountRequest
@@ -139,9 +164,13 @@ storecove.update_shop_account_request({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - shop_account_request id
-* shop_account_request (undefined) **required**
+#### Input
+* input `object`
+  * id **required** `integer`: shop_account_request id
+  * shop_account_request **required** [ShopAccountRequestUpdate](#shopaccountrequestupdate)
+
+#### Output
+* output [ShopAccountRequestResult](#shopaccountrequestresult)
 
 ### shop_accounts_index
 Retrieve all active ShopAccounts for one of your entities.
@@ -154,8 +183,13 @@ storecove.shop_accounts_index({
 }, context)
 ```
 
-#### Parameters
-* external_user_id (string) **required** - Filter by the external_user_id
+#### Input
+* input `object`
+  * external_user_id **required** `string`: Filter by the external_user_id
+
+#### Output
+* output `array`
+  * items [ShopAccountResult](#shopaccountresult)
 
 ### create_shop_account
 Create a new ShopAccount.
@@ -168,8 +202,12 @@ storecove.create_shop_account({
 }, context)
 ```
 
-#### Parameters
-* shop_account (undefined) **required**
+#### Input
+* input `object`
+  * shop_account **required** [ShopAccountInput](#shopaccountinput)
+
+#### Output
+* output [ShopAccountResult](#shopaccountresult)
 
 ### shop_accounts_auth_failures
 Get ShopAccounts with authorization failures.
@@ -180,8 +218,12 @@ include::examples/shop_accounts/shop_accounts_auth_failures/tabs.adoc[]
 storecove.shop_accounts_auth_failures(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [ShopAccountResult](#shopaccountresult)
 
 ### delete_shop_account
 Delete a specific ShopAccount.
@@ -194,8 +236,12 @@ storecove.delete_shop_account({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - shop_account id
+#### Input
+* input `object`
+  * id **required** `integer`: shop_account id
+
+#### Output
+*Output schema unknown*
 
 ### get_shop_account
 Get a specific ShopAccount.
@@ -208,8 +254,12 @@ storecove.get_shop_account({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - shop_account id
+#### Input
+* input `object`
+  * id **required** `integer`: shop_account id
+
+#### Output
+* output [ShopAccountResult](#shopaccountresult)
 
 ### update_shop_account
 Update a specific ShopAccount.
@@ -223,9 +273,13 @@ storecove.update_shop_account({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - shop_account id
-* shop_account (undefined) **required**
+#### Input
+* input `object`
+  * id **required** `integer`: shop_account id
+  * shop_account **required** [ShopAccountUpdate](#shopaccountupdate)
+
+#### Output
+* output [ShopAccountResult](#shopaccountresult)
 
 ### shops_index
 Get all available shops.
@@ -236,6 +290,15 @@ include::examples/shops/shops_index/tabs.adoc[]
 storecove.shops_index(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
+#### Output
+* output `array`
+  * items [Shop](#shop)
+
+
+
+## Definitions
+
+** No definitions **

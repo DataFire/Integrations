@@ -4,17 +4,15 @@ Client library for StackExchange
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/stackexchange
+npm install --save @datafire/stackexchange
 ```
-
 ```js
-let datafire = require('datafire');
 let stackexchange = require('@datafire/stackexchange').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 stackexchange.sites.get({}).then(data => {
@@ -23,10 +21,12 @@ stackexchange.sites.get({}).then(data => {
 ```
 
 ## Description
+
 Stack Exchange is a network of 130+ Q&A communities including Stack Overflow.
 
 
 ## Actions
+
 ### access_tokens.accessTokens.get
 Reads the properties for a set of access tokens.
  
@@ -42,12 +42,16 @@ stackexchange.access_tokens.accessTokens.get({
 }, context)
 ```
 
-#### Parameters
-* accessTokens (string) **required** - String list (semicolon delimited).
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
+#### Input
+* input `object`
+  * accessTokens **required** `string`: String list (semicolon delimited).
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+
+#### Output
+* output [access_tokens](#access_tokens)
 
 ### access_tokens.accessTokens.invalidate.get
 Immediately expires the access tokens passed. This method is meant to allow an application to discard any active access tokens it no longer needs.
@@ -64,12 +68,16 @@ stackexchange.access_tokens.accessTokens.invalidate.get({
 }, context)
 ```
 
-#### Parameters
-* accessTokens (string) **required** - String list (semicolon delimited).
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
+#### Input
+* input `object`
+  * accessTokens **required** `string`: String list (semicolon delimited).
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+
+#### Output
+* output [access_tokens](#access_tokens)
 
 ### answers.get
 Returns all the undeleted answers in the system.
@@ -92,18 +100,22 @@ stackexchange.answers.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [answers](#answers)
 
 ### answers.ids.get
 Gets the set of answers identified by ids.
@@ -131,19 +143,23 @@ stackexchange.answers.ids.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [answers](#answers)
 
 ### answers.ids.comments.get
 Gets the comments on a set of answers.
@@ -170,19 +186,23 @@ stackexchange.answers.ids.comments.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [comments](#comments)
 
 ### apps.accessTokens.de_authenticate.get
 Passing valid access_tokens to this method causes the application that created them to be de-authorized by the user associated with each access_token. This will remove the application from their apps tab, and cause all other existing access_tokens to be destroyed.
@@ -203,12 +223,16 @@ stackexchange.apps.accessTokens.de_authenticate.get({
 }, context)
 ```
 
-#### Parameters
-* accessTokens (string) **required** - String list (semicolon delimited).
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
+#### Input
+* input `object`
+  * accessTokens **required** `string`: String list (semicolon delimited).
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+
+#### Output
+* output [access_tokens](#access_tokens)
 
 ### badges.get
 Returns all the badges in the system.
@@ -231,19 +255,23 @@ stackexchange.badges.get({
 }, context)
 ```
 
-#### Parameters
-* inname (string)
-* order (string)
-* max (string) - sort = rank => string
-* min (string) - sort = rank => string
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * inname `string`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = rank => string
+  * min `string`: sort = rank => string
+  * sort `string` (values: rank, name, type)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [badges](#badges)
 
 ### badges.name.get
 Gets all explicitly named badges in the system.
@@ -264,19 +292,23 @@ stackexchange.badges.name.get({
 }, context)
 ```
 
-#### Parameters
-* inname (string)
-* order (string)
-* max (string) - sort = rank => string
-* min (string) - sort = rank => string
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * inname `string`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = rank => string
+  * min `string`: sort = rank => string
+  * sort `string` (values: rank, name)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [badges](#badges)
 
 ### badges.recipients.get
 Returns recently awarded badges in the system.
@@ -293,14 +325,18 @@ stackexchange.badges.recipients.get({
 }, context)
 ```
 
-#### Parameters
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [badges](#badges)
 
 ### badges.tags.get
 Returns the badges that are awarded for participation in specific tags.
@@ -319,19 +355,23 @@ stackexchange.badges.tags.get({
 }, context)
 ```
 
-#### Parameters
-* inname (string)
-* order (string)
-* max (string) - sort = rank => string
-* min (string) - sort = rank => string
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * inname `string`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = rank => string
+  * min `string`: sort = rank => string
+  * sort `string` (values: rank, name)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [badges](#badges)
 
 ### badges.ids.get
 Gets the badges identified in id.
@@ -359,19 +399,23 @@ stackexchange.badges.ids.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = rank => string
-* min (string) - sort = rank => string
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = rank => string
+  * min `string`: sort = rank => string
+  * sort `string` (values: rank, name, type)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [badges](#badges)
 
 ### badges.ids.recipients.get
 Returns recently awarded badges in the system, constrained to a certain set of badges.
@@ -391,15 +435,19 @@ stackexchange.badges.ids.recipients.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [badges](#badges)
 
 ### comments.get
 Gets all the comments on the site.
@@ -425,18 +473,22 @@ stackexchange.comments.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [comments](#comments)
 
 ### comments.ids.get
 Gets the comments identified in id.
@@ -463,19 +515,23 @@ stackexchange.comments.ids.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [comments](#comments)
 
 ### comments.id.delete.post
 Deletes a comment.
@@ -493,12 +549,16 @@ stackexchange.comments.id.delete.post({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
-* preview (boolean)
+#### Input
+* input `object`
+  * id **required** `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+  * preview `boolean`
+
+#### Output
+*Output schema unknown*
 
 ### comments.id.edit.post
 Edit an existing comment.
@@ -516,13 +576,17 @@ stackexchange.comments.id.edit.post({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
-* body (string)
-* preview (boolean)
+#### Input
+* input `object`
+  * id **required** `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+  * body `string`
+  * preview `boolean`
+
+#### Output
+* output [created_comment](#created_comment)
 
 ### errors.get
 Returns the various error codes that can be produced by the API.
@@ -539,11 +603,15 @@ This method returns a list of errors.
 stackexchange.errors.get({}, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+
+#### Output
+* output [errors](#errors)
 
 ### errors.id.get
 This method allows you to generate an error.
@@ -560,8 +628,12 @@ stackexchange.errors.id.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
+#### Input
+* input `object`
+  * id **required** `integer`
+
+#### Output
+* output [error](#error)
 
 ### events.get
 Returns a stream of events that have occurred on the site.
@@ -588,13 +660,17 @@ stackexchange.events.get({
 }, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
-* since (integer) - Unix date.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+  * since `integer`: Unix date.
+
+#### Output
+* output [events](#events)
 
 ### filters.create.get
 Creates a new filter given a list of includes, excludes, a base filter, and whether or not this filter should be "unsafe".
@@ -615,11 +691,15 @@ This method returns a single filter.
 stackexchange.filters.create.get({}, context)
 ```
 
-#### Parameters
-* base (string)
-* exclude (string) - String list (semicolon delimited).
-* include (string) - String list (semicolon delimited).
-* unsafe (boolean)
+#### Input
+* input `object`
+  * base `string`
+  * exclude `string`: String list (semicolon delimited).
+  * include `string`: String list (semicolon delimited).
+  * unsafe `boolean`
+
+#### Output
+* output [single_filter](#single_filter)
 
 ### filters.filters.get
 Returns the fields included by the given filters, and the "safeness" of those filters.
@@ -638,8 +718,12 @@ stackexchange.filters.filters.get({
 }, context)
 ```
 
-#### Parameters
-* filters (string) **required** - String list (semicolon delimited).
+#### Input
+* input `object`
+  * filters **required** `string`: String list (semicolon delimited).
+
+#### Output
+* output [filters](#filters)
 
 ### inbox.get
 Returns a user's inbox.
@@ -654,11 +738,15 @@ This method returns a list of inbox items.
 stackexchange.inbox.get({}, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+
+#### Output
+* output [inbox_items](#inbox_items)
 
 ### inbox.unread.get
 Returns the unread items in a user's inbox.
@@ -673,12 +761,16 @@ This method returns a list of inbox items.
 stackexchange.inbox.unread.get({}, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* since (integer) - Unix date.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * since `integer`: Unix date.
+
+#### Output
+* output [inbox_items](#inbox_items)
 
 ### info.get
 Returns a collection of statistics about the site.
@@ -697,8 +789,12 @@ stackexchange.info.get({
 }, context)
 ```
 
-#### Parameters
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [info_object](#info_object)
 
 ### me.get
 Returns the user associated with the passed access_token.
@@ -713,18 +809,22 @@ stackexchange.me.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = reputation => number
-* min (string) - sort = reputation => number
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = reputation => number
+  * min `string`: sort = reputation => number
+  * sort `string` (values: reputation, creation, name, modified)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [user](#user)
 
 ### me.answers.get
 Returns the answers owned by the user associated with the given access_token.
@@ -739,18 +839,22 @@ stackexchange.me.answers.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [answers](#answers)
 
 ### me.associated.get
 Returns all of a user's associated accounts, given an access_token for them.
@@ -763,11 +867,15 @@ This method returns a list of network users.
 stackexchange.me.associated.get({}, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+
+#### Output
+* output [network_users](#network_users)
 
 ### me.badges.get
 Returns the badges earned by the user associated with the given access_token.
@@ -782,18 +890,22 @@ stackexchange.me.badges.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = rank => string
-* min (string) - sort = rank => string
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = rank => string
+  * min `string`: sort = rank => string
+  * sort `string` (values: rank, name, type)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [badges](#badges)
 
 ### me.comments.get
 Returns the comments owned by the user associated with the given access_token.
@@ -808,18 +920,22 @@ stackexchange.me.comments.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [comments](#comments)
 
 ### me.comments.toId.get
 Returns the comments owned by the user associated with the given access_token that are in reply to the user identified by {toId}.
@@ -835,19 +951,23 @@ stackexchange.me.comments.toId.get({
 }, context)
 ```
 
-#### Parameters
-* toId (integer) **required**
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * toId **required** `integer`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [comments](#comments)
 
 ### me.favorites.get
 Returns the questions favorites by the user associated with the given access_token.
@@ -862,18 +982,22 @@ stackexchange.me.favorites.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes, added)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### me.inbox.get
 Returns the user identified by access_token's inbox.
@@ -890,12 +1014,16 @@ stackexchange.me.inbox.get({
 }, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [inbox_items](#inbox_items)
 
 ### me.inbox.unread.get
 Returns the unread items in the user identified by access_token's inbox.
@@ -912,13 +1040,17 @@ stackexchange.me.inbox.unread.get({
 }, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
-* since (integer) - Unix date.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+  * since `integer`: Unix date.
+
+#### Output
+* output [inbox_items](#inbox_items)
 
 ### me.mentioned.get
 Returns the comments mentioning the user associated with the given access_token.
@@ -933,18 +1065,22 @@ stackexchange.me.mentioned.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [comments](#comments)
 
 ### me.merges.get
 Returns a record of merges that have occurred involving a user identified by an access_token.
@@ -965,11 +1101,15 @@ This method returns a list of account_merge.
 stackexchange.me.merges.get({}, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+
+#### Output
+* output [account_merge](#account_merge)
 
 ### me.notifications.get
 Returns a user's notifications, given an access_token.
@@ -986,12 +1126,16 @@ stackexchange.me.notifications.get({
 }, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [notifications](#notifications)
 
 ### me.notifications.unread.get
 Returns a user's unread notifications, given an access_token.
@@ -1008,12 +1152,16 @@ stackexchange.me.notifications.unread.get({
 }, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [notifications](#notifications)
 
 ### me.privileges.get
 Returns the privileges the user identified by access_token has.
@@ -1028,12 +1176,16 @@ stackexchange.me.privileges.get({
 }, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [privileges](#privileges)
 
 ### me.questions.get
 Returns the questions owned by the user associated with the given access_token.
@@ -1048,18 +1200,22 @@ stackexchange.me.questions.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### me.questions.featured.get
 Returns the questions that have active bounties offered by the user associated with the given access_token.
@@ -1074,18 +1230,22 @@ stackexchange.me.questions.featured.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### me.questions.no_answers.get
 Returns the questions owned by the user associated with the given access_token that have no answers.
@@ -1100,18 +1260,22 @@ stackexchange.me.questions.no_answers.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### me.questions.unaccepted.get
 Returns the questions owned by the user associated with the given access_token that have no accepted answer.
@@ -1126,18 +1290,22 @@ stackexchange.me.questions.unaccepted.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### me.questions.unanswered.get
 Returns the questions owned by the user associated with the given access_token that are not considered answered.
@@ -1152,18 +1320,22 @@ stackexchange.me.questions.unanswered.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### me.reputation.get
 Returns the reputation changed for the user associated with the given access_token.
@@ -1178,10 +1350,14 @@ stackexchange.me.reputation.get({
 }, context)
 ```
 
-#### Parameters
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [reputation_changes](#reputation_changes)
 
 ### me.reputation_history.get
 Returns user's public reputation history.
@@ -1196,12 +1372,16 @@ stackexchange.me.reputation_history.get({
 }, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [reputation_history](#reputation_history)
 
 ### me.reputation_history.full.get
 Returns user's full reputation history, including private events.
@@ -1218,12 +1398,16 @@ stackexchange.me.reputation_history.full.get({
 }, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [reputation_history](#reputation_history)
 
 ### me.suggested_edits.get
 Returns the suggested edits the user identified by access_token has submitted.
@@ -1238,18 +1422,22 @@ stackexchange.me.suggested_edits.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, approval, rejection)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [suggested-edits](#suggested-edits)
 
 ### me.tags.get
 Returns the tags the user identified by the access_token passed is active in.
@@ -1264,18 +1452,22 @@ stackexchange.me.tags.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = popular => number
-* min (string) - sort = popular => number
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = popular => number
+  * min `string`: sort = popular => number
+  * sort `string` (values: popular, activity, name)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [tags](#tags)
 
 ### me.tags.tags.top_answers.get
 Returns the top 30 answers the user associated with the given access_token has posted in response to questions with the given tags.
@@ -1291,19 +1483,23 @@ stackexchange.me.tags.tags.top_answers.get({
 }, context)
 ```
 
-#### Parameters
-* tags (string) **required** - String list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * tags **required** `string`: String list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [answers](#answers)
 
 ### me.tags.tags.top_questions.get
 Returns the top 30 questions the user associated with the given access_token has posted in response to questions with the given tags.
@@ -1319,19 +1515,23 @@ stackexchange.me.tags.tags.top_questions.get({
 }, context)
 ```
 
-#### Parameters
-* tags (string) **required** - String list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * tags **required** `string`: String list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes, hot, week, month, relevance)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### me.timeline.get
 Returns a subset of the actions the user identified by the passed access_token has taken on the site.
@@ -1346,14 +1546,18 @@ stackexchange.me.timeline.get({
 }, context)
 ```
 
-#### Parameters
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [user_timeline_objects](#user_timeline_objects)
 
 ### me.top_answer_tags.get
 Returns the user identified by access_token's top 30 tags by answer score.
@@ -1368,12 +1572,16 @@ stackexchange.me.top_answer_tags.get({
 }, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [top_tag_objects](#top_tag_objects)
 
 ### me.top_question_tags.get
 Returns the user identified by access_token's top 30 tags by question score.
@@ -1388,12 +1596,16 @@ stackexchange.me.top_question_tags.get({
 }, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [top_tag_objects](#top_tag_objects)
 
 ### me.write_permissions.get
 Returns the write permissions a user has via the api, given an access token.
@@ -1412,12 +1624,16 @@ stackexchange.me.write_permissions.get({
 }, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [write_permissions](#write_permissions)
 
 ### notifications.get
 Returns a user's notifications.
@@ -1432,11 +1648,15 @@ This method returns a list of notifications.
 stackexchange.notifications.get({}, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+
+#### Output
+* output [notifications](#notifications)
 
 ### notifications.unread.get
 Returns a user's unread notifications.
@@ -1451,11 +1671,15 @@ This method returns a list of notifications.
 stackexchange.notifications.unread.get({}, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+
+#### Output
+* output [notifications](#notifications)
 
 ### posts.get
 Fetches all posts (questions and answers) on the site.
@@ -1482,18 +1706,22 @@ stackexchange.posts.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [posts](#posts)
 
 ### posts.ids.get
 Fetches a set of posts by ids.
@@ -1521,19 +1749,23 @@ stackexchange.posts.ids.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [posts](#posts)
 
 ### posts.ids.comments.get
 Gets the comments on the posts identified in ids, regardless of the type of the posts.
@@ -1560,19 +1792,23 @@ stackexchange.posts.ids.comments.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [comments](#comments)
 
 ### posts.ids.revisions.get
 Returns edit revisions for the posts identified in ids.
@@ -1590,15 +1826,19 @@ stackexchange.posts.ids.revisions.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [revisions](#revisions)
 
 ### posts.ids.suggested_edits.get
 Returns suggsted edits on the posts identified in ids.
@@ -1621,19 +1861,23 @@ stackexchange.posts.ids.suggested_edits.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, approval, rejection)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [suggested-edits](#suggested-edits)
 
 ### posts.id.comments.add.post
 Create a new comment.
@@ -1651,13 +1895,17 @@ stackexchange.posts.id.comments.add.post({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
-* body (string)
-* preview (boolean)
+#### Input
+* input `object`
+  * id **required** `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+  * body `string`
+  * preview `boolean`
+
+#### Output
+* output [created_comment](#created_comment)
 
 ### privileges.get
 Returns the earnable privileges on a site.
@@ -1676,12 +1924,16 @@ stackexchange.privileges.get({
 }, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [privileges](#privileges)
 
 ### questions.get
 Gets all the questions on the site.
@@ -1711,19 +1963,23 @@ stackexchange.questions.get({
 }, context)
 ```
 
-#### Parameters
-* tagged (string) - String list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * tagged `string`: String list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes, hot, week, month, relevance)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### questions.featured.get
 Returns all the questions with active bounties in the system.
@@ -1746,19 +2002,23 @@ stackexchange.questions.featured.get({
 }, context)
 ```
 
-#### Parameters
-* tagged (string) - String list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * tagged `string`: String list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### questions.no_answers.get
 Returns questions which have received no answers.
@@ -1787,19 +2047,23 @@ stackexchange.questions.no_answers.get({
 }, context)
 ```
 
-#### Parameters
-* tagged (string) - String list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * tagged `string`: String list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### questions.unanswered.get
 Returns questions the site considers to be unanswered.
@@ -1830,19 +2094,23 @@ stackexchange.questions.unanswered.get({
 }, context)
 ```
 
-#### Parameters
-* tagged (string) - String list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * tagged `string`: String list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### questions.ids.get
 Returns the questions identified in {ids}.
@@ -1870,19 +2138,23 @@ stackexchange.questions.ids.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### questions.ids.answers.get
 Gets the answers to a set of questions identified in id.
@@ -1910,19 +2182,23 @@ stackexchange.questions.ids.answers.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [answers](#answers)
 
 ### questions.ids.comments.get
 Gets the comments on a question.
@@ -1949,19 +2225,23 @@ stackexchange.questions.ids.comments.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [comments](#comments)
 
 ### questions.ids.linked.get
 Gets questions which link to those questions identified in {ids}.
@@ -1992,19 +2272,23 @@ stackexchange.questions.ids.linked.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes, rank)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### questions.ids.related.get
 Returns questions that the site considers related to those identified in {ids}.
@@ -2033,19 +2317,23 @@ stackexchange.questions.ids.related.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes, rank)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### questions.ids.timeline.get
 Returns a subset of the events that have happened to the questions identified in id.
@@ -2067,15 +2355,19 @@ stackexchange.questions.ids.timeline.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [question_timeline_events](#question_timeline_events)
 
 ### revisions.ids.get
 Returns edit revisions identified by ids in {ids}.
@@ -2093,15 +2385,19 @@ stackexchange.revisions.ids.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Guid list (semicolon delimited).
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Guid list (semicolon delimited).
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [revisions](#revisions)
 
 ### search.get
 Searches a site for any questions which fit the given criteria.
@@ -2131,21 +2427,25 @@ stackexchange.search.get({
 }, context)
 ```
 
-#### Parameters
-* tagged (string) - String list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
-* intitle (string)
-* nottagged (string) - String list (semicolon delimited).
+#### Input
+* input `object`
+  * tagged `string`: String list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes, relevance)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+  * intitle `string`
+  * nottagged `string`: String list (semicolon delimited).
+
+#### Output
+* output [questions](#questions)
 
 ### search.advanced.get
 Searches a site for any questions which fit the given criteria.
@@ -2187,32 +2487,36 @@ stackexchange.search.advanced.get({
 }, context)
 ```
 
-#### Parameters
-* tagged (string) - String list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
-* accepted (string)
-* answers (integer)
-* body (string)
-* closed (string)
-* migrated (string)
-* notice (string)
-* nottagged (string) - String list (semicolon delimited).
-* q (string)
-* title (string)
-* url (string)
-* user (integer)
-* views (integer)
-* wiki (string)
+#### Input
+* input `object`
+  * tagged `string`: String list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes, relevance)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+  * accepted `string` (values: true, false)
+  * answers `integer`
+  * body `string`
+  * closed `string` (values: true, false)
+  * migrated `string` (values: true, false)
+  * notice `string` (values: true, false)
+  * nottagged `string`: String list (semicolon delimited).
+  * q `string`
+  * title `string`
+  * url `string`
+  * user `integer`
+  * views `integer`
+  * wiki `string` (values: true, false)
+
+#### Output
+* output [questions](#questions)
 
 ### similar.get
 Returns questions which are similar to a hypothetical one based on a title and tag combination.
@@ -2244,21 +2548,25 @@ stackexchange.similar.get({
 }, context)
 ```
 
-#### Parameters
-* tagged (string) - String list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
-* nottagged (string) - String list (semicolon delimited).
-* title (string)
+#### Input
+* input `object`
+  * tagged `string`: String list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes, relevance)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+  * nottagged `string`: String list (semicolon delimited).
+  * title `string`
+
+#### Output
+* output [questions](#questions)
 
 ### sites.get
 Returns all sites in the network.
@@ -2275,11 +2583,15 @@ This method returns a list of sites.
 stackexchange.sites.get({}, context)
 ```
 
-#### Parameters
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
+#### Input
+* input `object`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+
+#### Output
+* output [sites](#sites)
 
 ### suggested_edits.get
 Returns all the suggested edits in the systems.
@@ -2302,18 +2614,22 @@ stackexchange.suggested_edits.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, approval, rejection)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [suggested-edits](#suggested-edits)
 
 ### suggested_edits.ids.get
 Returns suggested edits identified in ids.
@@ -2339,19 +2655,23 @@ stackexchange.suggested_edits.ids.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, approval, rejection)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [suggested-edits](#suggested-edits)
 
 ### tags.get
 Returns the tags found on a site.
@@ -2376,19 +2696,23 @@ stackexchange.tags.get({
 }, context)
 ```
 
-#### Parameters
-* inname (string)
-* order (string)
-* max (string) - sort = popular => number
-* min (string) - sort = popular => number
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * inname `string`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = popular => number
+  * min `string`: sort = popular => number
+  * sort `string` (values: popular, activity, name)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [tags](#tags)
 
 ### tags.moderator_only.get
 Returns the tags found on a site that only moderators can use.
@@ -2413,19 +2737,23 @@ stackexchange.tags.moderator_only.get({
 }, context)
 ```
 
-#### Parameters
-* inname (string)
-* order (string)
-* max (string) - sort = popular => number
-* min (string) - sort = popular => number
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * inname `string`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = popular => number
+  * min `string`: sort = popular => number
+  * sort `string` (values: popular, activity, name)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [tags](#tags)
 
 ### tags.required.get
 Returns the tags found on a site that fulfill required tag constraints on questions.
@@ -2450,19 +2778,23 @@ stackexchange.tags.required.get({
 }, context)
 ```
 
-#### Parameters
-* inname (string)
-* order (string)
-* max (string) - sort = popular => number
-* min (string) - sort = popular => number
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * inname `string`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = popular => number
+  * min `string`: sort = popular => number
+  * sort `string` (values: popular, activity, name)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [tags](#tags)
 
 ### tags.synonyms.get
 Returns all tag synonyms found a site.
@@ -2487,18 +2819,22 @@ stackexchange.tags.synonyms.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, applied, activity)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [tag_synonyms](#tag_synonyms)
 
 ### tags.tags.faq.get
 Returns the frequently asked questions for the given set of tags in {tags}.
@@ -2518,13 +2854,17 @@ stackexchange.tags.tags.faq.get({
 }, context)
 ```
 
-#### Parameters
-* tags (string) **required** - String list (semicolon delimited).
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * tags **required** `string`: String list (semicolon delimited).
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### tags.tags.info.get
 Returns tag objects representing the tags in {tags} found on the site.
@@ -2550,19 +2890,23 @@ stackexchange.tags.tags.info.get({
 }, context)
 ```
 
-#### Parameters
-* tags (string) **required** - String list (semicolon delimited).
-* order (string)
-* max (string) - sort = popular => number
-* min (string) - sort = popular => number
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * tags **required** `string`: String list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = popular => number
+  * min `string`: sort = popular => number
+  * sort `string` (values: popular, activity, name)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [tags](#tags)
 
 ### tags.tags.related.get
 Returns the tags that are most related to those in {tags}.
@@ -2584,13 +2928,17 @@ stackexchange.tags.tags.related.get({
 }, context)
 ```
 
-#### Parameters
-* tags (string) **required** - String list (semicolon delimited).
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * tags **required** `string`: String list (semicolon delimited).
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [tags](#tags)
 
 ### tags.tags.synonyms.get
 Gets all the synonyms that point to the tags identified in {tags}. If you're looking to discover all the tag synonyms on a site, use the /tags/synonyms methods instead of call this method on all tags.
@@ -2616,19 +2964,23 @@ stackexchange.tags.tags.synonyms.get({
 }, context)
 ```
 
-#### Parameters
-* tags (string) **required** - String list (semicolon delimited).
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * tags **required** `string`: String list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, applied, activity)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [tag_synonyms](#tag_synonyms)
 
 ### tags.tags.wikis.get
 Returns the wikis that go with the given set of tags in {tags}.
@@ -2648,13 +3000,17 @@ stackexchange.tags.tags.wikis.get({
 }, context)
 ```
 
-#### Parameters
-* tags (string) **required** - String list (semicolon delimited).
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * tags **required** `string`: String list (semicolon delimited).
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [tag_wikis](#tag_wikis)
 
 ### tags.tag.top_answerers.period.get
 Returns the top 30 answerers active in a single tag, of either all-time or the last 30 days.
@@ -2673,14 +3029,18 @@ stackexchange.tags.tag.top_answerers.period.get({
 }, context)
 ```
 
-#### Parameters
-* tag (string) **required**
-* period (string) **required**
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * tag **required** `string`
+  * period **required** `string` (values: all_time, month)
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [tag_score_objects](#tag_score_objects)
 
 ### tags.tag.top_askers.period.get
 Returns the top 30 askers active in a single tag, of either all-time or the last 30 days.
@@ -2699,14 +3059,18 @@ stackexchange.tags.tag.top_askers.period.get({
 }, context)
 ```
 
-#### Parameters
-* tag (string) **required**
-* period (string) **required**
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * tag **required** `string`
+  * period **required** `string` (values: all_time, month)
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [tag_score_objects](#tag_score_objects)
 
 ### users.get
 Returns all users on a site.
@@ -2732,19 +3096,23 @@ stackexchange.users.get({
 }, context)
 ```
 
-#### Parameters
-* inname (string)
-* order (string)
-* max (string) - sort = reputation => number
-* min (string) - sort = reputation => number
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * inname `string`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = reputation => number
+  * min `string`: sort = reputation => number
+  * sort `string` (values: reputation, creation, name, modified)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [users](#users)
 
 ### users.moderators.get
 Gets those users on a site who can exercise moderation powers.
@@ -2770,18 +3138,22 @@ stackexchange.users.moderators.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = reputation => number
-* min (string) - sort = reputation => number
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = reputation => number
+  * min `string`: sort = reputation => number
+  * sort `string` (values: reputation, creation, name, modified)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [users](#users)
 
 ### users.moderators.elected.get
 Returns those users on a site who both have moderator powers, and were actually elected.
@@ -2807,18 +3179,22 @@ stackexchange.users.moderators.elected.get({
 }, context)
 ```
 
-#### Parameters
-* order (string)
-* max (string) - sort = reputation => number
-* min (string) - sort = reputation => number
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = reputation => number
+  * min `string`: sort = reputation => number
+  * sort `string` (values: reputation, creation, name, modified)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [users](#users)
 
 ### users.ids.get
 Gets the users identified in ids in {ids}.
@@ -2847,19 +3223,23 @@ stackexchange.users.ids.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = reputation => number
-* min (string) - sort = reputation => number
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = reputation => number
+  * min `string`: sort = reputation => number
+  * sort `string` (values: reputation, creation, name, modified)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [users](#users)
 
 ### users.ids.answers.get
 Returns the answers the users in {ids} have posted.
@@ -2885,19 +3265,23 @@ stackexchange.users.ids.answers.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [answers](#answers)
 
 ### users.ids.associated.get
 Returns all of a user's associated accounts, given their account_ids in {ids}.
@@ -2914,12 +3298,16 @@ stackexchange.users.ids.associated.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+
+#### Output
+* output [network_users](#network_users)
 
 ### users.ids.badges.get
 Get the badges the users in {ids} have earned.
@@ -2945,19 +3333,23 @@ stackexchange.users.ids.badges.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = rank => string
-* min (string) - sort = rank => string
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = rank => string
+  * min `string`: sort = rank => string
+  * sort `string` (values: rank, name, type, awarded)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [badges](#badges)
 
 ### users.ids.comments.get
 Get the comments posted by users in {ids}.
@@ -2982,19 +3374,23 @@ stackexchange.users.ids.comments.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [comments](#comments)
 
 ### users.ids.comments.toid.get
 Get the comments that the users in {ids} have posted in reply to the single user identified in {toid}.
@@ -3022,20 +3418,24 @@ stackexchange.users.ids.comments.toid.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* toid (integer) **required**
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * toid **required** `integer`
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [comments](#comments)
 
 ### users.ids.favorites.get
 Get the questions that users in {ids} have favorited.
@@ -3064,19 +3464,23 @@ stackexchange.users.ids.favorites.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes, added)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### users.ids.mentioned.get
 Gets all the comments that the users in {ids} were mentioned in.
@@ -3101,19 +3505,23 @@ stackexchange.users.ids.mentioned.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [comments](#comments)
 
 ### users.ids.merges.get
 Returns a record of merges that have occurred involving the passed account ids.
@@ -3136,12 +3544,16 @@ stackexchange.users.ids.merges.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+
+#### Output
+* output [account_merge](#account_merge)
 
 ### users.ids.questions.get
 Gets the questions asked by the users in {ids}.
@@ -3167,19 +3579,23 @@ stackexchange.users.ids.questions.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### users.ids.questions.featured.get
 Gets the questions on which the users in {ids} have active bounties.
@@ -3205,19 +3621,23 @@ stackexchange.users.ids.questions.featured.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### users.ids.questions.no_answers.get
 Gets the questions asked by the users in {ids} which have no answers.
@@ -3245,19 +3665,23 @@ stackexchange.users.ids.questions.no_answers.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### users.ids.questions.unaccepted.get
 Gets the questions asked by the users in {ids} which have at least one answer, but no accepted answer.
@@ -3285,19 +3709,23 @@ stackexchange.users.ids.questions.unaccepted.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### users.ids.questions.unanswered.get
 Gets the questions asked by the users in {ids} which the site consideres unanswered, while still having at least one answer posted.
@@ -3327,19 +3755,23 @@ stackexchange.users.ids.questions.unanswered.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### users.ids.reputation.get
 Gets a subset of the reputation changes for users in {ids}.
@@ -3359,15 +3791,19 @@ stackexchange.users.ids.reputation.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [reputation_changes](#reputation_changes)
 
 ### users.ids.reputation_history.get
 Returns users' public reputation history.
@@ -3383,13 +3819,17 @@ stackexchange.users.ids.reputation_history.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [reputation_history](#reputation_history)
 
 ### users.ids.suggested_edits.get
 Returns the suggested edits a users in {ids} have submitted.
@@ -3415,19 +3855,23 @@ stackexchange.users.ids.suggested_edits.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = creation => date
-* min (string) - sort = creation => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = creation => date
+  * min `string`: sort = creation => date
+  * sort `string` (values: creation, approval, rejection)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [suggested-edits](#suggested-edits)
 
 ### users.ids.tags.get
 Returns the tags the users identified in {ids} have been active in.
@@ -3455,19 +3899,23 @@ stackexchange.users.ids.tags.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* order (string)
-* max (string) - sort = popular => number
-* min (string) - sort = popular => number
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = popular => number
+  * min `string`: sort = popular => number
+  * sort `string` (values: popular, activity, name)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [tags](#tags)
 
 ### users.ids.timeline.get
 Returns a subset of the actions the users in {ids} have taken on the site.
@@ -3487,15 +3935,19 @@ stackexchange.users.ids.timeline.get({
 }, context)
 ```
 
-#### Parameters
-* ids (string) **required** - Number list (semicolon delimited).
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * ids **required** `string`: Number list (semicolon delimited).
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [user_timeline_objects](#user_timeline_objects)
 
 ### users.id.inbox.get
 Returns a user's inbox.
@@ -3517,13 +3969,17 @@ stackexchange.users.id.inbox.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * id **required** `integer`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [inbox_items](#inbox_items)
 
 ### users.id.inbox.unread.get
 Returns the unread items in a user's inbox.
@@ -3545,14 +4001,18 @@ stackexchange.users.id.inbox.unread.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
-* since (integer) - Unix date.
+#### Input
+* input `object`
+  * id **required** `integer`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+  * since `integer`: Unix date.
+
+#### Output
+* output [inbox_items](#inbox_items)
 
 ### users.id.notifications.get
 Returns a user's notifications.
@@ -3570,13 +4030,17 @@ stackexchange.users.id.notifications.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * id **required** `integer`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [notifications](#notifications)
 
 ### users.id.notifications.unread.get
 Returns a user's unread notifications.
@@ -3594,13 +4058,17 @@ stackexchange.users.id.notifications.unread.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * id **required** `integer`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [notifications](#notifications)
 
 ### users.id.privileges.get
 Returns the privileges a user has.
@@ -3620,13 +4088,17 @@ stackexchange.users.id.privileges.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * id **required** `integer`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [privileges](#privileges)
 
 ### users.id.reputation_history.full.get
 Returns a user's full reputation history, including private events.
@@ -3644,13 +4116,17 @@ stackexchange.users.id.reputation_history.full.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * id **required** `integer`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [reputation_history](#reputation_history)
 
 ### users.id.tags.tags.top_answers.get
 Returns the top 30 answers a user has posted in response to questions with the given tags.
@@ -3677,20 +4153,24 @@ stackexchange.users.id.tags.tags.top_answers.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* tags (string) **required** - String list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * id **required** `integer`
+  * tags **required** `string`: String list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [answers](#answers)
 
 ### users.id.tags.tags.top_questions.get
 Returns the top 30 questions a user has asked with the given tags.
@@ -3717,20 +4197,24 @@ stackexchange.users.id.tags.tags.top_questions.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* tags (string) **required** - String list (semicolon delimited).
-* order (string)
-* max (string) - sort = activity => date
-* min (string) - sort = activity => date
-* sort (string)
-* fromdate (integer) - Unix date.
-* todate (integer) - Unix date.
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * id **required** `integer`
+  * tags **required** `string`: String list (semicolon delimited).
+  * order `string` (values: desc, asc)
+  * max `string`: sort = activity => date
+  * min `string`: sort = activity => date
+  * sort `string` (values: activity, creation, votes)
+  * fromdate `integer`: Unix date.
+  * todate `integer`: Unix date.
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [questions](#questions)
 
 ### users.id.top_answer_tags.get
 Returns a single user's top tags by answer score.
@@ -3750,13 +4234,17 @@ stackexchange.users.id.top_answer_tags.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * id **required** `integer`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [top_tag_objects](#top_tag_objects)
 
 ### users.id.top_question_tags.get
 Returns a single user's top tags by question score.
@@ -3776,13 +4264,17 @@ stackexchange.users.id.top_question_tags.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * id **required** `integer`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [top_tag_objects](#top_tag_objects)
 
 ### users.id.write_permissions.get
 Returns the write permissions a user has via the api.
@@ -3802,11 +4294,899 @@ stackexchange.users.id.write_permissions.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required**
-* pagesize (integer)
-* page (integer)
-* filter (string) - #Discussion
-* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
-* site (string) **required** - Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+#### Input
+* input `object`
+  * id **required** `integer`
+  * pagesize `integer`
+  * page `integer`
+  * filter `string`: #Discussion
+  * callback `string`: All API responses are JSON, we do support JSONP with the callback query parameter.
+  * site **required** `string`: Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. "stackoverflow.com"), or a short form identified by api_site_parameter on the site object.
+
+#### Output
+* output [write_permissions](#write_permissions)
+
+
+
+## Definitions
+
+### access_tokens
+* access_tokens `array`
+  * items `object`
+    * access_token `string`
+    * account_id `integer`
+    * expires_on_date `integer`
+    * scope `array`
+
+
+### account_merge
+* account_merge `array`
+  * items `object`
+    * merge_date `integer`
+    * new_account_id `integer`
+    * old_account_id `integer`
+
+### answers
+* answers `array`
+  * items `object`
+    * accepted `boolean`
+    * answer_id `integer`
+    * awarded_bounty_amount `integer`
+    * awarded_bounty_users `array`
+
+    * body `string`
+    * body_markdown `string`
+    * can_flag `boolean`
+    * comment_count `integer`
+    * comments `array`
+
+    * community_owned_date `integer`
+    * creation_date `integer`
+    * down_vote_count `integer`
+    * downvoted `boolean`
+    * is_accepted `boolean`
+    * last_activity_date `integer`
+    * last_edit_date `integer`
+    * last_editor `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+    * link `string`
+    * locked_date `integer`
+    * owner `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+    * question_id `integer`
+    * score `integer`
+    * share_link `string`
+    * tags `array`
+
+    * title `string`
+    * up_vote_count `integer`
+    * upvoted `boolean`
+
+### badges
+* badges `array`
+  * items `object`
+    * award_count `integer`
+    * badge_id `integer`
+    * badge_type `string`
+    * description `string`
+    * link `string`
+    * name `string`
+    * rank `string`
+    * user `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+
+### comments
+* comments `array`
+  * items `object`
+    * body `string`
+    * body_markdown `string`
+    * can_flag `boolean`
+    * comment_id `integer`
+    * creation_date `integer`
+    * edited `boolean`
+    * link `string`
+    * owner `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+    * post_id `integer`
+    * post_type `string`
+    * reply_to_user `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+    * score `integer`
+    * upvoted `boolean`
+
+### created_comment
+* created_comment `object`
+  * body `string`
+  * body_markdown `string`
+  * can_flag `boolean`
+  * comment_id `integer`
+  * creation_date `integer`
+  * edited `boolean`
+  * link `string`
+  * owner `object`
+    * accept_rate `integer`
+    * badge_counts `object`
+      * bronze `integer`
+      * gold `integer`
+      * silver `integer`
+    * display_name `string`
+    * link `string`
+    * profile_image `string`
+    * reputation `integer`
+    * user_id `integer`
+    * user_type `string`
+  * post_id `integer`
+  * post_type `string`
+  * reply_to_user `object`
+    * accept_rate `integer`
+    * badge_counts `object`
+      * bronze `integer`
+      * gold `integer`
+      * silver `integer`
+    * display_name `string`
+    * link `string`
+    * profile_image `string`
+    * reputation `integer`
+    * user_id `integer`
+    * user_type `string`
+  * score `integer`
+  * upvoted `boolean`
+
+### error
+* error `object`
+  * error_id `number`
+  * error_message `string`
+  * error_name `string`
+
+### errors
+* errors `array`
+  * items `object`
+    * description `string`
+    * error_id `integer`
+    * error_name `string`
+
+### events
+* events `array`
+  * items `object`
+    * creation_date `integer`
+    * event_type `string`
+    * excerpt `string`
+    * link `string`
+    * the id of the object (answer, comment, question, or user) the event describes `integer`
+
+### filters
+* filters `array`
+  * items `object`
+    * filter `string`
+    * filter_type `string`
+    * included_fields `array`
+
+
+### inbox_items
+* inbox_items `array`
+  * items `object`
+    * answer_id `integer`
+    * body `string`
+    * comment_id `integer`
+    * creation_date `integer`
+    * is_unread `boolean`
+    * item_type `string`
+    * link `string`
+    * question_id `integer`
+    * site `object`
+      * aliases `array`
+
+      * api_site_parameter `string`
+      * audience `string`
+      * closed_beta_date `integer`
+      * favicon_url `string`
+      * high_resolution_icon_url `string`
+      * icon_url `string`
+      * launch_date `integer`
+      * logo_url `string`
+      * markdown_extensions `array`
+
+      * name `string`
+      * open_beta_date `integer`
+      * related_sites `array`
+
+      * site_state `string`
+      * site_type `string`
+      * site_url `string`
+      * styling `object`
+        * link_color `string`
+        * tag_background_color `string`
+        * tag_foreground_color `string`
+      * twitter_account `string`
+    * title `string`
+
+### info_object
+* info_object `object`
+  * answers_per_minute `number`
+  * api_revision `string`
+  * badges_per_minute `number`
+  * new_active_users `integer`
+  * questions_per_minute `number`
+  * site `object`
+    * aliases `array`
+
+    * api_site_parameter `string`
+    * audience `string`
+    * closed_beta_date `integer`
+    * favicon_url `string`
+    * high_resolution_icon_url `string`
+    * icon_url `string`
+    * launch_date `integer`
+    * logo_url `string`
+    * markdown_extensions `array`
+
+    * name `string`
+    * open_beta_date `integer`
+    * related_sites `array`
+
+    * site_state `string`
+    * site_type `string`
+    * site_url `string`
+    * styling `object`
+      * link_color `string`
+      * tag_background_color `string`
+      * tag_foreground_color `string`
+    * twitter_account `string`
+  * total_accepted `integer`
+  * total_answers `integer`
+  * total_badges `integer`
+  * total_comments `integer`
+  * total_questions `integer`
+  * total_unanswered `integer`
+  * total_users `integer`
+  * total_votes `integer`
+
+### network_users
+* network_users `array`
+  * items `object`
+    * account_id `integer`
+    * answer_count `integer`
+    * badge_counts `object`
+      * bronze `integer`
+      * gold `integer`
+      * silver `integer`
+    * creation_date `integer`
+    * last_access_date `integer`
+    * question_count `integer`
+    * reputation `integer`
+    * site_name `string`
+    * site_url `string`
+    * top_answers `array`
+
+    * top_questions `array`
+
+    * user_id `integer`
+    * user_type `string`
+
+### notifications
+* notifications `array`
+  * items `object`
+    * body `string`
+    * creation_date `integer`
+    * is_unread `boolean`
+    * notification_type `string`
+    * post_id `integer`
+    * site `object`
+      * aliases `array`
+
+      * api_site_parameter `string`
+      * audience `string`
+      * closed_beta_date `integer`
+      * favicon_url `string`
+      * high_resolution_icon_url `string`
+      * icon_url `string`
+      * launch_date `integer`
+      * logo_url `string`
+      * markdown_extensions `array`
+
+      * name `string`
+      * open_beta_date `integer`
+      * related_sites `array`
+
+      * site_state `string`
+      * site_type `string`
+      * site_url `string`
+      * styling `object`
+        * link_color `string`
+        * tag_background_color `string`
+        * tag_foreground_color `string`
+      * twitter_account `string`
+
+### posts
+* posts `array`
+  * items `object`
+    * body `string`
+    * body_markdown `string`
+    * comment_count `integer`
+    * comments `array`
+
+    * creation_date `integer`
+    * down_vote_count `integer`
+    * downvoted `boolean`
+    * last_activity_date `integer`
+    * last_edit_date `integer`
+    * last_editor `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+    * link `string`
+    * owner `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+    * post_id `integer`
+    * post_type `string`
+    * score `integer`
+    * share_link `string`
+    * title `string`
+    * up_vote_count `integer`
+    * upvoted `boolean`
+
+### privileges
+* privileges `array`
+  * items `object`
+    * description `string`
+    * reputation `integer`
+    * short_description `string`
+
+### question_timeline_events
+* question_timeline_events `array`
+  * items `object`
+    * comment_id `integer`
+    * creation_date `integer`
+    * down_vote_count `integer`
+    * owner `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+    * post_id `integer`
+    * question_id `integer`
+    * revision_guid `string`
+    * timeline_type `string`
+    * up_vote_count `integer`
+    * user `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+
+### questions
+* questions `array`
+  * items `object`
+    * accepted_answer_id `integer`
+    * answer_count `integer`
+    * answers `array`
+
+    * body `string`
+    * body_markdown `string`
+    * bounty_amount `integer`
+    * bounty_closes_date `integer`
+    * bounty_user `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+    * can_close `boolean`
+    * can_flag `boolean`
+    * close_vote_count `integer`
+    * closed_date `integer`
+    * closed_details `object`
+      * by_users `array`
+
+      * description `string`
+      * on_hold `boolean`
+      * original_questions `array`
+
+      * reason `string`
+    * closed_reason `string`
+    * comment_count `integer`
+    * comments `array`
+
+    * community_owned_date `integer`
+    * creation_date `integer`
+    * delete_vote_count `integer`
+    * down_vote_count `integer`
+    * downvoted `boolean`
+    * favorite_count `integer`
+    * favorited `boolean`
+    * is_answered `boolean`
+    * last_activity_date `integer`
+    * last_edit_date `integer`
+    * last_editor `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+    * link `string`
+    * locked_date `integer`
+    * migrated_from `object`
+      * on_date `integer`
+      * other_site `object`
+        * aliases `array`
+
+        * api_site_parameter `string`
+        * audience `string`
+        * closed_beta_date `integer`
+        * favicon_url `string`
+        * high_resolution_icon_url `string`
+        * icon_url `string`
+        * launch_date `integer`
+        * logo_url `string`
+        * markdown_extensions `array`
+
+        * name `string`
+        * open_beta_date `integer`
+        * related_sites `array`
+
+        * site_state `string`
+        * site_type `string`
+        * site_url `string`
+        * styling `object`
+          * link_color `string`
+          * tag_background_color `string`
+          * tag_foreground_color `string`
+        * twitter_account `string`
+      * question_id `integer`
+    * migrated_to `object`
+      * on_date `integer`
+      * other_site `object`
+        * aliases `array`
+
+        * api_site_parameter `string`
+        * audience `string`
+        * closed_beta_date `integer`
+        * favicon_url `string`
+        * high_resolution_icon_url `string`
+        * icon_url `string`
+        * launch_date `integer`
+        * logo_url `string`
+        * markdown_extensions `array`
+
+        * name `string`
+        * open_beta_date `integer`
+        * related_sites `array`
+
+        * site_state `string`
+        * site_type `string`
+        * site_url `string`
+        * styling `object`
+          * link_color `string`
+          * tag_background_color `string`
+          * tag_foreground_color `string`
+        * twitter_account `string`
+      * question_id `integer`
+    * notice `object`
+      * body `string`
+      * creation_date `integer`
+      * owner_user_id `integer`
+    * owner `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+    * protected_date `integer`
+    * question_id `integer`
+    * reopen_vote_count `integer`
+    * score `integer`
+    * share_link `string`
+    * tags `array`
+
+    * title `string`
+    * up_vote_count `integer`
+    * upvoted `boolean`
+    * view_count `integer`
+
+### reputation_changes
+* reputation_changes `array`
+  * items `object`
+    * link `string`
+    * on_date `integer`
+    * post_id `integer`
+    * post_type `string`
+    * reputation_change `integer`
+    * title `string`
+    * user_id `integer`
+    * vote_type `string`
+
+### reputation_history
+* reputation_history `array`
+  * items `object`
+    * creation_date `integer`
+    * post_id `integer`
+    * reputation_change `integer`
+    * reputation_history_type `string`
+    * user_id `integer`
+
+### reputation_objects
+* reputation_objects `array`
+  * items `object`
+    * link `string`
+    * on_date `integer`
+    * post_id `integer`
+    * post_type `string`
+    * reputation_change `integer`
+    * title `string`
+    * user_id `integer`
+    * vote_type `string`
+
+### revisions
+* revisions `array`
+  * items `object`
+    * body `string`
+    * comment `string`
+    * creation_date `integer`
+    * is_rollback `boolean`
+    * last_body `string`
+    * last_tags `array`
+
+    * last_title `string`
+    * post_id `integer`
+    * post_type `string`
+    * revision_guid `string`
+    * revision_number `integer`
+    * revision_type `string`
+    * set_community_wiki `boolean`
+    * tags `array`
+
+    * title `string`
+    * user `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+
+### single_filter
+* single_filter `object`
+  * filter `string`
+  * filter_type `string`
+  * included_fields `array`
+
+
+### sites
+* sites `array`
+  * items `object`
+    * aliases `array`
+
+    * api_site_parameter `string`
+    * audience `string`
+    * closed_beta_date `integer`
+    * favicon_url `string`
+    * high_resolution_icon_url `string`
+    * icon_url `string`
+    * launch_date `integer`
+    * logo_url `string`
+    * markdown_extensions `array`
+
+    * name `string`
+    * open_beta_date `integer`
+    * related_sites `array`
+
+    * site_state `string`
+    * site_type `string`
+    * site_url `string`
+    * styling `object`
+      * link_color `string`
+      * tag_background_color `string`
+      * tag_foreground_color `string`
+    * twitter_account `string`
+
+### suggested-edits
+* suggested-edits `array`
+  * items `object`
+    * approval_date `integer`
+    * body `string`
+    * comment `string`
+    * creation_date `integer`
+    * post_id `integer`
+    * post_type `string`
+    * proposing_user `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+    * rejection_date `integer`
+    * suggested_edit_id `integer`
+    * tags `array`
+
+    * title `string`
+
+### tag_score_objects
+* tag_score_objects `array`
+  * items `object`
+    * post_count `integer`
+    * score `integer`
+    * user `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+
+### tag_synonyms
+* tag_synonyms `array`
+  * items `object`
+    * applied_count `integer`
+    * creation_date `integer`
+    * from_tag `string`
+    * last_applied_date `integer`
+    * to_tag `string`
+
+### tag_wikis
+* tag_wikis `array`
+  * items `object`
+    * body `string`
+    * body_last_edit_date `integer`
+    * excerpt `string`
+    * excerpt_last_edit_date `integer`
+    * last_body_editor `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+    * last_excerpt_editor `object`
+      * accept_rate `integer`
+      * badge_counts `object`
+        * bronze `integer`
+        * gold `integer`
+        * silver `integer`
+      * display_name `string`
+      * link `string`
+      * profile_image `string`
+      * reputation `integer`
+      * user_id `integer`
+      * user_type `string`
+    * tag_name `string`
+
+### tags
+* tags `array`
+  * items `object`
+    * count `integer`
+    * has_synonyms `boolean`
+    * is_moderator_only `boolean`
+    * is_required `boolean`
+    * last_activity_date `integer`
+    * name `string`
+    * synonyms `array`
+
+    * user_id `integer`
+
+### top_tag_objects
+* top_tag_objects `array`
+  * items `object`
+    * answer_count `integer`
+    * answer_score `integer`
+    * question_count `integer`
+    * question_score `integer`
+    * tag_name `string`
+    * user_id `integer`
+
+### user
+* user `object`
+  * about_me `string`
+  * accept_rate `integer`
+  * account_id `integer`
+  * age `integer`
+  * answer_count `integer`
+  * badge_counts `object`
+    * bronze `integer`
+    * gold `integer`
+    * silver `integer`
+  * creation_date `integer`
+  * display_name `string`
+  * down_vote_count `integer`
+  * is_employee `boolean`
+  * last_access_date `integer`
+  * last_modified_date `integer`
+  * link `string`
+  * location `string`
+  * profile_image `string`
+  * question_count `integer`
+  * reputation `integer`
+  * reputation_change_day `integer`
+  * reputation_change_month `integer`
+  * reputation_change_quarter `integer`
+  * reputation_change_week `integer`
+  * reputation_change_year `integer`
+  * timed_penalty_date `integer`
+  * up_vote_count `integer`
+  * user_id `integer`
+  * user_type `string`
+  * view_count `integer`
+  * website_url `string`
+
+### user_timeline_objects
+* user_timeline_objects `array`
+  * items `object`
+    * badge_id `integer`
+    * comment_id `integer`
+    * creation_date `integer`
+    * detail `string`
+    * link `string`
+    * post_id `integer`
+    * post_type `string`
+    * suggested_edit_id `integer`
+    * timeline_type `string`
+    * title `string`
+    * user_id `integer`
+
+### users
+* users `array`
+  * items `object`
+    * about_me `string`
+    * accept_rate `integer`
+    * account_id `integer`
+    * age `integer`
+    * answer_count `integer`
+    * badge_counts `object`
+      * bronze `integer`
+      * gold `integer`
+      * silver `integer`
+    * creation_date `integer`
+    * display_name `string`
+    * down_vote_count `integer`
+    * is_employee `boolean`
+    * last_access_date `integer`
+    * last_modified_date `integer`
+    * link `string`
+    * location `string`
+    * profile_image `string`
+    * question_count `integer`
+    * reputation `integer`
+    * reputation_change_day `integer`
+    * reputation_change_month `integer`
+    * reputation_change_quarter `integer`
+    * reputation_change_week `integer`
+    * reputation_change_year `integer`
+    * timed_penalty_date `integer`
+    * up_vote_count `integer`
+    * user_id `integer`
+    * user_type `string`
+    * view_count `integer`
+    * website_url `string`
+
+### write_permissions
+* write_permissions `array`
+  * items `object`
+    * can_add `boolean`
+    * can_delete `boolean`
+    * can_edit `boolean`
+    * max_daily_actions `integer`
+    * min_seconds_between_actions `integer`
+    * object_type `string`
+    * user_id `integer`
+
 

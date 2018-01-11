@@ -4,17 +4,15 @@ Client library for MotaWord
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/motaword
+npm install --save @datafire/motaword
 ```
-
 ```js
-let datafire = require('datafire');
 let motaword = require('@datafire/motaword').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 motaword.getProjects({}).then(data => {
@@ -23,9 +21,11 @@ motaword.getProjects({}).then(data => {
 ```
 
 ## Description
+
 Use MotaWord API to post and track your translation projects.
 
 ## Actions
+
 ### oauthCallback
 Exchange the code passed to your redirect URI for an access_token
 
@@ -36,8 +36,17 @@ motaword.oauthCallback({
 }, context)
 ```
 
-#### Parameters
-* code (string) **required**
+#### Input
+* input `object`
+  * code **required** `string`
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### oauthRefresh
 Exchange a refresh_token for an access_token
@@ -47,8 +56,16 @@ Exchange a refresh_token for an access_token
 motaword.oauthRefresh(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### getEndpoints
 The root endpoint will provide you a JSON Swagger definition.
@@ -59,8 +76,11 @@ The root endpoint will provide you a JSON Swagger definition.
 motaword.getEndpoints(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
 
 ### getFormats
 Get a list of supported formats for documents, style guides and extensions.
@@ -71,8 +91,12 @@ Get a list of supported formats for documents, style guides and extensions.
 motaword.getFormats(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * items [Formats](#formats)
 
 ### downloadGlobalGlossary
 Download your corporate account's global glossary. This endpoint is available only for corporate account customers.
@@ -82,8 +106,11 @@ Download your corporate account's global glossary. This endpoint is available on
 motaword.downloadGlobalGlossary(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `string`
 
 ### updateGlobalGlossary
 Update your corporate account's global glossary. This endpoint is available only for corporate account customers.
@@ -95,8 +122,13 @@ motaword.updateGlobalGlossary({
 }, context)
 ```
 
-#### Parameters
-* glossary (string) **required** - Glossary file. Currently supported formats: .xlsx, .tbx
+#### Input
+* input `object`
+  * glossary **required** `string`: Glossary file. Currently supported formats: .xlsx, .tbx
+
+#### Output
+* output `object`
+  * status `string`
 
 ### getLanguages
 Get a list of supported languages
@@ -106,8 +138,12 @@ Get a list of supported languages
 motaword.getLanguages(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `array`
+  * items [Language](#language)
 
 ### getAccount
 Get your account information and summary.
@@ -117,8 +153,11 @@ Get your account information and summary.
 motaword.getAccount(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output [Account](#account)
 
 ### getProjects
 Get a list of your projects
@@ -128,9 +167,14 @@ Get a list of your projects
 motaword.getProjects({}, context)
 ```
 
-#### Parameters
-* page (integer)
-* per_page (integer)
+#### Input
+* input `object`
+  * page `integer`
+  * per_page `integer`
+
+#### Output
+* output `object`
+  * items [ProjectList](#projectlist)
 
 ### createProject
 Create a new project
@@ -143,14 +187,19 @@ motaword.createProject({
 }, context)
 ```
 
-#### Parameters
-* source_language (string) **required**
-* target_languages[] (array) **required**
-* callback_url (string) - Optional. If you provide a callback URL, we will send POST callbacks when the status of the current project is changed. Possible status changes are, 'translated', 'proofread', 'completed'.
-* custom (array) - Optional. This is a consistent custom data parameter that will be given to you in the response across every request of this project model. Values should be provided like this, custom[my_key] = my_value.
-* documents[] (string) - Optional. You can add as many files as you want in documents[] parameter. Or you add your documents later in separate calls.
-* styleguides[] (string) - Optional. You can add as many files as you want in styleguides[] parameter. Or you add your style guides later in separate calls.
-* glossaries[] (string) - Optional. Only one glossary is supported at the moment.
+#### Input
+* input `object`
+  * source_language **required** `string`
+  * target_languages[] **required** `array`
+  * callback_url `string`: Optional. If you provide a callback URL, we will send POST callbacks when the status of the current project is changed. Possible status changes are, 'translated', 'proofread', 'completed'.
+  * custom `array`: Optional. This is a consistent custom data parameter that will be given to you in the response across every request of this project model. Values should be provided like this, custom[my_key] = my_value.
+  * documents[] `string`: Optional. You can add as many files as you want in documents[] parameter. Or you add your documents later in separate calls.
+  * styleguides[] `string`: Optional. You can add as many files as you want in styleguides[] parameter. Or you add your style guides later in separate calls.
+  * glossaries[] `string`: Optional. Only one glossary is supported at the moment.
+
+#### Output
+* output `object`
+  * items [Project](#project)
 
 ### deleteProject
 Delete(cancel) a project.
@@ -162,8 +211,13 @@ motaword.deleteProject({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - Project ID
+#### Input
+* input `object`
+  * id **required** `integer`: Project ID
+
+#### Output
+* output `object`
+  * status `string`
 
 ### getProject
 Get single project
@@ -175,8 +229,12 @@ motaword.getProject({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - Project ID
+#### Input
+* input `object`
+  * id **required** `integer`: Project ID
+
+#### Output
+* output [Project](#project)
 
 ### updateProject
 Update project language pairs
@@ -190,12 +248,17 @@ motaword.updateProject({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - Project ID
-* source_language (string) **required**
-* target_languages[] (array) **required**
-* callback_url (string) - Optional. If you provide a callback URL, we will send POST callbacks when the status of the current project is changed. Possible status changes are, 'translated', 'proofread', 'completed'.
-* custom (array) - Optional. This is a consistent custom data parameter that will be given to you in the response across every request of this project model. Values should be provided like this, custom[my_key] = my_value. If you previously provided one, it will be replaced.
+#### Input
+* input `object`
+  * id **required** `integer`: Project ID
+  * source_language **required** `string`
+  * target_languages[] **required** `array`
+  * callback_url `string`: Optional. If you provide a callback URL, we will send POST callbacks when the status of the current project is changed. Possible status changes are, 'translated', 'proofread', 'completed'.
+  * custom `array`: Optional. This is a consistent custom data parameter that will be given to you in the response across every request of this project model. Values should be provided like this, custom[my_key] = my_value. If you previously provided one, it will be replaced.
+
+#### Output
+* output `object`
+  * items [Project](#project)
 
 ### triggerCallback
 Trigger a call to your callback URL related to this project.
@@ -208,9 +271,13 @@ motaword.triggerCallback({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - Project ID
-* actionType (string) **required** - Callback type
+#### Input
+* input `object`
+  * id **required** `integer`: Project ID
+  * actionType **required** `string` (values: translated, proofread, completed): Callback type
+
+#### Output
+* output [CallbackResult](#callbackresult)
 
 ### cancelProject
 Cancel your translation project
@@ -222,9 +289,14 @@ motaword.cancelProject({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - Project ID
-* reason (string) - Cancellation reason
+#### Input
+* input `object`
+  * id **required** `integer`: Project ID
+  * reason `string`: Cancellation reason
+
+#### Output
+* output `object`
+  * status `string`
 
 ### download
 Download the latest translation package. You must have given a /package call beforehand and wait until the packaging status is 'completed'.
@@ -236,8 +308,12 @@ motaword.download({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - Project ID
+#### Input
+* input `object`
+  * id **required** `integer`: Project ID
+
+#### Output
+* output `string`
 
 ### downloadLanguage
 Download only the translation package of this language. You must have given a /package call beforehand and wait until the packaging status is 'completed'.
@@ -250,9 +326,13 @@ motaword.downloadLanguage({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - Project ID
-* language (string) **required** - Language code. You can download the translation of only a specific language.
+#### Input
+* input `object`
+  * id **required** `integer`: Project ID
+  * language **required** `string`: Language code. You can download the translation of only a specific language.
+
+#### Output
+* output `string`
 
 ### launchProject
 Launch your translation project
@@ -264,11 +344,16 @@ motaword.launchProject({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - Project ID
-* payment_method (string) - Optional. Determines which method to use for payment. Options are 'corporate', 'client'.
-* payment_code (string) - Optional. According to your corporate account configuration, this may be required.
-* budget_code (string) - Optional with corporate accounts. Not available for others.
+#### Input
+* input `object`
+  * id **required** `integer`: Project ID
+  * payment_method `string` (values: corporate, client): Optional. Determines which method to use for payment. Options are 'corporate', 'client'.
+  * payment_code `string`: Optional. According to your corporate account configuration, this may be required.
+  * budget_code `string`: Optional with corporate accounts. Not available for others.
+
+#### Output
+* output `object`
+  * status `string`
 
 ### package
 Package the translation project, make it ready to be downloaded.
@@ -280,9 +365,13 @@ motaword.package({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - Project ID
-* async (integer) - If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call.
+#### Input
+* input `object`
+  * id **required** `integer`: Project ID
+  * async `integer`: If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call.
+
+#### Output
+* output `string`
 
 ### trackPackage
 This request will tell you the current progress of the translation packaging. You will use the 'key' provided by the /package call.
@@ -294,9 +383,13 @@ motaword.trackPackage({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - Project ID
-* key (string) - This is the package tracking key provided in the response of a /package call.
+#### Input
+* input `object`
+  * id **required** `integer`: Project ID
+  * key `string`: This is the package tracking key provided in the response of a /package call.
+
+#### Output
+* output [PackageStatus](#packagestatus)
 
 ### packageLanguage
 Package the translation project, make it ready to be downloaded.
@@ -309,10 +402,14 @@ motaword.packageLanguage({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - Project ID
-* language (string) **required** - Language code. You can package the translation of only a specific language.
-* async (integer) - If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call.
+#### Input
+* input `object`
+  * id **required** `integer`: Project ID
+  * language **required** `string`: Language code. You can package the translation of only a specific language.
+  * async `integer`: If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call.
+
+#### Output
+* output [Package](#package)
 
 ### getProgress
 Get the progress of an already launched project.
@@ -324,8 +421,12 @@ motaword.getProgress({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - Project ID
+#### Input
+* input `object`
+  * id **required** `integer`: Project ID
+
+#### Output
+* output [Progress](#progress)
 
 ### submitProjectReports
 Submit reports for a project
@@ -337,10 +438,15 @@ motaword.submitProjectReports({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - Project ID
-* activity_type (string) - Activity Type
-* message (string) - Report Message
+#### Input
+* input `object`
+  * id **required** `integer`: Project ID
+  * activity_type `string`: Activity Type
+  * message `string`: Report Message
+
+#### Output
+* output `object`
+  * status `string`
 
 ### getActivities
 Get a list of realtime activities on the project, such as translation suggestion and translation approval.
@@ -352,10 +458,14 @@ motaword.getActivities({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* page (integer)
-* per_page (integer)
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * page `integer`
+  * per_page `integer`
+
+#### Output
+* output [ActivityList](#activitylist)
 
 ### getActivity
 Get a single realtime activity.
@@ -368,9 +478,13 @@ motaword.getActivity({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* activityId (integer) **required** - Activity ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * activityId **required** `integer`: Activity ID
+
+#### Output
+* output [Activity](#activity)
 
 ### submitComment
 Submit a comment to an activity.
@@ -384,10 +498,14 @@ motaword.submitComment({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* activityId (integer) **required** - Activity ID
-* comment (string) **required** - Comment text.
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * activityId **required** `integer`: Activity ID
+  * comment **required** `string`: Comment text.
+
+#### Output
+* output [Comment](#comment)
 
 ### getActivityComments
 Get a list of comments belonging to this activity.
@@ -400,9 +518,13 @@ motaword.getActivityComments({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* activityId (integer) **required** - Activity ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * activityId **required** `integer`: Activity ID
+
+#### Output
+* output [CommentList](#commentlist)
 
 ### getComments
 Get a list of activity comments throughout the whole project.
@@ -414,10 +536,14 @@ motaword.getComments({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* page (integer)
-* per_page (integer)
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * page `integer`
+  * per_page `integer`
+
+#### Output
+* output [CommentList](#commentlist)
 
 ### getDocuments
 Get a list of documents
@@ -429,8 +555,12 @@ motaword.getDocuments({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+
+#### Output
+* output [DocumentList](#documentlist)
 
 ### createDocument
 Upload a new document
@@ -443,10 +573,14 @@ motaword.createDocument({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* documents[] (string) **required** - You can add as many files as you want in documents[] parameter.
-* schemes[] (string) - JSON string. If your documents have a scheme, as in cases of CSV files, use the same array index keys for `schemes` parameter to specify their schemes. See `Document Schemes` title in the API documentation.
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * documents[] **required** `string`: You can add as many files as you want in documents[] parameter.
+  * schemes[] `string`: JSON string. If your documents have a scheme, as in cases of CSV files, use the same array index keys for `schemes` parameter to specify their schemes. See `Document Schemes` title in the API documentation.
+
+#### Output
+* output [Document](#document)
 
 ### deleteDocument
 Delete the document
@@ -459,9 +593,14 @@ motaword.deleteDocument({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* documentId (integer) **required** - Document ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * documentId **required** `integer`: Document ID
+
+#### Output
+* output `object`
+  * status `string`
 
 ### getDocument
 Get single document
@@ -474,9 +613,13 @@ motaword.getDocument({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* documentId (integer) **required** - Document ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * documentId **required** `integer`: Document ID
+
+#### Output
+* output [Document](#document)
 
 ### updateDocument
 Update the document. File name and contents will replaced with the new one.
@@ -489,11 +632,15 @@ motaword.updateDocument({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* documentId (integer) **required** - Document ID
-* documents (string) - Single file data. The name is plural to provide a consistent naming convention.
-* schemes (string) - JSON string. If your documents have a scheme, as in cases of CSV files, use the same array index keys for `schemes` parameter to specify their schemes. See `Document Schemes` title in the API documentation.
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * documentId **required** `integer`: Document ID
+  * documents `string`: Single file data. The name is plural to provide a consistent naming convention.
+  * schemes `string`: JSON string. If your documents have a scheme, as in cases of CSV files, use the same array index keys for `schemes` parameter to specify their schemes. See `Document Schemes` title in the API documentation.
+
+#### Output
+* output [Document](#document)
 
 ### downloadDocument
 Download a document
@@ -506,9 +653,13 @@ motaword.downloadDocument({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* documentId (integer) **required** - Document ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * documentId **required** `integer`: Document ID
+
+#### Output
+* output `string`
 
 ### getGlossaries
 Get a list of glossaries
@@ -520,8 +671,12 @@ motaword.getGlossaries({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+
+#### Output
+* output [GlossaryList](#glossarylist)
 
 ### createGlossary
 Upload a new glossary
@@ -534,9 +689,13 @@ motaword.createGlossary({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* glossaries (string) **required** - You can only add one glossary, even though the name suggests multiple glossaries. This may be updated in the future to support multiple glossaries.
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * glossaries **required** `string`: You can only add one glossary, even though the name suggests multiple glossaries. This may be updated in the future to support multiple glossaries.
+
+#### Output
+* output [Glossary](#glossary)
 
 ### deleteGlossary
 Delete the glossary
@@ -549,9 +708,14 @@ motaword.deleteGlossary({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* glossaryId (integer) **required** - Glossary ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * glossaryId **required** `integer`: Glossary ID
+
+#### Output
+* output `object`
+  * status `string`
 
 ### getGlossary
 Get single glossary
@@ -564,9 +728,13 @@ motaword.getGlossary({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* glossaryId (integer) **required** - Glossary ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * glossaryId **required** `integer`: Glossary ID
+
+#### Output
+* output [Glossary](#glossary)
 
 ### updateGlossary
 Update the glossary. File name and contents will replaced with the new one.
@@ -580,10 +748,14 @@ motaword.updateGlossary({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* glossaryId (integer) **required** - Glossary ID
-* glossaries (string) **required** - Single file data. The name is plural to provide a consistent naming convention.
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * glossaryId **required** `integer`: Glossary ID
+  * glossaries **required** `string`: Single file data. The name is plural to provide a consistent naming convention.
+
+#### Output
+* output [Glossary](#glossary)
 
 ### downloadGlossary
 Download a glossary
@@ -596,9 +768,13 @@ motaword.downloadGlossary({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* glossaryId (integer) **required** - Glossary ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * glossaryId **required** `integer`: Glossary ID
+
+#### Output
+* output `string`
 
 ### getStyleGuides
 Get a list of style guides
@@ -610,8 +786,12 @@ motaword.getStyleGuides({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+
+#### Output
+* output [StyleGuideList](#styleguidelist)
 
 ### createStyleGuide
 Upload a new style guide
@@ -624,9 +804,13 @@ motaword.createStyleGuide({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* styleguides[] (string) **required** - You can add as many files as you want in styleguides[] parameter.
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * styleguides[] **required** `string`: You can add as many files as you want in styleguides[] parameter.
+
+#### Output
+* output [StyleGuide](#styleguide)
 
 ### deleteStyleGuide
 Delete the style guide
@@ -639,9 +823,14 @@ motaword.deleteStyleGuide({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* styleGuideId (integer) **required** - Style Guide ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * styleGuideId **required** `integer`: Style Guide ID
+
+#### Output
+* output `object`
+  * status `string`
 
 ### getStyleGuide
 Get single style guide
@@ -654,9 +843,13 @@ motaword.getStyleGuide({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* styleGuideId (integer) **required** - Style Guide ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * styleGuideId **required** `integer`: Style Guide ID
+
+#### Output
+* output [StyleGuide](#styleguide)
 
 ### updateStyleGuide
 Update the style guide. File name and contents will replaced with the new one.
@@ -670,10 +863,14 @@ motaword.updateStyleGuide({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* styleGuideId (integer) **required** - Style guide ID
-* styleguides (string) **required** - Single file data. The name is plural to provide a consistent naming convention.
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * styleGuideId **required** `integer`: Style guide ID
+  * styleguides **required** `string`: Single file data. The name is plural to provide a consistent naming convention.
+
+#### Output
+* output [StyleGuide](#styleguide)
 
 ### downloadStyleGuide
 Download a style guide
@@ -686,9 +883,13 @@ motaword.downloadStyleGuide({
 }, context)
 ```
 
-#### Parameters
-* projectId (integer) **required** - Project ID
-* styleGuideId (integer) **required** - Style Guide ID
+#### Input
+* input `object`
+  * projectId **required** `integer`: Project ID
+  * styleGuideId **required** `integer`: Style Guide ID
+
+#### Output
+* output `string`
 
 ### downloadGlobalStyleGuide
 Download your corporate account's global style guide. This endpoint is available only for corporate account customers.
@@ -698,8 +899,11 @@ Download your corporate account's global style guide. This endpoint is available
 motaword.downloadGlobalStyleGuide(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `string`
 
 ### updateGlobalStyleGuide
 Update your corporate account's global style guide. This endpoint is available only for corporate account customers.
@@ -711,8 +915,13 @@ motaword.updateGlobalStyleGuide({
 }, context)
 ```
 
-#### Parameters
-* styleguide (string) **required** - Style guide file. Currently supported formats: .pdf, .docx, .txt
+#### Input
+* input `object`
+  * styleguide **required** `string`: Style guide file. Currently supported formats: .pdf, .docx, .txt
+
+#### Output
+* output `object`
+  * status `string`
 
 ### getAccessToken
 MotaWord API is using OAuth2 procedures when authenticating or authorizing your API call. Currently, we only allow Client Credential type flow.
@@ -726,7 +935,265 @@ motaword.getAccessToken({
 }, context)
 ```
 
-#### Parameters
-* grant_type (string) **required** - OAuth2 grant type. Currently only 'client_credentials' available.
-* Authorization (string) **required** - HTTP Basic Authorization header.
+#### Input
+* input `object`
+  * grant_type **required** `string`: OAuth2 grant type. Currently only 'client_credentials' available.
+  * Authorization **required** `string`: HTTP Basic Authorization header.
+
+#### Output
+* output [Token](#token)
+
+
+
+## Definitions
+
+### Account
+* Account `object`
+  * billing `object`
+    * city `string`
+    * country `string`
+    * name `string`
+    * state `string`
+    * street `string`
+    * zip `string`
+  * created_at `integer`
+  * id `integer`
+  * links `object`
+    * projects `object`
+      * href `string`
+    * self `object`
+      * href `string`
+  * name `string`
+  * stats `object`
+    * started_projects `integer`
+    * total_projects `integer`
+
+### Activity
+* Activity `object`
+  * activity_at `string`
+  * id `integer`
+  * links [ActivityLinks](#activitylinks)
+  * source_text `string`: Source text
+  * target_text `string`: Target text of the activity, which is actually the translation of the source text.
+  * translator `integer`: Unique identifier of the translator/proofreader of this activity.
+  * type `string` (values: translated, proofread): Currently there are two available activity types; 'translated', 'proofread'.
+
+### ActivityLinks
+* ActivityLinks `object`
+  * comments `object`
+    * href `string`
+  * project `object`
+    * href `string`
+  * self `object`
+    * href `string`
+
+### ActivityList
+* ActivityList `object`
+  * activities `array`
+    * items [Activity](#activity)
+  * meta [PagingMeta](#pagingmeta)
+
+### CallbackResult
+* CallbackResult `object`
+  * data [Project](#project)
+  * result `string`: Callback response returned from `url`.
+  * type `string` (values: translated, proofread, completed)
+  * url `string`: The URL that received the callback.
+
+### Comment
+* Comment `object`
+  * comment `string`: Comment text.
+  * commented_at `string`
+  * id `integer`
+  * links [CommentLinks](#commentlinks)
+
+### CommentLinks
+* CommentLinks `object`
+  * activity `object`: Link to the activity to which this comment was submitted.
+    * href `string`
+  * project `object`
+    * href `string`
+  * self `object`
+    * href `string`
+
+### CommentList
+* CommentList `object`
+  * activities `array`
+    * items [Comment](#comment)
+  * meta [PagingMeta](#pagingmeta)
+
+### Document
+* Document `object`
+  * id `integer`
+  * links [DocumentLinks](#documentlinks)
+  * name `string`
+  * scheme `object`
+  * uploaded_at `string`
+  * word_count `integer`
+
+### DocumentLinks
+* DocumentLinks `object`
+  * download `object`
+    * href `string`
+  * project `object`
+    * href `string`
+  * self `object`
+    * href `string`
+
+### DocumentList
+* DocumentList `object`
+  * documents `array`
+    * items [Document](#document)
+  * meta [PagingMeta](#pagingmeta)
+
+### Error
+* Error `object`
+  * code `string`
+  * help `string`
+  * http_code `integer`
+  * message `string`
+
+### Formats
+* Formats `object`
+  * documents `object`
+    * extensions `array`
+      * items `string`
+    * mimes `array`
+      * items `string`
+  * glossaries `object`
+    * extensions `array`
+      * items `string`
+  * styleguides `object`
+    * extensions `array`
+      * items `string`
+
+### Glossary
+* Glossary `object`
+  * id `integer`
+  * links [DocumentLinks](#documentlinks)
+  * name `string`
+  * uploaded_at `string`
+
+### GlossaryList
+* GlossaryList `object`
+  * glossaries `array`
+    * items [Glossary](#glossary)
+  * meta [PagingMeta](#pagingmeta)
+
+### Language
+* Language `object`
+  * code `string`
+  * name `string`
+
+### LanguageProgress
+* LanguageProgress `object`
+  * languageCode [ProgressSub](#progresssub)
+
+### LinksMeta
+* LinksMeta `object`
+  * self `object`
+    * href `string`
+
+### Package
+* Package `object`
+  * key `string`: This is the unique package tracking key. You can use this key to track the current progress of the translation packaging with /package/check call.
+  * status `string` (values: started, packaging, completed): The status of translation packaging. Possible values are 'started', 'packaging', 'completed'. When completed, you can make a /download call to download the last translation package.
+
+### PackageStatus
+* PackageStatus `object`
+  * status `string` (values: started, packaging, completed): The status of translation packaging. Possible values are 'started', 'packaging', 'completed'. When completed, you can make a /download call to download the last translation package.
+
+### PagingLinksMeta
+* PagingLinksMeta `object`
+  * next `string`
+  * previous `string`
+  * self `object`
+    * href `string`
+
+### PagingMeta
+* PagingMeta `object`
+  * paging `object`
+    * links [PagingLinksMeta](#paginglinksmeta)
+    * page `integer`
+    * per_page `integer`
+    * total_count `integer`
+
+### Progress
+* Progress `object`
+  * languages [LanguageProgress](#languageprogress)
+  * links [ProgressLink](#progresslink)
+  * proofreading `integer`
+  * total `integer`
+  * translation `integer`
+
+### ProgressLink
+* ProgressLink `object`
+  * project `object`
+    * href `string`
+  * self `object`
+    * href `string`
+
+### ProgressSub
+* ProgressSub `object`
+  * proofreading `integer`
+  * total `integer`
+  * translation `integer`
+
+### Project
+* Project `object`
+  * callback_url `string`: Callback URL to notify when project status changed.
+  * created_at `string`
+  * custom `object`: Custom data provided while creating a new project.
+  * delivery_at `string`
+  * errors `array`: A list of errors. Visible when creating a project and uploading your documents at the same time, in case of multiple errors.
+    * items [Error](#error)
+  * id `integer`
+  * links [ProjectLinks](#projectlinks)
+  * price `object`
+    * amount `number`
+    * currency `string`
+  * source_language `string`
+  * status `string` (values: pending, started, completed)
+  * target_languages `array`
+    * items `string`
+  * valid_until `string`: Available only if status is `pending`
+  * word_count `integer`
+
+### ProjectLinks
+* ProjectLinks `object`
+  * documents `object`
+    * href `string`
+  * glossaries `object`
+    * href `string`
+  * styleguides `object`
+    * href `string`
+  * self `object`
+    * href `string`
+
+### ProjectList
+* ProjectList `object`
+  * meta [PagingMeta](#pagingmeta)
+  * projects `array`
+    * items [Project](#project)
+
+### StyleGuide
+* StyleGuide `object`
+  * id `integer`
+  * links [DocumentLinks](#documentlinks)
+  * name `string`
+  * uploaded_at `string`
+
+### StyleGuideList
+* StyleGuideList `object`
+  * meta [PagingMeta](#pagingmeta)
+  * styleguides `array`
+    * items [StyleGuide](#styleguide)
+
+### Token
+* Token `object`
+  * access_token `string`
+  * expires_in `integer`
+  * scope `string`
+  * token_type `string`
+
 

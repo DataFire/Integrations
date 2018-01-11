@@ -4,11 +4,9 @@ Client library for Tradeworks
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/magick_nu
+npm install --save @datafire/magick_nu
 ```
-
 ```js
-let datafire = require('datafire');
 let magick_nu = require('@datafire/magick_nu').create();
 
 magick_nu.getStrategiesStrategyIdStrategyId({}).then(data => {
@@ -17,10 +15,12 @@ magick_nu.getStrategiesStrategyIdStrategyId({}).then(data => {
 ```
 
 ## Description
+
 Authentication is required to access all methods of the API. Enter username and password.
                 Credentials are automatically set as you type.
 
 ## Actions
+
 ### getStrategiesStrategyIdStrategyId
 Get Strategy by ID
 
@@ -31,8 +31,12 @@ magick_nu.getStrategiesStrategyIdStrategyId({
 }, context)
 ```
 
-#### Parameters
-* strategyId (string) **required**
+#### Input
+* input `object`
+  * strategyId **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### getStrategiesTemplates
 Get all Template Strategies
@@ -42,8 +46,11 @@ Get all Template Strategies
 magick_nu.getStrategiesTemplates(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### postTradingAccounts
 Add a Trading Account
@@ -55,8 +62,12 @@ magick_nu.postTradingAccounts({
 }, context)
 ```
 
-#### Parameters
-* body (undefined) **required**
+#### Input
+* input `object`
+  * body **required** [TradingAccount](#tradingaccount)
+
+#### Output
+*Output schema unknown*
 
 ### putTradingAccountsPasswordUsernameBrokerserverMt4username
 Update MT4 Account Password
@@ -71,11 +82,15 @@ magick_nu.putTradingAccountsPasswordUsernameBrokerserverMt4username({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* brokerserver (string) **required**
-* mt4username (string) **required**
-* body (undefined) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * brokerserver **required** `string`
+  * mt4username **required** `string`
+  * body **required** [PasswordDTO](#passworddto)
+
+#### Output
+*Output schema unknown*
 
 ### postUsers
 Create a new Tradeworks User
@@ -87,8 +102,12 @@ magick_nu.postUsers({
 }, context)
 ```
 
-#### Parameters
-* body (undefined) **required**
+#### Input
+* input `object`
+  * body **required** [UserDTO](#userdto)
+
+#### Output
+*Output schema unknown*
 
 ### getUsersEmailEmail
 Check if email is available
@@ -100,8 +119,12 @@ magick_nu.getUsersEmailEmail({
 }, context)
 ```
 
-#### Parameters
-* email (string) **required**
+#### Input
+* input `object`
+  * email **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### putUsersPasswordUsername
 Update user's password
@@ -114,9 +137,13 @@ magick_nu.putUsersPasswordUsername({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
-* body (undefined) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+  * body **required** [PasswordDTO](#passworddto)
+
+#### Output
+*Output schema unknown*
 
 ### getUsersUsernameUsername
 Check if username is available
@@ -128,6 +155,37 @@ magick_nu.getUsersUsernameUsername({
 }, context)
 ```
 
-#### Parameters
-* username (string) **required**
+#### Input
+* input `object`
+  * username **required** `string`
+
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+### PasswordDTO
+* PasswordDTO `object`
+  * newPassword `string`
+  * oldPassword `string`
+
+### TradingAccount
+* TradingAccount `object`
+  * brokerServer `string`
+  * magickUsername `string`
+  * password `string`
+  * username `string`
+
+### UserDTO
+* UserDTO `object`
+  * affiliateId `string`
+  * email `string`
+  * firstName `string`
+  * lastName `string`
+  * password `string`
+  * subscriptionType `string`
+  * username `string`
+
 

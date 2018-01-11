@@ -4,11 +4,9 @@ Client library for Skyrock
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/skyrock
+npm install --save @datafire/skyrock
 ```
-
 ```js
-let datafire = require('datafire');
 let skyrock = require('@datafire/skyrock').create();
 
 skyrock.message.reply_thread.format.post({}).then(data => {
@@ -17,9 +15,11 @@ skyrock.message.reply_thread.format.post({}).then(data => {
 ```
 
 ## Description
+
 Interact with Skyrock.com features: blogs, profiles, messaging, 'what's new', friends & activities!
 
 ## Actions
+
 ### message.reply_thread.format.post
 Replies to a thread.
 
@@ -30,8 +30,12 @@ skyrock.message.reply_thread.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### message.create_thread.format.post
 Creates a multi-recipient thread.
@@ -43,8 +47,12 @@ skyrock.message.create_thread.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### message.send_message.format.post
 Sends a message to a single recipient.
@@ -56,8 +64,12 @@ skyrock.message.send_message.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### message.delete_message.format.post
 Deletes a message.
@@ -69,8 +81,12 @@ skyrock.message.delete_message.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### message.delete_thread.format.post
 Deletes a message thread.
@@ -82,8 +98,12 @@ skyrock.message.delete_thread.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### message.set_thread_as_read.format.post
 Marks a message thread as read.
@@ -95,8 +115,12 @@ skyrock.message.set_thread_as_read.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### message.get_thread.format.get
 Returns a message thread (15 messages per page).
@@ -109,10 +133,14 @@ skyrock.message.get_thread.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_thread (integer) **required** - Message thread ID.
-* page (integer) - Page number (optional).
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_thread **required** `integer`: Message thread ID.
+  * page `integer`: Page number (optional).
+
+#### Output
+*Output schema unknown*
 
 ### message.list_threads.format.get
 Returns the authenticated user's message threads (15 threads per page).
@@ -125,10 +153,14 @@ skyrock.message.list_threads.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* filter (string) **required** - Thread selection filter (all/unread).
-* page (integer) - Page number (optional).
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * filter **required** `string` (values: all, unread): Thread selection filter (all/unread).
+  * page `integer`: Page number (optional).
+
+#### Output
+*Output schema unknown*
 
 ### newsfeed.list_alerts_types.format.get
 Returns descriptions of alerts types, for developer information.
@@ -140,8 +172,12 @@ skyrock.newsfeed.list_alerts_types.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### newsfeed.list_alerts.format.get
 Lists user's alerts (notifications).
@@ -153,8 +189,12 @@ skyrock.newsfeed.list_alerts.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### newsfeed.list_events_types.format.get
 Returns descriptions of events types, for developer information.
@@ -166,8 +206,12 @@ skyrock.newsfeed.list_events_types.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### newsfeed.list_events.format.get
 Lists events in the user's dash-board (eg. newsfeed).
@@ -180,9 +224,13 @@ skyrock.newsfeed.list_events.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* events_category (string) **required** - Events category. Possible values: own (display own events), friends (display friends' events).
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * events_category **required** `string` (values: own, friends): Events category. Possible values: own (display own events), friends (display friends' events).
+
+#### Output
+*Output schema unknown*
 
 ### newsfeed.send_alert.format.post
 Sends a free text as alert to the authenticated user's alerts (notifications). The message is not localized and should be send in the user language. Unlike events, alerts are personal.
@@ -194,8 +242,12 @@ skyrock.newsfeed.send_alert.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### newsfeed.send_event.format.post
 Sends a free text as event to the authenticated user's dash-board (eg. newsfeed). Events also appear in the dash-board of the user's friends. The message is not localized and should be send in the user language.
@@ -207,8 +259,12 @@ skyrock.newsfeed.send_event.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### mood.delete_mood.format.post
 Deletes an user's mood.
@@ -220,8 +276,12 @@ skyrock.mood.delete_mood.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### mood.set_mood.format.post
 Sets an user's mood.
@@ -233,8 +293,12 @@ skyrock.mood.set_mood.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### mood.get_mood.format.get
 Returns an user last mood.
@@ -246,10 +310,14 @@ skyrock.mood.get_mood.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+
+#### Output
+*Output schema unknown*
 
 ### mood.list_moods.format.get
 Returns an user's mood list.
@@ -261,10 +329,14 @@ skyrock.mood.list_moods.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+
+#### Output
+*Output schema unknown*
 
 ### profile.get_tags_types.format.get
 Returns user profile's tags types.
@@ -276,8 +348,12 @@ skyrock.profile.get_tags_types.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### profile.get_tags.format.get
 Returns an user profile's tags.
@@ -289,10 +365,14 @@ skyrock.profile.get_tags.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+
+#### Output
+*Output schema unknown*
 
 ### profile.set_tags.format.post
 Sets an user profile's tags.
@@ -304,8 +384,12 @@ skyrock.profile.set_tags.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### profile.get_property_values.format.get
 Returns possible values for a given property. These properties can be set using set or set_config.
@@ -318,9 +402,13 @@ skyrock.profile.get_property_values.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* property (string) **required** - Property name. Possible values: gender, gender_preference, looks_for, status, town, country, department, occupation, place, personality, smoker, hair_color, eye_color, height, weight, block_friends, block_honors, block_groups, block_gifts, show_visits_counter, show_comments_counter, show_kiffs_counter, show_my_websites, show_mood, display_policy, allow_share, allow_facebook_like, allow_votes, allow_kiffs, default_page, show_me_page, show_news_page, show_photos_page, show_videos_page, allow_comments.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * property **required** `string` (values: gender, gender_preference, looks_for, status, town, country, department, occupation, place, personality, smoker, hair_color, eye_color, height, weight, block_friends, block_honors, block_groups, block_gifts, show_visits_counter, show_comments_counter, show_kiffs_counter, show_my_websites, show_mood, display_policy, allow_share, allow_facebook_like, allow_votes, allow_kiffs, default_page, show_me_page, show_news_page, show_photos_page, show_videos_page, allow_comments): Property name. Possible values: gender, gender_preference, looks_for, status, town, country, department, occupation, place, personality, smoker, hair_color, eye_color, height, weight, block_friends, block_honors, block_groups, block_gifts, show_visits_counter, show_comments_counter, show_kiffs_counter, show_my_websites, show_mood, display_policy, allow_share, allow_facebook_like, allow_votes, allow_kiffs, default_page, show_me_page, show_news_page, show_photos_page, show_videos_page, allow_comments.
+
+#### Output
+*Output schema unknown*
 
 ### profile.set_config.format.post
 Sets informations about a profile's (see get_property_values for possible values to set).
@@ -332,8 +420,12 @@ skyrock.profile.set_config.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### profile.get_config.format.get
 Returns settings about current user's profile.
@@ -345,8 +437,12 @@ skyrock.profile.get_config.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### profile.delete_picture.format.post
 Deletes a picture.
@@ -358,8 +454,12 @@ skyrock.profile.delete_picture.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### profile.set_picture.format.post
 Sets a picture's properties.
@@ -371,8 +471,12 @@ skyrock.profile.set_picture.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### profile.get_picture.format.get
 Returns a specified picture.
@@ -386,10 +490,14 @@ skyrock.profile.get_picture.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_album (integer) **required** - Album ID.
-* id_picture (integer) **required** - Picture ID.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_album **required** `integer`: Album ID.
+  * id_picture **required** `integer`: Picture ID.
+
+#### Output
+*Output schema unknown*
 
 ### profile.list_pictures.format.get
 Returns the list of pictures associated with a profile.
@@ -402,11 +510,15 @@ skyrock.profile.list_pictures.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
-* id_album (integer) **required** - Album ID.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+  * id_album **required** `integer`: Album ID.
+
+#### Output
+*Output schema unknown*
 
 ### profile.add_picture.format.post
 Adds a picture to the profile.
@@ -418,8 +530,12 @@ skyrock.profile.add_picture.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### profile.delete_album.format.post
 Deletes an empty album. Main album (id_album = 1) cannot be deleted.
@@ -431,8 +547,12 @@ skyrock.profile.delete_album.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### profile.set_album.format.post
 Sets an album's title.
@@ -444,8 +564,12 @@ skyrock.profile.set_album.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### profile.list_albums.format.get
 Returns the list of albums associated with a profile. Main album has id_album = 1.
@@ -457,10 +581,14 @@ skyrock.profile.list_albums.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+
+#### Output
+*Output schema unknown*
 
 ### profile.add_album.format.post
 Adds an album to the profile.
@@ -472,8 +600,12 @@ skyrock.profile.add_album.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### profile.set.format.post
 Sets an user's profile public data.
@@ -485,8 +617,12 @@ skyrock.profile.set.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### profile.get.format.get
 Returns an user's profile public data.
@@ -498,11 +634,15 @@ skyrock.profile.get.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
-* output_format (string) - Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+  * output_format `string` (values: html, bbcode): Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.
+
+#### Output
+*Output schema unknown*
 
 ### blog.list_pictures.format.get
 Returns the list of pictures from all blog's articles, paginated (35 pictures per page).
@@ -514,11 +654,15 @@ skyrock.blog.list_pictures.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
-* page (integer) - Page number.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+  * page `integer`: Page number.
+
+#### Output
+*Output schema unknown*
 
 ### blog.list_skins.format.get
 Returns available skins.
@@ -530,8 +674,12 @@ skyrock.blog.list_skins.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### blog.get_post_comment.format.get
 Returns a post's comment.
@@ -545,12 +693,16 @@ skyrock.blog.get_post_comment.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
-* id_post (integer) **required** - Post ID.
-* id_comment (integer) **required** - Post comment ID.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+  * id_post **required** `integer`: Post ID.
+  * id_comment **required** `integer`: Post comment ID.
+
+#### Output
+*Output schema unknown*
 
 ### blog.list_post_comments.format.get
 Lists a post's comments.
@@ -563,12 +715,16 @@ skyrock.blog.list_post_comments.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
-* id_post (integer) **required** - Post ID.
-* page (integer) - Page number.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+  * id_post **required** `integer`: Post ID.
+  * page `integer`: Page number.
+
+#### Output
+*Output schema unknown*
 
 ### blog.delete_post_media.format.post
 Deletes a post's media.
@@ -580,8 +736,12 @@ skyrock.blog.delete_post_media.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### blog.new_post_media.format.post
 Associates media with a blog post.
@@ -593,8 +753,12 @@ skyrock.blog.new_post_media.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### blog.list_post_medias.format.get
 Returns a post's medias list.
@@ -607,11 +771,15 @@ skyrock.blog.list_post_medias.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
-* id_post (integer) **required** - Post ID.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+  * id_post **required** `integer`: Post ID.
+
+#### Output
+*Output schema unknown*
 
 ### blog.delete_post.format.post
 Deletes a blog post.
@@ -623,8 +791,12 @@ skyrock.blog.delete_post.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### blog.set_post.format.post
 Edits a blog post.
@@ -636,8 +808,12 @@ skyrock.blog.set_post.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### blog.get_post.format.get
 Returns an user's blog post. Only online posts will be returned, unless authenticated user is its creator.
@@ -650,12 +826,16 @@ skyrock.blog.get_post.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
-* id_post (integer) **required** - Post ID.
-* output_format (string) - Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+  * id_post **required** `integer`: Post ID.
+  * output_format `string` (values: html, bbcode): Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.
+
+#### Output
+*Output schema unknown*
 
 ### blog.new_post.format.post
 Creates a new blog post.
@@ -667,8 +847,12 @@ skyrock.blog.new_post.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### blog.list_offline_posts.format.get
 Returns current user's blog posts list (offline only), paginated.
@@ -680,11 +864,15 @@ skyrock.blog.list_offline_posts.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* page (integer) - Page number.
-* with_secret (boolean) - Allow authenticated blog owner to show secret posts (false by default).
-* output_format (string) - Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * page `integer`: Page number.
+  * with_secret `boolean`: Allow authenticated blog owner to show secret posts (false by default).
+  * output_format `string` (values: html, bbcode): Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.
+
+#### Output
+*Output schema unknown*
 
 ### blog.list_posts.format.get
 Returns an user's blog posts list (online only), paginated (10 articles per page).
@@ -696,13 +884,17 @@ skyrock.blog.list_posts.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
-* page (integer) - Page number.
-* with_secret (boolean) - Allow authenticated blog owner to show secret posts (false by default).
-* output_format (string) - Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+  * page `integer`: Page number.
+  * with_secret `boolean`: Allow authenticated blog owner to show secret posts (false by default).
+  * output_format `string` (values: html, bbcode): Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.
+
+#### Output
+*Output schema unknown*
 
 ### blog.change_avatar.format.post
 Changes authenticated user's blog avatar.
@@ -715,9 +907,13 @@ skyrock.blog.change_avatar.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* Content-Type (string) **required** - Content type.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * Content-Type **required** `string`: Content type.
+
+#### Output
+*Output schema unknown*
 
 ### blog.set.format.post
 Sets authenticated user's blog data. Each parameter is optional, you can either set one or many at once.
@@ -729,8 +925,12 @@ skyrock.blog.set.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### blog.get.format.get
 Returns a blog public data. If the call is authenticated and username is not provided, the method returns data about the current user's Skyrock blog.
@@ -742,11 +942,15 @@ skyrock.blog.get.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
-* output_format (string) - Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+  * output_format `string` (values: html, bbcode): Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.
+
+#### Output
+*Output schema unknown*
 
 ### user.list_groups.format.get
 List of user's groups.
@@ -758,10 +962,14 @@ skyrock.user.list_groups.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+
+#### Output
+*Output schema unknown*
 
 ### user.remove_user_from_blacklist.format.post
 Removes a user from the blacklist.
@@ -773,8 +981,12 @@ skyrock.user.remove_user_from_blacklist.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### user.add_user_to_blacklist.format.post
 Adds a user to the blacklist.
@@ -786,8 +998,12 @@ skyrock.user.add_user_to_blacklist.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### user.list_blacklist.format.get
 List of users in blacklist.
@@ -799,8 +1015,12 @@ skyrock.user.list_blacklist.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### user.get_counters.format.get
 Returns current user counters.
@@ -812,8 +1032,12 @@ skyrock.user.get_counters.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### user.is_friend.format.get
 Checks friend relation between two users.
@@ -827,10 +1051,14 @@ skyrock.user.is_friend.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user_1 (integer) **required** - First user ID.
-* id_user_2 (integer) **required** - Second user ID.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user_1 **required** `integer`: First user ID.
+  * id_user_2 **required** `integer`: Second user ID.
+
+#### Output
+*Output schema unknown*
 
 ### user.deny_friend_request.format.post
 Denies a friend request.
@@ -842,8 +1070,12 @@ skyrock.user.deny_friend_request.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### user.accept_friend_request.format.post
 Accepts a friend request.
@@ -855,8 +1087,12 @@ skyrock.user.accept_friend_request.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### user.list_friend_requests.format.get
 List of friend requests.
@@ -868,8 +1104,12 @@ skyrock.user.list_friend_requests.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### user.remove_from_friends.format.post
 Removes a friend from the friend list.
@@ -881,8 +1121,12 @@ skyrock.user.remove_from_friends.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### user.remove_from_best_friends.format.post
 Removes a friend from the best friend list. The friend user should be a best friend of current user.
@@ -894,8 +1138,12 @@ skyrock.user.remove_from_best_friends.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### user.add_to_best_friends.format.post
 Adds a friend to the best friend list. The friend user should be a friend of current user.
@@ -907,8 +1155,12 @@ skyrock.user.add_to_best_friends.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### user.send_friend_request.format.post
 Sends a friend request.
@@ -920,8 +1172,12 @@ skyrock.user.send_friend_request.format.post({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+
+#### Output
+*Output schema unknown*
 
 ### user.list_online_friends.format.get
 List of online friends.
@@ -933,10 +1189,14 @@ skyrock.user.list_online_friends.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+
+#### Output
+*Output schema unknown*
 
 ### user.list_best_friends.format.get
 List of best friends (paginated).
@@ -948,10 +1208,14 @@ skyrock.user.list_best_friends.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* page (integer) - Page number.
-* order (string) - Results order. Possible values:
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * page `integer`: Page number.
+  * order `string`: Results order. Possible values:
+
+#### Output
+*Output schema unknown*
 
 ### user.list_friends_ids.format.get
 List of friends ids (paginated).
@@ -963,10 +1227,14 @@ skyrock.user.list_friends_ids.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* page (integer) - Page number.
-* order (string) - Results order. Possible values:
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * page `integer`: Page number.
+  * order `string`: Results order. Possible values:
+
+#### Output
+*Output schema unknown*
 
 ### user.list_friends.format.get
 List of friends (paginated).
@@ -978,12 +1246,16 @@ skyrock.user.list_friends.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
-* page (integer) - Page number.
-* order (string) - Results order. Possible values:
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+  * page `integer`: Page number.
+  * order `string`: Results order. Possible values:
+
+#### Output
+*Output schema unknown*
 
 ### user.get.format.get
 Returns an user's public data. If the call is authenticated and username is not provided, the method returns data about the current user's Skyrock account.
@@ -995,10 +1267,14 @@ skyrock.user.get.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
-* id_user (integer) - User ID (optional if OAuthenticated).
-* username (string) - Username (optional if OAuthenticated).
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
+  * id_user `integer`: User ID (optional if OAuthenticated).
+  * username `string`: Username (optional if OAuthenticated).
+
+#### Output
+*Output schema unknown*
 
 ### check_rate_limit.format.get
 Returns the number of remaining queries (see http://en.skyrock.com/developer/documentation/api/#request-rate-limits). Calls to this method are not counted against the limits.
@@ -1010,6 +1286,15 @@ skyrock.check_rate_limit.format.get({
 }, context)
 ```
 
-#### Parameters
-* format (string) **required** - Response format.
+#### Input
+* input `object`
+  * format **required** `string` (values: json, xml): Response format.
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

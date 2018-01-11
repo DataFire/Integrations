@@ -4,17 +4,15 @@ Client library for REST API v1 Core Resources
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/etmdb
+npm install --save @datafire/etmdb
 ```
-
 ```js
-let datafire = require('datafire');
 let etmdb = require('@datafire/etmdb').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 etmdb.api.v1.cinema_detail.search.cinema_name.get({}).then(data => {
@@ -23,9 +21,11 @@ etmdb.api.v1.cinema_detail.search.cinema_name.get({}).then(data => {
 ```
 
 ## Description
+
 The Ethiopian Movie Database
 
 ## Actions
+
 ### oauthCallback
 Exchange the code passed to your redirect URI for an access_token
 
@@ -36,8 +36,17 @@ etmdb.oauthCallback({
 }, context)
 ```
 
-#### Parameters
-* code (string) **required**
+#### Input
+* input `object`
+  * code **required** `string`
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### oauthRefresh
 Exchange a refresh_token for an access_token
@@ -47,8 +56,16 @@ Exchange a refresh_token for an access_token
 etmdb.oauthRefresh(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+* output `object`
+  * access_token `string`
+  * refresh_token `string`
+  * token_type `string`
+  * scope `string`
+  * expiration `string`
 
 ### api.v1.cinema_detail.search.cinema_name.get
 Return cinema details search result
@@ -67,8 +84,12 @@ etmdb.api.v1.cinema_detail.search.cinema_name.get({
 }, context)
 ```
 
-#### Parameters
-* cinema_name (string) **required**
+#### Input
+* input `object`
+  * cinema_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.cinema_schedule.search.movie_title.get
 Return cinema schedule search result
@@ -88,8 +109,12 @@ etmdb.api.v1.cinema_schedule.search.movie_title.get({
 }, context)
 ```
 
-#### Parameters
-* movie_title (string) **required**
+#### Input
+* input `object`
+  * movie_title **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.cinema_schedule.searchall.param.get
 Return cinema schedule search result
@@ -111,8 +136,12 @@ etmdb.api.v1.cinema_schedule.searchall.param.get({
 }, context)
 ```
 
-#### Parameters
-* param (string) **required**
+#### Input
+* input `object`
+  * param **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.cinema_shedule_showtime.search.movie_title.get
 Return cinema schedule and showtime search result
@@ -131,8 +160,12 @@ etmdb.api.v1.cinema_shedule_showtime.search.movie_title.get({
 }, context)
 ```
 
-#### Parameters
-* movie_title (string) **required**
+#### Input
+* input `object`
+  * movie_title **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.cinema_shedule_showtime.searchall.param.get
 Return cinema schedule and showtime search result
@@ -156,8 +189,12 @@ etmdb.api.v1.cinema_shedule_showtime.searchall.param.get({
 }, context)
 ```
 
-#### Parameters
-* param (string) **required**
+#### Input
+* input `object`
+  * param **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### cinema_search_read
 Return cinema search result
@@ -176,8 +213,12 @@ etmdb.cinema_search_read({
 }, context)
 ```
 
-#### Parameters
-* id (string) **required**
+#### Input
+* input `object`
+  * id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.company_credits.search.movie_title.get
 Return company credits search result
@@ -197,8 +238,12 @@ etmdb.api.v1.company_credits.search.movie_title.get({
 }, context)
 ```
 
-#### Parameters
-* movie_title (string) **required**
+#### Input
+* input `object`
+  * movie_title **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.company_credits.searchall.param.get
 Return company credits search result
@@ -219,8 +264,12 @@ etmdb.api.v1.company_credits.searchall.param.get({
 }, context)
 ```
 
-#### Parameters
-* param (string) **required**
+#### Input
+* input `object`
+  * param **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### company_search_read
 Return company search result
@@ -239,8 +288,12 @@ etmdb.company_search_read({
 }, context)
 ```
 
-#### Parameters
-* company_name (string) **required**
+#### Input
+* input `object`
+  * company_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.filmography_type.search.filmography_description.get
 Return filmography type search result
@@ -259,8 +312,12 @@ etmdb.api.v1.filmography_type.search.filmography_description.get({
 }, context)
 ```
 
-#### Parameters
-* filmography_description (string) **required**
+#### Input
+* input `object`
+  * filmography_description **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### filmography_search_read
 Return filmography search result
@@ -280,8 +337,12 @@ etmdb.filmography_search_read({
 }, context)
 ```
 
-#### Parameters
-* movie_title (string) **required**
+#### Input
+* input `object`
+  * movie_title **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### filmography_searchall_read
 Return filmography search result
@@ -304,8 +365,12 @@ etmdb.filmography_searchall_read({
 }, context)
 ```
 
-#### Parameters
-* param (string) **required**
+#### Input
+* input `object`
+  * param **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.genre_type.search.genre_description.get
 Return genre type search result
@@ -324,8 +389,12 @@ etmdb.api.v1.genre_type.search.genre_description.get({
 }, context)
 ```
 
-#### Parameters
-* genre_description (string) **required**
+#### Input
+* input `object`
+  * genre_description **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### genre_search_read
 Return movie genre search result
@@ -345,8 +414,12 @@ etmdb.genre_search_read({
 }, context)
 ```
 
-#### Parameters
-* movie_title (string) **required**
+#### Input
+* input `object`
+  * movie_title **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### genre_searchall_read
 Return movie genre search result
@@ -365,8 +438,12 @@ etmdb.genre_searchall_read({
 }, context)
 ```
 
-#### Parameters
-* movie_genre_type (string) **required**
+#### Input
+* input `object`
+  * movie_genre_type **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### job_search_read
 Return job details search result
@@ -385,8 +462,12 @@ etmdb.job_search_read({
 }, context)
 ```
 
-#### Parameters
-* job_title (string) **required**
+#### Input
+* input `object`
+  * job_title **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### job_searchall_read
 Return job details search result
@@ -405,8 +486,12 @@ etmdb.job_searchall_read({
 }, context)
 ```
 
-#### Parameters
-* company_name (string) **required**
+#### Input
+* input `object`
+  * company_name **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### media_search_read
 Return movie media search result
@@ -426,8 +511,12 @@ etmdb.media_search_read({
 }, context)
 ```
 
-#### Parameters
-* movie_title (string) **required**
+#### Input
+* input `object`
+  * movie_title **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### media_searchall_read
 Return cast media search result
@@ -448,8 +537,12 @@ etmdb.media_searchall_read({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required**
+#### Input
+* input `object`
+  * user **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.movie_cast.search.movie_title.get
 Return movie cast search result
@@ -469,8 +562,12 @@ etmdb.api.v1.movie_cast.search.movie_title.get({
 }, context)
 ```
 
-#### Parameters
-* movie_title (string) **required**
+#### Input
+* input `object`
+  * movie_title **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### api.v1.movie_cast.searchall.param.get
 Return movie cast search result
@@ -493,8 +590,12 @@ etmdb.api.v1.movie_cast.searchall.param.get({
 }, context)
 ```
 
-#### Parameters
-* param (string) **required**
+#### Input
+* input `object`
+  * param **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### movie_search_read
 Return movie search result
@@ -514,8 +615,12 @@ etmdb.movie_search_read({
 }, context)
 ```
 
-#### Parameters
-* movie_title (string) **required**
+#### Input
+* input `object`
+  * movie_title **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### news_search_read
 Return news or article search result
@@ -534,8 +639,12 @@ etmdb.news_search_read({
 }, context)
 ```
 
-#### Parameters
-* title (string) **required**
+#### Input
+* input `object`
+  * title **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### people_search_read
 Return cast search result
@@ -556,8 +665,12 @@ etmdb.people_search_read({
 }, context)
 ```
 
-#### Parameters
-* user (string) **required**
+#### Input
+* input `object`
+  * user **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### showtime_searchall_read
 Return showtime search result
@@ -577,8 +690,12 @@ etmdb.showtime_searchall_read({
 }, context)
 ```
 
-#### Parameters
-* param (string) **required**
+#### Input
+* input `object`
+  * param **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### watchlist_search_read
 Return watchlist search result
@@ -598,8 +715,12 @@ etmdb.watchlist_search_read({
 }, context)
 ```
 
-#### Parameters
-* movie_title (string) **required**
+#### Input
+* input `object`
+  * movie_title **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### watchlist_searchall_read
 Return watchlist search result
@@ -621,6 +742,15 @@ etmdb.watchlist_searchall_read({
 }, context)
 ```
 
-#### Parameters
-* param (string) **required**
+#### Input
+* input `object`
+  * param **required** `string`
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

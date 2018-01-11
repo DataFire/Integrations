@@ -4,17 +4,15 @@ Client library for GraphRbacManagementClient
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/windows_arm_graphrbac
+npm install --save @datafire/windows_arm_graphrbac
 ```
-
 ```js
-let datafire = require('datafire');
 let windows_arm_graphrbac = require('@datafire/windows_arm_graphrbac').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 windows_arm_graphrbac.Applications_List({}).then(data => {
@@ -23,9 +21,11 @@ windows_arm_graphrbac.Applications_List({}).then(data => {
 ```
 
 ## Description
+
 The Graph RBAC Management Client
 
 ## Actions
+
 ### Applications_List
 Lists applications by filter parameters.
 
@@ -37,10 +37,14 @@ windows_arm_graphrbac.Applications_List({
 }, context)
 ```
 
-#### Parameters
-* $filter (string) - The filters to apply to the operation.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * $filter `string`: The filters to apply to the operation.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [ApplicationListResult](#applicationlistresult)
 
 ### Applications_Create
 Create a new application.
@@ -54,10 +58,14 @@ windows_arm_graphrbac.Applications_Create({
 }, context)
 ```
 
-#### Parameters
-* parameters (undefined) **required** - Request parameters for creating a new application.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * parameters **required** [ApplicationCreateParameters](#applicationcreateparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [Application](#application)
 
 ### Applications_Delete
 Delete an application.
@@ -71,10 +79,14 @@ windows_arm_graphrbac.Applications_Delete({
 }, context)
 ```
 
-#### Parameters
-* applicationObjectId (string) **required** - Application object ID.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * applicationObjectId **required** `string`: Application object ID.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
 
 ### Applications_Get
 Get an application by object ID.
@@ -88,10 +100,14 @@ windows_arm_graphrbac.Applications_Get({
 }, context)
 ```
 
-#### Parameters
-* applicationObjectId (string) **required** - Application object ID.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * applicationObjectId **required** `string`: Application object ID.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [Application](#application)
 
 ### Applications_Patch
 Update an existing application.
@@ -106,11 +122,15 @@ windows_arm_graphrbac.Applications_Patch({
 }, context)
 ```
 
-#### Parameters
-* applicationObjectId (string) **required** - Application object ID.
-* parameters (undefined) **required** - Request parameters for updating an existing application.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * applicationObjectId **required** `string`: Application object ID.
+  * parameters **required** [ApplicationUpdateParameters](#applicationupdateparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
 
 ### Applications_ListKeyCredentials
 Get the keyCredentials associated with an application.
@@ -124,10 +144,14 @@ windows_arm_graphrbac.Applications_ListKeyCredentials({
 }, context)
 ```
 
-#### Parameters
-* applicationObjectId (string) **required** - Application object ID.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * applicationObjectId **required** `string`: Application object ID.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [KeyCredentialListResult](#keycredentiallistresult)
 
 ### Applications_UpdateKeyCredentials
 Update the keyCredentials associated with an application.
@@ -142,11 +166,15 @@ windows_arm_graphrbac.Applications_UpdateKeyCredentials({
 }, context)
 ```
 
-#### Parameters
-* applicationObjectId (string) **required** - Application object ID.
-* parameters (undefined) **required** - Request parameters for a KeyCredentials update operation
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * applicationObjectId **required** `string`: Application object ID.
+  * parameters **required** [KeyCredentialsUpdateParameters](#keycredentialsupdateparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
 
 ### Applications_ListPasswordCredentials
 Get the passwordCredentials associated with an application.
@@ -160,10 +188,14 @@ windows_arm_graphrbac.Applications_ListPasswordCredentials({
 }, context)
 ```
 
-#### Parameters
-* applicationObjectId (string) **required** - Application object ID.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * applicationObjectId **required** `string`: Application object ID.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [PasswordCredentialListResult](#passwordcredentiallistresult)
 
 ### Applications_UpdatePasswordCredentials
 Update passwordCredentials associated with an application.
@@ -178,11 +210,15 @@ windows_arm_graphrbac.Applications_UpdatePasswordCredentials({
 }, context)
 ```
 
-#### Parameters
-* applicationObjectId (string) **required** - Application object ID.
-* parameters (undefined) **required** - Request parameters for a PasswordCredentials update operation.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * applicationObjectId **required** `string`: Application object ID.
+  * parameters **required** [PasswordCredentialsUpdateParameters](#passwordcredentialsupdateparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
 
 ### Domains_List
 Gets a list of domains for the current tenant.
@@ -195,10 +231,14 @@ windows_arm_graphrbac.Domains_List({
 }, context)
 ```
 
-#### Parameters
-* $filter (string) - The filter to apply to the operation.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * $filter `string`: The filter to apply to the operation.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [DomainListResult](#domainlistresult)
 
 ### Domains_Get
 Gets a specific domain in the current tenant.
@@ -212,10 +252,14 @@ windows_arm_graphrbac.Domains_Get({
 }, context)
 ```
 
-#### Parameters
-* domainName (string) **required** - name of the domain.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * domainName **required** `string`: name of the domain.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [Domain](#domain)
 
 ### Objects_GetObjectsByObjectIds
 Gets AD group membership for the specified AD object IDs.
@@ -229,10 +273,14 @@ windows_arm_graphrbac.Objects_GetObjectsByObjectIds({
 }, context)
 ```
 
-#### Parameters
-* parameters (undefined) **required** - Request parameters for the GetObjectsByObjectIds API.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * parameters **required** [GetObjectsParameters](#getobjectsparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [GetObjectsResult](#getobjectsresult)
 
 ### Groups_List
 Gets list of groups for the current tenant.
@@ -245,10 +293,14 @@ windows_arm_graphrbac.Groups_List({
 }, context)
 ```
 
-#### Parameters
-* $filter (string) - The filter to apply to the operation.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * $filter `string`: The filter to apply to the operation.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [GroupListResult](#grouplistresult)
 
 ### Groups_Create
 Create a group in the directory.
@@ -262,10 +314,14 @@ windows_arm_graphrbac.Groups_Create({
 }, context)
 ```
 
-#### Parameters
-* parameters (undefined) **required** - Request parameters for creating a new group.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * parameters **required** [GroupCreateParameters](#groupcreateparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [ADGroup](#adgroup)
 
 ### Groups_Delete
 Delete a group from the directory.
@@ -279,10 +335,14 @@ windows_arm_graphrbac.Groups_Delete({
 }, context)
 ```
 
-#### Parameters
-* groupObjectId (string) **required** - The object ID of the group to delete.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * groupObjectId **required** `string`: The object ID of the group to delete.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
 
 ### Groups_AddMember
 Add a member to a group.
@@ -297,11 +357,15 @@ windows_arm_graphrbac.Groups_AddMember({
 }, context)
 ```
 
-#### Parameters
-* groupObjectId (string) **required** - The object ID of the group to which to add the member.
-* parameters (undefined) **required** - Request parameters for adding a member to a group.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * groupObjectId **required** `string`: The object ID of the group to which to add the member.
+  * parameters **required** [GroupAddMemberParameters](#groupaddmemberparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
 
 ### Groups_RemoveMember
 Remove a member from a group.
@@ -316,11 +380,15 @@ windows_arm_graphrbac.Groups_RemoveMember({
 }, context)
 ```
 
-#### Parameters
-* groupObjectId (string) **required** - The object ID of the group from which to remove the member.
-* memberObjectId (string) **required** - Member object id
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * groupObjectId **required** `string`: The object ID of the group from which to remove the member.
+  * memberObjectId **required** `string`: Member object id
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
 
 ### Groups_Get
 Gets group information from the directory.
@@ -334,10 +402,14 @@ windows_arm_graphrbac.Groups_Get({
 }, context)
 ```
 
-#### Parameters
-* objectId (string) **required** - The object ID of the user for which to get group information.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of the user for which to get group information.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [ADGroup](#adgroup)
 
 ### Groups_GetMemberGroups
 Gets a collection of object IDs of groups of which the specified group is a member.
@@ -352,11 +424,15 @@ windows_arm_graphrbac.Groups_GetMemberGroups({
 }, context)
 ```
 
-#### Parameters
-* objectId (string) **required** - The object ID of the group for which to get group membership.
-* parameters (undefined) **required** - Request parameters for GetMemberGroups API call.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of the group for which to get group membership.
+  * parameters **required** [GroupGetMemberGroupsParameters](#groupgetmembergroupsparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [GroupGetMemberGroupsResult](#groupgetmembergroupsresult)
 
 ### Groups_GetGroupMembers
 Gets the members of a group.
@@ -370,10 +446,14 @@ windows_arm_graphrbac.Groups_GetGroupMembers({
 }, context)
 ```
 
-#### Parameters
-* objectId (string) **required** - The object ID of the group whose members should be retrieved.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of the group whose members should be retrieved.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [GetObjectsResult](#getobjectsresult)
 
 ### Groups_IsMemberOf
 Checks whether the specified user, group, contact, or service principal is a direct or transitive member of the specified group.
@@ -387,10 +467,14 @@ windows_arm_graphrbac.Groups_IsMemberOf({
 }, context)
 ```
 
-#### Parameters
-* parameters (undefined) **required** - Request parameters for IsMemberOf API call.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * parameters **required** [CheckGroupMembershipParameters](#checkgroupmembershipparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [CheckGroupMembershipResult](#checkgroupmembershipresult)
 
 ### Objects_GetCurrentUser
 Gets the details for the currently logged-in user.
@@ -403,9 +487,13 @@ windows_arm_graphrbac.Objects_GetCurrentUser({
 }, context)
 ```
 
-#### Parameters
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [AADObject](#aadobject)
 
 ### ServicePrincipals_List
 Gets a list of service principals from the current tenant.
@@ -418,10 +506,14 @@ windows_arm_graphrbac.ServicePrincipals_List({
 }, context)
 ```
 
-#### Parameters
-* $filter (string) - The filter to apply to the operation.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * $filter `string`: The filter to apply to the operation.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [ServicePrincipalListResult](#serviceprincipallistresult)
 
 ### ServicePrincipals_Create
 Creates a service principal in the directory.
@@ -435,10 +527,14 @@ windows_arm_graphrbac.ServicePrincipals_Create({
 }, context)
 ```
 
-#### Parameters
-* parameters (undefined) **required** - Request parameters for creating a new service principal.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * parameters **required** [ServicePrincipalCreateParameters](#serviceprincipalcreateparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [ServicePrincipal](#serviceprincipal)
 
 ### ServicePrincipals_Delete
 Deletes a service principal from the directory.
@@ -452,10 +548,14 @@ windows_arm_graphrbac.ServicePrincipals_Delete({
 }, context)
 ```
 
-#### Parameters
-* objectId (string) **required** - The object ID of the service principal to delete.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of the service principal to delete.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
 
 ### ServicePrincipals_Get
 Gets service principal information from the directory.
@@ -469,10 +569,14 @@ windows_arm_graphrbac.ServicePrincipals_Get({
 }, context)
 ```
 
-#### Parameters
-* objectId (string) **required** - The object ID of the service principal to get.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of the service principal to get.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [ServicePrincipal](#serviceprincipal)
 
 ### ServicePrincipals_ListKeyCredentials
 Get the keyCredentials associated with the specified service principal.
@@ -486,10 +590,14 @@ windows_arm_graphrbac.ServicePrincipals_ListKeyCredentials({
 }, context)
 ```
 
-#### Parameters
-* objectId (string) **required** - The object ID of the service principal for which to get keyCredentials.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of the service principal for which to get keyCredentials.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [KeyCredentialListResult](#keycredentiallistresult)
 
 ### ServicePrincipals_UpdateKeyCredentials
 Update the keyCredentials associated with a service principal.
@@ -504,11 +612,15 @@ windows_arm_graphrbac.ServicePrincipals_UpdateKeyCredentials({
 }, context)
 ```
 
-#### Parameters
-* objectId (string) **required** - The object ID for which to get service principal information.
-* parameters (undefined) **required** - Request parameters for a KeyCredentials update operation
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID for which to get service principal information.
+  * parameters **required** [KeyCredentialsUpdateParameters](#keycredentialsupdateparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
 
 ### ServicePrincipals_ListPasswordCredentials
 Gets the passwordCredentials associated with a service principal.
@@ -522,10 +634,14 @@ windows_arm_graphrbac.ServicePrincipals_ListPasswordCredentials({
 }, context)
 ```
 
-#### Parameters
-* objectId (string) **required** - The object ID of the service principal.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of the service principal.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [PasswordCredentialListResult](#passwordcredentiallistresult)
 
 ### ServicePrincipals_UpdatePasswordCredentials
 Updates the passwordCredentials associated with a service principal.
@@ -540,11 +656,15 @@ windows_arm_graphrbac.ServicePrincipals_UpdatePasswordCredentials({
 }, context)
 ```
 
-#### Parameters
-* objectId (string) **required** - The object ID of the service principal.
-* parameters (undefined) **required** - Request parameters for a PasswordCredentials update operation.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of the service principal.
+  * parameters **required** [PasswordCredentialsUpdateParameters](#passwordcredentialsupdateparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
 
 ### Users_List
 Gets list of users for the current tenant.
@@ -557,10 +677,14 @@ windows_arm_graphrbac.Users_List({
 }, context)
 ```
 
-#### Parameters
-* $filter (string) - The filter to apply to the operation.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * $filter `string`: The filter to apply to the operation.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [UserListResult](#userlistresult)
 
 ### Users_Create
 Create a new user.
@@ -574,10 +698,14 @@ windows_arm_graphrbac.Users_Create({
 }, context)
 ```
 
-#### Parameters
-* parameters (undefined) **required** - Request parameters for creating a new work or school account user.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * parameters **required** [UserCreateParameters](#usercreateparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [User](#user)
 
 ### Users_GetMemberGroups
 Gets a collection that contains the object IDs of the groups of which the user is a member.
@@ -592,11 +720,15 @@ windows_arm_graphrbac.Users_GetMemberGroups({
 }, context)
 ```
 
-#### Parameters
-* objectId (string) **required** - The object ID of the user for which to get group membership.
-* parameters (undefined) **required** - Request parameters for GetMemberGroups API call.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * objectId **required** `string`: The object ID of the user for which to get group membership.
+  * parameters **required** [UserGetMemberGroupsParameters](#usergetmembergroupsparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [UserGetMemberGroupsResult](#usergetmembergroupsresult)
 
 ### Users_Delete
 Delete a user.
@@ -610,10 +742,14 @@ windows_arm_graphrbac.Users_Delete({
 }, context)
 ```
 
-#### Parameters
-* upnOrObjectId (string) **required** - The object ID or principal name of the user to delete.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * upnOrObjectId **required** `string`: The object ID or principal name of the user to delete.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
 
 ### Users_Get
 Gets user information from the directory.
@@ -627,10 +763,14 @@ windows_arm_graphrbac.Users_Get({
 }, context)
 ```
 
-#### Parameters
-* upnOrObjectId (string) **required** - The object ID or principal name of the user for which to get information.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * upnOrObjectId **required** `string`: The object ID or principal name of the user for which to get information.
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+* output [User](#user)
 
 ### Users_Update
 Updates a user.
@@ -645,9 +785,283 @@ windows_arm_graphrbac.Users_Update({
 }, context)
 ```
 
-#### Parameters
-* upnOrObjectId (string) **required** - The object ID or principal name of the user to update.
-* parameters (undefined) **required** - Request parameters for updating an existing work or school account user.
-* api-version (string) **required** - Client API version.
-* tenantID (string) **required** - The tenant ID.
+#### Input
+* input `object`
+  * upnOrObjectId **required** `string`: The object ID or principal name of the user to update.
+  * parameters **required** [UserUpdateParameters](#userupdateparameters)
+  * api-version **required** `string`: Client API version.
+  * tenantID **required** `string`: The tenant ID.
+
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+### AADObject
+* AADObject `object`: The properties of an Active Directory object.
+  * appId `string`: The application ID.
+  * appPermissions `array`: The application permissions.
+    * items `string`
+  * availableToOtherTenants `boolean`: Whether the application is be available to other tenants.
+  * displayName `string`: The display name of the object.
+  * homepage `string`: The home page of the application.
+  * identifierUris `array`: A collection of URIs for the application.
+    * items `string`
+  * mail `string`: The primary email address of the object.
+  * mailEnabled `boolean`: Whether the AAD object is mail-enabled.
+  * mailNickname `string`: The mail alias for the user.
+  * objectId `string`: The ID of the object.
+  * objectType `string`: The type of AAD object.
+  * replyUrls `array`: A collection of reply URLs for the application.
+    * items `string`
+  * securityEnabled `boolean`: Whether the AAD object is security-enabled.
+  * servicePrincipalNames `array`: A collection of service principal names associated with the object.
+    * items `string`
+  * signInName `string`: The sign-in name of the object.
+  * usageLocation `string`: A two letter country code (ISO standard 3166). Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. Examples include: "US", "JP", and "GB".
+  * userPrincipalName `string`: The principal name of the object.
+  * userType `string`: The user type of the object.
+
+### ADGroup
+* ADGroup `object`: Active Directory group information.
+  * displayName `string`: The display name of the group.
+  * mail `string`: The primary email address of the group.
+  * objectId `string`: The object ID.
+  * objectType `string`: The object type.
+  * securityEnabled `boolean`: Whether the group is security-enable.
+
+### Application
+* Application `object`: Active Directory application information.
+  * appId `string`: The application ID.
+  * appPermissions `array`: The application permissions.
+    * items `string`
+  * availableToOtherTenants `boolean`: Whether the application is be available to other tenants.
+  * displayName `string`: The display name of the application.
+  * homepage `string`: The home page of the application.
+  * identifierUris `array`: A collection of URIs for the application.
+    * items `string`
+  * objectId `string`: The object ID.
+  * objectType `string`: The object type.
+  * replyUrls `array`: A collection of reply URLs for the application.
+    * items `string`
+
+### ApplicationCreateParameters
+* ApplicationCreateParameters `object`: Request parameters for creating a new application.
+  * availableToOtherTenants **required** `boolean`: Whether the application is available to other tenants.
+  * displayName **required** `string`: The display name of the application.
+  * homepage `string`: The home page of the application.
+  * identifierUris **required** `array`: A collection of URIs for the application.
+    * items `string`
+  * keyCredentials `array`: The list of KeyCredential objects.
+    * items [KeyCredential](#keycredential)
+  * passwordCredentials `array`: The list of PasswordCredential objects.
+    * items [PasswordCredential](#passwordcredential)
+  * replyUrls `array`: A collection of reply URLs for the application.
+    * items `string`
+
+### ApplicationListResult
+* ApplicationListResult `object`: Application list operation result.
+  * odata.nextLink `string`: The URL to get the next set of results.
+  * value `array`: A collection of applications.
+    * items [Application](#application)
+
+### ApplicationUpdateParameters
+* ApplicationUpdateParameters `object`: Request parameters for updating an existing application.
+  * availableToOtherTenants `boolean`: Whether the application is available to other tenants
+  * displayName `string`: The display name of the application.
+  * homepage `string`: The home page of the application.
+  * identifierUris `array`: A collection of URIs for the application.
+    * items `string`
+  * keyCredentials `array`: The list of KeyCredential objects.
+    * items [KeyCredential](#keycredential)
+  * passwordCredentials `array`: The list of PasswordCredential objects.
+    * items [PasswordCredential](#passwordcredential)
+  * replyUrls `array`: A collection of reply URLs for the application.
+    * items `string`
+
+### CheckGroupMembershipParameters
+* CheckGroupMembershipParameters `object`: Request parameters for IsMemberOf API call.
+  * groupId **required** `string`: The object ID of the group to check.
+  * memberId **required** `string`: The object ID of the contact, group, user, or service principal to check for membership in the specified group.
+
+### CheckGroupMembershipResult
+* CheckGroupMembershipResult `object`: Server response for IsMemberOf API call
+  * value `boolean`: True if the specified user, group, contact, or service principal has either direct or transitive membership in the specified group; otherwise, false.
+
+### Domain
+* Domain `object`: Active Directory Domain information.
+  * authenticationType `string`: the type of the authentication into the domain.
+  * isDefault `boolean`: if this is the default domain in the tenant.
+  * isVerified `boolean`: if this domain's ownership is verified.
+  * name **required** `string`: the domain name.
+
+### DomainListResult
+* DomainListResult `object`: Server response for Get tenant domains API call.
+  * value `array`: the list of domains.
+    * items [Domain](#domain)
+
+### ErrorMessage
+* ErrorMessage `object`: Active Directory error message.
+  * value `string`: Error message value.
+
+### GetObjectsParameters
+* GetObjectsParameters `object`: Request parameters for the GetObjectsByObjectIds API.
+  * includeDirectoryObjectReferences **required** `boolean`: If true, also searches for object IDs in the partner tenant.
+  * objectIds `array`: The requested object IDs.
+    * items `string`
+  * types `array`: The requested object types.
+    * items `string`
+
+### GetObjectsResult
+* GetObjectsResult `object`: The response to an Active Directory object inquiry API request.
+  * odata.nextLink `string`: The URL to get the next set of results.
+  * value `array`: A collection of Active Directory objects.
+    * items [AADObject](#aadobject)
+
+### GraphError
+* GraphError `object`: Active Directory error information.
+  * odata.error [OdataError](#odataerror)
+
+### GroupAddMemberParameters
+* GroupAddMemberParameters `object`: Request parameters for adding a member to a group.
+  * url **required** `string`: A member object URL, such as "https://graph.windows.net/0b1f9851-1bf0-433f-aec3-cb9272f093dc/directoryObjects/f260bbc4-c254-447b-94cf-293b5ec434dd", where "0b1f9851-1bf0-433f-aec3-cb9272f093dc" is the tenantId and "f260bbc4-c254-447b-94cf-293b5ec434dd" is the objectId of the member (user, application, servicePrincipal, group) to be added.
+
+### GroupCreateParameters
+* GroupCreateParameters `object`: Request parameters for creating a new group.
+  * displayName **required** `string`: Group display name
+  * mailEnabled **required** `boolean` (values: false): Whether the group is mail-enabled. Must be false. This is because only pure security groups can be created using the Graph API.
+  * mailNickname **required** `string`: Mail nickname
+  * securityEnabled **required** `boolean` (values: true): Whether the group is a security group. Must be true. This is because only pure security groups can be created using the Graph API.
+
+### GroupGetMemberGroupsParameters
+* GroupGetMemberGroupsParameters `object`: Request parameters for GetMemberGroups API call.
+  * securityEnabledOnly **required** `boolean`: If true, only membership in security-enabled groups should be checked. Otherwise, membership in all groups should be checked.
+
+### GroupGetMemberGroupsResult
+* GroupGetMemberGroupsResult `object`: Server response for GetMemberGroups API call.
+  * value `array`: A collection of group IDs of which the group is a member.
+    * items `string`
+
+### GroupListResult
+* GroupListResult `object`: Server response for Get tenant groups API call
+  * odata.nextLink `string`: The URL to get the next set of results.
+  * value `array`: A collection of Active Directory groups.
+    * items [ADGroup](#adgroup)
+
+### KeyCredential
+* KeyCredential `object`: Active Directory Key Credential information.
+  * endDate `string`: End date.
+  * keyId `string`: Key ID.
+  * startDate `string`: Start date.
+  * type `string`: Type. Acceptable values are 'AsymmetricX509Cert' and 'Symmetric'.
+  * usage `string`: Usage. Acceptable values are 'Verify' and 'Sign'.
+  * value `string`: Key value.
+
+### KeyCredentialListResult
+* KeyCredentialListResult `object`: KeyCredential list operation result.
+  * value `array`: A collection of KeyCredentials.
+    * items [KeyCredential](#keycredential)
+
+### KeyCredentialsUpdateParameters
+* KeyCredentialsUpdateParameters `object`: Request parameters for a KeyCredentials update operation
+  * value **required** `array`: A collection of KeyCredentials.
+    * items [KeyCredential](#keycredential)
+
+### OdataError
+* OdataError `object`: Active Directory OData error information.
+  * code `string`: Error code.
+  * message [ErrorMessage](#errormessage)
+
+### PasswordCredential
+* PasswordCredential `object`: Active Directory Password Credential information.
+  * endDate `string`: End date.
+  * keyId `string`: Key ID.
+  * startDate `string`: Start date.
+  * value `string`: Key value.
+
+### PasswordCredentialListResult
+* PasswordCredentialListResult `object`: PasswordCredential list operation result.
+  * value `array`: A collection of PasswordCredentials.
+    * items [PasswordCredential](#passwordcredential)
+
+### PasswordCredentialsUpdateParameters
+* PasswordCredentialsUpdateParameters `object`: Request parameters for a PasswordCredentials update operation.
+  * value **required** `array`: A collection of PasswordCredentials.
+    * items [PasswordCredential](#passwordcredential)
+
+### PasswordProfile
+* PasswordProfile `object`: The password profile associated with a user.
+  * forceChangePasswordNextLogin `boolean`: Whether to force a password change on next login.
+  * password **required** `string`: Password
+
+### ServicePrincipal
+* ServicePrincipal `object`: Active Directory service principal information.
+  * appId `string`: The application ID.
+  * displayName `string`: The display name of the service principal.
+  * objectId `string`: The object ID.
+  * objectType `string`: The object type.
+  * servicePrincipalNames `array`: A collection of service principal names.
+    * items `string`
+
+### ServicePrincipalCreateParameters
+* ServicePrincipalCreateParameters `object`: Request parameters for creating a new service principal.
+  * accountEnabled **required** `boolean`: Whether the account is enabled
+  * appId **required** `string`: application Id
+  * keyCredentials `array`: A collection of KeyCredential objects.
+    * items [KeyCredential](#keycredential)
+  * passwordCredentials `array`: A collection of PasswordCredential objects
+    * items [PasswordCredential](#passwordcredential)
+
+### ServicePrincipalListResult
+* ServicePrincipalListResult `object`: Server response for get tenant service principals API call.
+  * odata.nextLink `string`: the URL to get the next set of results.
+  * value `array`: the list of service principals.
+    * items [ServicePrincipal](#serviceprincipal)
+
+### User
+* User `object`: Active Directory user information.
+  * displayName `string`: The display name of the user.
+  * mail `string`: The primary email address of the user.
+  * mailNickname `string`: The mail alias for the user.
+  * objectId `string`: The object ID.
+  * objectType `string`: The object type.
+  * signInName `string`: The sign-in name of the user.
+  * usageLocation `string`: A two letter country code (ISO standard 3166). Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. Examples include: "US", "JP", and "GB".
+  * userPrincipalName `string`: The principal name of the user.
+
+### UserCreateParameters
+* UserCreateParameters `object`: Request parameters for creating a new work or school account user.
+  * accountEnabled **required** `boolean`: Whether the account is enabled.
+  * displayName **required** `string`: The display name of the user.
+  * immutableId `string`: This must be specified if you are using a federated domain for the user's userPrincipalName (UPN) property when creating a new user account. It is used to associate an on-premises Active Directory user account with their Azure AD user object.
+  * mailNickname **required** `string`: The mail alias for the user.
+  * passwordProfile **required** [PasswordProfile](#passwordprofile)
+  * usageLocation `string`: A two letter country code (ISO standard 3166). Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. Examples include: "US", "JP", and "GB".
+  * userPrincipalName **required** `string`: The user principal name (someuser@contoso.com). It must contain one of the verified domains for the tenant.
+
+### UserGetMemberGroupsParameters
+* UserGetMemberGroupsParameters `object`: Request parameters for GetMemberGroups API call.
+  * securityEnabledOnly **required** `boolean`: If true, only membership in security-enabled groups should be checked. Otherwise, membership in all groups should be checked.
+
+### UserGetMemberGroupsResult
+* UserGetMemberGroupsResult `object`: Server response for GetMemberGroups API call.
+  * value `array`: A collection of group IDs of which the user is a member.
+    * items `string`
+
+### UserListResult
+* UserListResult `object`: Server response for Get tenant users API call.
+  * odata.nextLink `string`: The URL to get the next set of results.
+  * value `array`: the list of users.
+    * items [User](#user)
+
+### UserUpdateParameters
+* UserUpdateParameters `object`: Request parameters for updating an existing work or school account user.
+  * accountEnabled `boolean`: Whether the account is enabled.
+  * displayName `string`: The display name of the user.
+  * mailNickname `string`: The mail alias for the user.
+  * passwordProfile [PasswordProfile](#passwordprofile)
+  * usageLocation `string`: A two letter country code (ISO standard 3166). Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. Examples include: "US", "JP", and "GB".
+
 

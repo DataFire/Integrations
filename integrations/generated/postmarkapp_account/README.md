@@ -4,11 +4,9 @@ Client library for Postmark Account-level
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/postmarkapp_account
+npm install --save @datafire/postmarkapp_account
 ```
-
 ```js
-let datafire = require('datafire');
 let postmarkapp_account = require('@datafire/postmarkapp_account').create();
 
 postmarkapp_account.listDomains({}).then(data => {
@@ -17,6 +15,7 @@ postmarkapp_account.listDomains({}).then(data => {
 ```
 
 ## Description
+
 Postmark makes sending and receiving email 
 incredibly easy. The Account-level API allows users to
 configure all Servers, Domains, and Sender Signatures associated 
@@ -24,6 +23,7 @@ with an Account.
 
 
 ## Actions
+
 ### listDomains
 List Domains
 
@@ -36,10 +36,14 @@ postmarkapp_account.listDomains({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* count (integer) **required** - Number of records to return per request. Max 500.
-* offset (integer) **required** - Number of records to skip
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * count **required** `integer`: Number of records to return per request. Max 500.
+  * offset **required** `integer`: Number of records to skip
+
+#### Output
+* output [DomainListingResults](#domainlistingresults)
 
 ### createDomain
 Create a Domain
@@ -51,9 +55,13 @@ postmarkapp_account.createDomain({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* body (undefined)
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * body [DomainCreationModel](#domaincreationmodel)
+
+#### Output
+* output [DomainExtendedInformation](#domainextendedinformation)
 
 ### deleteDomain
 Delete a Domain
@@ -66,9 +74,13 @@ postmarkapp_account.deleteDomain({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* domainid (integer) **required** - The ID for the Domain that should be deleted by the request.
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * domainid **required** `integer`: The ID for the Domain that should be deleted by the request.
+
+#### Output
+* output [StandardPostmarkResponse](#standardpostmarkresponse)
 
 ### getDomain
 Get a Domain
@@ -81,9 +93,13 @@ postmarkapp_account.getDomain({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* domainid (integer) **required** - The ID for the Domain that should be retrieved.
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * domainid **required** `integer`: The ID for the Domain that should be retrieved.
+
+#### Output
+* output [DomainExtendedInformation](#domainextendedinformation)
 
 ### editDomain
 Update a Domain
@@ -96,10 +112,14 @@ postmarkapp_account.editDomain({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* domainid (integer) **required** - The ID for the Domain that should be modified by the request.
-* body (undefined)
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * domainid **required** `integer`: The ID for the Domain that should be modified by the request.
+  * body [DomainEditingModel](#domaineditingmodel)
+
+#### Output
+* output [DomainExtendedInformation](#domainextendedinformation)
 
 ### rotateDKIMKeyForDomain
 Creates a new DKIM key to replace your current key. Until the DNS entries are confirmed, 
@@ -117,9 +137,13 @@ postmarkapp_account.rotateDKIMKeyForDomain({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* domainid (integer) **required** - The ID for the Sender Signature for which a new DKIM Key should be generated.
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * domainid **required** `integer`: The ID for the Sender Signature for which a new DKIM Key should be generated.
+
+#### Output
+* output [DKIMRotationResponse](#dkimrotationresponse)
 
 ### requestSPFVerificationForDomain
 Request DNS Verification for SPF
@@ -132,9 +156,13 @@ postmarkapp_account.requestSPFVerificationForDomain({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* domainid (integer) **required** - The ID for the Domain for which SPF DNS records should be verified.
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * domainid **required** `integer`: The ID for the Domain for which SPF DNS records should be verified.
+
+#### Output
+* output [DomainSPFResult](#domainspfresult)
 
 ### listSenderSignatures
 List Sender Signatures
@@ -148,10 +176,14 @@ postmarkapp_account.listSenderSignatures({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* count (integer) **required** - Number of records to return per request. Max 500.
-* offset (integer) **required** - Number of records to skip
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * count **required** `integer`: Number of records to return per request. Max 500.
+  * offset **required** `integer`: Number of records to skip
+
+#### Output
+* output [SenderListingResults](#senderlistingresults)
 
 ### createSenderSignature
 Create a Sender Signature
@@ -163,9 +195,13 @@ postmarkapp_account.createSenderSignature({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* body (undefined)
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * body [SenderSignatureCreationModel](#sendersignaturecreationmodel)
+
+#### Output
+* output [SenderSignatureExtendedInformation](#sendersignatureextendedinformation)
 
 ### deleteSenderSignature
 Delete a Sender Signature
@@ -178,9 +214,13 @@ postmarkapp_account.deleteSenderSignature({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* signatureid (integer) **required** - The ID for the Sender Signature that should be deleted by the request.
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * signatureid **required** `integer`: The ID for the Sender Signature that should be deleted by the request.
+
+#### Output
+* output [StandardPostmarkResponse](#standardpostmarkresponse)
 
 ### getSenderSignature
 Get a Sender Signature
@@ -193,9 +233,13 @@ postmarkapp_account.getSenderSignature({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* signatureid (integer) **required** - The ID for the Sender Signature that should be retrieved.
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * signatureid **required** `integer`: The ID for the Sender Signature that should be retrieved.
+
+#### Output
+* output [SenderSignatureExtendedInformation](#sendersignatureextendedinformation)
 
 ### editSenderSignature
 Update a Sender Signature
@@ -208,10 +252,14 @@ postmarkapp_account.editSenderSignature({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* signatureid (integer) **required** - The ID for the Sender Signature that should be modified by the request.
-* body (undefined)
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * signatureid **required** `integer`: The ID for the Sender Signature that should be modified by the request.
+  * body [SenderSignatureEditingModel](#sendersignatureeditingmodel)
+
+#### Output
+* output [SenderSignatureExtendedInformation](#sendersignatureextendedinformation)
 
 ### requestNewDKIMKeyForSenderSignature
 Requests a new DKIM key to be created. Until the DNS entries are confirmed, 
@@ -229,9 +277,13 @@ postmarkapp_account.requestNewDKIMKeyForSenderSignature({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* signatureid (integer) **required** - The ID for the Sender Signature for which a new DKIM Key should be generated.
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * signatureid **required** `integer`: The ID for the Sender Signature for which a new DKIM Key should be generated.
+
+#### Output
+* output [StandardPostmarkResponse](#standardpostmarkresponse)
 
 ### resendSenderSignatureConfirmationEmail
 Resend Signature Confirmation Email
@@ -244,9 +296,13 @@ postmarkapp_account.resendSenderSignatureConfirmationEmail({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* signatureid (integer) **required** - The ID for the Sender Signature that should have its confirmation email resent.
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * signatureid **required** `integer`: The ID for the Sender Signature that should have its confirmation email resent.
+
+#### Output
+* output [StandardPostmarkResponse](#standardpostmarkresponse)
 
 ### requestSPFVerificationForSenderSignature
 Request DNS Verification for SPF
@@ -259,9 +315,13 @@ postmarkapp_account.requestSPFVerificationForSenderSignature({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* signatureid (integer) **required** - The ID for the Sender Signature for which SPF DNS records should be verified.
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * signatureid **required** `integer`: The ID for the Sender Signature for which SPF DNS records should be verified.
+
+#### Output
+* output [SenderSignatureExtendedInformation](#sendersignatureextendedinformation)
 
 ### listServers
 List servers
@@ -275,11 +335,15 @@ postmarkapp_account.listServers({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* count (integer) **required** - Number of servers to return per request.
-* offset (integer) **required** - Number of servers to skip.
-* name (string) - Filter by a specific server name
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * count **required** `integer`: Number of servers to return per request.
+  * offset **required** `integer`: Number of servers to skip.
+  * name `string`: Filter by a specific server name
+
+#### Output
+* output [ServerListingResponse](#serverlistingresponse)
 
 ### createServer
 Create a Server
@@ -291,9 +355,13 @@ postmarkapp_account.createServer({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* body (undefined)
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * body [CreateServerPayload](#createserverpayload)
+
+#### Output
+* output [ExtendedServerInfo](#extendedserverinfo)
 
 ### deleteServer
 Delete a Server
@@ -306,9 +374,13 @@ postmarkapp_account.deleteServer({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* serverid (integer) **required** - The ID of the Server that should be deleted.
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * serverid **required** `integer`: The ID of the Server that should be deleted.
+
+#### Output
+*Output schema unknown*
 
 ### getServerInformation
 Get a Server
@@ -321,9 +393,13 @@ postmarkapp_account.getServerInformation({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* serverid (integer) **required** - The ID of the Server to get.
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * serverid **required** `integer`: The ID of the Server to get.
+
+#### Output
+* output [ExtendedServerInfo](#extendedserverinfo)
 
 ### editServerInformation
 Edit a Server
@@ -336,8 +412,204 @@ postmarkapp_account.editServerInformation({
 }, context)
 ```
 
-#### Parameters
-* X-Postmark-Account-Token (string) **required** - The token associated with the Account on which this request will operate.
-* serverid (integer) **required** - The ID of the Server to update.
-* body (undefined)
+#### Input
+* input `object`
+  * X-Postmark-Account-Token **required** `string`: The token associated with the Account on which this request will operate.
+  * serverid **required** `integer`: The ID of the Server to update.
+  * body [EditServerPayload](#editserverpayload)
+
+#### Output
+* output [ExtendedServerInfo](#extendedserverinfo)
+
+
+
+## Definitions
+
+### CreateServerPayload
+* CreateServerPayload `object`
+  * BounceHookUrl `string`
+  * ClickHookUrl `string`
+  * Color `string`
+  * DeliveryHookUrl `string`
+  * InboundDomain `string`
+  * InboundHookUrl `string`
+  * InboundSpamThreshold `integer`
+  * Name `string`
+  * OpenHookUrl `string`
+  * PostFirstOpenOnly `boolean`
+  * RawEmailEnabled `boolean`
+  * SmtpApiActivated `boolean`
+  * TrackLinks `string` (values: None, HtmlAndTextTracking, HtmlOnlyTracking, TextOnlyTracking)
+  * TrackOpens `boolean`
+
+### DKIMRotationResponse
+* DKIMRotationResponse `object`
+  * DKIMHost `string`
+  * DKIMPendingHost `string`
+  * DKIMPendingTextValue `string`
+  * DKIMRevokedHost `string`
+  * DKIMRevokedTextValue `string`
+  * DKIMTestValue `string`
+  * DKIMUpdateStatus `string`
+  * DKIMVerified `boolean`
+  * ID `integer`
+  * Name `string`
+  * SafeToRemoveRevokedKeyFromDNS `boolean`
+  * WeakDKIM `boolean`
+
+### DomainCreationModel
+* DomainCreationModel `object`
+  * Name `string`
+  * ReturnPathDomain `string`
+
+### DomainEditingModel
+* DomainEditingModel `object`
+  * ReturnPathDomain `string`
+
+### DomainExtendedInformation
+* DomainExtendedInformation `object`
+  * DKIMHost `string`
+  * DKIMPendingHost `string`
+  * DKIMPendingTextValue `string`
+  * DKIMRevokedHost `string`
+  * DKIMRevokedTextValue `string`
+  * DKIMTestValue `string`
+  * DKIMUpdateStatus `string`
+  * DKIMVerified `boolean`
+  * ID `integer`
+  * Name `string`
+  * ReturnPathDomain `string`
+  * ReturnPathDomainCNAMEValue `string`
+  * ReturnPathDomainVerified `boolean`
+  * SPFHost `string`
+  * SPFTextValue `string`
+  * SPFVerified `boolean`
+  * SafeToRemoveRevokedKeyFromDNS `boolean`
+  * WeakDKIM `boolean`
+
+### DomainInformation
+* DomainInformation `object`
+  * DKIMVerified `boolean`
+  * ID `integer`
+  * Name `string`
+  * ReturnPathDomainVerified `boolean`
+  * SPFVerified `boolean`
+  * WeakDKIM `boolean`
+
+### DomainListingResults
+* DomainListingResults `object`
+  * Domains `array`
+    * items [DomainInformation](#domaininformation)
+  * TotalCount `integer`
+
+### DomainSPFResult
+* DomainSPFResult `object`
+  * SPFHost `string`
+  * SPFTextValue `string`
+  * SPFVerified `boolean`
+
+### EditServerPayload
+* EditServerPayload `object`
+  * BounceHookUrl `string`
+  * ClickHookUrl `string`
+  * Color `string`
+  * DeliveryHookUrl `string`
+  * InboundDomain `string`
+  * InboundHookUrl `string`
+  * InboundSpamThreshold `integer`
+  * Name `string`
+  * OpenHookUrl `string`
+  * PostFirstOpenOnly `boolean`
+  * RawEmailEnabled `boolean`
+  * SmtpApiActivated `boolean`
+  * TrackLinks `string` (values: None, HtmlAndTextTracking, HtmlOnlyTracking, TextOnlyTracking)
+  * TrackOpens `boolean`
+
+### ExtendedServerInfo
+* ExtendedServerInfo `object`
+  * ApiTokens `array`
+    * items `string`
+  * BounceHookUrl `string`
+  * ClickHookUrl `string`
+  * Color `string`
+  * DeliveryHookUrl `string`
+  * ID `integer`
+  * InboundAddress `string`
+  * InboundDomain `string`
+  * InboundHash `string`
+  * InboundHookUrl `string`
+  * InboundSpamThreshold `integer`
+  * Name `string`
+  * OpenHookUrl `string`
+  * PostFirstOpenOnly `boolean`
+  * RawEmailEnabled `boolean`
+  * ServerLink `string`
+  * SmtpApiActivated `boolean`
+  * TrackLinks `string` (values: None, HtmlAndTextTracking, HtmlOnlyTracking, TextOnlyTracking)
+  * TrackOpens `boolean`
+
+### SenderListingResults
+* SenderListingResults `object`
+  * SenderSignatures `array`
+    * items [SenderSignatureInformation](#sendersignatureinformation)
+  * TotalCount `integer`
+
+### SenderSignatureCreationModel
+* SenderSignatureCreationModel `object`
+  * FromEmail `string`
+  * Name `string`
+  * ReplyToEmail `string`
+  * ReturnPathDomain `string`
+
+### SenderSignatureEditingModel
+* SenderSignatureEditingModel `object`
+  * Name `string`
+  * ReplyToEmail `string`
+  * ReturnPathDomain `string`
+
+### SenderSignatureExtendedInformation
+* SenderSignatureExtendedInformation `object`
+  * Confirmed `boolean`
+  * DKIMHost `string`
+  * DKIMPendingHost `string`
+  * DKIMPendingTextValue `string`
+  * DKIMRevokedHost `string`
+  * DKIMRevokedTextValue `string`
+  * DKIMTestValue `string`
+  * DKIMUpdateStatus `string`
+  * DKIMVerified `boolean`
+  * Domain `string`
+  * EmailAddress `string`
+  * ID `integer`
+  * Name `string`
+  * ReplyToEmailAddress `string`
+  * ReturnPathDomain `string`
+  * ReturnPathDomainCNAMEValue `string`
+  * ReturnPathDomainVerified `boolean`
+  * SPFHost `string`
+  * SPFTextValue `string`
+  * SPFVerified `boolean`
+  * SafeToRemoveRevokedKeyFromDNS `boolean`
+  * WeakDKIM `boolean`
+
+### SenderSignatureInformation
+* SenderSignatureInformation `object`
+  * Confirmed `boolean`
+  * Domain `string`
+  * EmailAddress `string`
+  * ID `integer`
+  * Name `string`
+  * ReplyToEmailAddress `string`
+
+### ServerListingResponse
+* ServerListingResponse `object`: The results of listing servers.
+  * Servers `array`
+    * items [ExtendedServerInfo](#extendedserverinfo)
+  * TotalCount `integer`
+
+### StandardPostmarkResponse
+* StandardPostmarkResponse `object`: A Postmark API error.
+  * ErrorCode `integer`
+  * Message `string`
+
 

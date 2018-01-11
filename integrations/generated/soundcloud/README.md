@@ -4,17 +4,15 @@ Client library for SoundCloud
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/soundcloud
+npm install --save @datafire/soundcloud
 ```
-
 ```js
-let datafire = require('datafire');
 let soundcloud = require('@datafire/soundcloud').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
-  redirect_uri: "",
+  redirect_uri: ""
 });
 
 soundcloud.tracks.json.get({}).then(data => {
@@ -23,9 +21,11 @@ soundcloud.tracks.json.get({}).then(data => {
 ```
 
 ## Description
+
 Access, host, upload, and comment on audio.
 
 ## Actions
+
 ### tracks.json.get
 Returns a collection of tracks
 
@@ -38,10 +38,13 @@ soundcloud.tracks.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* title (string) **required**
-* asset_data (string) **required**
+#### Input
+* input `object`
+  * title **required** `string`
+  * asset_data **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### tracks.json.post
 Uploads a track
@@ -54,9 +57,13 @@ soundcloud.tracks.json.post({
 }, context)
 ```
 
-#### Parameters
-* title (string) **required**
-* asset_data (string) **required**
+#### Input
+* input `object`
+  * title **required** `string`
+  * asset_data **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### tracks.track_id.json.get
 Returns a track by track id
@@ -69,9 +76,12 @@ soundcloud.tracks.track_id.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* track_id (string) **required**
+#### Input
+* input `object`
+  * track_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### tracks.track_id.json.put
 Updates a given track
@@ -83,8 +93,12 @@ soundcloud.tracks.track_id.json.put({
 }, context)
 ```
 
-#### Parameters
-* track_id (string) **required**
+#### Input
+* input `object`
+  * track_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### tracks.track_id.json.delete
 Deletes a given track
@@ -96,8 +110,12 @@ soundcloud.tracks.track_id.json.delete({
 }, context)
 ```
 
-#### Parameters
-* track_id (string) **required**
+#### Input
+* input `object`
+  * track_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### tracks.track_id.comments.json.get
 Returns comments of a track by track id
@@ -110,9 +128,12 @@ soundcloud.tracks.track_id.comments.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* track_id (string) **required**
+#### Input
+* input `object`
+  * track_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### tracks.track_id.comments.json.post
 Posts a comments to a track by track id
@@ -124,8 +145,12 @@ soundcloud.tracks.track_id.comments.json.post({
 }, context)
 ```
 
-#### Parameters
-* track_id (string) **required**
+#### Input
+* input `object`
+  * track_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### tracks.track_id.permissions.json.get
 Returns all users with permission for a track by track id
@@ -138,9 +163,12 @@ soundcloud.tracks.track_id.permissions.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* track_id (string) **required**
+#### Input
+* input `object`
+  * track_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### tracks.track_id.permissions.json.put
 Updates the list of permitted users for a track by track id
@@ -152,8 +180,12 @@ soundcloud.tracks.track_id.permissions.json.put({
 }, context)
 ```
 
-#### Parameters
-* track_id (string) **required**
+#### Input
+* input `object`
+  * track_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### tracks.track_id.secret_token.json.get
 Returns the secret token for a track by track id. This resource can only be used by the track owner.
@@ -165,8 +197,12 @@ soundcloud.tracks.track_id.secret_token.json.get({
 }, context)
 ```
 
-#### Parameters
-* track_id (string) **required**
+#### Input
+* input `object`
+  * track_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### tracks.track_id.secret_token.json.put
 Resets the secret token for a track by track id. The secret token can not be specified but will be randomly chosen on
@@ -179,8 +215,12 @@ soundcloud.tracks.track_id.secret_token.json.put({
 }, context)
 ```
 
-#### Parameters
-* track_id (string) **required**
+#### Input
+* input `object`
+  * track_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.json.get
 Returns a collection of users
@@ -192,9 +232,12 @@ soundcloud.users.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* q (string)
+#### Input
+* input `object`
+  * q `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.json.get
 Returns a user by user id
@@ -207,9 +250,12 @@ soundcloud.users.user_id.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* user_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.tracks.json.get
 Returns a collection of tracks uploaded by user id
@@ -222,9 +268,12 @@ soundcloud.users.user_id.tracks.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* user_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.comments.json.get
 Returns a collection of comments made by user id
@@ -237,9 +286,12 @@ soundcloud.users.user_id.comments.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* user_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.followings.json.get
 Returns a collection of users the user with user id is following
@@ -252,9 +304,12 @@ soundcloud.users.user_id.followings.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* user_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.followings.contact_id.json.get
 Checks if the user with the id contact_id is in the givens user's list of contacts.
@@ -268,10 +323,13 @@ soundcloud.users.user_id.followings.contact_id.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* user_id (string) **required**
-* contact_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+  * contact_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.followings.contact_id.json.put
 Adds the user with the id contact_id to the givens user's list of contacts.
@@ -284,9 +342,13 @@ soundcloud.users.user_id.followings.contact_id.json.put({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required**
-* contact_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+  * contact_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.followings.contact_id.json.delete
 Removes the user with the id contact_id from the givens user's list of contacts.
@@ -299,9 +361,13 @@ soundcloud.users.user_id.followings.contact_id.json.delete({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required**
-* contact_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+  * contact_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.followers.json.get
 Returns a collection of users who follow the user with user id
@@ -314,9 +380,12 @@ soundcloud.users.user_id.followers.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* user_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.followers.contact_id.json.get
 Checks if the user with contact_id is a follower of the given user.
@@ -330,10 +399,13 @@ soundcloud.users.user_id.followers.contact_id.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* user_id (string) **required**
-* contact_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+  * contact_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.favorites.json.get
 Returns a collection of tracks favorited by the user with user id
@@ -346,9 +418,12 @@ soundcloud.users.user_id.favorites.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* user_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.favorites.track_id.json.put
 Adds the given track to the given user's list of favorites.
@@ -361,9 +436,13 @@ soundcloud.users.user_id.favorites.track_id.json.put({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required**
-* track_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+  * track_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.favorites.track_id.json.delete
 Deletes the given track from the given user's list of favorites.
@@ -376,9 +455,13 @@ soundcloud.users.user_id.favorites.track_id.json.delete({
 }, context)
 ```
 
-#### Parameters
-* user_id (string) **required**
-* track_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+  * track_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.groups.json.get
 Returns a collection of groups joined by user with user id
@@ -391,9 +474,12 @@ soundcloud.users.user_id.groups.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* user_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.playlists.json.get
 Returns a collection of playlists created by user with user id
@@ -406,9 +492,12 @@ soundcloud.users.user_id.playlists.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* user_id (string) **required**
+#### Input
+* input `object`
+  * user_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### me.json.get
 Returns the logged-in user
@@ -418,8 +507,11 @@ Returns the logged-in user
 soundcloud.me.json.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### me.json.put
 Updates the logged-in user
@@ -429,8 +521,11 @@ Updates the logged-in user
 soundcloud.me.json.put(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### me.tracks.json.get
 Returns a collection of tracks uploaded by logged-in user
@@ -440,8 +535,11 @@ Returns a collection of tracks uploaded by logged-in user
 soundcloud.me.tracks.json.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### me.comments.json.get
 Returns a collection of comments made by logged-in user
@@ -451,8 +549,11 @@ Returns a collection of comments made by logged-in user
 soundcloud.me.comments.json.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### me.followings.json.get
 Returns a collection of users the logged-in user is following
@@ -462,8 +563,11 @@ Returns a collection of users the logged-in user is following
 soundcloud.me.followings.json.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### me.followings.contact_id.json.get
 Checks if the user with the id contact_id is in the logged-in user's list of contacts.
@@ -475,8 +579,12 @@ soundcloud.me.followings.contact_id.json.get({
 }, context)
 ```
 
-#### Parameters
-* contact_id (string) **required**
+#### Input
+* input `object`
+  * contact_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### me.followings.contact_id.json.put
 Adds the user with the id contact_id to the logged-in user's list of contacts.
@@ -488,8 +596,12 @@ soundcloud.me.followings.contact_id.json.put({
 }, context)
 ```
 
-#### Parameters
-* contact_id (string) **required**
+#### Input
+* input `object`
+  * contact_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### me.followings.contact_id.json.delete
 Deletes the user with the id contact_id from the logged-in user's list of contacts.
@@ -501,8 +613,12 @@ soundcloud.me.followings.contact_id.json.delete({
 }, context)
 ```
 
-#### Parameters
-* contact_id (string) **required**
+#### Input
+* input `object`
+  * contact_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### me.followers.json.get
 Returns a collection of users who follow the logged-in user
@@ -512,8 +628,11 @@ Returns a collection of users who follow the logged-in user
 soundcloud.me.followers.json.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### me.followers.contact_id.json.get
 Checks if the user with the id contact_id is a follower of the logged-in user
@@ -525,8 +644,12 @@ soundcloud.me.followers.contact_id.json.get({
 }, context)
 ```
 
-#### Parameters
-* contact_id (string) **required**
+#### Input
+* input `object`
+  * contact_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### me.favorites.json.get
 Returns a collection of tracks favorited by the logged-in user
@@ -536,8 +659,11 @@ Returns a collection of tracks favorited by the logged-in user
 soundcloud.me.favorites.json.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### me.favorites.track_id.json.put
 Adds the given track to the logged-in user's list of favorites.
@@ -549,8 +675,12 @@ soundcloud.me.favorites.track_id.json.put({
 }, context)
 ```
 
-#### Parameters
-* track_id (string) **required**
+#### Input
+* input `object`
+  * track_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### me.favorites.track_id.json.delete
 Deletes the given track from the logged-in user's list of favorites.
@@ -562,8 +692,12 @@ soundcloud.me.favorites.track_id.json.delete({
 }, context)
 ```
 
-#### Parameters
-* track_id (string) **required**
+#### Input
+* input `object`
+  * track_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### me.groups.json.get
 Returns a collection of groups joined by logged-in user
@@ -573,8 +707,11 @@ Returns a collection of groups joined by logged-in user
 soundcloud.me.groups.json.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### me.playlists.json.get
 Returns a collection of playlists created by the logged-in user
@@ -584,8 +721,11 @@ Returns a collection of playlists created by the logged-in user
 soundcloud.me.playlists.json.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### playlists.json.get
 Returns a collection of playlists
@@ -597,10 +737,13 @@ soundcloud.playlists.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* q (string)
-* filter (string)
+#### Input
+* input `object`
+  * q `string`
+  * filter `string` (values: all, public, private)
+
+#### Output
+*Output schema unknown*
 
 ### playlists.playlist_id.json.get
 Returns a playlist by playlist id
@@ -613,9 +756,12 @@ soundcloud.playlists.playlist_id.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* playlist_id (string) **required**
+#### Input
+* input `object`
+  * playlist_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### groups.json.get
 Returns a collection of groups
@@ -627,8 +773,11 @@ soundcloud.groups.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### groups.group_id.json.get
 Returns a group by group id
@@ -641,9 +790,12 @@ soundcloud.groups.group_id.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* playlist_id (string) **required**
+#### Input
+* input `object`
+  * playlist_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### groups.group_id.users.json.get
 Returns a combined collection of moderators, members and contributors of the group with group id
@@ -656,9 +808,12 @@ soundcloud.groups.group_id.users.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* playlist_id (string) **required**
+#### Input
+* input `object`
+  * playlist_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### groups.group_id.moderators.json.get
 Returns a collection of moderators of the group with group id
@@ -671,9 +826,12 @@ soundcloud.groups.group_id.moderators.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* playlist_id (string) **required**
+#### Input
+* input `object`
+  * playlist_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### groups.group_id.members.json.get
 Returns a collection of members of the group with group id
@@ -686,9 +844,12 @@ soundcloud.groups.group_id.members.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* playlist_id (string) **required**
+#### Input
+* input `object`
+  * playlist_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### groups.group_id.contributors.json.get
 Returns a collection of contributors of the group with group id
@@ -701,9 +862,12 @@ soundcloud.groups.group_id.contributors.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* playlist_id (string) **required**
+#### Input
+* input `object`
+  * playlist_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### groups.group_id.tracks.json.get
 Returns a collection of tracks contributed to the group with group id
@@ -716,9 +880,12 @@ soundcloud.groups.group_id.tracks.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* playlist_id (string) **required**
+#### Input
+* input `object`
+  * playlist_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### comments.comment_id.json.get
 Returns a comment by comment id
@@ -731,9 +898,12 @@ soundcloud.comments.comment_id.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* playlist_id (string) **required**
+#### Input
+* input `object`
+  * playlist_id **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### resolve.json.get
 Translates a website URI into an API URI
@@ -746,7 +916,15 @@ soundcloud.resolve.json.get({
 }, context)
 ```
 
-#### Parameters
-* consumer_key (undefined) **required**
-* url (string) **required**
+#### Input
+* input `object`
+  * url **required** `string`
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

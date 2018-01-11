@@ -4,11 +4,9 @@ Client library for Rhapsody
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/rhapsody
+npm install --save @datafire/rhapsody
 ```
-
 ```js
-let datafire = require('datafire');
 let rhapsody = require('@datafire/rhapsody').create();
 
 rhapsody.artists.top.get({}).then(data => {
@@ -17,9 +15,11 @@ rhapsody.artists.top.get({}).then(data => {
 ```
 
 ## Description
+
 Access Rhapsody technologies and content, including metadeta, search and music player.
 
 ## Actions
+
 ### artists.top.get
 Returns a list of top artists.
 
@@ -30,10 +30,14 @@ rhapsody.artists.top.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
-* limit (string)
-* offset (string)
+#### Input
+* input `object`
+  * apikey **required** `string`
+  * limit `string`
+  * offset `string`
+
+#### Output
+*Output schema unknown*
 
 ### artists.art.id.get
 
@@ -45,8 +49,12 @@ rhapsody.artists.art.id.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
+#### Input
+* input `object`
+  * apikey **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### artists.art.id.full.get
 
@@ -58,8 +66,12 @@ rhapsody.artists.art.id.full.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
+#### Input
+* input `object`
+  * apikey **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### artists.art.id.albums.get
 
@@ -71,8 +83,12 @@ rhapsody.artists.art.id.albums.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
+#### Input
+* input `object`
+  * apikey **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### artists.art.id.recommendations.get
 
@@ -84,8 +100,12 @@ rhapsody.artists.art.id.recommendations.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
+#### Input
+* input `object`
+  * apikey **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### artists.art.id.similar.get
 
@@ -97,8 +117,12 @@ rhapsody.artists.art.id.similar.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
+#### Input
+* input `object`
+  * apikey **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### artists.art.id.tracks.top.get
 
@@ -110,10 +134,14 @@ rhapsody.artists.art.id.tracks.top.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
-* limit (string)
-* offset (string)
+#### Input
+* input `object`
+  * apikey **required** `string`
+  * limit `string`
+  * offset `string`
+
+#### Output
+*Output schema unknown*
 
 ### albums.top.get
 Returns a list of top albums.
@@ -125,10 +153,14 @@ rhapsody.albums.top.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
-* limit (string)
-* offset (string)
+#### Input
+* input `object`
+  * apikey **required** `string`
+  * limit `string`
+  * offset `string`
+
+#### Output
+*Output schema unknown*
 
 ### albums.new.get
 
@@ -140,8 +172,12 @@ rhapsody.albums.new.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
+#### Input
+* input `object`
+  * apikey **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### albums.alb.id.get
 
@@ -153,8 +189,12 @@ rhapsody.albums.alb.id.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
+#### Input
+* input `object`
+  * apikey **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### albums.alb.id.tracks.get
 
@@ -166,8 +206,12 @@ rhapsody.albums.alb.id.tracks.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
+#### Input
+* input `object`
+  * apikey **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### albums.alb.id.similar.get
 
@@ -179,8 +223,12 @@ rhapsody.albums.alb.id.similar.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
+#### Input
+* input `object`
+  * apikey **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### albums.alb.id.recommendations.get
 
@@ -192,8 +240,12 @@ rhapsody.albums.alb.id.recommendations.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
+#### Input
+* input `object`
+  * apikey **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### albums.alb.id.reviews.get
 
@@ -205,8 +257,12 @@ rhapsody.albums.alb.id.reviews.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
+#### Input
+* input `object`
+  * apikey **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### search.typeahead.get
 Returns a list of tracks, artists and albums based on the search term for authenticated users.
@@ -219,11 +275,15 @@ rhapsody.search.typeahead.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
-* q (string) **required** - Typeahead search term.
-* limit (string)
-* offset (string)
+#### Input
+* input `object`
+  * apikey **required** `string`
+  * q **required** `string`: Typeahead search term.
+  * limit `string`
+  * offset `string`
+
+#### Output
+*Output schema unknown*
 
 ### tracks.top.get
 Returns a list of top tracks.
@@ -235,10 +295,14 @@ rhapsody.tracks.top.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
-* limit (string)
-* offset (string)
+#### Input
+* input `object`
+  * apikey **required** `string`
+  * limit `string`
+  * offset `string`
+
+#### Output
+*Output schema unknown*
 
 ### tracks.tra.id.get
 
@@ -250,10 +314,14 @@ rhapsody.tracks.tra.id.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
-* limit (string)
-* offset (string)
+#### Input
+* input `object`
+  * apikey **required** `string`
+  * limit `string`
+  * offset `string`
+
+#### Output
+*Output schema unknown*
 
 ### tracks.tra.id.recommendations.get
 
@@ -265,10 +333,14 @@ rhapsody.tracks.tra.id.recommendations.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
-* limit (string)
-* offset (string)
+#### Input
+* input `object`
+  * apikey **required** `string`
+  * limit `string`
+  * offset `string`
+
+#### Output
+*Output schema unknown*
 
 ### genres.get
 Returns a list of available genres.
@@ -280,8 +352,12 @@ rhapsody.genres.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
+#### Input
+* input `object`
+  * apikey **required** `string`
+
+#### Output
+*Output schema unknown*
 
 ### genres.g.id.get
 
@@ -293,6 +369,15 @@ rhapsody.genres.g.id.get({
 }, context)
 ```
 
-#### Parameters
-* apikey (string) **required**
+#### Input
+* input `object`
+  * apikey **required** `string`
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

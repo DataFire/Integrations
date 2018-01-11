@@ -4,11 +4,9 @@ Client library for BikeWise API v2
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/bikewise
+npm install --save @datafire/bikewise
 ```
-
 ```js
-let datafire = require('datafire');
 let bikewise = require('@datafire/bikewise').create();
 
 bikewise.v2.locations.markers.get({}).then(data => {
@@ -17,10 +15,12 @@ bikewise.v2.locations.markers.get({}).then(data => {
 ```
 
 ## Description
+
 <p>This is an API for accessing information about bicycling related incidents. You can find the source code on <a href="https://github.com/bikeindex/bikewise">GitHub</a>.</p>
 
 
 ## Actions
+
 ### v2.incidents.get
 
 <p>If you’d like more detailed information about bike incidents, use this endpoint. For mapping, <code>locations</code> is probably a better bet.</p>
@@ -35,15 +35,19 @@ bikewise.v2.locations.markers.get({}).then(data => {
 bikewise.v2.incidents.get({}, context)
 ```
 
-#### Parameters
-* page (integer) - <p>Page of results to fetch.</p>
-* per_page (integer) - <p>Number of results to return per page.</p>
-* occurred_before (integer) - <p>End of period</p>
-* occurred_after (integer) - <p>Start of period</p>
-* incident_type (string) - <p>Only incidents of specific type</p>
-* proximity (string) - <p>Center of location for proximity search</p>
-* proximity_square (integer) - <p>Size of the proximity search</p>
-* query (string) - <p>Full text search of incidents</p>
+#### Input
+* input `object`
+  * page `integer`: <p>Page of results to fetch.</p>
+  * per_page `integer`: <p>Number of results to return per page.</p>
+  * occurred_before `integer`: <p>End of period</p>
+  * occurred_after `integer`: <p>Start of period</p>
+  * incident_type `string` (values: crash, hazard, theft, unconfirmed, infrastructure_issue, chop_shop): <p>Only incidents of specific type</p>
+  * proximity `string`: <p>Center of location for proximity search</p>
+  * proximity_square `integer`: <p>Size of the proximity search</p>
+  * query `string`: <p>Full text search of incidents</p>
+
+#### Output
+*Output schema unknown*
 
 ### v2.incidents.id.get
 
@@ -55,8 +59,12 @@ bikewise.v2.incidents.id.get({
 }, context)
 ```
 
-#### Parameters
-* id (integer) **required** - <p>Incident ID</p>
+#### Input
+* input `object`
+  * id **required** `integer`: <p>Incident ID</p>
+
+#### Output
+*Output schema unknown*
 
 ### v2.locations.get
 <p><strong>This endpoint behaves exactly like</strong> <code>incidents</code>, but returns a valid geojson <code>FeatureCollection</code> that looks like this:</p>
@@ -89,15 +97,19 @@ bikewise.v2.incidents.id.get({
 bikewise.v2.locations.get({}, context)
 ```
 
-#### Parameters
-* occurred_before (integer) - <p>End of period</p>
-* occurred_after (integer) - <p>Start of period</p>
-* incident_type (string) - <p>Only incidents of specific type</p>
-* proximity (string) - <p>Center of location for proximity search</p>
-* proximity_square (integer) - <p>Size of the proximity search</p>
-* query (string) - <p>Full text search of incidents</p>
-* limit (integer) - <p>Max number of results to return. Defaults to 100</p>
-* all (boolean) - <p>Give ‘em all to me. Will ignore limit</p>
+#### Input
+* input `object`
+  * occurred_before `integer`: <p>End of period</p>
+  * occurred_after `integer`: <p>Start of period</p>
+  * incident_type `string` (values: crash, hazard, theft, unconfirmed, infrastructure_issue, chop_shop): <p>Only incidents of specific type</p>
+  * proximity `string`: <p>Center of location for proximity search</p>
+  * proximity_square `integer`: <p>Size of the proximity search</p>
+  * query `string`: <p>Full text search of incidents</p>
+  * limit `integer`: <p>Max number of results to return. Defaults to 100</p>
+  * all `boolean`: <p>Give ‘em all to me. Will ignore limit</p>
+
+#### Output
+*Output schema unknown*
 
 ### v2.locations.markers.get
 <p>This behaves exactly like the root <code>locations</code> endpoint, but returns <a href="https://github.com/mapbox/simplestyle-spec">simplestyled markers</a> (<a href="https://www.mapbox.com/guides/markers/#simple-style">mapbox styled markers</a>)</p>
@@ -110,13 +122,22 @@ bikewise.v2.locations.get({}, context)
 bikewise.v2.locations.markers.get({}, context)
 ```
 
-#### Parameters
-* occurred_before (integer) - <p>End of period</p>
-* occurred_after (integer) - <p>Start of period</p>
-* incident_type (string) - <p>Only incidents of specific type</p>
-* proximity (string) - <p>Center of location for proximity search</p>
-* proximity_square (integer) - <p>Size of the proximity search</p>
-* query (string) - <p>Full text search of incidents</p>
-* limit (integer) - <p>Max number of results to return. Defaults to 100</p>
-* all (boolean) - <p>Give ‘em all to me. Will ignore limit</p>
+#### Input
+* input `object`
+  * occurred_before `integer`: <p>End of period</p>
+  * occurred_after `integer`: <p>Start of period</p>
+  * incident_type `string` (values: crash, hazard, theft, unconfirmed, infrastructure_issue, chop_shop): <p>Only incidents of specific type</p>
+  * proximity `string`: <p>Center of location for proximity search</p>
+  * proximity_square `integer`: <p>Size of the proximity search</p>
+  * query `string`: <p>Full text search of incidents</p>
+  * limit `integer`: <p>Max number of results to return. Defaults to 100</p>
+  * all `boolean`: <p>Give ‘em all to me. Will ignore limit</p>
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

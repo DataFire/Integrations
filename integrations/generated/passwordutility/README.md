@@ -4,11 +4,9 @@ Client library for PasswordUtility.Web
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/passwordutility
+npm install --save @datafire/passwordutility
 ```
-
 ```js
-let datafire = require('datafire');
 let passwordutility = require('@datafire/passwordutility').create();
 
 passwordutility.Password_Generate({}).then(data => {
@@ -17,9 +15,11 @@ passwordutility.Password_Generate({}).then(data => {
 ```
 
 ## Description
+
 Validate and generate passwords using open source tools
 
 ## Actions
+
 ### Password_Generate
 
 
@@ -30,11 +30,15 @@ passwordutility.Password_Generate({
 }, context)
 ```
 
-#### Parameters
-* length (integer) **required**
-* upperCase (boolean)
-* digits (boolean)
-* specialCharacters (boolean)
+#### Input
+* input `object`
+  * length **required** `integer`
+  * upperCase `boolean`
+  * digits `boolean`
+  * specialCharacters `boolean`
+
+#### Output
+* output [Object](#object)
 
 ### Password_Validate
 
@@ -46,6 +50,18 @@ passwordutility.Password_Validate({
 }, context)
 ```
 
-#### Parameters
-* password (string) **required**
+#### Input
+* input `object`
+  * password **required** `string`
+
+#### Output
+* output [Object](#object)
+
+
+
+## Definitions
+
+### Object
+* Object `object`
+
 

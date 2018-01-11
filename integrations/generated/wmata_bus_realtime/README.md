@@ -4,14 +4,12 @@ Client library for Real-Time Bus Predictions
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/wmata_bus_realtime
+npm install --save @datafire/wmata_bus_realtime
 ```
-
 ```js
-let datafire = require('datafire');
 let wmata_bus_realtime = require('@datafire/wmata_bus_realtime').create({
   apiKeyHeader: "",
-  apiKeyQuery: "",
+  apiKeyQuery: ""
 });
 
 wmata_bus_realtime.Predictions.get({}).then(data => {
@@ -20,9 +18,11 @@ wmata_bus_realtime.Predictions.get({}).then(data => {
 ```
 
 ## Description
+
 Real-time bus prediction methods.
 
 ## Actions
+
 ### Predictions.get
 <h4 class="text-primary">Description</h4>
 
@@ -118,8 +118,12 @@ wmata_bus_realtime.Predictions.get({
 }, context)
 ```
 
-#### Parameters
-* StopID (string) **required** - 7-digit regional stop ID.
+#### Input
+* input `object`
+  * StopID **required** `string` (values: 1001195): 7-digit regional stop ID.
+
+#### Output
+*Output schema unknown*
 
 ### json.jPredictions.get
 <h4 class="text-primary">Description</h4>
@@ -216,6 +220,15 @@ wmata_bus_realtime.json.jPredictions.get({
 }, context)
 ```
 
-#### Parameters
-* StopID (string) **required** - 7-digit regional stop ID.
+#### Input
+* input `object`
+  * StopID **required** `string` (values: 1001195): 7-digit regional stop ID.
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

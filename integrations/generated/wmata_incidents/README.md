@@ -4,14 +4,12 @@ Client library for Incidents
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/wmata_incidents
+npm install --save @datafire/wmata_incidents
 ```
-
 ```js
-let datafire = require('datafire');
 let wmata_incidents = require('@datafire/wmata_incidents').create({
   apiKeyHeader: "",
-  apiKeyQuery: "",
+  apiKeyQuery: ""
 });
 
 wmata_incidents.json.ElevatorIncidents.get({}).then(data => {
@@ -20,9 +18,11 @@ wmata_incidents.json.ElevatorIncidents.get({}).then(data => {
 ```
 
 ## Description
+
 Rail, bus, and elevator disruptions/outages.
 
 ## Actions
+
 ### BusIncidents.get
 <h4 class="text-primary">Description</h4>
 
@@ -106,8 +106,12 @@ but <em>may</em> differ from what our bus methods return.</td>
 wmata_incidents.BusIncidents.get({}, context)
 ```
 
-#### Parameters
-* Route (string) - Bus route.  Use full route code, i.e.: C2 instead of C2v1, C2v2, etc.
+#### Input
+* input `object`
+  * Route `string` (values: 90, X1): Bus route.  Use full route code, i.e.: C2 instead of C2v1, C2v2, etc.
+
+#### Output
+*Output schema unknown*
 
 ### ElevatorIncidents.get
 <h4 class="text-primary">Description</h4>
@@ -246,8 +250,12 @@ or <span class="text-info">ESCALATOR</span>.</td>
 wmata_incidents.ElevatorIncidents.get({}, context)
 ```
 
-#### Parameters
-* StationCode (string) - Two-letter station code.  Use the Station List method to return a list of all station codes.
+#### Input
+* input `object`
+  * StationCode `string` (values: A03, E09): Two-letter station code.  Use the Station List method to return a list of all station codes.
+
+#### Output
+*Output schema unknown*
 
 ### Incidents.get
 <h4 class="text-primary">Description</h4>
@@ -365,8 +373,11 @@ StartLocationFullName</td>
 wmata_incidents.Incidents.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### json.BusIncidents.get
 <h4 class="text-primary">Description</h4>
@@ -451,8 +462,12 @@ but <em>may</em> differ from what our bus methods return.</td>
 wmata_incidents.json.BusIncidents.get({}, context)
 ```
 
-#### Parameters
-* Route (string) - Base bus route; variations are not recognized (i.e.: C2 instead of C2v1, C2v2, etc.).
+#### Input
+* input `object`
+  * Route `string` (values: 90, X1): Base bus route; variations are not recognized (i.e.: C2 instead of C2v1, C2v2, etc.).
+
+#### Output
+*Output schema unknown*
 
 ### json.ElevatorIncidents.get
 <h4 class="text-primary">Description</h4>
@@ -591,8 +606,12 @@ or <span class="text-info">ESCALATOR</span>.</td>
 wmata_incidents.json.ElevatorIncidents.get({}, context)
 ```
 
-#### Parameters
-* StationCode (string) - Station code.  Use the Station List method to return a list of all station codes.
+#### Input
+* input `object`
+  * StationCode `string` (values: A03, E09): Station code.  Use the Station List method to return a list of all station codes.
+
+#### Output
+*Output schema unknown*
 
 ### json.Incidents.get
 <h4 class="text-primary">Description</h4>
@@ -710,6 +729,14 @@ StartLocationFullName</td>
 wmata_incidents.json.Incidents.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **

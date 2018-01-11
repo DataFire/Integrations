@@ -4,11 +4,9 @@ Client library for Etsy
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/etsy
+npm install --save @datafire/etsy
 ```
-
 ```js
-let datafire = require('datafire');
 let etsy = require('@datafire/etsy').create();
 
 etsy.featured.users.get({}).then(data => {
@@ -17,9 +15,11 @@ etsy.featured.users.get({}).then(data => {
 ```
 
 ## Description
+
 Bring Etsy's handmade marketplace and community into your apps.
 
 ## Actions
+
 ### countries.country_id.get
 Retrieves a Country by id.
 
@@ -30,8 +30,11 @@ etsy.countries.country_id.get({
 }, context)
 ```
 
-#### Parameters
-* country_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### countries.get
 Finds all Country.
@@ -41,8 +44,11 @@ Finds all Country.
 etsy.countries.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.favorites.listings.get
 Finds all favorite listings for a user
@@ -54,10 +60,11 @@ etsy.users.user_id.favorites.listings.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.favorites.listings.listing_id.get
 Finds a favorite listing for a user
@@ -70,9 +77,11 @@ etsy.users.user_id.favorites.listings.listing_id.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.favorites.listings.listing_id.post
 Creates a new favorite listing for a user
@@ -85,9 +94,11 @@ etsy.users.user_id.favorites.listings.listing_id.post({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.favorites.listings.listing_id.delete
 Delete a favorite listing for a user
@@ -100,9 +111,11 @@ etsy.users.user_id.favorites.listings.listing_id.delete({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.favorites.users.get
 Finds all favorite users for a user
@@ -114,10 +127,11 @@ etsy.users.user_id.favorites.users.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.favorites.users.target_user_id.get
 Finds a favorite user for a user
@@ -130,9 +144,11 @@ etsy.users.user_id.favorites.users.target_user_id.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* target_user_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.favorites.users.target_user_id.post
 Creates a new favorite listing for a user
@@ -147,11 +163,11 @@ etsy.users.user_id.favorites.users.target_user_id.post({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* target_user_id (undefined) **required**
-* user_id_path (undefined) **required**
-* target_user_id_path (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.favorites.users.target_user_id.delete
 Delete a favorite listing for a user
@@ -164,9 +180,11 @@ etsy.users.user_id.favorites.users.target_user_id.delete({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* target_user_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### homepages.pickers.get
 Finds all FeaturedListingPicker in scope active.
@@ -176,9 +194,11 @@ Finds all FeaturedListingPicker in scope active.
 etsy.homepages.pickers.get({}, context)
 ```
 
-#### Parameters
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### homepages.pickers.featured_listing_picker_id.get
 Retrieves a FeaturedListingPicker by id.
@@ -190,8 +210,11 @@ etsy.homepages.pickers.featured_listing_picker_id.get({
 }, context)
 ```
 
-#### Parameters
-* featured_listing_picker_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### homepages.pickers.featured_listing_picker_id.featured.get
 Retrieves a set of FeaturedListing objects associated to a FeaturedListingPicker.
@@ -203,10 +226,11 @@ etsy.homepages.pickers.featured_listing_picker_id.featured.get({
 }, context)
 ```
 
-#### Parameters
-* featured_listing_picker_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### homepages.pickers.featured_listing_picker_id.listings.get
 Retrieves a set of Listing objects associated to a FeaturedListingPicker.
@@ -218,10 +242,11 @@ etsy.homepages.pickers.featured_listing_picker_id.listings.get({
 }, context)
 ```
 
-#### Parameters
-* featured_listing_picker_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### homepages.pickers.featured_listing_picker_id.listings.active.get
 Retrieves a set of Listing objects associated to a FeaturedListingPicker in scope active.
@@ -233,10 +258,11 @@ etsy.homepages.pickers.featured_listing_picker_id.listings.active.get({
 }, context)
 ```
 
-#### Parameters
-* featured_listing_picker_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### homepages.listings.get
 Finds all FeaturedListings regardless of Listing state
@@ -246,9 +272,11 @@ Finds all FeaturedListings regardless of Listing state
 etsy.homepages.listings.get({}, context)
 ```
 
-#### Parameters
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### homepages.listings.active.get
 Finds all FeaturedListings that point to active Listings
@@ -258,9 +286,11 @@ Finds all FeaturedListings that point to active Listings
 etsy.homepages.listings.active.get({}, context)
 ```
 
-#### Parameters
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### homepages.listings.featured_listing_id.get
 Retrieves a FeaturedListing by id.
@@ -272,8 +302,11 @@ etsy.homepages.listings.featured_listing_id.get({
 }, context)
 ```
 
-#### Parameters
-* featured_listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### homepages.listings.featured_listing_id.picker.get
 Retrieves a set of FeaturedListingPicker objects associated to a FeaturedListing.
@@ -285,8 +318,11 @@ etsy.homepages.listings.featured_listing_id.picker.get({
 }, context)
 ```
 
-#### Parameters
-* featured_listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### homepages.listings.featured_listing_id.listing.get
 Retrieves a set of Listing objects associated to a FeaturedListing.
@@ -298,8 +334,11 @@ etsy.homepages.listings.featured_listing_id.listing.get({
 }, context)
 ```
 
-#### Parameters
-* featured_listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### listings.listing_id.images.listing_image_id.get
 Retrieves a ListingImage by id.
@@ -312,9 +351,11 @@ etsy.listings.listing_id.images.listing_image_id.get({
 }, context)
 ```
 
-#### Parameters
-* listing_id (undefined) **required**
-* listing_image_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### listings.listing_id.images.listing_image_id.delete
 Deletes a listing image
@@ -327,9 +368,11 @@ etsy.listings.listing_id.images.listing_image_id.delete({
 }, context)
 ```
 
-#### Parameters
-* listing_id (undefined) **required**
-* listing_image_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### listings.listing_id.images.post
 Upload a new listing image
@@ -342,9 +385,11 @@ etsy.listings.listing_id.images.post({
 }, context)
 ```
 
-#### Parameters
-* image (undefined) **required**
-* listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### listings.listing_id.images.get
 Retrieves a set of ListingImage objects associated to a Listing.
@@ -356,8 +401,11 @@ etsy.listings.listing_id.images.get({
 }, context)
 ```
 
-#### Parameters
-* listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### listings.listing_id.get
 Retrieves a Listing by id.
@@ -369,8 +417,11 @@ etsy.listings.listing_id.get({
 }, context)
 ```
 
-#### Parameters
-* listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### listings.listing_id.put
 Updates a Listing
@@ -382,18 +433,12 @@ etsy.listings.listing_id.put({
 }, context)
 ```
 
-#### Parameters
-* quantity (undefined)
-* title (undefined)
-* description (undefined)
-* price (undefined)
-* materials (undefined)
-* renew (undefined)
-* tags (undefined)
-* shipping_template_id (undefined)
-* shop_section_id (undefined)
-* state (undefined)
-* listing_id (undefined) **required**
+#### Input
+* input `object`
+  * state `string` (values: active, inactive)
+
+#### Output
+*Output schema unknown*
 
 ### listings.listing_id.delete
 Deletes a Listing
@@ -405,8 +450,11 @@ etsy.listings.listing_id.delete({
 }, context)
 ```
 
-#### Parameters
-* listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### listings.listing_id.favored_by.get
 Retrieves a set of FavoriteListing objects associated to a Listing.
@@ -418,10 +466,11 @@ etsy.listings.listing_id.favored_by.get({
 }, context)
 ```
 
-#### Parameters
-* listing_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### listings.listing_id.shipping.info.get
 Retrieves a set of ShippingInfo objects associated to a Listing.
@@ -433,8 +482,11 @@ etsy.listings.listing_id.shipping.info.get({
 }, context)
 ```
 
-#### Parameters
-* listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### listings.listing_id.shipping.info.post
 Creates a new ShippingInfo.
@@ -449,13 +501,11 @@ etsy.listings.listing_id.shipping.info.post({
 }, context)
 ```
 
-#### Parameters
-* origin_country_id (undefined) **required**
-* destination_country_id (undefined)
-* primary_cost (undefined) **required**
-* secondary_cost (undefined) **required**
-* region_id (undefined)
-* listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### listings.listing_id.payments.get
 Retrieves a set of ListingPayment objects associated to a Listing.
@@ -467,8 +517,11 @@ etsy.listings.listing_id.payments.get({
 }, context)
 ```
 
-#### Parameters
-* listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### listings.active.get
 Finds all active Listing
@@ -478,19 +531,13 @@ Finds all active Listing
 etsy.listings.active.get({}, context)
 ```
 
-#### Parameters
-* limit (undefined)
-* offset (undefined)
-* keywords (undefined)
-* sort_on (undefined)
-* sort_order (undefined)
-* min_price (undefined)
-* max_price (undefined)
-* color (undefined)
-* color_accuracy (undefined)
-* tags (undefined)
-* materials (undefined)
-* category (undefined)
+#### Input
+* input `object`
+  * sort_on `string` (values: created, price, score)
+  * sort_order `string` (values: up, down)
+
+#### Output
+*Output schema unknown*
 
 ### shops.shop_id.listings.active.get
 Finds all active Listings associated with a Shop
@@ -502,20 +549,13 @@ etsy.shops.shop_id.listings.active.get({
 }, context)
 ```
 
-#### Parameters
-* limit (undefined)
-* offset (undefined)
-* shop_id (undefined) **required**
-* keywords (undefined)
-* sort_on (undefined)
-* sort_order (undefined)
-* min_price (undefined)
-* max_price (undefined)
-* color (undefined)
-* color_accuracy (undefined)
-* tags (undefined)
-* materials (undefined)
-* category (undefined)
+#### Input
+* input `object`
+  * sort_on `string` (values: created, price, score)
+  * sort_order `string` (values: up, down)
+
+#### Output
+*Output schema unknown*
 
 ### listings.post
 Creates a new Listing
@@ -532,15 +572,11 @@ etsy.listings.post({
 }, context)
 ```
 
-#### Parameters
-* quantity (undefined) **required**
-* title (undefined) **required**
-* description (undefined) **required**
-* price (undefined) **required**
-* materials (undefined)
-* tags (undefined) **required**
-* shipping_template_id (undefined) **required**
-* shop_section_id (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### orders.order_id.get
 Retrieves a Order by id.
@@ -552,8 +588,11 @@ etsy.orders.order_id.get({
 }, context)
 ```
 
-#### Parameters
-* order_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### orders.order_id.receipts.get
 Retrieves a set of Receipt objects associated to a Order.
@@ -565,10 +604,11 @@ etsy.orders.order_id.receipts.get({
 }, context)
 ```
 
-#### Parameters
-* order_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### receipts.receipt_id.get
 Retrieves a Receipt by id.
@@ -578,8 +618,11 @@ Retrieves a Receipt by id.
 etsy.receipts.receipt_id.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### receipts.receipt_id.put
 Updates a Receipt
@@ -591,12 +634,11 @@ etsy.receipts.receipt_id.put({
 }, context)
 ```
 
-#### Parameters
-* receipt_id (undefined) **required**
-* was_paid (undefined)
-* was_shipped (undefined)
-* message_from_seller (undefined)
-* message_from_buyer (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### receipts.receipt_id.transactions.get
 Retrieves a set of Transaction objects associated to a Receipt.
@@ -608,10 +650,11 @@ etsy.receipts.receipt_id.transactions.get({
 }, context)
 ```
 
-#### Parameters
-* receipt_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.recommended_listings.get
 Get recommended listings for an authenticated member. The number of listings returned may not match the specified limit if there is no activity from recommended shops.
@@ -623,10 +666,11 @@ etsy.users.user_id.recommended_listings.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* excluded_listing_ids (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.recommended_listings.rejects.listing_ids.post
 Registers rejections of recommended listings. Affects future recommended listings.
@@ -639,9 +683,11 @@ etsy.users.user_id.recommended_listings.rejects.listing_ids.post({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* listing_ids (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.recommended_listings.views.listing_ids.post
 Register viewings of recommended listings. Affects future recommended listings.
@@ -654,9 +700,11 @@ etsy.users.user_id.recommended_listings.views.listing_ids.post({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* listing_ids (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### regions.region_id.get
 Retrieves a Region by id.
@@ -668,8 +716,11 @@ etsy.regions.region_id.get({
 }, context)
 ```
 
-#### Parameters
-* region_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### regions.get
 Finds all Region.
@@ -679,8 +730,11 @@ Finds all Region.
 etsy.regions.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### shipping.info.shipping_info_id.get
 Retrieves a ShippingInfo by id.
@@ -692,8 +746,11 @@ etsy.shipping.info.shipping_info_id.get({
 }, context)
 ```
 
-#### Parameters
-* shipping_info_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shipping.info.shipping_info_id.put
 Updates a ShippingInfo with the given id.
@@ -705,14 +762,11 @@ etsy.shipping.info.shipping_info_id.put({
 }, context)
 ```
 
-#### Parameters
-* origin_country_id (undefined)
-* destination_country_id (undefined)
-* primary_cost (undefined)
-* secondary_cost (undefined)
-* listing_id (undefined)
-* region_id (undefined)
-* shipping_info_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shipping.info.shipping_info_id.delete
 Deletes the ShippingInfo with the given id.
@@ -724,8 +778,11 @@ etsy.shipping.info.shipping_info_id.delete({
 }, context)
 ```
 
-#### Parameters
-* shipping_info_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shipping.templates.entries.shipping_template_entry_id.get
 Retrieves a ShippingTemplateEntry by id.
@@ -737,8 +794,11 @@ etsy.shipping.templates.entries.shipping_template_entry_id.get({
 }, context)
 ```
 
-#### Parameters
-* shipping_template_entry_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shipping.templates.entries.shipping_template_entry_id.put
 Updates a ShippingTemplateEntry
@@ -750,11 +810,11 @@ etsy.shipping.templates.entries.shipping_template_entry_id.put({
 }, context)
 ```
 
-#### Parameters
-* destination_country_id (undefined)
-* primary_cost (undefined)
-* secondary_cost (undefined)
-* shipping_template_entry_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shipping.templates.entries.shipping_template_entry_id.delete
 Deletes a ShippingTemplateEntry
@@ -766,8 +826,11 @@ etsy.shipping.templates.entries.shipping_template_entry_id.delete({
 }, context)
 ```
 
-#### Parameters
-* shipping_template_entry_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shipping.templates.entries.post
 Creates a new ShippingTemplateEntry
@@ -781,12 +844,11 @@ etsy.shipping.templates.entries.post({
 }, context)
 ```
 
-#### Parameters
-* shipping_template_id (undefined) **required**
-* destination_country_id (undefined)
-* primary_cost (undefined) **required**
-* secondary_cost (undefined) **required**
-* destination_region_id (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shipping.templates.shipping_template_id.get
 Retrieves a ShippingTemplate by id.
@@ -798,8 +860,11 @@ etsy.shipping.templates.shipping_template_id.get({
 }, context)
 ```
 
-#### Parameters
-* shipping_template_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shipping.templates.shipping_template_id.delete
 Deletes the ShippingTemplate with the given id.
@@ -811,8 +876,11 @@ etsy.shipping.templates.shipping_template_id.delete({
 }, context)
 ```
 
-#### Parameters
-* shipping_template_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shipping.templates.shipping_template_id.put
 Updates a ShippingTemplate
@@ -824,10 +892,11 @@ etsy.shipping.templates.shipping_template_id.put({
 }, context)
 ```
 
-#### Parameters
-* title (undefined)
-* origin_country_id (undefined)
-* shipping_template_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shipping.templates.shipping_template_id.entries.get
 Retrieves a set of ShippingTemplateEntry objects associated to a ShippingTemplate.
@@ -839,10 +908,11 @@ etsy.shipping.templates.shipping_template_id.entries.get({
 }, context)
 ```
 
-#### Parameters
-* shipping_template_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shipping.templates.post
 Creates a new ShippingTemplate
@@ -857,13 +927,11 @@ etsy.shipping.templates.post({
 }, context)
 ```
 
-#### Parameters
-* title (undefined) **required**
-* origin_country_id (undefined) **required**
-* destination_country_id (undefined)
-* primary_cost (undefined) **required**
-* secondary_cost (undefined) **required**
-* destination_region_id (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shops.shop_id.get
 Retrieves a Shop by id.
@@ -875,8 +943,11 @@ etsy.shops.shop_id.get({
 }, context)
 ```
 
-#### Parameters
-* shop_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shops.shop_id.put
 Updates a Shop
@@ -888,18 +959,11 @@ etsy.shops.shop_id.put({
 }, context)
 ```
 
-#### Parameters
-* title (undefined)
-* announcement (undefined)
-* is_refusing_alchemy (undefined)
-* alchemy_message (undefined)
-* sale_message (undefined)
-* policy_welcome (undefined)
-* policy_payment (undefined)
-* policy_shipping (undefined)
-* policy_refunds (undefined)
-* policy_additional (undefined)
-* shop_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shops.shop_id.receipts.get
 Retrieves a set of Receipt objects associated to a Shop.
@@ -911,10 +975,11 @@ etsy.shops.shop_id.receipts.get({
 }, context)
 ```
 
-#### Parameters
-* shop_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shops.shop_id.transactions.get
 Retrieves a set of Transaction objects associated to a Shop.
@@ -926,10 +991,11 @@ etsy.shops.shop_id.transactions.get({
 }, context)
 ```
 
-#### Parameters
-* shop_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shops.shop_id.sections.get
 Retrieves a set of ShopSection objects associated to a Shop.
@@ -941,8 +1007,11 @@ etsy.shops.shop_id.sections.get({
 }, context)
 ```
 
-#### Parameters
-* shop_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shops.get
 Finds all Shops. If there is a keywords parameter, finds shops with shop_name starting with keywords.
@@ -952,10 +1021,11 @@ Finds all Shops. If there is a keywords parameter, finds shops with shop_name st
 etsy.shops.get({}, context)
 ```
 
-#### Parameters
-* shop_name (undefined)
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shops.shop_id.listings.featured.get
 Retrieves Listings associated to a Shop that are featured
@@ -967,10 +1037,11 @@ etsy.shops.shop_id.listings.featured.get({
 }, context)
 ```
 
-#### Parameters
-* shop_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shops.shop_id.listings.inactive.get
 Retrieves Listings associated to a Shop that are inactive
@@ -982,10 +1053,11 @@ etsy.shops.shop_id.listings.inactive.get({
 }, context)
 ```
 
-#### Parameters
-* shop_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shops.shop_id.listings.expired.get
 Retrieves Listings associated to a Shop that are expired
@@ -997,10 +1069,11 @@ etsy.shops.shop_id.listings.expired.get({
 }, context)
 ```
 
-#### Parameters
-* shop_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shops.shop_id.listings.inactive.listing_id.get
 Retrieves a Listing associated to a Shop that is inactive
@@ -1013,9 +1086,11 @@ etsy.shops.shop_id.listings.inactive.listing_id.get({
 }, context)
 ```
 
-#### Parameters
-* shop_id (undefined) **required**
-* listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shops.shop_id.listings.expired.listing_id.get
 Retrieves a Listing associated to a Shop that is inactive
@@ -1028,9 +1103,11 @@ etsy.shops.shop_id.listings.expired.listing_id.get({
 }, context)
 ```
 
-#### Parameters
-* shop_id (undefined) **required**
-* listing_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shops.shop_id.appearance.banner.post
 Upload a new shop banner image
@@ -1043,9 +1120,11 @@ etsy.shops.shop_id.appearance.banner.post({
 }, context)
 ```
 
-#### Parameters
-* image (undefined) **required**
-* shop_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### shops.shop_id.appearance.banner.shop_banner_id.delete
 Deletes a shop banner image
@@ -1058,9 +1137,11 @@ etsy.shops.shop_id.appearance.banner.shop_banner_id.delete({
 }, context)
 ```
 
-#### Parameters
-* shop_id (undefined) **required**
-* shop_banner_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### sections.shop_section_id.get
 Retrieves a ShopSection by id.
@@ -1072,8 +1153,11 @@ etsy.sections.shop_section_id.get({
 }, context)
 ```
 
-#### Parameters
-* shop_section_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### sections.shop_section_id.put
 Updates a ShopSection with the given id.
@@ -1085,11 +1169,11 @@ etsy.sections.shop_section_id.put({
 }, context)
 ```
 
-#### Parameters
-* title (undefined)
-* rank (undefined)
-* user_id (undefined)
-* shop_section_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### sections.shop_section_id.delete
 Deletes the ShopSection with the given id.
@@ -1101,8 +1185,11 @@ etsy.sections.shop_section_id.delete({
 }, context)
 ```
 
-#### Parameters
-* shop_section_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### sections.post
 Creates a new ShopSection.
@@ -1112,9 +1199,11 @@ Creates a new ShopSection.
 etsy.sections.post({}, context)
 ```
 
-#### Parameters
-* title (undefined)
-* user_id (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### categories.tag.get
 Retrieves a top-level Category by tag.
@@ -1126,8 +1215,11 @@ etsy.categories.tag.get({
 }, context)
 ```
 
-#### Parameters
-* tag (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### categories.tag.subtag.get
 Retrieves a second-level Category by tag and subtag.
@@ -1140,9 +1232,11 @@ etsy.categories.tag.subtag.get({
 }, context)
 ```
 
-#### Parameters
-* tag (undefined) **required**
-* subtag (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### categories.tag.subtag.subsubtag.get
 Retrieves a third-level Category by tag, subtag and subsubtag.
@@ -1156,10 +1250,11 @@ etsy.categories.tag.subtag.subsubtag.get({
 }, context)
 ```
 
-#### Parameters
-* tag (undefined) **required**
-* subtag (undefined) **required**
-* subsubtag (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### taxonomy.categories.get
 Retrieves all top-level Categories.
@@ -1169,8 +1264,11 @@ Retrieves all top-level Categories.
 etsy.taxonomy.categories.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### taxonomy.categories.tag.get
 Retrieves children of a top-level Category by tag.
@@ -1182,8 +1280,11 @@ etsy.taxonomy.categories.tag.get({
 }, context)
 ```
 
-#### Parameters
-* tag (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### taxonomy.categories.tag.subtag.get
 Retrieves children of a second-level Category by tag and subtag.
@@ -1196,9 +1297,11 @@ etsy.taxonomy.categories.tag.subtag.get({
 }, context)
 ```
 
-#### Parameters
-* tag (undefined) **required**
-* subtag (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### taxonomy.tags.get
 Retrieves all related tags for the given tag set.
@@ -1208,8 +1311,11 @@ Retrieves all related tags for the given tag set.
 etsy.taxonomy.tags.get({}, context)
 ```
 
-#### Parameters
-* limit (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### taxonomy.tags.tags.get
 Retrieves all related tags for the given tag set.
@@ -1221,9 +1327,11 @@ etsy.taxonomy.tags.tags.get({
 }, context)
 ```
 
-#### Parameters
-* tags (undefined) **required**
-* limit (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### transactions.transaction_id.get
 Retrieves a Transaction by id.
@@ -1235,8 +1343,11 @@ etsy.transactions.transaction_id.get({
 }, context)
 ```
 
-#### Parameters
-* transaction_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### treasuries.treasury_id.get
 Get a Treasury
@@ -1248,8 +1359,11 @@ etsy.treasuries.treasury_id.get({
 }, context)
 ```
 
-#### Parameters
-* treasury_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### treasuries.get
 Search Treasuries or else List all Treasuries
@@ -1259,14 +1373,15 @@ Search Treasuries or else List all Treasuries
 etsy.treasuries.get({}, context)
 ```
 
-#### Parameters
-* keywords (undefined)
-* sort_on (undefined)
-* sort_order (undefined)
-* maturity (undefined)
-* detail_level (undefined)
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+  * sort_on `string` (values: hotness, created)
+  * sort_order `string` (values: up, down)
+  * maturity `string` (values: safe_only, safe_and_mature)
+  * detail_level `string` (values: low, medium)
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.treasuries.get
 Get a user's Treasuries
@@ -1278,14 +1393,15 @@ etsy.users.user_id.treasuries.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* sort_on (undefined)
-* sort_order (undefined)
-* maturity (undefined)
-* detail_level (undefined)
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+  * sort_on `string` (values: hotness, created)
+  * sort_order `string` (values: up, down)
+  * maturity `string` (values: safe_only, safe_and_mature)
+  * detail_level `string` (values: low, medium)
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.get
 Retrieves a User by id.
@@ -1297,8 +1413,11 @@ etsy.users.user_id.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.shops.get
 Retrieves a set of Shop objects associated to a User.
@@ -1310,10 +1429,11 @@ etsy.users.user_id.shops.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.favored_by.get
 Retrieves a set of FavoriteUser objects associated to a User.
@@ -1325,10 +1445,11 @@ etsy.users.user_id.favored_by.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.feedback.as_subject.get
 Retrieves a set of Feedback objects associated to a User.
@@ -1340,10 +1461,11 @@ etsy.users.user_id.feedback.as_subject.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.feedback.as_author.get
 Retrieves a set of Feedback objects associated to a User.
@@ -1355,10 +1477,11 @@ etsy.users.user_id.feedback.as_author.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.feedback.as_buyer.get
 Retrieves a set of Feedback objects associated to a User.
@@ -1370,10 +1493,11 @@ etsy.users.user_id.feedback.as_buyer.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.feedback.as_seller.get
 Retrieves a set of Feedback objects associated to a User.
@@ -1385,10 +1509,11 @@ etsy.users.user_id.feedback.as_seller.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.orders.get
 Retrieves a set of Order objects associated to a User.
@@ -1400,10 +1525,11 @@ etsy.users.user_id.orders.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.receipts.get
 Retrieves a set of Receipt objects associated to a User.
@@ -1415,10 +1541,11 @@ etsy.users.user_id.receipts.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.transactions.get
 Retrieves a set of Transaction objects associated to a User.
@@ -1430,10 +1557,11 @@ etsy.users.user_id.transactions.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.charges.get
 Retrieves a set of BillCharge objects associated to a User.
@@ -1445,10 +1573,11 @@ etsy.users.user_id.charges.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.payments.get
 Retrieves a set of BillPayment objects associated to a User.
@@ -1460,10 +1589,11 @@ etsy.users.user_id.payments.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.shipping.templates.get
 Retrieves a set of ShippingTemplate objects associated to a User.
@@ -1475,10 +1605,11 @@ etsy.users.user_id.shipping.templates.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.payments.templates.get
 Retrieves a set of PaymentTemplate objects associated to a User.
@@ -1490,8 +1621,11 @@ etsy.users.user_id.payments.templates.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.addresses.get
 Retrieves a set of UserAddress objects associated to a User.
@@ -1503,8 +1637,11 @@ etsy.users.user_id.addresses.get({
 }, context)
 ```
 
-#### Parameters
-* user_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.addresses.post
 Creates a new UserAddress.
@@ -1521,15 +1658,11 @@ etsy.users.user_id.addresses.post({
 }, context)
 ```
 
-#### Parameters
-* name (undefined) **required**
-* first_line (undefined) **required**
-* second_line (undefined)
-* city (undefined) **required**
-* state (undefined)
-* zip (undefined) **required**
-* country_id (undefined) **required**
-* user_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### payments.templates.payment_template_id.get
 Retrieves a PaymentTemplate by id.
@@ -1541,8 +1674,11 @@ etsy.payments.templates.payment_template_id.get({
 }, context)
 ```
 
-#### Parameters
-* payment_template_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### payments.templates.payment_template_id.put
 Updates a PaymentTemplate
@@ -1554,20 +1690,11 @@ etsy.payments.templates.payment_template_id.put({
 }, context)
 ```
 
-#### Parameters
-* allow_check (undefined)
-* allow_mo (undefined)
-* allow_other (undefined)
-* allow_paypal (undefined)
-* paypal_email (undefined)
-* name (undefined)
-* first_line (undefined)
-* second_line (undefined)
-* city (undefined)
-* state (undefined)
-* zip (undefined)
-* country_id (undefined)
-* payment_template_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### payments.templates.post
 Creates a new PaymentTemplate
@@ -1577,19 +1704,11 @@ Creates a new PaymentTemplate
 etsy.payments.templates.post({}, context)
 ```
 
-#### Parameters
-* allow_check (undefined)
-* allow_mo (undefined)
-* allow_other (undefined)
-* allow_paypal (undefined)
-* paypal_email (undefined)
-* name (undefined)
-* first_line (undefined)
-* second_line (undefined)
-* city (undefined)
-* state (undefined)
-* zip (undefined)
-* country_id (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### payments.listing_payment_id.get
 Retrieves a ListingPayment by id.
@@ -1601,8 +1720,11 @@ etsy.payments.listing_payment_id.get({
 }, context)
 ```
 
-#### Parameters
-* listing_payment_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.avatar.post
 Upload a new user avatar image
@@ -1612,10 +1734,11 @@ Upload a new user avatar image
 etsy.users.user_id.avatar.post({}, context)
 ```
 
-#### Parameters
-* src (undefined)
-* image (undefined)
-* user_id (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.avatar.src.get
 Get avatar image source
@@ -1625,8 +1748,11 @@ Get avatar image source
 etsy.users.user_id.avatar.src.get({}, context)
 ```
 
-#### Parameters
-* user_id (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.addresses.user_address_id.get
 Retrieves a UserAddress by id.
@@ -1638,8 +1764,11 @@ etsy.users.user_id.addresses.user_address_id.get({
 }, context)
 ```
 
-#### Parameters
-* user_address_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.addresses.user_address_id.put
 Updates a UserAddress with the given id.
@@ -1651,15 +1780,11 @@ etsy.users.user_id.addresses.user_address_id.put({
 }, context)
 ```
 
-#### Parameters
-* name (undefined)
-* first_line (undefined)
-* second_line (undefined)
-* city (undefined)
-* state (undefined)
-* zip (undefined)
-* country_id (undefined)
-* user_address_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### users.user_id.addresses.user_address_id.delete
 Deletes the UserAddress with the given id.
@@ -1671,8 +1796,11 @@ etsy.users.user_id.addresses.user_address_id.delete({
 }, context)
 ```
 
-#### Parameters
-* user_address_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### featured.users.get
 Finds all FeaturedUser.
@@ -1682,9 +1810,11 @@ Finds all FeaturedUser.
 etsy.featured.users.get({}, context)
 ```
 
-#### Parameters
-* limit (undefined)
-* offset (undefined)
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### featured.users.featured_user_id.get
 Retrieves a FeaturedUser by id.
@@ -1696,8 +1826,11 @@ etsy.featured.users.featured_user_id.get({
 }, context)
 ```
 
-#### Parameters
-* featured_user_id (undefined) **required**
+#### Input
+* input `object`
+
+#### Output
+*Output schema unknown*
 
 ### .get
 Get a list of all methods available.
@@ -1707,8 +1840,11 @@ Get a list of all methods available.
 etsy..get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### server.epoch.get
 Get server time, in epoch seconds notation.
@@ -1718,8 +1854,11 @@ Get server time, in epoch seconds notation.
 etsy.server.epoch.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
+
+#### Output
+*Output schema unknown*
 
 ### server.ping.get
 Check that the server is alive.
@@ -1729,6 +1868,14 @@ Check that the server is alive.
 etsy.server.ping.get(null, context)
 ```
 
-#### Parameters
+#### Input
 *This action has no parameters*
 
+#### Output
+*Output schema unknown*
+
+
+
+## Definitions
+
+** No definitions **
