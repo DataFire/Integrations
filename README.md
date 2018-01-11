@@ -6,28 +6,37 @@
 [travis-image]: https://travis-ci.org/DataFire/Integrations.svg?branch=master
 [travis-link]: https://travis-ci.org/DataFire/Integrations
 
-This is an integration registry for DataFire. See the
-[DataFire repo](https://github.com/DataFire/DataFire/blob/master/docs/Integrations.md) for full documentation.
+This is a set of NodeJS clients for over 600 different APIs and services, including:
+
+AWS • Azure • MongoDB • Slack • GitHub • Twilio • Trello • Square • Google Sheets • Gmail • Heroku
+
+The client libraries can be used with or without the [DataFire framework](https://github.com/DataFire/DataFire).
 
 ## Installing an Integration
 Integrations are available in the `@datafire` scope in npm:
 ```
-npm install --save @datafire/github
+npm install --save @datafire/hacker_news
 ```
 
 ## Calling an Integration
-You can make calls to an integration on the command line, or in JavaScript.
-```bash
-npm install @datafire/github
-datafire run github/users.get
-```
-
+Integrations use Promises, and can be used with `async/await` syntax.
 ```js
-let github = require('@datafire/github').actions;
-github.users.get()
-  .then(users => {
-    console.log(users);
-  })
+let hn = require('@datafire/hacker_news').create();
+
+// With async/await
+(async function() {
+
+  let stories = await hn.getStories({storyType: 'top'});
+  console.log(stories);
+
+})();
+
+// With Promises
+hn.getStories({storyType: 'top'})
+  .then(stories => {
+    console.log(stories);
+  });
+
 ```
 
 ## Contributing
@@ -40,5 +49,6 @@ node scripts/integrate.js --name acme --openapi https://api.acme.com/openapi.jso
 node scripts/integrate.js --name acme_rss --rss https://acme.com/rss.xml
 ```
 
-You can also create integrations programmatically - see the [HTTP](./integrations/manual/http)
-or [MongoDB](./integrations/manual/mongodb) integrations for examples.
+You can also create integrations manually by writing JavaScript and using npm modules.
+See the [HTTP](./integrations/manual/http) or [MongoDB](./integrations/manual/mongodb) integrations for examples.
+
