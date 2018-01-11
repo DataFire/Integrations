@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 const toMarkdown = require('to-markdown');
+const removeMD = require('remove-markdown-and-html');
 const datafire = require('datafire');
 const args = require('yargs').argv;
 
@@ -18,14 +19,30 @@ const maybeMkdirp = (dir) => {
   }
 }
 
+const removeBreaks = function(str) {
+  return str.replace(/<(?:.|\n)*?>/gm, '');
+}
+
+const removeTitle = function(str) {
+  str = str.replace(/<fullname>.*<\/fullname>\s*/, '');
+  str = str.trim();
+  if (!str.match(/^#/)) return str;
+  let newline = str.indexOf('\n');
+  if (newline === -1) return str;
+  return str.substring(newline + 1);
+}
+
 const truncateDescription = (desc) => {
   if (!desc) return;
   desc = desc || '';
-  desc = desc.replace(/<(?:.|\n)*?>/gm, '');
+  desc = removeTitle(desc);
+  desc = removeMD(desc);
+  desc = removeBreaks(desc);
   let newLine = desc.indexOf('\n');
   if (newLine > -1) {
     desc = desc.substring(0, newLine);
   }
+  desc = desc.trim().replace(/\s+/, ' ');
   if (desc.length > MAX_DESCRIPTION_LENGTH) {
     desc = desc.substring(0, MAX_DESCRIPTION_LENGTH) + '...';
   }
@@ -36,7 +53,7 @@ const sanitizeDescription = desc => {
   if (!desc) return desc;
   if (desc.indexOf('</') !== -1) {
     desc = toMarkdown(desc);
-    desc = desc.replace(/<(?:.|\n)*?>/gm, '');
+    desc = removeBreaks(desc);
   }
   return desc;
 }
@@ -73,9 +90,8 @@ iterateIntegs((dir, name, integ) => {
     if (name.indexOf('amazonaws_') === 0) listDetails.tags.push('aws');
     if (name.indexOf('azure_') === 0) listDetails.tags.push('azure');
 
-
-    listDetails.description = sanitizeDescription(listDetails.description);
     let details = Object.assign({}, integ.getDetails(true), listDetails);
+    details.description = sanitizeDescription(details.description);
     for (let key in details.definitions || {}) {
       let schema = details.definitions[key];
       schema.title = schema.title || key;
