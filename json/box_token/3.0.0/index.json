@@ -247,6 +247,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "cloud"
   ]

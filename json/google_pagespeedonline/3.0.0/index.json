@@ -445,6 +445,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "tools",
     "google"

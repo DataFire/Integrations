@@ -4263,6 +4263,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "iot"
   ]

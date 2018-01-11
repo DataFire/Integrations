@@ -107,6 +107,7 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": [
     "text"
   ]

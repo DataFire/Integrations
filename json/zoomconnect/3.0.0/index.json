@@ -1725,6 +1725,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "messaging",
     "marketing"

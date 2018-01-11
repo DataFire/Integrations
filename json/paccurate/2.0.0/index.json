@@ -639,6 +639,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "transport"
   ]

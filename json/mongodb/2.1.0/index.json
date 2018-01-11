@@ -1,0 +1,226 @@
+{
+  "id": "mongodb",
+  "title": "MongoDB",
+  "description": "Interact with MongoDB",
+  "security": {
+    "mongodb": {
+      "fields": {
+        "database": "A database connection returned from MongoClient.connect()",
+        "url": "A mongodb URL"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mongodb.png"
+  },
+  "actionCount": 6,
+  "actions": [
+    {
+      "id": "findOne",
+      "title": "findOne",
+      "description": "Find a single document in the database",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection": {
+            "title": "collection",
+            "type": "string"
+          },
+          "query": {
+            "title": "query",
+            "type": "object"
+          },
+          "projection": {
+            "title": "projection",
+            "type": "object",
+            "default": {}
+          }
+        },
+        "required": [
+          "collection",
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "mongodb": {
+          "integration": "mongodb"
+        }
+      }
+    },
+    {
+      "id": "find",
+      "title": "find",
+      "description": "Find multiple documents in the database",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection": {
+            "title": "collection",
+            "type": "string"
+          },
+          "query": {
+            "title": "query",
+            "type": "object"
+          },
+          "projection": {
+            "title": "projection",
+            "type": "object",
+            "default": {}
+          }
+        },
+        "required": [
+          "collection",
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "security": {
+        "mongodb": {
+          "integration": "mongodb"
+        }
+      }
+    },
+    {
+      "id": "insertOne",
+      "title": "insertOne",
+      "description": "Insert a document into the database",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection": {
+            "title": "collection",
+            "type": "string"
+          },
+          "document": {
+            "title": "document",
+            "type": "object"
+          }
+        },
+        "required": [
+          "collection",
+          "document"
+        ]
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "mongodb": {
+          "integration": "mongodb"
+        }
+      }
+    },
+    {
+      "id": "insertMany",
+      "title": "insertMany",
+      "description": "Insert multiple documents into the database",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection": {
+            "title": "collection",
+            "type": "string"
+          },
+          "documents": {
+            "title": "documents",
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "required": [
+          "collection",
+          "documents"
+        ]
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "mongodb": {
+          "integration": "mongodb"
+        }
+      }
+    },
+    {
+      "id": "update",
+      "title": "update",
+      "description": "Update all matching documents in the database",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection": {
+            "title": "collection",
+            "type": "string"
+          },
+          "query": {
+            "title": "query",
+            "type": "object"
+          },
+          "update": {
+            "title": "update",
+            "type": "object"
+          }
+        },
+        "required": [
+          "collection",
+          "query",
+          "update"
+        ]
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "mongodb": {
+          "integration": "mongodb"
+        }
+      }
+    },
+    {
+      "id": "remove",
+      "title": "remove",
+      "description": "Remove all matching documents in the database",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection": {
+            "title": "collection",
+            "type": "string"
+          },
+          "query": {
+            "title": "query",
+            "type": "object"
+          },
+          "justOne": {
+            "title": "justOne",
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "required": [
+          "collection",
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "mongodb": {
+          "integration": "mongodb"
+        }
+      }
+    }
+  ],
+  "directory": "manual"
+}

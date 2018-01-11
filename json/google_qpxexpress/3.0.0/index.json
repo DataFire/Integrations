@@ -873,6 +873,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "google"
   ]

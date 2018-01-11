@@ -2529,5 +2529,6 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": []
 }

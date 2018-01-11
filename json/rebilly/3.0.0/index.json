@@ -18115,6 +18115,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "payment",
     "ecommerce"

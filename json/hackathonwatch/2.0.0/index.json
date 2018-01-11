@@ -75,6 +75,7 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": [
     "social"
   ]

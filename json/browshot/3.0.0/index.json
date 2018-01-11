@@ -1520,6 +1520,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "tools"
   ]

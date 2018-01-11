@@ -125,6 +125,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "telecom"
   ]

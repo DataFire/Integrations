@@ -1122,5 +1122,6 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": []
 }

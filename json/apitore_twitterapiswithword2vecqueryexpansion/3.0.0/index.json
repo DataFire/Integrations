@@ -180,6 +180,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "text"
   ]

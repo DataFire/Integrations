@@ -510,5 +510,6 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": []
 }

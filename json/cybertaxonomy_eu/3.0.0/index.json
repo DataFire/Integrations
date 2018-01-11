@@ -386,6 +386,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "open data"
   ]

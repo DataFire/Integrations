@@ -3033,6 +3033,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "analytics",
     "tools"

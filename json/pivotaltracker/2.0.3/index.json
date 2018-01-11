@@ -695,5 +695,6 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": []
 }

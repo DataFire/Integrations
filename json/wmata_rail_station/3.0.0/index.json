@@ -501,6 +501,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "transport"
   ]

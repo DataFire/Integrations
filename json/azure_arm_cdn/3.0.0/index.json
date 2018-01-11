@@ -2445,6 +2445,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "cloud",
     "hosting",

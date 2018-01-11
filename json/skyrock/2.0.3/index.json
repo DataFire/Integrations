@@ -2056,5 +2056,6 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": []
 }

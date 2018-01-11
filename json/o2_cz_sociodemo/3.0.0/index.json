@@ -158,6 +158,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "telecom"
   ]

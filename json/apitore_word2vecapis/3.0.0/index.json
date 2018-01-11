@@ -415,6 +415,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "text"
   ]

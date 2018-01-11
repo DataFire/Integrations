@@ -928,6 +928,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "text"
   ]

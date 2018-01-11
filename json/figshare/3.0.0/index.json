@@ -2621,6 +2621,7 @@
         ]
       },
       "outputSchema": {
+        "type": "object",
         "properties": {
           "access_token": {
             "type": "string"
@@ -2651,6 +2652,7 @@
       "description": "Exchange a refresh_token for an access_token",
       "inputSchema": {},
       "outputSchema": {
+        "type": "object",
         "properties": {
           "access_token": {
             "type": "string"
@@ -6339,6 +6341,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "open data"
   ]

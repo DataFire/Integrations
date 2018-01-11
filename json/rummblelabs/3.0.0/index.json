@@ -536,6 +536,7 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": [
     "machine learning"
   ]

@@ -63,6 +63,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "security",
     "tools"

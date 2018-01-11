@@ -2064,6 +2064,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "developer tools"
   ]

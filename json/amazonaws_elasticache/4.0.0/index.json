@@ -4174,6 +4174,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "cloud",
     "aws"

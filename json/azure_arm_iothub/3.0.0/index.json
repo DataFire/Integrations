@@ -1588,6 +1588,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "iot",
     "cloud",

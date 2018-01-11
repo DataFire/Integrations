@@ -15985,6 +15985,7 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": [
     "enterprise"
   ]

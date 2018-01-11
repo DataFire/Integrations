@@ -914,6 +914,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "search"
   ]

@@ -1438,6 +1438,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "payment",
     "financial",

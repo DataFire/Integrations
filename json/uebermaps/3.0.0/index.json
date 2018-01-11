@@ -2191,6 +2191,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "location"
   ]

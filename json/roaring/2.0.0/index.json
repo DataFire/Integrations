@@ -943,6 +943,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "customer relation"
   ]

@@ -196,6 +196,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "open data",
     "developer tools"

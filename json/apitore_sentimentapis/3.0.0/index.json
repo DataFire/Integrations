@@ -102,6 +102,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "developer tools",
     "text"

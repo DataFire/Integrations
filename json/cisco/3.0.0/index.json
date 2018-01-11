@@ -551,6 +551,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "security"
   ]

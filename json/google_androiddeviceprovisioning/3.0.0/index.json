@@ -1574,6 +1574,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "google"
   ]

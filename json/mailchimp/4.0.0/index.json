@@ -13,7 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mailchimp.jpg"
   },
-  "actionCount": 240,
+  "actionCount": 239,
   "definitions": {
     "SegmentCondition": {
       "type": "object",
@@ -29556,39 +29556,6 @@
       }
     },
     {
-      "id": "postMobileNotificationPreferencesIdActionsCreateIfNeeded",
-      "title": "postMobileNotificationPreferencesIdActionsCreateIfNeeded",
-      "description": "Create default mobile notification preferences if user has not specified any.",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "device_hash": {
-            "type": "string",
-            "description": "The MD5 hash of the lowercase version of the device ID."
-          },
-          "device_id": {
-            "type": "string",
-            "description": "A unique identifier for the device."
-          },
-          "dc": {
-            "type": "string",
-            "description": "`dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `\"us6\"`"
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "device_hash",
-          "device_id"
-        ]
-      },
-      "outputSchema": {},
-      "security": {
-        "mailchimp": {
-          "integration": "mailchimp"
-        }
-      }
-    },
-    {
       "id": "patchMobileNotificationPreferencesId",
       "title": "patchMobileNotificationPreferencesId",
       "description": "Update mobile push notification preferences for a device.",
@@ -48365,5 +48332,6 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": []
 }

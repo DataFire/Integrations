@@ -364,6 +364,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "machine learning",
     "text"

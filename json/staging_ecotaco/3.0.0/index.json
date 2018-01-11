@@ -413,6 +413,7 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": [
     "location"
   ]

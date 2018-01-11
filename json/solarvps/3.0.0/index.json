@@ -509,5 +509,6 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": []
 }

@@ -788,6 +788,7 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": [
     "open data"
   ]

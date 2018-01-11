@@ -163,5 +163,6 @@
         "$ref": "#/definitions/Response"
       }
     }
-  ]
+  ],
+  "directory": "manual"
 }

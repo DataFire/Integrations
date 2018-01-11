@@ -245,6 +245,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "tools"
   ]

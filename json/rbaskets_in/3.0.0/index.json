@@ -473,6 +473,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "developer tools",
     "monitoring"

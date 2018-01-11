@@ -65,6 +65,7 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": [
     "cloud"
   ]

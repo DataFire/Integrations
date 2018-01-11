@@ -51,7 +51,7 @@ iterateIntegs((dir, name, integ) => {
     let package = require(path.join(dir, 'package.json'));
     let openapiFile = path.join(dir, 'openapi.json');
     let infoFile = path.join(dir, 'info.json');
-    let info = {};
+    let info = {directory: dir.match(/\/integrations\/(generated|manual)\//)[1]};
     if (fs.existsSync(openapiFile)) {
       let openapi = JSON.parse(fs.readFileSync(openapiFile, 'utf8'));
       info.title = openapi.info.title;

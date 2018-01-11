@@ -871,6 +871,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "developer tools",
     "location"

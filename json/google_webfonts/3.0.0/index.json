@@ -140,6 +140,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "developer tools",
     "google"

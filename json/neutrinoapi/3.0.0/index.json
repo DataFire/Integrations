@@ -2186,6 +2186,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "email",
     "messaging",

@@ -227,6 +227,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "search",
     "google"

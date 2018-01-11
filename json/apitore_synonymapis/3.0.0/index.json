@@ -107,6 +107,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "text"
   ]

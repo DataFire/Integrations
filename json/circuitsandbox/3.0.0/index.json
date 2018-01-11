@@ -2218,6 +2218,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "messaging"
   ]

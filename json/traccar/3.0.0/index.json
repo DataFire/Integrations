@@ -2286,6 +2286,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "location"
   ]

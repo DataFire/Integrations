@@ -243,6 +243,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "tools"
   ]

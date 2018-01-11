@@ -129,6 +129,7 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": [
     "developer tools"
   ]

@@ -2028,6 +2028,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "transport"
   ]

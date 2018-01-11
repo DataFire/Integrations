@@ -9,6 +9,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/1forge.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -30,6 +31,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/3blades_ai.png"
     },
     "actionCount": 116,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -45,6 +47,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/6_dot_authentiqio_appspot.svg"
     },
     "actionCount": 14,
+    "directory": "generated",
     "tags": [
       "security"
     ],
@@ -60,6 +63,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/afterbanks.jpg"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -89,6 +93,7 @@
       }
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "transport"
     ],
@@ -109,6 +114,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amadeus.png"
     },
     "actionCount": 23,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -131,6 +137,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_a4b.jpeg"
     },
     "actionCount": 36,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -155,6 +162,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_acm.svg"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -179,6 +187,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_api_pricing.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -203,6 +212,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_apigateway.svg"
     },
     "actionCount": 49,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -227,6 +237,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_appstream2.png"
     },
     "actionCount": 29,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -252,6 +263,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_appsync.jpeg"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -276,6 +288,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_athena.svg"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -300,6 +313,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_autoscaling.svg"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -324,6 +338,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_batch.svg"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -349,6 +364,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_budgets.jpeg"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -373,6 +389,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ce.svg"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -398,6 +415,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloud9.jpeg"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -423,6 +441,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_clouddirectory.jpeg"
     },
     "actionCount": 57,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -447,6 +466,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudformation.svg"
     },
     "actionCount": 40,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -471,6 +491,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudfront.svg"
     },
     "actionCount": 18,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -495,6 +516,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudhsm.svg"
     },
     "actionCount": 20,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -520,6 +542,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudhsmv2.jpeg"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -544,6 +567,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudsearch.svg"
     },
     "actionCount": 24,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -569,6 +593,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudsearchdomain.jpeg"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -593,6 +618,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudtrail.svg"
     },
     "actionCount": 14,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -617,6 +643,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codebuild.svg"
     },
     "actionCount": 14,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -641,6 +668,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codecommit.svg"
     },
     "actionCount": 18,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -665,6 +693,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codedeploy.svg"
     },
     "actionCount": 38,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -689,6 +718,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codepipeline.svg"
     },
     "actionCount": 27,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -714,6 +744,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codestar.jpeg"
     },
     "actionCount": 18,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -739,6 +770,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_identity.jpeg"
     },
     "actionCount": 18,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -764,6 +796,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_idp.jpeg"
     },
     "actionCount": 83,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -789,6 +822,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_sync.jpeg"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -814,6 +848,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_comprehend.jpeg"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -838,6 +873,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_config.svg"
     },
     "actionCount": 27,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -863,6 +899,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cur.jpeg"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -887,6 +924,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_data_iot.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -912,6 +950,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_data_jobs_iot.jpeg"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -937,6 +976,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_data_mediastore.jpeg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -961,6 +1001,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_datapipeline.svg"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -986,6 +1027,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dax.jpeg"
     },
     "actionCount": 21,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1010,6 +1052,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_devicefarm.svg"
     },
     "actionCount": 49,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1034,6 +1077,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_directconnect.svg"
     },
     "actionCount": 44,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1059,6 +1103,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_discovery.jpeg"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1083,6 +1128,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dms.svg"
     },
     "actionCount": 40,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1107,6 +1153,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ds.svg"
     },
     "actionCount": 40,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1131,6 +1178,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dynamodb.svg"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1155,6 +1203,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ec2.svg"
     },
     "actionCount": 242,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1179,6 +1228,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ecr.svg"
     },
     "actionCount": 22,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1203,6 +1253,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ecs.svg"
     },
     "actionCount": 31,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1227,6 +1278,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticache.svg"
     },
     "actionCount": 40,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1251,6 +1303,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticbeanstalk.svg"
     },
     "actionCount": 43,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1276,6 +1329,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticfilesystem.jpeg"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1300,6 +1354,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticloadbalancing.svg"
     },
     "actionCount": 34,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1325,6 +1380,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticmapreduce.jpeg"
     },
     "actionCount": 27,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1349,6 +1405,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elastictranscoder.svg"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1373,6 +1430,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_email.svg"
     },
     "actionCount": 60,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1398,6 +1456,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_entitlement_marketplace.jpeg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1423,6 +1482,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_es.jpeg"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1448,6 +1508,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_events.jpeg"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1472,6 +1533,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_firehose.svg"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1496,6 +1558,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_gamelift.svg"
     },
     "actionCount": 64,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1520,6 +1583,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_glacier.svg"
     },
     "actionCount": 18,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1545,6 +1609,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_glue.jpeg"
     },
     "actionCount": 75,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1569,6 +1634,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_greengrass.svg"
     },
     "actionCount": 33,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1594,6 +1660,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_guardduty.jpeg"
     },
     "actionCount": 26,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1619,6 +1686,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_health.jpeg"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1643,6 +1711,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_iam.svg"
     },
     "actionCount": 122,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1667,6 +1736,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_importexport.svg"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1691,6 +1761,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_inspector.svg"
     },
     "actionCount": 33,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1715,6 +1786,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_iot.svg"
     },
     "actionCount": 34,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1739,6 +1811,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesis.svg"
     },
     "actionCount": 21,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1762,6 +1835,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesisanalytics.svg"
     },
     "actionCount": 17,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1787,6 +1861,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesisvideo.jpeg"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1811,6 +1886,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kms.svg"
     },
     "actionCount": 35,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1835,6 +1911,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_lambda.svg"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1859,6 +1936,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_lightsail.svg"
     },
     "actionCount": 48,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1883,6 +1961,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_logs.svg"
     },
     "actionCount": 33,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1907,6 +1986,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_machinelearning.svg"
     },
     "actionCount": 28,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1932,6 +2012,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_marketplacecommerceanalytics.jpeg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1957,6 +2038,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mediaconvert.jpeg"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -1982,6 +2064,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_medialive.jpeg"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2007,6 +2090,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mediapackage.jpeg"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2032,6 +2116,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mediastore.jpeg"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2056,6 +2141,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_metering_marketplace.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2080,6 +2166,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mgh.png"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2105,6 +2192,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mobile.jpeg"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2129,6 +2217,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mobileanalytics.svg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2153,6 +2242,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_models_lex.png"
     },
     "actionCount": 30,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2177,6 +2267,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_monitoring.svg"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2202,6 +2293,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mq.jpeg"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2227,6 +2319,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mturk_requester.jpeg"
     },
     "actionCount": 39,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2251,6 +2344,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_opsworks.svg"
     },
     "actionCount": 73,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2275,6 +2369,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_opsworks_cm.png"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2299,6 +2394,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_organizations.svg"
     },
     "actionCount": 39,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2322,6 +2418,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_pinpoint.svg"
     },
     "actionCount": 29,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2346,6 +2443,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_polly.svg"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2370,6 +2468,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_rds.svg"
     },
     "actionCount": 90,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2394,6 +2493,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_redshift.svg"
     },
     "actionCount": 63,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2418,6 +2518,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_rekognition.svg"
     },
     "actionCount": 14,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2443,6 +2544,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_resource_groups.jpeg"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2466,6 +2568,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_route53.svg"
     },
     "actionCount": 37,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2491,6 +2594,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_route53domains.jpeg"
     },
     "actionCount": 24,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2516,6 +2620,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_runtime_lex.jpeg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2541,6 +2646,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_runtime_sagemaker.jpeg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2564,6 +2670,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_s3.svg"
     },
     "actionCount": 68,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2589,6 +2696,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sagemaker.jpeg"
     },
     "actionCount": 29,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2614,6 +2722,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sdb.jpeg"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2639,6 +2748,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_serverlessrepo.jpeg"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2663,6 +2773,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_servicecatalog.svg"
     },
     "actionCount": 53,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2687,6 +2798,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_shield.svg"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2711,6 +2823,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sms.svg"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2735,6 +2848,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_snowball.svg"
     },
     "actionCount": 17,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2759,6 +2873,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sns.svg"
     },
     "actionCount": 30,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2783,6 +2898,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sqs.svg"
     },
     "actionCount": 20,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2808,6 +2924,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ssm.jpeg"
     },
     "actionCount": 96,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2833,6 +2950,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_states.jpeg"
     },
     "actionCount": 17,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2857,6 +2975,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_storagegateway.svg"
     },
     "actionCount": 62,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2882,6 +3001,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_streams_dynamodb.jpeg"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2906,6 +3026,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sts.svg"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2931,6 +3052,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_support.jpeg"
     },
     "actionCount": 14,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2955,6 +3077,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_swf.svg"
     },
     "actionCount": 31,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -2979,6 +3102,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_tagging.png"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -3004,6 +3128,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_translate.jpeg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -3028,6 +3153,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_waf.svg"
     },
     "actionCount": 59,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -3053,6 +3179,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_waf_regional.jpeg"
     },
     "actionCount": 63,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -3077,6 +3204,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_workdocs.svg"
     },
     "actionCount": 24,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -3101,6 +3229,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_workspaces.svg"
     },
     "actionCount": 14,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -3126,6 +3255,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_xray.jpeg"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "cloud",
       "aws"
@@ -3150,6 +3280,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apacta.png"
     },
     "actionCount": 134,
+    "directory": "generated",
     "tags": [
       "time management",
       "project management"
@@ -3175,6 +3306,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apimatic.svg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "tools"
@@ -3190,6 +3322,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apis_guru.svg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "open data",
       "developer tools"
@@ -3205,6 +3338,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_2chmatomefeedsapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3217,6 +3351,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_certificatefeedsapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3229,6 +3364,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_cosinesimilarity.jpg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3241,6 +3377,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_designfeedsapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3253,6 +3390,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_documentfrequencyapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3267,6 +3405,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_gamefeedsapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3279,6 +3418,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_japanesewordnetapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3291,6 +3431,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_kmeansclusteringbyword2vec.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3303,6 +3444,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_kuromojiapis.jpg"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3315,6 +3457,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_languagedetectionapis.jpg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3329,6 +3472,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_newsfeedsapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3341,6 +3485,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_pioneerblogfeedsapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3353,6 +3498,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_rss2jsonapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3365,6 +3511,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentencepieceapis_tweet_.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3379,6 +3526,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentencepieceapis_wikipedia_.jpg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3393,6 +3541,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentenceseparatorapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3407,6 +3556,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentencesimilarity.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3421,6 +3571,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentimentapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "text"
@@ -3436,6 +3587,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_synonymapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3450,6 +3602,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_techfeedsapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3462,6 +3615,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_text2labelbytfidfapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3474,6 +3628,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_text2labelbywordvectorapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3486,6 +3641,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_travelfeedsapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3498,6 +3654,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_tweetsummarizationapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3512,6 +3669,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapis.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3526,6 +3684,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapiswithsentimentbyapitoresentimentapi.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3540,6 +3699,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapiswithword2vecqueryexpansion.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3554,6 +3714,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapiswithword2vecqueryexpansion_andaddsentimentbyapitoresentimentapi.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3568,6 +3729,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2hrefapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3580,6 +3742,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2htmlapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3592,6 +3755,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2labelbytfidfapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3604,6 +3768,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2labelbywordvectorapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3616,6 +3781,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2srcapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3628,6 +3794,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2textapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -3640,6 +3807,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_word2vecapis.jpg"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3654,6 +3822,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnetapis.jpg"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3668,6 +3837,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnethypernymapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3682,6 +3852,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnethyponymapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3696,6 +3867,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnetsimilarityapis.jpg"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3710,6 +3882,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnetsynonymapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3724,6 +3897,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnettranslationapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3738,6 +3912,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordstovectorsapis.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -3759,6 +3934,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/appveyor.png"
     },
     "actionCount": 45,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -3780,6 +3956,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/art19.png"
     },
     "actionCount": 22,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -3795,6 +3972,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ato_gov_au.png"
     },
     "actionCount": 74,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -3810,6 +3988,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/aucklandmuseum.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -3853,6 +4032,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/authentiq.svg"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "security"
     ],
@@ -3888,6 +4068,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/avaza.jpeg"
     },
     "actionCount": 40,
+    "directory": "generated",
     "tags": [
       "collaboration"
     ],
@@ -3909,6 +4090,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/aviationdata_systems.jpeg"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "transport"
     ],
@@ -3943,6 +4125,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_advisor.png"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -3978,6 +4161,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_analysisservices.png"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4013,6 +4197,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_apimanagement.png"
     },
     "actionCount": 99,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4048,6 +4233,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_appinsights.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4083,6 +4269,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_authorization.png"
     },
     "actionCount": 20,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4117,6 +4304,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_batch.png"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4152,6 +4340,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_billing.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4187,6 +4376,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_cdn.png"
     },
     "actionCount": 32,
+    "directory": "generated",
     "tags": [
       "cloud",
       "hosting",
@@ -4203,6 +4393,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_cognitiveservices.png"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [
       "machine learning",
       "cloud",
@@ -4218,6 +4409,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_commerce.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "ecommerce",
       "cloud",
@@ -4254,6 +4446,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_compute.png"
     },
     "actionCount": 54,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4269,6 +4462,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_compute_containerservice.png"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4284,6 +4478,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_compute_disk.png"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4319,6 +4514,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_compute_runcommands.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4354,6 +4550,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_consumption.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4368,6 +4565,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_containerregistry.png"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4403,6 +4601,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_cosmos_db.png"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4438,6 +4637,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_customer_insights.png"
     },
     "actionCount": 58,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4473,6 +4673,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_devtestlabs.png"
     },
     "actionCount": 105,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "cloud",
@@ -4489,6 +4690,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_dns.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "hosting",
       "cloud",
@@ -4525,6 +4727,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_documentdb.png"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4560,6 +4763,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_eventhub.png"
     },
     "actionCount": 28,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4595,6 +4799,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_hdinsight.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4609,6 +4814,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_insights.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4624,6 +4830,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_intune.png"
     },
     "actionCount": 33,
+    "directory": "generated",
     "tags": [
       "enterprise",
       "cloud",
@@ -4641,6 +4848,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_iothub.png"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "iot",
       "cloud",
@@ -4657,6 +4865,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_keyvault.png"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "cloud",
@@ -4694,6 +4903,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_logic.png"
     },
     "actionCount": 59,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "cloud",
@@ -4710,6 +4920,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_machinelearning_commitmentplans.png"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "machine learning",
       "azure"
@@ -4725,6 +4936,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_machinelearning_webservices.png"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "machine learning",
       "azure"
@@ -4760,6 +4972,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_mediaservices.png"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [
       "media",
       "cloud",
@@ -4796,6 +5009,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_mobileengagement.png"
     },
     "actionCount": 37,
+    "directory": "generated",
     "tags": [
       "analytics",
       "marketing",
@@ -4832,6 +5046,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_monitor.png"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4867,6 +5082,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_mysql.png"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4902,6 +5118,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_network.png"
     },
     "actionCount": 97,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4937,6 +5154,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_notificationhubs.png"
     },
     "actionCount": 25,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -4972,6 +5190,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_operationalinsights.png"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "analytics",
       "azure"
@@ -5007,6 +5226,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_postgresql.png"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5022,6 +5242,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_powerbiembedded.png"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5056,6 +5277,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_recoveryservices.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5090,6 +5312,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_recoveryservicesbackup.png"
     },
     "actionCount": 33,
+    "directory": "generated",
     "tags": [
       "storage",
       "azure"
@@ -5124,6 +5347,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_recoveryservicessiterecovery.png"
     },
     "actionCount": 101,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5159,6 +5383,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_redis.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5194,6 +5419,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_relay.png"
     },
     "actionCount": 34,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5229,6 +5455,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_resourcehealth.png"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5243,6 +5470,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_scheduler.png"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "time management",
       "azure"
@@ -5278,6 +5506,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_search.png"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "search",
       "azure"
@@ -5313,6 +5542,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_servermanagement.png"
     },
     "actionCount": 25,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "azure"
@@ -5348,6 +5578,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_service_map.png"
     },
     "actionCount": 25,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5383,6 +5614,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_servicebus.png"
     },
     "actionCount": 38,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5417,6 +5649,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_servicefabric.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5452,6 +5685,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_sql.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "enterprise",
       "azure"
@@ -5467,6 +5701,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_storage.png"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "storage",
       "azure"
@@ -5502,6 +5737,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_storageimportexport.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "storage",
       "azure"
@@ -5536,6 +5772,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_storsimple8000series.png"
     },
     "actionCount": 92,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5570,6 +5807,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_streamanalytics.png"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5584,6 +5822,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_trafficmanager.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5619,6 +5858,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_visualstudio.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5653,6 +5893,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_web.png"
     },
     "actionCount": 295,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5667,6 +5908,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_insights.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5701,6 +5943,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_monitor.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "cloud",
       "azure"
@@ -5717,6 +5960,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbc.png"
     },
     "actionCount": 75,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -5730,6 +5974,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbc_rss.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -5752,6 +5997,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbci.svg"
     },
     "actionCount": 30,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -5766,6 +6012,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bclaws_ca_bclaws.jpeg"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -5780,6 +6027,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/beanstream.png"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "payment",
       "financial",
@@ -5804,6 +6052,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/beezup.png"
     },
     "actionCount": 179,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -5818,6 +6067,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/betfair.jpeg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "entertainment"
     ],
@@ -5841,6 +6091,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bigoven.png"
     },
     "actionCount": 58,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -5853,6 +6104,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bikewise.ico"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -5912,6 +6164,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bitbucket.png"
     },
     "actionCount": 184,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "collaboration"
@@ -5934,6 +6187,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/blazemeter.png"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -5948,6 +6202,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bluemix_containers.jpg"
     },
     "actionCount": 47,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -5970,6 +6225,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/botify.png"
     },
     "actionCount": 28,
+    "directory": "generated",
     "tags": [
       "analytics",
       "tools"
@@ -5985,6 +6241,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_authorization.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "cloud"
     ],
@@ -6016,6 +6273,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_content.jpg"
     },
     "actionCount": 129,
+    "directory": "generated",
     "tags": [
       "cloud"
     ],
@@ -6030,6 +6288,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_token.jpg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "cloud"
     ],
@@ -6061,6 +6320,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_upload.jpg"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "cloud"
     ],
@@ -6083,6 +6343,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/brandlovers.png"
     },
     "actionCount": 36,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -6104,6 +6365,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/browshot.png"
     },
     "actionCount": 17,
+    "directory": "generated",
     "tags": [
       "tools"
     ],
@@ -6137,6 +6399,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bufferapp.svg"
     },
     "actionCount": 20,
+    "directory": "generated",
     "tags": [
       "social",
       "marketing"
@@ -6184,6 +6447,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bungie.png"
     },
     "actionCount": 96,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -6207,6 +6471,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/callfire.png"
     },
     "actionCount": 111,
+    "directory": "generated",
     "tags": [
       "telecom"
     ],
@@ -6221,6 +6486,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cambase.jpg"
     },
     "actionCount": 17,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -6312,6 +6578,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ccp_is.jpeg"
     },
     "actionCount": 187,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -6334,6 +6601,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cenit.png"
     },
     "actionCount": 40,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -6354,6 +6622,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/channel4.gif"
     },
     "actionCount": 68,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -6375,6 +6644,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/circleci.png"
     },
     "actionCount": 22,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -6415,6 +6685,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/circuitsandbox.jpg"
     },
     "actionCount": 52,
+    "directory": "generated",
     "tags": [
       "messaging"
     ],
@@ -6446,6 +6717,7 @@
       }
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "security"
     ],
@@ -6461,6 +6733,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_gotoassistseeit.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "support"
     ],
@@ -6476,6 +6749,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_gotomeeting.png"
     },
     "actionCount": 26,
+    "directory": "generated",
     "tags": [
       "collaboration"
     ],
@@ -6491,6 +6765,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_gototraining.png"
     },
     "actionCount": 22,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.2"
   },
@@ -6504,6 +6779,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_gotowebinar.png"
     },
     "actionCount": 38,
+    "directory": "generated",
     "tags": [
       "marketing"
     ],
@@ -6519,6 +6795,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_scim.png"
     },
     "actionCount": 17,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -6535,6 +6812,7 @@
       }
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -6550,6 +6828,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/clarify.png"
     },
     "actionCount": 21,
+    "directory": "generated",
     "tags": [
       "search"
     ],
@@ -6564,6 +6843,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/clever_cloud.png"
     },
     "actionCount": 263,
+    "directory": "generated",
     "tags": [
       "cloud"
     ],
@@ -6585,6 +6865,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/clickmeter.png"
     },
     "actionCount": 108,
+    "directory": "generated",
     "tags": [
       "marketing"
     ],
@@ -6599,6 +6880,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cloud_gov.jpg"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -6613,6 +6895,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cnab_online_herokuapp.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -6626,6 +6909,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cnn_rss.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -6638,6 +6922,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/consumerfinance_gov.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -6659,6 +6944,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/core_ac_uk.png"
     },
     "actionCount": 17,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -6673,6 +6959,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cybertaxonomy_eu.jpg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -6688,6 +6975,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/data2crm.png"
     },
     "actionCount": 95,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -6707,6 +6995,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/data_gov.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -6719,6 +7008,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/dataatwork.jpg"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -6740,6 +7030,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/datumbox.jpg"
     },
     "actionCount": 14,
+    "directory": "generated",
     "tags": [
       "machine learning",
       "text"
@@ -6762,6 +7053,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deeparteffects.jpeg"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -6777,6 +7069,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_betriebsstellen.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "transport",
       "open data"
@@ -6793,6 +7086,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_fahrplan.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "transport",
       "open data"
@@ -6816,6 +7110,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_fasta.png"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "transport",
       "open data"
@@ -6832,6 +7127,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_flinkster.png"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "transport",
       "open data"
@@ -6848,6 +7144,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_reisezentren.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "transport",
       "open data"
@@ -6864,6 +7161,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_stada.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "transport",
       "open data"
@@ -6879,6 +7177,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/docusign.png"
     },
     "actionCount": 303,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -6914,6 +7213,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/domainsdb_info.jpg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "hosting"
     ],
@@ -6936,6 +7236,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/dropx.svg"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -6950,6 +7251,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/dweet.png"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "iot"
     ],
@@ -6985,6 +7287,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_browse.jpeg"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -7020,6 +7323,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_feed.jpeg"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -7055,6 +7359,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_marketing.jpeg"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -7090,6 +7395,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_commerce_taxonomy.jpeg"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -7127,6 +7433,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_sell_fulfillment.jpeg"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -7142,6 +7449,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_air.png"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -7157,6 +7465,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_case.png"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -7172,6 +7481,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_cwa.png"
     },
     "actionCount": 36,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -7187,6 +7497,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_dfr.png"
     },
     "actionCount": 66,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -7202,6 +7513,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_echo.png"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -7217,6 +7529,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_eff.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -7232,6 +7545,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_rcra.png"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -7247,6 +7561,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_sdw.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -7286,6 +7601,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/etmdb.png"
     },
     "actionCount": 29,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -7300,6 +7616,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/etsy.png"
     },
     "actionCount": 115,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -7312,6 +7629,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/europeana_eu.png"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -7327,6 +7645,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/exavault.png"
     },
     "actionCount": 35,
+    "directory": "generated",
     "tags": [
       "storage"
     ],
@@ -7400,6 +7719,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/facebook.png"
     },
     "actionCount": 195,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -7433,6 +7753,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/figshare.png"
     },
     "actionCount": 113,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -7447,6 +7768,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/firebrowse.png"
     },
     "actionCount": 30,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -7489,6 +7811,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/fitbit.png"
     },
     "actionCount": 69,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.5"
   },
@@ -7535,6 +7858,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/flat.svg"
     },
     "actionCount": 62,
+    "directory": "generated",
     "tags": [
       "media",
       "collaboration"
@@ -7557,6 +7881,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/formapi.jpeg"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -7572,6 +7897,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/freesound.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -7593,6 +7919,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/funtranslations.png"
     },
     "actionCount": 36,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -7627,6 +7954,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/furkot.svg"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "location"
     ],
@@ -7648,6 +7976,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/geneea.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -7670,6 +7999,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/geodesystems.ico"
     },
     "actionCount": 229,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -7679,6 +8009,7 @@
     "description": "The GoToTraining API enables developers to use the stable and robust GoToTraining functionality as the basis for online ...",
     "security": {},
     "actionCount": 22,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -7688,6 +8019,7 @@
     "description": "The GoToWebinar API provides seamless integration of webinar registrant and attendee data into your existing infrastruct...",
     "security": {},
     "actionCount": 38,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -7708,6 +8040,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/getsandbox.png"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -7729,6 +8062,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gettyimages.png"
     },
     "actionCount": 42,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -7747,6 +8081,7 @@
       }
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -7769,6 +8104,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gisgraphy.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "location"
     ],
@@ -7823,6 +8159,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/github.png"
     },
     "actionCount": 246,
+    "directory": "generated",
     "tags": [
       "collaboration",
       "developer tools"
@@ -7846,6 +8183,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gitlab.png"
     },
     "actionCount": 358,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -7860,6 +8198,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_acceleratedmobilepageurl.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -7895,6 +8234,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexchangebuyer.png"
     },
     "actionCount": 40,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -7930,6 +8270,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexchangebuyer2.png"
     },
     "actionCount": 35,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -7966,6 +8307,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexchangeseller.png"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8001,6 +8343,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexperiencereport.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8037,6 +8380,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_admin.png"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "analytics",
       "google"
@@ -8074,6 +8418,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adsense.png"
     },
     "actionCount": 40,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8109,6 +8454,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adsensehost.png"
     },
     "actionCount": 28,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8149,6 +8495,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_analytics.png"
     },
     "actionCount": 87,
+    "directory": "generated",
     "tags": [
       "analytics",
       "google"
@@ -8186,6 +8533,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_analyticsreporting.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "analytics",
       "google"
@@ -8201,6 +8549,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androiddeviceprovisioning.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8236,6 +8585,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androidenterprise.png"
     },
     "actionCount": 81,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8271,6 +8621,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androidmanagement.png"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8306,6 +8657,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androidpublisher.png"
     },
     "actionCount": 59,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "google"
@@ -8344,6 +8696,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_appengine.png"
     },
     "actionCount": 17,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8383,6 +8736,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_appsactivity.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8418,6 +8772,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_appstate.png"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8459,6 +8814,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_bigquery.png"
     },
     "actionCount": 24,
+    "directory": "generated",
     "tags": [
       "search",
       "google"
@@ -8497,6 +8853,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_bigquerydatatransfer.png"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8533,6 +8890,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_blogger.png"
     },
     "actionCount": 35,
+    "directory": "generated",
     "tags": [
       "social",
       "google"
@@ -8569,6 +8927,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_books.png"
     },
     "actionCount": 50,
+    "directory": "generated",
     "tags": [
       "media",
       "google"
@@ -8606,6 +8965,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_calendar.png"
     },
     "actionCount": 39,
+    "directory": "generated",
     "tags": [
       "time management",
       "google"
@@ -8621,6 +8981,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_civicinfo.png"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8672,6 +9033,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_classroom.png"
     },
     "actionCount": 53,
+    "directory": "generated",
     "tags": [
       "education",
       "google"
@@ -8708,6 +9070,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudbilling.png"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8743,6 +9106,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudbuild.png"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8779,6 +9143,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_clouddebugger.jpg"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8814,6 +9179,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_clouderrorreporting.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8849,6 +9215,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudfunctions.png"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8885,6 +9252,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudiot.png"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -8920,6 +9288,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudkms.png"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "security",
       "google"
@@ -8957,6 +9326,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudmonitoring.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "monitoring",
       "google"
@@ -8994,6 +9364,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudresourcemanager.jpg"
     },
     "actionCount": 26,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -9029,6 +9400,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudtasks.png"
     },
     "actionCount": 21,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -9066,6 +9438,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudtrace.jpg"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -9104,6 +9477,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_clouduseraccounts.jpg"
     },
     "actionCount": 25,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -9144,6 +9518,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_compute.png"
     },
     "actionCount": 305,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -9181,6 +9556,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_consumersurveys.png"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -9216,6 +9592,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_container.png"
     },
     "actionCount": 32,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -9251,6 +9628,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_content.jpg"
     },
     "actionCount": 60,
+    "directory": "generated",
     "tags": [
       "ecommerce",
       "google"
@@ -9266,6 +9644,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_customsearch.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "search",
       "google"
@@ -9305,6 +9684,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dataflow.png"
     },
     "actionCount": 31,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -9340,6 +9720,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dataproc.png"
     },
     "actionCount": 17,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -9376,6 +9757,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_datastore.png"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "storage",
       "google"
@@ -9415,6 +9797,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_deploymentmanager.jpg"
     },
     "actionCount": 20,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -9452,6 +9835,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dfareporting.png"
     },
     "actionCount": 206,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -9466,6 +9850,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_discovery.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "google"
@@ -9502,6 +9887,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dlp.png"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "cloud",
       "google"
@@ -9541,6 +9927,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dns.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "cloud",
       "google"
@@ -9577,6 +9964,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_doubleclickbidmanager.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "marketing",
       "google"
@@ -9613,6 +10001,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_doubleclicksearch.png"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "marketing",
       "google"
@@ -9656,6 +10045,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_drive.png"
     },
     "actionCount": 41,
+    "directory": "generated",
     "tags": [
       "storage",
       "google"
@@ -9692,6 +10082,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_firebasedynamiclinks.png"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "backend",
       "google"
@@ -9707,6 +10098,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_firebaseremoteconfig.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "backend",
       "google"
@@ -9745,6 +10137,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_firebaserules.png"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "backend",
       "google"
@@ -9781,6 +10174,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_firestore.png"
     },
     "actionCount": 17,
+    "directory": "generated",
     "tags": [
       "backend",
       "google"
@@ -9834,6 +10228,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_fitness.png"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -9870,6 +10265,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_fusiontables.png"
     },
     "actionCount": 35,
+    "directory": "generated",
     "tags": [
       "cloud",
       "google"
@@ -9908,6 +10304,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_games.png"
     },
     "actionCount": 55,
+    "directory": "generated",
     "tags": [
       "social",
       "google"
@@ -9944,6 +10341,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_gamesconfiguration.png"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "social",
       "google"
@@ -9981,6 +10379,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_gamesmanagement.png"
     },
     "actionCount": 29,
+    "directory": "generated",
     "tags": [
       "social",
       "google"
@@ -10021,6 +10420,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_genomics.png"
     },
     "actionCount": 55,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -10065,6 +10465,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_gmail.png"
     },
     "actionCount": 65,
+    "directory": "generated",
     "tags": [
       "email",
       "google"
@@ -10101,6 +10502,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_groupsmigration.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "cloud",
       "google"
@@ -10137,6 +10539,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_groupssettings.png"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "cloud",
       "google"
@@ -10173,6 +10576,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_iam.png"
     },
     "actionCount": 21,
+    "directory": "generated",
     "tags": [
       "security",
       "google"
@@ -10210,6 +10614,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_identitytoolkit.png"
     },
     "actionCount": 22,
+    "directory": "generated",
     "tags": [
       "security",
       "google"
@@ -10225,6 +10630,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_kgsearch.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "search",
       "google"
@@ -10262,6 +10668,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_language.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "text",
       "google"
@@ -10298,6 +10705,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_licensing.png"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [
       "enterprise",
       "google"
@@ -10338,6 +10746,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_logging.jpg"
     },
     "actionCount": 23,
+    "directory": "generated",
     "tags": [
       "cloud",
       "google"
@@ -10374,6 +10783,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_manufacturers.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "marketing",
       "google"
@@ -10411,6 +10821,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_mirror.png"
     },
     "actionCount": 26,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -10446,6 +10857,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_ml.png"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "machine learning",
       "google"
@@ -10485,6 +10897,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_monitoring.png"
     },
     "actionCount": 18,
+    "directory": "generated",
     "tags": [
       "monitoring",
       "google"
@@ -10524,6 +10937,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_oauth2.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "security",
       "google"
@@ -10563,6 +10977,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_oslogin.png"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "backend",
       "google"
@@ -10578,6 +10993,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_pagespeedonline.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "tools",
       "google"
@@ -10593,6 +11009,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_partners.jpg"
     },
     "actionCount": 18,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -10636,6 +11053,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_people.png"
     },
     "actionCount": 14,
+    "directory": "generated",
     "tags": [
       "social",
       "google"
@@ -10672,6 +11090,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_playcustomapp.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "google"
@@ -10708,6 +11127,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_playmoviespartner.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "media",
       "google"
@@ -10747,6 +11167,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_plus.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "social",
       "google"
@@ -10792,6 +11213,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_plusdomains.png"
     },
     "actionCount": 22,
+    "directory": "generated",
     "tags": [
       "social",
       "google"
@@ -10832,6 +11254,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_prediction.png"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "machine learning",
       "google"
@@ -10868,6 +11291,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_proximitybeacon.png"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "iot",
       "google"
@@ -10905,6 +11329,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_pubsub.png"
     },
     "actionCount": 18,
+    "directory": "generated",
     "tags": [
       "messaging",
       "google"
@@ -10920,6 +11345,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_qpxexpress.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -10958,6 +11384,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_replicapool.png"
     },
     "actionCount": 14,
+    "directory": "generated",
     "tags": [
       "backend",
       "google"
@@ -10997,6 +11424,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_replicapoolupdater.png"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "backend",
       "google"
@@ -11034,6 +11462,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_reseller.png"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "enterprise",
       "google"
@@ -11075,6 +11504,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_resourceviews.png"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "backend",
       "google"
@@ -11112,6 +11542,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_runtimeconfig.png"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "cloud",
       "google"
@@ -11127,6 +11558,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_safebrowsing.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "security",
       "google"
@@ -11173,6 +11605,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_script.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "cloud",
       "google"
@@ -11188,6 +11621,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_searchconsole.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "search",
       "google"
@@ -11225,6 +11659,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_serviceconsumermanagement.png"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -11261,6 +11696,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_servicecontrol.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "cloud",
       "google"
@@ -11300,6 +11736,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_servicemanagement.png"
     },
     "actionCount": 23,
+    "directory": "generated",
     "tags": [
       "cloud",
       "google"
@@ -11338,6 +11775,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_serviceuser.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "cloud",
       "google"
@@ -11378,6 +11816,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_sheets.png"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "cloud",
       "google"
@@ -11415,6 +11854,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_siteverification.png"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "google"
@@ -11456,6 +11896,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_slides.png"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "cloud",
       "google"
@@ -11495,6 +11936,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_sourcerepo.png"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "google"
@@ -11533,6 +11975,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_spanner.png"
     },
     "actionCount": 26,
+    "directory": "generated",
     "tags": [
       "backend",
       "google"
@@ -11548,6 +11991,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_spectrum.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "telecom",
       "google"
@@ -11584,6 +12028,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_speech.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "machine learning",
       "google"
@@ -11621,6 +12066,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_sqladmin.png"
     },
     "actionCount": 43,
+    "directory": "generated",
     "tags": [
       "backend",
       "google"
@@ -11661,6 +12107,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_storage.png"
     },
     "actionCount": 48,
+    "directory": "generated",
     "tags": [
       "storage",
       "google"
@@ -11697,6 +12144,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_storagetransfer.png"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "storage",
       "google"
@@ -11733,6 +12181,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_streetviewpublish.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "location",
       "google"
@@ -11771,6 +12220,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_supportcases.png"
     },
     "actionCount": 165,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -11808,6 +12258,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_surveys.png"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -11849,6 +12300,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_tagmanager.png"
     },
     "actionCount": 52,
+    "directory": "generated",
     "tags": [
       "analytics",
       "google"
@@ -11886,6 +12338,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_taskqueue.jpg"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "backend",
       "google"
@@ -11923,6 +12376,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_tasks.png"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "time management",
       "google"
@@ -11960,6 +12414,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_testing.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "google"
@@ -11996,6 +12451,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_toolresults.png"
     },
     "actionCount": 26,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "google"
@@ -12032,6 +12488,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_tpu.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -12069,6 +12526,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_tracing.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "google"
     ],
@@ -12105,6 +12563,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_translate.jpg"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "text",
       "google"
@@ -12141,6 +12600,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_urlshortener.png"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "tools",
       "google"
@@ -12178,6 +12638,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_vault.png"
     },
     "actionCount": 20,
+    "directory": "generated",
     "tags": [
       "storage",
       "google"
@@ -12214,6 +12675,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_videointelligence.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "media",
       "google"
@@ -12251,6 +12713,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_vision.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "machine learning",
       "analytics",
@@ -12267,6 +12730,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_webfonts.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "google"
@@ -12304,6 +12768,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_webmasters.png"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "search",
       "google"
@@ -12345,6 +12810,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_youtube.png"
     },
     "actionCount": 74,
+    "directory": "generated",
     "tags": [
       "media",
       "google"
@@ -12385,6 +12851,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_youtubeanalytics.png"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "analytics",
       "media",
@@ -12423,6 +12890,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_youtubereporting.png"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "analytics",
       "media",
@@ -12478,6 +12946,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_bcdc.jpeg"
     },
     "actionCount": 24,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -12492,6 +12961,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_bcgnws.jpeg"
     },
     "actionCount": 14,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -12513,6 +12983,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_geocoder.jpeg"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -12527,6 +12998,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_geomark.jpeg"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -12541,6 +13013,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_jobposting.jpeg"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -12555,6 +13028,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_open511.jpeg"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -12576,6 +13050,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_router.jpeg"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -12597,6 +13072,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/graphhopper.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "location"
     ],
@@ -12611,6 +13087,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/groupon.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -12622,6 +13099,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hackathonwatch.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "social"
     ],
@@ -12636,6 +13114,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hacker_news.ico"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.2"
   },
@@ -12656,6 +13135,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/haloapi_metadata.jpeg"
     },
     "actionCount": 36,
+    "directory": "generated",
     "tags": [
       "entertainment"
     ],
@@ -12678,6 +13158,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/haloapi_profile.jpeg"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "entertainment"
     ],
@@ -12700,6 +13181,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/haloapi_stats.jpeg"
     },
     "actionCount": 26,
+    "directory": "generated",
     "tags": [
       "entertainment"
     ],
@@ -12722,6 +13204,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/haloapi_ugc.jpeg"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "entertainment"
     ],
@@ -12735,6 +13218,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/healthcare_gov.png"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -12774,6 +13258,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/heroku.png"
     },
     "actionCount": 32,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.4"
   },
@@ -12785,6 +13270,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hetras_certification_booking.png"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -12796,6 +13282,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hetras_certification_hotel.png"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -12809,6 +13296,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hhs_gov.png"
     },
     "actionCount": 32,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -12822,6 +13310,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hsbc.jpeg"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -12836,6 +13325,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/icons8.jpg"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -12851,6 +13341,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/idtbeyond.png"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "telecom"
     ],
@@ -12873,6 +13364,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ijenko.png"
     },
     "actionCount": 67,
+    "directory": "generated",
     "tags": [
       "iot"
     ],
@@ -12894,6 +13386,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/import_data.svg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "tools"
     ],
@@ -12915,6 +13408,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/import_extraction.svg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "tools"
     ],
@@ -12936,6 +13430,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/import_rss.svg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "tools"
     ],
@@ -12957,6 +13452,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/import_run.svg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "tools"
     ],
@@ -12978,6 +13474,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/import_schedule.svg"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "tools"
     ],
@@ -12999,6 +13496,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/inboxroute.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "email",
       "marketing"
@@ -13014,6 +13512,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/infermedica.jpg"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -13026,6 +13525,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/infoconnect.jpg"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -13065,6 +13565,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/instagram.jpg"
     },
     "actionCount": 27,
+    "directory": "generated",
     "tags": [
       "social",
       "media"
@@ -13080,6 +13581,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/instawell.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "social"
     ],
@@ -13100,6 +13602,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/iqualify.png"
     },
     "actionCount": 46,
+    "directory": "generated",
     "tags": [
       "education"
     ],
@@ -13114,6 +13617,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/isendpro.jpeg"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "messaging"
     ],
@@ -13136,6 +13640,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/iva_api.jpeg"
     },
     "actionCount": 116,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -13150,6 +13655,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/jumpseller.png"
     },
     "actionCount": 95,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -13171,6 +13677,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/kaltura.jpg"
     },
     "actionCount": 746,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -13190,6 +13697,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/koomalooma.jpeg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -13211,6 +13719,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/launchdarkly.jpeg"
     },
     "actionCount": 31,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -13225,6 +13734,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/learnifier.png"
     },
     "actionCount": 34,
+    "directory": "generated",
     "tags": [
       "education"
     ],
@@ -13248,6 +13758,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/link_fish.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -13285,6 +13796,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/linkedin.png"
     },
     "actionCount": 20,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.5"
   },
@@ -13305,6 +13817,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lotadata.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "location"
     ],
@@ -13338,6 +13851,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lufthansa_partner.png"
     },
     "actionCount": 18,
+    "directory": "generated",
     "tags": [
       "transport"
     ],
@@ -13371,6 +13885,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lufthansa_public.png"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "transport"
     ],
@@ -13409,6 +13924,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lyft.png"
     },
     "actionCount": 18,
+    "directory": "generated",
     "tags": [
       "location"
     ],
@@ -13423,6 +13939,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/magento.png"
     },
     "actionCount": 355,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -13437,6 +13954,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/magick_nu.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -13457,7 +13975,8 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mailchimp.jpg"
     },
-    "actionCount": 240,
+    "actionCount": 239,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "4.0.0"
   },
@@ -13470,6 +13989,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mandrillapp.png"
     },
     "actionCount": 90,
+    "directory": "generated",
     "tags": [
       "email",
       "marketing"
@@ -13493,6 +14013,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mashape_geodb.png"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "location"
@@ -13508,6 +14029,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mcw_edu.jpeg"
     },
     "actionCount": 55,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -13547,6 +14069,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/medium.png"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "media",
       "social"
@@ -13569,6 +14092,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/microsoft_security_updates.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "security"
     ],
@@ -13584,6 +14108,7 @@
       "backgroundColor": "#000000"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -13617,6 +14142,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/motaword.png"
     },
     "actionCount": 49,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -13639,6 +14165,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mozilla_kinto.png"
     },
     "actionCount": 17,
+    "directory": "generated",
     "tags": [
       "cloud"
     ],
@@ -13653,6 +14180,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/myspace.png"
     },
     "actionCount": 52,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -13665,6 +14193,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nativeads.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "marketing"
     ],
@@ -13679,6 +14208,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/naviplancentral_factfinder.jpeg"
     },
     "actionCount": 129,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -13693,6 +14223,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/naviplancentral_plan.jpeg"
     },
     "actionCount": 43,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -13707,6 +14238,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nba.png"
     },
     "actionCount": 91,
+    "directory": "generated",
     "tags": [
       "media",
       "open data"
@@ -13719,6 +14251,7 @@
     "description": "A web service for near earth objects. All the data is from the [NASA JPL Asteroid team](http://neo.jpl.nasa.gov/). NeoWs...",
     "security": {},
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -13758,6 +14291,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/netatmo.png"
     },
     "actionCount": 22,
+    "directory": "generated",
     "tags": [
       "iot"
     ],
@@ -13781,6 +14315,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/netlicensing.png"
     },
     "actionCount": 40,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -13804,6 +14339,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/neutrinoapi.png"
     },
     "actionCount": 25,
+    "directory": "generated",
     "tags": [
       "email",
       "messaging",
@@ -13822,6 +14358,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nextcaller.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -13841,6 +14378,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nfusionsolutions_biz.png"
     },
     "actionCount": 14,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -13879,6 +14417,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/npr.jpg"
     },
     "actionCount": 25,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -13892,6 +14431,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/npr_rss.JPG"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -13911,6 +14451,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nrel_building_case_studies.svg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -13933,6 +14474,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nrel_transportation_incentives_laws.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -13947,6 +14489,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nsidc.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -13968,6 +14511,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_archive.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -13989,6 +14533,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_article_search.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "media",
       "search"
@@ -14011,6 +14556,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_books_api.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "media",
       "open data"
@@ -14033,6 +14579,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_community.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "media",
       "open data"
@@ -14055,6 +14602,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_geo_api.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "media",
       "open data"
@@ -14077,6 +14625,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_most_popular_api.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "media",
       "open data"
@@ -14099,6 +14648,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_movie_reviews.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "media",
       "open data"
@@ -14113,6 +14663,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_rss.png"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -14132,6 +14683,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_semantic_api.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "media",
       "open data"
@@ -14154,6 +14706,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_times_tags.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "media",
       "open data"
@@ -14176,6 +14729,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_timeswire.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "media",
       "open data"
@@ -14198,6 +14752,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_top_stories.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "media",
       "open data"
@@ -14213,6 +14768,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/o2_cz_mobility.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "telecom"
     ],
@@ -14227,6 +14783,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/o2_cz_sociodemo.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "telecom"
     ],
@@ -14241,6 +14798,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/oceandrivers.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -14256,6 +14814,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/omdbapi.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "media",
       "open data"
@@ -14271,6 +14830,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/onenote.png"
     },
     "actionCount": 19,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -14284,6 +14844,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/openapi_converter_herokuapp.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -14299,6 +14860,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/openbanking_org_uk.png"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -14313,6 +14875,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/opencagedata.png"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "location"
     ],
@@ -14335,6 +14898,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/opendatasoft.jpeg"
     },
     "actionCount": 34,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -14349,6 +14913,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/openfintech.jpg"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -14370,6 +14935,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/orghunter.png"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -14382,6 +14948,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/osf.png"
     },
     "actionCount": 127,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -14397,6 +14964,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/osisoft.jpeg"
     },
     "actionCount": 345,
+    "directory": "generated",
     "tags": [
       "enterprise"
     ],
@@ -14418,6 +14986,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/owler.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "search"
     ],
@@ -14431,6 +15000,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/oxforddictionaries.png"
     },
     "actionCount": 24,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -14444,6 +15014,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/paccurate.jpeg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "transport"
     ],
@@ -14462,6 +15033,7 @@
       }
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "machine learning"
     ],
@@ -14473,6 +15045,7 @@
     "description": "Validate and generate passwords using open source tools",
     "security": {},
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "security",
       "tools"
@@ -14488,6 +15061,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/patientview.png"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -14519,6 +15093,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/paylocity.jpeg"
     },
     "actionCount": 21,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -14533,6 +15108,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/paypal.png"
     },
     "actionCount": 32,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -14545,6 +15121,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/payrun.jpeg"
     },
     "actionCount": 247,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -14559,6 +15136,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/peel_ci.svg"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -14573,6 +15151,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/picasa.jpg"
     },
     "actionCount": 14,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -14585,6 +15164,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/pinboard.png"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -14597,6 +15177,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/pivotaltracker.png"
     },
     "actionCount": 31,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -14616,6 +15197,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/polygon.jpeg"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -14630,6 +15212,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/postmark.png"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -14642,6 +15225,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/postmarkapp_account.jpg"
     },
     "actionCount": 20,
+    "directory": "generated",
     "tags": [
       "email"
     ],
@@ -14656,6 +15240,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/postmarkapp_server.jpg"
     },
     "actionCount": 49,
+    "directory": "generated",
     "tags": [
       "email"
     ],
@@ -14667,6 +15252,7 @@
     "description": "The posty_API is the core element of the posty softwarestack. It is developed to administrate a mailserver based on Post...",
     "security": {},
     "actionCount": 28,
+    "directory": "generated",
     "tags": [
       "email"
     ],
@@ -14701,6 +15287,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/producthunt.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.4"
   },
@@ -14714,6 +15301,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ptv_vic_gov_au.jpeg"
     },
     "actionCount": 20,
+    "directory": "generated",
     "tags": [
       "transport"
     ],
@@ -14736,6 +15324,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/qualpay.png"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -14757,6 +15346,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/quandl.png"
     },
     "actionCount": 8,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -14776,6 +15366,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rbaskets_in.svg"
     },
     "actionCount": 9,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "monitoring"
@@ -14802,6 +15393,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rebilly.svg"
     },
     "actionCount": 247,
+    "directory": "generated",
     "tags": [
       "payment",
       "ecommerce"
@@ -14862,6 +15454,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/reddit.svg"
     },
     "actionCount": 199,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.4"
   },
@@ -14873,6 +15466,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/reddit_rss.svg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -14890,6 +15484,7 @@
       }
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.0"
   },
@@ -14903,6 +15498,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/refugerestrooms.jpeg"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -14951,6 +15547,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/reverb.svg"
     },
     "actionCount": 158,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -14965,6 +15562,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rhapsody.jpg"
     },
     "actionCount": 20,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -14984,6 +15582,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ritc.jpg"
     },
     "actionCount": 66,
+    "directory": "generated",
     "tags": [
       "cloud"
     ],
@@ -14998,6 +15597,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ritekit.jpg"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "social"
     ],
@@ -15028,6 +15628,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/roaring.jpeg"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "customer relation"
     ],
@@ -15049,6 +15650,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rottentomatoes.jpg"
     },
     "actionCount": 18,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -15063,6 +15665,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rubygems.ico"
     },
     "actionCount": 24,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -15075,6 +15678,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rummblelabs.png"
     },
     "actionCount": 15,
+    "directory": "generated",
     "tags": [
       "machine learning"
     ],
@@ -15116,6 +15720,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/runscope.svg"
     },
     "actionCount": 31,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -15156,6 +15761,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/salesforce.png"
     },
     "actionCount": 17,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -15168,6 +15774,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/salesforcechatter.png"
     },
     "actionCount": 58,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -15198,6 +15805,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/salesloft.jpeg"
     },
     "actionCount": 50,
+    "directory": "generated",
     "tags": [
       "customer relation"
     ],
@@ -15209,6 +15817,7 @@
     "description": "Get detailed data on over 120,000 schools and 18,500 districts in the U.S.",
     "security": {},
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "open data",
       "education"
@@ -15221,6 +15830,7 @@
     "description": "ScrapeWebsiteEmail is a service that exposes an api to fetch e-mails from a website.",
     "security": {},
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "email",
       "tools"
@@ -15237,6 +15847,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/selectpdf.jpeg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -15251,6 +15862,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/semantria.png"
     },
     "actionCount": 41,
+    "directory": "generated",
     "tags": [
       "social",
       "text"
@@ -15273,6 +15885,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/sendgrid.png"
     },
     "actionCount": 245,
+    "directory": "generated",
     "tags": [
       "email",
       "marketing"
@@ -15288,6 +15901,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/shipstation.jpg"
     },
     "actionCount": 51,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -15302,6 +15916,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/shopping_com.jpg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -15319,6 +15934,7 @@
       }
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -15331,6 +15947,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/skyrock.png"
     },
     "actionCount": 70,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -15406,6 +16023,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/slack.png"
     },
     "actionCount": 134,
+    "directory": "generated",
     "tags": [
       "collaboration",
       "messaging"
@@ -15422,6 +16040,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/slideroom.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -15442,6 +16061,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/smart_me.png"
     },
     "actionCount": 24,
+    "directory": "generated",
     "tags": [
       "iot"
     ],
@@ -15463,6 +16083,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/solarvps.jpg"
     },
     "actionCount": 20,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -15491,6 +16112,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/soundcloud.png"
     },
     "actionCount": 52,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -15504,6 +16126,7 @@
       "backgroundColor": "#333333"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "ecommerce",
       "financial",
@@ -15524,6 +16147,7 @@
       }
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.0"
   },
@@ -15566,6 +16190,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/spotify.jpg"
     },
     "actionCount": 39,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -15614,6 +16239,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/squareup.png"
     },
     "actionCount": 98,
+    "directory": "generated",
     "tags": [
       "payment"
     ],
@@ -15646,6 +16272,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/stackexchange.png"
     },
     "actionCount": 124,
+    "directory": "generated",
     "tags": [
       "collaboration",
       "developer tools",
@@ -15663,6 +16290,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/staging_ecotaco.png"
     },
     "actionCount": 27,
+    "directory": "generated",
     "tags": [
       "location"
     ],
@@ -15684,6 +16312,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/statsocial.jpg"
     },
     "actionCount": 17,
+    "directory": "generated",
     "tags": [
       "social",
       "marketing"
@@ -15707,6 +16336,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/storecove.png"
     },
     "actionCount": 14,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -15721,6 +16351,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/stripe.jpeg"
     },
     "actionCount": 190,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -15736,6 +16367,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/swagger_generator.png"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "developer tools",
       "tools"
@@ -15758,6 +16390,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/swaggerhub.jpg"
     },
     "actionCount": 22,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -15772,6 +16405,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/synq_fm.jpg"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -15786,6 +16420,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/t213_vg.png"
     },
     "actionCount": 355,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -15808,6 +16443,7 @@
       "backgroundColor": "#000000"
     },
     "actionCount": 10,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -15829,6 +16465,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/taxamo.png"
     },
     "actionCount": 36,
+    "directory": "generated",
     "tags": [
       "payment"
     ],
@@ -15850,6 +16487,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/taxrates.jpg"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -15872,6 +16510,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tfl_gov_uk.jpg"
     },
     "actionCount": 84,
+    "directory": "generated",
     "tags": [
       "transport",
       "open data"
@@ -15887,6 +16526,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thenounproject.jpg"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -15908,6 +16548,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thetvdb.jpg"
     },
     "actionCount": 30,
+    "directory": "generated",
     "tags": [
       "media",
       "open data"
@@ -15931,6 +16572,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/traccar.png"
     },
     "actionCount": 57,
+    "directory": "generated",
     "tags": [
       "location"
     ],
@@ -15953,6 +16595,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/transavia.jpeg"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "transport"
     ],
@@ -15975,6 +16618,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/trello.png"
     },
     "actionCount": 324,
+    "directory": "generated",
     "tags": [
       "collaboration"
     ],
@@ -16005,6 +16649,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tumblr.png"
     },
     "actionCount": 18,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -16026,6 +16671,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tvmaze.png"
     },
     "actionCount": 28,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -16048,6 +16694,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/twilio.ico"
     },
     "actionCount": 116,
+    "directory": "generated",
     "tags": [
       "telecom",
       "messaging"
@@ -16084,6 +16731,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/twinehealth.png"
     },
     "actionCount": 51,
+    "directory": "generated",
     "tags": [
       "support"
     ],
@@ -16098,6 +16746,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/uebermaps.jpg"
     },
     "actionCount": 56,
+    "directory": "generated",
     "tags": [
       "location"
     ],
@@ -16112,6 +16761,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/urbanairship.png"
     },
     "actionCount": 59,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -16131,6 +16781,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/vatapi.jpg"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -16145,6 +16796,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/versioneye.png"
     },
     "actionCount": 46,
+    "directory": "generated",
     "tags": [
       "open data",
       "search"
@@ -16180,6 +16832,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/vestorly.png"
     },
     "actionCount": 33,
+    "directory": "generated",
     "tags": [
       "marketing"
     ],
@@ -16194,6 +16847,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/victorops.jpeg"
     },
     "actionCount": 43,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -16215,6 +16869,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/visagecloud.png"
     },
     "actionCount": 18,
+    "directory": "generated",
     "tags": [
       "search"
     ],
@@ -16228,6 +16883,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/vocadb.jpeg"
     },
     "actionCount": 110,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -16249,6 +16905,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/voodoomfg.png"
     },
     "actionCount": 11,
+    "directory": "generated",
     "tags": [
       "tools"
     ],
@@ -16263,6 +16920,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/waag.png"
     },
     "actionCount": 47,
+    "directory": "generated",
     "tags": [
       "open data"
     ],
@@ -16277,6 +16935,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/watchful_li.svg"
     },
     "actionCount": 61,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "3.0.0"
   },
@@ -16298,6 +16957,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wavecell.jpg"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "messaging"
     ],
@@ -16321,6 +16981,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wealthport.jpg"
     },
     "actionCount": 26,
+    "directory": "generated",
     "tags": [
       "analytics",
       "machine learning"
@@ -16336,6 +16997,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/weatherbit.jpeg"
     },
     "actionCount": 51,
+    "directory": "generated",
     "tags": [
       "location"
     ],
@@ -16357,6 +17019,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/whapi_accounts.jpeg"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "entertainment"
     ],
@@ -16378,6 +17041,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/whapi_bets.jpeg"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "entertainment"
     ],
@@ -16399,6 +17063,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/whapi_locations.jpeg"
     },
     "actionCount": 5,
+    "directory": "generated",
     "tags": [
       "entertainment"
     ],
@@ -16420,6 +17085,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/whapi_numbers.jpeg"
     },
     "actionCount": 1,
+    "directory": "generated",
     "tags": [
       "entertainment"
     ],
@@ -16441,6 +17107,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/whapi_sessions.jpeg"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [
       "entertainment"
     ],
@@ -16455,6 +17122,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/whapi_sportsdata.jpeg"
     },
     "actionCount": 13,
+    "directory": "generated",
     "tags": [
       "entertainment"
     ],
@@ -16476,6 +17144,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wikimedia.png"
     },
     "actionCount": 28,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -16510,6 +17179,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/windows_arm_graphrbac.png"
     },
     "actionCount": 36,
+    "directory": "generated",
     "tags": [
       "security"
     ],
@@ -16524,6 +17194,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/windows_batch.png"
     },
     "actionCount": 74,
+    "directory": "generated",
     "tags": [
       "cloud"
     ],
@@ -16545,6 +17216,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/winning_email.png"
     },
     "actionCount": 3,
+    "directory": "generated",
     "tags": [
       "email",
       "marketing"
@@ -16568,6 +17240,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_bus_realtime.jpg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "transport"
     ],
@@ -16590,6 +17263,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_bus_route.jpg"
     },
     "actionCount": 12,
+    "directory": "generated",
     "tags": [
       "transport"
     ],
@@ -16612,6 +17286,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_incidents.jpg"
     },
     "actionCount": 6,
+    "directory": "generated",
     "tags": [
       "transport"
     ],
@@ -16634,6 +17309,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_rail_realtime.jpg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "transport"
     ],
@@ -16656,6 +17332,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_rail_station.jpg"
     },
     "actionCount": 16,
+    "directory": "generated",
     "tags": [
       "transport"
     ],
@@ -16677,6 +17354,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wordnik.png"
     },
     "actionCount": 28,
+    "directory": "generated",
     "tags": [
       "text"
     ],
@@ -16699,6 +17377,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wowza.jpeg"
     },
     "actionCount": 104,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -16730,6 +17409,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wso2apistore_transform.jpeg"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "developer tools"
     ],
@@ -16744,6 +17424,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/xkcd.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -16758,6 +17439,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/yellowpages.png"
     },
     "actionCount": 4,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -16770,6 +17452,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/youphoric.png"
     },
     "actionCount": 2,
+    "directory": "generated",
     "tags": [],
     "latestVersion": "2.0.3"
   },
@@ -16782,6 +17465,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/yunbi.ico"
     },
     "actionCount": 22,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -16796,6 +17480,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zalando.jpg"
     },
     "actionCount": 20,
+    "directory": "generated",
     "tags": [
       "ecommerce"
     ],
@@ -16811,6 +17496,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zappiti.png"
     },
     "actionCount": 7,
+    "directory": "generated",
     "tags": [
       "media"
     ],
@@ -16833,6 +17519,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zoomconnect.png"
     },
     "actionCount": 44,
+    "directory": "generated",
     "tags": [
       "messaging",
       "marketing"
@@ -16848,6 +17535,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zuora.jpeg"
     },
     "actionCount": 297,
+    "directory": "generated",
     "tags": [
       "financial"
     ],
@@ -16862,6 +17550,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/fileserver.png"
     },
     "actionCount": 1,
+    "directory": "manual",
     "latestVersion": "1.0.1"
   },
   "http": {
@@ -16873,6 +17562,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/http.png"
     },
     "actionCount": 8,
+    "directory": "manual",
     "latestVersion": "2.0.0"
   },
   "lucybot_docs": {
@@ -16883,6 +17573,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lucybot_docs.svg"
     },
     "actionCount": 1,
+    "directory": "manual",
     "latestVersion": "1.0.4"
   },
   "mongodb": {
@@ -16901,7 +17592,8 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mongodb.png"
     },
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "directory": "manual",
+    "latestVersion": "2.1.0"
   },
   "swaggerui": {
     "id": "swaggerui",
@@ -16912,6 +17604,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/swaggerui.png"
     },
     "actionCount": 1,
+    "directory": "manual",
     "latestVersion": "1.0.0"
   }
 }

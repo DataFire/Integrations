@@ -538,6 +538,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "transport"
   ]

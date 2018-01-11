@@ -741,6 +741,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "media",
     "cloud",

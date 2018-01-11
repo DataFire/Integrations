@@ -1519,6 +1519,7 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": [
     "time management",
     "azure"

@@ -114,5 +114,6 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": []
 }

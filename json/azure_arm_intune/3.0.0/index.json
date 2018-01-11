@@ -1981,6 +1981,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "enterprise",
     "cloud",

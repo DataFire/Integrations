@@ -272,6 +272,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "tools"
   ]

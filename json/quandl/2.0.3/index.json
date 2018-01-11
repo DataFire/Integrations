@@ -958,5 +958,6 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": []
 }

@@ -75,6 +75,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "transport"
   ]

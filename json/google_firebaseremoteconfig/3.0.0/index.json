@@ -283,6 +283,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "backend",
     "google"

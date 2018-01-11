@@ -143,5 +143,6 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": []
 }

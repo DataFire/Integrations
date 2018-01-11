@@ -313,6 +313,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "support"
   ]

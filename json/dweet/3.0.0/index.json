@@ -360,6 +360,7 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": [
     "iot"
   ]

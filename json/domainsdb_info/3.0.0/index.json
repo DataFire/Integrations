@@ -89,6 +89,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "hosting"
   ]

@@ -218,6 +218,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "location"
   ]

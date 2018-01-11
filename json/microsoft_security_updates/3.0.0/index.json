@@ -1196,6 +1196,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "security"
   ]

@@ -286,5 +286,6 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": []
 }

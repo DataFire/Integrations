@@ -6974,6 +6974,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "telecom",
     "messaging"

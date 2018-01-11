@@ -214,6 +214,7 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": [
     "financial"
   ]

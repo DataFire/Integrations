@@ -1425,6 +1425,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "location"
   ]

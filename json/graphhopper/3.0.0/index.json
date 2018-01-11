@@ -751,6 +751,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "location"
   ]

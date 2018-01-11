@@ -145,6 +145,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "transport",
     "open data"

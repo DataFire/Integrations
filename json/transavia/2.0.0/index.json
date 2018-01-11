@@ -332,6 +332,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "transport"
   ]

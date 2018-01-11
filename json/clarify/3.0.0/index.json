@@ -1501,6 +1501,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "search"
   ]

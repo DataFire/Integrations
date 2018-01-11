@@ -755,6 +755,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "tools"
   ]

@@ -91,6 +91,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "text"
   ]

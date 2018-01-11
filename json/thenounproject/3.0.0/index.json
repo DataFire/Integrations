@@ -341,6 +341,7 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": [
     "media"
   ]

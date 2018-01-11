@@ -1274,6 +1274,7 @@
       "outputSchema": {}
     }
   ],
+  "directory": "generated",
   "tags": [
     "ecommerce"
   ]

@@ -5761,6 +5761,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "location"
   ]

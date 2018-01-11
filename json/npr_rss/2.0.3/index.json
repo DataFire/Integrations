@@ -68,5 +68,6 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": []
 }

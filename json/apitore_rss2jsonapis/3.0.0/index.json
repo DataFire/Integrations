@@ -140,5 +140,6 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": []
 }

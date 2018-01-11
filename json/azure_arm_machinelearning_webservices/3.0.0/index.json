@@ -1023,6 +1023,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "machine learning",
     "azure"

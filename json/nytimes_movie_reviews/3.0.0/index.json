@@ -310,6 +310,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "media",
     "open data"

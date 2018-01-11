@@ -744,6 +744,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "cloud",
     "azure"

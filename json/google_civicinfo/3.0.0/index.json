@@ -1281,6 +1281,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "google"
   ]

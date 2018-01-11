@@ -2625,6 +2625,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "storage"
   ]

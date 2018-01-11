@@ -1328,6 +1328,7 @@
       }
     }
   ],
+  "directory": "generated",
   "tags": [
     "storage",
     "azure"
