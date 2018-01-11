@@ -4,7 +4,7 @@ Client library for GitHub
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/github
+npm install --save @datafire/github
 ```
 ```js
 let github = require('@datafire/github').create({
@@ -5151,6 +5151,7 @@ github.users.username.subscriptions.get({
 
 ## Definitions
 
+### asset
 * asset (object)
   * content_type (string)
   * created_at (string)
@@ -5179,14 +5180,67 @@ github.users.username.subscriptions.get({
     * subscriptions_url (string)
     * type (string)
     * url (string)
-  * url (string)* assetPatch (object)
+  * url (string)
+
+### assetPatch
+* assetPatch (object)
   * label (string)
-  * name **required** (string)* assets (array)* assignees (array)* blob (object)
+  * name **required** (string)
+
+### assets
+* assets (array)
+  * items (object)
+    * content_type (string)
+    * created_at (string)
+    * download_count (number)
+    * id (number)
+    * label (string)
+    * name (string)
+    * size (number)
+    * state (string)
+    * updated_at (string)
+    * uploader (object)
+      * avatar_url (string)
+      * events_url (string)
+      * followers_url (string)
+      * following_url (string)
+      * gists_url (string)
+      * gravatar_id (string)
+      * html_url (string)
+      * id (number)
+      * login (string)
+      * organizations_url (string)
+      * received_events_url (string)
+      * repos_url (string)
+      * site_admin (boolean)
+      * starred_url (string)
+      * subscriptions_url (string)
+      * type (string)
+      * url (string)
+    * url (string)
+
+### assignees
+* assignees (array)
+  * items (object)
+    * avatar_url (integer)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+
+### blob
+* blob (object)
   * content (string)
 
   * sha (string)
-  * size (integer)* blobs (object)
-  * sha (string)* branch (object)
+  * size (integer)
+
+### blobs
+* blobs (object)
+  * sha (string)
+
+### branch
+* branch (object)
   * _links (object)
     * html (string)
     * self (string)
@@ -5215,11 +5269,58 @@ github.users.username.subscriptions.get({
       * login (string)
       * url (string)
     * parents (array)
+      * items (object)
+        * sha (string)
+        * url (string)
     * sha (string)
     * url (string)
-  * name (string)* branches (array)* codeFrequencyStats (array)* collaborators (array)* comment (object)
-  * body (string)* commentBody (object)
-  * body **required** (string)* comments (array)* commit (object)
+  * name (string)
+
+### branches
+* branches (array)
+  * items (object)
+    * commit (object)
+      * sha (string)
+      * url (string)
+    * name (string)
+
+### codeFrequencyStats
+* codeFrequencyStats (array)
+  * items (integer)
+
+### collaborators
+* collaborators (array)
+  * items (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+
+### comment
+* comment (object)
+  * body (string)
+
+### commentBody
+* commentBody (object)
+  * body **required** (string)
+
+### comments
+* comments (array)
+  * items (object)
+    * body (string)
+    * created_at (string): ISO 8601.
+    * id (integer)
+    * url (string)
+    * user (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+
+### commit
+* commit (object)
   * author (object)
     * avatar_url (string)
     * gravatar_id (string)
@@ -5247,19 +5348,45 @@ github.users.username.subscriptions.get({
     * login (string)
     * url (string)
   * files (array)
+    * items (object)
+      * additions (integer)
+      * blob_url (string)
+      * changes (integer)
+      * deletions (integer)
+      * filename (string)
+      * patch (string)
+      * raw_url (string)
+      * status (string)
   * parents (array)
+    * items (object)
+      * sha (string)
+      * url (string)
   * sha (string)
   * stats (object)
     * additions (integer)
     * deletions (integer)
     * total (integer)
-  * url (string)* commitActivityStats (array)* commitBody (object)
+  * url (string)
+
+### commitActivityStats
+* commitActivityStats (array)
+  * items (object)
+    * days (array)
+      * items (integer)
+    * total (integer)
+    * week (integer)
+
+### commitBody
+* commitBody (object)
   * body **required** (string)
   * line (string): Deprecated - Use position parameter instead.
   * number (string): Line number in the file to comment on. Defaults to null.
   * path (string): Relative path of the file to comment on.
   * position (integer): Line index in the diff to comment on.
-  * sha **required** (string): SHA of the commit to comment on.* commitComments (object)
+  * sha **required** (string): SHA of the commit to comment on.
+
+### commitComments
+* commitComments (object)
   * body (string)
   * commit_id (string)
   * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
@@ -5275,7 +5402,46 @@ github.users.username.subscriptions.get({
     * gravatar_id (string)
     * id (integer)
     * login (string)
-    * url (string)* commits (array)* compare-commits (object)
+    * url (string)
+
+### commits
+* commits (array)
+  * items (object)
+    * author (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * commit (object)
+      * author (object)
+        * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * email (string)
+        * name (string)
+      * committer (object)
+        * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * email (string)
+        * name (string)
+      * message (string)
+      * tree (object)
+        * sha (string)
+        * url (string)
+      * url (string)
+    * committer (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * parents (array)
+      * items (object)
+        * sha (string)
+        * url (string)
+    * sha (string)
+    * url (string)
+
+### compare-commits
+* compare-commits (object)
   * ahead_by (integer)
   * base_commit (object)
     * author (object)
@@ -5329,18 +5495,92 @@ github.users.username.subscriptions.get({
       * type (string)
       * url (string)
     * parents (array)
+      * items (object)
+        * sha (string)
+        * url (string)
     * sha (string)
     * url (string)
   * behind_by (integer)
   * commits (array)
+    * items (object)
+      * author (object)
+        * avatar_url (string)
+        * events_url (string)
+        * followers_url (string)
+        * following_url (string)
+        * gists_url (string)
+        * gravatar_id (string)
+        * html_url (string)
+        * id (integer)
+        * login (string)
+        * organizations_url (string)
+        * received_events_url (string)
+        * repos_url (string)
+        * site_admin (boolean)
+        * starred_url (string)
+        * subscriptions_url (string)
+        * type (string)
+        * url (string)
+      * commit (object)
+        * author (object)
+          * date (string)
+          * email (string)
+          * name (string)
+        * committer (object)
+          * date (string)
+          * email (string)
+          * name (string)
+        * message (string)
+        * tree (object)
+          * sha (string)
+          * url (string)
+        * url (string)
+      * committer (object)
+        * avatar_url (string)
+        * events_url (string)
+        * followers_url (string)
+        * following_url (string)
+        * gists_url (string)
+        * gravatar_id (string)
+        * html_url (string)
+        * id (integer)
+        * login (string)
+        * organizations_url (string)
+        * received_events_url (string)
+        * repos_url (string)
+        * site_admin (boolean)
+        * starred_url (string)
+        * subscriptions_url (string)
+        * type (string)
+        * url (string)
+      * parents (array)
+        * items (object)
+          * sha (string)
+          * url (string)
+      * sha (string)
+      * url (string)
   * diff_url (string)
   * files (array)
+    * items (object)
+      * additions (integer)
+      * blob_url (string)
+      * changes (integer)
+      * contents_url (string)
+      * deletions (integer)
+      * filename (string)
+      * patch (string)
+      * raw_url (string)
+      * sha (string)
+      * status (string)
   * html_url (string)
   * patch_url (string)
   * permalink_url (string)
   * status (string)
   * total_commits (integer)
-  * url (string)* contents-path (object)
+  * url (string)
+
+### contents-path
+* contents-path (object)
   * _links (object)
     * git (string)
     * html (string)
@@ -5354,7 +5594,37 @@ github.users.username.subscriptions.get({
   * sha (string)
   * size (integer)
   * type (string)
-  * url (string)* contributors (array)* contributorsStats (array)* createDownload (object)
+  * url (string)
+
+### contributors
+* contributors (array)
+  * items (object)
+    * avatar_url (string)
+    * contributions (integer)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+
+### contributorsStats
+* contributorsStats (array)
+  * items (object)
+    * author (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * total (integer): The Total number of commits authored by the contributor.
+    * weeks (array)
+      * items (object)
+        * a (integer): Number of additions.
+        * c (integer): Number of commits.
+        * d (integer): Number of deletions.
+        * w (string): Start of the week.
+
+### createDownload
+* createDownload (object)
   * accesskeyid (string)
   * acl (string)
   * bucket (string)
@@ -5373,7 +5643,10 @@ github.users.username.subscriptions.get({
   * s3_url (string)
   * signature (string)
   * size (integer)
-  * url (string)* createFile (object)
+  * url (string)
+
+### createFile
+* createFile (object)
   * commit (object)
     * author (object)
       * date (string)
@@ -5386,6 +5659,10 @@ github.users.username.subscriptions.get({
     * html_url (string)
     * message (string)
     * parents (array)
+      * items (object)
+        * html_url (string)
+        * sha (string)
+        * url (string)
     * sha (string)
     * tree (object)
       * sha (string)
@@ -5403,12 +5680,18 @@ github.users.username.subscriptions.get({
     * sha (string)
     * size (integer)
     * type (string)
-    * url (string)* createFileBody (object)
+    * url (string)
+
+### createFileBody
+* createFileBody (object)
   * committer (object)
     * email (string)
     * name (string)
   * content (string)
-  * message (string)* deleteFile (object)
+  * message (string)
+
+### deleteFile
+* deleteFile (object)
   * commit (object)
     * author (object)
       * date (string)
@@ -5426,18 +5709,27 @@ github.users.username.subscriptions.get({
       * sha (string)
       * url (string)
     * url (string)
-  * content (string)* deleteFileBody (object)
+  * content (string)
+
+### deleteFileBody
+* deleteFileBody (object)
   * committer (object)
     * email (string)
     * name (string)
   * message (string)
-  * sha (string)* deployment (object)
+  * sha (string)
+
+### deployment
+* deployment (object)
   * description (string)
   * payload (object)
     * deploy_user (string)
     * environment (string)
     * room_id (number)
-  * ref (string)* deployment-resp (object)
+  * ref (string)
+
+### deployment-resp
+* deployment-resp (object)
   * created_at (string)
   * creator (object)
     * avatar_url (string)
@@ -5463,14 +5755,53 @@ github.users.username.subscriptions.get({
   * sha (string)
   * statuses_url (string)
   * updated_at (string)
-  * url (string)* deployment-statuses (array)* deployment-statuses-create (object)
+  * url (string)
+
+### deployment-statuses
+* deployment-statuses (array)
+  * items (object)
+    * created_at (string)
+    * creator (object)
+      * avatar_url (string)
+      * events_url (string)
+      * followers_url (string)
+      * following_url (string)
+      * gists_url (string)
+      * gravatar_id (string)
+      * html_url (string)
+      * id (integer)
+      * login (string)
+      * organizations_url (string)
+      * received_events_url (string)
+      * repos_url (string)
+      * site_admin (boolean)
+      * starred_url (string)
+      * subscriptions_url (string)
+      * type (string)
+      * url (string)
+    * description (string)
+    * id (integer)
+    * payload (string)
+    * state (string)
+    * target_url (string)
+    * updated_at (string)
+    * url (string)
+
+### deployment-statuses-create
+* deployment-statuses-create (object)
   * description (string)
   * state (string)
-  * target_url (string)* downloadBody (object)
+  * target_url (string)
+
+### downloadBody
+* downloadBody (object)
   * content_type (string)
   * description (string)
   * name **required** (string)
-  * size **required** (integer): Size of file in bytes.* downloads (object)
+  * size **required** (integer): Size of file in bytes.
+
+### downloads
+* downloads (object)
   * content_type (string)
   * description (string)
   * download_count (integer)
@@ -5478,16 +5809,29 @@ github.users.username.subscriptions.get({
   * id (integer)
   * name (string)
   * size (integer)
-  * url (string)* editTeam (object)
+  * url (string)
+
+### editTeam
+* editTeam (object)
   * name **required** (string)
-* emailsPost (array)* emojis (object)
+
+
+### emailsPost
+* emailsPost (array)
+  * items (string)
+
+### emojis
+* emojis (object)
   * 100 (string)
   * 1234 (string)
   * +1 (string)
   * -1 (string)
   * 8ball (string)
   * a (string)
-  * ab (string)* event (object)
+  * ab (string)
+
+### event
+* event (object)
   * actor (object)
     * avatar_url (string)
     * gravatar_id (string)
@@ -5505,6 +5849,10 @@ github.users.username.subscriptions.get({
     * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
     * html_url (string)
     * labels (array)
+      * items (object)
+        * color (string)
+        * name (string)
+        * url (string)
     * milestone (object)
       * closed_issues (integer)
       * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
@@ -5536,7 +5884,10 @@ github.users.username.subscriptions.get({
       * id (integer)
       * login (string)
       * url (string)
-  * url (string)* events (object)
+  * url (string)
+
+### events
+* events (object)
   * actor (object)
     * avatar_url (string)
     * gravatar_id (string)
@@ -5557,14 +5908,20 @@ github.users.username.subscriptions.get({
     * id (integer)
     * name (string)
     * url (string)
-  * type (string)* feeds (object)
+  * type (string)
+
+### feeds
+* feeds (object)
 
   * current_user_actor_url (string)
   * current_user_organization_url (string)
   * current_user_public (string)
   * current_user_url (string)
   * timeline_url (string)
-  * user_url (string)* fork (object)
+  * user_url (string)
+
+### fork
+* fork (object)
   * clone_url (string)
   * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
   * description (string)
@@ -5596,8 +5953,50 @@ github.users.username.subscriptions.get({
   * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
   * url (string)
   * watchers (integer)
-  * watchers_count (integer)* forkBody (object)
-  * organization (string)* forks (array)* gist (object)
+  * watchers_count (integer)
+
+### forkBody
+* forkBody (object)
+  * organization (string)
+
+### forks
+* forks (array)
+  * items (object)
+    * clone_url (string)
+    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * description (string)
+    * fork (boolean)
+    * forks (integer)
+    * forks_count (integer)
+    * full_name (string)
+    * git_url (string)
+    * homepage (string)
+    * html_url (string)
+    * id (integer)
+    * language (string)
+    * master_branch (string)
+    * mirror_url (string)
+    * name (string)
+    * open_issues (integer)
+    * open_issues_count (integer)
+    * owner (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * private (boolean)
+    * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * size (integer)
+    * ssh_url (string)
+    * svn_url (string)
+    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url (string)
+    * watchers (integer)
+    * watchers_count (integer)
+
+### gist
+* gist (object)
   * comments (integer)
   * comments_url (string)
   * created_at (string): Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
@@ -5608,9 +6007,32 @@ github.users.username.subscriptions.get({
       * raw_url (string)
       * size (integer)
   * forks (array)
+    * items (object)
+      * created_at (string): Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+      * url (string)
+      * user (object)
+        * avatar_url (string)
+        * gravatar_id (string)
+        * id (integer)
+        * login (string)
+        * url (string)
   * git_pull_url (string)
   * git_push_url (string)
   * history (array)
+    * items (object)
+      * change_status (object)
+        * additions (integer)
+        * deletions (integer)
+        * total (integer)
+      * committed_at (string): Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+      * url (string)
+      * user (object)
+        * avatar_url (string)
+        * gravatar_id (string)
+        * id (integer)
+        * login (string)
+        * url (string)
+      * version (string)
   * html_url (string)
   * id (string)
   * public (boolean)
@@ -5620,38 +6042,173 @@ github.users.username.subscriptions.get({
     * gravatar_id (string)
     * id (integer)
     * login (string)
-    * url (string)* gists (array)* gitCommit (object)
+    * url (string)
+
+### gists
+* gists (array)
+  * items (object)
+    * comments (integer)
+    * comments_url (string)
+    * created_at (string)
+    * description (string)
+    * files (object)
+      * ring.erl (object)
+        * filename (string)
+        * raw_url (string)
+        * size (integer)
+    * git_pull_url (string)
+    * git_push_url (string)
+    * html_url (string)
+    * id (string)
+    * public (boolean)
+    * url (string)
+    * user (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+
+### gitCommit
+* gitCommit (object)
   * author (object)
     * date (string)
     * email (string)
     * name (string)
   * message (string)
   * parents (string)
-  * tree (string)* gitRefPatch (object)
+  * tree (string)
+
+### gitRefPatch
+* gitRefPatch (object)
   * force (boolean)
-  * sha (string)* gitignore (array)* gitignore-lang (object)
+  * sha (string)
+
+### gitignore
+* gitignore (array)
+
+
+### gitignore-lang
+* gitignore-lang (object)
   * name (string)
-  * source (string)* headBranch (object)
+  * source (string)
+
+### headBranch
+* headBranch (object)
   * object (object)
     * sha (string)
     * type (string)
     * url (string)
   * ref (string)
-  * url (string)* headBranchBody (object)
+  * url (string)
+
+### headBranchBody
+* headBranchBody (object)
   * force **required** (boolean): Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
-  * sha **required** (string): String of the SHA1 value to set this reference to.* heads (array)* hook (array)* hookBody (object)
+  * sha **required** (string): String of the SHA1 value to set this reference to.
+
+### heads
+* heads (array)
+  * items (object)
+    * commit (object)
+      * sha (string)
+      * url (string)
+    * name (string)
+    * tarball_url (string)
+    * zipball_url (string)
+
+### hook
+* hook (array)
+  * items (object)
+    * active (boolean)
+    * config (object)
+      * content_type (string)
+      * url (string)
+    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * events (array)
+
+    * id (integer)
+    * name (string)
+    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url (string)
+
+### hookBody
+* hookBody (object)
   * active (boolean)
-  * add_events (array)* issue (object)
+  * add_events (array)
+    * items (string)
+
+### issue
+* issue (object)
   * assignee (string)
   * body (string)
   * labels (array)
+    * items (string)
   * milestone (number)
-  * title (string)* issueBody (object)
+  * title (string)
+
+### issueBody
+* issueBody (object)
   * assignee (string)
   * body (string)
   * labels (array)
+    * items (string)
   * milestone (number)
-  * title (string)* issues (array)* issuesComment (object)
+  * title (string)
+
+### issues
+* issues (array)
+  * items (object)
+    * assignee (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * body (string)
+    * closed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * comments (integer)
+    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * html_url (string)
+    * labels (array)
+      * items (object)
+        * color (string)
+        * name (string)
+        * url (string)
+    * milestone (object)
+      * closed_issues (integer)
+      * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * creator (object)
+        * avatar_url (string)
+        * gravatar_id (string)
+        * id (integer)
+        * login (string)
+        * url (string)
+      * description (string)
+      * due_on (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * number (integer)
+      * open_issues (integer)
+
+      * title (string)
+      * url (string)
+    * number (integer)
+    * pull_request (object)
+      * diff_url (string)
+      * html_url (string)
+      * patch_url (string)
+
+    * title (string)
+    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url (string)
+    * user (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+
+### issuesComment
+* issuesComment (object)
   * body (string)
   * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
   * html_url (string)
@@ -5663,27 +6220,110 @@ github.users.username.subscriptions.get({
     * gravatar_id (string)
     * id (integer)
     * login (string)
-    * url (string)* issuesComments (array)* key (object)
+    * url (string)
+
+### issuesComments
+* issuesComments (array)
+  * items (object)
+    * _links (object)
+      * html (object)
+        * href (string)
+      * pull_request (object)
+        * href (string)
+      * self (object)
+        * href (string)
+    * body (string)
+    * commit_id (string)
+    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * id (integer)
+    * path (string)
+    * position (integer)
+    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url (string)
+    * user (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+
+### key
+* key (object)
   * id (integer)
   * key (string)
   * title (string)
-  * url (string)* keyBody (object)
+  * url (string)
+
+### keyBody
+* keyBody (object)
   * key (string)
-  * title (string)* keys (array)* label (object)
+  * title (string)
+
+### keys
+* keys (array)
+  * items (object)
+    * id (integer)
+    * key (string)
+    * title (string)
+    * url (string)
+
+### label
+* label (object)
   * color (string)
   * name (string)
-  * url (string)* labels (array)* labelsBody (array)* languages (object)* markdown (object)
+  * url (string)
+
+### labels
+* labels (array)
+  * items (object)
+    * color (string)
+    * name (string)
+    * url (string)
+
+### labelsBody
+* labelsBody (array)
+  * items (string)
+
+### languages
+* languages (object)
+
+### markdown
+* markdown (object)
   * context (string)
   * mode (string)
-  * text (string)* members (array)* merge (object)
+  * text (string)
+
+### members
+* members (array)
+  * items (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+
+### merge
+* merge (object)
   * merged (boolean)
   * message (string)
-  * sha (string)* mergePullBody (object)
-  * commit_message (string)* mergesBody (object)
+  * sha (string)
+
+### mergePullBody
+* mergePullBody (object)
+  * commit_message (string)
+
+### mergesBody
+* mergesBody (object)
   * base (string)
   * commit_message (string)
-  * head (string)* mergesConflict (object)
-  * message (string): Error message* mergesSuccessful (object)
+  * head (string)
+
+### mergesConflict
+* mergesConflict (object)
+  * message (string): Error message
+
+### mergesSuccessful
+* mergesSuccessful (object)
   * author (object)
     * avatar_url (string)
     * events_url (string)
@@ -5737,10 +6377,21 @@ github.users.username.subscriptions.get({
   * merged (boolean)
   * message (string)
   * parents (array)
+    * items (object)
+      * sha (string)
+      * url (string)
   * sha (string)
-  * url (string)* meta (object)
+  * url (string)
+
+### meta
+* meta (object)
   * git (array)
-  * hooks (array)* milestone (object)
+    * items (string): An Array of IP addresses in CIDR format specifying the Git servers at GitHub.
+  * hooks (array)
+    * items (string): An Array of IP addresses in CIDR format specifying the addresses that incoming service hooks will originate from.
+
+### milestone
+* milestone (object)
   * closed_issues (integer)
   * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
   * creator (object)
@@ -5755,16 +6406,28 @@ github.users.username.subscriptions.get({
   * open_issues (integer)
 
   * title (string)
-  * url (string)* milestoneBody (object)
+  * url (string)
+
+### milestoneBody
+* milestoneBody (object)
   * description (string)
   * due_on (string)
   * state (string)
-  * title (string)* milestoneUpdate (object)
+  * title (string)
+
+### milestoneUpdate
+* milestoneUpdate (object)
   * description (string)
   * due_on (string)
   * state (string)
-  * title (string)* notificationMarkRead (object)
-  * last_read_at (string)* notifications (object)
+  * title (string)
+
+### notificationMarkRead
+* notificationMarkRead (object)
+  * last_read_at (string)
+
+### notifications
+* notifications (object)
   * id (integer)
   * last_read_at (string)
   * reason (string)
@@ -5790,10 +6453,42 @@ github.users.username.subscriptions.get({
     * url (string)
   * unread (boolean)
   * updated_at (string)
-  * url (string)* orgMembers (array)* orgPublicMembers (array)* orgTeams (array)* orgTeamsPost (object)
+  * url (string)
+
+### orgMembers
+* orgMembers (array)
+  * items (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+
+### orgPublicMembers
+* orgPublicMembers (array)
+  * items (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+
+### orgTeams
+* orgTeams (array)
+  * items (object)
+    * id (integer)
+    * name (string)
+    * url (string)
+
+### orgTeamsPost
+* orgTeamsPost (object)
   * name **required** (string)
 
-  * repo_names (array)* organization (object)
+  * repo_names (array)
+    * items (string)
+
+### organization
+* organization (object)
   * avatar_url (string)
   * blog (string)
   * company (string)
@@ -5809,24 +6504,51 @@ github.users.username.subscriptions.get({
   * public_gists (integer)
   * public_repos (integer)
   * type (string)
-  * url (string)* organizationAsTeamMember (object)
+  * url (string)
+
+### organizationAsTeamMember
+* organizationAsTeamMember (object)
   * errors (array)
-  * message (string)* participationStats (object)
+    * items (object)
+      * code (string)
+      * field (string)
+      * resource (string)
+  * message (string)
+
+### participationStats
+* participationStats (object)
   * all (array)
-  * owner (array)* patchGist (object)
+    * items (integer)
+  * owner (array)
+    * items (integer)
+
+### patchGist
+* patchGist (object)
   * description (string)
+
+
+### patchOrg
 * patchOrg (object)
   * billing_email (string): Billing email address. This address is not publicized.
   * company (string)
   * email (string): Publicly visible email address.
   * location (string)
-  * name (string)* postComment (object)
-  * body **required** (string)* postGist (object)
+  * name (string)
+
+### postComment
+* postComment (object)
+  * body **required** (string)
+
+### postGist
+* postGist (object)
   * description (string)
   * files (object)
     * file1.txt (object)
       * content (string)
-  * public (boolean)* postRepo (object)
+  * public (boolean)
+
+### postRepo
+* postRepo (object)
   * auto_init (boolean): True to create an initial commit with empty README. Default is false.
   * description (string)
   * gitignore_template (string): Desired language or platform .gitignore template to apply. Use the name of the template without the extension. For example, "Haskell" Ignored if auto_init parameter is not provided. 
@@ -5836,7 +6558,10 @@ github.users.username.subscriptions.get({
   * homepage (string)
   * name **required** (string)
   * private (boolean): True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account.
-  * team_id (integer): The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization.* pullRequest (object)
+  * team_id (integer): The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization.
+
+### pullRequest
+* pullRequest (object)
   * _links (object)
     * comments (object)
       * href (string)
@@ -5964,10 +6689,134 @@ github.users.username.subscriptions.get({
     * gravatar_id (string)
     * id (integer)
     * login (string)
-    * url (string)* pullUpdate (object)
+    * url (string)
+
+### pullUpdate
+* pullUpdate (object)
   * body (string)
   * state (string)
-  * title (string)* pulls (array)* pullsComment (object)
+  * title (string)
+
+### pulls
+* pulls (array)
+  * items (object)
+    * _links (object)
+      * comments (object)
+        * href (string)
+      * html (object)
+        * href (string)
+      * review_comments (object)
+        * href (string)
+      * self (object)
+        * href (string)
+    * base (object)
+      * label (string)
+      * ref (string)
+      * repo (object)
+        * clone_url (string)
+        * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * description (string)
+        * fork (boolean)
+        * forks (integer)
+        * forks_count (integer)
+        * full_name (string)
+        * git_url (string)
+        * homepage (string)
+        * html_url (string)
+        * id (integer)
+        * language (string)
+        * master_branch (string)
+        * mirror_url (string)
+        * name (string)
+        * open_issues (integer)
+        * open_issues_count (integer)
+        * owner (object)
+          * avatar_url (string)
+          * gravatar_id (string)
+          * id (integer)
+          * login (string)
+          * url (string)
+        * private (boolean)
+        * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * size (integer)
+        * ssh_url (string)
+        * svn_url (string)
+        * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * url (string)
+        * watchers (integer)
+        * watchers_count (integer)
+      * sha (string)
+      * user (object)
+        * avatar_url (string)
+        * gravatar_id (string)
+        * id (integer)
+        * login (string)
+        * url (string)
+    * body (string)
+    * closed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * diff_url (string)
+    * head (object)
+      * label (string)
+      * ref (string)
+      * repo (object)
+        * clone_url (string)
+        * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * description (string)
+        * fork (boolean)
+        * forks (integer)
+        * forks_count (integer)
+        * full_name (string)
+        * git_url (string)
+        * homepage (string)
+        * html_url (string)
+        * id (integer)
+        * language (string)
+        * master_branch (string)
+        * mirror_url (string)
+        * name (string)
+        * open_issues (integer)
+        * open_issues_count (integer)
+        * owner (object)
+          * avatar_url (string)
+          * gravatar_id (string)
+          * id (integer)
+          * login (string)
+          * url (string)
+        * private (boolean)
+        * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * size (integer)
+        * ssh_url (string)
+        * svn_url (string)
+        * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+        * url (string)
+        * watchers (integer)
+        * watchers_count (integer)
+      * sha (string)
+      * user (object)
+        * avatar_url (string)
+        * gravatar_id (string)
+        * id (integer)
+        * login (string)
+        * url (string)
+    * html_url (string)
+    * issue_url (string)
+    * merged_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * number (integer)
+    * patch_url (string)
+
+    * title (string)
+    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url (string)
+    * user (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+
+### pullsComment
+* pullsComment (object)
   * _links (object)
     * html (object)
       * href (string)
@@ -5988,21 +6837,65 @@ github.users.username.subscriptions.get({
     * gravatar_id (string)
     * id (integer)
     * login (string)
-    * url (string)* pullsCommentPost (object)
+    * url (string)
+
+### pullsCommentPost
+* pullsCommentPost (object)
   * body (string)
   * commit_id (string)
   * path (string)
-  * position (number)* pullsComments (array)* pullsPost (object)
+  * position (number)
+
+### pullsComments
+* pullsComments (array)
+  * items (object)
+    * _links (object)
+      * html (object)
+        * href (string)
+      * pull_request (object)
+        * href (string)
+      * self (object)
+        * href (string)
+    * body (string)
+    * commit_id (string)
+    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * id (integer)
+    * path (string)
+    * position (integer)
+    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url (string)
+    * user (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+
+### pullsPost
+* pullsPost (object)
   * base (string)
   * body (string)
   * head (string)
-  * title (string)* punchCardStats (array)* putSubscription (object)
+  * title (string)
+
+### punchCardStats
+* punchCardStats (array)
+  * items (integer)
+
+### putSubscription
+* putSubscription (object)
   * created_at (string)
   * ignored (boolean)
   * reason (object)
   * subscribed (boolean)
   * thread_url (string)
-  * url (string)* rate_limit (object)
+  * url (string)
+
+### rate_limit
+* rate_limit (object)
+
+
+### readme
 * readme (object)
   * _links (object)
     * git (string)
@@ -6017,16 +6910,100 @@ github.users.username.subscriptions.get({
   * sha (string)
   * size (integer)
   * type (string)
-  * url (string)* ref (array)* refBody (object)
+  * url (string)
+
+### ref
+* ref (array)
+  * items (object)
+    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * creator (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * description (string)
+    * id (integer)
+    * state (string)
+    * target_url (string)
+    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url (string)
+
+### refBody
+* refBody (object)
   * object (object)
     * sha (string)
     * type (string)
     * url (string)
   * ref (string)
-  * url (string)* refStatus (array)* refs (array)* refsBody (object)
+  * url (string)
+
+### refStatus
+* refStatus (array)
+  * items (object)
+    * commit_url (string)
+    * name (string)
+    * repository_url (string)
+    * sha (string)
+    * state (string)
+    * statuses (array)
+      * items (object)
+        * context (string)
+        * created_at (string)
+        * description (string)
+        * id (number)
+        * state (string)
+        * target_url (string)
+        * updated_at (string)
+        * url (string)
+
+### refs
+* refs (array)
+  * items (object)
+    * object (object)
+      * sha (string)
+      * type (string)
+      * url (string)
+    * ref (string)
+    * url (string)
+
+### refsBody
+* refsBody (object)
   * ref (string)
-  * sha (string)* release (object)
+  * sha (string)
+
+### release
+* release (object)
   * assets (array)
+    * items (object)
+      * content_type (string)
+      * created_at (string)
+      * download_count (integer)
+      * id (integer)
+      * label (string)
+      * name (string)
+      * size (integer)
+      * state (string)
+      * updated_at (string)
+      * uploader (object)
+        * avatar_url (string)
+        * events_url (string)
+        * followers_url (string)
+        * following_url (string)
+        * gists_url (string)
+        * gravatar_id (string)
+        * html_url (string)
+        * id (integer)
+        * login (string)
+        * organizations_url (string)
+        * received_events_url (string)
+        * repos_url (string)
+        * site_admin (boolean)
+        * starred_url (string)
+        * subscriptions_url (string)
+        * type (string)
+        * url (string)
+      * url (string)
   * assets_url (string)
   * author (object)
     * avatar_url (string)
@@ -6059,13 +7036,86 @@ github.users.username.subscriptions.get({
   * target_commitish (string)
   * upload_url (string)
   * url (string)
-  * zipball_url (string)* release-create (object)
+  * zipball_url (string)
+
+### release-create
+* release-create (object)
   * body (string)
   * draft (boolean)
   * name (string)
   * prerelease (boolean)
   * tag_name (string)
-  * target_commitish (string)* releases (array)* repo (object)
+  * target_commitish (string)
+
+### releases
+* releases (array)
+  * items (object)
+    * assets (array)
+      * items (object)
+        * content_type (string)
+        * created_at (string)
+        * download_count (integer)
+        * id (integer)
+        * label (string)
+        * name (string)
+        * size (integer)
+        * state (string)
+        * updated_at (string)
+        * uploader (object)
+          * avatar_url (string)
+          * events_url (string)
+          * followers_url (string)
+          * following_url (string)
+          * gists_url (string)
+          * gravatar_id (string)
+          * html_url (string)
+          * id (integer)
+          * login (string)
+          * organizations_url (string)
+          * received_events_url (string)
+          * repos_url (string)
+          * site_admin (boolean)
+          * starred_url (string)
+          * subscriptions_url (string)
+          * type (string)
+          * url (string)
+        * url (string)
+    * assets_url (string)
+    * author (object)
+      * avatar_url (string)
+      * events_url (string)
+      * followers_url (string)
+      * following_url (string)
+      * gists_url (string)
+      * gravatar_id (string)
+      * html_url (string)
+      * id (integer)
+      * login (string)
+      * organizations_url (string)
+      * received_events_url (string)
+      * repos_url (string)
+      * site_admin (boolean)
+      * starred_url (string)
+      * subscriptions_url (string)
+      * type (string)
+      * url (string)
+    * body (string)
+    * created_at (string)
+    * draft (boolean)
+    * html_url (string)
+    * id (integer)
+    * name (string)
+    * prerelease (boolean)
+    * published_at (string)
+    * tag_name (string)
+    * tarball_url (string)
+    * target_commitish (string)
+    * upload_url (string)
+    * url (string)
+    * zipball_url (string)
+
+### repo
+* repo (object)
   * clone_url (string)
   * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
   * description (string)
@@ -6173,7 +7223,60 @@ github.users.username.subscriptions.get({
   * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
   * url (string)
   * watchers (integer)
-  * watchers_count (integer)* repo-deployments (array)* repoComments (array)* repoCommit (object)
+  * watchers_count (integer)
+
+### repo-deployments
+* repo-deployments (array)
+  * items (object)
+    * created_at (string)
+    * creator (object)
+      * avatar_url (string)
+      * events_url (string)
+      * followers_url (string)
+      * following_url (string)
+      * gists_url (string)
+      * gravatar_id (string)
+      * html_url (string)
+      * id (integer)
+      * login (string)
+      * organizations_url (string)
+      * received_events_url (string)
+      * repos_url (string)
+      * site_admin (boolean)
+      * starred_url (string)
+      * subscriptions_url (string)
+      * type (string)
+      * url (string)
+    * description (string)
+    * id (integer)
+    * payload (string)
+    * sha (string)
+    * statuses_url (string)
+    * updated_at (string)
+    * url (string)
+
+### repoComments
+* repoComments (array)
+  * items (object)
+    * body (string)
+    * commit_id (string)
+    * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * html_url (string)
+    * id (integer)
+    * line (integer)
+    * path (string)
+    * position (integer)
+    * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+    * url (string)
+    * user (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+
+### repoCommit
+* repoCommit (object)
   * author (object)
     * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
     * email (string)
@@ -6184,33 +7287,266 @@ github.users.username.subscriptions.get({
     * name (string)
   * message (string)
   * parents (array)
+    * items (object)
+      * sha (string)
+      * url (string)
   * sha (string)
   * tree (object)
     * sha (string)
     * url (string)
-  * url (string)* repoCommitBody (object)
+  * url (string)
+
+### repoCommitBody
+* repoCommitBody (object)
   * author (object)
     * date (string)
     * email (string)
     * name (string)
   * message **required** (string)
   * parents **required** (array)
-  * tree **required** (string)* repoEdit (object)
+    * items (string)
+  * tree **required** (string)
+
+### repoEdit
+* repoEdit (object)
   * description (string)
   * has_downloads (boolean)
   * has_issues (boolean)
   * has_wiki (boolean)
   * homepage (string)
   * name (string)
-  * private (boolean)* repos (array)* repositories (array)* search-code (object)
+  * private (boolean)
+
+### repos
+* repos (array)
+
+
+### repositories
+* repositories (array)
+  * items (object)
+    * description (string)
+    * fork (boolean)
+    * full_name (string)
+    * html_url (string)
+    * id (integer)
+    * name (string)
+    * owner (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * private (boolean)
+    * url (string)
+
+### search-code
+* search-code (object)
   * items (array)
-  * total_count (integer)* search-issues (object)
+    * items (object)
+      * git_url (string)
+      * html_url (string)
+      * name (string)
+      * path (string)
+      * repository (object)
+        * archive_url (string)
+        * assignees_url (string)
+        * blobs_url (string)
+        * branches_url (string)
+        * collaborators_url (string)
+        * comments_url (string)
+        * commits_url (string)
+        * compare_url (string)
+        * contents_url (string)
+        * contributors_url (string)
+        * description (string)
+        * downloads_url (string)
+        * events_url (string)
+        * fork (boolean)
+        * forks_url (string)
+        * full_name (string)
+        * git_commits_url (string)
+        * git_refs_url (string)
+        * git_tags_url (string)
+        * hooks_url (string)
+        * html_url (string)
+        * id (integer)
+        * issue_comment_url (string)
+        * issue_events_url (string)
+        * issues_url (string)
+        * keys_url (string)
+        * labels_url (string)
+        * languages_url (string)
+        * merges_url (string)
+        * milestones_url (string)
+        * name (string)
+        * notifications_url (string)
+        * owner (object)
+          * avatar_url (string)
+          * events_url (string)
+          * followers_url (string)
+          * following_url (string)
+          * gists_url (string)
+          * gravatar_id (string)
+          * html_url (string)
+          * id (integer)
+          * login (string)
+          * organizations_url (string)
+          * received_events_url (string)
+          * repos_url (string)
+          * starred_url (string)
+          * subscriptions_url (string)
+          * type (string)
+          * url (string)
+        * private (boolean)
+        * pulls_url (string)
+        * stargazers_url (string)
+        * statuses_url (string)
+        * subscribers_url (string)
+        * subscription_url (string)
+        * tags_url (string)
+        * teams_url (string)
+        * trees_url (string)
+        * url (string)
+      * score (number)
+      * sha (string)
+      * url (string)
+  * total_count (integer)
+
+### search-issues
+* search-issues (object)
   * items (array)
-  * total_count (integer)* search-issues-by-keyword (object)
-  * issues (array)* search-repositories (object)
+    * items (object)
+      * assignee (null)
+      * body (string)
+      * closed_at (null)
+      * comments (integer)
+      * comments_url (string)
+      * created_at (string)
+      * events_url (string)
+      * html_url (string)
+      * id (integer)
+      * labels (array)
+        * items (object)
+          * color (string)
+          * name (string)
+          * url (string)
+      * labels_url (string)
+      * milestone (null)
+      * number (integer)
+      * pull_request (object)
+        * diff_url (null)
+        * html_url (null)
+        * patch_url (null)
+      * score (number)
+      * state (string)
+      * title (string)
+      * updated_at (string)
+      * url (string)
+      * user (object)
+        * avatar_url (string)
+        * events_url (string)
+        * followers_url (string)
+        * following_url (string)
+        * gists_url (string)
+        * gravatar_id (string)
+        * html_url (string)
+        * id (integer)
+        * login (string)
+        * organizations_url (string)
+        * received_events_url (string)
+        * repos_url (string)
+        * starred_url (string)
+        * subscriptions_url (string)
+        * type (string)
+        * url (string)
+  * total_count (integer)
+
+### search-issues-by-keyword
+* search-issues-by-keyword (object)
+  * issues (array)
+    * items (object)
+      * body (string)
+      * comments (integer)
+      * created_at (string)
+      * gravatar_id (string)
+      * html_url (string)
+      * labels (array)
+        * items (string)
+      * number (integer)
+      * position (integer)
+      * state (string)
+      * title (string)
+      * updated_at (string)
+      * user (string)
+      * votes (integer)
+
+### search-repositories
+* search-repositories (object)
   * items (array)
-  * total_count (integer)* search-repositories-by-keyword (object)
-  * repositories (array)* search-user-by-email (object)
+    * items (object)
+      * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * default_branch (string)
+      * description (string)
+      * fork (boolean)
+      * forks (integer)
+      * forks_count (integer)
+      * full_name (string)
+      * homepage (string)
+      * html_url (string)
+      * id (integer)
+      * language (string)
+      * master_branch (string)
+      * name (string)
+      * open_issues (integer)
+      * open_issues_count (integer)
+      * owner (object)
+        * avatar_url (string)
+        * gravatar_id (string)
+        * id (integer)
+        * login (string)
+        * received_events_url (string)
+        * type (string)
+        * url (string)
+      * private (boolean)
+      * pushed_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * score (number)
+      * size (integer)
+      * updated_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+      * url (string)
+      * watchers (integer)
+      * watchers_count (integer)
+  * total_count (integer)
+
+### search-repositories-by-keyword
+* search-repositories-by-keyword (object)
+  * repositories (array)
+    * items (object)
+      * created (string)
+      * created_at (string)
+      * description (string)
+      * followers (integer)
+      * fork (boolean)
+      * forks (integer)
+      * has_downloads (boolean)
+      * has_issues (boolean)
+      * has_wiki (boolean)
+      * homepage (string)
+      * language (string)
+      * name (string)
+      * open_issues (integer)
+      * owner (string)
+      * private (boolean)
+      * pushed (string)
+      * pushed_at (string)
+      * score (number)
+      * size (integer)
+      * type (string)
+      * url (string)
+      * username (string)
+      * watchers (integer)
+
+### search-user-by-email
+* search-user-by-email (object)
   * user (object)
     * blog (string)
     * company (string)
@@ -6226,24 +7562,82 @@ github.users.username.subscriptions.get({
     * name (string)
     * public_gist_count (integer)
     * public_repo_count (integer)
-    * type (string)* search-users (object)
+    * type (string)
+
+### search-users
+* search-users (object)
   * items (array)
-  * total_count (integer)* search-users-by-keyword (object)
-  * users (array)* stargazers (array)* subscribition (object)
+    * items (object)
+      * avatar_url (string)
+      * followers_url (string)
+      * gravatar_id (string)
+      * html_url (string)
+      * id (integer)
+      * login (string)
+      * organizations_url (string)
+      * received_events_url (string)
+      * repos_url (string)
+      * score (number)
+      * subscriptions_url (string)
+      * type (string)
+      * url (string)
+  * total_count (integer)
+
+### search-users-by-keyword
+* search-users-by-keyword (object)
+  * users (array)
+    * items (object)
+      * created (string)
+      * created_at (string)
+      * followers (integer)
+      * followers_count (integer)
+      * fullname (string)
+      * gravatar_id (string)
+      * id (string)
+      * language (string)
+      * location (string)
+      * login (string)
+      * name (string)
+      * public_repo_count (integer)
+      * repos (integer)
+      * score (number)
+      * type (string)
+      * username (string)
+
+### stargazers
+* stargazers (array)
+  * items (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+
+### subscribition
+* subscribition (object)
   * created_at (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
   * ignored (boolean)
   * reason (string)
   * repository_url (string)
   * subscribed (boolean)
-  * url (string)* subscribitionBody (object)
+  * url (string)
+
+### subscribitionBody
+* subscribitionBody (object)
   * ignored (boolean)
-  * subscribed (boolean)* subscription (object)
+  * subscribed (boolean)
+
+### subscription
+* subscription (object)
   * created_at (string)
   * ignored (boolean)
   * reason (boolean)
   * subscribed (boolean)
   * thread_url (string)
-  * url (string)* tag (object)
+  * url (string)
+
+### tag
+* tag (object)
   * message (string)
   * object (object)
     * sha (string)
@@ -6255,7 +7649,10 @@ github.users.username.subscriptions.get({
     * date (string): ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
     * email (string)
     * name (string)
-  * url (string)* tags (object)
+  * url (string)
+
+### tags
+* tags (object)
   * message **required** (string): String of the tag message.
   * object **required** (string): String of the SHA of the git object this is tagging.
   * tag **required** (string)
@@ -6263,22 +7660,108 @@ github.users.username.subscriptions.get({
     * date (string): Timestamp of when this object was tagged.
     * email (string): String of the email of the author of the tag.
     * name (string): String of the name of the author of the tag.
-  * type **required** (string): String of the type of the object we’re tagging. Normally this is a commit but it can also be a tree or a blob.* team (object)
+  * type **required** (string): String of the type of the object we’re tagging. Normally this is a commit but it can also be a tree or a blob.
+
+### team
+* team (object)
   * id (integer)
   * members_count (integer)
   * name (string)
   * permission (string)
   * repos_count (integer)
-  * url (string)* teamMembership (object)
+  * url (string)
+
+### teamMembership
+* teamMembership (object)
   * state (string)
-  * url (string)* teamRepos (array)* teams (array)* teams-list (array)* tree (object)
+  * url (string)
+
+### teamRepos
+* teamRepos (array)
+  * items (object)
+    * clone_url (string)
+    * created_at (string)
+    * description (string)
+    * fork (boolean)
+    * forks (integer)
+    * forks_count (integer)
+    * full_name (string)
+    * git_url (string)
+    * homepage (string)
+    * html_url (string)
+    * id (integer)
+    * language (null)
+    * master_branch (string)
+    * mirror_url (string)
+    * name (string)
+    * open_issues (integer)
+    * open_issues_count (integer)
+    * owner (object)
+      * avatar_url (string)
+      * gravatar_id (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * private (boolean)
+    * pushed_at (string)
+    * size (integer)
+    * ssh_url (string)
+    * svn_url (string)
+    * updated_at (string)
+    * url (string)
+    * watchers (integer)
+    * watchers_count (integer)
+
+### teams
+* teams (array)
+  * items (object)
+    * id (integer)
+    * name (string)
+    * url (string)
+
+### teams-list
+* teams-list (array)
+  * items (object)
+    * id (integer)
+    * members_count (integer)
+    * name (string)
+    * organization (object)
+      * avatar_url (string)
+      * id (integer)
+      * login (string)
+      * url (string)
+    * permission (string)
+    * repos_count (integer)
+    * url (string)
+
+### tree
+* tree (object)
   * sha (string)
   * tree (array)
-  * url (string)* trees (object)
+    * items (object)
+      * mode (string)
+      * path (string)
+      * sha (string)
+      * size (integer)
+      * type (string)
+      * url (string)
+  * url (string)
+
+### trees
+* trees (object)
   * base_tree (string)
   * sha (string): SHA1 checksum ID of the object in the tree.
   * tree (array)
-  * url (string)* user (object)
+    * items (object)
+      * mode (string): One of 100644 for file (blob), 100755 for executable (blob), 040000 for subdirectory (tree), 160000 for submodule (commit) or 120000 for a blob that specifies the path of a symlink.
+      * path (string)
+      * sha (string): SHA1 checksum ID of the object in the tree.
+      * type (string)
+      * url (string)
+  * url (string)
+
+### user
+* user (object)
   * avatar_url (string)
   * bio (string)
   * blog (string)
@@ -6307,20 +7790,44 @@ github.users.username.subscriptions.get({
   * public_repos (integer)
   * total_private_repos (integer)
   * type (string)
-  * url (string)* user-emails (array)* user-emails_final (array)* user-keys (array)* user-keys-keyId (object)
+  * url (string)
+
+### user-emails
+* user-emails (array)
+  * items (string)
+
+### user-emails_final
+* user-emails_final (array)
+
+
+### user-keys
+* user-keys (array)
+
+
+### user-keys-keyId
+* user-keys-keyId (object)
   * id (integer)
   * key (string)
   * title (string)
-  * url (string)* user-keys-post (object)
+  * url (string)
+
+### user-keys-post
+* user-keys-post (object)
   * key (string)
-  * title (string)* user-update (object)
+  * title (string)
+
+### user-update
+* user-update (object)
   * bio (string)
   * blog (string)
   * company (string)
   * email (string)
   * hireable (boolean)
   * location (string)
-  * name (string)* user-userId (object)
+  * name (string)
+
+### user-userId
+* user-userId (object)
   * avatar_url (string)
   * bio (string)
   * blog (string)
@@ -6339,4 +7846,31 @@ github.users.username.subscriptions.get({
   * public_gists (integer)
   * public_repos (integer)
   * type (string)
-  * url (string)* user-userId-starred (array)* user-userId-subscribitions (array)* users (array)* users-userId-keys (array)* users-userId-orgs (array)
+  * url (string)
+
+### user-userId-starred
+* user-userId-starred (array)
+
+
+### user-userId-subscribitions
+* user-userId-subscribitions (array)
+
+
+### users
+* users (array)
+  * items (object)
+    * avatar_url (string)
+    * gravatar_id (string)
+    * id (integer)
+    * login (string)
+    * url (string)
+
+### users-userId-keys
+* users-userId-keys (array)
+
+
+### users-userId-orgs
+* users-userId-orgs (array)
+
+
+
