@@ -11,6 +11,8 @@ if (integsLocation !== -1) {
 }
 
 readme += TITLE_LINE + '\n';
+readme += '\n|name|title|README|link|description|';
+readme += '\n|---|---|---|---|---|';
 
 Object.keys(list).sort((k1, k2) => {
   let d1 = list[k1];
@@ -18,7 +20,15 @@ Object.keys(list).sort((k1, k2) => {
   return d1.title.toLowerCase() < d2.title.toLowerCase() ? -1 : 1;
 }).forEach(key => {
   let details = list[key];
-  readme += `\n* [${details.title}](integrations/${details.directory}/${key})`;
+  let parts = [
+    key,
+    details.title,
+    `[README](integrations/${details.directory}/${key})`,
+    `[DataFire.io](https://app.datafire.io/integrations/${key})`,
+    details.description,
+  ]
+  let line = '|' + parts.join('|') + '|';
+  readme += '\n' + line;
 });
 
 fs.writeFileSync(README_FILE, readme);
