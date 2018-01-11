@@ -14,7 +14,7 @@ readme += TITLE_LINE + '\n';
 
 Object.keys(list).sort().forEach(key => {
   let details = list[key];
-  readme += `\n[${details.title}](integrations/${details.directory}/${key})`;
+  readme += `\n* [${details.title}](integrations/${details.directory}/${key})`;
 });
 
 fs.writeFileSync(README_FILE, readme);
