@@ -1,6 +1,6 @@
 {
   "id": "deutschebahn_reisezentren",
-  "title": "Reisezentren",
+  "title": "Reisezentren-API",
   "description": "This REST-API enables you to query information about travel centers in Germany.",
   "security": {},
   "logo": {

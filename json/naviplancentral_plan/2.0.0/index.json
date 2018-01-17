@@ -1,6 +1,6 @@
 {
   "id": "naviplancentral_plan",
-  "title": "Narrator Connect powered by NaviPlan",
+  "title": "Published Plan Service",
   "description": "An API for accessing NaviPlan plan data for a client.",
   "security": {},
   "logo": {

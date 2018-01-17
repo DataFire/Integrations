@@ -1,9 +1,10 @@
 {
   "id": "osf",
   "title": "OSF APIv2 Documentation",
-  "description": "Welcome to the documentation for the Open Science Framework API. With this API you can access users, projects, components, registrations, preprints, logs, and files on the Open Science Framework.",
+  "description": "## https://api.osf.io/v2/",
   "security": {},
   "logo": {
+    "backgroundColor": "transparent",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/osf.png"
   },
   "actionCount": 127,

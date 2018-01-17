@@ -1,7 +1,7 @@
 {
   "id": "mcw_edu",
   "title": "Rat Genome Database",
-  "description": "The RGD REST API provides programmatic access to information and annotation stored in Rat Genome Database",
+  "description": "The RGD REST API provides programmatic access to information and annotation stored in the Rat Genome Database",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mcw_edu.jpeg"

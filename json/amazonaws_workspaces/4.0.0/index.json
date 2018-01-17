@@ -1,7 +1,7 @@
 {
   "id": "amazonaws_workspaces",
   "title": "Amazon WorkSpaces",
-  "description": "Amazon WorkSpaces Service\n\nThis reference provides detailed information about the Amazon WorkSpaces operations.",
+  "description": "Amazon WorkSpaces Service\n\nAmazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows desktops for your users.",
   "security": {
     "amazonaws_workspaces": {
       "integration": "amazonaws_workspaces",

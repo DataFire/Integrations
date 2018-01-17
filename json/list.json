@@ -1339,7 +1339,7 @@
   "amazonaws_elasticloadbalancing": {
     "id": "amazonaws_elasticloadbalancing",
     "title": "Elastic Load Balancing",
-    "description": "A load balancer distributes incoming traffic across your EC2 instances. This enables you to increase the availability of...",
+    "description": "A load balancer distributes incoming traffic across targets, such as your EC2 instances. This enables you to increase th...",
     "security": {
       "amazonaws_elasticloadbalancing": {
         "integration": "amazonaws_elasticloadbalancing",
@@ -2354,7 +2354,7 @@
   "amazonaws_opsworks_cm": {
     "id": "amazonaws_opsworks_cm",
     "title": "AWS OpsWorks for Chef Automate",
-    "description": "AWS OpsWorks for Chef Automate is a service that runs and manages configuration management servers.   Glossary of terms ...",
+    "description": "AWS OpsWorks for configuration management (CM) is a service that runs and manages configuration management servers.   Gl...",
     "security": {
       "amazonaws_opsworks_cm": {
         "integration": "amazonaws_opsworks_cm",
@@ -3214,7 +3214,7 @@
   "amazonaws_workspaces": {
     "id": "amazonaws_workspaces",
     "title": "Amazon WorkSpaces",
-    "description": "This reference provides detailed information about the Amazon WorkSpaces operations.",
+    "description": "Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows desktops for your users.",
     "security": {
       "amazonaws_workspaces": {
         "integration": "amazonaws_workspaces",
@@ -3565,7 +3565,7 @@
   "apitore_sentimentapis": {
     "id": "apitore_sentimentapis",
     "title": "Sentiment APIs",
-    "description": "Japanese sentiment analyzer. (tokenized by SentencePiece)[Endpoint] https://api.apitore.com/api/39",
+    "description": "Japanese sentiment analyzer.[Endpoint] https://api.apitore.com/api/52",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentimentapis.jpg"
@@ -7136,7 +7136,7 @@
   },
   "deutschebahn_reisezentren": {
     "id": "deutschebahn_reisezentren",
-    "title": "Reisezentren",
+    "title": "Reisezentren-API",
     "description": "This REST-API enables you to query information about travel centers in Germany.",
     "security": {},
     "logo": {
@@ -9565,7 +9565,7 @@
   "google_container": {
     "id": "google_container",
     "title": "Google Container Engine",
-    "description": "The Google Container Engine API is used for building and managing container based applications, powered by the open sour...",
+    "description": "The Google Kubernetes Engine API is used for building and managing container based applications, powered by the open sou...",
     "security": {
       "google_container": {
         "integration": "google_container",
@@ -13562,7 +13562,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/instagram.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/instagram.png"
     },
     "actionCount": 27,
     "directory": "generated",
@@ -14023,7 +14023,7 @@
   "mcw_edu": {
     "id": "mcw_edu",
     "title": "Rat Genome Database",
-    "description": "The RGD REST API provides programmatic access to information and annotation stored in Rat Genome Database",
+    "description": "The RGD REST API provides programmatic access to information and annotation stored in the Rat Genome Database",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mcw_edu.jpeg"
@@ -14088,7 +14088,6 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/microsoft_security_updates.png"
     },
     "actionCount": 3,
@@ -14216,7 +14215,7 @@
   },
   "naviplancentral_plan": {
     "id": "naviplancentral_plan",
-    "title": "Narrator Connect powered by NaviPlan",
+    "title": "Published Plan Service",
     "description": "An API for accessing NaviPlan plan data for a client.",
     "security": {},
     "logo": {
@@ -14942,9 +14941,10 @@
   "osf": {
     "id": "osf",
     "title": "OSF APIv2 Documentation",
-    "description": "Welcome to the documentation for the Open Science Framework API. With this API you can access users, projects, component...",
+    "description": "https://api.osf.io/v2/",
     "security": {},
     "logo": {
+      "backgroundColor": "transparent",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/osf.png"
     },
     "actionCount": 127,
@@ -17562,6 +17562,28 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/http.png"
     },
     "actionCount": 8,
+    "directory": "manual",
+    "latestVersion": "2.0.0"
+  },
+  "imap": {
+    "id": "imap",
+    "title": "",
+    "description": "Interact with e-mail servers via the Internet Message Access Protocol",
+    "security": {
+      "imap": {
+        "fields": {
+          "user": "Your e-mail address",
+          "password": "Your password",
+          "host": "IMAP host, e.g. imap.gmail.com",
+          "port": "The port to connect to, e.g. 993",
+          "tls": "Whether to use TLS"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/imap.png"
+    },
+    "actionCount": 20,
     "directory": "manual",
     "latestVersion": "2.0.0"
   },

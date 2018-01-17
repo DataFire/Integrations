@@ -1,7 +1,7 @@
 {
   "id": "google_container",
   "title": "Google Container Engine",
-  "description": "The Google Container Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.",
+  "description": "The Google Kubernetes Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.",
   "security": {
     "google_container": {
       "integration": "google_container",
