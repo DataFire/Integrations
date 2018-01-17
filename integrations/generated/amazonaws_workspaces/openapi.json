@@ -13,7 +13,7 @@
       "name": "Mike Ralphson",
       "url": "https://github.com/mermade/aws2openapi"
     },
-    "description": "<fullname>Amazon WorkSpaces Service</fullname> <p>This reference provides detailed information about the Amazon WorkSpaces operations.</p>",
+    "description": "<fullname>Amazon WorkSpaces Service</fullname> <p>Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows desktops for your users.</p>",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"

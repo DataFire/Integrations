@@ -12,7 +12,7 @@
       "url": "http://rgd.mcw.edu",
       "x-twitter": "medicalcollege"
     },
-    "description": "The RGD REST API provides programmatic access to information and annotation stored in Rat Genome Database",
+    "description": "The RGD REST API provides programmatic access to information and annotation stored in the Rat Genome Database",
     "license": {
       "name": "Creative Commons",
       "url": "https://creativecommons.org/licenses/by/4.0/legalcode"

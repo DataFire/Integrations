@@ -6,7 +6,7 @@
   "host": "api.apitore.com",
   "basePath": "/api/39",
   "info": {
-    "description": "Japanese sentiment analyzer. (tokenized by SentencePiece)<BR />[Endpoint] https://api.apitore.com/api/39",
+    "description": "Japanese sentiment analyzer.<BR />[Endpoint] https://api.apitore.com/api/52",
     "title": "Sentiment APIs",
     "version": "0.0.1",
     "x-apisguru-categories": [
@@ -14,7 +14,7 @@
       "text"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_39.jpg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_52.jpg"
     },
     "x-origin": [
       {

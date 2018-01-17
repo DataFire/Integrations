@@ -12,7 +12,7 @@
       "url": "https://osf.io/support",
       "x-twitter": "OSFramework"
     },
-    "description": "Welcome to the documentation for the Open Science Framework API. With this API you can access users, projects, components, registrations, preprints, logs, and files on the Open Science Framework.",
+    "description": "## https://api.osf.io/v2/",
     "license": {
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
@@ -23,7 +23,8 @@
       "open_data"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_OSFramework_profile_image.png"
+      "backgroundColor": "transparent",
+      "url": "https://api.apis.guru/v2/cache/logo/https_cdn.cos.io_media_images_cos_center_logo_small.original.png"
     },
     "x-origin": [
       {

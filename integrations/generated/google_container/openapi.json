@@ -10,7 +10,7 @@
       "name": "Google",
       "url": "https://google.com"
     },
-    "description": "The Google Container Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.",
+    "description": "The Google Kubernetes Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.",
     "license": {
       "name": "Creative Commons Attribution 3.0",
       "url": "http://creativecommons.org/licenses/by/3.0/"

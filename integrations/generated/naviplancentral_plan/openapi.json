@@ -11,7 +11,7 @@
       "x-twitter": "AdvicentFP"
     },
     "description": "An API for accessing NaviPlan plan data for a client.",
-    "title": "Narrator Connect powered by NaviPlan",
+    "title": "Published Plan Service",
     "version": "v1",
     "x-apisguru-categories": [
       "financial"
