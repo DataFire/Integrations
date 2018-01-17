@@ -53,7 +53,7 @@ function wrapConnection(input, context, openBox, cb) {
     })
 }
 
-function fetchInternal(query, connection, isSeq=false) {
+function fetchInternal(query, connection, isSeq) {
   let messages = [];
   return new Promise((resolve, reject) => {
     let opts = {bodies: ''};
