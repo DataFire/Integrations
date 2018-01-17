@@ -21,6 +21,7 @@
     "chai": "^3.5.0",
     "datafire": "^2.0.2",
     "hoodiecrow-imap": "^2.1.0",
+    "imap": "^0.8.19",
     "mkdirp": "^0.5.1",
     "mocha": "^3.2.0",
     "mongo-in-memory": "0.0.5",
