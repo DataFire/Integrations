@@ -13,7 +13,7 @@ let nytimes_community = require('@datafire/nytimes_community').create({
 
 nytimes_community.user_content.user.json.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

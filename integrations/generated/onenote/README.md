@@ -11,7 +11,7 @@ let onenote = require('@datafire/onenote').create();
 
 onenote.pages.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

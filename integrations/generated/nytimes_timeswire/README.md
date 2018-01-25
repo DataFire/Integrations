@@ -11,9 +11,11 @@ let nytimes_timeswire = require('@datafire/nytimes_timeswire').create({
   apikey: ""
 });
 
-nytimes_timeswire.content.json.get({}).then(data => {
+nytimes_timeswire.content.json.get({
+  "url": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

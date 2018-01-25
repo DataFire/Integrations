@@ -14,7 +14,7 @@ let gitlab = require('@datafire/gitlab').create({
 
 gitlab.getV3Users({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

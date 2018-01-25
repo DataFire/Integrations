@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_japanesewordnetapis
 ```js
 let apitore_japanesewordnetapis = require('@datafire/apitore_japanesewordnetapis').create();
 
-apitore_japanesewordnetapis.simpleAllUsingGET({}).then(data => {
+apitore_japanesewordnetapis.simpleAllUsingGET({
+  "access_token": "",
+  "word": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

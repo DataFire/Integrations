@@ -11,9 +11,9 @@ let import_schedule = require('@datafire/import_schedule').create({
   api_key: ""
 });
 
-import_schedule.extractor.get({}).then(data => {
+import_schedule.extractor.get(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

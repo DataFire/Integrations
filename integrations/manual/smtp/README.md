@@ -14,9 +14,15 @@ let smtp = require('@datafire/smtp').create({
   password: ""
 });
 
-smtp.send({}).then(data => {
+smtp.send({
+  "envelope": {
+    "from": "",
+    "to": []
+  },
+  "message": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

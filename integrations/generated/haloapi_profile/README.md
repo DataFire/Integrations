@@ -12,9 +12,11 @@ let haloapi_profile = require('@datafire/haloapi_profile').create({
   apiKeyQuery: ""
 });
 
-haloapi_profile.h5.profiles.player.appearance.get({}).then(data => {
+haloapi_profile.h5.profiles.player.appearance.get({
+  "player": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

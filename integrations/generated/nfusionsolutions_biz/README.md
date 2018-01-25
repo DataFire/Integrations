@@ -11,9 +11,11 @@ let nfusionsolutions_biz = require('@datafire/nfusionsolutions_biz').create({
   token: ""
 });
 
-nfusionsolutions_biz.api.vversion.Currencies.bbo.get({}).then(data => {
+nfusionsolutions_biz.api.vversion.Currencies.bbo.get({
+  "version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

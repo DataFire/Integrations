@@ -17,7 +17,7 @@ let google_drive = require('@datafire/google_drive').create({
 
 google_drive.teamdrives.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

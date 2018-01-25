@@ -18,7 +18,7 @@ let gov_bc_ca_bcdc = require('@datafire/gov_bc_ca_bcdc').create({
 
 gov_bc_ca_bcdc.action.tag_list.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

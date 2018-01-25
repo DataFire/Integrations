@@ -14,7 +14,7 @@ let tfl_gov_uk = require('@datafire/tfl_gov_uk').create({
 
 tfl_gov_uk.Line_Route({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

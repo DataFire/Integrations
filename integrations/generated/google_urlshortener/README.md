@@ -17,7 +17,7 @@ let google_urlshortener = require('@datafire/google_urlshortener').create({
 
 google_urlshortener.url.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

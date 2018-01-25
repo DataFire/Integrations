@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_url2srcapis
 ```js
 let apitore_url2srcapis = require('@datafire/apitore_url2srcapis').create();
 
-apitore_url2srcapis.url2srcUsingGET({}).then(data => {
+apitore_url2srcapis.url2srcUsingGET({
+  "access_token": "",
+  "url": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

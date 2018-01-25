@@ -9,9 +9,12 @@ npm install --save @datafire/azure_arm_scheduler
 ```js
 let azure_arm_scheduler = require('@datafire/azure_arm_scheduler').create();
 
-azure_arm_scheduler.JobCollections_ListBySubscription({}).then(data => {
+azure_arm_scheduler.JobCollections_ListBySubscription({
+  "subscriptionId": "",
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

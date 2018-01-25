@@ -9,9 +9,9 @@ npm install --save @datafire/http
 ```js
 let http = require('@datafire/http').create();
 
-http.request({}).then(data => {
+http.request(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

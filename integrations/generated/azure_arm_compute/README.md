@@ -15,9 +15,13 @@ let azure_arm_compute = require('@datafire/azure_arm_compute').create({
   redirect_uri: ""
 });
 
-azure_arm_compute.VirtualMachineImages_ListPublishers({}).then(data => {
+azure_arm_compute.VirtualMachineImages_ListPublishers({
+  "location": "",
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

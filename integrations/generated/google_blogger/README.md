@@ -15,9 +15,11 @@ let google_blogger = require('@datafire/google_blogger').create({
   redirect_uri: ""
 });
 
-google_blogger.blogs.getByUrl({}).then(data => {
+google_blogger.blogs.getByUrl({
+  "url": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,9 +15,12 @@ let azure_arm_redis = require('@datafire/azure_arm_redis').create({
   redirect_uri: ""
 });
 
-azure_arm_redis.Redis_List({}).then(data => {
+azure_arm_redis.Redis_List({
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

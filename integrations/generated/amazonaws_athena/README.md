@@ -13,9 +13,11 @@ let amazonaws_athena = require('@datafire/amazonaws_athena').create({
   region: ""
 });
 
-amazonaws_athena.BatchGetNamedQuery({}).then(data => {
+amazonaws_athena.BatchGetNamedQuery({
+  "NamedQueryIds": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

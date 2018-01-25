@@ -9,9 +9,11 @@ npm install --save @datafire/omdbapi
 ```js
 let omdbapi = require('@datafire/omdbapi').create();
 
-omdbapi..get({}).then(data => {
+omdbapi..get({
+  "r": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

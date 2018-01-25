@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_wordnetsynonymapis
 ```js
 let apitore_wordnetsynonymapis = require('@datafire/apitore_wordnetsynonymapis').create();
 
-apitore_wordnetsynonymapis.simpleSynonymUsingGET({}).then(data => {
+apitore_wordnetsynonymapis.simpleSynonymUsingGET({
+  "access_token": "",
+  "word": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

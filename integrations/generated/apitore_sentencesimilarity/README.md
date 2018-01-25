@@ -9,9 +9,15 @@ npm install --save @datafire/apitore_sentencesimilarity
 ```js
 let apitore_sentencesimilarity = require('@datafire/apitore_sentencesimilarity').create();
 
-apitore_sentencesimilarity.evalUsingPOST({}).then(data => {
+apitore_sentencesimilarity.evalUsingPOST({
+  "access_token": "",
+  "req": {
+    "text1": "",
+    "text2": ""
+  }
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

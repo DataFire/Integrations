@@ -15,9 +15,12 @@ let google_replicapool = require('@datafire/google_replicapool').create({
   redirect_uri: ""
 });
 
-google_replicapool.instanceGroupManagers.list({}).then(data => {
+google_replicapool.instanceGroupManagers.list({
+  "project": "",
+  "zone": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

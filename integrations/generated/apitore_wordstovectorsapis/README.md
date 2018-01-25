@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_wordstovectorsapis
 ```js
 let apitore_wordstovectorsapis = require('@datafire/apitore_wordstovectorsapis').create();
 
-apitore_wordstovectorsapis.wordvectorUsingGET({}).then(data => {
+apitore_wordstovectorsapis.wordvectorUsingGET({
+  "access_token": "",
+  "word": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

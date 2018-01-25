@@ -13,9 +13,14 @@ let amazonaws_sqs = require('@datafire/amazonaws_sqs').create({
   region: ""
 });
 
-amazonaws_sqs.AddPermission({}).then(data => {
+amazonaws_sqs.AddPermission({
+  "QueueUrl": "",
+  "Label": "",
+  "AWSAccountIds": [],
+  "Actions": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -14,7 +14,7 @@ let traccar = require('@datafire/traccar').create({
 
 traccar.users.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

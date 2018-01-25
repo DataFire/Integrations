@@ -9,14 +9,16 @@ npm install --save @datafire/mcw_edu
 ```js
 let mcw_edu = require('@datafire/mcw_edu').create();
 
-mcw_edu.getTermAccIdsUsingGET({}).then(data => {
+mcw_edu.getTermAccIdsUsingGET({
+  "rgdId": 0
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description
 
-The RGD REST API provides programmatic access to information and annotation stored in Rat Genome Database
+The RGD REST API provides programmatic access to information and annotation stored in the Rat Genome Database
 
 ## Actions
 

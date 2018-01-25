@@ -14,7 +14,7 @@ let wmata_incidents = require('@datafire/wmata_incidents').create({
 
 wmata_incidents.json.ElevatorIncidents.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

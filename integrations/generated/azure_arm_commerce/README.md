@@ -9,9 +9,13 @@ npm install --save @datafire/azure_arm_commerce
 ```js
 let azure_arm_commerce = require('@datafire/azure_arm_commerce').create();
 
-azure_arm_commerce.RateCard_Get({}).then(data => {
+azure_arm_commerce.RateCard_Get({
+  "$filter": "",
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

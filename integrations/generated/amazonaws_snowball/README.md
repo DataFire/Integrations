@@ -13,9 +13,11 @@ let amazonaws_snowball = require('@datafire/amazonaws_snowball').create({
   region: ""
 });
 
-amazonaws_snowball.CancelCluster({}).then(data => {
+amazonaws_snowball.CancelCluster({
+  "ClusterId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

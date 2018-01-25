@@ -11,7 +11,7 @@ let epa_gov_echo = require('@datafire/epa_gov_echo').create();
 
 epa_gov_echo.echo_rest_services.metadata.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

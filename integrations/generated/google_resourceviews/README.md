@@ -15,9 +15,12 @@ let google_resourceviews = require('@datafire/google_resourceviews').create({
   redirect_uri: ""
 });
 
-google_resourceviews.zoneOperations.list({}).then(data => {
+google_resourceviews.zoneOperations.list({
+  "project": "",
+  "zone": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

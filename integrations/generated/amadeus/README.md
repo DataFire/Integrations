@@ -11,9 +11,11 @@ let amadeus = require('@datafire/amadeus').create({
   apikey: ""
 });
 
-amadeus.airports.autocomplete.get({}).then(data => {
+amadeus.airports.autocomplete.get({
+  "term": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

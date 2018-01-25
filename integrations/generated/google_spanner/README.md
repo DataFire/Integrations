@@ -15,9 +15,11 @@ let google_spanner = require('@datafire/google_spanner').create({
   redirect_uri: ""
 });
 
-google_spanner.projects.instances.databases.dropDatabase({}).then(data => {
+google_spanner.projects.instances.databases.dropDatabase({
+  "database": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,7 +15,7 @@ let amazonaws_apigateway = require('@datafire/amazonaws_apigateway').create({
 
 amazonaws_apigateway.UpdateAccount({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

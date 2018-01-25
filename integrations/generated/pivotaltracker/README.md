@@ -11,7 +11,7 @@ let pivotaltracker = require('@datafire/pivotaltracker').create();
 
 pivotaltracker.activities.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

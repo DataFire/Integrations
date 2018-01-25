@@ -15,9 +15,11 @@ let google_fitness = require('@datafire/google_fitness').create({
   redirect_uri: ""
 });
 
-google_fitness.users.dataSources.list({}).then(data => {
+google_fitness.users.dataSources.list({
+  "userId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -13,9 +13,15 @@ let amazonaws_marketplacecommerceanalytics = require('@datafire/amazonaws_market
   region: ""
 });
 
-amazonaws_marketplacecommerceanalytics.GenerateDataSet({}).then(data => {
+amazonaws_marketplacecommerceanalytics.GenerateDataSet({
+  "dataSetType": "",
+  "dataSetPublicationDate": "",
+  "roleNameArn": "",
+  "destinationS3BucketName": "",
+  "snsTopicArn": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

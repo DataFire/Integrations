@@ -13,9 +13,11 @@ let amazonaws_kinesisvideo = require('@datafire/amazonaws_kinesisvideo').create(
   region: ""
 });
 
-amazonaws_kinesisvideo.CreateStream({}).then(data => {
+amazonaws_kinesisvideo.CreateStream({
+  "StreamName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

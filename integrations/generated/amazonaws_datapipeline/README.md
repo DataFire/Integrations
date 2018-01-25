@@ -13,9 +13,11 @@ let amazonaws_datapipeline = require('@datafire/amazonaws_datapipeline').create(
   region: ""
 });
 
-amazonaws_datapipeline.ActivatePipeline({}).then(data => {
+amazonaws_datapipeline.ActivatePipeline({
+  "pipelineId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

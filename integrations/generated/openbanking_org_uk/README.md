@@ -11,7 +11,7 @@ let openbanking_org_uk = require('@datafire/openbanking_org_uk').create();
 
 openbanking_org_uk.unsecured_sme_loans.head({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

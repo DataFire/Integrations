@@ -9,9 +9,11 @@ npm install --save @datafire/gov_bc_ca_bcgnws
 ```js
 let gov_bc_ca_bcgnws = require('@datafire/gov_bc_ca_bcgnws').create();
 
-gov_bc_ca_bcgnws.featureCategories.get({}).then(data => {
+gov_bc_ca_bcgnws.featureCategories.get({
+  "outputFormat": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

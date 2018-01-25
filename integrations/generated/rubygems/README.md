@@ -9,9 +9,12 @@ npm install --save @datafire/rubygems
 ```js
 let rubygems = require('@datafire/rubygems').create();
 
-rubygems.gems.name.format.get({}).then(data => {
+rubygems.gems.name.format.get({
+  "name": "",
+  "format": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

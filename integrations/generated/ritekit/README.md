@@ -11,7 +11,7 @@ let ritekit = require('@datafire/ritekit').create();
 
 ritekit.v1.search.trending.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

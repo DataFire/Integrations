@@ -13,7 +13,7 @@ let giphy = require('@datafire/giphy').create({
 
 giphy.trendingStickers({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

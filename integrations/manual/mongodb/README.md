@@ -12,9 +12,12 @@ let mongodb = require('@datafire/mongodb').create({
   url: ""
 });
 
-mongodb.findOne({}).then(data => {
+mongodb.findOne({
+  "collection": "",
+  "query": {}
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

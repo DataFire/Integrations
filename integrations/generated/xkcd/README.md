@@ -9,9 +9,9 @@ npm install --save @datafire/xkcd
 ```js
 let xkcd = require('@datafire/xkcd').create();
 
-xkcd.getLatestComic({}).then(data => {
+xkcd.getLatestComic(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

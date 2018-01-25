@@ -17,7 +17,7 @@ let stackexchange = require('@datafire/stackexchange').create({
 
 stackexchange.sites.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

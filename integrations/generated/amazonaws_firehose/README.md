@@ -13,9 +13,11 @@ let amazonaws_firehose = require('@datafire/amazonaws_firehose').create({
   region: ""
 });
 
-amazonaws_firehose.CreateDeliveryStream({}).then(data => {
+amazonaws_firehose.CreateDeliveryStream({
+  "DeliveryStreamName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

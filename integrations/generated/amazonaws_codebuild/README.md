@@ -13,9 +13,11 @@ let amazonaws_codebuild = require('@datafire/amazonaws_codebuild').create({
   region: ""
 });
 
-amazonaws_codebuild.BatchDeleteBuilds({}).then(data => {
+amazonaws_codebuild.BatchDeleteBuilds({
+  "ids": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

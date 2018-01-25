@@ -13,7 +13,7 @@ let blazemeter = require('@datafire/blazemeter').create({
 
 blazemeter.retrieveTests({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

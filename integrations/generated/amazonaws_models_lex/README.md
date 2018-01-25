@@ -15,7 +15,7 @@ let amazonaws_models_lex = require('@datafire/amazonaws_models_lex').create({
 
 amazonaws_models_lex.GetBots({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

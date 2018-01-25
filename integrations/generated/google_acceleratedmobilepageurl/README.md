@@ -11,7 +11,7 @@ let google_acceleratedmobilepageurl = require('@datafire/google_acceleratedmobil
 
 google_acceleratedmobilepageurl.ampUrls.batchGet({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

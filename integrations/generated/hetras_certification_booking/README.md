@@ -9,9 +9,20 @@ npm install --save @datafire/hetras_certification_booking
 ```js
 let hetras_certification_booking = require('@datafire/hetras_certification_booking').create();
 
-hetras_certification_booking.Addons_Get({}).then(data => {
+hetras_certification_booking.Addons_Get({
+  "App-Id": "",
+  "App-Key": "",
+  "hotelId": 0,
+  "arrivalDate": "",
+  "departureDate": "",
+  "channelCode": "",
+  "adults": "",
+  "rooms": "",
+  "roomType": "",
+  "ratePlanCode": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

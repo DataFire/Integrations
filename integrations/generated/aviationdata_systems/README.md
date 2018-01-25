@@ -12,9 +12,11 @@ let aviationdata_systems = require('@datafire/aviationdata_systems').create({
   password: ""
 });
 
-aviationdata_systems.AirportIATA_AirportIATASearch({}).then(data => {
+aviationdata_systems.AirportIATA_AirportIATASearch({
+  "airport_iata": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,9 +15,12 @@ let roaring = require('@datafire/roaring').create({
   redirect_uri: ""
 });
 
-roaring.company_board_members.get({}).then(data => {
+roaring.company_board_members.get({
+  "countryCode": "",
+  "companyId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

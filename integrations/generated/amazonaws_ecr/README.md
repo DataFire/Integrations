@@ -13,9 +13,12 @@ let amazonaws_ecr = require('@datafire/amazonaws_ecr').create({
   region: ""
 });
 
-amazonaws_ecr.BatchCheckLayerAvailability({}).then(data => {
+amazonaws_ecr.BatchCheckLayerAvailability({
+  "repositoryName": "",
+  "layerDigests": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

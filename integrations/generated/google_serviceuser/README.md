@@ -17,7 +17,7 @@ let google_serviceuser = require('@datafire/google_serviceuser').create({
 
 google_serviceuser.services.search({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

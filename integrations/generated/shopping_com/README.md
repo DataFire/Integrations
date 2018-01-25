@@ -11,7 +11,7 @@ let shopping_com = require('@datafire/shopping_com').create();
 
 shopping_com.CategoryTree.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

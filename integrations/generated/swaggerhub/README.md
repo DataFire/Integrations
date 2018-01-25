@@ -13,7 +13,7 @@ let swaggerhub = require('@datafire/swaggerhub').create({
 
 swaggerhub.searchApisAndDomains({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

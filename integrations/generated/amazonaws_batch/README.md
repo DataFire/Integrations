@@ -13,9 +13,12 @@ let amazonaws_batch = require('@datafire/amazonaws_batch').create({
   region: ""
 });
 
-amazonaws_batch.CancelJob({}).then(data => {
+amazonaws_batch.CancelJob({
+  "jobId": "",
+  "reason": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

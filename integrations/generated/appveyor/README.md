@@ -11,9 +11,11 @@ let appveyor = require('@datafire/appveyor').create({
   apiToken: ""
 });
 
-appveyor.encryptValue({}).then(data => {
+appveyor.encryptValue({
+  "body": {}
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

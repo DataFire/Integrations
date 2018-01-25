@@ -17,7 +17,7 @@ let fitbit = require('@datafire/fitbit').create({
 
 fitbit.user._.profile.json.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

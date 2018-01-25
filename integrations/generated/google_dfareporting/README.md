@@ -17,7 +17,7 @@ let google_dfareporting = require('@datafire/google_dfareporting').create({
 
 google_dfareporting.userProfiles.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

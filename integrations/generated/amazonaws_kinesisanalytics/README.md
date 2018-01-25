@@ -13,9 +13,16 @@ let amazonaws_kinesisanalytics = require('@datafire/amazonaws_kinesisanalytics')
   region: ""
 });
 
-amazonaws_kinesisanalytics.AddApplicationCloudWatchLoggingOption({}).then(data => {
+amazonaws_kinesisanalytics.AddApplicationCloudWatchLoggingOption({
+  "ApplicationName": "",
+  "CurrentApplicationVersionId": 0,
+  "CloudWatchLoggingOption": {
+    "LogStreamARN": "",
+    "RoleARN": ""
+  }
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

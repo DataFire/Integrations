@@ -9,9 +9,11 @@ npm install --save @datafire/azure_arm_powerbiembedded
 ```js
 let azure_arm_powerbiembedded = require('@datafire/azure_arm_powerbiembedded').create();
 
-azure_arm_powerbiembedded.getAvailableOperations({}).then(data => {
+azure_arm_powerbiembedded.getAvailableOperations({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

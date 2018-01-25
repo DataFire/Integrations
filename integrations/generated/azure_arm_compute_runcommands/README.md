@@ -15,9 +15,13 @@ let azure_arm_compute_runcommands = require('@datafire/azure_arm_compute_runcomm
   redirect_uri: ""
 });
 
-azure_arm_compute_runcommands.VirtualMachineRunCommands_List({}).then(data => {
+azure_arm_compute_runcommands.VirtualMachineRunCommands_List({
+  "location": "",
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

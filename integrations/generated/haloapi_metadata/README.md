@@ -14,7 +14,7 @@ let haloapi_metadata = require('@datafire/haloapi_metadata').create({
 
 haloapi_metadata.hw2.techs.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

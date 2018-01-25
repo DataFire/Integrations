@@ -17,7 +17,7 @@ let google_reseller = require('@datafire/google_reseller').create({
 
 google_reseller.subscriptions.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

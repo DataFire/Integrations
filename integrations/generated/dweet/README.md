@@ -9,9 +9,14 @@ npm install --save @datafire/dweet
 ```js
 let dweet = require('@datafire/dweet').create();
 
-dweet.createAlertGET({}).then(data => {
+dweet.createAlertGET({
+  "who": "",
+  "thing": "",
+  "condition": "",
+  "key": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

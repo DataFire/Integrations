@@ -13,9 +13,13 @@ let amazonaws_codestar = require('@datafire/amazonaws_codestar').create({
   region: ""
 });
 
-amazonaws_codestar.AssociateTeamMember({}).then(data => {
+amazonaws_codestar.AssociateTeamMember({
+  "projectId": "",
+  "userArn": "",
+  "projectRole": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

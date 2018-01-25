@@ -15,9 +15,12 @@ let box_upload = require('@datafire/box_upload').create({
   redirect_uri: ""
 });
 
-box_upload.uploadFile({}).then(data => {
+box_upload.uploadFile({
+  "file": "",
+  "attributes": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

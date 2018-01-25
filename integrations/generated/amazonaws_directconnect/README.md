@@ -13,9 +13,15 @@ let amazonaws_directconnect = require('@datafire/amazonaws_directconnect').creat
   region: ""
 });
 
-amazonaws_directconnect.AllocateConnectionOnInterconnect({}).then(data => {
+amazonaws_directconnect.AllocateConnectionOnInterconnect({
+  "bandwidth": "",
+  "connectionName": "",
+  "ownerAccount": "",
+  "interconnectId": "",
+  "vlan": 0
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

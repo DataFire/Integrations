@@ -9,9 +9,11 @@ npm install --save @datafire/google_customsearch
 ```js
 let google_customsearch = require('@datafire/google_customsearch').create();
 
-google_customsearch.cse.list({}).then(data => {
+google_customsearch.cse.list({
+  "q": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

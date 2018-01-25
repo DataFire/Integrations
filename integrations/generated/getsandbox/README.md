@@ -13,7 +13,7 @@ let getsandbox = require('@datafire/getsandbox').create({
 
 getsandbox.getSandboxes({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

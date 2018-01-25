@@ -15,9 +15,11 @@ let facebook = require('@datafire/facebook').create({
   redirect_uri: ""
 });
 
-facebook.video.picture.get({}).then(data => {
+facebook.video.picture.get({
+  "video": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

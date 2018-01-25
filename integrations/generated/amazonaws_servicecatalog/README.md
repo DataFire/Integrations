@@ -13,9 +13,11 @@ let amazonaws_servicecatalog = require('@datafire/amazonaws_servicecatalog').cre
   region: ""
 });
 
-amazonaws_servicecatalog.AcceptPortfolioShare({}).then(data => {
+amazonaws_servicecatalog.AcceptPortfolioShare({
+  "PortfolioId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

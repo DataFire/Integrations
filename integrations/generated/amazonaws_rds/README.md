@@ -13,9 +13,12 @@ let amazonaws_rds = require('@datafire/amazonaws_rds').create({
   region: ""
 });
 
-amazonaws_rds.AddRoleToDBCluster({}).then(data => {
+amazonaws_rds.AddRoleToDBCluster({
+  "DBClusterIdentifier": "",
+  "RoleArn": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

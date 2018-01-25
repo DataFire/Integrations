@@ -17,7 +17,7 @@ let avaza = require('@datafire/avaza').create({
 
 avaza.UserProfile_Get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

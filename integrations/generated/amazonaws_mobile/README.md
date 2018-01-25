@@ -15,7 +15,7 @@ let amazonaws_mobile = require('@datafire/amazonaws_mobile').create({
 
 amazonaws_mobile.ListBundles({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

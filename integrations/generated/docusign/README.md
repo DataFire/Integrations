@@ -11,7 +11,7 @@ let docusign = require('@datafire/docusign').create();
 
 docusign.LoginInformation_GetLoginInformation({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

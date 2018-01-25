@@ -13,7 +13,7 @@ let beezup = require('@datafire/beezup').create({
 
 beezup.GetMarketplaceAccountsSynchronization({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

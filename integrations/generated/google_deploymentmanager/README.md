@@ -15,9 +15,11 @@ let google_deploymentmanager = require('@datafire/google_deploymentmanager').cre
   redirect_uri: ""
 });
 
-google_deploymentmanager.deployments.list({}).then(data => {
+google_deploymentmanager.deployments.list({
+  "project": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

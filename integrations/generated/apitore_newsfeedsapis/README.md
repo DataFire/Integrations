@@ -9,9 +9,11 @@ npm install --save @datafire/apitore_newsfeedsapis
 ```js
 let apitore_newsfeedsapis = require('@datafire/apitore_newsfeedsapis').create();
 
-apitore_newsfeedsapis.feedUsingGET_6({}).then(data => {
+apitore_newsfeedsapis.feedUsingGET_6({
+  "access_token": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

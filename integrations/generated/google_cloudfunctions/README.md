@@ -17,7 +17,7 @@ let google_cloudfunctions = require('@datafire/google_cloudfunctions').create({
 
 google_cloudfunctions.operations.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

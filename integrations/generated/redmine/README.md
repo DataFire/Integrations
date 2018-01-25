@@ -14,7 +14,7 @@ let redmine = require('@datafire/redmine').create({
 
 redmine.projects.json.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

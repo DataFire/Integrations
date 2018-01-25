@@ -15,7 +15,7 @@ let amazonaws_appsync = require('@datafire/amazonaws_appsync').create({
 
 amazonaws_appsync.ListGraphqlApis({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

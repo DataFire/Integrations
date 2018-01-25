@@ -17,7 +17,7 @@ let google_tasks = require('@datafire/google_tasks').create({
 
 google_tasks.tasklists.insert({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

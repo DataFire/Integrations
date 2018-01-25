@@ -9,9 +9,9 @@ npm install --save @datafire/waag
 ```js
 let waag = require('@datafire/waag').create();
 
-waag.layers.get({}).then(data => {
+waag.layers.get(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

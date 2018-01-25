@@ -9,9 +9,9 @@ npm install --save @datafire/scrapewebsite_email
 ```js
 let scrapewebsite_email = require('@datafire/scrapewebsite_email').create();
 
-scrapewebsite_email.v1.ping.json.get({}).then(data => {
+scrapewebsite_email.v1.ping.json.get(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

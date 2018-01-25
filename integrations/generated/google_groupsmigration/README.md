@@ -15,9 +15,11 @@ let google_groupsmigration = require('@datafire/google_groupsmigration').create(
   redirect_uri: ""
 });
 
-google_groupsmigration.archive.insert({}).then(data => {
+google_groupsmigration.archive.insert({
+  "groupId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

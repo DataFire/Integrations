@@ -11,7 +11,7 @@ let t213_vg = require('@datafire/t213_vg').create();
 
 t213_vg.salesTransactionRepositoryV1GetListGet({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

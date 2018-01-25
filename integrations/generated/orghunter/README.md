@@ -13,7 +13,7 @@ let orghunter = require('@datafire/orghunter').create({
 
 orghunter.v1.charitysearch.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -13,9 +13,11 @@ let amazonaws_clouddirectory = require('@datafire/amazonaws_clouddirectory').cre
   region: ""
 });
 
-amazonaws_clouddirectory.BatchRead({}).then(data => {
+amazonaws_clouddirectory.BatchRead({
+  "Operations": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

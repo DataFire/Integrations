@@ -13,9 +13,11 @@ let amazonaws_redshift = require('@datafire/amazonaws_redshift').create({
   region: ""
 });
 
-amazonaws_redshift.AuthorizeClusterSecurityGroupIngress({}).then(data => {
+amazonaws_redshift.AuthorizeClusterSecurityGroupIngress({
+  "ClusterSecurityGroupName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

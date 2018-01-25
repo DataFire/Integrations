@@ -17,7 +17,7 @@ let google_translate = require('@datafire/google_translate').create({
 
 google_translate.languages.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

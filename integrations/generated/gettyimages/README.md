@@ -13,7 +13,7 @@ let gettyimages = require('@datafire/gettyimages').create({
 
 gettyimages.Search_GetEditorialVideosByPhrase({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

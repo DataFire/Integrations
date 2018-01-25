@@ -9,9 +9,12 @@ npm install --save @datafire/data2crm
 ```js
 let data2crm = require('@datafire/data2crm').create();
 
-data2crm.getAccountCollection({}).then(data => {
+data2crm.getAccountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

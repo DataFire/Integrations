@@ -18,7 +18,7 @@ let instagram = require('@datafire/instagram').create({
 
 instagram.users.self.media.liked.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

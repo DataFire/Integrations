@@ -13,9 +13,12 @@ let amazonaws_iam = require('@datafire/amazonaws_iam').create({
   region: ""
 });
 
-amazonaws_iam.AddClientIDToOpenIDConnectProvider({}).then(data => {
+amazonaws_iam.AddClientIDToOpenIDConnectProvider({
+  "OpenIDConnectProviderArn": "",
+  "ClientID": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

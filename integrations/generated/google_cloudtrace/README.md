@@ -15,9 +15,11 @@ let google_cloudtrace = require('@datafire/google_cloudtrace').create({
   redirect_uri: ""
 });
 
-google_cloudtrace.projects.traces.list({}).then(data => {
+google_cloudtrace.projects.traces.list({
+  "projectId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

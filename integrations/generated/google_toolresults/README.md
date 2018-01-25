@@ -15,9 +15,11 @@ let google_toolresults = require('@datafire/google_toolresults').create({
   redirect_uri: ""
 });
 
-google_toolresults.projects.histories.list({}).then(data => {
+google_toolresults.projects.histories.list({
+  "projectId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

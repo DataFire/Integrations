@@ -9,14 +9,17 @@ npm install --save @datafire/apitore_sentimentapis
 ```js
 let apitore_sentimentapis = require('@datafire/apitore_sentimentapis').create();
 
-apitore_sentimentapis.predictUsingGET({}).then(data => {
+apitore_sentimentapis.predictUsingGET({
+  "access_token": "",
+  "text": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description
 
-Japanese sentiment analyzer. (tokenized by SentencePiece)<BR />[Endpoint] https://api.apitore.com/api/39
+Japanese sentiment analyzer.<BR />[Endpoint] https://api.apitore.com/api/52
 
 ## Actions
 

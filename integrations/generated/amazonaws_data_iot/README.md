@@ -13,9 +13,12 @@ let amazonaws_data_iot = require('@datafire/amazonaws_data_iot').create({
   region: ""
 });
 
-amazonaws_data_iot.UpdateThingShadow({}).then(data => {
+amazonaws_data_iot.UpdateThingShadow({
+  "thingName": "",
+  "payload": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

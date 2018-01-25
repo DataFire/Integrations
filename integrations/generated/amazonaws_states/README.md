@@ -13,9 +13,11 @@ let amazonaws_states = require('@datafire/amazonaws_states').create({
   region: ""
 });
 
-amazonaws_states.CreateActivity({}).then(data => {
+amazonaws_states.CreateActivity({
+  "name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -9,9 +9,12 @@ npm install --save @datafire/google_androiddeviceprovisioning
 ```js
 let google_androiddeviceprovisioning = require('@datafire/google_androiddeviceprovisioning').create();
 
-google_androiddeviceprovisioning.partners.devices.metadata({}).then(data => {
+google_androiddeviceprovisioning.partners.devices.metadata({
+  "deviceId": "",
+  "metadataOwnerId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,9 +15,12 @@ let azure_arm_customer_insights = require('@datafire/azure_arm_customer_insights
   redirect_uri: ""
 });
 
-azure_arm_customer_insights.Hubs_List({}).then(data => {
+azure_arm_customer_insights.Hubs_List({
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

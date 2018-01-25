@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_rss2jsonapis
 ```js
 let apitore_rss2jsonapis = require('@datafire/apitore_rss2jsonapis').create();
 
-apitore_rss2jsonapis.rss2jsonUsingGET({}).then(data => {
+apitore_rss2jsonapis.rss2jsonUsingGET({
+  "access_token": "",
+  "rss": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

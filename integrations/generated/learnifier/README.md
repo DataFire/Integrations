@@ -11,7 +11,7 @@ let learnifier = require('@datafire/learnifier').create();
 
 learnifier.users.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

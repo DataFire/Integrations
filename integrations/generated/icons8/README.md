@@ -11,7 +11,7 @@ let icons8 = require('@datafire/icons8').create();
 
 icons8.api.task.web_font.icons.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

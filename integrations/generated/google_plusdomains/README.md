@@ -15,9 +15,11 @@ let google_plusdomains = require('@datafire/google_plusdomains').create({
   redirect_uri: ""
 });
 
-google_plusdomains.activities.get({}).then(data => {
+google_plusdomains.activities.get({
+  "activityId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

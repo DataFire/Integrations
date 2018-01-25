@@ -11,7 +11,7 @@ let hacker_news = require('@datafire/hacker_news').create();
 
 hacker_news.getStories({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

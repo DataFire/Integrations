@@ -17,7 +17,7 @@ let google_tagmanager = require('@datafire/google_tagmanager').create({
 
 google_tagmanager.accounts.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,9 +15,11 @@ let google_gmail = require('@datafire/google_gmail').create({
   redirect_uri: ""
 });
 
-google_gmail.users.drafts.list({}).then(data => {
+google_gmail.users.drafts.list({
+  "userId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

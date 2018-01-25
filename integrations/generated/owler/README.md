@@ -11,9 +11,11 @@ let owler = require('@datafire/owler').create({
   user_key: ""
 });
 
-owler.basicCompanySearch({}).then(data => {
+owler.basicCompanySearch({
+  "q": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

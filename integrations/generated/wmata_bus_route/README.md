@@ -14,7 +14,7 @@ let wmata_bus_route = require('@datafire/wmata_bus_route').create({
 
 wmata_bus_route.json.jStops.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

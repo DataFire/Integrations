@@ -9,9 +9,14 @@ npm install --save @datafire/box_authorization
 ```js
 let box_authorization = require('@datafire/box_authorization').create();
 
-box_authorization.authorize({}).then(data => {
+box_authorization.authorize({
+  "response_type": "",
+  "client_id": "",
+  "redirect_uri": "",
+  "state": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

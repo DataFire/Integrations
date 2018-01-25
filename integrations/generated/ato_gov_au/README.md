@@ -9,9 +9,11 @@ npm install --save @datafire/ato_gov_au
 ```js
 let ato_gov_au = require('@datafire/ato_gov_au').create();
 
-ato_gov_au.business_names.get({}).then(data => {
+ato_gov_au.business_names.get({
+  "apiKey": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

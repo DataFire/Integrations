@@ -9,9 +9,13 @@ npm install --save @datafire/azure_arm_containerregistry
 ```js
 let azure_arm_containerregistry = require('@datafire/azure_arm_containerregistry').create();
 
-azure_arm_containerregistry.Registries_CheckNameAvailability({}).then(data => {
+azure_arm_containerregistry.Registries_CheckNameAvailability({
+  "api-version": "",
+  "subscriptionId": "",
+  "registryNameCheckRequest": null
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

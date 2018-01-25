@@ -13,9 +13,12 @@ let amazonaws_metering_marketplace = require('@datafire/amazonaws_metering_marke
   region: ""
 });
 
-amazonaws_metering_marketplace.BatchMeterUsage({}).then(data => {
+amazonaws_metering_marketplace.BatchMeterUsage({
+  "UsageRecords": [],
+  "ProductCode": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

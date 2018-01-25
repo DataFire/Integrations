@@ -15,9 +15,11 @@ let google_testing = require('@datafire/google_testing').create({
   redirect_uri: ""
 });
 
-google_testing.projects.testMatrices.create({}).then(data => {
+google_testing.projects.testMatrices.create({
+  "projectId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

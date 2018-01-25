@@ -13,7 +13,7 @@ let ritc = require('@datafire/ritc').create({
 
 ritc.runApp({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

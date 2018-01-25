@@ -17,7 +17,7 @@ let google_language = require('@datafire/google_language').create({
 
 google_language.documents.classifyText({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

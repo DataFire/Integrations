@@ -11,7 +11,7 @@ let osisoft = require('@datafire/osisoft').create();
 
 osisoft.Point_GetMultiple({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -13,9 +13,11 @@ let amazonaws_events = require('@datafire/amazonaws_events').create({
   region: ""
 });
 
-amazonaws_events.DeleteRule({}).then(data => {
+amazonaws_events.DeleteRule({
+  "Name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

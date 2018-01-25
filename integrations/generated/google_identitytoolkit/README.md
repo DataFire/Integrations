@@ -17,7 +17,7 @@ let google_identitytoolkit = require('@datafire/google_identitytoolkit').create(
 
 google_identitytoolkit.relyingparty.verifyPhoneNumber({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

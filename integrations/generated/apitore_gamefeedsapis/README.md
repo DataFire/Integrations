@@ -9,9 +9,11 @@ npm install --save @datafire/apitore_gamefeedsapis
 ```js
 let apitore_gamefeedsapis = require('@datafire/apitore_gamefeedsapis').create();
 
-apitore_gamefeedsapis.feedUsingGET_5({}).then(data => {
+apitore_gamefeedsapis.feedUsingGET_5({
+  "access_token": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

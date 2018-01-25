@@ -17,7 +17,7 @@ let figshare = require('@datafire/figshare').create({
 
 figshare.projects_search({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -17,7 +17,7 @@ let google_androidenterprise = require('@datafire/google_androidenterprise').cre
 
 google_androidenterprise.enterprises.generateSignupUrl({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -17,7 +17,7 @@ let google_gamesmanagement = require('@datafire/google_gamesmanagement').create(
 
 google_gamesmanagement.turnBasedMatches.resetForAllPlayers({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

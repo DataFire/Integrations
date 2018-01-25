@@ -11,7 +11,7 @@ let beanstream = require('@datafire/beanstream').create();
 
 beanstream.scripts.tokenization.tokens.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

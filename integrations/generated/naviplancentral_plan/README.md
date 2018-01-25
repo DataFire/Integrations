@@ -1,6 +1,6 @@
 # @datafire/naviplancentral_plan
 
-Client library for Narrator Connect powered by NaviPlan
+Client library for Published Plan Service
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let naviplancentral_plan = require('@datafire/naviplancentral_plan').create();
 
 naviplancentral_plan.StockOptions_GetByPlanidScenariotype({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

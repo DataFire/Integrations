@@ -15,9 +15,11 @@ let google_sourcerepo = require('@datafire/google_sourcerepo').create({
   redirect_uri: ""
 });
 
-google_sourcerepo.projects.repos.delete({}).then(data => {
+google_sourcerepo.projects.repos.delete({
+  "name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,7 +15,7 @@ let amazonaws_api_pricing = require('@datafire/amazonaws_api_pricing').create({
 
 amazonaws_api_pricing.DescribeServices({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

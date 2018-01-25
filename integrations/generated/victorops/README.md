@@ -9,9 +9,13 @@ npm install --save @datafire/victorops
 ```js
 let victorops = require('@datafire/victorops').create();
 
-victorops.api_public.v1.alerts.uuid.get({}).then(data => {
+victorops.api_public.v1.alerts.uuid.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "uuid": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

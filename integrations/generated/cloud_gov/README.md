@@ -9,9 +9,11 @@ npm install --save @datafire/cloud_gov
 ```js
 let cloud_gov = require('@datafire/cloud_gov').create();
 
-cloud_gov.List_Contracts({}).then(data => {
+cloud_gov.List_Contracts({
+  "duns": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

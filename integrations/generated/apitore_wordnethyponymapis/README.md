@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_wordnethyponymapis
 ```js
 let apitore_wordnethyponymapis = require('@datafire/apitore_wordnethyponymapis').create();
 
-apitore_wordnethyponymapis.simpleHyponymUsingGET({}).then(data => {
+apitore_wordnethyponymapis.simpleHyponymUsingGET({
+  "access_token": "",
+  "word": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

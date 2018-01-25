@@ -9,9 +9,12 @@ npm install --save @datafire/getgo_gototraining
 ```js
 let getgo_gototraining = require('@datafire/getgo_gototraining').create();
 
-getgo_gototraining.getAllOrganisers({}).then(data => {
+getgo_gototraining.getAllOrganisers({
+  "Authorization": "",
+  "accountKey": 0
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

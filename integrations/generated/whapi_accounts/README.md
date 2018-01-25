@@ -11,9 +11,12 @@ let whapi_accounts = require('@datafire/whapi_accounts').create({
   apiKey: ""
 });
 
-whapi_accounts.getDetails({}).then(data => {
+whapi_accounts.getDetails({
+  "apiSecret": "",
+  "apiTicket": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

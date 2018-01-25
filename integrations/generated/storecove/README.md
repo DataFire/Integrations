@@ -11,9 +11,29 @@ let storecove = require('@datafire/storecove').create({
   Bearer: ""
 });
 
-storecove.create_invoice_submission({}).then(data => {
+storecove.create_invoice_submission({
+  "invoice_submission": {
+    "mode": "",
+    "supplierId": 0,
+    "invoiceRecipient": {},
+    "invoice": {
+      "invoiceNumber": "",
+      "issueDate": "",
+      "accountingCustomerParty": {
+        "party": {
+          "companyName": "",
+          "address": {
+            "country": ""
+          }
+        }
+      },
+      "invoiceLines": [],
+      "amountIncludingVat": 0
+    }
+  }
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

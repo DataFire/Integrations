@@ -17,7 +17,7 @@ let tumblr = require('@datafire/tumblr').create({
 
 tumblr.user.following.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

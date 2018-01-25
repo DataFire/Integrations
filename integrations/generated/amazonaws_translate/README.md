@@ -13,9 +13,13 @@ let amazonaws_translate = require('@datafire/amazonaws_translate').create({
   region: ""
 });
 
-amazonaws_translate.TranslateText({}).then(data => {
+amazonaws_translate.TranslateText({
+  "Text": "",
+  "SourceLanguageCode": "",
+  "TargetLanguageCode": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

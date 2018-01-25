@@ -9,9 +9,9 @@ npm install --save @datafire/shipstation
 ```js
 let shipstation = require('@datafire/shipstation').create();
 
-shipstation.accounts.listtags.get({}).then(data => {
+shipstation.accounts.listtags.get(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

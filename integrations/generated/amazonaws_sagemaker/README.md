@@ -13,9 +13,12 @@ let amazonaws_sagemaker = require('@datafire/amazonaws_sagemaker').create({
   region: ""
 });
 
-amazonaws_sagemaker.AddTags({}).then(data => {
+amazonaws_sagemaker.AddTags({
+  "ResourceArn": "",
+  "Tags": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

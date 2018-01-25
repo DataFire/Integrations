@@ -15,9 +15,11 @@ let google_clouderrorreporting = require('@datafire/google_clouderrorreporting')
   redirect_uri: ""
 });
 
-google_clouderrorreporting.projects.groups.get({}).then(data => {
+google_clouderrorreporting.projects.groups.get({
+  "groupName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

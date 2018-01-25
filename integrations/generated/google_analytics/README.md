@@ -17,7 +17,7 @@ let google_analytics = require('@datafire/google_analytics').create({
 
 google_analytics.provisioning.createAccountTicket({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

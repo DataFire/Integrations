@@ -14,7 +14,7 @@ let transavia = require('@datafire/transavia').create({
 
 transavia.nearest.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

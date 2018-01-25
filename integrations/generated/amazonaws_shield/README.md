@@ -13,9 +13,12 @@ let amazonaws_shield = require('@datafire/amazonaws_shield').create({
   region: ""
 });
 
-amazonaws_shield.CreateProtection({}).then(data => {
+amazonaws_shield.CreateProtection({
+  "Name": "",
+  "ResourceArn": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,9 +15,11 @@ let google_script = require('@datafire/google_script').create({
   redirect_uri: ""
 });
 
-google_script.scripts.run({}).then(data => {
+google_script.scripts.run({
+  "scriptId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

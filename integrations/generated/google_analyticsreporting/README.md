@@ -17,7 +17,7 @@ let google_analyticsreporting = require('@datafire/google_analyticsreporting').c
 
 google_analyticsreporting.reports.batchGet({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

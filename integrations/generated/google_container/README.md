@@ -15,14 +15,17 @@ let google_container = require('@datafire/google_container').create({
   redirect_uri: ""
 });
 
-google_container.projects.zones.clusters.list({}).then(data => {
+google_container.projects.zones.clusters.list({
+  "projectId": "",
+  "zone": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description
 
-The Google Container Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.
+The Google Kubernetes Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.
 
 ## Actions
 

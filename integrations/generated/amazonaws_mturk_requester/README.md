@@ -13,9 +13,11 @@ let amazonaws_mturk_requester = require('@datafire/amazonaws_mturk_requester').c
   region: ""
 });
 
-amazonaws_mturk_requester.AcceptQualificationRequest({}).then(data => {
+amazonaws_mturk_requester.AcceptQualificationRequest({
+  "QualificationRequestId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

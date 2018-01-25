@@ -13,14 +13,17 @@ let amazonaws_workspaces = require('@datafire/amazonaws_workspaces').create({
   region: ""
 });
 
-amazonaws_workspaces.CreateTags({}).then(data => {
+amazonaws_workspaces.CreateTags({
+  "ResourceId": "",
+  "Tags": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description
 
-<fullname>Amazon WorkSpaces Service</fullname> <p>This reference provides detailed information about the Amazon WorkSpaces operations.</p>
+<fullname>Amazon WorkSpaces Service</fullname> <p>Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows desktops for your users.</p>
 
 ## Actions
 

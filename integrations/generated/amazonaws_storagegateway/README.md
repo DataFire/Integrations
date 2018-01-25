@@ -13,9 +13,14 @@ let amazonaws_storagegateway = require('@datafire/amazonaws_storagegateway').cre
   region: ""
 });
 
-amazonaws_storagegateway.ActivateGateway({}).then(data => {
+amazonaws_storagegateway.ActivateGateway({
+  "ActivationKey": "",
+  "GatewayName": "",
+  "GatewayTimezone": "",
+  "GatewayRegion": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

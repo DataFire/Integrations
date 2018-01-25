@@ -162,11 +162,13 @@ iterateIntegs((dir, name, integ) => {
     definitionsMarkdown += '### ' + key + '\n' + schemaToMarkdown(def, {definitions}) + '\n\n';
   }
   if (!definitionsMarkdown) definitionsMarkdown = '*This integration has no definitions*';
+  let sampleInput = getExample(sampleAction.inputSchema);
+  let sampleActionCall = `${integVarName}.${sampleAction.id.replace(/^.*\//, '')}(${JSON.stringify(sampleInput, null, 2)})`;
 
   let md = render('template', {
     integration: integ,
     varName: integVarName,
-    sampleAction: sampleAction.id.replace(/^.*\//, ''),
+    sampleActionCall,
     accountCode,
     actionsMarkdown,
     definitionsMarkdown,

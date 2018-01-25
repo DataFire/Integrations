@@ -11,9 +11,12 @@ let taxrates = require('@datafire/taxrates').create({
   Bearer: ""
 });
 
-taxrates.tax.byaddress.post({}).then(data => {
+taxrates.tax.byaddress.post({
+  "domain": "",
+  "address": {}
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

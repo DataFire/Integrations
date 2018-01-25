@@ -11,9 +11,9 @@ let launchdarkly = require('@datafire/launchdarkly').create({
   Token: ""
 });
 
-launchdarkly.getRoot({}).then(data => {
+launchdarkly.getRoot(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

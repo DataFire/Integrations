@@ -14,7 +14,7 @@ let callfire = require('@datafire/callfire').create({
 
 callfire.findWebhookResources({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

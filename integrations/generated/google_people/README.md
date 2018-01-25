@@ -17,7 +17,7 @@ let google_people = require('@datafire/google_people').create({
 
 google_people.people.createContact({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

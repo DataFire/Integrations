@@ -11,7 +11,7 @@ let google_spectrum = require('@datafire/google_spectrum').create();
 
 google_spectrum.paws.verifyDevice({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

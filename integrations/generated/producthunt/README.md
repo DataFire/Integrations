@@ -17,7 +17,7 @@ let producthunt = require('@datafire/producthunt').create({
 
 producthunt.categories.category.posts.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

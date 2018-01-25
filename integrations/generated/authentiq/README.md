@@ -16,9 +16,15 @@ let authentiq = require('@datafire/authentiq').create({
   redirect_uri: ""
 });
 
-authentiq.authorize({}).then(data => {
+authentiq.authorize({
+  "client_id": "",
+  "response_type": "",
+  "scope": "",
+  "redirect_uri": "",
+  "state": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

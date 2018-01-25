@@ -9,9 +9,11 @@ npm install --save @datafire/yunbi
 ```js
 let yunbi = require('@datafire/yunbi').create();
 
-yunbi.v2.addresses.address.json.get({}).then(data => {
+yunbi.v2.addresses.address.json.get({
+  "address": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

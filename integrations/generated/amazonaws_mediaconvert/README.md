@@ -15,7 +15,7 @@ let amazonaws_mediaconvert = require('@datafire/amazonaws_mediaconvert').create(
 
 amazonaws_mediaconvert.DescribeEndpoints({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

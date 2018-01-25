@@ -11,9 +11,12 @@ let gov_bc_ca_router = require('@datafire/gov_bc_ca_router').create({
   apikey: ""
 });
 
-gov_bc_ca_router.directions.outputFormat.get({}).then(data => {
+gov_bc_ca_router.directions.outputFormat.get({
+  "outputFormat": "",
+  "points": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

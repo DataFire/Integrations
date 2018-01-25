@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_url2hrefapis
 ```js
 let apitore_url2hrefapis = require('@datafire/apitore_url2hrefapis').create();
 
-apitore_url2hrefapis.url2hrefUsingGET({}).then(data => {
+apitore_url2hrefapis.url2hrefUsingGET({
+  "access_token": "",
+  "url": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

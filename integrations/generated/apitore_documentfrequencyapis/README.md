@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_documentfrequencyapis
 ```js
 let apitore_documentfrequencyapis = require('@datafire/apitore_documentfrequencyapis').create();
 
-apitore_documentfrequencyapis.getUsingGET({}).then(data => {
+apitore_documentfrequencyapis.getUsingGET({
+  "access_token": "",
+  "word": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -14,7 +14,7 @@ let zoomconnect = require('@datafire/zoomconnect').create({
 
 zoomconnect.sms.send_bulk.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -13,7 +13,7 @@ let sendgrid = require('@datafire/sendgrid').create({
 
 sendgrid.whitelabel.links.default.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

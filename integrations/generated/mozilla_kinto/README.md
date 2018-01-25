@@ -14,7 +14,7 @@ let mozilla_kinto = require('@datafire/mozilla_kinto').create({
 
 mozilla_kinto.get_changess({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

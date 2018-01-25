@@ -11,9 +11,11 @@ let spinbot = require('@datafire/spinbot').create({
   key: ""
 });
 
-spinbot.getInfo({}).then(data => {
+spinbot.getInfo({
+  "key": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,9 +15,12 @@ let azure_arm_network = require('@datafire/azure_arm_network').create({
   redirect_uri: ""
 });
 
-azure_arm_network.ApplicationGateways_ListAll({}).then(data => {
+azure_arm_network.ApplicationGateways_ListAll({
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

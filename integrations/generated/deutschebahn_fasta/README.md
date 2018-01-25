@@ -13,7 +13,7 @@ let deutschebahn_fasta = require('@datafire/deutschebahn_fasta').create({
 
 deutschebahn_fasta.findFacilities({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

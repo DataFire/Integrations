@@ -13,7 +13,7 @@ let mailchimp = require('@datafire/mailchimp').create({
 
 mailchimp.getPing({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

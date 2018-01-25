@@ -11,7 +11,7 @@ let google_kgsearch = require('@datafire/google_kgsearch').create();
 
 google_kgsearch.entities.search({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

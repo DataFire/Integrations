@@ -11,7 +11,7 @@ let google_safebrowsing = require('@datafire/google_safebrowsing').create();
 
 google_safebrowsing.threatMatches.find({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

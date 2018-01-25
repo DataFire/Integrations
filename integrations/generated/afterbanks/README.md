@@ -11,7 +11,7 @@ let afterbanks = require('@datafire/afterbanks').create();
 
 afterbanks.forms.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

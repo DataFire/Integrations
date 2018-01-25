@@ -13,7 +13,7 @@ let inboxroute = require('@datafire/inboxroute').create({
 
 inboxroute.contacts.lists.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

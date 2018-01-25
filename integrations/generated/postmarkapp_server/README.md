@@ -9,9 +9,13 @@ npm install --save @datafire/postmarkapp_server
 ```js
 let postmarkapp_server = require('@datafire/postmarkapp_server').create();
 
-postmarkapp_server.getBounces({}).then(data => {
+postmarkapp_server.getBounces({
+  "X-Postmark-Server-Token": "",
+  "count": 0,
+  "offset": 0
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

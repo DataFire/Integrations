@@ -11,9 +11,11 @@ let nrel_building_case_studies = require('@datafire/nrel_building_case_studies')
   api_key: ""
 });
 
-nrel_building_case_studies.project({}).then(data => {
+nrel_building_case_studies.project({
+  "output_format": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

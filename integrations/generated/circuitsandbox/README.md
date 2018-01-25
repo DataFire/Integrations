@@ -17,7 +17,7 @@ let circuitsandbox = require('@datafire/circuitsandbox').create({
 
 circuitsandbox.updateProfile({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

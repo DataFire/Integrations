@@ -17,7 +17,7 @@ let google_supportcases = require('@datafire/google_supportcases').create({
 
 google_supportcases.youtube.transactions.refund({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

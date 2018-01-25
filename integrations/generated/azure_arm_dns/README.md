@@ -9,9 +9,12 @@ npm install --save @datafire/azure_arm_dns
 ```js
 let azure_arm_dns = require('@datafire/azure_arm_dns').create();
 
-azure_arm_dns.Zones_List({}).then(data => {
+azure_arm_dns.Zones_List({
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

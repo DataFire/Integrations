@@ -15,9 +15,11 @@ let google_bigquerydatatransfer = require('@datafire/google_bigquerydatatransfer
   redirect_uri: ""
 });
 
-google_bigquerydatatransfer.projects.locations.transferConfigs.runs.delete({}).then(data => {
+google_bigquerydatatransfer.projects.locations.transferConfigs.runs.delete({
+  "name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

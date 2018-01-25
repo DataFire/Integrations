@@ -14,7 +14,7 @@ let tvmaze = require('@datafire/tvmaze').create({
 
 tvmaze.user.votes.shows.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

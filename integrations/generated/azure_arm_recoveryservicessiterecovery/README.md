@@ -15,9 +15,13 @@ let azure_arm_recoveryservicessiterecovery = require('@datafire/azure_arm_recove
   redirect_uri: ""
 });
 
-azure_arm_recoveryservicessiterecovery.Operations_List({}).then(data => {
+azure_arm_recoveryservicessiterecovery.Operations_List({
+  "api-version": "",
+  "resourceGroupName": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

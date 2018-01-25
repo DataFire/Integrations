@@ -15,9 +15,11 @@ let google_groupssettings = require('@datafire/google_groupssettings').create({
   redirect_uri: ""
 });
 
-google_groupssettings.groups.get({}).then(data => {
+google_groupssettings.groups.get({
+  "groupUniqueId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

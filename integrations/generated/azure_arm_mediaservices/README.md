@@ -15,9 +15,13 @@ let azure_arm_mediaservices = require('@datafire/azure_arm_mediaservices').creat
   redirect_uri: ""
 });
 
-azure_arm_mediaservices.MediaService_CheckNameAvailability({}).then(data => {
+azure_arm_mediaservices.MediaService_CheckNameAvailability({
+  "subscriptionId": "",
+  "api-version": "",
+  "CheckNameAvailabilityInput": null
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

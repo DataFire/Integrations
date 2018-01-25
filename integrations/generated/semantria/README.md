@@ -9,9 +9,12 @@ npm install --save @datafire/semantria
 ```js
 let semantria = require('@datafire/semantria').create();
 
-semantria.deleteBlacklistItems({}).then(data => {
+semantria.deleteBlacklistItems({
+  "Blacklisted item IDs": [],
+  "content_type": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

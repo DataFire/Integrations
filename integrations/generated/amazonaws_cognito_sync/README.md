@@ -15,7 +15,7 @@ let amazonaws_cognito_sync = require('@datafire/amazonaws_cognito_sync').create(
 
 amazonaws_cognito_sync.ListIdentityPoolUsage({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

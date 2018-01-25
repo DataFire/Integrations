@@ -13,9 +13,12 @@ let amazonaws_runtime_sagemaker = require('@datafire/amazonaws_runtime_sagemaker
   region: ""
 });
 
-amazonaws_runtime_sagemaker.InvokeEndpoint({}).then(data => {
+amazonaws_runtime_sagemaker.InvokeEndpoint({
+  "EndpointName": "",
+  "Body": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -12,9 +12,11 @@ let wmata_rail_realtime = require('@datafire/wmata_rail_realtime').create({
   apiKeyQuery: ""
 });
 
-wmata_rail_realtime.GetPrediction.StationCodes.get({}).then(data => {
+wmata_rail_realtime.GetPrediction.StationCodes.get({
+  "StationCodes": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

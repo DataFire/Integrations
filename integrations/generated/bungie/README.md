@@ -18,7 +18,7 @@ let bungie = require('@datafire/bungie').create({
 
 bungie.User.SearchUsers({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

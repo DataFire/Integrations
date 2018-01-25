@@ -11,7 +11,7 @@ let refugerestrooms = require('@datafire/refugerestrooms').create();
 
 refugerestrooms.v1.restrooms.json.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

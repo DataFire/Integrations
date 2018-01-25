@@ -17,7 +17,7 @@ let google_surveys = require('@datafire/google_surveys').create({
 
 google_surveys.surveys.insert({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

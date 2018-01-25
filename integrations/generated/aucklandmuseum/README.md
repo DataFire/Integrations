@@ -9,9 +9,11 @@ npm install --save @datafire/aucklandmuseum
 ```js
 let aucklandmuseum = require('@datafire/aucklandmuseum').create();
 
-aucklandmuseum.id.media.path.get({}).then(data => {
+aucklandmuseum.id.media.path.get({
+  "path": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

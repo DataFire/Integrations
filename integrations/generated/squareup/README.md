@@ -17,7 +17,7 @@ let squareup = require('@datafire/squareup').create({
 
 squareup.ListCustomers({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

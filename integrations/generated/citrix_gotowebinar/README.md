@@ -9,9 +9,14 @@ npm install --save @datafire/citrix_gotowebinar
 ```js
 let citrix_gotowebinar = require('@datafire/citrix_gotowebinar').create();
 
-citrix_gotowebinar.getAllAccountWebinars({}).then(data => {
+citrix_gotowebinar.getAllAccountWebinars({
+  "Authorization": "",
+  "accountKey": 0,
+  "fromTime": "",
+  "toTime": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

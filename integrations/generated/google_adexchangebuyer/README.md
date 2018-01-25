@@ -17,7 +17,7 @@ let google_adexchangebuyer = require('@datafire/google_adexchangebuyer').create(
 
 google_adexchangebuyer.proposals.search({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -17,7 +17,7 @@ let google_sqladmin = require('@datafire/google_sqladmin').create({
 
 google_sqladmin.flags.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

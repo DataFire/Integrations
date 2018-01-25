@@ -17,7 +17,7 @@ let spotify = require('@datafire/spotify').create({
 
 spotify.me.tracks.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

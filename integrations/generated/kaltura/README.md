@@ -13,7 +13,7 @@ let kaltura = require('@datafire/kaltura').create({
 
 kaltura.widget.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

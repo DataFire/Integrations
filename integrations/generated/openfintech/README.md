@@ -11,7 +11,7 @@ let openfintech = require('@datafire/openfintech').create();
 
 openfintech.payment_providers.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

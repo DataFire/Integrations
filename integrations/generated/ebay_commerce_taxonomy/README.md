@@ -15,9 +15,11 @@ let ebay_commerce_taxonomy = require('@datafire/ebay_commerce_taxonomy').create(
   redirect_uri: ""
 });
 
-ebay_commerce_taxonomy.getCategoryTree({}).then(data => {
+ebay_commerce_taxonomy.getCategoryTree({
+  "category_tree_id": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

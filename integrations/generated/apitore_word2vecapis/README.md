@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_word2vecapis
 ```js
 let apitore_word2vecapis = require('@datafire/apitore_word2vecapis').create();
 
-apitore_word2vecapis.analogyUsingGET({}).then(data => {
+apitore_word2vecapis.analogyUsingGET({
+  "access_token": "",
+  "positives": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

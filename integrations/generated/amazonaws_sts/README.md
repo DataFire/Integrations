@@ -13,9 +13,12 @@ let amazonaws_sts = require('@datafire/amazonaws_sts').create({
   region: ""
 });
 
-amazonaws_sts.AssumeRole({}).then(data => {
+amazonaws_sts.AssumeRole({
+  "RoleArn": "",
+  "RoleSessionName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

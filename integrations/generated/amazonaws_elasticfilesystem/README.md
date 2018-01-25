@@ -13,9 +13,12 @@ let amazonaws_elasticfilesystem = require('@datafire/amazonaws_elasticfilesystem
   region: ""
 });
 
-amazonaws_elasticfilesystem.CreateTags({}).then(data => {
+amazonaws_elasticfilesystem.CreateTags({
+  "FileSystemId": "",
+  "Tags": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -13,9 +13,11 @@ let amazonaws_swf = require('@datafire/amazonaws_swf').create({
   region: ""
 });
 
-amazonaws_swf.CountClosedWorkflowExecutions({}).then(data => {
+amazonaws_swf.CountClosedWorkflowExecutions({
+  "domain": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -9,9 +9,13 @@ npm install --save @datafire/azure_arm_storage
 ```js
 let azure_arm_storage = require('@datafire/azure_arm_storage').create();
 
-azure_arm_storage.StorageAccounts_CheckNameAvailability({}).then(data => {
+azure_arm_storage.StorageAccounts_CheckNameAvailability({
+  "accountName": null,
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

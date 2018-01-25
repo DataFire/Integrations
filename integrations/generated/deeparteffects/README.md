@@ -14,7 +14,7 @@ let deeparteffects = require('@datafire/deeparteffects').create({
 
 deeparteffects.noauth.result.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

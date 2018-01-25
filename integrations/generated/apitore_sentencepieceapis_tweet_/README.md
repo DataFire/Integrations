@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_sentencepieceapis_tweet_
 ```js
 let apitore_sentencepieceapis_tweet_ = require('@datafire/apitore_sentencepieceapis_tweet_').create();
 
-apitore_sentencepieceapis_tweet_.getUsingGET({}).then(data => {
+apitore_sentencepieceapis_tweet_.getUsingGET({
+  "access_token": "",
+  "text": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

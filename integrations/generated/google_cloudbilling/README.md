@@ -17,7 +17,7 @@ let google_cloudbilling = require('@datafire/google_cloudbilling').create({
 
 google_cloudbilling.services.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

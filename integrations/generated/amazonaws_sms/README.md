@@ -13,9 +13,13 @@ let amazonaws_sms = require('@datafire/amazonaws_sms').create({
   region: ""
 });
 
-amazonaws_sms.CreateReplicationJob({}).then(data => {
+amazonaws_sms.CreateReplicationJob({
+  "serverId": "",
+  "seedReplicationTime": "",
+  "frequency": 0
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

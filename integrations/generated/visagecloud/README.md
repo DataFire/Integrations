@@ -11,9 +11,11 @@ let visagecloud = require('@datafire/visagecloud').create({
   accessKey: ""
 });
 
-visagecloud.performAnalysisUsingPOST({}).then(data => {
+visagecloud.performAnalysisUsingPOST({
+  "secretKey": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

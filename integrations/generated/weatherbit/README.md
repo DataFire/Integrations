@@ -9,9 +9,15 @@ npm install --save @datafire/weatherbit
 ```js
 let weatherbit = require('@datafire/weatherbit').create();
 
-weatherbit.bulk.history.daily_city_city_country_country.get({}).then(data => {
+weatherbit.bulk.history.daily_city_city_country_country.get({
+  "city": "",
+  "country": "",
+  "start_date": "",
+  "end_date": "",
+  "key": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

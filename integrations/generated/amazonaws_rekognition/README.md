@@ -13,9 +13,12 @@ let amazonaws_rekognition = require('@datafire/amazonaws_rekognition').create({
   region: ""
 });
 
-amazonaws_rekognition.CompareFaces({}).then(data => {
+amazonaws_rekognition.CompareFaces({
+  "SourceImage": {},
+  "TargetImage": {}
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

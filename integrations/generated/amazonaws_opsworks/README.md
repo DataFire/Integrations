@@ -13,9 +13,12 @@ let amazonaws_opsworks = require('@datafire/amazonaws_opsworks').create({
   region: ""
 });
 
-amazonaws_opsworks.AssignInstance({}).then(data => {
+amazonaws_opsworks.AssignInstance({
+  "InstanceId": "",
+  "LayerIds": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

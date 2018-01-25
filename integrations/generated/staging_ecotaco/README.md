@@ -9,9 +9,9 @@ npm install --save @datafire/staging_ecotaco
 ```js
 let staging_ecotaco = require('@datafire/staging_ecotaco').create();
 
-staging_ecotaco..get({}).then(data => {
+staging_ecotaco..get(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

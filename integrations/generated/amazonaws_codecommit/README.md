@@ -13,9 +13,11 @@ let amazonaws_codecommit = require('@datafire/amazonaws_codecommit').create({
   region: ""
 });
 
-amazonaws_codecommit.BatchGetRepositories({}).then(data => {
+amazonaws_codecommit.BatchGetRepositories({
+  "repositoryNames": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -12,9 +12,11 @@ let haloapi_ugc = require('@datafire/haloapi_ugc').create({
   apiKeyQuery: ""
 });
 
-haloapi_ugc.h5.players.player.gamevariants.get({}).then(data => {
+haloapi_ugc.h5.players.player.gamevariants.get({
+  "player": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

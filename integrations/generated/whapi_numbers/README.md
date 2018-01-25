@@ -11,9 +11,16 @@ let whapi_numbers = require('@datafire/whapi_numbers').create({
   apiKey: ""
 });
 
-whapi_numbers.getRandomNumbers({}).then(data => {
+whapi_numbers.getRandomNumbers({
+  "apiSecret": "",
+  "gameCode": "",
+  "highest": 0,
+  "lowest": 0,
+  "count": 0,
+  "unique": true
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

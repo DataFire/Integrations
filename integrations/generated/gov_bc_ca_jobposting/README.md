@@ -11,7 +11,7 @@ let gov_bc_ca_jobposting = require('@datafire/gov_bc_ca_jobposting').create();
 
 gov_bc_ca_jobposting.jobs.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -9,9 +9,13 @@ npm install --save @datafire/payrun
 ```js
 let payrun = require('@datafire/payrun').create();
 
-payrun.DeleteEmployer({}).then(data => {
+payrun.DeleteEmployer({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

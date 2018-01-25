@@ -13,9 +13,12 @@ let amazonaws_ds = require('@datafire/amazonaws_ds').create({
   region: ""
 });
 
-amazonaws_ds.AddIpRoutes({}).then(data => {
+amazonaws_ds.AddIpRoutes({
+  "DirectoryId": "",
+  "IpRoutes": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

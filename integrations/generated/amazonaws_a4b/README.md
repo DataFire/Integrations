@@ -15,7 +15,7 @@ let amazonaws_a4b = require('@datafire/amazonaws_a4b').create({
 
 amazonaws_a4b.AssociateDeviceWithRoom({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

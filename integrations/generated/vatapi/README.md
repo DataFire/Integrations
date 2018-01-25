@@ -13,7 +13,7 @@ let vatapi = require('@datafire/vatapi').create({
 
 vatapi.vat_rates({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

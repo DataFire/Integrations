@@ -15,7 +15,7 @@ let amazonaws_pinpoint = require('@datafire/amazonaws_pinpoint').create({
 
 amazonaws_pinpoint.GetApps({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

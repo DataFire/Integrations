@@ -15,9 +15,12 @@ let azure_arm_documentdb = require('@datafire/azure_arm_documentdb').create({
   redirect_uri: ""
 });
 
-azure_arm_documentdb.DatabaseAccounts_CheckNameExists({}).then(data => {
+azure_arm_documentdb.DatabaseAccounts_CheckNameExists({
+  "accountName": "",
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

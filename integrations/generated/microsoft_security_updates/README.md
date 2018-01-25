@@ -11,9 +11,11 @@ let microsoft_security_updates = require('@datafire/microsoft_security_updates')
   "api-key": ""
 });
 
-microsoft_security_updates.Updates.get({}).then(data => {
+microsoft_security_updates.Updates.get({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -11,9 +11,12 @@ let botify = require('@datafire/botify').create({
   DjangoRestToken: ""
 });
 
-botify.getProjectAnalyses({}).then(data => {
+botify.getProjectAnalyses({
+  "username": "",
+  "project_slug": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

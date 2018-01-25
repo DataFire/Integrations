@@ -11,7 +11,7 @@ let cambase = require('@datafire/cambase').create();
 
 cambase.api.v1.vendors.json.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

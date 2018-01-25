@@ -13,7 +13,7 @@ let clickmeter = require('@datafire/clickmeter').create({
 
 clickmeter.tags.count.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

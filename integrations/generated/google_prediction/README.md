@@ -15,9 +15,12 @@ let google_prediction = require('@datafire/google_prediction').create({
   redirect_uri: ""
 });
 
-google_prediction.hostedmodels.predict({}).then(data => {
+google_prediction.hostedmodels.predict({
+  "project": "",
+  "hostedModelName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

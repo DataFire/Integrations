@@ -15,9 +15,12 @@ let azure_arm_batch = require('@datafire/azure_arm_batch').create({
   redirect_uri: ""
 });
 
-azure_arm_batch.BatchAccount_List({}).then(data => {
+azure_arm_batch.BatchAccount_List({
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

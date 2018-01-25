@@ -17,7 +17,7 @@ let ebay_buy_marketing = require('@datafire/ebay_buy_marketing').create({
 
 ebay_buy_marketing.getAlsoViewedByProduct({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

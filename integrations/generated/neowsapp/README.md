@@ -11,7 +11,7 @@ let neowsapp = require('@datafire/neowsapp').create();
 
 neowsapp.browseNearEarthObjects({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

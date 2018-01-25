@@ -11,7 +11,7 @@ let epa_gov_rcra = require('@datafire/epa_gov_rcra').create();
 
 epa_gov_rcra.rcra_rest_services.metadata.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

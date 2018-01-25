@@ -14,7 +14,7 @@ let wmata_rail_station = require('@datafire/wmata_rail_station').create({
 
 wmata_rail_station.json.jStations.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

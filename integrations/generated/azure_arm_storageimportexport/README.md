@@ -15,9 +15,12 @@ let azure_arm_storageimportexport = require('@datafire/azure_arm_storageimportex
   redirect_uri: ""
 });
 
-azure_arm_storageimportexport.ListLocations({}).then(data => {
+azure_arm_storageimportexport.ListLocations({
+  "api-version": "",
+  "Accept-Language": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

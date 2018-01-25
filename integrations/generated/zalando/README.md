@@ -11,7 +11,7 @@ let zalando = require('@datafire/zalando').create();
 
 zalando.filters.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

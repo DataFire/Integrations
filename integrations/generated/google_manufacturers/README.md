@@ -15,9 +15,11 @@ let google_manufacturers = require('@datafire/google_manufacturers').create({
   redirect_uri: ""
 });
 
-google_manufacturers.accounts.products.list({}).then(data => {
+google_manufacturers.accounts.products.list({
+  "parent": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

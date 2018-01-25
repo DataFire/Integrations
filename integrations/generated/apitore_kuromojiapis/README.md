@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_kuromojiapis
 ```js
 let apitore_kuromojiapis = require('@datafire/apitore_kuromojiapis').create();
 
-apitore_kuromojiapis.tokenizeUsingGET_1({}).then(data => {
+apitore_kuromojiapis.tokenizeUsingGET_1({
+  "access_token": "",
+  "text": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

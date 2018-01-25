@@ -16,7 +16,7 @@ let rebilly = require('@datafire/rebilly').create({
 
 rebilly.websites.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

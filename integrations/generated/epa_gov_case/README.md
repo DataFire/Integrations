@@ -11,7 +11,7 @@ let epa_gov_case = require('@datafire/epa_gov_case').create();
 
 epa_gov_case.rest_lookups.icis_law_sections.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

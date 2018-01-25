@@ -17,7 +17,7 @@ let google_sheets = require('@datafire/google_sheets').create({
 
 google_sheets.spreadsheets.create({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

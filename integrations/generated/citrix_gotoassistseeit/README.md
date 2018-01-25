@@ -9,9 +9,11 @@ npm install --save @datafire/citrix_gotoassistseeit
 ```js
 let citrix_gotoassistseeit = require('@datafire/citrix_gotoassistseeit').create();
 
-citrix_gotoassistseeit.sessions.get({}).then(data => {
+citrix_gotoassistseeit.sessions.get({
+  "Authorization": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

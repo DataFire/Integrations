@@ -15,9 +15,11 @@ let google_cloudkms = require('@datafire/google_cloudkms').create({
   redirect_uri: ""
 });
 
-google_cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.get({}).then(data => {
+google_cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.get({
+  "name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

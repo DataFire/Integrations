@@ -17,7 +17,7 @@ let google_videointelligence = require('@datafire/google_videointelligence').cre
 
 google_videointelligence.videos.annotate({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

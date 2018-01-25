@@ -15,7 +15,7 @@ let amazonaws_greengrass = require('@datafire/amazonaws_greengrass').create({
 
 amazonaws_greengrass.ListCoreDefinitions({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

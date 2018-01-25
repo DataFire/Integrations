@@ -15,9 +15,11 @@ let google_runtimeconfig = require('@datafire/google_runtimeconfig').create({
   redirect_uri: ""
 });
 
-google_runtimeconfig.operations.delete({}).then(data => {
+google_runtimeconfig.operations.delete({
+  "name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

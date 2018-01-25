@@ -11,9 +11,11 @@ let taggun = require('@datafire/taggun').create({
   apikey: ""
 });
 
-taggun.postApiArticleV1VerboseFile({}).then(data => {
+taggun.postApiArticleV1VerboseFile({
+  "apikey": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -13,7 +13,7 @@ let thetvdb = require('@datafire/thetvdb').create({
 
 thetvdb.user.ratings.query.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

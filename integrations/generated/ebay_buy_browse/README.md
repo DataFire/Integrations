@@ -17,7 +17,7 @@ let ebay_buy_browse = require('@datafire/ebay_buy_browse').create({
 
 ebay_buy_browse.search({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

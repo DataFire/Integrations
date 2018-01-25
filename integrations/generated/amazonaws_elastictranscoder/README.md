@@ -13,9 +13,11 @@ let amazonaws_elastictranscoder = require('@datafire/amazonaws_elastictranscoder
   region: ""
 });
 
-amazonaws_elastictranscoder.CreateJob({}).then(data => {
+amazonaws_elastictranscoder.CreateJob({
+  "PipelineId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

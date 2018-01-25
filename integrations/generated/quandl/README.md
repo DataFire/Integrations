@@ -13,7 +13,7 @@ let quandl = require('@datafire/quandl').create({
 
 quandl.databases.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

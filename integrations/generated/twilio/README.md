@@ -12,9 +12,12 @@ let twilio = require('@datafire/twilio').create({
   password: ""
 });
 
-twilio.Accounts.AccountSid.Applications.ApplicationSid.json.delete({}).then(data => {
+twilio.Accounts.AccountSid.Applications.ApplicationSid.json.delete({
+  "AccountSid": "",
+  "ApplicationSid": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

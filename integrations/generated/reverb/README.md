@@ -17,7 +17,7 @@ let reverb = require('@datafire/reverb').create({
 
 reverb.webhooks.registrations.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

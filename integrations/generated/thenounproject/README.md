@@ -11,7 +11,7 @@ let thenounproject = require('@datafire/thenounproject').create();
 
 thenounproject.getRecentIcons({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

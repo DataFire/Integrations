@@ -11,7 +11,7 @@ let deutschebahn_stada = require('@datafire/deutschebahn_stada').create();
 
 deutschebahn_stada.szentralen.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

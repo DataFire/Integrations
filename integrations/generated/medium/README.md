@@ -16,9 +16,9 @@ let medium = require('@datafire/medium').create({
   redirect_uri: ""
 });
 
-medium.me.get({}).then(data => {
+medium.me.get(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

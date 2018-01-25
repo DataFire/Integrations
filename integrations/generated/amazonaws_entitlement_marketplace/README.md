@@ -13,9 +13,11 @@ let amazonaws_entitlement_marketplace = require('@datafire/amazonaws_entitlement
   region: ""
 });
 
-amazonaws_entitlement_marketplace.GetEntitlements({}).then(data => {
+amazonaws_entitlement_marketplace.GetEntitlements({
+  "ProductCode": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

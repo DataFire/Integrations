@@ -13,9 +13,11 @@ let amazonaws_mobileanalytics = require('@datafire/amazonaws_mobileanalytics').c
   region: ""
 });
 
-amazonaws_mobileanalytics.PutEvents({}).then(data => {
+amazonaws_mobileanalytics.PutEvents({
+  "events": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

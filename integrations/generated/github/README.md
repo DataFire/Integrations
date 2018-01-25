@@ -17,7 +17,7 @@ let github = require('@datafire/github').create({
 
 github.users.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

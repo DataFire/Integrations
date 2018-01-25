@@ -15,9 +15,11 @@ let cisco = require('@datafire/cisco').create({
   redirect_uri: ""
 });
 
-cisco.security.advisories.cvrf.advisory.advisory_id.get({}).then(data => {
+cisco.security.advisories.cvrf.advisory.advisory_id.get({
+  "advisory_id": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

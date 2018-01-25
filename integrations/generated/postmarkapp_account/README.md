@@ -9,9 +9,13 @@ npm install --save @datafire/postmarkapp_account
 ```js
 let postmarkapp_account = require('@datafire/postmarkapp_account').create();
 
-postmarkapp_account.listDomains({}).then(data => {
+postmarkapp_account.listDomains({
+  "X-Postmark-Account-Token": "",
+  "count": 0,
+  "offset": 0
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

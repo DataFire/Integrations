@@ -15,9 +15,12 @@ let azure_arm_operationalinsights = require('@datafire/azure_arm_operationalinsi
   redirect_uri: ""
 });
 
-azure_arm_operationalinsights.Workspaces_ListLinkTargets({}).then(data => {
+azure_arm_operationalinsights.Workspaces_ListLinkTargets({
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

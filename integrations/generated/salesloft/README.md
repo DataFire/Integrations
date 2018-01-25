@@ -17,7 +17,7 @@ let salesloft = require('@datafire/salesloft').create({
 
 salesloft.v2.team_templates.json.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

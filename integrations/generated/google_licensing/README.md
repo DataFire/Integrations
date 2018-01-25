@@ -15,9 +15,12 @@ let google_licensing = require('@datafire/google_licensing').create({
   redirect_uri: ""
 });
 
-google_licensing.licenseAssignments.insert({}).then(data => {
+google_licensing.licenseAssignments.insert({
+  "productId": "",
+  "skuId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

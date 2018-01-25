@@ -9,9 +9,11 @@ npm install --save @datafire/windows_batch
 ```js
 let windows_batch = require('@datafire/windows_batch').create();
 
-windows_batch.Application_List({}).then(data => {
+windows_batch.Application_List({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

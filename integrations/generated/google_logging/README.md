@@ -17,7 +17,7 @@ let google_logging = require('@datafire/google_logging').create({
 
 google_logging.monitoredResourceDescriptors.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

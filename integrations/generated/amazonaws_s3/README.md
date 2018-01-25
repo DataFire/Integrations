@@ -15,7 +15,7 @@ let amazonaws_s3 = require('@datafire/amazonaws_s3').create({
 
 amazonaws_s3.ListBuckets({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

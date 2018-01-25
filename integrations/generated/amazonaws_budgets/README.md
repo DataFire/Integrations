@@ -13,9 +13,29 @@ let amazonaws_budgets = require('@datafire/amazonaws_budgets').create({
   region: ""
 });
 
-amazonaws_budgets.CreateBudget({}).then(data => {
+amazonaws_budgets.CreateBudget({
+  "AccountId": "",
+  "Budget": {
+    "BudgetName": "",
+    "BudgetLimit": {
+      "Amount": "",
+      "Unit": ""
+    },
+    "CostTypes": {
+      "IncludeTax": true,
+      "IncludeSubscription": true,
+      "UseBlended": true
+    },
+    "TimeUnit": "",
+    "TimePeriod": {
+      "Start": "",
+      "End": ""
+    },
+    "BudgetType": ""
+  }
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

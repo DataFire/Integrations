@@ -15,9 +15,14 @@ let azure_arm_apimanagement = require('@datafire/azure_arm_apimanagement').creat
   redirect_uri: ""
 });
 
-azure_arm_apimanagement.Apis_ListByService({}).then(data => {
+azure_arm_apimanagement.Apis_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

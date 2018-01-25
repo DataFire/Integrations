@@ -13,9 +13,11 @@ let amazonaws_config = require('@datafire/amazonaws_config').create({
   region: ""
 });
 
-amazonaws_config.DeleteConfigRule({}).then(data => {
+amazonaws_config.DeleteConfigRule({
+  "ConfigRuleName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

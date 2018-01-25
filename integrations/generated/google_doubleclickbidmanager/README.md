@@ -17,7 +17,7 @@ let google_doubleclickbidmanager = require('@datafire/google_doubleclickbidmanag
 
 google_doubleclickbidmanager.sdf.download({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

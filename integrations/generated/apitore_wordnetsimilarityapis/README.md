@@ -9,9 +9,13 @@ npm install --save @datafire/apitore_wordnetsimilarityapis
 ```js
 let apitore_wordnetsimilarityapis = require('@datafire/apitore_wordnetsimilarityapis').create();
 
-apitore_wordnetsimilarityapis.hirststongeUsingGET({}).then(data => {
+apitore_wordnetsimilarityapis.hirststongeUsingGET({
+  "access_token": "",
+  "word1": "",
+  "word2": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

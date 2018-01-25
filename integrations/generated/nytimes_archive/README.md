@@ -11,9 +11,12 @@ let nytimes_archive = require('@datafire/nytimes_archive').create({
   apikey: ""
 });
 
-nytimes_archive.year.month.json.get({}).then(data => {
+nytimes_archive.year.month.json.get({
+  "year": 0,
+  "month": 0
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

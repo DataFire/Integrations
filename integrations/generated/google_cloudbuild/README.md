@@ -15,9 +15,11 @@ let google_cloudbuild = require('@datafire/google_cloudbuild').create({
   redirect_uri: ""
 });
 
-google_cloudbuild.projects.builds.list({}).then(data => {
+google_cloudbuild.projects.builds.list({
+  "projectId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

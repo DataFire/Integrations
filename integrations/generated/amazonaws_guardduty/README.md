@@ -15,7 +15,7 @@ let amazonaws_guardduty = require('@datafire/amazonaws_guardduty').create({
 
 amazonaws_guardduty.ListDetectors({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

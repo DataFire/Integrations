@@ -15,9 +15,11 @@ let google_servicecontrol = require('@datafire/google_servicecontrol').create({
   redirect_uri: ""
 });
 
-google_servicecontrol.services.allocateQuota({}).then(data => {
+google_servicecontrol.services.allocateQuota({
+  "serviceName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

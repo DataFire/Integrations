@@ -9,9 +9,11 @@ npm install --save @datafire/google_pagespeedonline
 ```js
 let google_pagespeedonline = require('@datafire/google_pagespeedonline').create();
 
-google_pagespeedonline.pagespeedapi.runpagespeed({}).then(data => {
+google_pagespeedonline.pagespeedapi.runpagespeed({
+  "url": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -11,7 +11,7 @@ let selectpdf = require('@datafire/selectpdf').create();
 
 selectpdf.api2.convert.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

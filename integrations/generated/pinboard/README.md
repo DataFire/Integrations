@@ -11,7 +11,7 @@ let pinboard = require('@datafire/pinboard').create();
 
 pinboard.posts.all.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

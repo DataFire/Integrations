@@ -13,7 +13,7 @@ let art19 = require('@datafire/art19').create({
 
 art19.series.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

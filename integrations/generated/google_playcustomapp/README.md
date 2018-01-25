@@ -15,9 +15,11 @@ let google_playcustomapp = require('@datafire/google_playcustomapp').create({
   redirect_uri: ""
 });
 
-google_playcustomapp.accounts.customApps.create({}).then(data => {
+google_playcustomapp.accounts.customApps.create({
+  "account": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

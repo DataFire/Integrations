@@ -15,9 +15,11 @@ let azure_arm_relay = require('@datafire/azure_arm_relay').create({
   redirect_uri: ""
 });
 
-azure_arm_relay.Operations_List({}).then(data => {
+azure_arm_relay.Operations_List({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

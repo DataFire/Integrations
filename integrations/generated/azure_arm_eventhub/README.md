@@ -15,9 +15,11 @@ let azure_arm_eventhub = require('@datafire/azure_arm_eventhub').create({
   redirect_uri: ""
 });
 
-azure_arm_eventhub.Operations_List({}).then(data => {
+azure_arm_eventhub.Operations_List({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

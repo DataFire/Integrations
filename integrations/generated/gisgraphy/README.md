@@ -11,9 +11,11 @@ let gisgraphy = require('@datafire/gisgraphy').create({
   api_key: ""
 });
 
-gisgraphy.addressparsing({}).then(data => {
+gisgraphy.addressparsing({
+  "address": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

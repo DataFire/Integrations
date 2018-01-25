@@ -17,7 +17,7 @@ let google_classroom = require('@datafire/google_classroom').create({
 
 google_classroom.registrations.create({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

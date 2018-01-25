@@ -15,9 +15,11 @@ let google_plus = require('@datafire/google_plus').create({
   redirect_uri: ""
 });
 
-google_plus.activities.search({}).then(data => {
+google_plus.activities.search({
+  "query": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

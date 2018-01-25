@@ -9,9 +9,9 @@ npm install --save @datafire/reddit_rss
 ```js
 let reddit_rss = require('@datafire/reddit_rss').create();
 
-reddit_rss.frontPage({}).then(data => {
+reddit_rss.frontPage(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

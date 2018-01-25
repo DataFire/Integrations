@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_twitterapiswithword2vecqueryexpansion_andad
 ```js
 let apitore_twitterapiswithword2vecqueryexpansion_andaddsentimentbyapitoresentimentapi = require('@datafire/apitore_twitterapiswithword2vecqueryexpansion_andaddsentimentbyapitoresentimentapi').create();
 
-apitore_twitterapiswithword2vecqueryexpansion_andaddsentimentbyapitoresentimentapi.searchUsingGET_3({}).then(data => {
+apitore_twitterapiswithword2vecqueryexpansion_andaddsentimentbyapitoresentimentapi.searchUsingGET_3({
+  "access_token": "",
+  "q": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

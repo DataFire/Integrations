@@ -11,7 +11,7 @@ let urbanairship = require('@datafire/urbanairship').create();
 
 urbanairship.apids.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

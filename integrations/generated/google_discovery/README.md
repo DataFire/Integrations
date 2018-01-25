@@ -11,7 +11,7 @@ let google_discovery = require('@datafire/google_discovery').create();
 
 google_discovery.apis.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

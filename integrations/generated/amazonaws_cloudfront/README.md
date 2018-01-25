@@ -15,7 +15,7 @@ let amazonaws_cloudfront = require('@datafire/amazonaws_cloudfront').create({
 
 amazonaws_cloudfront.ListDistributions({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

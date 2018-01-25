@@ -13,7 +13,7 @@ let polygon = require('@datafire/polygon').create({
 
 polygon.v1.companies.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,7 +15,7 @@ let bigoven = require('@datafire/bigoven').create({
 
 bigoven.Recipe_RecentViews({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

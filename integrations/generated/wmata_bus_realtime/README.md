@@ -12,9 +12,11 @@ let wmata_bus_realtime = require('@datafire/wmata_bus_realtime').create({
   apiKeyQuery: ""
 });
 
-wmata_bus_realtime.Predictions.get({}).then(data => {
+wmata_bus_realtime.Predictions.get({
+  "StopID": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

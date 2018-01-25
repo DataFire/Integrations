@@ -13,9 +13,11 @@ let amazonaws_dynamodb = require('@datafire/amazonaws_dynamodb').create({
   region: ""
 });
 
-amazonaws_dynamodb.BatchGetItem({}).then(data => {
+amazonaws_dynamodb.BatchGetItem({
+  "RequestItems": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

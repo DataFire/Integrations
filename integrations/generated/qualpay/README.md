@@ -12,9 +12,13 @@ let qualpay = require('@datafire/qualpay').create({
   password: ""
 });
 
-qualpay.Authorization({}).then(data => {
+qualpay.Authorization({
+  "body": {
+    "merchant_id": 0
+  }
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

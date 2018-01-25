@@ -9,9 +9,14 @@ npm install --save @datafire/isendpro
 ```js
 let isendpro = require('@datafire/isendpro').create();
 
-isendpro.getCampagne({}).then(data => {
+isendpro.getCampagne({
+  "keyid": "",
+  "rapportCampagne": "",
+  "date_deb": "",
+  "date_fin": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

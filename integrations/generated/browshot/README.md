@@ -13,7 +13,7 @@ let browshot = require('@datafire/browshot').create({
 
 browshot.GetMultipleScreenshotsInfo({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

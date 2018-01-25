@@ -17,7 +17,7 @@ let google_iam = require('@datafire/google_iam').create({
 
 google_iam.roles.queryGrantableRoles({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

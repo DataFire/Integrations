@@ -15,9 +15,11 @@ let google_firebaserules = require('@datafire/google_firebaserules').create({
   redirect_uri: ""
 });
 
-google_firebaserules.projects.releases.delete({}).then(data => {
+google_firebaserules.projects.releases.delete({
+  "name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -9,9 +9,11 @@ npm install --save @datafire/healthcare_gov
 ```js
 let healthcare_gov = require('@datafire/healthcare_gov').create();
 
-healthcare_gov.api.articlesmediaTypeExtension.get({}).then(data => {
+healthcare_gov.api.articlesmediaTypeExtension.get({
+  "mediaTypeExtension": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

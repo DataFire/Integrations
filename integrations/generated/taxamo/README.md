@@ -13,7 +13,7 @@ let taxamo = require('@datafire/taxamo').create({
 
 taxamo.listTransactions({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

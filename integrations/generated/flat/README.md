@@ -17,7 +17,7 @@ let flat = require('@datafire/flat').create({
 
 flat.createOrganizationUser({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

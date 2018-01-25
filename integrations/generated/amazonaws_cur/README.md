@@ -15,7 +15,7 @@ let amazonaws_cur = require('@datafire/amazonaws_cur').create({
 
 amazonaws_cur.DeleteReportDefinition({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

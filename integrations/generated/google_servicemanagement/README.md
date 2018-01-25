@@ -17,7 +17,7 @@ let google_servicemanagement = require('@datafire/google_servicemanagement').cre
 
 google_servicemanagement.services.generateConfigReport({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

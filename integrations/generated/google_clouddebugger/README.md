@@ -17,7 +17,7 @@ let google_clouddebugger = require('@datafire/google_clouddebugger').create({
 
 google_clouddebugger.debugger.debuggees.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -11,9 +11,13 @@ let nytimes_semantic_api = require('@datafire/nytimes_semantic_api').create({
   apikey: ""
 });
 
-nytimes_semantic_api.name.concept_type.specific_concept.json.get({}).then(data => {
+nytimes_semantic_api.name.concept_type.specific_concept.json.get({
+  "concept-type": "",
+  "specific-concept": "",
+  "query": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

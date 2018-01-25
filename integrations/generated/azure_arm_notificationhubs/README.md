@@ -15,9 +15,13 @@ let azure_arm_notificationhubs = require('@datafire/azure_arm_notificationhubs')
   redirect_uri: ""
 });
 
-azure_arm_notificationhubs.Namespaces_CheckAvailability({}).then(data => {
+azure_arm_notificationhubs.Namespaces_CheckAvailability({
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

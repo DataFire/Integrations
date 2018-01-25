@@ -11,7 +11,7 @@ let zuora = require('@datafire/zuora').create();
 
 zuora.GET_RevenueAutomationStartDate({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

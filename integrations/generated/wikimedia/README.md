@@ -11,9 +11,12 @@ let wikimedia = require('@datafire/wikimedia').create({
   mediawiki_auth: ""
 });
 
-wikimedia.media.math.check.type.post({}).then(data => {
+wikimedia.media.math.check.type.post({
+  "type": "",
+  "q": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -11,9 +11,11 @@ let datumbox = require('@datafire/datumbox').create({
   apiKey: ""
 });
 
-datumbox.AdultContentDetection({}).then(data => {
+datumbox.AdultContentDetection({
+  "text": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

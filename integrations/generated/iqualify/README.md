@@ -11,9 +11,9 @@ let iqualify = require('@datafire/iqualify').create({
   jwt: ""
 });
 
-iqualify..get({}).then(data => {
+iqualify..get(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

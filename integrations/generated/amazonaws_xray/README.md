@@ -13,9 +13,12 @@ let amazonaws_xray = require('@datafire/amazonaws_xray').create({
   region: ""
 });
 
-amazonaws_xray.GetServiceGraph({}).then(data => {
+amazonaws_xray.GetServiceGraph({
+  "StartTime": "",
+  "EndTime": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

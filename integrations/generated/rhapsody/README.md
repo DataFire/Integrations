@@ -9,9 +9,11 @@ npm install --save @datafire/rhapsody
 ```js
 let rhapsody = require('@datafire/rhapsody').create();
 
-rhapsody.artists.top.get({}).then(data => {
+rhapsody.artists.top.get({
+  "apikey": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -9,9 +9,9 @@ npm install --save @datafire/o2_cz_mobility
 ```js
 let o2_cz_mobility = require('@datafire/o2_cz_mobility').create();
 
-o2_cz_mobility.getInfo({}).then(data => {
+o2_cz_mobility.getInfo(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

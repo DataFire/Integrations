@@ -9,9 +9,11 @@ npm install --save @datafire/passwordutility
 ```js
 let passwordutility = require('@datafire/passwordutility').create();
 
-passwordutility.Password_Generate({}).then(data => {
+passwordutility.Password_Generate({
+  "length": 0
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

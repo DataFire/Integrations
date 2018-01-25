@@ -15,9 +15,11 @@ let azure_arm_servicefabric = require('@datafire/azure_arm_servicefabric').creat
   redirect_uri: ""
 });
 
-azure_arm_servicefabric.Operations_List({}).then(data => {
+azure_arm_servicefabric.Operations_List({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

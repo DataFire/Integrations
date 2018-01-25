@@ -11,9 +11,12 @@ let graphhopper = require('@datafire/graphhopper').create({
   api_key: ""
 });
 
-graphhopper.postVrp({}).then(data => {
+graphhopper.postVrp({
+  "key": "",
+  "body": {}
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

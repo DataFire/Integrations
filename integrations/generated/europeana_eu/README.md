@@ -11,7 +11,7 @@ let europeana_eu = require('@datafire/europeana_eu').create();
 
 europeana_eu.listProviders({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

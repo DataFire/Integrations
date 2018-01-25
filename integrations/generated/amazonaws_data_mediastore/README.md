@@ -15,7 +15,7 @@ let amazonaws_data_mediastore = require('@datafire/amazonaws_data_mediastore').c
 
 amazonaws_data_mediastore.ListItems({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

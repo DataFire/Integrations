@@ -11,7 +11,7 @@ let vocadb = require('@datafire/vocadb').create();
 
 vocadb.UserApi_GetNames({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

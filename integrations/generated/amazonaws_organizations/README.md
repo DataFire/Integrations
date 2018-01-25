@@ -13,9 +13,11 @@ let amazonaws_organizations = require('@datafire/amazonaws_organizations').creat
   region: ""
 });
 
-amazonaws_organizations.AcceptHandshake({}).then(data => {
+amazonaws_organizations.AcceptHandshake({
+  "HandshakeId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

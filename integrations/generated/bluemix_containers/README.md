@@ -9,9 +9,14 @@ npm install --save @datafire/bluemix_containers
 ```js
 let bluemix_containers = require('@datafire/bluemix_containers').create();
 
-bluemix_containers.build.post({}).then(data => {
+bluemix_containers.build.post({
+  "X-Auth-Token": "",
+  "X-Auth-Project-Id": "",
+  "t": "",
+  "file": null
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

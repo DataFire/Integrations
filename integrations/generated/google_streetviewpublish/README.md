@@ -17,7 +17,7 @@ let google_streetviewpublish = require('@datafire/google_streetviewpublish').cre
 
 google_streetviewpublish.photos.batchUpdate({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

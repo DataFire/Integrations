@@ -12,9 +12,11 @@ let haloapi_stats = require('@datafire/haloapi_stats').create({
   apiKeyQuery: ""
 });
 
-haloapi_stats.h5.arena.matches.matchId.get({}).then(data => {
+haloapi_stats.h5.arena.matches.matchId.get({
+  "matchId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

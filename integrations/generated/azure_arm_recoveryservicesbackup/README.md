@@ -15,9 +15,14 @@ let azure_arm_recoveryservicesbackup = require('@datafire/azure_arm_recoveryserv
   redirect_uri: ""
 });
 
-azure_arm_recoveryservicesbackup.BackupEngines_Get({}).then(data => {
+azure_arm_recoveryservicesbackup.BackupEngines_Get({
+  "api-version": "",
+  "vaultName": "",
+  "resourceGroupName": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

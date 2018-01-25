@@ -17,7 +17,7 @@ let imap = require('@datafire/imap').create({
 
 imap.getSubscribedBoxes({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

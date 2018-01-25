@@ -17,7 +17,7 @@ let ccp_is = require('@datafire/ccp_is').create({
 
 ccp_is.get_wars({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

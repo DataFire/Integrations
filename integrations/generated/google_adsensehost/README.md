@@ -17,7 +17,7 @@ let google_adsensehost = require('@datafire/google_adsensehost').create({
 
 google_adsensehost.adclients.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

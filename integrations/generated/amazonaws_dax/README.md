@@ -13,9 +13,14 @@ let amazonaws_dax = require('@datafire/amazonaws_dax').create({
   region: ""
 });
 
-amazonaws_dax.CreateCluster({}).then(data => {
+amazonaws_dax.CreateCluster({
+  "ClusterName": "",
+  "NodeType": "",
+  "ReplicationFactor": 0,
+  "IamRoleArn": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

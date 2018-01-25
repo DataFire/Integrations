@@ -15,7 +15,7 @@ let amazonaws_ce = require('@datafire/amazonaws_ce').create({
 
 amazonaws_ce.GetCostAndUsage({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

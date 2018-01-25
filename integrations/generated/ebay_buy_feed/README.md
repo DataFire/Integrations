@@ -15,9 +15,15 @@ let ebay_buy_feed = require('@datafire/ebay_buy_feed').create({
   redirect_uri: ""
 });
 
-ebay_buy_feed.getItemFeed({}).then(data => {
+ebay_buy_feed.getItemFeed({
+  "X-EBAY-C-MARKETPLACE-ID": "",
+  "Range": "",
+  "feed_type": "",
+  "category_id": "",
+  "date": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

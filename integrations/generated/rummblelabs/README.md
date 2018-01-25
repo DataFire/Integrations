@@ -11,7 +11,7 @@ let rummblelabs = require('@datafire/rummblelabs').create();
 
 rummblelabs.getUsers({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

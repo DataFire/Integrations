@@ -11,7 +11,7 @@ let google_webfonts = require('@datafire/google_webfonts').create();
 
 google_webfonts.webfonts.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -17,7 +17,7 @@ let google_genomics = require('@datafire/google_genomics').create({
 
 google_genomics.variantsets.search({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

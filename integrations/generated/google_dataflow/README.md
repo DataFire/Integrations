@@ -15,9 +15,11 @@ let google_dataflow = require('@datafire/google_dataflow').create({
   redirect_uri: ""
 });
 
-google_dataflow.projects.workerMessages({}).then(data => {
+google_dataflow.projects.workerMessages({
+  "projectId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

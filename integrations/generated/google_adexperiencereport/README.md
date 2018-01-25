@@ -17,7 +17,7 @@ let google_adexperiencereport = require('@datafire/google_adexperiencereport').c
 
 google_adexperiencereport.violatingSites.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

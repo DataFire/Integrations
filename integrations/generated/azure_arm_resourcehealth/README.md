@@ -15,9 +15,11 @@ let azure_arm_resourcehealth = require('@datafire/azure_arm_resourcehealth').cre
   redirect_uri: ""
 });
 
-azure_arm_resourcehealth.Operations_List({}).then(data => {
+azure_arm_resourcehealth.Operations_List({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

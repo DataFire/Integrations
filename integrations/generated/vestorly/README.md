@@ -15,9 +15,12 @@ let vestorly = require('@datafire/vestorly').create({
   redirect_uri: ""
 });
 
-vestorly.findAdvisorByID({}).then(data => {
+vestorly.findAdvisorByID({
+  "vestorly-auth": "",
+  "id": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

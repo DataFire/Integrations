@@ -11,7 +11,7 @@ let firebrowse = require('@datafire/firebrowse').create();
 
 firebrowse.miRSeq({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

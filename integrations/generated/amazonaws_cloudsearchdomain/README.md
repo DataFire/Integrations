@@ -13,9 +13,11 @@ let amazonaws_cloudsearchdomain = require('@datafire/amazonaws_cloudsearchdomain
   region: ""
 });
 
-amazonaws_cloudsearchdomain.UploadDocuments({}).then(data => {
+amazonaws_cloudsearchdomain.UploadDocuments({
+  "documents": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

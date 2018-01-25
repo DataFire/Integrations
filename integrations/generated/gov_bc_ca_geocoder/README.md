@@ -11,9 +11,11 @@ let gov_bc_ca_geocoder = require('@datafire/gov_bc_ca_geocoder').create({
   apikey: ""
 });
 
-gov_bc_ca_geocoder.addresses.outputFormat.get({}).then(data => {
+gov_bc_ca_geocoder.addresses.outputFormat.get({
+  "outputFormat": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

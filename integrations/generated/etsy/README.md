@@ -11,7 +11,7 @@ let etsy = require('@datafire/etsy').create();
 
 etsy.featured.users.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

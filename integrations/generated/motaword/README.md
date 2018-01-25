@@ -17,7 +17,7 @@ let motaword = require('@datafire/motaword').create({
 
 motaword.getProjects({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

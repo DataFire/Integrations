@@ -15,9 +15,16 @@ let azure_arm_search = require('@datafire/azure_arm_search').create({
   redirect_uri: ""
 });
 
-azure_arm_search.Services_CheckNameAvailability({}).then(data => {
+azure_arm_search.Services_CheckNameAvailability({
+  "checkNameAvailabilityInput": {
+    "name": "",
+    "type": ""
+  },
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

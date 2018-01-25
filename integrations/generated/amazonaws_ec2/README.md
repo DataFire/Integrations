@@ -13,9 +13,11 @@ let amazonaws_ec2 = require('@datafire/amazonaws_ec2').create({
   region: ""
 });
 
-amazonaws_ec2.AcceptReservedInstancesExchangeQuote({}).then(data => {
+amazonaws_ec2.AcceptReservedInstancesExchangeQuote({
+  "ReservedInstanceIds": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_twitterapiswithsentimentbyapitoresentimenta
 ```js
 let apitore_twitterapiswithsentimentbyapitoresentimentapi = require('@datafire/apitore_twitterapiswithsentimentbyapitoresentimentapi').create();
 
-apitore_twitterapiswithsentimentbyapitoresentimentapi.searchUsingGET_1({}).then(data => {
+apitore_twitterapiswithsentimentbyapitoresentimentapi.searchUsingGET_1({
+  "access_token": "",
+  "q": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

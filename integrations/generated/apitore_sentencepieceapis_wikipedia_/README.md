@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_sentencepieceapis_wikipedia_
 ```js
 let apitore_sentencepieceapis_wikipedia_ = require('@datafire/apitore_sentencepieceapis_wikipedia_').create();
 
-apitore_sentencepieceapis_wikipedia_.getUsingGET_1({}).then(data => {
+apitore_sentencepieceapis_wikipedia_.getUsingGET_1({
+  "access_token": "",
+  "text": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

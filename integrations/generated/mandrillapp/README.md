@@ -9,9 +9,11 @@ npm install --save @datafire/mandrillapp
 ```js
 let mandrillapp = require('@datafire/mandrillapp').create();
 
-mandrillapp.exports.activity.json.post({}).then(data => {
+mandrillapp.exports.activity.json.post({
+  "body": {}
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

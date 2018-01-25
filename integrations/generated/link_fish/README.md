@@ -12,9 +12,11 @@ let link_fish = require('@datafire/link_fish').create({
   password: ""
 });
 
-link_fish.Urls.apps.get({}).then(data => {
+link_fish.Urls.apps.get({
+  "url": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

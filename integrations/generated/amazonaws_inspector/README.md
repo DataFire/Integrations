@@ -13,9 +13,12 @@ let amazonaws_inspector = require('@datafire/amazonaws_inspector').create({
   region: ""
 });
 
-amazonaws_inspector.AddAttributesToFindings({}).then(data => {
+amazonaws_inspector.AddAttributesToFindings({
+  "findingArns": [],
+  "attributes": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

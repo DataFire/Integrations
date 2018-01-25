@@ -9,9 +9,11 @@ npm install --save @datafire/apitore_pioneerblogfeedsapis
 ```js
 let apitore_pioneerblogfeedsapis = require('@datafire/apitore_pioneerblogfeedsapis').create();
 
-apitore_pioneerblogfeedsapis.feedUsingGET_2({}).then(data => {
+apitore_pioneerblogfeedsapis.feedUsingGET_2({
+  "access_token": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -11,7 +11,7 @@ let slideroom = require('@datafire/slideroom').create();
 
 slideroom.Application_RequestExportV2({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

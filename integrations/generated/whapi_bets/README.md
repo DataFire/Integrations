@@ -11,9 +11,13 @@ let whapi_bets = require('@datafire/whapi_bets').create({
   apiKey: ""
 });
 
-whapi_bets.placeComplexBet({}).then(data => {
+whapi_bets.placeComplexBet({
+  "apiSecret": "",
+  "apiTicket": "",
+  "body": {}
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

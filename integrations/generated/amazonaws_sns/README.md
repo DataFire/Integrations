@@ -13,9 +13,14 @@ let amazonaws_sns = require('@datafire/amazonaws_sns').create({
   region: ""
 });
 
-amazonaws_sns.AddPermission({}).then(data => {
+amazonaws_sns.AddPermission({
+  "TopicArn": "",
+  "Label": "",
+  "AWSAccountId": [],
+  "ActionName": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

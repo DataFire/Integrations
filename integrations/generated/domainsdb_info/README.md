@@ -16,9 +16,11 @@ let domainsdb_info = require('@datafire/domainsdb_info').create({
   redirect_uri: ""
 });
 
-domainsdb_info.addPet({}).then(data => {
+domainsdb_info.addPet({
+  "query": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

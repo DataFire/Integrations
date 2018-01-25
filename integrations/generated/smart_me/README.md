@@ -12,9 +12,11 @@ let smart_me = require('@datafire/smart_me').create({
   password: ""
 });
 
-smart_me.AccessToken_Put({}).then(data => {
+smart_me.AccessToken_Put({
+  "accessTokenToPut": {}
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

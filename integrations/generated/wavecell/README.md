@@ -12,9 +12,9 @@ let wavecell = require('@datafire/wavecell').create({
   password: ""
 });
 
-wavecell.SmsV1StatusGet({}).then(data => {
+wavecell.SmsV1StatusGet(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

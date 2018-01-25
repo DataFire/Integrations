@@ -11,7 +11,7 @@ let gov_bc_ca_geomark = require('@datafire/gov_bc_ca_geomark').create();
 
 gov_bc_ca_geomark.geomarks.new.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

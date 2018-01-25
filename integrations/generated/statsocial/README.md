@@ -13,7 +13,7 @@ let statsocial = require('@datafire/statsocial').create({
 
 statsocial.reports.twitter.create.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

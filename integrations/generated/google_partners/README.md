@@ -11,7 +11,7 @@ let google_partners = require('@datafire/google_partners').create();
 
 google_partners.users.updateProfile({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -11,7 +11,7 @@ let spectrocoin = require('@datafire/spectrocoin').create();
 
 spectrocoin.createOrder({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

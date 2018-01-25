@@ -17,7 +17,7 @@ let slack = require('@datafire/slack').create({
 
 slack.users_setPresence({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

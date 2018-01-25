@@ -13,9 +13,12 @@ let amazonaws_appstream2 = require('@datafire/amazonaws_appstream2').create({
   region: ""
 });
 
-amazonaws_appstream2.AssociateFleet({}).then(data => {
+amazonaws_appstream2.AssociateFleet({
+  "FleetName": "",
+  "StackName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

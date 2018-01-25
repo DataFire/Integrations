@@ -15,9 +15,13 @@ let paylocity = require('@datafire/paylocity').create({
   redirect_uri: ""
 });
 
-paylocity.v2.companies.companyId.customfields.category.get({}).then(data => {
+paylocity.v2.companies.companyId.customfields.category.get({
+  "Authorization": "",
+  "companyId": "",
+  "category": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

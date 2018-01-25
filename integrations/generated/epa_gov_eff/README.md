@@ -11,7 +11,7 @@ let epa_gov_eff = require('@datafire/epa_gov_eff').create();
 
 epa_gov_eff.rest_lookups.cwa_parameters.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

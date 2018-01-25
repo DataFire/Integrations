@@ -13,9 +13,11 @@ let amazonaws_route53 = require('@datafire/amazonaws_route53').create({
   region: ""
 });
 
-amazonaws_route53.GetChange({}).then(data => {
+amazonaws_route53.GetChange({
+  "Id": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

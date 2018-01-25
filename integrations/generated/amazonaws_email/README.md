@@ -13,9 +13,12 @@ let amazonaws_email = require('@datafire/amazonaws_email').create({
   region: ""
 });
 
-amazonaws_email.CloneReceiptRuleSet({}).then(data => {
+amazonaws_email.CloneReceiptRuleSet({
+  "RuleSetName": "",
+  "OriginalRuleSetName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_url2labelbywordvectorapis
 ```js
 let apitore_url2labelbywordvectorapis = require('@datafire/apitore_url2labelbywordvectorapis').create();
 
-apitore_url2labelbywordvectorapis.getUsingGET_4({}).then(data => {
+apitore_url2labelbywordvectorapis.getUsingGET_4({
+  "access_token": "",
+  "url": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

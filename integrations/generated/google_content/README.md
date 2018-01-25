@@ -17,7 +17,7 @@ let google_content = require('@datafire/google_content').create({
 
 google_content.shippingsettings.custombatch({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

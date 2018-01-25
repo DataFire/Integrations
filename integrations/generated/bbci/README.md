@@ -13,9 +13,18 @@ let bbci = require('@datafire/bbci').create({
   password: ""
 });
 
-bbci.atoz.letter.programmes.get({}).then(data => {
+bbci.atoz.letter.programmes.get({
+  "letter": "",
+  "rights": "",
+  "page": 0,
+  "per_page": 0,
+  "initial_child_count": 0,
+  "sort": "",
+  "sort_direction": "",
+  "availability": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

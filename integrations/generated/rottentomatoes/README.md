@@ -13,7 +13,7 @@ let rottentomatoes = require('@datafire/rottentomatoes').create({
 
 rottentomatoes.MoviesSearchSearch({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

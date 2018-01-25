@@ -15,9 +15,11 @@ let azure_arm_servicebus = require('@datafire/azure_arm_servicebus').create({
   redirect_uri: ""
 });
 
-azure_arm_servicebus.Operations_List({}).then(data => {
+azure_arm_servicebus.Operations_List({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

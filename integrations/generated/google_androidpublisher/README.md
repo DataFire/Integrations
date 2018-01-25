@@ -17,7 +17,7 @@ let google_androidpublisher = require('@datafire/google_androidpublisher').creat
 
 google_androidpublisher.inappproducts.batch({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

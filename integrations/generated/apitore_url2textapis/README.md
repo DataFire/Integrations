@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_url2textapis
 ```js
 let apitore_url2textapis = require('@datafire/apitore_url2textapis').create();
 
-apitore_url2textapis.url2textUsingGET({}).then(data => {
+apitore_url2textapis.url2textUsingGET({
+  "access_token": "",
+  "url": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

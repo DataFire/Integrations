@@ -13,9 +13,12 @@ let amazonaws_dms = require('@datafire/amazonaws_dms').create({
   region: ""
 });
 
-amazonaws_dms.AddTagsToResource({}).then(data => {
+amazonaws_dms.AddTagsToResource({
+  "ResourceArn": "",
+  "Tags": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

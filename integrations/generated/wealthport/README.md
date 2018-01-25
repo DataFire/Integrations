@@ -14,7 +14,7 @@ let wealthport = require('@datafire/wealthport').create({
 
 wealthport.createSource({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

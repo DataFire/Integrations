@@ -17,7 +17,7 @@ let google_slides = require('@datafire/google_slides').create({
 
 google_slides.presentations.create({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

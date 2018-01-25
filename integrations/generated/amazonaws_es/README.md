@@ -15,7 +15,7 @@ let amazonaws_es = require('@datafire/amazonaws_es').create({
 
 amazonaws_es.ListDomainNames({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -13,9 +13,11 @@ let amazonaws_cloudsearch = require('@datafire/amazonaws_cloudsearch').create({
   region: ""
 });
 
-amazonaws_cloudsearch.BuildSuggesters({}).then(data => {
+amazonaws_cloudsearch.BuildSuggesters({
+  "DomainName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

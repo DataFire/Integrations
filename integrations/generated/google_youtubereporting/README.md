@@ -17,7 +17,7 @@ let google_youtubereporting = require('@datafire/google_youtubereporting').creat
 
 google_youtubereporting.reportTypes.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

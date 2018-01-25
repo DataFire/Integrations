@@ -11,9 +11,9 @@ let voodoomfg = require('@datafire/voodoomfg').create({
   "Voodoo Manufacturing API Key": ""
 });
 
-voodoomfg.materials.get({}).then(data => {
+voodoomfg.materials.get(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

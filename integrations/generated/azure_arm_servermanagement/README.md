@@ -15,9 +15,12 @@ let azure_arm_servermanagement = require('@datafire/azure_arm_servermanagement')
   redirect_uri: ""
 });
 
-azure_arm_servermanagement.Gateway_List({}).then(data => {
+azure_arm_servermanagement.Gateway_List({
+  "subscriptionId": "",
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

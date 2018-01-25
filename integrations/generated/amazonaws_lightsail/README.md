@@ -13,9 +13,11 @@ let amazonaws_lightsail = require('@datafire/amazonaws_lightsail').create({
   region: ""
 });
 
-amazonaws_lightsail.AllocateStaticIp({}).then(data => {
+amazonaws_lightsail.AllocateStaticIp({
+  "staticIpName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

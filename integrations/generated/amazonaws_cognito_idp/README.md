@@ -13,9 +13,12 @@ let amazonaws_cognito_idp = require('@datafire/amazonaws_cognito_idp').create({
   region: ""
 });
 
-amazonaws_cognito_idp.AddCustomAttributes({}).then(data => {
+amazonaws_cognito_idp.AddCustomAttributes({
+  "UserPoolId": "",
+  "CustomAttributes": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

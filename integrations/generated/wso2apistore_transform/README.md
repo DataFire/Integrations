@@ -15,9 +15,11 @@ let wso2apistore_transform = require('@datafire/wso2apistore_transform').create(
   redirect_uri: ""
 });
 
-wso2apistore_transform.jsontoxml.post({}).then(data => {
+wso2apistore_transform.jsontoxml.post({
+  "Payload": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

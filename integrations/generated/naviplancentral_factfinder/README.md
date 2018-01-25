@@ -11,7 +11,7 @@ let naviplancentral_factfinder = require('@datafire/naviplancentral_factfinder')
 
 naviplancentral_factfinder.RetirementGoals_GetRetirementGoalsByFactFinderIdByFactfinderid({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

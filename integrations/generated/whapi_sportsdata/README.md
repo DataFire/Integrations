@@ -9,9 +9,12 @@ npm install --save @datafire/whapi_sportsdata
 ```js
 let whapi_sportsdata = require('@datafire/whapi_sportsdata').create();
 
-whapi_sportsdata.getCompetitionsForClass({}).then(data => {
+whapi_sportsdata.getCompetitionsForClass({
+  "apiKey": "",
+  "classId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

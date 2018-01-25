@@ -17,7 +17,7 @@ let google_games = require('@datafire/google_games').create({
 
 google_games.turnBasedMatches.sync({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

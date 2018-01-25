@@ -13,9 +13,11 @@ let amazonaws_comprehend = require('@datafire/amazonaws_comprehend').create({
   region: ""
 });
 
-amazonaws_comprehend.BatchDetectDominantLanguage({}).then(data => {
+amazonaws_comprehend.BatchDetectDominantLanguage({
+  "TextList": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

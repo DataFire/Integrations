@@ -9,9 +9,9 @@ npm install --save @datafire/infermedica
 ```js
 let infermedica = require('@datafire/infermedica').create();
 
-infermedica.getAllConditions({}).then(data => {
+infermedica.getAllConditions(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

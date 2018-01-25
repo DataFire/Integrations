@@ -15,9 +15,11 @@ let azure_arm_web = require('@datafire/azure_arm_web').create({
   redirect_uri: ""
 });
 
-azure_arm_web.Provider_GetPublishingUser({}).then(data => {
+azure_arm_web.Provider_GetPublishingUser({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

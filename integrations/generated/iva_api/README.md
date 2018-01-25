@@ -14,7 +14,7 @@ let iva_api = require('@datafire/iva_api').create({
 
 iva_api.GetXRoadMediaRecommendations({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

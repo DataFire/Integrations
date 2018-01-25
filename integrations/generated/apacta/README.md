@@ -14,7 +14,7 @@ let apacta = require('@datafire/apacta').create({
 
 apacta.wall_posts.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

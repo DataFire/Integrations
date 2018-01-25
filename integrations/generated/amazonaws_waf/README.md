@@ -13,9 +13,12 @@ let amazonaws_waf = require('@datafire/amazonaws_waf').create({
   region: ""
 });
 
-amazonaws_waf.CreateByteMatchSet({}).then(data => {
+amazonaws_waf.CreateByteMatchSet({
+  "Name": "",
+  "ChangeToken": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

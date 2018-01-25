@@ -17,7 +17,7 @@ let google_webmasters = require('@datafire/google_webmasters').create({
 
 google_webmasters.sites.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

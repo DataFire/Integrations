@@ -9,9 +9,11 @@ npm install --save @datafire/citrix_scim
 ```js
 let citrix_scim = require('@datafire/citrix_scim').create();
 
-citrix_scim.getGroups({}).then(data => {
+citrix_scim.getGroups({
+  "Authorization": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

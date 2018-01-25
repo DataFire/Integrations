@@ -11,7 +11,7 @@ let myspace = require('@datafire/myspace').create();
 
 myspace.1.0.activities._supportedFields.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

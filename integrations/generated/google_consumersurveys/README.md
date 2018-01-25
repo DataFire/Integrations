@@ -17,7 +17,7 @@ let google_consumersurveys = require('@datafire/google_consumersurveys').create(
 
 google_consumersurveys.surveys.insert({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,9 +15,9 @@ let azure_arm_visualstudio = require('@datafire/azure_arm_visualstudio').create(
   redirect_uri: ""
 });
 
-azure_arm_visualstudio.Operations_List({}).then(data => {
+azure_arm_visualstudio.Operations_List(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

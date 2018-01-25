@@ -13,9 +13,12 @@ let amazonaws_logs = require('@datafire/amazonaws_logs').create({
   region: ""
 });
 
-amazonaws_logs.AssociateKmsKey({}).then(data => {
+amazonaws_logs.AssociateKmsKey({
+  "logGroupName": "",
+  "kmsKeyId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

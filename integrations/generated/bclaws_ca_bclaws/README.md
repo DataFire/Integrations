@@ -9,9 +9,11 @@ npm install --save @datafire/bclaws_ca_bclaws
 ```js
 let bclaws_ca_bclaws = require('@datafire/bclaws_ca_bclaws').create();
 
-bclaws_ca_bclaws.content.aspectId.get({}).then(data => {
+bclaws_ca_bclaws.content.aspectId.get({
+  "aspectId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

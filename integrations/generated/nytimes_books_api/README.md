@@ -13,7 +13,7 @@ let nytimes_books_api = require('@datafire/nytimes_books_api').create({
 
 nytimes_books_api.lists.best_sellers.history.json.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

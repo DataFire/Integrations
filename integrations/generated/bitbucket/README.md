@@ -20,7 +20,7 @@ let bitbucket = require('@datafire/bitbucket').create({
 
 bitbucket.teams.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

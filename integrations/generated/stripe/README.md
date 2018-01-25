@@ -11,7 +11,7 @@ let stripe = require('@datafire/stripe').create();
 
 stripe.AllTransfers({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

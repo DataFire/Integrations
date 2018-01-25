@@ -9,9 +9,14 @@ npm install --save @datafire/oxforddictionaries
 ```js
 let oxforddictionaries = require('@datafire/oxforddictionaries').create();
 
-oxforddictionaries.domains.source_domains_language.target_domains_language.get({}).then(data => {
+oxforddictionaries.domains.source_domains_language.target_domains_language.get({
+  "source_domains_language": "",
+  "target_domains_language": "",
+  "app_id": "",
+  "app_key": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -17,7 +17,7 @@ let google_calendar = require('@datafire/google_calendar').create({
 
 google_calendar.settings.watch({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

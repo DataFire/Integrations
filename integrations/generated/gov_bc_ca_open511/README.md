@@ -11,7 +11,7 @@ let gov_bc_ca_open511 = require('@datafire/gov_bc_ca_open511').create();
 
 gov_bc_ca_open511.jurisdictiongeography.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

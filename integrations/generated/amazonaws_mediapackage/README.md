@@ -15,7 +15,7 @@ let amazonaws_mediapackage = require('@datafire/amazonaws_mediapackage').create(
 
 amazonaws_mediapackage.ListChannels({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

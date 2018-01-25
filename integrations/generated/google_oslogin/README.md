@@ -15,9 +15,11 @@ let google_oslogin = require('@datafire/google_oslogin').create({
   redirect_uri: ""
 });
 
-google_oslogin.users.sshPublicKeys.delete({}).then(data => {
+google_oslogin.users.sshPublicKeys.delete({
+  "name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

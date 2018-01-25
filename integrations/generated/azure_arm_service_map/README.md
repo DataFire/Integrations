@@ -15,9 +15,15 @@ let azure_arm_service_map = require('@datafire/azure_arm_service_map').create({
   redirect_uri: ""
 });
 
-azure_arm_service_map.ClientGroups_Get({}).then(data => {
+azure_arm_service_map.ClientGroups_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "workspaceName": "",
+  "api-version": "",
+  "clientGroupName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

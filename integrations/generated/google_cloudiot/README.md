@@ -15,9 +15,11 @@ let google_cloudiot = require('@datafire/google_cloudiot').create({
   redirect_uri: ""
 });
 
-google_cloudiot.projects.locations.registries.devices.delete({}).then(data => {
+google_cloudiot.projects.locations.registries.devices.delete({
+  "name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -13,9 +13,9 @@ let netlicensing = require('@datafire/netlicensing').create({
   password: ""
 });
 
-netlicensing.listLicenses({}).then(data => {
+netlicensing.listLicenses(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

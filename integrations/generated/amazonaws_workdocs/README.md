@@ -15,7 +15,7 @@ let amazonaws_workdocs = require('@datafire/amazonaws_workdocs').create({
 
 amazonaws_workdocs.DescribeActivities({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

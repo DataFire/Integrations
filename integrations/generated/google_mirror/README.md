@@ -17,7 +17,7 @@ let google_mirror = require('@datafire/google_mirror').create({
 
 google_mirror.timeline.insert({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

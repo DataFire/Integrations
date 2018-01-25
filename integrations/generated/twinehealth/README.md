@@ -17,7 +17,7 @@ let twinehealth = require('@datafire/twinehealth').create({
 
 twinehealth.fetchPatients({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

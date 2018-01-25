@@ -13,9 +13,11 @@ let amazonaws_support = require('@datafire/amazonaws_support').create({
   region: ""
 });
 
-amazonaws_support.AddAttachmentsToSet({}).then(data => {
+amazonaws_support.AddAttachmentsToSet({
+  "attachments": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

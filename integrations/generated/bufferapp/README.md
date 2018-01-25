@@ -15,9 +15,9 @@ let bufferapp = require('@datafire/bufferapp').create({
   redirect_uri: ""
 });
 
-bufferapp.info.configuration.json.get({}).then(data => {
+bufferapp.info.configuration.json.get(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

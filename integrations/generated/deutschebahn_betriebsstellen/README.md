@@ -11,7 +11,7 @@ let deutschebahn_betriebsstellen = require('@datafire/deutschebahn_betriebsstell
 
 deutschebahn_betriebsstellen.betriebsstellen.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

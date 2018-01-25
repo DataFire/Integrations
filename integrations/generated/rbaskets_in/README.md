@@ -13,7 +13,7 @@ let rbaskets_in = require('@datafire/rbaskets_in').create({
 
 rbaskets_in.baskets.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

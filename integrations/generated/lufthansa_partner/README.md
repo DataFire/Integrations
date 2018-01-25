@@ -15,9 +15,12 @@ let lufthansa_partner = require('@datafire/lufthansa_partner').create({
   redirect_uri: ""
 });
 
-lufthansa_partner.baggage.baggagetripandcontact.searchID.get({}).then(data => {
+lufthansa_partner.baggage.baggagetripandcontact.searchID.get({
+  "searchID": "",
+  "Accept": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

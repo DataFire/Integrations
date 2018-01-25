@@ -9,9 +9,12 @@ npm install --save @datafire/azure_arm_trafficmanager
 ```js
 let azure_arm_trafficmanager = require('@datafire/azure_arm_trafficmanager').create();
 
-azure_arm_trafficmanager.Profiles_CheckTrafficManagerRelativeDnsNameAvailability({}).then(data => {
+azure_arm_trafficmanager.Profiles_CheckTrafficManagerRelativeDnsNameAvailability({
+  "parameters": null,
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

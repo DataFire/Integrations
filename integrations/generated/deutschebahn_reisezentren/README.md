@@ -1,6 +1,6 @@
 # @datafire/deutschebahn_reisezentren
 
-Client library for Reisezentren
+Client library for Reisezentren-API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let deutschebahn_reisezentren = require('@datafire/deutschebahn_reisezentren').c
 
 deutschebahn_reisezentren.reisezentren.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

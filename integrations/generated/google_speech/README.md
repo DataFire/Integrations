@@ -17,7 +17,7 @@ let google_speech = require('@datafire/google_speech').create({
 
 google_speech.speech.recognize({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

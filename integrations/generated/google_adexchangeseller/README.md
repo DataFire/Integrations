@@ -17,7 +17,7 @@ let google_adexchangeseller = require('@datafire/google_adexchangeseller').creat
 
 google_adexchangeseller.accounts.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

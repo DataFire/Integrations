@@ -11,9 +11,11 @@ let nrel_transportation_incentives_laws = require('@datafire/nrel_transportation
   api_key: ""
 });
 
-nrel_transportation_incentives_laws.v1.output_format.get({}).then(data => {
+nrel_transportation_incentives_laws.v1.output_format.get({
+  "output_format": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

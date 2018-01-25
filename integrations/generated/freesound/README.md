@@ -11,7 +11,7 @@ let freesound = require('@datafire/freesound').create();
 
 freesound.searchText({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

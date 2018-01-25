@@ -15,9 +15,12 @@ let azure_arm_devtestlabs = require('@datafire/azure_arm_devtestlabs').create({
   redirect_uri: ""
 });
 
-azure_arm_devtestlabs.Labs_ListBySubscription({}).then(data => {
+azure_arm_devtestlabs.Labs_ListBySubscription({
+  "subscriptionId": "",
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

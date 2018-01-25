@@ -15,9 +15,11 @@ let google_adexchangebuyer2 = require('@datafire/google_adexchangebuyer2').creat
   redirect_uri: ""
 });
 
-google_adexchangebuyer2.accounts.clients.list({}).then(data => {
+google_adexchangebuyer2.accounts.clients.list({
+  "accountId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

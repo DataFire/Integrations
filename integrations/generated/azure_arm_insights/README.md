@@ -9,9 +9,12 @@ npm install --save @datafire/azure_arm_insights
 ```js
 let azure_arm_insights = require('@datafire/azure_arm_insights').create();
 
-azure_arm_insights.LogProfiles_List({}).then(data => {
+azure_arm_insights.LogProfiles_List({
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

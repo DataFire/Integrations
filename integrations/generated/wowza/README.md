@@ -14,7 +14,7 @@ let wowza = require('@datafire/wowza').create({
 
 wowza.usageTimeTranscodersIndex({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

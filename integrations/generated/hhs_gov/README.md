@@ -11,7 +11,7 @@ let hhs_gov = require('@datafire/hhs_gov').create();
 
 hhs_gov.getTags({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -13,9 +13,11 @@ let amazonaws_cloudformation = require('@datafire/amazonaws_cloudformation').cre
   region: ""
 });
 
-amazonaws_cloudformation.CancelUpdateStack({}).then(data => {
+amazonaws_cloudformation.CancelUpdateStack({
+  "StackName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

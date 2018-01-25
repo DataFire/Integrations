@@ -17,7 +17,7 @@ let google_oauth2 = require('@datafire/google_oauth2').create({
 
 google_oauth2.userinfo.v2.me.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

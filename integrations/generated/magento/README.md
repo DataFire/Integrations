@@ -11,7 +11,7 @@ let magento = require('@datafire/magento').create();
 
 magento.salesTransactionRepositoryV1GetListGet({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -9,9 +9,15 @@ npm install --save @datafire/apitore_cosinesimilarity
 ```js
 let apitore_cosinesimilarity = require('@datafire/apitore_cosinesimilarity').create();
 
-apitore_cosinesimilarity.vecVecUsingPOST({}).then(data => {
+apitore_cosinesimilarity.vecVecUsingPOST({
+  "access_token": "",
+  "req": {
+    "vec1": [],
+    "vec2": []
+  }
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

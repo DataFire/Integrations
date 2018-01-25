@@ -15,9 +15,11 @@ let azure_arm_billing = require('@datafire/azure_arm_billing').create({
   redirect_uri: ""
 });
 
-azure_arm_billing.Operations_List({}).then(data => {
+azure_arm_billing.Operations_List({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

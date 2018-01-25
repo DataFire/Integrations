@@ -15,9 +15,11 @@ let heroku = require('@datafire/heroku').create({
   redirect_uri: ""
 });
 
-heroku.addons.get({}).then(data => {
+heroku.addons.get({
+  "Accept": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

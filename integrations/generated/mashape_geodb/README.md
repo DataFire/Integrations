@@ -13,7 +13,7 @@ let mashape_geodb = require('@datafire/mashape_geodb').create({
 
 mashape_geodb.getLocalesUsingGET({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

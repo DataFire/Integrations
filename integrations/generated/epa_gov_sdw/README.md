@@ -11,7 +11,7 @@ let epa_gov_sdw = require('@datafire/epa_gov_sdw').create();
 
 epa_gov_sdw.sdw_rest_services.metadata.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

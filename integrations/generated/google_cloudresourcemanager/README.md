@@ -17,7 +17,7 @@ let google_cloudresourcemanager = require('@datafire/google_cloudresourcemanager
 
 google_cloudresourcemanager.projects.create({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

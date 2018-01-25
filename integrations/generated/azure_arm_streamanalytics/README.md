@@ -15,9 +15,14 @@ let azure_arm_streamanalytics = require('@datafire/azure_arm_streamanalytics').c
   redirect_uri: ""
 });
 
-azure_arm_streamanalytics.Functions_ListByStreamingJob({}).then(data => {
+azure_arm_streamanalytics.Functions_ListByStreamingJob({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

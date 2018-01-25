@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_wordnethypernymapis
 ```js
 let apitore_wordnethypernymapis = require('@datafire/apitore_wordnethypernymapis').create();
 
-apitore_wordnethypernymapis.simpleHypernymUsingGET({}).then(data => {
+apitore_wordnethypernymapis.simpleHypernymUsingGET({
+  "access_token": "",
+  "word": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

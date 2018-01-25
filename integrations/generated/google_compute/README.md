@@ -15,9 +15,11 @@ let google_compute = require('@datafire/google_compute').create({
   redirect_uri: ""
 });
 
-google_compute.projects.get({}).then(data => {
+google_compute.projects.get({
+  "project": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

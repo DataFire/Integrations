@@ -17,7 +17,7 @@ let google_monitoring = require('@datafire/google_monitoring').create({
 
 google_monitoring.uptimeCheckIps.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

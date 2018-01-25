@@ -9,9 +9,11 @@ npm install --save @datafire/groupon
 ```js
 let groupon = require('@datafire/groupon').create();
 
-groupon.status.format.get({}).then(data => {
+groupon.status.format.get({
+  "format": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -14,7 +14,7 @@ let geodesystems = require('@datafire/geodesystems').create({
 
 geodesystems.search_wikipage({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

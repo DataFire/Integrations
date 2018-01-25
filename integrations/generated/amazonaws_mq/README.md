@@ -15,7 +15,7 @@ let amazonaws_mq = require('@datafire/amazonaws_mq').create({
 
 amazonaws_mq.ListBrokers({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

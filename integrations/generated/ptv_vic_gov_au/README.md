@@ -11,7 +11,7 @@ let ptv_vic_gov_au = require('@datafire/ptv_vic_gov_au').create();
 
 ptv_vic_gov_au.Routes_OneOrMoreRoutes({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

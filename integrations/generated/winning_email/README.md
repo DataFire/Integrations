@@ -13,7 +13,7 @@ let winning_email = require('@datafire/winning_email').create({
 
 winning_email.emailBooster({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

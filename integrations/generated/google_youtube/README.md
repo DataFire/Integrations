@@ -17,7 +17,7 @@ let google_youtube = require('@datafire/google_youtube').create({
 
 google_youtube.videos.reportAbuse({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

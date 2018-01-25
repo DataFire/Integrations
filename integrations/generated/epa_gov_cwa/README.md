@@ -11,7 +11,7 @@ let epa_gov_cwa = require('@datafire/epa_gov_cwa').create();
 
 epa_gov_cwa.rest_lookups.wbd_code_lu.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

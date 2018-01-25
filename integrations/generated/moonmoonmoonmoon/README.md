@@ -11,7 +11,7 @@ let moonmoonmoonmoon = require('@datafire/moonmoonmoonmoon').create();
 
 moonmoonmoonmoon.api.marks.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

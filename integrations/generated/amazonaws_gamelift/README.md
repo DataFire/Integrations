@@ -13,9 +13,13 @@ let amazonaws_gamelift = require('@datafire/amazonaws_gamelift').create({
   region: ""
 });
 
-amazonaws_gamelift.AcceptMatch({}).then(data => {
+amazonaws_gamelift.AcceptMatch({
+  "TicketId": "",
+  "PlayerIds": [],
+  "AcceptanceType": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

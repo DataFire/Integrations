@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_synonymapis
 ```js
 let apitore_synonymapis = require('@datafire/apitore_synonymapis').create();
 
-apitore_synonymapis.distanceUsingGET({}).then(data => {
+apitore_synonymapis.distanceUsingGET({
+  "access_token": "",
+  "word": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

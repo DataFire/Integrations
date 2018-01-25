@@ -17,7 +17,7 @@ let google_admin = require('@datafire/google_admin').create({
 
 google_admin.channels.stop({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

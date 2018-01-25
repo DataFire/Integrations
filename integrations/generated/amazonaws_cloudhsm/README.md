@@ -13,9 +13,12 @@ let amazonaws_cloudhsm = require('@datafire/amazonaws_cloudhsm').create({
   region: ""
 });
 
-amazonaws_cloudhsm.AddTagsToResource({}).then(data => {
+amazonaws_cloudhsm.AddTagsToResource({
+  "ResourceArn": "",
+  "TagList": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

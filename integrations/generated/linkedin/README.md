@@ -17,7 +17,7 @@ let linkedin = require('@datafire/linkedin').create({
 
 linkedin.companies.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -13,9 +13,12 @@ let amazonaws_sdb = require('@datafire/amazonaws_sdb').create({
   region: ""
 });
 
-amazonaws_sdb.BatchDeleteAttributes({}).then(data => {
+amazonaws_sdb.BatchDeleteAttributes({
+  "DomainName": "",
+  "Items": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

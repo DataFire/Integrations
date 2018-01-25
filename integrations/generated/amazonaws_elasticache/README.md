@@ -13,9 +13,12 @@ let amazonaws_elasticache = require('@datafire/amazonaws_elasticache').create({
   region: ""
 });
 
-amazonaws_elasticache.AddTagsToResource({}).then(data => {
+amazonaws_elasticache.AddTagsToResource({
+  "ResourceName": "",
+  "Tags": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

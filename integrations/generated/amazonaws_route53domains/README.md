@@ -13,9 +13,11 @@ let amazonaws_route53domains = require('@datafire/amazonaws_route53domains').cre
   region: ""
 });
 
-amazonaws_route53domains.CheckDomainAvailability({}).then(data => {
+amazonaws_route53domains.CheckDomainAvailability({
+  "DomainName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

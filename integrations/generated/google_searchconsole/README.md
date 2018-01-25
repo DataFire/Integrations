@@ -11,7 +11,7 @@ let google_searchconsole = require('@datafire/google_searchconsole').create();
 
 google_searchconsole.urlTestingTools.mobileFriendlyTest.run({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

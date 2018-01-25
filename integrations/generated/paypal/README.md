@@ -9,9 +9,9 @@ npm install --save @datafire/paypal
 ```js
 let paypal = require('@datafire/paypal').create();
 
-paypal.Permissions.GetAdvancedPersonalData.post({}).then(data => {
+paypal.Permissions.GetAdvancedPersonalData.post(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

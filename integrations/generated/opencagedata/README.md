@@ -9,9 +9,14 @@ npm install --save @datafire/opencagedata
 ```js
 let opencagedata = require('@datafire/opencagedata').create();
 
-opencagedata.vversion.format.get({}).then(data => {
+opencagedata.vversion.format.get({
+  "version": 0,
+  "format": "",
+  "q": "",
+  "key": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

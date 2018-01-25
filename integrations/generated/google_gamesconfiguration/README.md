@@ -15,9 +15,11 @@ let google_gamesconfiguration = require('@datafire/google_gamesconfiguration').c
   redirect_uri: ""
 });
 
-google_gamesconfiguration.achievementConfigurations.delete({}).then(data => {
+google_gamesconfiguration.achievementConfigurations.delete({
+  "achievementId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

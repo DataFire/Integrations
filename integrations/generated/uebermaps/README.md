@@ -11,7 +11,7 @@ let uebermaps = require('@datafire/uebermaps').create();
 
 uebermaps.users.search.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

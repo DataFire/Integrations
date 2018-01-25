@@ -11,7 +11,7 @@ let clever_cloud = require('@datafire/clever_cloud').create();
 
 clever_cloud.getVendorApps({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

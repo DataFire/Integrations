@@ -15,9 +15,13 @@ let azure_arm_monitor = require('@datafire/azure_arm_monitor').create({
   redirect_uri: ""
 });
 
-azure_arm_monitor.AutoscaleSettings_ListByResourceGroup({}).then(data => {
+azure_arm_monitor.AutoscaleSettings_ListByResourceGroup({
+  "resourceGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

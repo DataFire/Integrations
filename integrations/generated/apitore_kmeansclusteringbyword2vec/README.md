@@ -9,9 +9,14 @@ npm install --save @datafire/apitore_kmeansclusteringbyword2vec
 ```js
 let apitore_kmeansclusteringbyword2vec = require('@datafire/apitore_kmeansclusteringbyword2vec').create();
 
-apitore_kmeansclusteringbyword2vec.clusterUsingPOST({}).then(data => {
+apitore_kmeansclusteringbyword2vec.clusterUsingPOST({
+  "access_token": "",
+  "req": {
+    "words": []
+  }
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

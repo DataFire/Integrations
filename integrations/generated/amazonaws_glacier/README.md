@@ -13,9 +13,11 @@ let amazonaws_glacier = require('@datafire/amazonaws_glacier').create({
   region: ""
 });
 
-amazonaws_glacier.SetDataRetrievalPolicy({}).then(data => {
+amazonaws_glacier.SetDataRetrievalPolicy({
+  "accountId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

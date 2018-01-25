@@ -9,9 +9,14 @@ npm install --save @datafire/o2_cz_sociodemo
 ```js
 let o2_cz_sociodemo = require('@datafire/o2_cz_sociodemo').create();
 
-o2_cz_sociodemo.age({}).then(data => {
+o2_cz_sociodemo.age({
+  "location": "",
+  "ageGroup": "",
+  "occurenceType": "",
+  "hour": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

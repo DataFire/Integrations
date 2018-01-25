@@ -15,9 +15,11 @@ let azure_arm_logic = require('@datafire/azure_arm_logic').create({
   redirect_uri: ""
 });
 
-azure_arm_logic.ListOperations({}).then(data => {
+azure_arm_logic.ListOperations({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

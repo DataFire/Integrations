@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_url2htmlapis
 ```js
 let apitore_url2htmlapis = require('@datafire/apitore_url2htmlapis').create();
 
-apitore_url2htmlapis.url2htmlUsingGET({}).then(data => {
+apitore_url2htmlapis.url2htmlUsingGET({
+  "access_token": "",
+  "url": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

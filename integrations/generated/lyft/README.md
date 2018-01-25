@@ -15,9 +15,12 @@ let lyft = require('@datafire/lyft').create({
   redirect_uri: ""
 });
 
-lyft.GetCost({}).then(data => {
+lyft.GetCost({
+  "start_lat": 0,
+  "start_lng": 0
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -14,7 +14,7 @@ let trello = require('@datafire/trello').create({
 
 trello.getTokensMemberByToken({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

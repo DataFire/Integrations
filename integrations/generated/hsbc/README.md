@@ -9,9 +9,9 @@ npm install --save @datafire/hsbc
 ```js
 let hsbc = require('@datafire/hsbc').create();
 
-hsbc.open_banking.v1.2.atms.get({}).then(data => {
+hsbc.open_banking.v1.2.atms.get(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

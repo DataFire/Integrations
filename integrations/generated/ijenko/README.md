@@ -14,7 +14,7 @@ let ijenko = require('@datafire/ijenko').create({
 
 ijenko.Me.places({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

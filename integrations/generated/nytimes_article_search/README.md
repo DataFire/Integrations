@@ -13,7 +13,7 @@ let nytimes_article_search = require('@datafire/nytimes_article_search').create(
 
 nytimes_article_search.articlesearch.json.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

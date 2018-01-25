@@ -11,7 +11,7 @@ let epa_gov_air = require('@datafire/epa_gov_air').create();
 
 epa_gov_air.air_rest_services.metadata.post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

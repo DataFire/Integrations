@@ -9,9 +9,11 @@ npm install --save @datafire/apitore_travelfeedsapis
 ```js
 let apitore_travelfeedsapis = require('@datafire/apitore_travelfeedsapis').create();
 
-apitore_travelfeedsapis.feedUsingGET_8({}).then(data => {
+apitore_travelfeedsapis.feedUsingGET_8({
+  "access_token": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

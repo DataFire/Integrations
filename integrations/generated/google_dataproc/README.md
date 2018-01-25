@@ -15,9 +15,12 @@ let google_dataproc = require('@datafire/google_dataproc').create({
   redirect_uri: ""
 });
 
-google_dataproc.projects.regions.clusters.list({}).then(data => {
+google_dataproc.projects.regions.clusters.list({
+  "projectId": "",
+  "region": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

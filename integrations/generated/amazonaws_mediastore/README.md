@@ -13,9 +13,11 @@ let amazonaws_mediastore = require('@datafire/amazonaws_mediastore').create({
   region: ""
 });
 
-amazonaws_mediastore.CreateContainer({}).then(data => {
+amazonaws_mediastore.CreateContainer({
+  "ContainerName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -11,9 +11,15 @@ let whapi_sessions = require('@datafire/whapi_sessions').create({
   apiKey: ""
 });
 
-whapi_sessions.logIn({}).then(data => {
+whapi_sessions.logIn({
+  "apiSecret": "",
+  "login": {
+    "password": "",
+    "username": ""
+  }
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

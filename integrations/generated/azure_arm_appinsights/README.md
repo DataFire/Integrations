@@ -15,9 +15,11 @@ let azure_arm_appinsights = require('@datafire/azure_arm_appinsights').create({
   redirect_uri: ""
 });
 
-azure_arm_appinsights.Operations_List({}).then(data => {
+azure_arm_appinsights.Operations_List({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

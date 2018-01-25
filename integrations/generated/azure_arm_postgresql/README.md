@@ -15,9 +15,11 @@ let azure_arm_postgresql = require('@datafire/azure_arm_postgresql').create({
   redirect_uri: ""
 });
 
-azure_arm_postgresql.Operations_List({}).then(data => {
+azure_arm_postgresql.Operations_List({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,7 +15,7 @@ let amazonaws_resource_groups = require('@datafire/amazonaws_resource_groups').c
 
 amazonaws_resource_groups.ListGroups({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

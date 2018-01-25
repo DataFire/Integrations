@@ -13,9 +13,12 @@ let amazonaws_cognito_identity = require('@datafire/amazonaws_cognito_identity')
   region: ""
 });
 
-amazonaws_cognito_identity.CreateIdentityPool({}).then(data => {
+amazonaws_cognito_identity.CreateIdentityPool({
+  "IdentityPoolName": "",
+  "AllowUnauthenticatedIdentities": true
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

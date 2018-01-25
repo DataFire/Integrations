@@ -9,9 +9,11 @@ npm install --save @datafire/yellowpages
 ```js
 let yellowpages = require('@datafire/yellowpages').create();
 
-yellowpages.listingmap.get({}).then(data => {
+yellowpages.listingmap.get({
+  "listingid": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

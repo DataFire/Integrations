@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_languagedetectionapis
 ```js
 let apitore_languagedetectionapis = require('@datafire/apitore_languagedetectionapis').create();
 
-apitore_languagedetectionapis.getUsingGET({}).then(data => {
+apitore_languagedetectionapis.getUsingGET({
+  "access_token": "",
+  "text": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

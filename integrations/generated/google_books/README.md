@@ -17,7 +17,7 @@ let google_books = require('@datafire/google_books').create({
 
 google_books.volumes.useruploaded.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,9 +15,11 @@ let google_firestore = require('@datafire/google_firestore').create({
   redirect_uri: ""
 });
 
-google_firestore.projects.databases.documents.batchGet({}).then(data => {
+google_firestore.projects.databases.documents.batchGet({
+  "database": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

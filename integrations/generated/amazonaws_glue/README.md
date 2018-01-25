@@ -13,9 +13,13 @@ let amazonaws_glue = require('@datafire/amazonaws_glue').create({
   region: ""
 });
 
-amazonaws_glue.BatchCreatePartition({}).then(data => {
+amazonaws_glue.BatchCreatePartition({
+  "DatabaseName": "",
+  "TableName": "",
+  "PartitionInputList": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -9,9 +9,12 @@ npm install --save @datafire/jumpseller
 ```js
 let jumpseller = require('@datafire/jumpseller').create();
 
-jumpseller.apps.json.get({}).then(data => {
+jumpseller.apps.json.get({
+  "login": "",
+  "authtoken": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

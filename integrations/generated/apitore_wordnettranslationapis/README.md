@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_wordnettranslationapis
 ```js
 let apitore_wordnettranslationapis = require('@datafire/apitore_wordnettranslationapis').create();
 
-apitore_wordnettranslationapis.simpleTranslationUsingGET({}).then(data => {
+apitore_wordnettranslationapis.simpleTranslationUsingGET({
+  "access_token": "",
+  "word": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

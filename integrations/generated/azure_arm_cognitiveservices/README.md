@@ -9,9 +9,12 @@ npm install --save @datafire/azure_arm_cognitiveservices
 ```js
 let azure_arm_cognitiveservices = require('@datafire/azure_arm_cognitiveservices').create();
 
-azure_arm_cognitiveservices.CognitiveServicesAccounts_List({}).then(data => {
+azure_arm_cognitiveservices.CognitiveServicesAccounts_List({
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -13,9 +13,12 @@ let amazonaws_cloudhsmv2 = require('@datafire/amazonaws_cloudhsmv2').create({
   region: ""
 });
 
-amazonaws_cloudhsmv2.CreateCluster({}).then(data => {
+amazonaws_cloudhsmv2.CreateCluster({
+  "SubnetIds": [],
+  "HsmType": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

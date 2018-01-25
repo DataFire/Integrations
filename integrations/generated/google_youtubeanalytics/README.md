@@ -17,7 +17,7 @@ let google_youtubeanalytics = require('@datafire/google_youtubeanalytics').creat
 
 google_youtubeanalytics.groups.update({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

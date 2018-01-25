@@ -17,7 +17,7 @@ let netatmo = require('@datafire/netatmo').create({
 
 netatmo.getthermostatsdata({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

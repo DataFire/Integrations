@@ -9,9 +9,12 @@ npm install --save @datafire/azure_arm_compute_disk
 ```js
 let azure_arm_compute_disk = require('@datafire/azure_arm_compute_disk').create();
 
-azure_arm_compute_disk.Disks_List({}).then(data => {
+azure_arm_compute_disk.Disks_List({
+  "subscriptionId": "",
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

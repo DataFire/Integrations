@@ -15,7 +15,7 @@ let amazonaws_polly = require('@datafire/amazonaws_polly').create({
 
 amazonaws_polly.ListLexicons({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -17,7 +17,7 @@ let ebay_sell_fulfillment = require('@datafire/ebay_sell_fulfillment').create({
 
 ebay_sell_fulfillment.getOrders({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

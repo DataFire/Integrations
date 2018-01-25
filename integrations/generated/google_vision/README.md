@@ -17,7 +17,7 @@ let google_vision = require('@datafire/google_vision').create({
 
 google_vision.images.annotate({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

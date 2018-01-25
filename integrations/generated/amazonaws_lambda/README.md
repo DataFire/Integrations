@@ -13,9 +13,12 @@ let amazonaws_lambda = require('@datafire/amazonaws_lambda').create({
   region: ""
 });
 
-amazonaws_lambda.InvokeAsync({}).then(data => {
+amazonaws_lambda.InvokeAsync({
+  "FunctionName": "",
+  "InvokeArgs": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

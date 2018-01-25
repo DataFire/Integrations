@@ -13,9 +13,14 @@ let amazonaws_autoscaling = require('@datafire/amazonaws_autoscaling').create({
   region: ""
 });
 
-amazonaws_autoscaling.DeleteScalingPolicy({}).then(data => {
+amazonaws_autoscaling.DeleteScalingPolicy({
+  "PolicyName": "",
+  "ServiceNamespace": "",
+  "ResourceId": "",
+  "ScalableDimension": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

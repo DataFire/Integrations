@@ -13,9 +13,11 @@ let amazonaws_cloudtrail = require('@datafire/amazonaws_cloudtrail').create({
   region: ""
 });
 
-amazonaws_cloudtrail.AddTags({}).then(data => {
+amazonaws_cloudtrail.AddTags({
+  "ResourceId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,9 +15,12 @@ let windows_arm_graphrbac = require('@datafire/windows_arm_graphrbac').create({
   redirect_uri: ""
 });
 
-windows_arm_graphrbac.Applications_List({}).then(data => {
+windows_arm_graphrbac.Applications_List({
+  "api-version": "",
+  "tenantID": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

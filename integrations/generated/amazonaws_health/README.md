@@ -13,9 +13,13 @@ let amazonaws_health = require('@datafire/amazonaws_health').create({
   region: ""
 });
 
-amazonaws_health.DescribeAffectedEntities({}).then(data => {
+amazonaws_health.DescribeAffectedEntities({
+  "filter": {
+    "eventArns": []
+  }
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

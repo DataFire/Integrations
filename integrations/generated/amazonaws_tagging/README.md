@@ -15,7 +15,7 @@ let amazonaws_tagging = require('@datafire/amazonaws_tagging').create({
 
 amazonaws_tagging.GetResources({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -9,9 +9,11 @@ npm install --save @datafire/apitore_2chmatomefeedsapis
 ```js
 let apitore_2chmatomefeedsapis = require('@datafire/apitore_2chmatomefeedsapis').create();
 
-apitore_2chmatomefeedsapis.feedUsingGET({}).then(data => {
+apitore_2chmatomefeedsapis.feedUsingGET({
+  "access_token": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -9,9 +9,12 @@ npm install --save @datafire/azure_insights
 ```js
 let azure_insights = require('@datafire/azure_insights').create();
 
-azure_insights.Metrics_List({}).then(data => {
+azure_insights.Metrics_List({
+  "resourceUri": "",
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

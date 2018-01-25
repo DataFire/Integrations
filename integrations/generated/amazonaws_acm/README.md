@@ -13,9 +13,12 @@ let amazonaws_acm = require('@datafire/amazonaws_acm').create({
   region: ""
 });
 
-amazonaws_acm.AddTagsToCertificate({}).then(data => {
+amazonaws_acm.AddTagsToCertificate({
+  "CertificateArn": "",
+  "Tags": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

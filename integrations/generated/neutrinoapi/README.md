@@ -12,9 +12,11 @@ let neutrinoapi = require('@datafire/neutrinoapi').create({
   "user-id": ""
 });
 
-neutrinoapi.bad_word_filter.post({}).then(data => {
+neutrinoapi.bad_word_filter.post({
+  "content": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

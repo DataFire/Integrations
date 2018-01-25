@@ -11,9 +11,12 @@ let whapi_locations = require('@datafire/whapi_locations').create({
   apiKey: ""
 });
 
-whapi_locations.addressLookup({}).then(data => {
+whapi_locations.addressLookup({
+  "houseNum": "",
+  "postCode": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

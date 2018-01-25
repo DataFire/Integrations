@@ -17,7 +17,7 @@ let google_proximitybeacon = require('@datafire/google_proximitybeacon').create(
 
 google_proximitybeacon.namespaces.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,9 +15,11 @@ let google_tpu = require('@datafire/google_tpu').create({
   redirect_uri: ""
 });
 
-google_tpu.projects.locations.nodes.delete({}).then(data => {
+google_tpu.projects.locations.nodes.delete({
+  "name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_tweetsummarizationapis
 ```js
 let apitore_tweetsummarizationapis = require('@datafire/apitore_tweetsummarizationapis').create();
 
-apitore_tweetsummarizationapis.getUsingGET({}).then(data => {
+apitore_tweetsummarizationapis.getUsingGET({
+  "access_token": "",
+  "q": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -17,7 +17,7 @@ let google_androidmanagement = require('@datafire/google_androidmanagement').cre
 
 google_androidmanagement.signupUrls.create({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

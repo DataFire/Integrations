@@ -15,9 +15,11 @@ let google_appengine = require('@datafire/google_appengine').create({
   redirect_uri: ""
 });
 
-google_appengine.apps.authorizedCertificates.list({}).then(data => {
+google_appengine.apps.authorizedCertificates.list({
+  "appsId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

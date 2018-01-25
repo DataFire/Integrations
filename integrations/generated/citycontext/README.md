@@ -11,9 +11,12 @@ let citycontext = require('@datafire/citycontext').create({
   user_key: ""
 });
 
-citycontext.byPoint({}).then(data => {
+citycontext.byPoint({
+  "lat": 0,
+  "lon": 0
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

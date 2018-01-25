@@ -9,9 +9,9 @@ npm install --save @datafire/npr_rss
 ```js
 let npr_rss = require('@datafire/npr_rss').create();
 
-npr_rss.news({}).then(data => {
+npr_rss.news(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

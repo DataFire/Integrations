@@ -9,9 +9,11 @@ npm install --save @datafire/apitore_designfeedsapis
 ```js
 let apitore_designfeedsapis = require('@datafire/apitore_designfeedsapis').create();
 
-apitore_designfeedsapis.feedUsingGET_4({}).then(data => {
+apitore_designfeedsapis.feedUsingGET_4({
+  "access_token": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

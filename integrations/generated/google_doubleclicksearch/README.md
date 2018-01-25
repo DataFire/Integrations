@@ -17,7 +17,7 @@ let google_doubleclicksearch = require('@datafire/google_doubleclicksearch').cre
 
 google_doubleclicksearch.reports.generate({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

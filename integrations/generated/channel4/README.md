@@ -13,7 +13,7 @@ let channel4 = require('@datafire/channel4').create({
 
 channel4.Coming_Soon_feed({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

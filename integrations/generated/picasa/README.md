@@ -9,9 +9,12 @@ npm install --save @datafire/picasa
 ```js
 let picasa = require('@datafire/picasa').create();
 
-picasa.feed.api.user.userID.get({}).then(data => {
+picasa.feed.api.user.userID.get({
+  "GData-Version": "",
+  "userID": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

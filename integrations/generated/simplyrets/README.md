@@ -14,7 +14,7 @@ let simplyrets = require('@datafire/simplyrets').create({
 
 simplyrets.properties.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

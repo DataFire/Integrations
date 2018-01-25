@@ -15,9 +15,12 @@ let azure_monitor = require('@datafire/azure_monitor').create({
   redirect_uri: ""
 });
 
-azure_monitor.UsageMetrics_List({}).then(data => {
+azure_monitor.UsageMetrics_List({
+  "resourceUri": "",
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

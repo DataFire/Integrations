@@ -15,7 +15,7 @@ let amazonaws_elasticbeanstalk = require('@datafire/amazonaws_elasticbeanstalk')
 
 amazonaws_elasticbeanstalk.AbortEnvironmentUpdate({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

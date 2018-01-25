@@ -13,9 +13,11 @@ let amazonaws_data_jobs_iot = require('@datafire/amazonaws_data_jobs_iot').creat
   region: ""
 });
 
-amazonaws_data_jobs_iot.GetPendingJobExecutions({}).then(data => {
+amazonaws_data_jobs_iot.GetPendingJobExecutions({
+  "thingName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

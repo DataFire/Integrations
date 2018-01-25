@@ -9,9 +9,11 @@ npm install --save @datafire/apitore_certificatefeedsapis
 ```js
 let apitore_certificatefeedsapis = require('@datafire/apitore_certificatefeedsapis').create();
 
-apitore_certificatefeedsapis.feedUsingGET_3({}).then(data => {
+apitore_certificatefeedsapis.feedUsingGET_3({
+  "access_token": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

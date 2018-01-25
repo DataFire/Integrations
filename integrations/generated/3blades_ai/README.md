@@ -13,7 +13,7 @@ let blades_ai = require('@datafire/3blades_ai').create({
 
 blades_ai.users_create({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,9 +15,11 @@ let google_serviceconsumermanagement = require('@datafire/google_serviceconsumer
   redirect_uri: ""
 });
 
-google_serviceconsumermanagement.operations.delete({}).then(data => {
+google_serviceconsumermanagement.operations.delete({
+  "name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

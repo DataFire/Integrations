@@ -13,9 +13,11 @@ let amazonaws_streams_dynamodb = require('@datafire/amazonaws_streams_dynamodb')
   region: ""
 });
 
-amazonaws_streams_dynamodb.DescribeStream({}).then(data => {
+amazonaws_streams_dynamodb.DescribeStream({
+  "StreamArn": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

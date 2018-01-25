@@ -13,9 +13,13 @@ let amazonaws_ssm = require('@datafire/amazonaws_ssm').create({
   region: ""
 });
 
-amazonaws_ssm.AddTagsToResource({}).then(data => {
+amazonaws_ssm.AddTagsToResource({
+  "ResourceType": "",
+  "ResourceId": "",
+  "Tags": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

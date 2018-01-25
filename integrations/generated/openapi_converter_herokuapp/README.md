@@ -11,7 +11,7 @@ let openapi_converter_herokuapp = require('@datafire/openapi_converter_herokuapp
 
 openapi_converter_herokuapp.validate({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

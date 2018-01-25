@@ -11,7 +11,7 @@ let watchful_li = require('@datafire/watchful_li').create();
 
 watchful_li.getVersions({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

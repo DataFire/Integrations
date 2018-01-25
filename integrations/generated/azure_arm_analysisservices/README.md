@@ -15,9 +15,12 @@ let azure_arm_analysisservices = require('@datafire/azure_arm_analysisservices')
   redirect_uri: ""
 });
 
-azure_arm_analysisservices.Servers_List({}).then(data => {
+azure_arm_analysisservices.Servers_List({
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

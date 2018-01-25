@@ -9,9 +9,11 @@ npm install --save @datafire/zappiti
 ```js
 let zappiti = require('@datafire/zappiti').create();
 
-zappiti.CheckZappitiService.post({}).then(data => {
+zappiti.CheckZappitiService.post({
+  "body": {}
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

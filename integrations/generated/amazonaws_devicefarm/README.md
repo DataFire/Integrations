@@ -13,9 +13,13 @@ let amazonaws_devicefarm = require('@datafire/amazonaws_devicefarm').create({
   region: ""
 });
 
-amazonaws_devicefarm.CreateDevicePool({}).then(data => {
+amazonaws_devicefarm.CreateDevicePool({
+  "projectArn": "",
+  "name": "",
+  "rules": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

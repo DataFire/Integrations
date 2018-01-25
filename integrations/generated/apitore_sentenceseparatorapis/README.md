@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_sentenceseparatorapis
 ```js
 let apitore_sentenceseparatorapis = require('@datafire/apitore_sentenceseparatorapis').create();
 
-apitore_sentenceseparatorapis.heuristicsUsingGET({}).then(data => {
+apitore_sentenceseparatorapis.heuristicsUsingGET({
+  "access_token": "",
+  "text": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

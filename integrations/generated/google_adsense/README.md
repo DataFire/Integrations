@@ -17,7 +17,7 @@ let google_adsense = require('@datafire/google_adsense').create({
 
 google_adsense.savedadstyles.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

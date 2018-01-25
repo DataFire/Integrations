@@ -9,9 +9,11 @@ npm install --save @datafire/betfair
 ```js
 let betfair = require('@datafire/betfair').create();
 
-betfair.request.post({}).then(data => {
+betfair.request.post({
+  "RequestMessage": null
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -13,9 +13,13 @@ let amazonaws_machinelearning = require('@datafire/amazonaws_machinelearning').c
   region: ""
 });
 
-amazonaws_machinelearning.AddTags({}).then(data => {
+amazonaws_machinelearning.AddTags({
+  "Tags": [],
+  "ResourceId": "",
+  "ResourceType": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

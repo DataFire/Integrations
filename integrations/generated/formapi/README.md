@@ -14,7 +14,7 @@ let formapi = require('@datafire/formapi').create({
 
 formapi.combineSubmissions({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

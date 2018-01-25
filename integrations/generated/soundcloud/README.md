@@ -15,9 +15,13 @@ let soundcloud = require('@datafire/soundcloud').create({
   redirect_uri: ""
 });
 
-soundcloud.tracks.json.get({}).then(data => {
+soundcloud.tracks.json.get({
+  "consumer_key": null,
+  "title": "",
+  "asset_data": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

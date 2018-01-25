@@ -17,7 +17,7 @@ let reddit = require('@datafire/reddit').create({
 
 reddit.about.log.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

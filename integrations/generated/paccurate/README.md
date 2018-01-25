@@ -11,7 +11,7 @@ let paccurate = require('@datafire/paccurate').create();
 
 paccurate..post({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

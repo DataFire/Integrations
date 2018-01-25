@@ -15,9 +15,15 @@ let azure_arm_sql = require('@datafire/azure_arm_sql').create({
   redirect_uri: ""
 });
 
-azure_arm_sql.Databases_ListAdvisors({}).then(data => {
+azure_arm_sql.Databases_ListAdvisors({
+  "resourceGroupName": "",
+  "serverName": "",
+  "databaseName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

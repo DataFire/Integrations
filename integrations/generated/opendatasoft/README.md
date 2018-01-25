@@ -13,9 +13,9 @@ let opendatasoft = require('@datafire/opendatasoft').create({
   password: ""
 });
 
-opendatasoft.getRoot({}).then(data => {
+opendatasoft.getRoot(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

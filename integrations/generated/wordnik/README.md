@@ -13,7 +13,7 @@ let wordnik = require('@datafire/wordnik').create({
 
 wordnik.getWordOfTheDay({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

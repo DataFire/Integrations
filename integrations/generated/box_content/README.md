@@ -17,7 +17,7 @@ let box_content = require('@datafire/box_content').create({
 
 box_content.getWebhooks({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

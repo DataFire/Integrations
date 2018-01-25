@@ -15,7 +15,7 @@ let amazonaws_medialive = require('@datafire/amazonaws_medialive').create({
 
 amazonaws_medialive.ListChannels({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

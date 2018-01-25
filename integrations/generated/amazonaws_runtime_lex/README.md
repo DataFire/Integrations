@@ -13,9 +13,14 @@ let amazonaws_runtime_lex = require('@datafire/amazonaws_runtime_lex').create({
   region: ""
 });
 
-amazonaws_runtime_lex.PostContent({}).then(data => {
+amazonaws_runtime_lex.PostContent({
+  "botName": "",
+  "botAlias": "",
+  "userId": "",
+  "inputStream": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

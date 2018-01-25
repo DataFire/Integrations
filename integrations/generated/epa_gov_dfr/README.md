@@ -9,9 +9,11 @@ npm install --save @datafire/epa_gov_dfr
 ```js
 let epa_gov_dfr = require('@datafire/epa_gov_dfr').create();
 
-epa_gov_dfr.dfr_rest_services.get_air_compliance.get({}).then(data => {
+epa_gov_dfr.dfr_rest_services.get_air_compliance.get({
+  "p_id": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -11,7 +11,7 @@ let deutschebahn_flinkster = require('@datafire/deutschebahn_flinkster').create(
 
 deutschebahn_flinkster.listBookingProposals({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

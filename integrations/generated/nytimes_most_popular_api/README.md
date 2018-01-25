@@ -11,9 +11,12 @@ let nytimes_most_popular_api = require('@datafire/nytimes_most_popular_api').cre
   "api-key": ""
 });
 
-nytimes_most_popular_api.mostemailed.section.time_period.json.get({}).then(data => {
+nytimes_most_popular_api.mostemailed.section.time_period.json.get({
+  "section": "",
+  "time-period": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

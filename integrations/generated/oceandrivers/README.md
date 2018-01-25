@@ -9,9 +9,11 @@ npm install --save @datafire/oceandrivers
 ```js
 let oceandrivers = require('@datafire/oceandrivers').create();
 
-oceandrivers.compareStation({}).then(data => {
+oceandrivers.compareStation({
+  "stationName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

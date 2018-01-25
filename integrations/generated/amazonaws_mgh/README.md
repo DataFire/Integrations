@@ -13,9 +13,15 @@ let amazonaws_mgh = require('@datafire/amazonaws_mgh').create({
   region: ""
 });
 
-amazonaws_mgh.AssociateCreatedArtifact({}).then(data => {
+amazonaws_mgh.AssociateCreatedArtifact({
+  "ProgressUpdateStream": "",
+  "MigrationTaskName": "",
+  "CreatedArtifact": {
+    "Name": ""
+  }
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,7 +15,7 @@ let amazonaws_serverlessrepo = require('@datafire/amazonaws_serverlessrepo').cre
 
 amazonaws_serverlessrepo.ListApplications({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

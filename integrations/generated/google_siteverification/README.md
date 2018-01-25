@@ -17,7 +17,7 @@ let google_siteverification = require('@datafire/google_siteverification').creat
 
 google_siteverification.webResource.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -9,9 +9,12 @@ npm install --save @datafire/azure_arm_iothub
 ```js
 let azure_arm_iothub = require('@datafire/azure_arm_iothub').create();
 
-azure_arm_iothub.IotHubResource_ListBySubscription({}).then(data => {
+azure_arm_iothub.IotHubResource_ListBySubscription({
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

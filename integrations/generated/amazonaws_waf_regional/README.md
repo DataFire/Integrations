@@ -13,9 +13,12 @@ let amazonaws_waf_regional = require('@datafire/amazonaws_waf_regional').create(
   region: ""
 });
 
-amazonaws_waf_regional.AssociateWebACL({}).then(data => {
+amazonaws_waf_regional.AssociateWebACL({
+  "WebACLId": "",
+  "ResourceArn": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

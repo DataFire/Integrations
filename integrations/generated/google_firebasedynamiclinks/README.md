@@ -17,7 +17,7 @@ let google_firebasedynamiclinks = require('@datafire/google_firebasedynamiclinks
 
 google_firebasedynamiclinks.shortLinks.create({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

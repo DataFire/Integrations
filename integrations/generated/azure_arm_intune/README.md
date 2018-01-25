@@ -9,9 +9,11 @@ npm install --save @datafire/azure_arm_intune
 ```js
 let azure_arm_intune = require('@datafire/azure_arm_intune').create();
 
-azure_arm_intune.GetLocations({}).then(data => {
+azure_arm_intune.GetLocations({
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

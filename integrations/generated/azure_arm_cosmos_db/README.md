@@ -15,9 +15,12 @@ let azure_arm_cosmos_db = require('@datafire/azure_arm_cosmos_db').create({
   redirect_uri: ""
 });
 
-azure_arm_cosmos_db.DatabaseAccounts_CheckNameExists({}).then(data => {
+azure_arm_cosmos_db.DatabaseAccounts_CheckNameExists({
+  "accountName": "",
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

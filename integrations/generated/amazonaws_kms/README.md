@@ -13,9 +13,11 @@ let amazonaws_kms = require('@datafire/amazonaws_kms').create({
   region: ""
 });
 
-amazonaws_kms.CancelKeyDeletion({}).then(data => {
+amazonaws_kms.CancelKeyDeletion({
+  "KeyId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

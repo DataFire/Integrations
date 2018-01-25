@@ -9,9 +9,12 @@ npm install --save @datafire/deutschebahn_fahrplan
 ```js
 let deutschebahn_fahrplan = require('@datafire/deutschebahn_fahrplan').create();
 
-deutschebahn_fahrplan.arrivalBoard.id.get({}).then(data => {
+deutschebahn_fahrplan.arrivalBoard.id.get({
+  "id": "",
+  "date": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -13,7 +13,7 @@ let nytimes_movie_reviews = require('@datafire/nytimes_movie_reviews').create({
 
 nytimes_movie_reviews.reviews.search.json.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

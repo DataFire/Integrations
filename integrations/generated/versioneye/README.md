@@ -11,7 +11,7 @@ let versioneye = require('@datafire/versioneye').create();
 
 versioneye.getProjects({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

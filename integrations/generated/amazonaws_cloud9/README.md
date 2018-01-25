@@ -13,9 +13,12 @@ let amazonaws_cloud9 = require('@datafire/amazonaws_cloud9').create({
   region: ""
 });
 
-amazonaws_cloud9.CreateEnvironmentEC2({}).then(data => {
+amazonaws_cloud9.CreateEnvironmentEC2({
+  "name": "",
+  "instanceType": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -17,7 +17,7 @@ let google_vault = require('@datafire/google_vault').create({
 
 google_vault.matters.create({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

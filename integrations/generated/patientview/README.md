@@ -11,7 +11,7 @@ let patientview = require('@datafire/patientview').create();
 
 patientview.validatePatientManagement({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

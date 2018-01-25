@@ -13,9 +13,14 @@ let amazonaws_elasticmapreduce = require('@datafire/amazonaws_elasticmapreduce')
   region: ""
 });
 
-amazonaws_elasticmapreduce.AddInstanceFleet({}).then(data => {
+amazonaws_elasticmapreduce.AddInstanceFleet({
+  "ClusterId": "",
+  "InstanceFleet": {
+    "InstanceFleetType": ""
+  }
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

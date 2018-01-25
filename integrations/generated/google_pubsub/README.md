@@ -15,9 +15,11 @@ let google_pubsub = require('@datafire/google_pubsub').create({
   redirect_uri: ""
 });
 
-google_pubsub.projects.topics.create({}).then(data => {
+google_pubsub.projects.topics.create({
+  "name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

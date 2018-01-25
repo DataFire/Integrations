@@ -15,9 +15,11 @@ let google_datastore = require('@datafire/google_datastore').create({
   redirect_uri: ""
 });
 
-google_datastore.projects.allocateIds({}).then(data => {
+google_datastore.projects.allocateIds({
+  "projectId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

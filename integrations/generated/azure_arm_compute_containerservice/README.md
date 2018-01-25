@@ -9,9 +9,12 @@ npm install --save @datafire/azure_arm_compute_containerservice
 ```js
 let azure_arm_compute_containerservice = require('@datafire/azure_arm_compute_containerservice').create();
 
-azure_arm_compute_containerservice.ContainerServices_List({}).then(data => {
+azure_arm_compute_containerservice.ContainerServices_List({
+  "api-version": "",
+  "subscriptionId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

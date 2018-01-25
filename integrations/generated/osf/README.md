@@ -9,14 +9,14 @@ npm install --save @datafire/osf
 ```js
 let osf = require('@datafire/osf').create();
 
-osf.base_read({}).then(data => {
+osf.base_read(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description
 
-Welcome to the documentation for the Open Science Framework API. With this API you can access users, projects, components, registrations, preprints, logs, and files on the Open Science Framework.
+## https://api.osf.io/v2/
 
 ## Actions
 

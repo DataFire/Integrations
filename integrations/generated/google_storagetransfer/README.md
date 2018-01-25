@@ -17,7 +17,7 @@ let google_storagetransfer = require('@datafire/google_storagetransfer').create(
 
 google_storagetransfer.transferJobs.create({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

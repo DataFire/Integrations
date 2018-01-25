@@ -17,7 +17,7 @@ let google_fusiontables = require('@datafire/google_fusiontables').create({
 
 google_fusiontables.table.insert({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

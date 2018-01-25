@@ -9,9 +9,13 @@ npm install --save @datafire/schooldigger
 ```js
 let schooldigger = require('@datafire/schooldigger').create();
 
-schooldigger.Districts_GetAllDistricts({}).then(data => {
+schooldigger.Districts_GetAllDistricts({
+  "st": "",
+  "appID": "",
+  "appKey": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

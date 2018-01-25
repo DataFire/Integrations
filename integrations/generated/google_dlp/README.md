@@ -17,7 +17,7 @@ let google_dlp = require('@datafire/google_dlp').create({
 
 google_dlp.rootCategories.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

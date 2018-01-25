@@ -15,9 +15,14 @@ let azure_arm_recoveryservices = require('@datafire/azure_arm_recoveryservices')
   redirect_uri: ""
 });
 
-azure_arm_recoveryservices.BackupVaultConfigs_Get({}).then(data => {
+azure_arm_recoveryservices.BackupVaultConfigs_Get({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "vaultName": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

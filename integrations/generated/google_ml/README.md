@@ -15,9 +15,11 @@ let google_ml = require('@datafire/google_ml').create({
   redirect_uri: ""
 });
 
-google_ml.projects.models.versions.delete({}).then(data => {
+google_ml.projects.models.versions.delete({
+  "name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

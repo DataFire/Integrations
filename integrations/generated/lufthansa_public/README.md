@@ -15,9 +15,12 @@ let lufthansa_public = require('@datafire/lufthansa_public').create({
   redirect_uri: ""
 });
 
-lufthansa_public.Lounges({}).then(data => {
+lufthansa_public.Lounges({
+  "location": "",
+  "Accept": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

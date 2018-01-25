@@ -11,7 +11,7 @@ let clarify = require('@datafire/clarify').create();
 
 clarify.v1search({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

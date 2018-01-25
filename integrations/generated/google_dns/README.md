@@ -15,9 +15,11 @@ let google_dns = require('@datafire/google_dns').create({
   redirect_uri: ""
 });
 
-google_dns.projects.get({}).then(data => {
+google_dns.projects.get({
+  "project": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

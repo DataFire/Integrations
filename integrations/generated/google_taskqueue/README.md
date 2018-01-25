@@ -15,9 +15,12 @@ let google_taskqueue = require('@datafire/google_taskqueue').create({
   redirect_uri: ""
 });
 
-google_taskqueue.taskqueues.get({}).then(data => {
+google_taskqueue.taskqueues.get({
+  "project": "",
+  "taskqueue": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

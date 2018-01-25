@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_wordnetapis
 ```js
 let apitore_wordnetapis = require('@datafire/apitore_wordnetapis').create();
 
-apitore_wordnetapis.sensebysynsetUsingGET({}).then(data => {
+apitore_wordnetapis.sensebysynsetUsingGET({
+  "access_token": "",
+  "synset": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

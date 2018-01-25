@@ -13,9 +13,12 @@ let amazonaws_kinesis = require('@datafire/amazonaws_kinesis').create({
   region: ""
 });
 
-amazonaws_kinesis.AddTagsToStream({}).then(data => {
+amazonaws_kinesis.AddTagsToStream({
+  "StreamName": "",
+  "Tags": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

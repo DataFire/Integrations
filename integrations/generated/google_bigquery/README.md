@@ -17,7 +17,7 @@ let google_bigquery = require('@datafire/google_bigquery').create({
 
 google_bigquery.projects.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -11,7 +11,7 @@ let nba = require('@datafire/nba').create();
 
 nba.playerdashptshotlog.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

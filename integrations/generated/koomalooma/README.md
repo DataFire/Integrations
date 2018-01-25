@@ -11,9 +11,9 @@ let koomalooma = require('@datafire/koomalooma').create({
   api_key: ""
 });
 
-koomalooma.users.post({}).then(data => {
+koomalooma.users.post(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

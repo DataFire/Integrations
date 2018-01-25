@@ -11,7 +11,7 @@ let hackathonwatch = require('@datafire/hackathonwatch').create();
 
 hackathonwatch.hackathons.coming.json.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

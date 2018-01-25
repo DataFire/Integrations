@@ -17,7 +17,7 @@ let google_storage = require('@datafire/google_storage').create({
 
 google_storage.channels.stop({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

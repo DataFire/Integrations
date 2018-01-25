@@ -15,9 +15,11 @@ let google_cloudtasks = require('@datafire/google_cloudtasks').create({
   redirect_uri: ""
 });
 
-google_cloudtasks.projects.locations.queues.tasks.delete({}).then(data => {
+google_cloudtasks.projects.locations.queues.tasks.delete({
+  "name": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

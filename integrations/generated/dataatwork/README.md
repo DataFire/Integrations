@@ -11,7 +11,7 @@ let dataatwork = require('@datafire/dataatwork').create();
 
 dataatwork.skills.autocomplete.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

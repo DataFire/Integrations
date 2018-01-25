@@ -13,9 +13,11 @@ let amazonaws_monitoring = require('@datafire/amazonaws_monitoring').create({
   region: ""
 });
 
-amazonaws_monitoring.DeleteAlarms({}).then(data => {
+amazonaws_monitoring.DeleteAlarms({
+  "AlarmNames": []
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

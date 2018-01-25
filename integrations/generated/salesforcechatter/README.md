@@ -11,7 +11,7 @@ let salesforcechatter = require('@datafire/salesforcechatter').create();
 
 salesforcechatter.chatter.users.me.groups.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

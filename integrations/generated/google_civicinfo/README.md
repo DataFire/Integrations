@@ -11,7 +11,7 @@ let google_civicinfo = require('@datafire/google_civicinfo').create();
 
 google_civicinfo.representatives.representativeInfoByAddress({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

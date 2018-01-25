@@ -13,7 +13,7 @@ let geneea = require('@datafire/geneea').create({
 
 geneea.topicPost({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

@@ -15,9 +15,9 @@ let runscope = require('@datafire/runscope').create({
   redirect_uri: ""
 });
 
-runscope.account.get({}).then(data => {
+runscope.account.get(null).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

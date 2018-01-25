@@ -9,9 +9,11 @@ npm install --save @datafire/apitore_twitterapis
 ```js
 let apitore_twitterapis = require('@datafire/apitore_twitterapis').create();
 
-apitore_twitterapis.myTimelineUsingGET({}).then(data => {
+apitore_twitterapis.myTimelineUsingGET({
+  "access_token": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

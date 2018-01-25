@@ -9,9 +9,11 @@ npm install --save @datafire/google_firebaseremoteconfig
 ```js
 let google_firebaseremoteconfig = require('@datafire/google_firebaseremoteconfig').create();
 
-google_firebaseremoteconfig.projects.getRemoteConfig({}).then(data => {
+google_firebaseremoteconfig.projects.getRemoteConfig({
+  "project": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

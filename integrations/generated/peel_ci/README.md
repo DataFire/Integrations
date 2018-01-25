@@ -11,7 +11,7 @@ let peel_ci = require('@datafire/peel_ci').create();
 
 peel_ci.getTuneinLinks({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

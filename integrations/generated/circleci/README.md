@@ -13,7 +13,7 @@ let circleci = require('@datafire/circleci').create({
 
 circleci.recent_builds.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

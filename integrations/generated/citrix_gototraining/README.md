@@ -9,9 +9,12 @@ npm install --save @datafire/citrix_gototraining
 ```js
 let citrix_gototraining = require('@datafire/citrix_gototraining').create();
 
-citrix_gototraining.getAllOrganisers({}).then(data => {
+citrix_gototraining.getAllOrganisers({
+  "Authorization": "",
+  "accountKey": 0
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

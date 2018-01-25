@@ -13,9 +13,11 @@ let amazonaws_iot = require('@datafire/amazonaws_iot').create({
   region: ""
 });
 
-amazonaws_iot.AcceptCertificateTransfer({}).then(data => {
+amazonaws_iot.AcceptCertificateTransfer({
+  "certificateId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

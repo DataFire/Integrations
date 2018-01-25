@@ -17,7 +17,7 @@ let google_appsactivity = require('@datafire/google_appsactivity').create({
 
 google_appsactivity.activities.list({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

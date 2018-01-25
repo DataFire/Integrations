@@ -9,9 +9,11 @@ npm install --save @datafire/bbc
 ```js
 let bbc = require('@datafire/bbc').create();
 
-bbc.broadcasts.get({}).then(data => {
+bbc.broadcasts.get({
+  "X-API-Key": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

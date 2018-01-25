@@ -13,9 +13,12 @@ let amazonaws_codepipeline = require('@datafire/amazonaws_codepipeline').create(
   region: ""
 });
 
-amazonaws_codepipeline.AcknowledgeJob({}).then(data => {
+amazonaws_codepipeline.AcknowledgeJob({
+  "jobId": "",
+  "nonce": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

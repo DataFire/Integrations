@@ -15,9 +15,15 @@ let azure_arm_cdn = require('@datafire/azure_arm_cdn').create({
   redirect_uri: ""
 });
 
-azure_arm_cdn.CheckNameAvailability({}).then(data => {
+azure_arm_cdn.CheckNameAvailability({
+  "checkNameAvailabilityInput": {
+    "name": "",
+    "type": ""
+  },
+  "api-version": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

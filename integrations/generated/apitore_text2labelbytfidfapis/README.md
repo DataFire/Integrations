@@ -9,9 +9,12 @@ npm install --save @datafire/apitore_text2labelbytfidfapis
 ```js
 let apitore_text2labelbytfidfapis = require('@datafire/apitore_text2labelbytfidfapis').create();
 
-apitore_text2labelbytfidfapis.getUsingGET_1({}).then(data => {
+apitore_text2labelbytfidfapis.getUsingGET_1({
+  "access_token": "",
+  "text": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

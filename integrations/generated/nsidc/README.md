@@ -11,7 +11,7 @@ let nsidc = require('@datafire/nsidc').create();
 
 nsidc.OpenSearch.get({}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description

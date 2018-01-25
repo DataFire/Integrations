@@ -13,9 +13,11 @@ let amazonaws_importexport = require('@datafire/amazonaws_importexport').create(
   region: ""
 });
 
-amazonaws_importexport.CancelJob({}).then(data => {
+amazonaws_importexport.CancelJob({
+  "JobId": ""
+}).then(data => {
   console.log(data);
-})
+});
 ```
 
 ## Description
