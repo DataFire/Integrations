@@ -1,0 +1,24 @@
+{
+  "name": "",
+  "version": "2.0.0",
+  "main": "index.js",
+  "description": "An SMTP integration for sending e-mail with DataFire",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {},
+  "peerDependencies": {
+    "datafire": "^2.0.0"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0",
+    "nodemailer": "^4.4.2"
+  }
+}

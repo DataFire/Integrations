@@ -26,6 +26,7 @@
     "mocha": "^3.2.0",
     "mongo-in-memory": "0.0.5",
     "request": "^2.79.0",
+    "smtp-server": "^3.4.1",
     "to-markdown": "^3.1.0",
     "yargs": "^6.4.0"
   },

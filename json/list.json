@@ -17617,6 +17617,24 @@
     "directory": "manual",
     "latestVersion": "2.1.0"
   },
+  "smtp": {
+    "id": "smtp",
+    "title": "SMTP",
+    "description": "Send e-mail using the SMTP protocol",
+    "security": {
+      "smtp": {
+        "fields": {
+          "host": "Hostname of the SMTP server (default is localhost)",
+          "port": "Port number of the SMTP server",
+          "username": "Username for the SMTP server",
+          "password": "Password for the SMTP server"
+        }
+      }
+    },
+    "actionCount": 1,
+    "directory": "manual",
+    "latestVersion": "2.0.0"
+  },
   "swaggerui": {
     "id": "swaggerui",
     "title": "Swagger UI",
