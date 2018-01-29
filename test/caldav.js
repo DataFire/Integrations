@@ -33,7 +33,7 @@ describe("CalDAV", () => {
           name: 'Holidays',
           description: "A list of holidays",
           timezone: 'Europe/Berlin',
-          filename: '/cal/' + CREDS.username + '/holdidays/index.ics',
+          filename: '/cal/' + CREDS.username + '/holidays',
       }).then(result => {
         expect(result).to.equal("Success");
       }).then(waitForFinish)
@@ -44,5 +44,45 @@ describe("CalDAV", () => {
           expect(cals.length).to.equal(3);
           expect(cals[0].name).to.equal('Holidays');
       }).then(waitForFinish)
+  })
+
+/*
+  it('should update calendar', () => {
+      return caldav.updateCalendar({
+          filename: '/cal/' + CREDS.username + '/holidays',
+          name: 'Berlin Holidays',
+      })
+      .then(result => {
+          expect(result).to.equal("Success");
+      })
+      .then(_ => caldav.listCalendars())
+      .then(cals => {
+          expect(cals.length).to.equal(3);
+          expect(cals[0].name).to.equal("Berlin Holidays");
+      })
+  })
+*/
+
+  it('should create event', () => {
+      return caldav.createEvent({
+        start: (new Date()).toString(),
+        end: (new Date(new Date().getTime() + 3600000)).toString(),
+        summary: 'Stuff happens',
+        filename: '/cal/' + CREDS.username + '/holidays/1234.ics',
+      })
+      .then(result => {
+        expect(result).to.equal("Success");
+      })
+  })
+
+  it('should get calendar events', () => {
+      return caldav.getEvents({
+          filename: '/cal/' + CREDS.username + '/holidays/',
+      })
+      .then(events => {
+          expect(events.length).to.equal(1);
+          expect(events[0].href).to.equal('/cal/username/holidays/1234.ics');
+          expect(events[0].summary).to.equal('Stuff happens');
+      })
   })
 })

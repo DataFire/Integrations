@@ -3,7 +3,7 @@
 const datafire = require('datafire');
 const http = require('@datafire/http').create();
 const crypto = require('crypto');
-const ical = require('icalendar');
+const icalParser = require('ical-parser');
 const icalGenerator = require('ical-generator');
 const requests = require('./requests');
 const xml2js = require('xml2js');
@@ -27,7 +27,7 @@ const caldav = module.exports = new datafire.Integration({
 function sendRequest(options, context) {
   options.url = context.accounts.caldav.server + options.url;
   options.headers = options.headers || {};
-  options.headers['Content-Type'] = 'application/xml; charset=utf-8';
+  options.headers['Content-Type'] = options.headers['Content-Type'] || 'application/xml; charset=utf-8';
 
   let auth = context.accounts.caldav.username + ':' + context.accounts.caldav.password;
   options.headers.Authorization = 'Basic ' + (new Buffer(auth.toString(), 'binary')).toString('base64');
@@ -43,7 +43,7 @@ function sendRequest(options, context) {
       return new Promise((resolve, reject) => {
         xml2js.parseString(body, (err, result) => {
           if (err) return reject(err);
-          let parsed = result['d:multistatus']['d:response'].map(resp => {
+          let parsed = (result['d:multistatus']['d:response'] || []).map(resp => {
             let obj = {
               href: resp['d:href'],
             };
@@ -56,6 +56,51 @@ function sendRequest(options, context) {
     })
 }
 
+function extractData(xmlObj, dest, fields) {
+  fields.forEach(field => {
+    let from = Array.isArray(field) ? field[0] : field;
+    let to = Array.isArray(field) ? field[1] : field.substring(field.indexOf(':') + 1);
+    if (xmlObj[from]) {
+      dest[to] = xmlObj[from][0];
+    }
+  })
+  return dest;
+}
+
+caldav.addAction('getEvents', {
+  inputs: [
+    {title: 'filename', type: 'string'},
+  ],
+  handler: (input, context) => {
+    return sendRequest({
+      url: input.filename,
+      method: 'REPORT',
+      headers: {Depth: 1},
+      body: requests.getEvents(),
+    }, context)
+    .then(events => {
+      return events.map(evt => {
+        let obj = {href: evt.href[0]};
+        extractData(evt.data, obj, [['d:getetag', 'etag'], ['cal:calendar-data', 'calendarData']]);
+        return obj;
+      })
+    })
+    .then(events => {
+      return Promise.all(events.map(evt => {
+        return new Promise((resolve, reject) => {
+          icalParser.convert(evt.calendarData, (err, parsed) => {
+            if (err) return reject(err);
+            parsed = parsed.VCALENDAR[0].VEVENT[0];
+            evt.start = parsed.DTSTART;
+            evt.end = parsed.DTEND;
+            evt.summary = parsed.SUMMARY;
+            resolve();
+          })
+        })
+      })).then(_ => events);
+    })
+  }
+})
 
 caldav.addAction('createCalendar', {
   inputs: [
@@ -72,7 +117,7 @@ caldav.addAction('createCalendar', {
     return sendRequest({
       url: input.filename,
       method: 'MKCALENDAR',
-      body: requests.calendar({data: cal.toString(), name: input.name, description: input.description}),
+      body: requests.createCalendar({data: cal.toString(), name: input.name, description: input.description}),
     }, context)
     .then(response => {
       return "Success";
@@ -114,41 +159,65 @@ caldav.addAction('listCalendars', {
         let obj = {
           href: cal.href[0],
         };
-        if (cal.data['d:owner']) {
-          obj.owner = cal.data['d:owner'][0]['d:href'][0];
-        }
-        if (cal.data['d:displayname']) {
-          obj.name = cal.data['d:displayname'][0];
-        }
-        if (cal.data['cs:getctag']) {
-          obj.ctag = cal.data['cs:getctag'][0];
+        extractData(cal.data, obj, ['d:owner', ['d:displayname', 'name'], ['cs:getctag', 'ctag']]);
+        if (obj.owner) {
+          obj.owner = obj.owner['d:href'][0];
         }
         return obj;
       });
       return calendars;
     })
   }
-})
+});
 
 caldav.addAction('updateCalendar', {
-})
+  handler: (input, context) => {
+    let cal = icalGenerator({
+      name: input.name,
+      timezone: input.timezone,
+    });
+    return sendRequest({
+      url: input.filename,
+      method: 'PUT',
+      body: cal.toString(),
+      headers: {'Content-Type': 'text/calendar'}
+    }, context)
+    .then(response => {
+      return "Success";
+    })
+  }
+});
+
 caldav.addAction('deleteCalendar', {
 })
-caldav.addAction('syncCalendar', {
-})
 
-/*
-function getClient(context) {
-  var client = new dav.Client(
-    new dav.transport.Basic(
-      new dav.Credentials({
-        username: context.accounts.caldav.username,
-        password: context.accounts.caldav.password,
-      })
-    ), {
-      baseUrl: context.accounts.caldav.url,
+caldav.addAction('createEvent', {
+  inputs: [
+    {title: 'start', type: 'string', format: 'date-time'},
+    {title: 'end', type: 'string', format: 'date-time'},
+    {title: 'summary', type: 'string'},
+    {title: 'organizer', type: 'string', default: ''},
+    {title: 'filename', type: 'string'},
+  ],
+  handler: (input, context) => {
+    let evt = null;
+    try {
+      evt = icalGenerator({
+        events: [{
+          start: new Date(input.start),
+          end: new Date(input.end),
+          summary: input.summary,
+          organizer: input.organizer,
+        }]
+      });
+    } catch (e) {
+      throw new Error(e.toString());
     }
-  );
-  return client;
-}
-*/
+    return sendRequest({
+      url: input.filename,
+      method: 'PUT',
+      body: evt.toString(),
+      headers: {'Content-Type': 'text/calendar'},
+    }, context)
+  }
+});

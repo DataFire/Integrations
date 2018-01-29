@@ -22,7 +22,7 @@
     "datafire": "^2.0.0",
     "dav": "^1.7.8",
     "ical-generator": "^0.2.10",
-    "icalendar": "^0.7.1",
+    "ical-parser": "^1.2.0",
     "xml2js": "^0.4.19"
   }
 }
