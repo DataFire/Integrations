@@ -1,0 +1,28 @@
+{
+  "name": "@datafire/caldav",
+  "version": "2.0.0",
+  "main": "index.js",
+  "description": "Access and update calendar data using the CalDAV protocol",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {},
+  "peerDependencies": {
+    "datafire": "^2.0.0"
+  },
+  "dependencies": {
+    "@datafire/http": "^2.1.0",
+    "datafire": "^2.0.0",
+    "dav": "^1.7.8",
+    "ical-generator": "^0.2.10",
+    "icalendar": "^0.7.1",
+    "xml2js": "^0.4.19"
+  }
+}
