@@ -1,6 +1,6 @@
 {
   "name": "@datafire/http",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "index.js",
   "description": "HTTP integration for DataFire",
   "repository": {
