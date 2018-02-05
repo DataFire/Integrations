@@ -60,8 +60,22 @@ requests.calendarList = function(args) {
      <d:resourcetype />
      <d:displayname />
      <cs:getctag />
+     <d:sync-token />
      <c:supported-calendar-component-set />
   </d:prop>
 </d:propfind>
+  `.trim();
+}
+
+requests.getChanges = function(args) {
+  return `
+<?xml version="1.0" encoding="utf-8" ?>
+<d:sync-collection xmlns:d="DAV:">
+  <d:sync-token>${args.syncToken}</d:sync-token>
+  <d:sync-level>1</d:sync-level>
+  <d:prop>
+    <d:getetag/>
+  </d:prop>
+</d:sync-collection>
   `.trim();
 }

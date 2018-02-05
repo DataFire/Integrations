@@ -50,18 +50,21 @@ function sendRequest(options, context) {
             obj.data = resp['d:propstat'][0]['d:prop'][0];
             return obj;
           })
-          resolve(parsed);
+          resolve({responses: parsed, body: result});
         })
       })
     })
 }
 
-function extractData(xmlObj, dest, fields) {
+function extractData(xmlObj, fields) {
+  let dest = {href: xmlObj.href[0]};
   fields.forEach(field => {
     let from = Array.isArray(field) ? field[0] : field;
     let to = Array.isArray(field) ? field[1] : field.substring(field.indexOf(':') + 1);
-    if (xmlObj[from]) {
-      dest[to] = xmlObj[from][0];
+    if (xmlObj.data[from]) {
+      dest[to] = xmlObj.data[from][0];
+      let quoted = (typeof dest[to] === 'string') && dest[to].match(/^"(.*)"$/);
+      if (quoted) dest[to] = quoted[1];
     }
   })
   return dest;
@@ -79,10 +82,8 @@ caldav.addAction('getEvents', {
       body: requests.getEvents(),
     }, context)
     .then(events => {
-      return events.map(evt => {
-        let obj = {href: evt.href[0]};
-        extractData(evt.data, obj, [['d:getetag', 'etag'], ['cal:calendar-data', 'calendarData']]);
-        return obj;
+      return events.responses.map(evt => {
+        return extractData(evt, [['d:getetag', 'etag'], ['cal:calendar-data', 'calendarData']]);
       })
     })
     .then(events => {
@@ -136,7 +137,7 @@ caldav.addAction('listCalendars', {
       body: requests.principal(),
     }, context)
     .then(principals => {
-      let href = principals[0].data['d:current-user-principal'][0]['d:href'][0];
+      let href = principals.responses[0].data['d:current-user-principal'][0]['d:href'][0];
       return sendRequest({
         method: 'PROPFIND',
         url: href,
@@ -145,7 +146,7 @@ caldav.addAction('listCalendars', {
       }, context)
     })
     .then(calhome => {
-      let href = calhome[0].data['cal:calendar-home-set'][0]['d:href'][0];
+      let href = calhome.responses[0].data['cal:calendar-home-set'][0]['d:href'][0];
       return sendRequest({
         method: 'PROPFIND',
         url: href,
@@ -154,18 +155,14 @@ caldav.addAction('listCalendars', {
       }, context)
     })
     .then(calendars => {
-      calendars.shift();
-      calendars = calendars.map(cal => {
-        let obj = {
-          href: cal.href[0],
-        };
-        extractData(cal.data, obj, ['d:owner', ['d:displayname', 'name'], ['cs:getctag', 'ctag']]);
+      calendars.responses.shift();
+      return calendars.responses.map(cal => {
+        let obj = extractData(cal, ['d:owner', ['d:displayname', 'name'], ['cs:getctag', 'ctag'], ['d:sync-token', 'syncToken']]);
         if (obj.owner) {
           obj.owner = obj.owner['d:href'][0];
         }
         return obj;
       });
-      return calendars;
     })
   }
 });
@@ -181,6 +178,28 @@ caldav.addAction('deleteCalendar', {
     }, context)
   }
 });
+
+caldav.addAction('getChanges', {
+  inputs: [
+    {title: 'filename', type: 'string'},
+    {title: 'syncToken', type: 'string'},
+  ],
+
+  handler: (input, context) => {
+    return sendRequest({
+      url: input.filename,
+      method: 'REPORT',
+      body: requests.getChanges({syncToken: input.syncToken}),
+    }, context)
+    .then(changes => {
+      let syncToken = changes.body['d:multistatus']['d:sync-token'][0];
+      changes = changes.responses.map(change => {
+        return extractData(change, [['d:getetag', 'etag']]);
+      });
+      return {changes, syncToken};
+    })
+  }
+})
 
 caldav.addAction('createEvent', {
   inputs: [

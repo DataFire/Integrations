@@ -18,6 +18,10 @@ const waitForFinish = function() {
   return new Promise(resolve => setTimeout(resolve, 1500));
 }
 
+const BASE_FILENAME = '/cal/' + CREDS.username + '/holidays';
+
+let initialSyncToken = null;
+
 describe("CalDAV", () => {
   before(() => server.listen(PORT));
   after(done => {
@@ -33,7 +37,7 @@ describe("CalDAV", () => {
           name: 'Holidays',
           description: "A list of holidays",
           timezone: 'Europe/Berlin',
-          filename: '/cal/' + CREDS.username + '/holidays',
+          filename: BASE_FILENAME,
       }).then(result => {
         expect(result).to.equal("Success");
       }).then(waitForFinish)
@@ -43,6 +47,8 @@ describe("CalDAV", () => {
       return caldav.listCalendars().then(cals => {
           expect(cals.length).to.equal(3);
           expect(cals[0].name).to.equal('Holidays');
+          expect(cals[0].syncToken).to.not.equal(null);
+          initialSyncToken = cals[0].syncToken;
       }).then(waitForFinish)
   })
 
@@ -52,7 +58,7 @@ describe("CalDAV", () => {
         start: (new Date()).toString(),
         end: (new Date(new Date().getTime() + 3600000)).toString(),
         summary: 'Stuff happens',
-        filename: '/cal/' + CREDS.username + '/holidays/1234.ics',
+        filename: BASE_FILENAME + '/1234.ics',
       }))
       .then(result => {
         expect(result).to.equal("Success");
@@ -61,7 +67,7 @@ describe("CalDAV", () => {
         start: (new Date()).toString(),
         end: (new Date(new Date().getTime() + 3600000)).toString(),
         summary: 'Other stuff happens',
-        filename: '/cal/' + CREDS.username + '/holidays/5678.ics',
+        filename: BASE_FILENAME + '/5678.ics',
       }))
       .then(result => {
         expect(result).to.equal("Success");
@@ -70,16 +76,31 @@ describe("CalDAV", () => {
 
   it('should get calendar events', () => {
       return caldav.getEvents({
-          filename: '/cal/' + CREDS.username + '/holidays/',
+          filename: BASE_FILENAME,
       })
       .then(events => {
           expect(events.length).to.equal(2);
-          expect(events[0].href).to.equal('/cal/username/holidays/1234.ics');
+          expect(events[0].href).to.equal(BASE_FILENAME + '/1234.ics');
           expect(events[0].summary).to.equal('Stuff happens');
-          expect(events[1].href).to.equal('/cal/username/holidays/5678.ics');
+          expect(events[1].href).to.equal(BASE_FILENAME + '/5678.ics');
           expect(events[1].summary).to.equal('Other stuff happens');
       })
   });
+
+  it('should list changes since sync', () => {
+      return caldav.getChanges({
+          syncToken: initialSyncToken,
+          filename: BASE_FILENAME,
+      })
+      .then(changes => {
+          expect(changes.syncToken).to.be.a('string');
+          expect(changes.changes.length).to.equal(2);
+          expect(changes.changes[0].href).to.equal(BASE_FILENAME + '/1234.ics');
+          expect(changes.changes[1].href).to.equal(BASE_FILENAME + '/5678.ics');
+          expect(changes.changes[0].etag).to.be.a('string');
+          expect(changes.changes[1].etag).to.be.a('string');
+      })
+  })
 
   it('should delete calendar', () => {
       return caldav.deleteCalendar({
