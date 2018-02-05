@@ -1,0 +1,283 @@
+{
+  "id": "caldav",
+  "title": "CalDAV",
+  "description": "Access and update calendar data using the CalDAV protocol",
+  "security": {
+    "caldav": {
+      "fields": {
+        "username": "",
+        "password": "",
+        "server": "e.g. http://localhost:3333",
+        "principalPath": "The relative path where principals can be found, e.g. 'p'"
+      }
+    }
+  },
+  "actionCount": 7,
+  "actions": [
+    {
+      "id": "listEvents",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filename": {
+            "title": "filename",
+            "type": "string"
+          }
+        },
+        "required": [
+          "filename"
+        ]
+      },
+      "outputSchema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "etag": {
+              "type": "string"
+            },
+            "calendarData": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "end": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "summary": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "security": {
+        "caldav": {
+          "integration": "caldav"
+        }
+      }
+    },
+    {
+      "id": "createCalendar",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "name",
+            "type": "string"
+          },
+          "timezone": {
+            "title": "timezone",
+            "type": "string"
+          },
+          "filename": {
+            "title": "filename",
+            "type": "string"
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "default": ""
+          }
+        },
+        "required": [
+          "name",
+          "timezone",
+          "filename"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "caldav": {
+          "integration": "caldav"
+        }
+      }
+    },
+    {
+      "id": "listCalendars",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {}
+      },
+      "outputSchema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "owner": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "ctag": {
+              "type": "string"
+            },
+            "syncToken": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "security": {
+        "caldav": {
+          "integration": "caldav"
+        }
+      }
+    },
+    {
+      "id": "deleteCalendar",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filename": {
+            "title": "filename",
+            "type": "string"
+          }
+        },
+        "required": [
+          "filename"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "caldav": {
+          "integration": "caldav"
+        }
+      }
+    },
+    {
+      "id": "getChanges",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filename": {
+            "title": "filename",
+            "type": "string"
+          },
+          "syncToken": {
+            "title": "syncToken",
+            "type": "string"
+          }
+        },
+        "required": [
+          "filename",
+          "syncToken"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "syncToken": {
+            "type": "string"
+          },
+          "changes": {
+            "href": {
+              "type": "string"
+            },
+            "etag": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "security": {
+        "caldav": {
+          "integration": "caldav"
+        }
+      }
+    },
+    {
+      "id": "createEvent",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "title": "start",
+            "type": "string",
+            "format": "date-time"
+          },
+          "end": {
+            "title": "end",
+            "type": "string",
+            "format": "date-time"
+          },
+          "summary": {
+            "title": "summary",
+            "type": "string"
+          },
+          "organizer": {
+            "title": "organizer",
+            "type": "string",
+            "default": ""
+          },
+          "filename": {
+            "title": "filename",
+            "type": "string"
+          }
+        },
+        "required": [
+          "start",
+          "end",
+          "summary",
+          "filename"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "caldav": {
+          "integration": "caldav"
+        }
+      }
+    },
+    {
+      "id": "deleteEvent",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filename": {
+            "title": "filename",
+            "type": "string"
+          }
+        },
+        "required": [
+          "filename"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "caldav": {
+          "integration": "caldav"
+        }
+      }
+    }
+  ],
+  "directory": "manual"
+}
