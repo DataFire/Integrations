@@ -1,0 +1,168 @@
+{
+  "id": "http",
+  "title": "HTTP",
+  "description": "Make HTTP calls",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/http.png"
+  },
+  "actionCount": 8,
+  "definitions": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "statusCode": {
+          "type": "integer"
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "body": {
+          "type": "string"
+        }
+      },
+      "title": "Response"
+    },
+    "Request": {
+      "type": "object",
+      "required": [
+        "url"
+      ],
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "query": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "title": "Request"
+    },
+    "BodyRequest": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Request"
+        }
+      ],
+      "properties": {
+        "body": {
+          "type": "string"
+        }
+      },
+      "title": "BodyRequest"
+    },
+    "MethodRequest": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BodyRequest"
+        }
+      ],
+      "required": [
+        "method"
+      ],
+      "properties": {
+        "method": {
+          "type": "string"
+        }
+      },
+      "title": "MethodRequest"
+    }
+  },
+  "actions": [
+    {
+      "id": "request",
+      "title": "request",
+      "description": "Make an HTTP request",
+      "inputSchema": {
+        "$ref": "#/definitions/MethodRequest"
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Response"
+      }
+    },
+    {
+      "id": "get",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "$ref": "#/definitions/Request"
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Response"
+      }
+    },
+    {
+      "id": "put",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "$ref": "#/definitions/BodyRequest"
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Response"
+      }
+    },
+    {
+      "id": "post",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "$ref": "#/definitions/BodyRequest"
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Response"
+      }
+    },
+    {
+      "id": "patch",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "$ref": "#/definitions/BodyRequest"
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Response"
+      }
+    },
+    {
+      "id": "delete",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "$ref": "#/definitions/Request"
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Response"
+      }
+    },
+    {
+      "id": "options",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "$ref": "#/definitions/Request"
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Response"
+      }
+    },
+    {
+      "id": "head",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "$ref": "#/definitions/Request"
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Response"
+      }
+    }
+  ],
+  "directory": "manual"
+}
