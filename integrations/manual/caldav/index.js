@@ -74,6 +74,19 @@ caldav.addAction('listEvents', {
   inputs: [
     {title: 'filename', type: 'string'},
   ],
+  outputSchema: {
+    type: 'array',
+    items: {
+      type: 'object',
+      properties: {
+        etag: {type: 'string'},
+        calendarData: {type: 'string'},
+        start: {type: 'string', format: 'date-time'},
+        end: {type: 'string', format: 'date-time'},
+        summary: {type: 'string'},
+      }
+    }
+  },
   handler: (input, context) => {
     return sendRequest({
       url: input.filename,
@@ -110,6 +123,7 @@ caldav.addAction('createCalendar', {
     {title: 'filename', type: 'string'},
     {title: 'description', type: 'string', default: ''},
   ],
+  outputSchema: {type: 'string'},
   handler: (input, context) => {
     let cal = icalGenerator({
       name: input.name,
@@ -127,6 +141,19 @@ caldav.addAction('createCalendar', {
 });
 
 caldav.addAction('listCalendars', {
+  inputs: [],
+  outputSchema: {
+    type: 'array',
+    items: {
+      type: 'object',
+      properties: {
+        owner: {type: 'string'},
+        displayName: {type: 'string'},
+        ctag: {type: 'string'},
+        syncToken: {type: 'string'},
+      }
+    }
+  },
   handler: (input, context) => {
     return sendRequest({
       method: 'PROPFIND',
@@ -171,6 +198,7 @@ caldav.addAction('deleteCalendar', {
   inputs: [
     {title: 'filename', type: 'string'},
   ],
+  outputSchema: {type: 'string'},
   handler: (input, context) => {
     return sendRequest({
       url: input.filename,
@@ -184,6 +212,22 @@ caldav.addAction('getChanges', {
     {title: 'filename', type: 'string'},
     {title: 'syncToken', type: 'string'},
   ],
+  outputSchema: {
+    type: 'object',
+    properties: {
+      syncToken: {type: 'string'},
+      changes: {
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            href: {type: 'string'},
+            etag: {type: 'string'},
+          }
+        },
+      }
+    }
+  },
 
   handler: (input, context) => {
     return sendRequest({
@@ -209,6 +253,7 @@ caldav.addAction('createEvent', {
     {title: 'organizer', type: 'string', default: ''},
     {title: 'filename', type: 'string'},
   ],
+  outputSchema: {type: 'string'},
   handler: (input, context) => {
     let evt = null;
     try {
@@ -236,6 +281,7 @@ caldav.addAction('deleteEvent', {
   inputs: [{
     title: 'filename', type: 'string',
   }],
+  outputSchema: {type: 'string'},
   handler: (input, context) => {
     return caldav.actions.deleteCalendar(input, context);
   }
