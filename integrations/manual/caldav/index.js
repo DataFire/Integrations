@@ -70,7 +70,7 @@ function extractData(xmlObj, fields) {
   return dest;
 }
 
-caldav.addAction('getEvents', {
+caldav.addAction('listEvents', {
   inputs: [
     {title: 'filename', type: 'string'},
   ],
@@ -79,7 +79,7 @@ caldav.addAction('getEvents', {
       url: input.filename,
       method: 'REPORT',
       headers: {Depth: 1},
-      body: requests.getEvents(),
+      body: requests.listEvents(),
     }, context)
     .then(events => {
       return events.responses.map(evt => {
@@ -231,3 +231,12 @@ caldav.addAction('createEvent', {
     }, context)
   }
 });
+
+caldav.addAction('deleteEvent', {
+  inputs: [{
+    title: 'filename', type: 'string',
+  }],
+  handler: (input, context) => {
+    return caldav.actions.deleteCalendar(input, context);
+  }
+})

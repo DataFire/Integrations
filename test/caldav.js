@@ -75,7 +75,7 @@ describe("CalDAV", () => {
   })
 
   it('should get calendar events', () => {
-      return caldav.getEvents({
+      return caldav.listEvents({
           filename: BASE_FILENAME,
       })
       .then(events => {
@@ -99,6 +99,20 @@ describe("CalDAV", () => {
           expect(changes.changes[1].href).to.equal(BASE_FILENAME + '/5678.ics');
           expect(changes.changes[0].etag).to.be.a('string');
           expect(changes.changes[1].etag).to.be.a('string');
+      })
+  })
+
+  it('should delete event', () => {
+      return caldav.deleteEvent({
+          filename: BASE_FILENAME + '/1234.ics',
+      })
+      .then(result => expect(result).to.equal("Success"))
+      .then(_ => caldav.listEvents({
+          filename: BASE_FILENAME,
+      }))
+      .then(events => {
+        expect(events.length).to.equal(1);
+        expect(events[0].href).to.equal(BASE_FILENAME + '/5678.ics');
       })
   })
 

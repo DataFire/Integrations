@@ -1,6 +1,6 @@
 const requests = module.exports = {};
 
-requests.getEvents = function(args) {
+requests.listEvents = function(args) {
   return `
 <c:calendar-query xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav">
     <d:prop>
