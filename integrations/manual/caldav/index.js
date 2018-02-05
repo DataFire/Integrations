@@ -17,8 +17,8 @@ const caldav = module.exports = new datafire.Integration({
       fields: {
         username: "",
         password: "",
-        server: "",
-        principalPath: "",
+        server: "e.g. http://localhost:3333",
+        principalPath: "The relative path where principals can be found, e.g. 'p'",
       }
     }
   }
