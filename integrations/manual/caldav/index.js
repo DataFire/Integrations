@@ -170,26 +170,17 @@ caldav.addAction('listCalendars', {
   }
 });
 
-caldav.addAction('updateCalendar', {
+caldav.addAction('deleteCalendar', {
+  inputs: [
+    {title: 'filename', type: 'string'},
+  ],
   handler: (input, context) => {
-    let cal = icalGenerator({
-      name: input.name,
-      timezone: input.timezone,
-    });
     return sendRequest({
       url: input.filename,
-      method: 'PUT',
-      body: cal.toString(),
-      headers: {'Content-Type': 'text/calendar'}
+      method: 'DELETE',
     }, context)
-    .then(response => {
-      return "Success";
-    })
   }
 });
-
-caldav.addAction('deleteCalendar', {
-})
 
 caldav.addAction('createEvent', {
   inputs: [
